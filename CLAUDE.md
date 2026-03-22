@@ -6,7 +6,10 @@ URL: ascendly.vercel.app (planned)
 
 ## Tech Stack
 - Framework: Next.js 14, App Router, TypeScript
-- Styling: Tailwind CSS + CSS custom properties (dark theme)
+- Styling: **Tailwind CSS v4** + CSS custom properties (dark theme)
+  - v4 uses no tailwind.config.ts — configuration via CSS `@theme` directive in globals.css
+  - Custom color tokens (bg-primary, text-primary, etc.) defined in `@theme {}` block
+  - Dark mode: always-on via `:root` CSS vars; `dark:` utilities via `@variant dark`
 - Formulas: KaTeX (never plain text — always KaTeX)
 - Charts: Chart.js
 - Storage: localStorage only (no database for user data)
