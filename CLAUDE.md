@@ -56,7 +56,7 @@ URL: ascendly.vercel.app (planned)
 ## Phase Tracker
 | Phase | Description | Status |
 |-------|-------------|--------|
-| 0 | Project Setup & Documentation | In Progress |
+| 0 | Project Setup & Documentation | Complete |
 | 1 | Core Shell & Navigation | Not Started |
 | 2 | Drill Interface | Not Started |
 | 3 | Practice Questions Interface | Not Started |
@@ -90,3 +90,7 @@ Table: `events`
   - Per-unit score breakdown is derived at results-render time from mastery keys — not stored separately
 - `ascendly_total_questions`: number — incremented by drill (Phase 2) and MCQ (Phase 3) completion handlers in localStorage.ts
 - `ascendly_active_subject`: string — stores URL slug format (e.g. 'ap-psychology'), NOT display name. Display name derived from meta.json at render time.
+
+## Decisions Log
+- 2026-03-22: Using Tailwind v4 (no tailwind.config.ts — configuration via @theme in globals.css)
+- 2026-03-22: Supabase credentials to be added in Task 6 (deferred — user action required)
