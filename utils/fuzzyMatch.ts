@@ -19,8 +19,18 @@ function normalize(s: string): string {
   return s.toLowerCase().trim().replace(/\s+/g, ' ')
 }
 
-// Returns true if student answer matches correct answer or any alternate
-// Tolerance: up to 1 edit for short answers (<=5 chars), up to 2 for medium (<=10), up to 3 for longer
+/**
+ * Returns true if student answer matches correct answer or any alternate.
+ *
+ * Tolerance is relative to the CORRECT ANSWER length (not input length):
+ *   <=5 chars  → 1 edit allowed
+ *   <=10 chars → 2 edits allowed
+ *   >10 chars  → 3 edits allowed
+ *
+ * Note: These thresholds are stubs — recalibrate in Phase 13 with real student data.
+ * Blank student input ("") against blank correct answer ("") returns true — reject
+ * empty submissions at the call site if needed.
+ */
 export function fuzzyMatch(studentAnswer: string, correctAnswer: string, alternates: string[] = []): boolean {
   const norm = normalize(studentAnswer)
   const allAnswers = [correctAnswer, ...alternates].map(normalize)
