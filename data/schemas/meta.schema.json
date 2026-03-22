@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SubjectMeta",
+  "description": "Metadata for a subject — exam date, unit list, College Board weightings",
+  "type": "object",
+  "required": ["subject_id", "subject_name", "exam_date", "total_mcq_count", "units"],
+  "properties": {
+    "subject_id": {
+      "type": "string",
+      "description": "URL slug, e.g. ap-psychology"
+    },
+    "subject_name": {
+      "type": "string",
+      "description": "Display name, e.g. AP Psychology"
+    },
+    "exam_date": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "description": "ISO date string YYYY-MM-DD"
+    },
+    "total_mcq_count": {
+      "type": "number",
+      "description": "Real AP exam question count (e.g. 100 for AP Psychology, 55 for AP World History)"
+    },
+    "units": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["unit_id", "unit_name", "unit_number", "college_board_percentage", "learning_objectives"],
+        "properties": {
+          "unit_id": {
+            "type": "string",
+            "description": "e.g. unit-1"
+          },
+          "unit_name": {
+            "type": "string",
+            "description": "e.g. Biological Bases of Behavior"
+          },
+          "unit_number": {
+            "type": "number"
+          },
+          "college_board_percentage": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100,
+            "description": "Percentage 0-100 of exam questions from this unit per College Board CED"
+          },
+          "learning_objectives": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "CED learning objective codes for this unit"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MCQ",
+  "description": "A multiple choice question with stimulus and per-choice explanations",
+  "type": "object",
+  "required": ["id", "unit", "subject", "difficulty", "stimulus", "question", "choices", "unit_objective"],
+  "properties": {
+    "id": { "type": "string", "description": "Unique ID, e.g. psych-u1-q001" },
+    "unit": { "type": "string" },
+    "subject": { "type": "string" },
+    "difficulty": {
+      "type": "string",
+      "enum": ["easy", "medium", "hard"]
+    },
+    "stimulus": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["text", "table", "chart", "code", "none"],
+          "description": "text = passage; table = {headers, rows}; chart = Chart.js config; code = College Board pseudocode (CSP only); none = no stimulus"
+        },
+        "content": {
+          "description": "String for text/code; {headers: string[], rows: string[][]} for table; Chart.js ChartConfiguration object for chart; null/omit for none"
+        }
+      },
+      "additionalProperties": false
+    },
+    "question": { "type": "string" },
+    "choices": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "required": ["id", "text", "is_correct", "explanation"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "enum": ["A", "B", "C", "D"],
+            "description": "Canonical ID. Choices stored in A/B/C/D order in JSON — scrambled at render time only"
+          },
+          "text": { "type": "string" },
+          "is_correct": { "type": "boolean" },
+          "explanation": {
+            "type": "string",
+            "description": "Why this choice is correct (1-2 sentences) or specifically wrong (1 sentence). Never vague."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "unit_objective": {
+      "type": "string",
+      "description": "CED learning objective code or description this question covers (e.g. 'PSY-1.A.1')"
+    }
+  },
+  "additionalProperties": false
+}

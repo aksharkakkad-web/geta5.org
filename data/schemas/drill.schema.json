@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Drill",
+  "description": "A single drill card for vocabulary/formula practice",
+  "type": "object",
+  "required": ["id", "unit", "subject", "mode", "prompt", "answer", "difficulty"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique ID, e.g. psych-u1-d001"
+    },
+    "unit": {
+      "type": "string",
+      "description": "e.g. unit-1"
+    },
+    "subject": {
+      "type": "string",
+      "description": "e.g. ap-psychology"
+    },
+    "mode": {
+      "type": "string",
+      "enum": ["definition_to_term", "formula_to_type", "person_to_significance", "event_to_date", "concept_to_example", "term_to_definition"],
+      "description": "Drill interaction mode. All subjects use definition_to_term; math/chem use formula_to_type"
+    },
+    "prompt": {
+      "type": "string",
+      "description": "What is shown to the student (definition, formula name, etc.)"
+    },
+    "answer": {
+      "type": "string",
+      "description": "Canonical correct answer"
+    },
+    "alternate_answers": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Alternate accepted answers for fuzzy matching (optional)"
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": ["easy", "medium", "hard"]
+    },
+    "katex_required": {
+      "type": "boolean",
+      "description": "True if the answer must be rendered in KaTeX (formula drills)"
+    }
+  },
+  "additionalProperties": false
+}

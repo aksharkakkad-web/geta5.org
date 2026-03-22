@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "StudyGuide",
+  "description": "One-page study guide for a single unit",
+  "type": "object",
+  "required": ["id", "unit", "subject", "theme", "core_concepts", "key_terms", "exam_tip"],
+  "properties": {
+    "id": { "type": "string" },
+    "unit": { "type": "string" },
+    "subject": { "type": "string" },
+    "theme": {
+      "type": "string",
+      "description": "One sentence capturing the unit's core theme"
+    },
+    "core_concepts": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 5,
+      "maxItems": 8,
+      "description": "Sharp, precise bullet points. Inline math uses $...$ KaTeX delimiters."
+    },
+    "key_terms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["term", "definition"],
+        "properties": {
+          "term": { "type": "string" },
+          "definition": {
+            "type": "string",
+            "description": "One line max. Inline math uses $...$ KaTeX delimiters (e.g. 'The limit $\\lim_{x \\to c} f(x)$')."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "formulas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "katex_string"],
+        "properties": {
+          "name": { "type": "string" },
+          "katex_string": {
+            "type": "string",
+            "description": "Valid KaTeX string — rendered in displayMode block. Verified by Checker before integration."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "diagrams": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["table", "chart"]
+          },
+          "data": {
+            "description": "For table: {headers: string[], rows: string[][]}. For chart: Chart.js ChartConfiguration."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "exam_tip": {
+      "type": "string",
+      "description": "One sentence on what College Board emphasizes from this unit. Inline math uses $...$ KaTeX delimiters."
+    }
+  },
+  "additionalProperties": false
+}
