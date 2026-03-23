@@ -53,11 +53,12 @@ Plans:
   4. Session progresses through all cards; results screen shows score and missed cards
   5. drillAccuracy updated in localStorage after session completes
   6. Supabase drill_complete event fires (fire-and-forget)
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 02-01: Unit selector and drill session page
-- [ ] 02-02: Drill card state machine and results screen
+- [ ] 02-01: Foundation — test stubs, fixture JSON, DrillCard + DrillSession components
+- [ ] 02-02: UnitSelector, DrillResults, page orchestrator wiring
+- [ ] 02-03: Screenshot loops and visual verification
 
 ### Phase 3: Practice Questions Interface
 **Goal**: A student can answer stimulus-based MCQs (text, graph, table, pseudocode stimuli), see per-choice explanations on submit, and have mcqAccuracy updated in localStorage.
@@ -69,7 +70,7 @@ Plans:
   3. Answer choices scrambled at render time; correct answer appears in all positions across renders
   4. All 4 choice explanations shown on submit
   5. mcqAccuracy updated in localStorage after session
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
 - [ ] 03-01: MCQ session page with stimulus rendering
@@ -83,7 +84,7 @@ Plans:
   1. Study guide renders theme → core concepts → key terms → formulas → exam tip structure
   2. All formulas rendered via KaTeX (no plain text math)
   3. Unit selector allows switching between units within a subject
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
 - [ ] 04-01: Study guide page with unit navigation and KaTeX
@@ -96,7 +97,7 @@ Plans:
   1. Timer counts down and auto-submits on expiry
   2. Score report shows total score and per-unit breakdown
   3. Test results written to localStorage
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
 - [ ] 05-01: Practice test page with timer and score report
@@ -110,7 +111,7 @@ Plans:
   2. MCQ JSON files exist for all 8 units (50-100 per unit, 20/45/35 difficulty split)
   3. Study guide JSON files exist for all 8 units
   4. All content files pass schema validation and Reviewer sign-off
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
 - [ ] 06-01: AP Psychology Units 1-4 content (Researcher → Writer → Reviewer)
@@ -123,7 +124,7 @@ Plans:
 **Success Criteria** (what must be TRUE):
   1. Drill, MCQ, and study guide JSON files exist for all 9 units under data/world-history/
   2. All content Reviewer-approved
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
 - [ ] 07-01: AP World History Units 1-5 content
@@ -136,7 +137,7 @@ Plans:
 **Success Criteria** (what must be TRUE):
   1. Drill, MCQ, and study guide JSON files exist for all 5 units under data/government/
   2. All content Reviewer-approved
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
 - [ ] 08-01: AP Government Units 1-5 content
@@ -149,7 +150,7 @@ Plans:
   1. Drill, MCQ, and study guide JSON files exist for all 8 units under data/calculus-ab/
   2. All KaTeX strings parse without errors
   3. All content Reviewer-approved
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
 - [ ] 09-01: AP Calculus AB Units 1-4 content (KaTeX)
@@ -163,7 +164,7 @@ Plans:
   1. Drill, MCQ, and study guide JSON files exist for all 4 units under data/precalculus/
   2. All KaTeX strings parse without errors
   3. All content Reviewer-approved
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
 - [ ] 10-01: AP Precalculus Units 1-4 content (KaTeX)
@@ -176,7 +177,7 @@ Plans:
   1. Drill, MCQ, and study guide JSON files exist for all 5 units under data/csp/
   2. No Python or Java in any MCQ — College Board pseudocode format only
   3. All content Reviewer-approved
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
 - [ ] 11-01: AP CSP Units 1-5 content (College Board pseudocode)
@@ -189,7 +190,7 @@ Plans:
   1. Drill, MCQ, and study guide JSON files exist for all 9 units under data/chemistry/
   2. Chemistry Checker subagent signs off on all balanced equations and KaTeX
   3. All content Reviewer-approved after Chemistry Checker
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
 - [ ] 12-01: AP Chemistry Units 1-5 content (Chem Checker)
@@ -205,7 +206,7 @@ Plans:
   3. prefers-reduced-motion respected across all animations
   4. Error boundaries prevent full page crashes from bad content
   5. Bundle analysis run; KaTeX/Chart.js use dynamic imports
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
 - [ ] 13-01: Score calibration and adaptive difficulty
@@ -220,7 +221,7 @@ Plans:
   2. No stub pages visible to users
   3. Supabase events flowing (page_view events recorded)
   4. All 4 modes functional for all 7 subjects
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
 - [ ] 14-01: Vercel deployment and smoke test
@@ -230,7 +231,7 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Core Shell & Navigation | 1/1 | Complete | 2026-03-22 |
-| 2. Drill Interface | 0/2 | Not started | - |
+| 2. Drill Interface | 0/3 | Not started | - |
 | 3. Practice Questions Interface | 0/2 | Not started | - |
 | 4. Study Guide Interface | 0/1 | Not started | - |
 | 5. Practice Test Interface | 0/1 | Not started | - |
