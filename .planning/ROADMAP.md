@@ -1,202 +1,245 @@
-# Roadmap: Ascendly v1.0
+# Roadmap: Ascendly
 
-**Created:** 2026-03-23
-**Goal:** Launch Ascendly at ascendly.vercel.app with complete AP prep content for 7 subjects.
+## Overview
 
-## Phase Overview
+Build a complete free AP exam prep web app — no signup, no accounts, no paywalls. Phase 1 delivered the navigation shell and design system. Phases 2–5 build the four practice interfaces (drills, MCQ, study guide, practice test). Phases 6–12 generate content for all 7 subjects. Phase 13 polishes retention mechanics, and Phase 14 launches at ascendly.vercel.app.
 
-| Phase | Name | Status | Requirements |
-|-------|------|--------|-------------|
-| 1 | Core Shell & Navigation | ✅ Complete | SHELL-01–08 |
-| 2 | Drill Interface | 🔲 Not Started | DRILL-01–09 |
-| 3 | Practice Questions Interface | 🔲 Not Started | MCQ-01–08 |
-| 4 | Study Guide Interface | 🔲 Not Started | GUIDE-01–04 |
-| 5 | Practice Test Interface | 🔲 Not Started | TEST-01–05 |
-| 6 | AP Psychology Content | 🔲 Not Started | PSY-01–04 |
-| 7 | AP World History Content | 🔲 Not Started | WHI-01–04 |
-| 8 | AP Government Content | 🔲 Not Started | GOV-01–04 |
-| 9 | AP Calculus AB Content | 🔲 Not Started | CALC-01–04 |
-| 10 | AP Precalculus Content | 🔲 Not Started | PRE-01–04 |
-| 11 | AP CSP Content | 🔲 Not Started | CSP-01–04 |
-| 12 | AP Chemistry Content | 🔲 Not Started | CHEM-01–05 |
-| 13 | Retention Mechanics & Polish | 🔲 Not Started | POLISH-01–07 |
-| 14 | Launch | 🔲 Not Started | LAUNCH-01–05 |
+## Phases
 
----
+**Phase Numbering:**
+- Integer phases (1, 2, 3): Planned milestone work
+- Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
 
-## Phase 1 — Core Shell & Navigation ✅ Complete
+- [x] **Phase 1: Core Shell & Navigation** - Subject hub, nav, design system, localStorage utilities
+- [ ] **Phase 2: Drill Interface** - Flashcard drill sessions with fuzzy match and mastery tracking
+- [ ] **Phase 3: Practice Questions Interface** - Stimulus-based MCQ with per-choice explanations
+- [ ] **Phase 4: Study Guide Interface** - Per-unit study guides with KaTeX formulas
+- [ ] **Phase 5: Practice Test Interface** - Full-length timed practice tests with score reports
+- [ ] **Phase 6: AP Psychology Content** - Drills + MCQs + study guides for all 8 units
+- [ ] **Phase 7: AP World History Content** - Drills + MCQs + study guides for all 9 units
+- [ ] **Phase 8: AP Government Content** - Drills + MCQs + study guides for all 5 units
+- [ ] **Phase 9: AP Calculus AB Content** - Drills + MCQs + study guides for all 8 units (KaTeX)
+- [ ] **Phase 10: AP Precalculus Content** - Drills + MCQs + study guides for all 4 units (KaTeX)
+- [ ] **Phase 11: AP CSP Content** - Drills + MCQs + study guides for all 5 units (CB pseudocode)
+- [ ] **Phase 12: AP Chemistry Content** - Drills + MCQs + study guides for all 9 units (Chem Checker)
+- [ ] **Phase 13: Retention Mechanics & Polish** - Score calibration, adaptive difficulty, accessibility
+- [ ] **Phase 14: Launch** - Deploy to ascendly.vercel.app, smoke test, verify all routes live
 
-**Goal:** Working navigation shell with all routes stubbed, design system, subject data, and progress tracking components.
+## Phase Details
 
-**Completed:**
-- Homepage with subject grid
-- Subject hub with mode cards, unit progress, projected score badge, streak
-- Fixed header
-- localStorage utilities, analytics, scoring utilities
-- All stub pages at correct routes
-- Design system (globals.css, MASTER.md)
+### Phase 1: Core Shell & Navigation
+**Goal**: Working navigation shell with all routes stubbed, design system, subject data, progress tracking components, localStorage utilities, and analytics infrastructure.
+**Depends on**: Nothing (first phase)
+**Requirements**: [SHELL-01, SHELL-02, SHELL-03, SHELL-04, SHELL-05, SHELL-06, SHELL-07, SHELL-08]
+**Success Criteria** (what must be TRUE):
+  1. User can navigate to any subject hub and see mode cards
+  2. Unit progress grid renders mastery bars from localStorage
+  3. Projected score badge reads from localStorage
+  4. Streak strip shows daily streak count
+  5. All 7 subjects accessible via slug routes
+**Plans**: Complete
 
----
+Plans:
+- [x] 01-01: Subject hub page with mode cards, unit progress grid, projected score badge
 
-## Phase 2 — Drill Interface
+### Phase 2: Drill Interface
+**Goal**: A student can navigate to any subject/unit, complete a full drill session with fuzzy-matched free-response answers, see per-card feedback, view a results screen, and have drillAccuracy updated in localStorage.
+**Depends on**: Phase 1
+**Requirements**: [DRILL-01, DRILL-02, DRILL-03, DRILL-04, DRILL-05, DRILL-06, DRILL-07, DRILL-08, DRILL-09]
+**Success Criteria** (what must be TRUE):
+  1. Student can select a unit and start a drill session from the drills page
+  2. Each card shows prompt; student types answer; fuzzy match accepts correct variants
+  3. KaTeX renders correctly for formula drill cards
+  4. Session progresses through all cards; results screen shows score and missed cards
+  5. drillAccuracy updated in localStorage after session completes
+  6. Supabase drill_complete event fires (fire-and-forget)
+**Plans**: TBD
 
-**Goal:** A student can navigate to any subject → unit, complete a full drill session, get feedback on each card, see results, and have mastery updated in localStorage.
+Plans:
+- [ ] 02-01: Unit selector and drill session page
+- [ ] 02-02: Drill card state machine and results screen
 
-**Scope:**
-- Drill session page at `app/[subject]/drills/page.tsx` (replace stub)
-- Unit selector UI
-- Flashcard component with flip/reveal interaction
-- Free-response input with fuzzy match
-- State machine: unanswered → correct/incorrect → next card
-- Results screen with score, missed cards list, retry CTA
-- localStorage mastery write (drillAccuracy)
-- All 6 drill modes from drill.schema.json
-- KaTeX rendering for formula cards (katex_required: true)
-- Supabase drill_complete event
+### Phase 3: Practice Questions Interface
+**Goal**: A student can answer stimulus-based MCQs (text, graph, table, pseudocode stimuli), see per-choice explanations on submit, and have mcqAccuracy updated in localStorage.
+**Depends on**: Phase 1
+**Requirements**: [MCQ-01, MCQ-02, MCQ-03, MCQ-04, MCQ-05, MCQ-06, MCQ-07, MCQ-08]
+**Success Criteria** (what must be TRUE):
+  1. Student can start an MCQ session for any unit
+  2. All 4 stimulus types render correctly (text, Chart.js, table, pseudocode)
+  3. Answer choices scrambled at render time; correct answer appears in all positions across renders
+  4. All 4 choice explanations shown on submit
+  5. mcqAccuracy updated in localStorage after session
+**Plans**: TBD
 
-**Dependencies:** Phase 1 ✅
+Plans:
+- [ ] 03-01: MCQ session page with stimulus rendering
+- [ ] 03-02: Choice scrambling, feedback, results screen
 
-**Success criteria:**
-- Student can complete a drill session start-to-finish
-- Fuzzy match correctly accepts/rejects edge cases (verified by tests)
-- Mastery updates correctly in localStorage after session
-- KaTeX renders without errors for formula cards
-- No positional bias in answer scrambling (20+ renders verified)
+### Phase 4: Study Guide Interface
+**Goal**: A student can read a structured per-unit study guide with KaTeX-rendered formulas.
+**Depends on**: Phase 1
+**Requirements**: [GUIDE-01, GUIDE-02, GUIDE-03, GUIDE-04]
+**Success Criteria** (what must be TRUE):
+  1. Study guide renders theme → core concepts → key terms → formulas → exam tip structure
+  2. All formulas rendered via KaTeX (no plain text math)
+  3. Unit selector allows switching between units within a subject
+**Plans**: TBD
 
----
+Plans:
+- [ ] 04-01: Study guide page with unit navigation and KaTeX
 
-## Phase 3 — Practice Questions Interface
+### Phase 5: Practice Test Interface
+**Goal**: A student can take a full-length timed practice test per subject and receive a score report with per-unit breakdown.
+**Depends on**: Phase 3
+**Requirements**: [TEST-01, TEST-02, TEST-03, TEST-04, TEST-05]
+**Success Criteria** (what must be TRUE):
+  1. Timer counts down and auto-submits on expiry
+  2. Score report shows total score and per-unit breakdown
+  3. Test results written to localStorage
+**Plans**: TBD
 
-**Goal:** A student can answer stimulus-based MCQs for any unit, see per-choice explanations, and have MCQ mastery tracked.
+Plans:
+- [ ] 05-01: Practice test page with timer and score report
 
-**Scope:**
-- MCQ session page at `app/[subject]/practice/page.tsx`
-- Stimulus rendering: text, Chart.js graph, HTML table, CB pseudocode
-- 4-choice MCQ with runtime scrambling
-- Submit → feedback with all-choice explanations
-- Results screen with score and mastery update
-- localStorage mcqAccuracy write
+### Phase 6: AP Psychology Content
+**Goal**: Complete drill cards, MCQs, and study guides for all 8 AP Psychology units, reviewed and integrated.
+**Depends on**: Phase 2, Phase 3, Phase 4
+**Requirements**: [PSY-01, PSY-02, PSY-03, PSY-04]
+**Success Criteria** (what must be TRUE):
+  1. Drill JSON files exist for all 8 units under data/psychology/
+  2. MCQ JSON files exist for all 8 units (50-100 per unit, 20/45/35 difficulty split)
+  3. Study guide JSON files exist for all 8 units
+  4. All content files pass schema validation and Reviewer sign-off
+**Plans**: TBD
 
-**Dependencies:** Phase 1 ✅, Phase 2 recommended
+Plans:
+- [ ] 06-01: AP Psychology Units 1-4 content (Researcher → Writer → Reviewer)
+- [ ] 06-02: AP Psychology Units 5-8 content (Researcher → Writer → Reviewer)
 
-**Success criteria:**
-- All 4 stimulus types render correctly
-- Scrambling shows correct answer in all positions across 20+ renders
-- All 4 choice explanations displayed on submit
-- Mastery updates correctly after session
+### Phase 7: AP World History Content
+**Goal**: Complete content for all 9 AP World History units.
+**Depends on**: Phase 2, Phase 3, Phase 4
+**Requirements**: [WHI-01, WHI-02, WHI-03, WHI-04]
+**Success Criteria** (what must be TRUE):
+  1. Drill, MCQ, and study guide JSON files exist for all 9 units under data/world-history/
+  2. All content Reviewer-approved
+**Plans**: TBD
 
----
+Plans:
+- [ ] 07-01: AP World History Units 1-5 content
+- [ ] 07-02: AP World History Units 6-9 content
 
-## Phase 4 — Study Guide Interface
+### Phase 8: AP Government Content
+**Goal**: Complete content for all 5 AP Government units.
+**Depends on**: Phase 2, Phase 3, Phase 4
+**Requirements**: [GOV-01, GOV-02, GOV-03, GOV-04]
+**Success Criteria** (what must be TRUE):
+  1. Drill, MCQ, and study guide JSON files exist for all 5 units under data/government/
+  2. All content Reviewer-approved
+**Plans**: TBD
 
-**Goal:** A student can read a structured study guide per unit with KaTeX formulas rendered.
+Plans:
+- [ ] 08-01: AP Government Units 1-5 content
 
-**Scope:**
-- Study guide page at `app/[subject]/study-guide/page.tsx`
-- Unit selector navigation
-- Theme → core concepts → key terms → formulas → exam tip layout
-- KaTeX for all formulas
-- Analytics event
+### Phase 9: AP Calculus AB Content
+**Goal**: Complete KaTeX-heavy content for all 8 AP Calculus AB units.
+**Depends on**: Phase 2, Phase 3, Phase 4
+**Requirements**: [CALC-01, CALC-02, CALC-03, CALC-04]
+**Success Criteria** (what must be TRUE):
+  1. Drill, MCQ, and study guide JSON files exist for all 8 units under data/calculus-ab/
+  2. All KaTeX strings parse without errors
+  3. All content Reviewer-approved
+**Plans**: TBD
 
-**Dependencies:** Phase 1 ✅
+Plans:
+- [ ] 09-01: AP Calculus AB Units 1-4 content (KaTeX)
+- [ ] 09-02: AP Calculus AB Units 5-8 content (KaTeX)
 
----
+### Phase 10: AP Precalculus Content
+**Goal**: Complete KaTeX-heavy content for all 4 AP Precalculus units.
+**Depends on**: Phase 2, Phase 3, Phase 4
+**Requirements**: [PRE-01, PRE-02, PRE-03, PRE-04]
+**Success Criteria** (what must be TRUE):
+  1. Drill, MCQ, and study guide JSON files exist for all 4 units under data/precalculus/
+  2. All KaTeX strings parse without errors
+  3. All content Reviewer-approved
+**Plans**: TBD
 
-## Phase 5 — Practice Test Interface
+Plans:
+- [ ] 10-01: AP Precalculus Units 1-4 content (KaTeX)
 
-**Goal:** A student can take a full-length timed practice test and receive a score report.
+### Phase 11: AP CSP Content
+**Goal**: Complete content for all 5 AP CSP units using College Board pseudocode format.
+**Depends on**: Phase 2, Phase 3, Phase 4
+**Requirements**: [CSP-01, CSP-02, CSP-03, CSP-04]
+**Success Criteria** (what must be TRUE):
+  1. Drill, MCQ, and study guide JSON files exist for all 5 units under data/csp/
+  2. No Python or Java in any MCQ — College Board pseudocode format only
+  3. All content Reviewer-approved
+**Plans**: TBD
 
-**Scope:**
-- Practice test page at `app/[subject]/practice-test/page.tsx`
-- Timer with auto-submit
-- Score report with per-unit breakdown (derived from mastery keys)
-- localStorage test results write
+Plans:
+- [ ] 11-01: AP CSP Units 1-5 content (College Board pseudocode)
 
-**Dependencies:** Phases 1–3
+### Phase 12: AP Chemistry Content
+**Goal**: Complete content for all 9 AP Chemistry units with Chemistry Checker verification of all equations.
+**Depends on**: Phase 2, Phase 3, Phase 4
+**Requirements**: [CHEM-01, CHEM-02, CHEM-03, CHEM-04, CHEM-05]
+**Success Criteria** (what must be TRUE):
+  1. Drill, MCQ, and study guide JSON files exist for all 9 units under data/chemistry/
+  2. Chemistry Checker subagent signs off on all balanced equations and KaTeX
+  3. All content Reviewer-approved after Chemistry Checker
+**Plans**: TBD
 
----
+Plans:
+- [ ] 12-01: AP Chemistry Units 1-5 content (Chem Checker)
+- [ ] 12-02: AP Chemistry Units 6-9 content (Chem Checker)
 
-## Phases 6–12 — Content (Parallel Execution)
+### Phase 13: Retention Mechanics & Polish
+**Goal**: Calibrate AP scoring, add adaptive difficulty, fix accessibility gaps, and harden the app for production.
+**Depends on**: Phase 12
+**Requirements**: [POLISH-01, POLISH-02, POLISH-03, POLISH-04, POLISH-05, POLISH-06, POLISH-07]
+**Success Criteria** (what must be TRUE):
+  1. Score projection uses College Board-calibrated thresholds per subject
+  2. Adaptive difficulty surfaces harder cards after totalAttempts exceeds threshold
+  3. prefers-reduced-motion respected across all animations
+  4. Error boundaries prevent full page crashes from bad content
+  5. Bundle analysis run; KaTeX/Chart.js use dynamic imports
+**Plans**: TBD
 
-**Goal:** Complete AP content for all 7 subjects — drills, MCQs, study guides per unit.
+Plans:
+- [ ] 13-01: Score calibration and adaptive difficulty
+- [ ] 13-02: Accessibility, error boundaries, bundle optimization
 
-**Agent pipeline (enforced):** Researcher → Writer → Reviewer (→ Chemistry Checker for Phase 12)
+### Phase 14: Launch
+**Goal**: Ascendly is live at ascendly.vercel.app, all 7 subjects fully functional, no placeholder content visible.
+**Depends on**: Phase 13
+**Requirements**: [LAUNCH-01, LAUNCH-02, LAUNCH-03, LAUNCH-04, LAUNCH-05]
+**Success Criteria** (what must be TRUE):
+  1. ascendly.vercel.app loads and all 7 subjects are accessible
+  2. No stub pages visible to users
+  3. Supabase events flowing (page_view events recorded)
+  4. All 4 modes functional for all 7 subjects
+**Plans**: TBD
 
-**Content standards:**
-- MCQ difficulty: 20% easy / 45% medium / 35% hard per unit
-- MCQ count: 50–100 per unit
-- Drills: cover every testable term, formula, person, concept, event
-- All KaTeX strings parseable without errors
-- All answer keys correct (Reviewer-verified)
+Plans:
+- [ ] 14-01: Vercel deployment and smoke test
 
-**Phase 6 — AP Psychology** (8 units)
-- Units: Biological Bases, Sensation/Perception, Learning, Cognitive Psych, Developmental, Motivation/Emotion/Personality, Clinical, Social
+## Progress
 
-**Phase 7 — AP World History** (9 units)
-- Units: Global Tapestry, Networks of Exchange, Land-Based Empires, Transoceanic Interconnections, Revolutions, Industrialization, Global Conflict, Cold War/Decolonization, Globalization
-
-**Phase 8 — AP Government** (5 units)
-- Units: Foundations, Branches of Government, Civil Liberties/Rights, Political Ideologies, Political Participation
-
-**Phase 9 — AP Calculus AB** (8 units, KaTeX-heavy)
-- Units: Limits, Differentiation (basic), Differentiation (composite/implicit/inverse), Contextual Differentiation, Analytical Differentiation, Integration, Differential Equations, Applications of Integration
-
-**Phase 10 — AP Precalculus** (4 units, KaTeX-heavy)
-- Units: Polynomial/Rational Functions, Exponential/Logarithmic, Trigonometric/Polar, Parameters/Vectors/Matrices
-
-**Phase 11 — AP CSP** (5 units, College Board pseudocode)
-- Units: Creative Development, Data, Algorithms/Programming, Computer Systems/Networks, Impact of Computing
-
-**Phase 12 — AP Chemistry** (9 units, Chemistry Checker required)
-- Units: Atomic Structure, Molecular/Ionic Structure, Intermolecular Forces, Chemical Reactions, Kinetics, Thermodynamics, Equilibrium, Acids/Bases, Applications of Thermodynamics
-
-**Dependencies:** Phases 2–4 must be complete before content is useful to students. Content phases can run in parallel with each other.
-
----
-
-## Phase 13 — Retention Mechanics & Polish
-
-**Goal:** Calibrate scoring, add adaptive difficulty, fix accessibility gaps, and harden the app for launch.
-
-**Scope:**
-- Score calibration with real College Board AP distributions
-- Adaptive difficulty (surface harder cards when totalAttempts > threshold)
-- sessionStorage guard on analytics (prevent duplicate events)
-- Accessibility: prefers-reduced-motion, focus rings, ARIA audit
-- Error boundaries around content-rendering sections
-- Security headers (CSP, X-Frame-Options) in next.config.ts
-- Bundle analysis + dynamic imports for KaTeX/Chart.js
-- Fix raw localStorage access in UnitProgressGrid (use lsGet)
-- loading.tsx for all routes
-
-**Dependencies:** Phases 2–12
-
----
-
-## Phase 14 — Launch
-
-**Goal:** Ascendly is live at ascendly.vercel.app, fully functional, no placeholder content.
-
-**Scope:**
-- Vercel deployment with all environment variables
-- Smoke test all 7 subjects across all 4 modes
-- Verify no stub pages visible
-- Final analytics check (events flowing to Supabase)
-
-**Dependencies:** All previous phases ✅
-
----
-
-## Execution Notes
-
-**Parallel opportunities:**
-- Phases 6–12 can run in parallel once Phase 2–4 interfaces are ready
-- Within each content phase, units can be generated in parallel (multiple units simultaneously)
-
-**Model profile:** balanced (Opus for planning, Sonnet for execution)
-
-**Commit strategy:** Each phase gets a conventional commit after verification. Planning docs committed separately.
-
----
-*Roadmap created: 2026-03-23*
-*Last updated: 2026-03-23 after GSD initialization*
+| Phase | Plans Complete | Status | Completed |
+|-------|----------------|--------|-----------|
+| 1. Core Shell & Navigation | 1/1 | Complete | 2026-03-22 |
+| 2. Drill Interface | 0/2 | Not started | - |
+| 3. Practice Questions Interface | 0/2 | Not started | - |
+| 4. Study Guide Interface | 0/1 | Not started | - |
+| 5. Practice Test Interface | 0/1 | Not started | - |
+| 6. AP Psychology Content | 0/2 | Not started | - |
+| 7. AP World History Content | 0/2 | Not started | - |
+| 8. AP Government Content | 0/1 | Not started | - |
+| 9. AP Calculus AB Content | 0/2 | Not started | - |
+| 10. AP Precalculus Content | 0/1 | Not started | - |
+| 11. AP CSP Content | 0/1 | Not started | - |
+| 12. AP Chemistry Content | 0/2 | Not started | - |
+| 13. Retention Mechanics & Polish | 0/2 | Not started | - |
+| 14. Launch | 0/1 | Not started | - |
