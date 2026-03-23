@@ -1,17 +1,61 @@
+import type { Metadata } from 'next'
+import { getAllSubjects } from '@/utils/subjects'
+import { SubjectCard } from '@/components/ui/SubjectCard'
+import { StreakStrip } from '@/components/ui/StreakStrip'
+
+export const metadata: Metadata = {
+  title: 'Ascendly — Free AP Exam Prep. No Signup.',
+  description: 'Free AP practice questions, drills, and study guides for 7 AP subjects. No signup required.',
+}
+
 export default function HomePage() {
+  const subjects = getAllSubjects()
+
   return (
-    <main style={{
-      minHeight: '100vh',
-      backgroundColor: 'var(--bg-primary)',
-      color: 'var(--text-primary)',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      flexDirection: 'column' as const,
-      gap: '12px',
+    <div style={{
+      maxWidth: '48rem',
+      margin: '0 auto',
+      paddingLeft: '16px',
+      paddingRight: '16px',
     }}>
-      <h1 style={{ fontSize: '2rem', fontWeight: 700 }}>Ascendly</h1>
-      <p style={{ color: 'var(--text-secondary)' }}>Free AP Exam Prep — coming soon</p>
-    </main>
+      {/* Hero — compact */}
+      <div style={{ paddingTop: '48px', paddingBottom: '16px' }}>
+        <h1 style={{
+          fontSize: '1.875rem',
+          fontWeight: 700,
+          color: 'var(--text-primary)',
+          lineHeight: 1.2,
+          marginBottom: '8px',
+        }}>
+          Ace your AP exams. Free.
+        </h1>
+        <p style={{
+          fontSize: '0.875rem',
+          color: 'var(--text-secondary)',
+        }}>
+          No signup. No paywall. Just practice.
+        </p>
+      </div>
+
+      {/* Subject Grid */}
+      <div
+        className="subject-grid"
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(2, 1fr)',
+          gap: '16px',
+          marginTop: '24px',
+        }}
+      >
+        {subjects.map(subject => (
+          <SubjectCard key={subject.slug} name={subject.name} slug={subject.slug} />
+        ))}
+      </div>
+
+      {/* Streak strip — client-only, renders after mount */}
+      <div style={{ marginTop: '32px', paddingBottom: '48px' }}>
+        <StreakStrip />
+      </div>
+    </div>
   )
 }
