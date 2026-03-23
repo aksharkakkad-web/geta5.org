@@ -11,11 +11,12 @@ import { SubjectAnalytics } from '@/components/ui/SubjectAnalytics'
 export const dynamic = 'force-dynamic'
 
 interface SubjectPageProps {
-  params: { subject: string }
+  params: Promise<{ subject: string }>
 }
 
 export async function generateMetadata({ params }: SubjectPageProps): Promise<Metadata> {
-  const subject = getSubject(params.subject)
+  const { subject: slug } = await params
+  const subject = getSubject(slug)
   if (!subject) return {}
   return {
     title: `${subject.name} Prep — Free Practice | Ascendly`,
@@ -39,10 +40,11 @@ function formatExamDate(examDate: string): string {
   })
 }
 
-export default function SubjectPage({ params }: SubjectPageProps) {
-  const subjectData = getSubject(params.subject)
+export default async function SubjectPage({ params }: SubjectPageProps) {
+  const { subject: slug } = await params
+  const subjectData = getSubject(slug)
   if (!subjectData) notFound()
-  const subject = subjectData! // non-null assertion: notFound() throws above, TS needs this hint
+  const subject = subjectData!
 
   const daysUntil = getDaysUntilExam(subject.examDate)
   const examDateFormatted = formatExamDate(subject.examDate)
