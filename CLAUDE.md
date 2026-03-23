@@ -99,7 +99,7 @@ When writing any file under `/data/`, the pipeline is: Researcher → Writer →
 | Phase | Description | Status |
 |-------|-------------|--------|
 | 0 | Project Setup & Documentation | Complete |
-| 1 | Core Shell & Navigation | Not Started |
+| 1 | Core Shell & Navigation | Complete |
 | 2 | Drill Interface | Not Started |
 | 3 | Practice Questions Interface | Not Started |
 | 4 | Study Guide Interface | Not Started |
