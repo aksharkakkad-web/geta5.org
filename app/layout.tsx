@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { Header } from '@/components/layout/Header'
 
 export const metadata: Metadata = {
   title: 'Ascendly — Free AP Exam Prep',
@@ -14,8 +15,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body style={{ backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)' }}>
-        {children}
+      <body style={{ backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)', minHeight: '100dvh' }}>
+        <Header />
+        <main style={{ paddingTop: '56px' }}>
+          {children}
+        </main>
       </body>
     </html>
   )
