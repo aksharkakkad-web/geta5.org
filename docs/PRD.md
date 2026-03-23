@@ -386,71 +386,122 @@ Table name: `events`
 
 ## coding_agent_team
 
-The following agent roles handle implementation:
+Four roles handle all implementation work in a strict sequential pipeline:
+
+### Planner
+- Receives the feature or task description
+- Breaks work into discrete, testable objectives (one objective = one verifiable outcome)
+- Defines acceptance criteria for each objective — Tester uses these verbatim
+- Identifies files to create/modify, component contracts, data shapes, and edge cases
+- Produces a written plan before any code is written
+- **Output**: Task list with objectives, file map, acceptance criteria, and any open questions
 
 ### Coder
-- Implements all React components, pages, utilities, and integrations
+- Receives the Planner's written plan — does NOT start without it
+- Implements exactly what the plan specifies: components, pages, utilities, integrations
 - Follows all Critical Rules without exception
 - Uses TypeScript strictly — no `any` types
-- Writes clean, commented code
+- Writes clean, well-commented code
 - Integrates content JSON into components exactly as schematized
+- **Output**: Working implementation + summary of what was built and any deviations from plan
 
-### Checker (UI)
-- Reviews every component after Coder builds it
-- Runs screenshot loop: must see polished, real-content UI before approving
-- Verifies mobile responsiveness
+### Reviewer
+- Receives Coder's output and the original Planner spec
+- Reviews all changed code for bugs, logic errors, edge cases, and regressions
+- Checks TypeScript correctness, Critical Rules compliance, and schema adherence
 - Verifies KaTeX rendering on all formula content
-- Verifies answer scrambling correctness (20+ render test)
-- Blocks merge until all issues resolved
+- Verifies mobile responsiveness and dark mode correctness
+- Verifies answer scrambling correctness (20+ render test) when applicable
+- **Output**: Approved (with notes) OR Rejected (with exact file, line, issue, and required fix) — returns to Coder on rejection
 
-### Checker (Chemistry)
-- Approves all AP Chemistry formulas, equations, and content before Coder integrates
-- Verifies all equations are balanced
-- Verifies KaTeX accuracy for all chemical expressions
-- Has final say on all chemistry content correctness
+### Tester
+- Receives the Planner's acceptance criteria and Reviewer's approval
+- Tests each objective from the plan: does the implementation actually satisfy it?
+- Checks real content renders correctly (no placeholder text)
+- Checks localStorage reads/writes correctly
+- Checks Supabase events fire and fail silently
+- **Output**: Pass (all objectives met) OR Fail (lists which objectives failed and why) — returns to Coder on failure
 
 ---
 
 ## content_agent_team
 
-### Content Writer
-- Writes all MCQs, drills, and study guides per subject/unit
-- Follows content standards exactly (difficulty distribution, counts, schema)
+Three roles handle all content creation in a strict sequential pipeline:
+
+### Researcher
+- Receives the subject and unit to be written
+- Researches College Board curriculum: official course description, exam format, question types, stimulus types, skill categories, and difficulty distribution
+- Identifies all testable terms, formulas, people, concepts, and events for the unit
+- Identifies common misconceptions and distractor patterns used on the real exam
+- For AP Chemistry: catalogs all formulas and equations that need KaTeX formatting
+- For AP CSP: identifies all pseudocode patterns used on the real exam
+- **Output**: Research brief — structured summary of everything the Writer needs to produce accurate, on-spec content
+
+### Writer
+- Receives the Researcher's brief — does NOT start without it
+- Writes all MCQs, drills, and study guides for the unit
+- Follows content standards exactly: 20% easy / 45% medium / 35% hard, 50–100 MCQs per unit, drills cover every testable term/concept
+- Writes per-choice explanations for every MCQ option (correct + all distractors)
 - Uses College Board pseudocode for AP CSP — never real Python/Java
-- Writes per-choice explanations for every MCQ distractor
+- All formulas written in KaTeX — never plain text math
+- Scrambles nothing — answer order is fixed in JSON, scrambled at render time only
+- **Output**: Complete JSON files matching canonical schemas (drill.schema.json, mcq.schema.json, study-guide.schema.json)
 
-### Content Checker
-- Reviews all content for College Board accuracy
-- Verifies difficulty tagging is correct
-- Verifies all formulas are KaTeX-ready (flags any plain text math)
+### Reviewer
+- Receives Writer's JSON output and the Researcher's brief
+- Verifies every question maps to the correct unit and College Board curriculum
+- Verifies difficulty tags are accurate (not inflated or deflated)
+- Verifies all answer choices are plausible — no obviously wrong distractors
+- Verifies all correct answers are actually correct
+- Verifies all per-choice explanations are accurate and explain the reasoning clearly
+- Verifies all formulas are valid KaTeX — no plain text math
 - Verifies AP CSP pseudocode is correct College Board syntax
-- Sends chemistry content to Chemistry Checker before approval
-
-### Chemistry Checker
-- Dedicated reviewer for all AP Chemistry content
-- Approves all chemical formulas and equations
-- Verifies balance, notation, and KaTeX formatting
-- Must approve before Content Checker signs off on any chemistry content
+- For AP Chemistry: verifies all equations are balanced and KaTeX notation is correct
+- **Output**: Approved (with notes) OR Rejected (with exact question index, issue, and required fix) — returns to Writer on rejection
 
 ---
 
 ## agent_team_communication
 
-### Handoff Protocol
-1. Content Writer completes a unit → hands to Content Checker
-2. Content Checker reviews → if Chemistry, routes to Chemistry Checker first
-3. Chemistry Checker approves chemistry content → returns to Content Checker
-4. Content Checker approves → hands JSON files to Coder
-5. Coder integrates → hands to UI Checker
-6. UI Checker runs screenshot loop → approves or returns with issues
-7. Coder fixes issues → UI Checker re-reviews
-8. UI Checker approves → unit marked done in phase tracker
+### Full Pipeline (Content → Code)
+1. **Researcher** completes research brief for subject/unit
+2. **Researcher → Writer**: hands off research brief with subject, unit, and all findings
+3. **Writer** completes JSON files
+4. **Writer → Reviewer (Content)**: hands off JSON files + research brief
+5. **Reviewer (Content)** approves OR rejects back to Writer with specific issues
+6. **Reviewer (Content) → Planner**: hands off approved JSON + unit spec
+7. **Planner** produces implementation plan (objectives, file map, acceptance criteria)
+8. **Planner → Coder**: hands off written plan
+9. **Coder** implements
+10. **Coder → Reviewer (Code)**: hands off implementation + plan summary
+11. **Reviewer (Code)** approves OR rejects back to Coder with exact file/line/issue
+12. **Reviewer (Code) → Tester**: hands off approved code + Planner's acceptance criteria
+13. **Tester** tests against each objective — passes OR fails back to Coder with failed objectives
+14. **Tester** passes → unit marked done in phase tracker, CLAUDE.md updated
+
+### Handoff Message Format
+Every handoff must include:
+```
+FROM: [role]
+TO: [role]
+SUBJECT: [subject] / Unit [N] — [unit name]
+STATUS: [Approved / Rejected / Passed / Failed]
+FILES: [list of files created or changed]
+NOTES: [summary of work done or issues found]
+ACTION REQUIRED: [what the receiving agent must do]
+```
+
+Every rejection must additionally include:
+```
+ISSUES:
+- [file path or question index]: [exact problem] → [required fix]
+```
 
 ### Communication Standards
-- All handoffs include: subject, unit number, unit name, files changed
-- All rejections include: specific issue, exact location, expected fix
-- No agent marks a task done without the appropriate checker sign-off
-- CLAUDE.md phase tracker updated immediately on status change
+- No agent starts work without receiving the prior agent's output
+- No agent marks work done without the appropriate downstream approval
+- Rejections go back exactly one step — not to the start of the pipeline
+- CLAUDE.md phase tracker updated immediately when a unit reaches Tester pass
 
 ---
 
