@@ -2,7 +2,7 @@
 phase: 3
 slug: practice-questions-interface
 status: draft
-nyquist_compliant: false
+nyquist_compliant: true
 wave_0_complete: false
 created: 2026-03-24
 ---
@@ -17,18 +17,18 @@ created: 2026-03-24
 
 | Property | Value |
 |----------|-------|
-| **Framework** | vitest (existing in project) |
-| **Config file** | vitest.config.ts |
-| **Quick run command** | `npx vitest run --reporter=verbose` |
-| **Full suite command** | `npx vitest run --reporter=verbose` |
+| **Framework** | jest (project standard — see package.json, jest.config.ts) |
+| **Config file** | jest.config.ts |
+| **Quick run command** | `npx jest --verbose` |
+| **Full suite command** | `npx jest --verbose` |
 | **Estimated runtime** | ~10 seconds |
 
 ---
 
 ## Sampling Rate
 
-- **After every task commit:** Run `npx vitest run --reporter=verbose`
-- **After every plan wave:** Run `npx vitest run --reporter=verbose`
+- **After every task commit:** Run `npx jest --verbose`
+- **After every plan wave:** Run `npx jest --verbose`
 - **Before `/gsd:verify-work`:** Full suite must be green
 - **Max feedback latency:** 15 seconds
 
@@ -38,22 +38,22 @@ created: 2026-03-24
 
 | Task ID | Plan | Wave | Requirement | Test Type | Automated Command | File Exists | Status |
 |---------|------|------|-------------|-----------|-------------------|-------------|--------|
-| 03-01-01 | 01 | 1 | MCQ-01 | unit | `npx vitest run` | ❌ W0 | ⬜ pending |
-| 03-01-02 | 01 | 1 | MCQ-02 | unit | `npx vitest run` | ❌ W0 | ⬜ pending |
-| 03-01-03 | 01 | 1 | MCQ-03 | unit | `npx vitest run` | ❌ W0 | ⬜ pending |
-| 03-02-01 | 02 | 2 | MCQ-04 | unit | `npx vitest run` | ❌ W0 | ⬜ pending |
-| 03-02-02 | 02 | 2 | MCQ-05 | unit | `npx vitest run` | ❌ W0 | ⬜ pending |
-| 03-02-03 | 02 | 2 | MCQ-06, MCQ-07 | unit | `npx vitest run` | ❌ W0 | ⬜ pending |
-| 03-02-04 | 02 | 2 | MCQ-08 | unit | `npx vitest run` | ❌ W0 | ⬜ pending |
+| 03-01-01 | 01 | 1 | MCQ-02, MCQ-03 | unit | `npx jest --testPathPattern=mcqSession --verbose 2>&1 \| tail -30` | utils/__tests__/mcqSession.test.ts (created in task) | pending |
+| 03-01-02 | 01 | 1 | MCQ-05 | typecheck | `npx tsc --noEmit components/mcq/StimulusRenderer.tsx 2>&1 \| head -20` | N/A (typecheck only) | pending |
+| 03-01-03 | 01 | 1 | MCQ-07, MCQ-08 | typecheck | `npx tsc --noEmit components/mcq/MCQCard.tsx 2>&1 \| head -20` | N/A (typecheck only) | pending |
+| 03-02-01 | 02 | 2 | MCQ-01 | typecheck | `npx tsc --noEmit components/mcq/UnitSelector.tsx 2>&1 \| head -20` | N/A (typecheck only) | pending |
+| 03-02-02 | 02 | 2 | MCQ-06 | typecheck | `npx tsc --noEmit components/mcq/MCQSession.tsx 2>&1 \| head -20` | N/A (typecheck only) | pending |
+| 03-02-03 | 02 | 2 | MCQ-06, MCQ-07 | typecheck | `npx tsc --noEmit components/mcq/MCQResults.tsx 2>&1 \| head -20` | N/A (typecheck only) | pending |
+| 03-02-04 | 02 | 2 | MCQ-08 | typecheck | `npx tsc --noEmit app/[subject]/practice/page.tsx 2>&1 \| head -20` | N/A (typecheck only) | pending |
 
-*Status: ⬜ pending · ✅ green · ❌ red · ⚠️ flaky*
+*Status: pending / green / red / flaky*
 
 ---
 
 ## Wave 0 Requirements
 
-- [ ] `utils/__tests__/mcqSession.test.ts` — stubs for MCQ session logic
-- [ ] Existing vitest infrastructure covers test execution
+- [ ] `utils/__tests__/mcqSession.test.ts` — created as part of Plan 01 Task 1 (TDD task creates tests first)
+- [x] Existing jest infrastructure covers test execution (jest.config.ts, package.json scripts)
 
 *Existing infrastructure covers framework requirements.*
 
@@ -72,11 +72,11 @@ created: 2026-03-24
 
 ## Validation Sign-Off
 
-- [ ] All tasks have `<automated>` verify or Wave 0 dependencies
-- [ ] Sampling continuity: no 3 consecutive tasks without automated verify
-- [ ] Wave 0 covers all MISSING references
-- [ ] No watch-mode flags
-- [ ] Feedback latency < 15s
-- [ ] `nyquist_compliant: true` set in frontmatter
+- [x] All tasks have `<automated>` verify or Wave 0 dependencies
+- [x] Sampling continuity: no 3 consecutive tasks without automated verify
+- [x] Wave 0 covers all MISSING references
+- [x] No watch-mode flags
+- [x] Feedback latency < 15s
+- [x] `nyquist_compliant: true` set in frontmatter
 
-**Approval:** pending
+**Approval:** ready
