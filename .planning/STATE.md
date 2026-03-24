@@ -2,14 +2,13 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-current_phase: 4
 status: In progress
-last_updated: "2026-03-24T19:13:00.000Z"
+last_updated: "2026-03-24T19:12:52.746Z"
 progress:
   total_phases: 14
-  completed_phases: 4
+  completed_phases: 1
   total_plans: 7
-  completed_plans: 6
+  completed_plans: 5
 ---
 
 # Project State
@@ -27,12 +26,11 @@ See: `.planning/PROJECT.md` (updated 2026-03-23)
 
 ## Current Position
 
-Phase: 04 (study-guide-interface) — Both plans complete (04-01, 04-02)
-Plan: 04-02 complete — Phase 4 fully done
+Phase: 04 (study-guide-interface) — Plan 01 complete, Plan 02 pending
+Plan: 04-01 complete
 
 ## Recent Activity
 
-- 2026-03-24: Phase 4 Plan 02 complete — StudyGuideUnitSelector (HEAD availability, mastery bars), study guide page orchestrator (2-view state machine, analytics)
 - 2026-03-24: Phase 4 Plan 01 complete — StudyGuide types, InlineKatex, 5 section renderers, SidebarNav, StudyGuideReader, AP Psych Unit 1 fixture JSON
 - 2026-03-24: Phase 3 Plan 02 complete — MCQ UnitSelector, MCQSession, MCQResults, practice page orchestrator
 - 2026-03-24: Phase 3 Plan 01 complete — mcqSession.ts types + TDD tests, StimulusRenderer (5 types), MCQCard with scramble + feedback
@@ -46,10 +44,9 @@ Plan: 04-02 complete — Phase 4 fully done
 
 **Context for next session:**
 
-- Phase 4 fully complete (study guide: types, InlineKatex, 5 section components, SidebarNav, StudyGuideReader, UnitSelector, page orchestrator)
-- Stopped at: Completed 04-02-PLAN.md — full study guide feature complete, ready for Phase 5 (Practice Test Interface)
+- Phase 4 Plan 01 complete (study guide: types, InlineKatex, 5 section components, SidebarNav, StudyGuideReader)
+- Stopped at: Completed 04-01-PLAN.md — study guide reader built, ready for Plan 02 (page orchestrator + unit nav)
 - Config: YOLO mode, parallel execution, balanced model profile
-- Decisions: HEAD fetch per unit for study guide availability — avoids loading full JSON during selector render
 
 ## Codebase Map
 
@@ -69,7 +66,7 @@ See: `.planning/codebase/` (7 documents, written 2026-03-23)
 |-------|-------|--------|
 | 2 | 02-01-PLAN.md, 02-02-PLAN.md | Both complete (summaries written) |
 | 3 | 03-01-PLAN.md, 03-02-PLAN.md | Both complete (summaries written) |
-| 4 | 04-01-PLAN.md, 04-02-PLAN.md | Both complete (summaries written) |
+| 4 | 04-01-PLAN.md, 04-02-PLAN.md | 04-01 complete, 04-02 pending |
 
 ## Todo Queue
 
