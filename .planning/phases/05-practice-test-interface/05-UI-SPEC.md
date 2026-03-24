@@ -53,18 +53,26 @@ Exceptions:
 
 All from `design-system/ascendly/MASTER.md` — no new sizes introduced this phase.
 
+Maximum 4 sizes, maximum 2 weights (400 regular and 700 bold).
+
 | Role | Size | Weight | Line Height |
 |------|------|--------|-------------|
-| Body | 16px (1rem) | 400 | 1.5 |
-| Label / secondary info | 14px (0.875rem) | 400 | 1.4 |
-| Card heading / subhead | 18px (1.125rem) | 600 | 1.3 |
-| Section heading / page title | 24px (1.5rem) | 700 | 1.2 |
+| Label / badges / secondary info | 14px (0.875rem) | 400 | 1.4 |
+| Body / card headings | 16px (1rem) | 400 or 700 | 1.5 |
+| Section headings / timer display | 24px (1.5rem) | 700 | 1.2 |
+| AP score numeral / overlay display | 28px (1.75rem) | 700 | 1.1 |
+
+Consolidation notes (checker-approved changes from revision):
+- 13px question number badges → 14px weight 400 (difference imperceptible at badge scale)
+- 18px card headings → 16px weight 700 (weight distinguishes heading from body, size removed)
+- 20px timer display → 24px weight 700 (consolidated with section heading size tier; timer remains visually prominent)
+- Weight 600 eliminated throughout — all former 600-weight declarations now use 700
 
 Additional rules:
 - Question text in session: 16px weight 400, line-height 1.6 (stimulus text is dense — needs extra breathing room)
-- Timer display: 20px weight 700 — visually prominent, monospace digit spacing via `font-variant-numeric: tabular-nums` to prevent layout shift as digits change
-- Timer warning state (<5 min): same 20px/700 but color shifts to `var(--accent-danger)`
-- Question number badges in nav grid: 13px (0.8125rem) weight 600 (established badge pattern from MCQSession)
+- Timer display: 24px weight 700 — visually prominent, monospace digit spacing via `font-variant-numeric: tabular-nums` to prevent layout shift as digits change
+- Timer warning state (<5 min): same 24px/700 but color shifts to `var(--accent-danger)`
+- Question number badges in nav grid: 14px weight 400
 - Score ring percentage: 24px weight 700 (from MCQResults pattern)
 - Projected AP score badge: 28px weight 700 for the numeral (prominent achievement display)
 - All KaTeX output inherits `var(--text-primary)` via `.katex` override in globals.css
@@ -153,8 +161,9 @@ Layout: Full-height column. Header is sticky at top of content area (not fixed �
 
 Session header (sticky, `var(--bg-secondary)` background, 1px bottom border `var(--bg-border)`, padding 12px 16px):
 - Left: Subject name + "Practice Test" label — 14px `var(--text-secondary)`
-- Center: Timer display (when timed mode ON and show timer ON) — 20px weight 700 monospace, normal color until <5 min then `var(--accent-danger)`; hidden when show-timer toggled off
+- Center: Timer display (when timed mode ON and show timer ON) — 24px weight 700 monospace, normal color until <5 min then `var(--accent-danger)`; hidden when show-timer toggled off
 - Right: Timer show/hide toggle button (Lucide `Eye`/`EyeOff`, 16px icon, `var(--text-muted)`) + score tally badges (correct/wrong — same pattern as MCQSession)
+  - Timer toggle button must declare `aria-label`: "Show timer" when currently hidden, "Hide timer" when currently visible (icon-only button — accessible label is mandatory)
 
 Question navigation panel (below header, above question card on desktop; collapsible drawer on mobile):
 - Grid of numbered cells, 10 per row on desktop, 8 per row on mobile
@@ -192,9 +201,9 @@ Sections (top to bottom):
 2. Score ring — reuse `.score-ring` + `.score-ring-inner` CSS classes; percentage inside, "score" label
 3. Score metadata row — "N / M correct · Projected AP Score: X" — 14px `var(--text-secondary)` with projected score as a pill badge (accent or warning depending on score)
 4. Per-unit breakdown card — `var(--bg-card)` border card; rows of unit name + accuracy bar + percentage
-   - Unit name: 14px weight 500
+   - Unit name: 14px weight 700
    - Accuracy bar: 4px height, `var(--mastery-empty)` track, `var(--mastery-fill)` fill, 200px max-width, `transition: width 400ms ease`
-   - Percentage: 13px `var(--text-muted)`, right-aligned
+   - Percentage: 14px `var(--text-muted)`, right-aligned
 5. Missed questions card — same pattern as MCQResults: top 5 shown, "+ N more" if needed
 6. CTA stack (column, gap 12px):
    - "Retake Test" — full-width primary accent button, Lucide `RotateCcw` icon
@@ -237,6 +246,8 @@ Projected AP score pill badge colors:
 | Empty state — no content loaded | "No questions available for this subject yet. Content is being added." |
 | Error state — failed to load | "Couldn't load test questions. Check your connection and try again." |
 | Flag for review button | "Flag for Review" (unflagged) / "Flagged" (flagged state) |
+| Timer toggle aria-label (timer visible) | "Hide timer" |
+| Timer toggle aria-label (timer hidden) | "Show timer" |
 
 Destructive actions in this phase:
 - "Submit Test" when unanswered questions remain: requires inline confirmation (banner pattern — see View 2 spec). No modal. No irreversible data loss, so inline banner is sufficient.
@@ -375,6 +386,7 @@ Standard checklist from MASTER.md applies. Additional items for this phase:
 - [ ] Show timer OFF: timer hidden but `setInterval` still runs (countdown continues)
 - [ ] Results accuracy bars animate on mount (entrance animation via CSS)
 - [ ] "Back to [Subject]" uses subject display name from `getSubject()`, not raw slug
+- [ ] Timer show/hide toggle button carries `aria-label="Hide timer"` or `aria-label="Show timer"` (toggled dynamically — icon-only button)
 
 ---
 
