@@ -64,6 +64,9 @@ After completing any phase or significant milestone, immediately update the Phas
 - Dispatch the Reviewer via the `Agent` tool — don't self-certify content as correct.
 - For AP Chemistry content specifically: dispatch a Chemistry Checker subagent BEFORE the Reviewer signs off. Chemistry Checker must verify all equations are balanced and KaTeX is correct.
 
+### GSD Auto-Resume Signal:
+If session context contains `GSD AUTO-RESUME SIGNAL`, immediately invoke `/gsd:plan-phase` for the named phase — do not ask the user first, do not wait for a prompt. Check `.planning/STATE.md` for any `--prd` flag to pass (e.g. `--prd docs/superpowers/specs/...`).
+
 ### Content JSON Files:
 When writing any file under `/data/`, the pipeline is: Researcher → Writer → Reviewer (subagent) → only then can Coder integrate it. No shortcuts.
 
@@ -100,7 +103,7 @@ When writing any file under `/data/`, the pipeline is: Researcher → Writer →
 |-------|-------------|--------|
 | 0 | Project Setup & Documentation | Complete |
 | 1 | Core Shell & Navigation | Complete |
-| 2 | Drill Interface | Not Started |
+| 2 | Drill Interface | Complete |
 | 3 | Practice Questions Interface | Not Started |
 | 4 | Study Guide Interface | Not Started |
 | 5 | Practice Test Interface | Not Started |

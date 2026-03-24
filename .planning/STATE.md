@@ -14,13 +14,14 @@ See: `.planning/PROJECT.md` (updated 2026-03-23)
 ## Current Position
 
 **Phase 1** ✅ Complete — Core Shell & Navigation
-**Phase 2** 🔄 In Progress — Drill Interface ← **CURRENT** (Plan 01 of N complete)
+**Phase 2** 🔄 In Progress — Drill Interface ← **CURRENT** (Plan 02 of N complete)
 
 Phase 2 has a written spec: `docs/superpowers/specs/2026-03-23-phase2-drill-interface-design.md`
 Use `--prd` flag when planning: `/gsd:plan-phase 2 --prd docs/superpowers/specs/2026-03-23-phase2-drill-interface-design.md`
 
 ## Recent Activity
 
+- 2026-03-24: Phase 2 Plan 02 complete — UnitSelector.tsx, DrillResults.tsx, page orchestrator, score-ring CSS
 - 2026-03-24: Phase 2 Plan 01 complete — drillSession.ts, DrillCard.tsx, DrillSession.tsx, fixture JSON, 7 TDD tests
 - 2026-03-23: GSD initialized (brownfield — Phase 1 already complete)
 - 2026-03-23: Codebase mapped → `.planning/codebase/` (7 documents)
@@ -30,8 +31,8 @@ Use `--prd` flag when planning: `/gsd:plan-phase 2 --prd docs/superpowers/specs/
 ## Session Continuity
 
 **Context for next session:**
-- Phase 2 Plan 01 complete (foundation layer)
-- Stopped at: Phase 2 Plan 01 complete — ready for Plan 02 (UnitSelector, DrillResults, page wiring)
+- Phase 2 Plan 02 complete (outer shell: UnitSelector, DrillResults, page orchestrator)
+- Stopped at: Phase 2 Plan 02 complete — drill interface fully wired; ready for next phase planning
 - Config: YOLO mode, parallel execution, balanced model profile
 
 ## Codebase Map
@@ -63,7 +64,7 @@ See: `.planning/codebase/` (7 documents, written 2026-03-23)
 | Phase | Status | Plan | Summary |
 |-------|--------|------|---------|
 | 1 | ✅ Complete | — | Core shell built |
-| 2 | 🔄 In Progress | Plan 01 complete | Foundation: session logic, DrillCard, DrillSession |
+| 2 | ✅ Complete | Plans 01–02 complete | Full drill interface: session logic, UI components, page orchestrator |
 | 3 | 🔲 Pending | — | — |
 | 4 | 🔲 Pending | — | — |
 | 5 | 🔲 Pending | — | — |
@@ -85,6 +86,10 @@ See: `.planning/codebase/` (7 documents, written 2026-03-23)
 | 2026-03-23 | Balanced model profile | Opus for planning, Sonnet for execution |
 | 2026-03-24 | answersRef pattern in DrillSession | Prevents stale closure when handleNext fires after last card |
 | 2026-03-24 | color-mix() for feedback backgrounds | Avoids hardcoded rgba hex — uses CSS custom properties with opacity |
+| 2026-03-24 | Promise.allSettled for unit JSON fetch | Allows partial success — 404s silently become null, no throws |
+| 2026-03-24 | completedRef guard in DrillResults | Prevents double-fire of handleSessionComplete under React strict mode |
+| 2026-03-24 | --score-deg CSS custom property on score-ring | Drives conic-gradient fill without JS animation |
+| 2026-03-24 | React use() for params in drills page | Next.js 15+ client pages receive params as Promise |
 
 ---
 *State initialized: 2026-03-23*
