@@ -122,7 +122,7 @@ When writing any file under `/data/`, the pipeline is: Researcher → Writer →
 | 1 | Core Shell & Navigation | Complete |
 | 2 | Drill Interface | Complete |
 | 3 | Practice Questions Interface | Complete |
-| 4 | Study Guide Interface | Not Started |
+| 4 | Study Guide Interface | Complete |
 | 5 | Practice Test Interface | Not Started |
 | 6 | AP Psychology Content | Not Started |
 | 7 | AP World History Content | Not Started |
