@@ -1,26 +1,38 @@
+---
+gsd_state_version: 1.0
+milestone: v1.0
+milestone_name: milestone
+current_phase: 03
+status: Ready to execute
+last_updated: "2026-03-24T14:44:50.349Z"
+progress:
+  total_phases: 14
+  completed_phases: 0
+  total_plans: 5
+  completed_plans: 3
+---
+
 # Project State
 
 **Project:** Ascendly
 **Last Updated:** 2026-03-24
-**Current Phase:** Phase 2 — Drill Interface (In Progress)
+**Current Phase:** 03
 
 ## Project Reference
 
 See: `.planning/PROJECT.md` (updated 2026-03-23)
 
 **Core value:** Zero friction to practice — open and learn immediately, no barriers.
-**Current focus:** Phase 2 — Drill Interface
+**Current focus:** Phase 03 — practice-questions-interface
 
 ## Current Position
 
-**Phase 1** ✅ Complete — Core Shell & Navigation
-**Phase 2** 🔄 In Progress — Drill Interface ← **CURRENT** (Plan 02 of N complete)
-
-Phase 2 has a written spec: `docs/superpowers/specs/2026-03-23-phase2-drill-interface-design.md`
-Use `--prd` flag when planning: `/gsd:plan-phase 2 --prd docs/superpowers/specs/2026-03-23-phase2-drill-interface-design.md`
+Phase: 03 (practice-questions-interface) — EXECUTING
+Plan: 2 of 2
 
 ## Recent Activity
 
+- 2026-03-24: Phase 3 Plan 01 complete — mcqSession.ts types + TDD tests, StimulusRenderer (5 types), MCQCard with scramble + feedback
 - 2026-03-24: Phase 2 Plan 02 complete — UnitSelector.tsx, DrillResults.tsx, page orchestrator, score-ring CSS
 - 2026-03-24: Phase 2 Plan 01 complete — drillSession.ts, DrillCard.tsx, DrillSession.tsx, fixture JSON, 7 TDD tests
 - 2026-03-23: GSD initialized (brownfield — Phase 1 already complete)
@@ -31,13 +43,15 @@ Use `--prd` flag when planning: `/gsd:plan-phase 2 --prd docs/superpowers/specs/
 ## Session Continuity
 
 **Context for next session:**
-- Phase 2 Plan 02 complete (outer shell: UnitSelector, DrillResults, page orchestrator)
-- Stopped at: Phase 2 Plan 02 complete — drill interface fully wired; ready for next phase planning
+
+- Phase 3 Plan 01 complete (MCQ foundation: mcqSession.ts types + TDD, StimulusRenderer, MCQCard)
+- Stopped at: Phase 3 Plan 01 complete — MCQ session foundation built; ready for Plan 02 page orchestrator
 - Config: YOLO mode, parallel execution, balanced model profile
 
 ## Codebase Map
 
 See: `.planning/codebase/` (7 documents, written 2026-03-23)
+
 - STACK.md — Next.js 16, React 19, Tailwind v4, KaTeX, Chart.js, Supabase
 - ARCHITECTURE.md — App Router hierarchy, server/client boundaries, data flow
 - STRUCTURE.md — Full directory tree with component inventory
@@ -49,11 +63,13 @@ See: `.planning/codebase/` (7 documents, written 2026-03-23)
 ## Key Concerns (from CONCERNS.md)
 
 **HIGH:**
+
 - Stub pages show placeholder text — must be replaced before any deployment
 - No CI/CD pipeline — tests only run manually
 - No content JSON files yet — all content phases ahead
 
 **MEDIUM:**
+
 - scoring.ts is a placeholder — calibration deferred to Phase 13
 - KaTeX/Chart.js bundle weight not evaluated
 - drills/page.tsx uses non-async params (fix in Phase 2)
@@ -65,7 +81,7 @@ See: `.planning/codebase/` (7 documents, written 2026-03-23)
 |-------|--------|------|---------|
 | 1 | ✅ Complete | — | Core shell built |
 | 2 | ✅ Complete | Plans 01–02 complete | Full drill interface: session logic, UI components, page orchestrator |
-| 3 | 🔲 Pending | — | — |
+| 3 | 🔄 In Progress | Plan 01 complete | MCQ session foundation: types, session logic, StimulusRenderer, MCQCard |
 | 4 | 🔲 Pending | — | — |
 | 5 | 🔲 Pending | — | — |
 | 6–12 | 🔲 Pending | — | Content phases |
@@ -90,6 +106,8 @@ See: `.planning/codebase/` (7 documents, written 2026-03-23)
 | 2026-03-24 | completedRef guard in DrillResults | Prevents double-fire of handleSessionComplete under React strict mode |
 | 2026-03-24 | --score-deg CSS custom property on score-ring | Drives conic-gradient fill without JS animation |
 | 2026-03-24 | React use() for params in drills page | Next.js 15+ client pages receive params as Promise |
+| 2026-03-24 | MCQAnswer stores selectedChoiceId not displayLabel | Correctness via is_correct, not positional label comparison |
+| 2026-03-24 | pointerEvents none on MCQCard choices after submit | Prevents re-selection without per-choice disabled state overhead |
 
 ---
 *State initialized: 2026-03-23*

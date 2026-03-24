@@ -31,13 +31,13 @@
 ### Practice Questions Interface (Phase 3)
 
 - [ ] **MCQ-01**: Student can select a unit and start a MCQ session
-- [ ] **MCQ-02**: MCQ displays stimulus content (text, Chart.js graph, HTML table, pseudocode)
-- [ ] **MCQ-03**: 4 answer choices displayed; scrambled at render time (utils/scramble.ts)
-- [ ] **MCQ-04**: Submit answer → immediate feedback (correct/incorrect + explanation for all choices)
-- [ ] **MCQ-05**: Per-choice explanations shown: correct answer explanation + each distractor explanation
+- [x] **MCQ-02**: MCQ displays stimulus content (text, Chart.js graph, HTML table, pseudocode)
+- [x] **MCQ-03**: 4 answer choices displayed; scrambled at render time (utils/scramble.ts)
+- [x] **MCQ-04**: Submit answer → immediate feedback (correct/incorrect + explanation for all choices)
+- [x] **MCQ-05**: Per-choice explanations shown: correct answer explanation + each distractor explanation
 - [ ] **MCQ-06**: Results screen with score and unit mastery update
-- [ ] **MCQ-07**: MCQ mastery written to localStorage (mcqAccuracy update)
-- [ ] **MCQ-08**: Supabase mcq_complete event logged
+- [x] **MCQ-07**: MCQ mastery written to localStorage (mcqAccuracy update)
+- [x] **MCQ-08**: Supabase mcq_complete event logged
 
 ### Study Guide Interface (Phase 4)
 

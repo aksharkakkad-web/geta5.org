@@ -73,7 +73,7 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 03-01-PLAN.md — MCQ types, session logic with tests, StimulusRenderer, MCQCard
+- [x] 03-01-PLAN.md — MCQ types, session logic with tests, StimulusRenderer, MCQCard
 - [ ] 03-02-PLAN.md — UnitSelector, MCQSession, MCQResults, page orchestrator
 
 ### Phase 4: Study Guide Interface
@@ -232,7 +232,7 @@ Plans:
 |-------|----------------|--------|-----------|
 | 1. Core Shell & Navigation | 1/1 | Complete | 2026-03-22 |
 | 2. Drill Interface | 0/3 | Not started | - |
-| 3. Practice Questions Interface | 0/2 | Not started | - |
+| 3. Practice Questions Interface | 1/2 | In Progress|  |
 | 4. Study Guide Interface | 0/1 | Not started | - |
 | 5. Practice Test Interface | 0/1 | Not started | - |
 | 6. AP Psychology Content | 0/2 | Not started | - |
