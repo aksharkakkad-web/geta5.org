@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 current_phase: 4
-status: Ready to plan
-last_updated: "2026-03-24T15:42:01.234Z"
+status: In progress
+last_updated: "2026-03-24T19:04:27Z"
 progress:
   total_phases: 14
   completed_phases: 1
-  total_plans: 5
-  completed_plans: 4
+  total_plans: 6
+  completed_plans: 5
 ---
 
 # Project State
@@ -23,15 +23,16 @@ progress:
 See: `.planning/PROJECT.md` (updated 2026-03-23)
 
 **Core value:** Zero friction to practice — open and learn immediately, no barriers.
-**Current focus:** Phase 03 — practice-questions-interface
+**Current focus:** Phase 04 — study-guide-interface
 
 ## Current Position
 
-Phase: 03 (practice-questions-interface) — COMPLETE (ready for verification)
-Plan: Not started
+Phase: 04 (study-guide-interface) — Plan 01 complete, Plan 02 pending
+Plan: 04-01 complete
 
 ## Recent Activity
 
+- 2026-03-24: Phase 4 Plan 01 complete — StudyGuide types, InlineKatex, 5 section renderers, SidebarNav, StudyGuideReader, AP Psych Unit 1 fixture JSON
 - 2026-03-24: Phase 3 Plan 02 complete — MCQ UnitSelector, MCQSession, MCQResults, practice page orchestrator
 - 2026-03-24: Phase 3 Plan 01 complete — mcqSession.ts types + TDD tests, StimulusRenderer (5 types), MCQCard with scramble + feedback
 - 2026-03-24: Phase 2 Plan 02 complete — UnitSelector.tsx, DrillResults.tsx, page orchestrator, score-ring CSS
@@ -45,8 +46,8 @@ Plan: Not started
 
 **Context for next session:**
 
-- Phase 3 Plan 02 complete (MCQ interface: UnitSelector, MCQSession, MCQResults, practice page orchestrator)
-- Stopped at: Completed 03-02-PLAN.md — full MCQ interface built, ready for Phase 4
+- Phase 4 Plan 01 complete (study guide: types, InlineKatex, 5 section components, SidebarNav, StudyGuideReader)
+- Stopped at: Completed 04-01-PLAN.md — study guide reader built, ready for Plan 02 (page orchestrator + unit nav)
 - Config: YOLO mode, parallel execution, balanced model profile
 
 ## Codebase Map
@@ -83,7 +84,7 @@ See: `.planning/codebase/` (7 documents, written 2026-03-23)
 | 1 | ✅ Complete | — | Core shell built |
 | 2 | ✅ Complete | Plans 01–02 complete | Full drill interface: session logic, UI components, page orchestrator |
 | 3 | ✅ Complete | Plans 01–02 complete | Full MCQ interface: session types, StimulusRenderer, MCQCard, UnitSelector, MCQSession, MCQResults, page orchestrator |
-| 4 | 🔲 Pending | — | — |
+| 4 | 🔄 In Progress | Plan 01 complete | Study guide: types, InlineKatex, 5 section renderers, SidebarNav, StudyGuideReader |
 | 5 | 🔲 Pending | — | — |
 | 6–12 | 🔲 Pending | — | Content phases |
 | 13 | 🔲 Pending | — | — |
@@ -111,6 +112,8 @@ See: `.planning/codebase/` (7 documents, written 2026-03-23)
 | 2026-03-24 | pointerEvents none on MCQCard choices after submit | Prevents re-selection without per-choice disabled state overhead |
 | 2026-03-24 | answersRef pattern in MCQSession | Prevents stale closure when handleNext fires after last MCQ question |
 | 2026-03-24 | completedRef guard in MCQResults | Prevents double-fire of handleMCQSessionComplete under React strict mode |
+| 2026-03-24 | InlineKatex $...$ regex split | Same delimiter pattern as study guide schema; fast path for text without $ |
+| 2026-03-24 | StudyGuideReader activeSection init from visibleSections[0].key | Handles guides without formulas cleanly vs hardcoded 'theme' |
 
 ---
 *State initialized: 2026-03-23*
