@@ -74,7 +74,7 @@ Plans:
 
 Plans:
 - [x] 03-01-PLAN.md — MCQ types, session logic with tests, StimulusRenderer, MCQCard
-- [ ] 03-02-PLAN.md — UnitSelector, MCQSession, MCQResults, page orchestrator
+- [x] 03-02-PLAN.md — UnitSelector, MCQSession, MCQResults, page orchestrator
 
 ### Phase 4: Study Guide Interface
 **Goal**: A student can read a structured per-unit study guide with KaTeX-rendered formulas.
