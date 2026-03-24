@@ -124,3 +124,28 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .mastery-fill { transition: none; }
 }
+
+/* ─── Drill score ring ────────────────────────────────────── */
+.score-ring {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--accent) 0deg calc(var(--score-deg) * 1deg),
+    var(--mastery-empty, #2a2a2a) calc(var(--score-deg) * 1deg) 360deg
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.score-ring-inner {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
