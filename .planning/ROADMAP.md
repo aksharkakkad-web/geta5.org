@@ -70,11 +70,11 @@ Plans:
   3. Answer choices scrambled at render time; correct answer appears in all positions across renders
   4. All 4 choice explanations shown on submit
   5. mcqAccuracy updated in localStorage after session
-**Plans**: 3 plans
+**Plans**: 2 plans
 
 Plans:
-- [ ] 03-01: MCQ session page with stimulus rendering
-- [ ] 03-02: Choice scrambling, feedback, results screen
+- [ ] 03-01-PLAN.md — MCQ types, session logic with tests, StimulusRenderer, MCQCard
+- [ ] 03-02-PLAN.md — UnitSelector, MCQSession, MCQResults, page orchestrator
 
 ### Phase 4: Study Guide Interface
 **Goal**: A student can read a structured per-unit study guide with KaTeX-rendered formulas.
