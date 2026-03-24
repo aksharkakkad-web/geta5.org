@@ -1,8 +1,8 @@
 # Project State
 
 **Project:** Ascendly
-**Last Updated:** 2026-03-23
-**Current Phase:** Phase 2 — Drill Interface (Not Started)
+**Last Updated:** 2026-03-24
+**Current Phase:** Phase 2 — Drill Interface (In Progress)
 
 ## Project Reference
 
@@ -14,13 +14,14 @@ See: `.planning/PROJECT.md` (updated 2026-03-23)
 ## Current Position
 
 **Phase 1** ✅ Complete — Core Shell & Navigation
-**Phase 2** 🔲 Not Started — Drill Interface ← **NEXT**
+**Phase 2** 🔄 In Progress — Drill Interface ← **CURRENT** (Plan 01 of N complete)
 
 Phase 2 has a written spec: `docs/superpowers/specs/2026-03-23-phase2-drill-interface-design.md`
 Use `--prd` flag when planning: `/gsd:plan-phase 2 --prd docs/superpowers/specs/2026-03-23-phase2-drill-interface-design.md`
 
 ## Recent Activity
 
+- 2026-03-24: Phase 2 Plan 01 complete — drillSession.ts, DrillCard.tsx, DrillSession.tsx, fixture JSON, 7 TDD tests
 - 2026-03-23: GSD initialized (brownfield — Phase 1 already complete)
 - 2026-03-23: Codebase mapped → `.planning/codebase/` (7 documents)
 - 2026-03-23: PROJECT.md, REQUIREMENTS.md, ROADMAP.md, STATE.md created
@@ -29,9 +30,8 @@ Use `--prd` flag when planning: `/gsd:plan-phase 2 --prd docs/superpowers/specs/
 ## Session Continuity
 
 **Context for next session:**
-- GSD is now initialized — use `/gsd:progress` to resume
-- Next action: `/gsd:plan-phase 2 --prd docs/superpowers/specs/2026-03-23-phase2-drill-interface-design.md`
-- Phase 2 spec is complete — no need for `/gsd:discuss-phase 2`
+- Phase 2 Plan 01 complete (foundation layer)
+- Stopped at: Phase 2 Plan 01 complete — ready for Plan 02 (UnitSelector, DrillResults, page wiring)
 - Config: YOLO mode, parallel execution, balanced model profile
 
 ## Codebase Map
@@ -63,7 +63,7 @@ See: `.planning/codebase/` (7 documents, written 2026-03-23)
 | Phase | Status | Plan | Summary |
 |-------|--------|------|---------|
 | 1 | ✅ Complete | — | Core shell built |
-| 2 | 🔲 Pending | — | — |
+| 2 | 🔄 In Progress | Plan 01 complete | Foundation: session logic, DrillCard, DrillSession |
 | 3 | 🔲 Pending | — | — |
 | 4 | 🔲 Pending | — | — |
 | 5 | 🔲 Pending | — | — |
@@ -83,6 +83,8 @@ See: `.planning/codebase/` (7 documents, written 2026-03-23)
 | 2026-03-22 | Supabase via server Route Handler | Keep anon key out of client bundle |
 | 2026-03-23 | GSD YOLO mode | User preference: autonomous execution |
 | 2026-03-23 | Balanced model profile | Opus for planning, Sonnet for execution |
+| 2026-03-24 | answersRef pattern in DrillSession | Prevents stale closure when handleNext fires after last card |
+| 2026-03-24 | color-mix() for feedback backgrounds | Avoids hardcoded rgba hex — uses CSS custom properties with opacity |
 
 ---
 *State initialized: 2026-03-23*
