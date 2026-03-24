@@ -13,10 +13,10 @@ export default function HomePage() {
 
   return (
     <div style={{
-      maxWidth: '48rem',
+      maxWidth: '90rem',
       margin: '0 auto',
-      paddingLeft: '16px',
-      paddingRight: '16px',
+      paddingLeft: '24px',
+      paddingRight: '24px',
     }}>
       {/* Hero — compact */}
       <div style={{ paddingTop: '48px', paddingBottom: '16px' }}>

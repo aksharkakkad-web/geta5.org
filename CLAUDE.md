@@ -4,6 +4,20 @@
 Free AP exam prep web app. No signup, no accounts, localStorage only.
 URL: ascendly.vercel.app (planned)
 
+## Document Map — Where to Find What
+
+| What you need | Read this | Do NOT re-read |
+|---|---|---|
+| Project overview, tech stack, rules, phase status, decisions | `CLAUDE.md` (this file — auto-loaded) | — |
+| JSON data schemas, agent role details + reading lists, handoff format, SEO | `docs/PRD.md` | CLAUDE.md sections it duplicates |
+| UI design tokens, component specs, colors, typography, pre-delivery checklist | `design-system/ascendly/MASTER.md` | — |
+| Current phase position, session continuity, codebase map index | `.planning/STATE.md` | Phase status (canonical in CLAUDE.md) |
+| Per-phase requirements checklist, out-of-scope items | `.planning/PROJECT.md` | Context/constraints (in CLAUDE.md) |
+| Phase research, plans, summaries, verification | `.planning/phases/[NN]-[name]/` | — |
+| Codebase structure, conventions, testing, integrations, concerns | `.planning/codebase/*.md` | — |
+
+**Rule:** Read only what your role's reading list specifies (see `docs/PRD.md` → role sections). Do not speculatively read documents outside your reading list.
+
 ## Tech Stack
 - Framework: Next.js 14, App Router, TypeScript
 - Styling: **Tailwind CSS v4** + CSS custom properties (dark theme)
@@ -17,16 +31,19 @@ URL: ascendly.vercel.app (planned)
 - Deployment: Vercel
 
 ## Folder Structure
-/app           → Next.js App Router pages
-/components    → Reusable React components
-/data          → JSON content files + schemas
-/utils         → localStorage, scoring, streak, fuzzyMatch, scramble, analytics
-/lib           → Supabase client
-/styles        → globals.css with CSS custom properties
-/docs          → PRD.md, research docs, plans
+/app            → Next.js App Router pages
+/components     → Reusable React components
+/public/data    → JSON content files (drills, MCQs, study guides)
+/data           → JSON schemas
+/utils          → localStorage, scoring, streak, fuzzyMatch, scramble, analytics
+/lib            → Supabase client
+/styles         → globals.css with CSS custom properties
+/docs           → PRD.md (agent specs + data schemas)
+/.planning      → GSD state, roadmap, phase plans, codebase map
+/design-system  → MASTER.md (UI tokens + component specs)
 
 ## Design System
-`design-system/ascendly/MASTER.md` is the canonical UI source of truth. Read it before building any component or page. For page-specific overrides check `design-system/ascendly/pages/[page].md` first.
+`design-system/ascendly/MASTER.md` is the canonical UI source of truth. Read it before building any UI component or page. Skip for content JSON generation (phases 6–12). For page-specific overrides check `design-system/ascendly/pages/[page].md` first.
 
 ## Agent Teams
 ### Coding Pipeline (enforce for every implementation task)
@@ -42,7 +59,7 @@ URL: ascendly.vercel.app (planned)
 - Writer outputs valid JSON matching `/data/schemas/*.schema.json`
 - Reviewer verifies accuracy, curriculum alignment, KaTeX, correct answers
 
-Full handoff format and communication standards in `docs/PRD.md` → `agent_team_communication`.
+Full handoff format, role details, and data schemas in `docs/PRD.md`.
 
 ## Workflow Enforcement (Non-Negotiable)
 
@@ -65,7 +82,7 @@ After completing any phase or significant milestone, immediately update the Phas
 - For AP Chemistry content specifically: dispatch a Chemistry Checker subagent BEFORE the Reviewer signs off. Chemistry Checker must verify all equations are balanced and KaTeX is correct.
 
 ### GSD Auto-Resume Signal:
-If session context contains `GSD AUTO-RESUME SIGNAL`, immediately invoke `/gsd:plan-phase` for the named phase — do not ask the user first, do not wait for a prompt. Check `.planning/STATE.md` for any `--prd` flag to pass (e.g. `--prd docs/superpowers/specs/...`).
+If session context contains `GSD AUTO-RESUME SIGNAL`, immediately invoke `/gsd:plan-phase` for the named phase — do not ask the user first, do not wait for a prompt. Check `.planning/STATE.md` for any `--prd` flag to pass.
 
 ### Content JSON Files:
 When writing any file under `/data/`, the pipeline is: Researcher → Writer → Reviewer (subagent) → only then can Coder integrate it. No shortcuts.
@@ -104,7 +121,7 @@ When writing any file under `/data/`, the pipeline is: Researcher → Writer →
 | 0 | Project Setup & Documentation | Complete |
 | 1 | Core Shell & Navigation | Complete |
 | 2 | Drill Interface | Complete |
-| 3 | Practice Questions Interface | Not Started |
+| 3 | Practice Questions Interface | Complete |
 | 4 | Study Guide Interface | Not Started |
 | 5 | Practice Test Interface | Not Started |
 | 6 | AP Psychology Content | Not Started |
@@ -139,3 +156,14 @@ Table: `events`
 ## Decisions Log
 - 2026-03-22: Using Tailwind v4 (no tailwind.config.ts — configuration via @theme in globals.css)
 - 2026-03-22: Supabase credentials to be added in Task 6 (deferred — user action required)
+- 2026-03-22: Supabase via server Route Handler — keep anon key out of client bundle
+- 2026-03-23: GSD YOLO mode — user preference: autonomous execution
+- 2026-03-23: Balanced model profile — Opus for planning, Sonnet for execution
+- 2026-03-24: answersRef pattern in DrillSession/MCQSession — prevents stale closure when handleNext fires after last card
+- 2026-03-24: color-mix() for feedback backgrounds — avoids hardcoded rgba, uses CSS custom properties with opacity
+- 2026-03-24: Promise.allSettled for unit JSON fetch — allows partial success, 404s silently become null
+- 2026-03-24: completedRef guard in DrillResults/MCQResults — prevents double-fire under React strict mode
+- 2026-03-24: --score-deg CSS custom property on score-ring — drives conic-gradient fill without JS animation
+- 2026-03-24: React use() for params in drills page — Next.js 15+ client pages receive params as Promise
+- 2026-03-24: MCQAnswer stores selectedChoiceId not displayLabel — correctness via is_correct flag, not positional label
+- 2026-03-24: pointerEvents none on MCQCard choices after submit — prevents re-selection without per-choice disabled overhead

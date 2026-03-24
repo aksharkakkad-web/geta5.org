@@ -41,8 +41,8 @@
 
 ### Study Guide Interface (Phase 4)
 
-- [ ] **GUIDE-01**: Study guide per unit: theme → core concepts → key terms → formulas → exam tip
-- [ ] **GUIDE-02**: KaTeX rendering for all formulas
+- [x] **GUIDE-01**: Study guide per unit: theme → core concepts → key terms → formulas → exam tip
+- [x] **GUIDE-02**: KaTeX rendering for all formulas
 - [ ] **GUIDE-03**: Unit selector navigation within subject
 - [ ] **GUIDE-04**: Supabase study_guide_view event logged
 

@@ -78,10 +78,10 @@ export default async function SubjectPage({ params }: SubjectPageProps) {
 
   return (
     <div style={{
-      maxWidth: '48rem',
+      maxWidth: '90rem',
       margin: '0 auto',
-      paddingLeft: '16px',
-      paddingRight: '16px',
+      paddingLeft: '24px',
+      paddingRight: '24px',
       paddingTop: '40px',
       paddingBottom: '64px',
     }}>

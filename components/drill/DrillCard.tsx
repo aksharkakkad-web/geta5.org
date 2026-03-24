@@ -104,11 +104,11 @@ export default function DrillCard({ card, onAnswer, onNext }: DrillCardProps) {
     <div
       className="mx-auto w-full"
       style={{
-        maxWidth: '560px',
+        maxWidth: '880px',
         background: 'var(--bg-card)',
-        borderRadius: 'var(--radius-lg)',
+        borderRadius: 'var(--radius-xl)',
         border: `1px solid ${cardBorder}`,
-        padding: '24px',
+        padding: '52px 64px',
         transition: 'border-color 200ms ease',
       }}
     >
@@ -120,7 +120,7 @@ export default function DrillCard({ card, onAnswer, onNext }: DrillCardProps) {
           fontWeight: 500,
           textTransform: 'uppercase',
           letterSpacing: '0.08em',
-          marginBottom: '16px',
+          marginBottom: '20px',
         }}
       >
         {MODE_LABELS[card.mode]}
@@ -129,10 +129,11 @@ export default function DrillCard({ card, onAnswer, onNext }: DrillCardProps) {
       {/* Prompt */}
       <div
         style={{
-          fontSize: '1.125rem',
-          lineHeight: '1.6',
+          fontSize: '1.5rem',
+          lineHeight: '1.65',
           color: 'var(--text-primary)',
-          marginBottom: '24px',
+          marginBottom: '40px',
+          fontWeight: 500,
         }}
       >
         {parseInlineMath(card.prompt)}
@@ -140,7 +141,7 @@ export default function DrillCard({ card, onAnswer, onNext }: DrillCardProps) {
 
       {/* Input */}
       {verdict === null && (
-        <div style={{ marginBottom: '16px' }}>
+        <div style={{ marginBottom: '20px' }}>
           <input
             type="text"
             value={inputValue}
@@ -154,8 +155,8 @@ export default function DrillCard({ card, onAnswer, onNext }: DrillCardProps) {
               border: 'none',
               borderBottom: `2px solid ${inputBorder}`,
               borderRadius: 0,
-              padding: '8px 0',
-              fontSize: '1rem',
+              padding: '12px 0',
+              fontSize: '1.25rem',
               color: 'var(--text-primary)',
               outline: 'none',
               transition: 'border-color 150ms ease',
@@ -171,7 +172,7 @@ export default function DrillCard({ card, onAnswer, onNext }: DrillCardProps) {
           disabled={isSubmitDisabled}
           style={{
             width: '100%',
-            padding: '10px 20px',
+            padding: '13px 20px',
             borderRadius: 'var(--radius-md)',
             border: 'none',
             background: isSubmitDisabled ? 'var(--bg-border)' : 'var(--accent)',
@@ -286,7 +287,7 @@ export default function DrillCard({ card, onAnswer, onNext }: DrillCardProps) {
           onClick={onNext}
           style={{
             width: '100%',
-            padding: '10px 20px',
+            padding: '13px 20px',
             borderRadius: 'var(--radius-md)',
             border: 'none',
             background: verdict === 'correct' ? 'var(--accent-success)' : 'var(--accent-danger)',

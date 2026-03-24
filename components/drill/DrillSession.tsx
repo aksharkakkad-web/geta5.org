@@ -66,7 +66,7 @@ export default function DrillSession({ session, subject, onComplete }: DrillSess
   const progressPercent = (currentIndex / totalCards) * 100
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: 'calc(100dvh - 120px)' }}>
       {/* Session header */}
       <div
         style={{
@@ -175,12 +175,21 @@ export default function DrillSession({ session, subject, onComplete }: DrillSess
         </div>
       </div>
 
-      {/* Card area */}
-      <DrillCard
-        card={currentCard}
-        onAnswer={handleAnswer}
-        onNext={handleNext}
-      />
+      {/* Card area — fills remaining height, card centered within it */}
+      <div style={{
+        flex: 1,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingTop: '24px',
+        paddingBottom: '24px',
+      }}>
+        <DrillCard
+          card={currentCard}
+          onAnswer={handleAnswer}
+          onNext={handleNext}
+        />
+      </div>
     </div>
   )
 }

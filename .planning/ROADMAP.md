@@ -235,7 +235,7 @@ Plans:
 | 1. Core Shell & Navigation | 1/1 | Complete | 2026-03-22 |
 | 2. Drill Interface | 0/3 | Not started | - |
 | 3. Practice Questions Interface | 2/2 | Complete | 2026-03-24 |
-| 4. Study Guide Interface | 0/2 | Planned | - |
+| 4. Study Guide Interface | 0/2 | Planned    |  |
 | 5. Practice Test Interface | 0/1 | Not started | - |
 | 6. AP Psychology Content | 0/2 | Not started | - |
 | 7. AP World History Content | 0/2 | Not started | - |

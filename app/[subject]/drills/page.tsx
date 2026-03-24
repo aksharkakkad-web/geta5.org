@@ -36,13 +36,24 @@ export default function DrillsPage({ params }: DrillsPageProps) {
     setView('unit-select')
   }
 
+  const isSession = view === 'session' && session
+
   return (
-    <main style={{ padding: '24px', maxWidth: '960px', margin: '0 auto' }}>
+    <main
+      style={{
+        padding: '24px',
+        maxWidth: isSession ? '100%' : '960px',
+        margin: '0 auto',
+        minHeight: isSession ? 'calc(100dvh - 64px)' : undefined,
+        display: isSession ? 'flex' : undefined,
+        flexDirection: isSession ? 'column' : undefined,
+      }}
+    >
       {view === 'unit-select' && (
         <UnitSelector subject={subject} onStart={handleStart} />
       )}
-      {view === 'session' && session && (
-        <DrillSession session={session} subject={subject} onComplete={handleComplete} />
+      {isSession && (
+        <DrillSession session={session!} subject={subject} onComplete={handleComplete} />
       )}
       {view === 'results' && session && (
         <DrillResults
