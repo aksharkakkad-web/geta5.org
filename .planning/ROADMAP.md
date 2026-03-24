@@ -77,17 +77,19 @@ Plans:
 - [x] 03-02-PLAN.md — UnitSelector, MCQSession, MCQResults, page orchestrator
 
 ### Phase 4: Study Guide Interface
-**Goal**: A student can read a structured per-unit study guide with KaTeX-rendered formulas.
+**Goal**: A student can read a structured per-unit study guide with sidebar navigation, KaTeX-rendered formulas, and section-by-section reading pane.
 **Depends on**: Phase 1
 **Requirements**: [GUIDE-01, GUIDE-02, GUIDE-03, GUIDE-04]
 **Success Criteria** (what must be TRUE):
-  1. Study guide renders theme → core concepts → key terms → formulas → exam tip structure
+  1. Study guide renders theme -> core concepts -> key terms -> formulas -> exam tip structure
   2. All formulas rendered via KaTeX (no plain text math)
   3. Unit selector allows switching between units within a subject
-**Plans**: 3 plans
+  4. Supabase study_guide_view event fires on unit load
+**Plans**: 2 plans
 
 Plans:
-- [ ] 04-01: Study guide page with unit navigation and KaTeX
+- [ ] 04-01-PLAN.md — Types, InlineKatex, section renderers, SidebarNav, StudyGuideReader, fixture JSON
+- [ ] 04-02-PLAN.md — StudyGuideUnitSelector, page orchestrator, analytics wiring
 
 ### Phase 5: Practice Test Interface
 **Goal**: A student can take a full-length timed practice test per subject and receive a score report with per-unit breakdown.
@@ -114,8 +116,8 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 06-01: AP Psychology Units 1-4 content (Researcher → Writer → Reviewer)
-- [ ] 06-02: AP Psychology Units 5-8 content (Researcher → Writer → Reviewer)
+- [ ] 06-01: AP Psychology Units 1-4 content (Researcher -> Writer -> Reviewer)
+- [ ] 06-02: AP Psychology Units 5-8 content (Researcher -> Writer -> Reviewer)
 
 ### Phase 7: AP World History Content
 **Goal**: Complete content for all 9 AP World History units.
@@ -232,8 +234,8 @@ Plans:
 |-------|----------------|--------|-----------|
 | 1. Core Shell & Navigation | 1/1 | Complete | 2026-03-22 |
 | 2. Drill Interface | 0/3 | Not started | - |
-| 3. Practice Questions Interface | 1/2 | In Progress|  |
-| 4. Study Guide Interface | 0/1 | Not started | - |
+| 3. Practice Questions Interface | 2/2 | Complete | 2026-03-24 |
+| 4. Study Guide Interface | 0/2 | Planned | - |
 | 5. Practice Test Interface | 0/1 | Not started | - |
 | 6. AP Psychology Content | 0/2 | Not started | - |
 | 7. AP World History Content | 0/2 | Not started | - |
