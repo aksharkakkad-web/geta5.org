@@ -112,15 +112,15 @@ export function SubjectCard({ name, slug }: SubjectCardProps) {
               fontWeight: 600,
               textTransform: 'uppercase',
               letterSpacing: '0.07em',
-              color: theme.accentColor,
-              background: `color-mix(in srgb, ${theme.accentColor} 15%, transparent)`,
-              border: `1px solid color-mix(in srgb, ${theme.accentColor} 30%, transparent)`,
+              color: 'var(--accent)',
+              background: 'color-mix(in srgb, var(--accent) 15%, transparent)',
+              border: '1px solid color-mix(in srgb, var(--accent) 30%, transparent)',
               borderRadius: '6px',
               padding: '3px 8px',
               zIndex: 1,
             }}
           >
-            {theme.tag}
+            AP
           </div>
         </div>
 
@@ -138,7 +138,7 @@ export function SubjectCard({ name, slug }: SubjectCardProps) {
           <span style={{
             fontSize: '0.8125rem',
             fontWeight: 500,
-            color: theme.accentColor,
+            color: 'var(--accent)',
           }}>
             Start Practicing →
           </span>
