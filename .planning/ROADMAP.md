@@ -238,7 +238,11 @@ Plans:
 | 2. Drill Interface | 0/3 | Not started | - |
 | 3. Practice Questions Interface | 2/2 | Complete | 2026-03-24 |
 | 4. Study Guide Interface | 1/2 | In Progress|  |
+<<<<<<< Updated upstream
 | 5. Practice Test Interface | 1/3 | In Progress|  |
+=======
+| 5. Practice Test Interface | 0/1 | Not started | - |
+>>>>>>> Stashed changes
 | 6. AP Psychology Content | 0/2 | Not started | - |
 | 7. AP World History Content | 0/2 | Not started | - |
 | 8. AP Government Content | 0/1 | Not started | - |
