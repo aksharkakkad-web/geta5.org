@@ -102,7 +102,7 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 05-01-PLAN.md — Test config constants + session logic with TDD (testConfig.ts, testSession.ts)
+- [x] 05-01-PLAN.md — Test config constants + session logic with TDD (testConfig.ts, testSession.ts)
 - [ ] 05-02-PLAN.md — UI components (TestSetup, TestTimer, TestNavGrid, TestSession, TestResults) + page orchestrator
 - [ ] 05-03-PLAN.md — Screenshot verification of all 3 views
 
@@ -238,7 +238,7 @@ Plans:
 | 2. Drill Interface | 0/3 | Not started | - |
 | 3. Practice Questions Interface | 2/2 | Complete | 2026-03-24 |
 | 4. Study Guide Interface | 1/2 | In Progress|  |
-| 5. Practice Test Interface | 0/3 | Not started | - |
+| 5. Practice Test Interface | 1/3 | In Progress|  |
 | 6. AP Psychology Content | 0/2 | Not started | - |
 | 7. AP World History Content | 0/2 | Not started | - |
 | 8. AP Government Content | 0/1 | Not started | - |
