@@ -48,11 +48,11 @@
 
 ### Practice Test Interface (Phase 5)
 
-- [ ] **TEST-01**: Full-length timed practice test per subject
-- [ ] **TEST-02**: Timer display with auto-submit on expiry
-- [ ] **TEST-03**: Score report with per-unit breakdown after submission
-- [ ] **TEST-04**: Test results written to localStorage
-- [ ] **TEST-05**: Supabase practice_test_complete event logged
+- [x] **TEST-01**: Full-length timed practice test per subject
+- [x] **TEST-02**: Timer display with auto-submit on expiry
+- [x] **TEST-03**: Score report with per-unit breakdown after submission
+- [x] **TEST-04**: Test results written to localStorage
+- [x] **TEST-05**: Supabase practice_test_complete event logged
 
 ### AP Psychology Content (Phase 6)
 
