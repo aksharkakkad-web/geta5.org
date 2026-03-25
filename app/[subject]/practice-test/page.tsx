@@ -41,7 +41,7 @@ export default function PracticeTestPage({ params }: PracticeTestPageProps) {
         fetch(`/data/${subject}/mcq/unit-${n}.json`)
           .then(res => {
             if (!res.ok) return null
-            return res.json() as Promise<MCQ[]>
+            return res.json().then((data: { questions: MCQ[] }) => data.questions)
           })
           .catch(() => null)
       )
