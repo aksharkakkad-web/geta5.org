@@ -11,9 +11,11 @@ URL: ascendly.vercel.app (planned)
 | Project overview, tech stack, rules, phase status, decisions | `CLAUDE.md` (this file — auto-loaded) | — |
 | JSON data schemas, agent role details + reading lists, handoff format, SEO | `docs/PRD.md` | CLAUDE.md sections it duplicates |
 | UI design tokens, component specs, colors, typography, pre-delivery checklist | `design-system/ascendly/MASTER.md` | — |
+| Content wave orchestration, quality gates, merge strategy | `.planning/CONTENT-WAVES.md` | — |
 | Current phase position, session continuity, codebase map index | `.planning/STATE.md` | Phase status (canonical in CLAUDE.md) |
 | Per-phase requirements checklist, out-of-scope items | `.planning/PROJECT.md` | Context/constraints (in CLAUDE.md) |
 | Phase research, plans, summaries, verification | `.planning/phases/[NN]-[name]/` | — |
+| Subject-specific context for content phases | `.planning/phases/[NN]-*/[NN]-CONTEXT.md` | — |
 | Codebase structure, conventions, testing, integrations, concerns | `.planning/codebase/*.md` | — |
 
 **Rule:** Read only what your role's reading list specifies (see `docs/PRD.md` → role sections). Do not speculatively read documents outside your reading list.
@@ -115,6 +117,27 @@ When writing any file under `/data/`, the pipeline is: Researcher → Writer →
 6. AP Computer Science Principles
 7. AP Chemistry
 
+## Content Wave Strategy (Phases 6–12)
+
+Phases 6–12 run as **parallel content generation** in two waves. Full orchestration details in `.planning/CONTENT-WAVES.md`.
+
+| Wave | Phases | Subjects | Special |
+|------|--------|----------|---------|
+| 1 | 6, 7, 8, 11 | Psychology, World History, Government, CSP | Text-heavy; CSP = pseudocode only |
+| 2 | 9, 10, 12 | Calculus AB, Precalculus, Chemistry | KaTeX-heavy; Chemistry = Chem Checker |
+
+**Each agent runs:** Researcher → Writer → Reviewer (Content) → Commit in worktree
+**Quality gates:** 10 gates (G1–G10) defined in CONTENT-WAVES.md — non-negotiable
+**Merge strategy:** Conflict-free (each subject writes to its own directory)
+
+### Content Agent Reading List
+1. `CLAUDE.md` — Critical Rules + Content Standards
+2. `docs/PRD.md` → `data_schemas` + `content_agent_team` sections
+3. `data/schemas/*.schema.json` — canonical JSON schemas
+4. `public/data/ap-psychology/` — reference fixtures (calibration)
+5. `.planning/CONTENT-WAVES.md` — orchestration + quality gates
+6. `.planning/phases/[NN]-*/[NN]-CONTEXT.md` — subject-specific details
+
 ## Phase Tracker
 | Phase | Description | Status |
 |-------|-------------|--------|
@@ -123,14 +146,17 @@ When writing any file under `/data/`, the pipeline is: Researcher → Writer →
 | 2 | Drill Interface | Complete |
 | 3 | Practice Questions Interface | Complete |
 | 4 | Study Guide Interface | Complete |
-| 5 | Practice Test Interface | Not Started |
+| 5 | Practice Test Interface | Complete |
+| **Wave 1** | | |
 | 6 | AP Psychology Content | Not Started |
 | 7 | AP World History Content | Not Started |
 | 8 | AP Government Content | Not Started |
+| 11 | AP CSP Content | Not Started |
+| **Wave 2** | | |
 | 9 | AP Calculus AB Content | Not Started |
 | 10 | AP Precalculus Content | Not Started |
-| 11 | AP CSP Content | Not Started |
 | 12 | AP Chemistry Content | Not Started |
+| **Post-Content** | | |
 | 13 | Retention Mechanics & Polish | Not Started |
 | 14 | Launch | Not Started |
 
@@ -167,3 +193,7 @@ Table: `events`
 - 2026-03-24: React use() for params in drills page — Next.js 15+ client pages receive params as Promise
 - 2026-03-24: MCQAnswer stores selectedChoiceId not displayLabel — correctness via is_correct flag, not positional label
 - 2026-03-24: pointerEvents none on MCQCard choices after submit — prevents re-selection without per-choice disabled overhead
+- 2026-03-25: Content phases 6–12 use parallel wave execution — Wave 1 (text-heavy: 6,7,8,11) then Wave 2 (math-heavy: 9,10,12) with gate check between waves
+- 2026-03-25: PRD.md data_schemas section rewritten to match actual schema files + fixture format (was stale — had wrong field names)
+- 2026-03-25: Each content agent runs in isolated git worktree, produces meta.json + all unit files, Reviewer validates all 10 quality gates before commit
+- 2026-03-25: ModeCard colorMap — cyan (#06b6d4) and green (#10b981) are intentional design-system extensions with no global token; indigo/amber reference var(--accent)/var(--accent-warning)
