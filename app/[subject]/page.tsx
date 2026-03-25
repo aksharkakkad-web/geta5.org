@@ -55,24 +55,28 @@ export default async function SubjectPage({ params }: SubjectPageProps) {
       description: 'Flashcards and term recall',
       Icon: BookOpen,
       href: `/${subject.slug}/drills`,
+      colorKey: 'indigo' as const,
     },
     {
       title: 'Practice Questions',
       description: 'MCQs with stimulus',
       Icon: ClipboardList,
       href: `/${subject.slug}/practice`,
+      colorKey: 'cyan' as const,
     },
     {
       title: 'Study Guide',
       description: 'Concepts, terms, formulas',
       Icon: BookMarked,
       href: `/${subject.slug}/study-guide`,
+      colorKey: 'green' as const,
     },
     {
       title: 'Practice Test',
       description: 'Full-length timed test',
       Icon: Trophy,
       href: `/${subject.slug}/practice-test`,
+      colorKey: 'amber' as const,
     },
   ]
 
@@ -125,6 +129,7 @@ export default async function SubjectPage({ params }: SubjectPageProps) {
             description={mode.description}
             Icon={mode.Icon}
             href={mode.href}
+            colorKey={mode.colorKey}
           />
         ))}
       </div>
