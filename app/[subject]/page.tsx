@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { BookOpen, ClipboardList, BookMarked, Trophy } from 'lucide-react'
 import { getSubject } from '@/utils/subjects'
 import { ModeCard } from '@/components/ui/ModeCard'
 import { UnitProgressGrid } from '@/components/ui/UnitProgressGrid'
@@ -53,28 +52,28 @@ export default async function SubjectPage({ params }: SubjectPageProps) {
     {
       title: 'Drills',
       description: 'Flashcards and term recall',
-      Icon: BookOpen,
+      iconName: 'drills' as const,
       href: `/${subject.slug}/drills`,
       colorKey: 'indigo' as const,
     },
     {
       title: 'Practice Questions',
       description: 'MCQs with stimulus',
-      Icon: ClipboardList,
+      iconName: 'practice' as const,
       href: `/${subject.slug}/practice`,
       colorKey: 'cyan' as const,
     },
     {
       title: 'Study Guide',
       description: 'Concepts, terms, formulas',
-      Icon: BookMarked,
+      iconName: 'study-guide' as const,
       href: `/${subject.slug}/study-guide`,
       colorKey: 'green' as const,
     },
     {
       title: 'Practice Test',
       description: 'Full-length timed test',
-      Icon: Trophy,
+      iconName: 'test' as const,
       href: `/${subject.slug}/practice-test`,
       colorKey: 'amber' as const,
     },
@@ -127,7 +126,7 @@ export default async function SubjectPage({ params }: SubjectPageProps) {
             key={mode.title}
             title={mode.title}
             description={mode.description}
-            Icon={mode.Icon}
+            iconName={mode.iconName}
             href={mode.href}
             colorKey={mode.colorKey}
           />

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import type { LucideIcon } from 'lucide-react'
+import { BookOpen, ClipboardList, BookMarked, Trophy } from 'lucide-react'
 
 const colorMap = {
   indigo: {
@@ -33,15 +33,25 @@ const colorMap = {
 
 type ColorKey = keyof typeof colorMap
 
+const iconMap = {
+  drills: BookOpen,
+  practice: ClipboardList,
+  'study-guide': BookMarked,
+  test: Trophy,
+} as const
+
+type IconName = keyof typeof iconMap
+
 interface ModeCardProps {
   title: string
   description: string
-  Icon: LucideIcon
+  iconName: IconName
   href: string
   colorKey: ColorKey
 }
 
-export function ModeCard({ title, description, Icon, href, colorKey }: ModeCardProps) {
+export function ModeCard({ title, description, iconName, href, colorKey }: ModeCardProps) {
+  const Icon = iconMap[iconName]
   const [hovered, setHovered] = useState(false)
   const [reducedMotion, setReducedMotion] = useState(false)
 
