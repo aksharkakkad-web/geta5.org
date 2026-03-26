@@ -4,6 +4,7 @@ import React, { useState, useEffect, useCallback } from 'react'
 import { Check, X, ChevronRight } from 'lucide-react'
 import KatexRenderer from '@/components/KatexRenderer'
 import { fuzzyMatch } from '@/utils/fuzzyMatch'
+import { parseInlineMath } from '@/utils/parseInlineMath'
 import { DrillCard as DrillCardType, MODE_LABELS } from '@/utils/drillSession'
 
 interface DrillCardProps {
@@ -13,31 +14,6 @@ interface DrillCardProps {
 }
 
 type CardState = 'idle' | 'typing' | 'correct' | 'wrong'
-
-/**
- * Splits text on $...$ inline math tokens.
- * Plain text segments → <span>, math segments → <KatexRenderer />.
- */
-function parseInlineMath(text: string): React.ReactNode[] {
-  const regex = /\$([^$]+)\$/g
-  const nodes: React.ReactNode[] = []
-  let lastIndex = 0
-  let match: RegExpExecArray | null
-
-  while ((match = regex.exec(text)) !== null) {
-    if (match.index > lastIndex) {
-      nodes.push(<span key={`text-${lastIndex}`}>{text.slice(lastIndex, match.index)}</span>)
-    }
-    nodes.push(<KatexRenderer key={`math-${match.index}`} formula={match[1]} displayMode={false} />)
-    lastIndex = regex.lastIndex
-  }
-
-  if (lastIndex < text.length) {
-    nodes.push(<span key={`text-${lastIndex}`}>{text.slice(lastIndex)}</span>)
-  }
-
-  return nodes
-}
 
 function getInputBorderColor(state: CardState): string {
   switch (state) {
