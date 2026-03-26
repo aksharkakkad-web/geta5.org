@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import { ChevronLeft, ChevronRight, Flag, Grid, X } from 'lucide-react'
 import MCQCard from '@/components/mcq/MCQCard'
 import TestTimer from '@/components/test/TestTimer'
+import { saveTestDraft, clearTestDraft } from '@/utils/testSession'
 import type { TestSessionState, TestAnswer } from '@/utils/testSession'
 
 interface TestSessionProps {
@@ -33,6 +34,29 @@ export default function TestSession({
 
   useEffect(() => { answersRef.current = answers }, [answers])
   useEffect(() => { flaggedRef.current = flagged }, [flagged])
+
+  const remainingSecondsRef = useRef(session.durationSeconds)
+
+  function handleTick(seconds: number) {
+    remainingSecondsRef.current = seconds
+  }
+
+  // Auto-save draft after every answer or navigation change
+  useEffect(() => {
+    if (Object.keys(answers).length > 0 || currentIndex > 0) {
+      saveTestDraft({
+        questions: session.questions,
+        answers: answersRef.current,
+        flagged: flaggedRef.current,
+        currentIndex,
+        timed: session.timed,
+        showTimer: session.showTimer,
+        remainingSeconds: remainingSecondsRef.current,
+        subjectSlug: session.subjectSlug,
+        savedAt: Date.now(),
+      })
+    }
+  }, [answers, flagged, currentIndex]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const questions = session.questions
   const currentQuestion = questions[currentIndex]
@@ -77,6 +101,7 @@ export default function TestSession({
   }
 
   function doSubmit() {
+    clearTestDraft(session.subjectSlug)
     onComplete({
       ...session,
       answers: answersRef.current,
@@ -85,6 +110,7 @@ export default function TestSession({
   }
 
   function handleExpiry() {
+    clearTestDraft(session.subjectSlug)
     setShowTimesUp(true)
     setTimeout(() => {
       setShowTimesUp(false)
@@ -97,6 +123,17 @@ export default function TestSession({
   }
 
   function handleSaveAndExit() {
+    saveTestDraft({
+      questions: session.questions,
+      answers: answersRef.current,
+      flagged: flaggedRef.current,
+      currentIndex,
+      timed: session.timed,
+      showTimer: session.showTimer,
+      remainingSeconds: remainingSecondsRef.current,
+      subjectSlug: session.subjectSlug,
+      savedAt: Date.now(),
+    })
     router.push(`/${session.subjectSlug}`)
   }
 
@@ -447,6 +484,7 @@ export default function TestSession({
               timed={session.timed}
               inline
               onExpiry={handleExpiry}
+              onTick={handleTick}
             />
 
             <button
