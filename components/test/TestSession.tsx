@@ -1,10 +1,10 @@
 'use client'
 
 import React, { useState, useRef, useEffect } from 'react'
-import { ChevronLeft, ChevronRight, Flag, Eye, EyeOff } from 'lucide-react'
+import { useRouter } from 'next/navigation'
+import { ChevronLeft, ChevronRight, Flag, Grid, X } from 'lucide-react'
 import MCQCard from '@/components/mcq/MCQCard'
 import TestTimer from '@/components/test/TestTimer'
-import TestNavGrid from '@/components/test/TestNavGrid'
 import type { TestSessionState, TestAnswer } from '@/utils/testSession'
 
 interface TestSessionProps {
@@ -19,30 +19,24 @@ export default function TestSession({
   subjectName,
   onComplete,
 }: TestSessionProps) {
+  const router = useRouter()
   const [answers, setAnswers] = useState<Record<string, TestAnswer>>(session.answers)
   const [flagged, setFlagged] = useState<Record<string, boolean>>(session.flagged)
   const [currentIndex, setCurrentIndex] = useState(session.currentIndex)
-  const [showTimer, setShowTimer] = useState(session.showTimer)
   const [showSubmitConfirm, setShowSubmitConfirm] = useState(false)
   const [showTimesUp, setShowTimesUp] = useState(false)
+  const [showNavModal, setShowNavModal] = useState(false)
 
-  // answersRef: prevents stale closure in timer's onExpiry callback (Pitfall 1)
+  // answersRef: prevents stale closure in timer's onExpiry callback
   const answersRef = useRef(answers)
   const flaggedRef = useRef(flagged)
 
-  useEffect(() => {
-    answersRef.current = answers
-  }, [answers])
-
-  useEffect(() => {
-    flaggedRef.current = flagged
-  }, [flagged])
+  useEffect(() => { answersRef.current = answers }, [answers])
+  useEffect(() => { flaggedRef.current = flagged }, [flagged])
 
   const questions = session.questions
   const currentQuestion = questions[currentIndex]
-
-  const correctCount = Object.values(answers).filter(a => a.isCorrect).length
-  const wrongCount = Object.values(answers).filter(a => !a.isCorrect).length
+  const isLastQuestion = currentIndex === questions.length - 1
 
   function handleAnswer(questionId: string, selectedChoiceId: string, isCorrect: boolean) {
     setAnswers(prev => {
@@ -60,7 +54,7 @@ export default function TestSession({
 
   function handleJump(index: number) {
     setCurrentIndex(index)
-    setShowSubmitConfirm(false)
+    setShowNavModal(false)
   }
 
   function toggleFlag() {
@@ -74,6 +68,7 @@ export default function TestSession({
 
   function handleSubmitClick() {
     const unansweredCount = questions.length - Object.keys(answersRef.current).length
+    setShowNavModal(false)
     if (unansweredCount > 0) {
       setShowSubmitConfirm(true)
     } else {
@@ -101,9 +96,46 @@ export default function TestSession({
     }, 1500)
   }
 
+  function handleSaveAndExit() {
+    router.push(`/${session.subjectSlug}`)
+  }
+
   const unansweredCount = questions.length - Object.keys(answers).length
   const questionIds = questions.map(q => q.id)
   const isCurrentFlagged = !!flagged[currentQuestion?.id]
+  const flaggedCount = Object.values(flagged).filter(Boolean).length
+
+  function getModalCellStyle(index: number): React.CSSProperties {
+    const qId = questionIds[index]
+    const isActive = index === currentIndex
+    const isAnswered = !!answers[qId]
+    const isFlagged = !!flagged[qId]
+
+    const base: React.CSSProperties = {
+      position: 'relative',
+      height: '44px',
+      borderRadius: 'var(--radius-sm)',
+      border: '1px solid',
+      fontSize: '0.875rem',
+      fontWeight: 400,
+      cursor: 'pointer',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      transition: 'background-color 150ms ease, border-color 150ms ease',
+    }
+
+    if (isActive) {
+      return { ...base, background: 'var(--accent)', borderColor: 'var(--accent)', color: 'white', fontWeight: 700 }
+    }
+    if (isFlagged) {
+      return { ...base, background: 'color-mix(in srgb, var(--accent-warning) 15%, transparent)', borderColor: 'var(--accent-warning)', color: 'var(--accent-warning)' }
+    }
+    if (isAnswered) {
+      return { ...base, background: 'color-mix(in srgb, var(--accent) 20%, transparent)', borderColor: 'var(--accent)', color: 'var(--text-primary)' }
+    }
+    return { ...base, background: 'var(--bg-card)', borderColor: 'var(--bg-border)', color: 'var(--text-muted)' }
+  }
 
   return (
     <>
@@ -118,116 +150,223 @@ export default function TestSession({
             alignItems: 'center',
             justifyContent: 'center',
             zIndex: 9999,
-            animation: 'fadeIn 300ms ease-in',
           }}
         >
-          <style>{`
-            @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-          `}</style>
           <p style={{ fontSize: '1.75rem', fontWeight: 700, color: 'var(--text-primary)' }}>
             Time&apos;s Up
           </p>
         </div>
       )}
 
-      {/* Session header — sticky */}
-      <div
-        style={{
-          position: 'sticky',
-          top: 0,
-          zIndex: 100,
-          background: 'var(--bg-secondary)',
-          borderBottom: '1px solid var(--bg-border)',
-          padding: '12px 16px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          gap: '12px',
-        }}
-      >
-        {/* Left: subject label */}
-        <div style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', flexShrink: 0 }}>
-          {subjectName} &mdash; Practice Test
-        </div>
-
-        {/* Center: timer */}
-        <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
-          <TestTimer
-            initialSeconds={session.durationSeconds}
-            timed={session.timed}
-            visible={showTimer}
-            onExpiry={handleExpiry}
-          />
-        </div>
-
-        {/* Right: controls + tally */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
-          {/* Timer show/hide toggle */}
-          {session.timed && (
-            <button
-              onClick={() => setShowTimer(!showTimer)}
-              aria-label={showTimer ? 'Hide timer' : 'Show timer'}
+      {/* Question Navigator Modal */}
+      {showNavModal && (
+        <div
+          onClick={() => setShowNavModal(false)}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            background: 'rgba(0, 0, 0, 0.6)',
+            zIndex: 200,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '16px',
+          }}
+        >
+          <div
+            onClick={e => e.stopPropagation()}
+            style={{
+              background: 'var(--bg-secondary)',
+              borderRadius: 'var(--radius-lg)',
+              width: '100%',
+              maxWidth: '540px',
+              maxHeight: '80vh',
+              display: 'flex',
+              flexDirection: 'column',
+              overflow: 'hidden',
+              border: '1px solid var(--bg-border)',
+            }}
+          >
+            {/* Modal header */}
+            <div
               style={{
-                background: 'transparent',
-                border: 'none',
-                cursor: 'pointer',
-                padding: '4px',
-                color: 'var(--text-muted)',
                 display: 'flex',
                 alignItems: 'center',
+                justifyContent: 'space-between',
+                padding: '16px 20px',
+                borderBottom: '1px solid var(--bg-border)',
               }}
             >
-              {showTimer ? <EyeOff size={16} /> : <Eye size={16} />}
-            </button>
-          )}
+              <span style={{ fontWeight: 700, fontSize: '1rem', color: 'var(--text-primary)' }}>
+                Question Navigator
+              </span>
+              <button
+                onClick={() => setShowNavModal(false)}
+                style={{
+                  background: 'transparent',
+                  border: 'none',
+                  cursor: 'pointer',
+                  color: 'var(--text-muted)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  padding: '4px',
+                }}
+              >
+                <X size={18} />
+              </button>
+            </div>
 
-          {/* Correct tally */}
-          {correctCount > 0 && (
-            <span
+            {/* Progress summary */}
+            <div
               style={{
-                padding: '2px 8px',
-                borderRadius: '999px',
-                background: 'color-mix(in srgb, var(--accent-success) 15%, transparent)',
-                border: '1px solid color-mix(in srgb, var(--accent-success) 30%, transparent)',
-                fontSize: '0.75rem',
-                fontWeight: 700,
-                color: 'var(--accent-success)',
+                padding: '10px 20px',
+                display: 'flex',
+                gap: '16px',
+                borderBottom: '1px solid var(--bg-border)',
+                fontSize: '0.8125rem',
+                color: 'var(--text-secondary)',
               }}
             >
-              {correctCount}
-            </span>
-          )}
+              <span>{Object.keys(answers).length} of {questions.length} answered</span>
+              {flaggedCount > 0 && (
+                <span style={{ color: 'var(--accent-warning)' }}>
+                  {flaggedCount} flagged
+                </span>
+              )}
+            </div>
 
-          {/* Wrong tally */}
-          {wrongCount > 0 && (
-            <span
+            {/* Grid */}
+            <div style={{ padding: '16px 20px', overflowY: 'auto', flex: 1 }}>
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(8, 1fr)',
+                  gap: '8px',
+                }}
+              >
+                {questions.map((q, i) => {
+                  const isFlagged = !!flagged[q.id]
+                  return (
+                    <button
+                      key={i}
+                      onClick={() => handleJump(i)}
+                      style={getModalCellStyle(i)}
+                      aria-label={`Question ${i + 1}${isFlagged ? ' (flagged)' : ''}`}
+                    >
+                      {i + 1}
+                      {isFlagged && (
+                        <Flag
+                          size={8}
+                          style={{
+                            position: 'absolute',
+                            bottom: '3px',
+                            right: '3px',
+                            color: 'var(--accent-warning)',
+                          }}
+                        />
+                      )}
+                    </button>
+                  )
+                })}
+              </div>
+
+              {/* Legend */}
+              <div
+                style={{
+                  display: 'flex',
+                  gap: '16px',
+                  marginTop: '16px',
+                  flexWrap: 'wrap',
+                  fontSize: '0.75rem',
+                  color: 'var(--text-muted)',
+                }}
+              >
+                <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <span
+                    style={{
+                      width: 12,
+                      height: 12,
+                      borderRadius: 3,
+                      background: 'color-mix(in srgb, var(--accent) 20%, transparent)',
+                      border: '1px solid var(--accent)',
+                      display: 'inline-block',
+                    }}
+                  />
+                  Answered
+                </span>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <span
+                    style={{
+                      width: 12,
+                      height: 12,
+                      borderRadius: 3,
+                      background: 'var(--bg-card)',
+                      border: '1px solid var(--bg-border)',
+                      display: 'inline-block',
+                    }}
+                  />
+                  Unanswered
+                </span>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <span
+                    style={{
+                      width: 12,
+                      height: 12,
+                      borderRadius: 3,
+                      background: 'color-mix(in srgb, var(--accent-warning) 15%, transparent)',
+                      border: '1px solid var(--accent-warning)',
+                      display: 'inline-block',
+                    }}
+                  />
+                  Flagged
+                </span>
+              </div>
+            </div>
+
+            {/* Modal actions */}
+            <div
               style={{
-                padding: '2px 8px',
-                borderRadius: '999px',
-                background: 'color-mix(in srgb, var(--accent-danger) 15%, transparent)',
-                border: '1px solid color-mix(in srgb, var(--accent-danger) 30%, transparent)',
-                fontSize: '0.75rem',
-                fontWeight: 700,
-                color: 'var(--accent-danger)',
+                padding: '16px 20px',
+                borderTop: '1px solid var(--bg-border)',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                gap: '12px',
               }}
             >
-              {wrongCount}
-            </span>
-          )}
+              <button
+                onClick={handleSaveAndExit}
+                style={{
+                  padding: '10px 16px',
+                  borderRadius: 'var(--radius-md)',
+                  border: '1px solid var(--bg-border)',
+                  background: 'transparent',
+                  color: 'var(--text-secondary)',
+                  fontSize: '0.875rem',
+                  cursor: 'pointer',
+                }}
+              >
+                Save &amp; Exit
+              </button>
+              <button
+                onClick={handleSubmitClick}
+                style={{
+                  padding: '10px 24px',
+                  borderRadius: 'var(--radius-md)',
+                  border: 'none',
+                  background: 'var(--accent)',
+                  color: 'white',
+                  fontSize: '0.875rem',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                }}
+              >
+                Submit Test
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
-
-      {/* Nav grid */}
-      <div style={{ borderBottom: '1px solid var(--bg-border)' }}>
-        <TestNavGrid
-          totalQuestions={questions.length}
-          currentIndex={currentIndex}
-          answers={answers}
-          flagged={flagged}
-          questionIds={questionIds}
-          onJump={handleJump}
-        />
-      </div>
+      )}
 
       {/* Submit confirm banner */}
       {showSubmitConfirm && (
@@ -280,19 +419,17 @@ export default function TestSession({
         </div>
       )}
 
-      {/* Main content — desktop: sidebar + question; mobile: stacked */}
+      {/* Main content */}
       <div
         style={{
           display: 'flex',
-          gap: '0',
           maxWidth: '1200px',
           margin: '0 auto',
           padding: '24px 16px',
         }}
       >
-        {/* Question area */}
         <div style={{ flex: 1, maxWidth: '720px', margin: '0 auto' }}>
-          {/* Question counter + flag */}
+          {/* Question counter + timer + flag */}
           <div
             style={{
               display: 'flex',
@@ -305,7 +442,13 @@ export default function TestSession({
               Question {currentIndex + 1} of {questions.length}
             </span>
 
-            {/* Flag for Review button */}
+            <TestTimer
+              initialSeconds={session.durationSeconds}
+              timed={session.timed}
+              inline
+              onExpiry={handleExpiry}
+            />
+
             <button
               onClick={toggleFlag}
               style={{
@@ -325,12 +468,14 @@ export default function TestSession({
             </button>
           </div>
 
-          {/* MCQCard — key on question id so it resets internal state when navigating */}
+          {/* MCQCard — testMode hides Submit Answer; initialSelectedId restores selection on nav */}
           <MCQCard
             key={currentQuestion.id}
             question={currentQuestion}
             onAnswer={handleAnswer}
             onNext={handleNavNext}
+            testMode={true}
+            initialSelectedId={answers[currentQuestion.id]?.selectedChoiceId ?? null}
           />
 
           {/* Navigation row */}
@@ -367,37 +512,9 @@ export default function TestSession({
               Prev
             </button>
 
-            {/* Submit Test */}
+            {/* Questions modal trigger */}
             <button
-              onClick={handleSubmitClick}
-              style={{
-                padding: '10px 24px',
-                minHeight: '44px',
-                borderRadius: 'var(--radius-md)',
-                border: 'none',
-                background: 'var(--accent)',
-                color: 'white',
-                fontSize: '0.9375rem',
-                fontWeight: 700,
-                cursor: 'pointer',
-                transition: 'background 150ms ease, transform 150ms ease',
-              }}
-              onMouseEnter={e => {
-                ;(e.currentTarget as HTMLButtonElement).style.background = 'var(--accent-hover)'
-                ;(e.currentTarget as HTMLButtonElement).style.transform = 'translateY(-1px)'
-              }}
-              onMouseLeave={e => {
-                ;(e.currentTarget as HTMLButtonElement).style.background = 'var(--accent)'
-                ;(e.currentTarget as HTMLButtonElement).style.transform = 'translateY(0)'
-              }}
-            >
-              Submit Test
-            </button>
-
-            {/* Next */}
-            <button
-              onClick={() => setCurrentIndex(Math.min(questions.length - 1, currentIndex + 1))}
-              disabled={currentIndex === questions.length - 1}
+              onClick={() => setShowNavModal(true)}
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -409,14 +526,57 @@ export default function TestSession({
                 background: 'transparent',
                 color: 'var(--text-secondary)',
                 fontSize: '0.875rem',
-                cursor: currentIndex === questions.length - 1 ? 'not-allowed' : 'pointer',
-                opacity: currentIndex === questions.length - 1 ? 0.4 : 1,
+                cursor: 'pointer',
                 transition: 'color 150ms ease, border-color 150ms ease',
               }}
             >
-              Next
-              <ChevronRight size={16} />
+              <Grid size={15} />
+              Questions
             </button>
+
+            {/* Next — becomes Submit Test on last question */}
+            {isLastQuestion ? (
+              <button
+                onClick={handleSubmitClick}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  padding: '10px 20px',
+                  minHeight: '44px',
+                  borderRadius: 'var(--radius-md)',
+                  border: 'none',
+                  background: 'var(--accent)',
+                  color: 'white',
+                  fontSize: '0.875rem',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                }}
+              >
+                Submit Test
+              </button>
+            ) : (
+              <button
+                onClick={() => setCurrentIndex(Math.min(questions.length - 1, currentIndex + 1))}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  padding: '10px 16px',
+                  minHeight: '44px',
+                  borderRadius: 'var(--radius-md)',
+                  border: '1px solid var(--bg-border)',
+                  background: 'transparent',
+                  color: 'var(--text-secondary)',
+                  fontSize: '0.875rem',
+                  cursor: 'pointer',
+                  transition: 'color 150ms ease, border-color 150ms ease',
+                }}
+              >
+                Next
+                <ChevronRight size={16} />
+              </button>
+            )}
           </div>
         </div>
       </div>
