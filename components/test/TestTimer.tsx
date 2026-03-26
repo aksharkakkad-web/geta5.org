@@ -8,17 +8,23 @@ interface TestTimerProps {
   visible?: boolean
   inline?: boolean
   onExpiry: () => void
+  onTick?: (remaining: number) => void
 }
 
-export default function TestTimer({ initialSeconds, timed, visible = true, inline = false, onExpiry }: TestTimerProps) {
+export default function TestTimer({ initialSeconds, timed, visible = true, inline = false, onExpiry, onTick }: TestTimerProps) {
   const [secondsLeft, setSecondsLeft] = useState(initialSeconds)
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
   const onExpiryRef = useRef(onExpiry)
+  const onTickRef = useRef(onTick)
 
-  // Keep onExpiry ref current to avoid stale closure
+  // Keep refs current to avoid stale closures
   useEffect(() => {
     onExpiryRef.current = onExpiry
   }, [onExpiry])
+
+  useEffect(() => {
+    onTickRef.current = onTick
+  }, [onTick])
 
   useEffect(() => {
     if (!timed) return
@@ -32,6 +38,7 @@ export default function TestTimer({ initialSeconds, timed, visible = true, inlin
           setTimeout(() => onExpiryRef.current(), 0)
           return 0
         }
+        onTickRef.current?.(next)
         return next
       })
     }, 1000)
