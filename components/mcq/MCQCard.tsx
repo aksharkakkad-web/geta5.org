@@ -6,6 +6,7 @@ import KatexRenderer from '@/components/KatexRenderer'
 import StimulusRenderer from '@/components/mcq/StimulusRenderer'
 import { scramble } from '@/utils/scramble'
 import type { MCQ, MCQChoice } from '@/utils/mcqSession'
+import { playCorrect, playWrong } from '@/utils/sounds'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -13,6 +14,10 @@ interface MCQCardProps {
   question: MCQ
   onAnswer: (questionId: string, selectedChoiceId: string, isCorrect: boolean) => void
   onNext: () => void
+  /** Test mode: choice click records answer immediately, no feedback reveal */
+  testMode?: boolean
+  /** Restore prior selection when navigating back in test mode */
+  initialSelectedId?: string | null
 }
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -46,18 +51,18 @@ function parseInlineMath(text: string): React.ReactNode[] {
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
-export default function MCQCard({ question, onAnswer, onNext }: MCQCardProps) {
+export default function MCQCard({ question, onAnswer, onNext, testMode = false, initialSelectedId = null }: MCQCardProps) {
   // Scramble choices ONCE on mount via initializer (per Critical Rule #4 and plan spec)
   const [scrambledChoices, setScrambledChoices] = useState<MCQChoice[]>(
     () => scramble(question.choices)
   )
-  const [selectedId, setSelectedId] = useState<string | null>(null)
+  const [selectedId, setSelectedId] = useState<string | null>(initialSelectedId)
   const [submitted, setSubmitted] = useState<boolean>(false)
 
   // Reset state when question changes (next question)
   useEffect(() => {
     setScrambledChoices(scramble(question.choices))
-    setSelectedId(null)
+    setSelectedId(initialSelectedId)
     setSubmitted(false)
   }, [question.id]) // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -72,10 +77,18 @@ export default function MCQCard({ question, onAnswer, onNext }: MCQCardProps) {
     if (!selectedId || submitted) return
     setSubmitted(true)
     const selected = scrambledChoices.find(c => c.id === selectedId)!
+    if (selected.is_correct) playCorrect(); else playWrong()
     onAnswer(question.id, selectedId, selected.is_correct)
   }
 
+  function handleTestSelect(choice: MCQChoice) {
+    if (choice.id === selectedId) return
+    setSelectedId(choice.id)
+    onAnswer(question.id, choice.id, choice.is_correct)
+  }
+
   function getChoiceStyle(choice: MCQChoice & { displayLabel: string }): React.CSSProperties {
+    const isSelected = choice.id === selectedId
     const base: React.CSSProperties = {
       display: 'flex',
       alignItems: 'flex-start',
@@ -86,8 +99,9 @@ export default function MCQCard({ question, onAnswer, onNext }: MCQCardProps) {
       cursor: submitted ? 'default' : 'pointer',
     }
 
-    if (!submitted) {
-      if (choice.id === selectedId) {
+    // Test mode: only selection highlight, no correct/wrong feedback
+    if (testMode) {
+      if (isSelected) {
         return {
           ...base,
           border: '2px solid var(--accent)',
@@ -101,7 +115,22 @@ export default function MCQCard({ question, onAnswer, onNext }: MCQCardProps) {
       }
     }
 
-    // Submitted states
+    if (!submitted) {
+      if (isSelected) {
+        return {
+          ...base,
+          border: '2px solid var(--accent)',
+          background: 'color-mix(in srgb, var(--accent) 10%, var(--bg-card))',
+        }
+      }
+      return {
+        ...base,
+        border: '1px solid var(--bg-border)',
+        background: 'var(--bg-card)',
+      }
+    }
+
+    // Submitted states (drill mode only)
     if (choice.is_correct) {
       return {
         ...base,
@@ -109,7 +138,7 @@ export default function MCQCard({ question, onAnswer, onNext }: MCQCardProps) {
         background: 'color-mix(in srgb, var(--accent-success) 10%, transparent)',
       }
     }
-    if (choice.id === selectedId) {
+    if (isSelected) {
       return {
         ...base,
         border: '2px solid var(--accent-danger)',
@@ -160,13 +189,18 @@ export default function MCQCard({ question, onAnswer, onNext }: MCQCardProps) {
             <div
               style={getChoiceStyle(choice)}
               onClick={() => {
-                if (!submitted) setSelectedId(choice.id)
+                if (testMode) {
+                  handleTestSelect(choice)
+                } else if (!submitted) {
+                  setSelectedId(choice.id)
+                }
               }}
               role="button"
               tabIndex={submitted ? -1 : 0}
               onKeyDown={e => {
-                if (!submitted && (e.key === 'Enter' || e.key === ' ')) {
-                  setSelectedId(choice.id)
+                if (e.key === 'Enter' || e.key === ' ') {
+                  if (testMode) handleTestSelect(choice)
+                  else if (!submitted) setSelectedId(choice.id)
                 }
               }}
             >
@@ -194,17 +228,17 @@ export default function MCQCard({ question, onAnswer, onNext }: MCQCardProps) {
                 {parseInlineMath(choice.text)}
               </div>
 
-              {/* Feedback icon (after submit) */}
-              {submitted && choice.is_correct && (
+              {/* Feedback icon (drill mode only, after submit) */}
+              {!testMode && submitted && choice.is_correct && (
                 <Check size={16} color="var(--accent-success)" style={{ flexShrink: 0 }} />
               )}
-              {submitted && !choice.is_correct && choice.id === selectedId && (
+              {!testMode && submitted && !choice.is_correct && choice.id === selectedId && (
                 <X size={16} color="var(--accent-danger)" style={{ flexShrink: 0 }} />
               )}
             </div>
 
-            {/* Explanation reveal (all 4 choices after submit) */}
-            {submitted && (
+            {/* Explanation reveal (drill mode only, all 4 choices after submit) */}
+            {!testMode && submitted && (
               <div
                 style={{
                   marginTop: 8,
@@ -213,7 +247,7 @@ export default function MCQCard({ question, onAnswer, onNext }: MCQCardProps) {
                   fontSize: '0.8125rem',
                   lineHeight: 1.5,
                   color: choice.is_correct ? 'var(--accent-success)' : 'var(--text-secondary)',
-                  paddingLeft: '40px', // indent to align with choice text
+                  paddingLeft: '40px',
                 }}
               >
                 {choice.explanation}
@@ -223,8 +257,8 @@ export default function MCQCard({ question, onAnswer, onNext }: MCQCardProps) {
         ))}
       </div>
 
-      {/* Submit button — shown when selection made but not yet submitted */}
-      {selectedId !== null && !submitted && (
+      {/* Submit Answer button — drill mode only */}
+      {!testMode && selectedId !== null && !submitted && (
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: 20 }}>
           <button
             onClick={handleSubmit}
@@ -244,8 +278,8 @@ export default function MCQCard({ question, onAnswer, onNext }: MCQCardProps) {
         </div>
       )}
 
-      {/* Next button — shown after submission */}
-      {submitted && (
+      {/* Next Question button — drill mode only */}
+      {!testMode && submitted && (
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: 20 }}>
           <button
             onClick={onNext}
