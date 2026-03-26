@@ -29,7 +29,7 @@ export interface SessionState {
   unitSlug: string | 'all'
 }
 
-export type DrillView = 'unit-select' | 'session' | 'results'
+export type DrillView = 'unit-select' | 'session' | 'results' | 'browse'
 
 export const MODE_LABELS: Record<DrillMode, string> = {
   definition_to_term: 'Definition → Term',
@@ -38,6 +38,40 @@ export const MODE_LABELS: Record<DrillMode, string> = {
   event_to_date: 'Event → Date',
   concept_to_example: 'Concept → Example',
   term_to_definition: 'Term → Definition',
+}
+
+export interface NormalizedCard {
+  id: string
+  term: string
+  definition: string
+  mode: DrillMode
+  katex_required?: boolean
+}
+
+/**
+ * Normalises a DrillCard so that `term` always holds the vocabulary word/name
+ * and `definition` always holds the explanation, regardless of card mode.
+ *
+ * definition_to_term cards store the word in `answer` and the definition in `prompt` —
+ * all other modes store the word/name in `prompt` and the explanation in `answer`.
+ */
+export function normalizeCard(card: DrillCard): NormalizedCard {
+  if (card.mode === 'definition_to_term') {
+    return {
+      id: card.id,
+      term: card.answer,
+      definition: card.prompt,
+      mode: card.mode,
+      katex_required: card.katex_required,
+    }
+  }
+  return {
+    id: card.id,
+    term: card.prompt,
+    definition: card.answer,
+    mode: card.mode,
+    katex_required: card.katex_required,
+  }
 }
 
 export function handleSessionComplete(session: SessionState, subject: string): void {
