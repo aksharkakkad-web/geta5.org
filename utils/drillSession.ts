@@ -40,6 +40,11 @@ export const MODE_LABELS: Record<DrillMode, string> = {
   term_to_definition: 'Term → Definition',
 }
 
+/**
+ * Display-only view of a DrillCard for the browse table.
+ * Normalises term/definition direction across all card modes.
+ * Intentionally omits alternate_answers — browse is read-only.
+ */
 export interface NormalizedCard {
   id: string
   term: string
