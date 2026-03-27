@@ -5,19 +5,26 @@ import React, { useState, useEffect, useRef } from 'react'
 interface TestTimerProps {
   initialSeconds: number
   timed: boolean
-  visible: boolean
+  visible?: boolean
+  inline?: boolean
   onExpiry: () => void
+  onTick?: (remaining: number) => void
 }
 
-export default function TestTimer({ initialSeconds, timed, visible, onExpiry }: TestTimerProps) {
+export default function TestTimer({ initialSeconds, timed, visible = true, inline = false, onExpiry, onTick }: TestTimerProps) {
   const [secondsLeft, setSecondsLeft] = useState(initialSeconds)
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
   const onExpiryRef = useRef(onExpiry)
+  const onTickRef = useRef(onTick)
 
-  // Keep onExpiry ref current to avoid stale closure
+  // Keep refs current to avoid stale closures
   useEffect(() => {
     onExpiryRef.current = onExpiry
   }, [onExpiry])
+
+  useEffect(() => {
+    onTickRef.current = onTick
+  }, [onTick])
 
   useEffect(() => {
     if (!timed) return
@@ -31,6 +38,7 @@ export default function TestTimer({ initialSeconds, timed, visible, onExpiry }: 
           setTimeout(() => onExpiryRef.current(), 0)
           return 0
         }
+        onTickRef.current?.(next)
         return next
       })
     }, 1000)
@@ -46,6 +54,33 @@ export default function TestTimer({ initialSeconds, timed, visible, onExpiry }: 
   const minutes = Math.floor(secondsLeft / 60)
   const seconds = secondsLeft % 60
   const display = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
+
+  if (inline) {
+    return (
+      <span
+        style={{
+          fontVariantNumeric: 'tabular-nums',
+          fontSize: '0.875rem',
+          color: isWarning ? 'var(--accent-danger)' : 'var(--text-muted)',
+          transition: 'color 300ms ease',
+          animation: isWarning ? 'timer-pulse 1200ms ease infinite' : 'none',
+          letterSpacing: '0.01em',
+        }}
+        className={isWarning ? 'timer-warning' : ''}
+      >
+        <style>{`
+          @keyframes timer-pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+          }
+          @media (prefers-reduced-motion: reduce) {
+            .timer-warning { animation: none !important; }
+          }
+        `}</style>
+        {display}
+      </span>
+    )
+  }
 
   return (
     <div

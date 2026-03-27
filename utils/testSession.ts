@@ -2,7 +2,7 @@
 // Practice test session logic: types, composition, scoring, completion handler
 
 import { MCQ } from '@/utils/mcqSession'
-import { lsGet, lsSet, LS_KEYS } from '@/utils/localStorage'
+import { lsGet, lsSet, lsClear, LS_KEYS } from '@/utils/localStorage'
 import { logEvent } from '@/utils/analytics'
 import { projectScore } from '@/utils/scoring'
 import { scramble } from '@/utils/scramble'
@@ -31,6 +31,32 @@ export interface PerUnitResult {
   correct: number
   total: number
   accuracy: number
+}
+
+// ─── Draft Persistence ────────────────────────────────────────────────────────
+
+export interface TestDraft {
+  questions: MCQ[]
+  answers: Record<string, TestAnswer>
+  flagged: Record<string, boolean>
+  currentIndex: number
+  timed: boolean
+  showTimer: boolean
+  remainingSeconds: number   // seconds left on timer at time of save; equals durationSeconds for untimed tests
+  subjectSlug: string
+  savedAt: number
+}
+
+export function saveTestDraft(draft: TestDraft): void {
+  lsSet(LS_KEYS.testDraft(draft.subjectSlug), draft)
+}
+
+export function loadTestDraft(subject: string): TestDraft | null {
+  return lsGet<TestDraft | null>(LS_KEYS.testDraft(subject), null)
+}
+
+export function clearTestDraft(subject: string): void {
+  lsClear(LS_KEYS.testDraft(subject))
 }
 
 // ─── composeTest ─────────────────────────────────────────────────────────────

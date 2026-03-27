@@ -1,9 +1,9 @@
 'use client'
 
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Check, X } from 'lucide-react'
 import DrillCard from '@/components/drill/DrillCard'
-import { SessionState } from '@/utils/drillSession'
+import { SessionState, saveDrillDraft, clearDrillDraft } from '@/utils/drillSession'
 import { getSubject } from '@/utils/subjects'
 
 interface DrillSessionProps {
@@ -13,14 +13,28 @@ interface DrillSessionProps {
 }
 
 export default function DrillSession({ session, subject, onComplete }: DrillSessionProps) {
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(session.index ?? 0)
   const [answers, setAnswers] = useState<
     Record<string, { verdict: 'correct' | 'wrong'; userInput: string }>
-  >({})
+  >(session.answers ?? {})
 
   // Keep a ref so handleNext always sees latest answers without stale closure
   const answersRef = useRef(answers)
   answersRef.current = answers
+
+  // Auto-save draft whenever currentIndex advances (fires after each card answered and Next clicked)
+  useEffect(() => {
+    if (currentIndex > 0) {
+      saveDrillDraft(subject, {
+        cards: session.cards,
+        currentIndex,
+        answers: answersRef.current,
+        isRetry: session.isRetry,
+        unitSlug: session.unitSlug,
+        savedAt: Date.now(),
+      })
+    }
+  }, [currentIndex]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const totalCards = session.cards.length
   const currentCard = session.cards[currentIndex]
@@ -52,6 +66,7 @@ export default function DrillSession({ session, subject, onComplete }: DrillSess
 
   const handleNext = () => {
     if (currentIndex + 1 >= totalCards) {
+      clearDrillDraft(subject)
       const finalSession: SessionState = {
         ...session,
         index: currentIndex + 1,

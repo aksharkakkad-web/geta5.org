@@ -1,9 +1,10 @@
 'use client'
 
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Check, X } from 'lucide-react'
 import MCQCard from '@/components/mcq/MCQCard'
 import { getSubject } from '@/utils/subjects'
+import { saveMCQDraft, clearMCQDraft } from '@/utils/mcqSession'
 import type { MCQSessionState, MCQAnswer } from '@/utils/mcqSession'
 
 interface MCQSessionProps {
@@ -13,12 +14,27 @@ interface MCQSessionProps {
 }
 
 export default function MCQSession({ session, subject, onComplete }: MCQSessionProps) {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [answers, setAnswers] = useState<Record<string, MCQAnswer>>({})
+  const [currentIndex, setCurrentIndex] = useState(session.currentIndex ?? 0)
+  const [answers, setAnswers] = useState<Record<string, MCQAnswer>>(session.answers ?? {})
 
   // Keep a ref so handleNext always sees latest answers without stale closure
   const answersRef = useRef(answers)
   answersRef.current = answers
+
+  // Auto-save draft whenever currentIndex advances
+  useEffect(() => {
+    if (currentIndex > 0) {
+      saveMCQDraft(subject, {
+        questions: session.questions,
+        currentIndex,
+        answers: answersRef.current,
+        isRetry: session.isRetry,
+        unitSlug: session.unitSlug,
+        retryQuestionIds: session.retryQuestionIds,
+        savedAt: Date.now(),
+      })
+    }
+  }, [currentIndex]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const totalQuestions = session.questions.length
   const currentQuestion = session.questions[currentIndex]
@@ -46,6 +62,7 @@ export default function MCQSession({ session, subject, onComplete }: MCQSessionP
 
   const handleNext = () => {
     if (currentIndex + 1 >= totalQuestions) {
+      clearMCQDraft(subject)
       const finalSession: MCQSessionState = {
         ...session,
         answers: { ...answersRef.current },

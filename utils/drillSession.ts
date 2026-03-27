@@ -1,4 +1,4 @@
-import { lsGet, lsSet, LS_KEYS } from '@/utils/localStorage'
+import { lsGet, lsSet, lsClear, LS_KEYS } from '@/utils/localStorage'
 import { logEvent } from '@/utils/analytics'
 
 export interface DrillCard {
@@ -113,4 +113,27 @@ export function handleSessionComplete(session: SessionState, subject: string): v
       is_retry: session.isRetry,
     },
   })
+}
+
+// ─── Draft Persistence ────────────────────────────────────────────────────────
+
+export interface DrillDraft {
+  cards: DrillCard[]
+  currentIndex: number
+  answers: SessionState['answers']
+  isRetry: boolean
+  unitSlug: string
+  savedAt: number
+}
+
+export function saveDrillDraft(subject: string, draft: DrillDraft): void {
+  lsSet(LS_KEYS.drillDraft(subject), draft)
+}
+
+export function loadDrillDraft(subject: string): DrillDraft | null {
+  return lsGet<DrillDraft | null>(LS_KEYS.drillDraft(subject), null)
+}
+
+export function clearDrillDraft(subject: string): void {
+  lsClear(LS_KEYS.drillDraft(subject))
 }

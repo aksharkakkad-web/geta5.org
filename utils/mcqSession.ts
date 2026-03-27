@@ -1,4 +1,4 @@
-import { lsGet, lsSet, LS_KEYS } from '@/utils/localStorage'
+import { lsGet, lsSet, lsClear, LS_KEYS } from '@/utils/localStorage'
 import { logEvent } from '@/utils/analytics'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -34,12 +34,37 @@ export interface MCQAnswer {
 export interface MCQSessionState {
   questions: MCQ[]
   answers: Record<string, MCQAnswer> // keyed by question id
+  currentIndex?: number              // present on resumed sessions
   isRetry: boolean
   unitSlug: string | 'all'
   retryQuestionIds?: string[]
 }
 
 export type MCQView = 'unit-select' | 'session' | 'results'
+
+// ─── Draft Persistence ────────────────────────────────────────────────────────
+
+export interface MCQDraft {
+  questions: MCQ[]
+  currentIndex: number
+  answers: Record<string, MCQAnswer>
+  isRetry: boolean
+  unitSlug: string | 'all'
+  retryQuestionIds?: string[]
+  savedAt: number
+}
+
+export function saveMCQDraft(subject: string, draft: MCQDraft): void {
+  lsSet(LS_KEYS.mcqDraft(subject), draft)
+}
+
+export function loadMCQDraft(subject: string): MCQDraft | null {
+  return lsGet<MCQDraft | null>(LS_KEYS.mcqDraft(subject), null)
+}
+
+export function clearMCQDraft(subject: string): void {
+  lsClear(LS_KEYS.mcqDraft(subject))
+}
 
 // ─── Session Completion Handler ───────────────────────────────────────────────
 

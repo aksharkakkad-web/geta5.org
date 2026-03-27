@@ -6,6 +6,7 @@ import KatexRenderer from '@/components/KatexRenderer'
 import { fuzzyMatch } from '@/utils/fuzzyMatch'
 import { parseInlineMath } from '@/utils/parseInlineMath'
 import { DrillCard as DrillCardType, MODE_LABELS } from '@/utils/drillSession'
+import { playCorrect, playWrong } from '@/utils/sounds'
 
 interface DrillCardProps {
   card: DrillCardType
@@ -62,9 +63,26 @@ export default function DrillCard({ card, onAnswer, onNext }: DrillCardProps) {
     if (!inputValue.trim() || verdict !== null) return
     const isCorrect = fuzzyMatch(inputValue.trim(), card.answer, card.alternate_answers ?? [])
     const v: 'correct' | 'wrong' = isCorrect ? 'correct' : 'wrong'
+    if (isCorrect) playCorrect(); else playWrong()
     setVerdict(v)
     onAnswer(card.id, v, inputValue.trim())
   }, [inputValue, verdict, card, onAnswer])
+
+  // After verdict is shown, next Enter advances — but only after a setTimeout(0)
+  // so the same keydown that submitted the answer doesn't immediately fire onNext.
+  useEffect(() => {
+    if (verdict === null) return
+    let ready = false
+    const id = setTimeout(() => { ready = true }, 0)
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'Enter' && ready) onNext()
+    }
+    window.addEventListener('keydown', handler)
+    return () => {
+      clearTimeout(id)
+      window.removeEventListener('keydown', handler)
+    }
+  }, [verdict, onNext])
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {

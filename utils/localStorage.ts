@@ -35,4 +35,7 @@ export const LS_KEYS = {
   score: (subject: string) => `ascendly_score_${subject}`,
   totalQuestions: 'ascendly_total_questions',
   activeSubject: 'ascendly_active_subject',
+  drillDraft: (subject: string) => `ascendly_draft_drill_${subject}`,
+  mcqDraft: (subject: string) => `ascendly_draft_mcq_${subject}`,
+  testDraft: (subject: string) => `ascendly_draft_test_${subject}`,
 } as const
