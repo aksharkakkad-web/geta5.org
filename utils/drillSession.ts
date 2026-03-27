@@ -1,6 +1,12 @@
 import { lsGet, lsSet, lsClear, LS_KEYS } from '@/utils/localStorage'
 import { logEvent } from '@/utils/analytics'
 
+export interface DrillChoice {
+  text: string
+  is_correct: boolean
+  explanation: string
+}
+
 export interface DrillCard {
   id: string
   unit: string
@@ -8,18 +14,20 @@ export interface DrillCard {
   mode: DrillMode
   prompt: string
   answer: string
-  alternate_answers?: string[]
   difficulty: 'easy' | 'medium' | 'hard'
   katex_required?: boolean
+  is_key_term?: boolean
+  format_hint?: string       // name_to_formula only
+  choices?: DrillChoice[]    // concept_mc only
 }
 
 export type DrillMode =
   | 'definition_to_term'
-  | 'formula_to_type'
-  | 'person_to_significance'
-  | 'event_to_date'
-  | 'concept_to_example'
-  | 'term_to_definition'
+  | 'significance_to_person'
+  | 'significance_to_event'
+  | 'significance_to_case'
+  | 'name_to_formula'
+  | 'concept_mc'
 
 export interface SessionState {
   cards: DrillCard[]
@@ -32,12 +40,12 @@ export interface SessionState {
 export type DrillView = 'unit-select' | 'session' | 'results' | 'browse'
 
 export const MODE_LABELS: Record<DrillMode, string> = {
-  definition_to_term: 'Definition → Term',
-  formula_to_type: 'Formula → Type',
-  person_to_significance: 'Person → Significance',
-  event_to_date: 'Event → Date',
-  concept_to_example: 'Concept → Example',
-  term_to_definition: 'Term → Definition',
+  definition_to_term:     'Definition → Term',
+  significance_to_person: 'Significance → Person',
+  significance_to_event:  'Significance → Event',
+  significance_to_case:   'Significance → Case',
+  name_to_formula:        'Name → Formula',
+  concept_mc:             'Concept Check',
 }
 
 /**
