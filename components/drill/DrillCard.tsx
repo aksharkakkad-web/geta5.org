@@ -402,7 +402,7 @@ function FormulaCard({ card, onAnswer, onNext }: DrillCardProps) {
   )
 }
 
-export default function DrillCard({ card, onAnswer, onNext }: DrillCardProps) {
+function DefaultCard({ card, onAnswer, onNext }: DrillCardProps) {
   const [inputValue, setInputValue] = useState('')
   const [verdict, setVerdict] = useState<'correct' | 'wrong' | null>(null)
 
@@ -436,14 +436,6 @@ export default function DrillCard({ card, onAnswer, onNext }: DrillCardProps) {
       window.removeEventListener('keydown', handler)
     }
   }, [verdict, onNext])
-
-  if (card.mode === 'concept_mc') {
-    return <ConceptMcCard card={card} onAnswer={onAnswer} onNext={onNext} />
-  }
-
-  if (card.mode === 'name_to_formula') {
-    return <FormulaCard card={card} onAnswer={onAnswer} onNext={onNext} />
-  }
 
   const cardState: CardState =
     verdict === 'correct'
@@ -680,4 +672,10 @@ export default function DrillCard({ card, onAnswer, onNext }: DrillCardProps) {
       )}
     </div>
   )
+}
+
+export default function DrillCard({ card, onAnswer, onNext }: DrillCardProps) {
+  if (card.mode === 'concept_mc') return <ConceptMcCard card={card} onAnswer={onAnswer} onNext={onNext} />
+  if (card.mode === 'name_to_formula') return <FormulaCard card={card} onAnswer={onAnswer} onNext={onNext} />
+  return <DefaultCard card={card} onAnswer={onAnswer} onNext={onNext} />
 }
