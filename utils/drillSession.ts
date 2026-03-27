@@ -49,7 +49,7 @@ export const MODE_LABELS: Record<DrillMode, string> = {
   concept_mc:             'Concept Check',
 }
 
-export const RETRY_INTERVAL = 3
+export const RETRY_INTERVAL = 5
 
 /**
  * Returns a new deck with `card` spliced in RETRY_INTERVAL+1 positions

@@ -221,6 +221,7 @@ export default function DrillSession({ session, subject, onComplete }: DrillSess
           card={currentCard}
           onAnswer={handleAnswer}
           onNext={handleNext}
+          isRetry={!!answers[currentCard.id]}
         />
       </div>
     </div>

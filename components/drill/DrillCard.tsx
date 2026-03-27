@@ -13,6 +13,22 @@ interface DrillCardProps {
   card: DrillCardType
   onAnswer: (cardId: string, verdict: 'correct' | 'wrong', userInput: string) => void
   onNext: () => void
+  isRetry?: boolean
+}
+
+function RetryBadge() {
+  return (
+    <span style={{
+      display: 'inline-flex', alignItems: 'center', gap: '4px',
+      padding: '2px 8px', borderRadius: '999px',
+      background: 'color-mix(in srgb, var(--accent-warning) 15%, transparent)',
+      border: '1px solid color-mix(in srgb, var(--accent-warning) 40%, transparent)',
+      color: 'var(--accent-warning)', fontSize: '0.6875rem',
+      fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em',
+    }}>
+      Try again
+    </span>
+  )
 }
 
 type CardState = 'idle' | 'typing' | 'correct' | 'wrong'
@@ -30,27 +46,40 @@ function getInputBorderColor(state: CardState): string {
   }
 }
 
-function getCardBorderColor(state: CardState): string {
+function getCardBorderColor(state: CardState, isRetry?: boolean): string {
   switch (state) {
     case 'correct':
       return 'var(--accent-success)'
     case 'wrong':
       return 'var(--accent-danger)'
     default:
-      return 'var(--bg-border)'
+      return isRetry ? 'var(--accent-warning)' : 'var(--bg-border)'
   }
 }
 
-function ConceptMcCard({ card, onAnswer, onNext }: DrillCardProps) {
+function shuffleArray<T>(arr: T[]): T[] {
+  const copy = [...arr]
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[copy[i], copy[j]] = [copy[j], copy[i]]
+  }
+  return copy
+}
+
+function ConceptMcCard({ card, onAnswer, onNext, isRetry }: DrillCardProps) {
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null)
   const [verdict, setVerdict] = useState<'correct' | 'wrong' | null>(null)
+  const [shuffledChoices, setShuffledChoices] = useState<typeof card.choices>(() =>
+    shuffleArray(card.choices ?? [])
+  )
 
   useEffect(() => {
     setSelectedIdx(null)
     setVerdict(null)
+    setShuffledChoices(shuffleArray(card.choices ?? []))
   }, [card.id])
 
-  const choices = card.choices ?? []
+  const choices = shuffledChoices ?? []
 
   function handleSelect(idx: number) {
     if (verdict !== null) return
@@ -102,14 +131,17 @@ function ConceptMcCard({ card, onAnswer, onNext }: DrillCardProps) {
         maxWidth: '880px',
         background: 'var(--bg-card)',
         borderRadius: 'var(--radius-xl)',
-        border: `1px solid ${verdict === 'correct' ? 'var(--accent-success)' : verdict === 'wrong' ? 'var(--accent-danger)' : 'var(--bg-border)'}`,
+        border: `1px solid ${verdict === 'correct' ? 'var(--accent-success)' : verdict === 'wrong' ? 'var(--accent-danger)' : isRetry ? 'var(--accent-warning)' : 'var(--bg-border)'}`,
         padding: '52px 64px',
         transition: 'border-color 200ms ease',
       }}
     >
-      {/* Mode tag */}
-      <div style={{ color: 'var(--text-muted)', fontSize: '0.75rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '20px' }}>
-        {MODE_LABELS[card.mode]}
+      {/* Mode tag + retry badge */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
+        <span style={{ color: 'var(--text-muted)', fontSize: '0.75rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+          {MODE_LABELS[card.mode]}
+        </span>
+        {isRetry && <RetryBadge />}
       </div>
 
       {/* Prompt */}
@@ -193,7 +225,7 @@ const NOTATION_TABLE = [
   { input: 'mu',       renders: '\\mu' },
 ]
 
-function FormulaCard({ card, onAnswer, onNext }: DrillCardProps) {
+function FormulaCard({ card, onAnswer, onNext, isRetry }: DrillCardProps) {
   const [inputValue, setInputValue] = useState('')
   const [verdict, setVerdict] = useState<'correct' | 'wrong' | null>(null)
   const [showModal, setShowModal] = useState(false)
@@ -230,7 +262,7 @@ function FormulaCard({ card, onAnswer, onNext }: DrillCardProps) {
     : inputValue.trim().length > 0 ? 'typing'
     : 'idle'
   const inputBorder = getInputBorderColor(cardState)
-  const cardBorder = getCardBorderColor(cardState)
+  const cardBorder = getCardBorderColor(cardState, isRetry)
   const isSubmitDisabled = inputValue.trim().length === 0 || verdict !== null
 
   return (
@@ -299,8 +331,11 @@ function FormulaCard({ card, onAnswer, onNext }: DrillCardProps) {
           transition: 'border-color 200ms ease',
         }}
       >
-        <div style={{ color: 'var(--text-muted)', fontSize: '0.75rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '20px' }}>
-          {MODE_LABELS[card.mode]}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
+          <span style={{ color: 'var(--text-muted)', fontSize: '0.75rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+            {MODE_LABELS[card.mode]}
+          </span>
+          {isRetry && <RetryBadge />}
         </div>
 
         {card.format_hint && (
@@ -385,24 +420,52 @@ function FormulaCard({ card, onAnswer, onNext }: DrillCardProps) {
         )}
 
         {verdict !== null && (
-          <button
-            onClick={onNext}
-            style={{
-              width: '100%', padding: '13px 20px', borderRadius: 'var(--radius-md)', border: 'none',
-              background: verdict === 'correct' ? 'var(--accent-success)' : 'var(--accent-danger)',
-              color: 'white', fontSize: '0.9375rem', fontWeight: 600, cursor: 'pointer',
-              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px',
-            }}
-          >
-            Next card <ChevronRight size={16} />
-          </button>
+          <div style={{ display: 'flex', gap: '8px' }}>
+            {verdict === 'wrong' && (
+              <button
+                onClick={() => {
+                  playCorrect()
+                  setVerdict('correct')
+                  onAnswer(card.id, 'correct', inputValue)
+                }}
+                style={{
+                  flex: 1,
+                  padding: '11px 20px',
+                  borderRadius: 'var(--radius-md)',
+                  border: '1px solid var(--bg-border)',
+                  background: 'var(--bg-secondary)',
+                  color: 'var(--text-secondary)',
+                  fontSize: '0.875rem',
+                  fontWeight: 500,
+                  cursor: 'pointer',
+                }}
+              >
+                I knew this
+              </button>
+            )}
+            <button
+              onClick={onNext}
+              style={{
+                flex: verdict === 'wrong' ? 1 : undefined,
+                width: verdict === 'correct' ? '100%' : undefined,
+                padding: '13px 20px',
+                borderRadius: 'var(--radius-md)',
+                border: 'none',
+                background: verdict === 'correct' ? 'var(--accent-success)' : 'var(--accent-danger)',
+                color: 'white', fontSize: '0.9375rem', fontWeight: 600, cursor: 'pointer',
+                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px',
+              }}
+            >
+              Next card <ChevronRight size={16} />
+            </button>
+          </div>
         )}
       </div>
     </>
   )
 }
 
-function DefaultCard({ card, onAnswer, onNext }: DrillCardProps) {
+function DefaultCard({ card, onAnswer, onNext, isRetry }: DrillCardProps) {
   const [inputValue, setInputValue] = useState('')
   const [verdict, setVerdict] = useState<'correct' | 'wrong' | null>(null)
 
@@ -452,7 +515,7 @@ function DefaultCard({ card, onAnswer, onNext }: DrillCardProps) {
     }
   }
 
-  const cardBorder = getCardBorderColor(cardState)
+  const cardBorder = getCardBorderColor(cardState, isRetry)
   const inputBorder = getInputBorderColor(cardState)
   const isSubmitDisabled = inputValue.trim().length === 0 || verdict !== null
 
@@ -468,18 +531,12 @@ function DefaultCard({ card, onAnswer, onNext }: DrillCardProps) {
         transition: 'border-color 200ms ease',
       }}
     >
-      {/* Mode tag */}
-      <div
-        style={{
-          color: 'var(--text-muted)',
-          fontSize: '0.75rem',
-          fontWeight: 500,
-          textTransform: 'uppercase',
-          letterSpacing: '0.08em',
-          marginBottom: '20px',
-        }}
-      >
-        {MODE_LABELS[card.mode]}
+      {/* Mode tag + retry badge */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
+        <span style={{ color: 'var(--text-muted)', fontSize: '0.75rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+          {MODE_LABELS[card.mode]}
+        </span>
+        {isRetry && <RetryBadge />}
       </div>
 
       {/* Prompt */}
@@ -637,45 +694,73 @@ function DefaultCard({ card, onAnswer, onNext }: DrillCardProps) {
         </div>
       )}
 
-      {/* Next card button */}
+      {/* Bottom actions row */}
       {verdict !== null && (
-        <button
-          onClick={onNext}
-          style={{
-            width: '100%',
-            padding: '13px 20px',
-            borderRadius: 'var(--radius-md)',
-            border: 'none',
-            background: verdict === 'correct' ? 'var(--accent-success)' : 'var(--accent-danger)',
-            color: 'white',
-            fontSize: '0.9375rem',
-            fontWeight: 600,
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '6px',
-            transition: 'opacity 150ms ease, transform 150ms ease',
-          }}
-          onMouseEnter={e => {
-            ;(e.currentTarget as HTMLButtonElement).style.opacity = '0.85'
-            ;(e.currentTarget as HTMLButtonElement).style.transform = 'translateY(-1px)'
-          }}
-          onMouseLeave={e => {
-            ;(e.currentTarget as HTMLButtonElement).style.opacity = '1'
-            ;(e.currentTarget as HTMLButtonElement).style.transform = 'translateY(0)'
-          }}
-        >
-          Next card
-          <ChevronRight size={16} />
-        </button>
+        <div style={{ display: 'flex', gap: '8px' }}>
+          {/* I knew this — override wrong to correct */}
+          {verdict === 'wrong' && (
+            <button
+              onClick={() => {
+                playCorrect()
+                setVerdict('correct')
+                onAnswer(card.id, 'correct', inputValue.trim())
+              }}
+              style={{
+                flex: 1,
+                padding: '11px 20px',
+                borderRadius: 'var(--radius-md)',
+                border: '1px solid var(--bg-border)',
+                background: 'var(--bg-secondary)',
+                color: 'var(--text-secondary)',
+                fontSize: '0.875rem',
+                fontWeight: 500,
+                cursor: 'pointer',
+              }}
+            >
+              I knew this
+            </button>
+          )}
+
+          {/* Next card */}
+          <button
+            onClick={onNext}
+            style={{
+              flex: verdict === 'wrong' ? 1 : undefined,
+              width: verdict === 'correct' ? '100%' : undefined,
+              padding: '13px 20px',
+              borderRadius: 'var(--radius-md)',
+              border: 'none',
+              background: verdict === 'correct' ? 'var(--accent-success)' : 'var(--accent-danger)',
+              color: 'white',
+              fontSize: '0.9375rem',
+              fontWeight: 600,
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '6px',
+              transition: 'opacity 150ms ease, transform 150ms ease',
+            }}
+            onMouseEnter={e => {
+              ;(e.currentTarget as HTMLButtonElement).style.opacity = '0.85'
+              ;(e.currentTarget as HTMLButtonElement).style.transform = 'translateY(-1px)'
+            }}
+            onMouseLeave={e => {
+              ;(e.currentTarget as HTMLButtonElement).style.opacity = '1'
+              ;(e.currentTarget as HTMLButtonElement).style.transform = 'translateY(0)'
+            }}
+          >
+            Next card
+            <ChevronRight size={16} />
+          </button>
+        </div>
       )}
     </div>
   )
 }
 
-export default function DrillCard({ card, onAnswer, onNext }: DrillCardProps) {
-  if (card.mode === 'concept_mc') return <ConceptMcCard card={card} onAnswer={onAnswer} onNext={onNext} />
-  if (card.mode === 'name_to_formula') return <FormulaCard card={card} onAnswer={onAnswer} onNext={onNext} />
-  return <DefaultCard card={card} onAnswer={onAnswer} onNext={onNext} />
+export default function DrillCard({ card, onAnswer, onNext, isRetry }: DrillCardProps) {
+  if (card.mode === 'concept_mc') return <ConceptMcCard card={card} onAnswer={onAnswer} onNext={onNext} isRetry={isRetry} />
+  if (card.mode === 'name_to_formula') return <FormulaCard card={card} onAnswer={onAnswer} onNext={onNext} isRetry={isRetry} />
+  return <DefaultCard card={card} onAnswer={onAnswer} onNext={onNext} isRetry={isRetry} />
 }
