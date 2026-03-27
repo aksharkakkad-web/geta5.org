@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { Check, X } from 'lucide-react'
 import DrillCard from '@/components/drill/DrillCard'
-import { SessionState, saveDrillDraft, clearDrillDraft } from '@/utils/drillSession'
+import { SessionState, saveDrillDraft, clearDrillDraft, insertRetryCard } from '@/utils/drillSession'
 import { getSubject } from '@/utils/subjects'
 
 interface DrillSessionProps {
@@ -22,11 +22,18 @@ export default function DrillSession({ session, subject, onComplete }: DrillSess
   const answersRef = useRef(answers)
   answersRef.current = answers
 
+  const [workingDeck, setWorkingDeck] = useState<SessionState['cards']>(() =>
+    session.workingDeck ?? [...session.cards]
+  )
+  const workingDeckRef = useRef(workingDeck)
+  workingDeckRef.current = workingDeck
+
   // Auto-save draft whenever currentIndex advances (fires after each card answered and Next clicked)
   useEffect(() => {
     if (currentIndex > 0) {
       saveDrillDraft(subject, {
         cards: session.cards,
+        workingDeck: workingDeckRef.current,
         currentIndex,
         answers: answersRef.current,
         isRetry: session.isRetry,
@@ -36,8 +43,8 @@ export default function DrillSession({ session, subject, onComplete }: DrillSess
     }
   }, [currentIndex]) // eslint-disable-line react-hooks/exhaustive-deps
 
-  const totalCards = session.cards.length
-  const currentCard = session.cards[currentIndex]
+  const totalCards = workingDeck.length
+  const currentCard = workingDeck[currentIndex]
 
   const correctCount = Object.values(answers).filter(a => a.verdict === 'correct').length
   const wrongCount = Object.values(answers).filter(a => a.verdict === 'wrong').length
@@ -65,7 +72,17 @@ export default function DrillSession({ session, subject, onComplete }: DrillSess
   }
 
   const handleNext = () => {
-    if (currentIndex + 1 >= totalCards) {
+    const currentCard = workingDeckRef.current[currentIndex]
+    const finalVerdict = answersRef.current[currentCard.id]?.verdict
+
+    // If wrong, splice card back into deck RETRY_INTERVAL positions ahead
+    let nextDeck = workingDeckRef.current
+    if (finalVerdict === 'wrong') {
+      nextDeck = insertRetryCard(workingDeckRef.current, currentCard, currentIndex)
+      setWorkingDeck(nextDeck)
+    }
+
+    if (currentIndex + 1 >= nextDeck.length) {
       clearDrillDraft(subject)
       const finalSession: SessionState = {
         ...session,
@@ -200,6 +217,7 @@ export default function DrillSession({ session, subject, onComplete }: DrillSess
         paddingBottom: '24px',
       }}>
         <DrillCard
+          key={`${currentCard.id}-${currentIndex}`}
           card={currentCard}
           onAnswer={handleAnswer}
           onNext={handleNext}
