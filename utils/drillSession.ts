@@ -31,6 +31,7 @@ export type DrillMode =
 
 export interface SessionState {
   cards: DrillCard[]
+  workingDeck?: DrillCard[]   // active sequence; includes retry insertions
   index: number
   answers: Record<string, { verdict: 'correct' | 'wrong'; userInput: string }>
   isRetry: boolean
@@ -46,6 +47,20 @@ export const MODE_LABELS: Record<DrillMode, string> = {
   significance_to_case:   'Significance → Case',
   name_to_formula:        'Name → Formula',
   concept_mc:             'Concept Check',
+}
+
+export const RETRY_INTERVAL = 3
+
+/**
+ * Returns a new deck with `card` spliced in RETRY_INTERVAL+1 positions
+ * after `currentIndex`. If the deck is too short, card goes at the end.
+ * Pure function — does not mutate the input array.
+ */
+export function insertRetryCard(deck: DrillCard[], card: DrillCard, currentIndex: number): DrillCard[] {
+  const insertAt = Math.min(currentIndex + RETRY_INTERVAL + 1, deck.length)
+  const updated = [...deck]
+  updated.splice(insertAt, 0, card)
+  return updated
 }
 
 /**
@@ -127,6 +142,7 @@ export function handleSessionComplete(session: SessionState, subject: string): v
 
 export interface DrillDraft {
   cards: DrillCard[]
+  workingDeck?: DrillCard[]   // saved so retries survive refresh
   currentIndex: number
   answers: SessionState['answers']
   isRetry: boolean

@@ -1,4 +1,4 @@
-import { handleSessionComplete, SessionState, DrillCard, DrillMode, normalizeCard } from '../drillSession'
+import { handleSessionComplete, insertRetryCard, RETRY_INTERVAL, SessionState, DrillCard, DrillMode, normalizeCard } from '../drillSession'
 import { lsGet, lsSet, LS_KEYS } from '../localStorage'
 import { logEvent } from '../analytics'
 
@@ -213,5 +213,65 @@ describe('normalizeCard', () => {
     const result = normalizeCard(card)
     expect(result.id).toBe('abc-123')
     expect(result.katex_required).toBe(true)
+  })
+})
+
+describe('insertRetryCard', () => {
+  function card(id: string): DrillCard {
+    return {
+      id,
+      unit: 'unit-1',
+      subject: 'ap-psychology',
+      mode: 'definition_to_term',
+      prompt: `Prompt ${id}`,
+      answer: `Answer ${id}`,
+      difficulty: 'easy',
+    }
+  }
+
+  it('inserts RETRY_INTERVAL+1 positions ahead of currentIndex', () => {
+    // deck: [a, b, c, d, e], currentIndex=0
+    // insertAt = min(0+3+1, 5) = 4
+    // result: [a, b, c, d, a, e]
+    const deck = [card('a'), card('b'), card('c'), card('d'), card('e')]
+    const result = insertRetryCard(deck, deck[0], 0)
+    expect(result.length).toBe(6)
+    expect(result[4]).toEqual(deck[0])
+  })
+
+  it('inserts at end when deck is shorter than RETRY_INTERVAL', () => {
+    // deck: [a, b], currentIndex=0
+    // insertAt = min(0+3+1, 2) = 2
+    // result: [a, b, a]
+    const deck = [card('a'), card('b')]
+    const result = insertRetryCard(deck, deck[0], 0)
+    expect(result.length).toBe(3)
+    expect(result[result.length - 1]).toEqual(deck[0])
+  })
+
+  it('does not mutate the original deck', () => {
+    const deck = [card('a'), card('b'), card('c'), card('d'), card('e')]
+    const snapshot = [...deck]
+    insertRetryCard(deck, deck[0], 0)
+    expect(deck).toEqual(snapshot)
+  })
+
+  it('handles currentIndex at the last card', () => {
+    // deck: [a, b, c], currentIndex=2 (last card)
+    // insertAt = min(2+3+1, 3) = 3 = end
+    const deck = [card('a'), card('b'), card('c')]
+    const result = insertRetryCard(deck, deck[2], 2)
+    expect(result.length).toBe(4)
+    expect(result[3]).toEqual(deck[2])
+  })
+
+  it('works with mid-session currentIndex', () => {
+    // deck: [a, b, c, d, e, f, g], currentIndex=2
+    // insertAt = min(2+3+1, 7) = 6
+    // result: [a, b, c, d, e, f, c, g]
+    const deck = [card('a'), card('b'), card('c'), card('d'), card('e'), card('f'), card('g')]
+    const result = insertRetryCard(deck, deck[2], 2)
+    expect(result.length).toBe(8)
+    expect(result[6]).toEqual(deck[2])
   })
 })
