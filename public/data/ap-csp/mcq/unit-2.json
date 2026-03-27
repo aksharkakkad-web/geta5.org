@@ -1,0 +1,1856 @@
+{
+  "subject": "ap-csp",
+  "unit": "unit-2",
+  "unit_name": "Data",
+  "questions": [
+    {
+      "id": "csp-u2-q001",
+      "unit": "unit-2",
+      "subject": "ap-csp",
+      "difficulty": "easy",
+      "stimulus": {
+        "type": "text",
+        "content": "Binary is a base-2 number system that uses only the digits 0 and 1. Computers use binary because electronic circuits have two states: on (1) and off (0). Every type of data — numbers, text, images, and video — is ultimately stored as sequences of 0s and 1s."
+      },
+      "question": "What is the decimal (base-10) equivalent of the binary number 1010?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "10",
+          "is_correct": true,
+          "explanation": "1010 in binary = 1×8 + 0×4 + 1×2 + 0×1 = 8 + 0 + 2 + 0 = 10 in decimal."
+        },
+        {
+          "id": "B",
+          "text": "1010",
+          "is_correct": false,
+          "explanation": "1010 is the binary representation — the decimal equivalent requires converting each position using powers of 2, yielding 10."
+        },
+        {
+          "id": "C",
+          "text": "4",
+          "is_correct": false,
+          "explanation": "4 would result from binary 100 — a student counting only the two 1s might arrive at this incorrect answer."
+        },
+        {
+          "id": "D",
+          "text": "12",
+          "is_correct": false,
+          "explanation": "12 would result from binary 1100 — a student misidentifying positional values might calculate this incorrectly."
+        }
+      ],
+      "unit_objective": "DAT-1.A"
+    },
+    {
+      "id": "csp-u2-q002",
+      "unit": "unit-2",
+      "subject": "ap-csp",
+      "difficulty": "medium",
+      "stimulus": {
+        "type": "text",
+        "content": "A system uses 3 bits to store a non-negative integer. The maximum value storable in 3 bits is 7 (binary 111). A programmer tries to store the value 9 in this 3-bit variable."
+      },
+      "question": "Which of the following best describes what happens when 9 is stored in a 3-bit variable?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "An overflow error occurs — 9 exceeds the 3-bit maximum (7), so the stored value will be incorrect",
+          "is_correct": true,
+          "explanation": "9 in binary is 1001 — 4 bits. With only 3 bits, the leading 1 is lost, storing 001 = 1. This is an overflow error."
+        },
+        {
+          "id": "B",
+          "text": "The system automatically expands to 4 bits to store the value correctly",
+          "is_correct": false,
+          "explanation": "Fixed-size storage does not automatically expand — the variable remains 3 bits and the overflow causes data loss."
+        },
+        {
+          "id": "C",
+          "text": "The program will crash with a logic error when it tries to store 9",
+          "is_correct": false,
+          "explanation": "Overflow does not necessarily cause a crash — the program may continue running with the incorrect (truncated) value stored."
+        },
+        {
+          "id": "D",
+          "text": "The value 9 is rounded down to 7 and stored correctly as the maximum value",
+          "is_correct": false,
+          "explanation": "Overflow does not round to the maximum — it wraps or truncates the bit pattern, producing an incorrect value (often much smaller than expected)."
+        }
+      ],
+      "unit_objective": "DAT-1.A"
+    },
+    {
+      "id": "csp-u2-q003",
+      "unit": "unit-2",
+      "subject": "ap-csp",
+      "difficulty": "medium",
+      "stimulus": {
+        "type": "text",
+        "content": "A photographer takes a photo using a digital camera. The camera's sensor measures light at millions of points on a grid, converting the continuous analog light values into discrete digital numbers for each pixel."
+      },
+      "question": "Which of the following best describes the process being used to convert the analog photo to a digital file?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Sampling — measuring the analog signal at discrete points to create a digital representation",
+          "is_correct": true,
+          "explanation": "Sampling converts continuous analog data (light intensity) into discrete measurements at many points, creating a digital approximation."
+        },
+        {
+          "id": "B",
+          "text": "Lossless compression — removing redundant data to shrink the file without losing quality",
+          "is_correct": false,
+          "explanation": "Compression reduces file size of already-digital data — it does not describe converting analog light to digital values."
+        },
+        {
+          "id": "C",
+          "text": "Data cleaning — fixing inaccurate values in the sensor measurements",
+          "is_correct": false,
+          "explanation": "Data cleaning corrects errors in existing datasets — it does not describe the process of converting analog signals to digital."
+        },
+        {
+          "id": "D",
+          "text": "Binary encoding — converting the image directly to binary without any measurement",
+          "is_correct": false,
+          "explanation": "Binary encoding is a storage format — the specific process of measuring analog signals at discrete intervals is sampling."
+        }
+      ],
+      "unit_objective": "DAT-1.B"
+    },
+    {
+      "id": "csp-u2-q004",
+      "unit": "unit-2",
+      "subject": "ap-csp",
+      "difficulty": "medium",
+      "stimulus": {
+        "type": "text",
+        "content": "Two image formats are compared:\n- Format A: Stores every pixel's exact color value. A compressed file can be decompressed to an identical copy of the original.\n- Format B: Discards color details the human eye is less sensitive to. A compressed file is smaller but cannot be perfectly restored to the original."
+      },
+      "question": "Which of the following correctly identifies the compression type used by each format?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Format A uses lossless compression; Format B uses lossy compression",
+          "is_correct": true,
+          "explanation": "Format A preserves all data (lossless). Format B permanently discards some data for a smaller file (lossy). PNG vs. JPEG is a real-world example."
+        },
+        {
+          "id": "B",
+          "text": "Format A uses lossy compression; Format B uses lossless compression",
+          "is_correct": false,
+          "explanation": "This is backwards — Format A can be perfectly restored (lossless), while Format B cannot (lossy)."
+        },
+        {
+          "id": "C",
+          "text": "Both formats use lossless compression since both store complete image data",
+          "is_correct": false,
+          "explanation": "Format B explicitly discards data that cannot be recovered — this defines lossy compression, not lossless."
+        },
+        {
+          "id": "D",
+          "text": "Both formats use lossy compression since both involve reducing the file size",
+          "is_correct": false,
+          "explanation": "Format A reduces file size while preserving all data — this is the definition of lossless compression, not lossy."
+        }
+      ],
+      "unit_objective": "DAT-1.C"
+    },
+    {
+      "id": "csp-u2-q005",
+      "unit": "unit-2",
+      "subject": "ap-csp",
+      "difficulty": "easy",
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "File Name",
+            "File Size",
+            "Date Created",
+            "Location (GPS)",
+            "Camera Model"
+          ],
+          "rows": [
+            [
+              "vacation_photo.jpg",
+              "4.2 MB",
+              "2025-07-15",
+              "40.7128° N, 74.0060° W",
+              "Canon EOS R5"
+            ],
+            [
+              "birthday.jpg",
+              "3.8 MB",
+              "2025-09-01",
+              "34.0522° N, 118.2437° W",
+              "iPhone 16"
+            ]
+          ]
+        }
+      },
+      "question": "The table above shows information associated with digital photographs. Which term best describes the type of data shown in the table?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Metadata",
+          "is_correct": true,
+          "explanation": "Metadata is data about data — file size, creation date, GPS location, and camera model are all descriptors of the photo files, not the photo content itself."
+        },
+        {
+          "id": "B",
+          "text": "Analog data",
+          "is_correct": false,
+          "explanation": "Analog data is continuous real-world signal data — the stored file attributes are discrete digital values."
+        },
+        {
+          "id": "C",
+          "text": "Compressed data",
+          "is_correct": false,
+          "explanation": "The table shows descriptive attributes, not compressed data — compression relates to how data is stored, not to file attributes like name and date."
+        },
+        {
+          "id": "D",
+          "text": "Binary data",
+          "is_correct": false,
+          "explanation": "While all digital data is stored in binary, this term does not describe the specific role of these attributes — 'metadata' is the precise classification."
+        }
+      ],
+      "unit_objective": "DAT-2.A"
+    },
+    {
+      "id": "csp-u2-q006",
+      "unit": "unit-2",
+      "subject": "ap-csp",
+      "difficulty": "hard",
+      "stimulus": {
+        "type": "text",
+        "content": "A data analyst is studying whether eating breakfast affects academic performance. She analyzes a dataset of 10,000 students and finds that students who regularly eat breakfast have higher GPAs on average than those who skip breakfast. She concludes that eating breakfast causes better grades."
+      },
+      "question": "Which of the following best identifies the flaw in the analyst's conclusion?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "She is treating a correlation as causation — other factors (like family income or sleep habits) may cause both breakfast eating and high GPA",
+          "is_correct": true,
+          "explanation": "A correlation between breakfast and GPA does not mean one causes the other — lurking variables like socioeconomic status or sleep could explain both."
+        },
+        {
+          "id": "B",
+          "text": "Her dataset is too small to draw any conclusions about breakfast and grades",
+          "is_correct": false,
+          "explanation": "10,000 students is a large sample — the problem is not sample size but the logical leap from correlation to causation."
+        },
+        {
+          "id": "C",
+          "text": "She should have visualized the data before analyzing it",
+          "is_correct": false,
+          "explanation": "Visualization helps with analysis but does not address the fundamental error of inferring causation from correlation."
+        },
+        {
+          "id": "D",
+          "text": "GPA data is analog and cannot be analyzed with digital computers",
+          "is_correct": false,
+          "explanation": "GPA is a discrete numerical value — it can be stored and analyzed digitally. This is unrelated to the causation error."
+        }
+      ],
+      "unit_objective": "DAT-2.C"
+    },
+    {
+      "id": "csp-u2-q007",
+      "unit": "unit-2",
+      "subject": "ap-csp",
+      "difficulty": "hard",
+      "stimulus": {
+        "type": "code",
+        "content": "scores ← [85, 92, 0, 78, \"N/A\", 88, 101]\ntotal ← 0\ncount ← 0\nFOR EACH s IN scores\n{\n    IF(s > 0 AND s <= 100)\n    {\n        total ← total + s\n        count ← count + 1\n    }\n}\nDISPLAY(total / count)"
+      },
+      "question": "Which of the following best describes what the code above accomplishes with respect to the dataset?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "It performs data cleaning by filtering out invalid entries (0, \"N/A\", and 101) before computing the average",
+          "is_correct": true,
+          "explanation": "The IF condition only includes values between 1 and 100, excluding invalid entries (0, \"N/A\", 101) before computing the average — this is data cleaning in code."
+        },
+        {
+          "id": "B",
+          "text": "It computes the average of all values in the list including invalid entries",
+          "is_correct": false,
+          "explanation": "The IF condition explicitly filters out values outside 0–100 — invalid entries are excluded from both total and count."
+        },
+        {
+          "id": "C",
+          "text": "It causes a runtime error because \"N/A\" cannot be compared to a number",
+          "is_correct": false,
+          "explanation": "In CB pseudocode, comparing a string to a number with AND short-circuiting may handle this — the code is intended to demonstrate data filtering logic."
+        },
+        {
+          "id": "D",
+          "text": "It compresses the data by storing only valid entries",
+          "is_correct": false,
+          "explanation": "Data compression reduces file size by encoding — filtering values for computation is data cleaning, not compression."
+        }
+      ],
+      "unit_objective": "DAT-2.B"
+    },
+    {
+      "id": "csp-u2-q008",
+      "unit": "unit-2",
+      "subject": "ap-csp",
+      "difficulty": "medium",
+      "stimulus": {
+        "type": "text",
+        "content": "A researcher examines a city's data on hours of sunshine per day and the number of people visiting local parks. She creates a scatter plot and finds that as sunshine hours increase, park visits also increase. She also finds that the data points follow a roughly linear pattern."
+      },
+      "question": "Which of the following conclusions is most strongly supported by this analysis?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "There is a positive correlation between sunshine hours and park visits",
+          "is_correct": true,
+          "explanation": "A scatter plot showing both variables increase together with a linear pattern indicates a positive correlation — the data supports this conclusion."
+        },
+        {
+          "id": "B",
+          "text": "Sunshine causes people to visit parks",
+          "is_correct": false,
+          "explanation": "Correlation does not establish causation — other factors (temperature, weekends, holidays) may also explain the pattern."
+        },
+        {
+          "id": "C",
+          "text": "Park visits cause more sunshine",
+          "is_correct": false,
+          "explanation": "Confusing the direction of causation — park visits cannot cause sunshine. More importantly, correlation alone does not establish any causal direction."
+        },
+        {
+          "id": "D",
+          "text": "The dataset is too small unless it includes at least 1,000 data points",
+          "is_correct": false,
+          "explanation": "No minimum dataset size is established in the scenario — the conclusion about correlation can be supported by the scatter plot pattern regardless of this claim."
+        }
+      ],
+      "unit_objective": "DAT-2.C"
+    },
+    {
+      "id": "csp-u2-q009",
+      "unit": "unit-2",
+      "subject": "ap-csp",
+      "difficulty": "hard",
+      "stimulus": {
+        "type": "text",
+        "content": "A run-length encoding (RLE) algorithm compresses a string of characters by replacing consecutive repeated characters with a count and the character. For example: 'AAABBBCC' becomes '3A3B2C'."
+      },
+      "question": "If a string consists of all unique characters with no consecutive repeats, which of the following best describes the effect of applying RLE?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "The compressed file would be larger than the original because each character requires a count digit added",
+          "is_correct": true,
+          "explanation": "With no consecutive repeats, each character becomes '1X' — 'ABCD' becomes '1A1B1C1D', doubling the size. RLE performs poorly on non-repetitive data."
+        },
+        {
+          "id": "B",
+          "text": "The compressed file would be the same size since RLE preserves all characters",
+          "is_correct": false,
+          "explanation": "Adding a count digit to every character increases total size — the file would grow, not stay the same."
+        },
+        {
+          "id": "C",
+          "text": "The compressed file would be smaller because fewer characters need to be stored",
+          "is_correct": false,
+          "explanation": "Compression only reduces size when there is repetition to exploit — without repeats, RLE adds overhead rather than reducing size."
+        },
+        {
+          "id": "D",
+          "text": "RLE would cause an overflow error on non-repetitive strings",
+          "is_correct": false,
+          "explanation": "RLE is a valid algorithm for any string — it simply performs poorly (increases size) on non-repetitive data rather than causing errors."
+        }
+      ],
+      "unit_objective": "DAT-1.C"
+    },
+    {
+      "id": "csp-u2-q010",
+      "unit": "unit-2",
+      "subject": "ap-csp",
+      "difficulty": "medium",
+      "stimulus": {
+        "type": "text",
+        "content": "A city collects data on traffic accidents, weather conditions, road type, time of day, and driver age from 50,000 incidents over five years. Analysts use software to identify patterns that predict high-risk intersections."
+      },
+      "question": "Which of the following best describes what the analysts are doing with the data?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Extracting information from data by identifying patterns that provide actionable insights beyond the raw records",
+          "is_correct": true,
+          "explanation": "Extracting information involves using programs or statistical methods on large datasets to discover patterns — identifying high-risk intersections from accident records is exactly this."
+        },
+        {
+          "id": "B",
+          "text": "Data cleaning — removing incorrect accident records from the dataset",
+          "is_correct": false,
+          "explanation": "The question describes pattern discovery, not error correction — data cleaning is a preparatory step, not the analytical process described."
+        },
+        {
+          "id": "C",
+          "text": "Data compression — reducing the 50,000 records to a smaller set",
+          "is_correct": false,
+          "explanation": "Compression reduces storage size without extracting meaning — analyzing patterns is about gaining insight, not reducing storage."
+        },
+        {
+          "id": "D",
+          "text": "Sampling — selecting a representative subset of accidents to analyze",
+          "is_correct": false,
+          "explanation": "Sampling would involve selecting a subset for analysis — the analysts are analyzing all 50,000 records to find patterns."
+        }
+      ],
+      "unit_objective": "DAT-2.D"
+    },
+    {
+      "id": "csp-u2-q011",
+      "unit": "unit-2",
+      "subject": "ap-csp",
+      "difficulty": "hard",
+      "stimulus": {
+        "type": "text",
+        "content": "The same audio recording is saved in two formats:\n- WAV: 50 MB file, exact reproduction of the original recording\n- MP3: 5 MB file, nearly identical sound to most listeners but with some high-frequency details removed"
+      },
+      "question": "Which of the following best explains why MP3 achieves a smaller file size than WAV?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "MP3 uses lossy compression — it permanently removes audio data considered imperceptible to most human ears",
+          "is_correct": true,
+          "explanation": "MP3 applies lossy compression by discarding frequencies humans are less sensitive to, trading perfect reproduction for much smaller file sizes."
+        },
+        {
+          "id": "B",
+          "text": "MP3 uses lossless compression — it stores the same data as WAV but in a more efficient encoding",
+          "is_correct": false,
+          "explanation": "If MP3 were lossless, it could be decoded back to an identical WAV — the scenario explicitly states some details are removed, indicating lossy compression."
+        },
+        {
+          "id": "C",
+          "text": "MP3 stores audio in analog format, which requires less digital storage than WAV",
+          "is_correct": false,
+          "explanation": "Both WAV and MP3 are digital formats — analog audio cannot be stored in either file format."
+        },
+        {
+          "id": "D",
+          "text": "MP3 uses a lower sampling rate, so fewer measurements of the sound are taken",
+          "is_correct": false,
+          "explanation": "While sampling rate affects quality, MP3's size reduction primarily comes from lossy compression of already-sampled data, not from reducing the sampling rate."
+        }
+      ],
+      "unit_objective": "DAT-1.C"
+    },
+    {
+      "id": "csp-u2-q012",
+      "unit": "unit-2",
+      "subject": "ap-csp",
+      "difficulty": "hard",
+      "stimulus": {
+        "type": "text",
+        "content": "A school keeps a student database with the following fields: Student ID, Name, Email, GPA, Address, Phone Number, Date of Birth, and Extracurricular Activities."
+      },
+      "question": "Select TWO answers. Which of the following fields are examples of Personally Identifiable Information (PII)?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Name",
+          "is_correct": true,
+          "explanation": "A student's name is PII because it can be used to identify a specific individual."
+        },
+        {
+          "id": "B",
+          "text": "GPA",
+          "is_correct": false,
+          "explanation": "GPA alone cannot identify a specific person — many students share the same GPA, so it is not PII by itself."
+        },
+        {
+          "id": "C",
+          "text": "Email",
+          "is_correct": true,
+          "explanation": "An email address uniquely identifies a person and allows direct contact — it is PII."
+        },
+        {
+          "id": "D",
+          "text": "Extracurricular Activities",
+          "is_correct": false,
+          "explanation": "Listing activities like 'soccer' or 'chess club' does not by itself identify a specific individual — it is not PII."
+        }
+      ],
+      "unit_objective": "IOC-2.A"
+    },
+    {
+      "id": "csp-u2-q013",
+      "unit": "unit-2",
+      "subject": "ap-csp",
+      "difficulty": "medium",
+      "stimulus": {
+        "type": "text",
+        "content": "A data visualization shows the number of new electric vehicle registrations per year from 2015 to 2025 as a line graph. The line rises steeply from 2020 to 2025."
+      },
+      "question": "Which of the following insights could most directly be drawn from this visualization?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Electric vehicle adoption accelerated significantly after 2020",
+          "is_correct": true,
+          "explanation": "A steeply rising line from 2020–2025 directly shows increased adoption — this insight can be read directly from the pattern."
+        },
+        {
+          "id": "B",
+          "text": "The steep rise from 2020 proves that government incentives caused increased EV adoption",
+          "is_correct": false,
+          "explanation": "The graph shows a correlation over time, not a causal relationship — government incentives may be one factor, but causation cannot be established from this visualization alone."
+        },
+        {
+          "id": "C",
+          "text": "Electric vehicles will continue to increase in number for the next 20 years",
+          "is_correct": false,
+          "explanation": "Past trends do not guarantee future outcomes — extrapolating 20 years from this data is not directly supported."
+        },
+        {
+          "id": "D",
+          "text": "More EV registrations means more people drove electric vehicles before 2015",
+          "is_correct": false,
+          "explanation": "The visualization shows data from 2015 onward — it provides no information about before 2015, and this conclusion contradicts the described rising trend."
+        }
+      ],
+      "unit_objective": "DAT-2.E"
+    },
+    {
+      "id": "csp-u2-q014",
+      "unit": "unit-2",
+      "subject": "ap-csp",
+      "difficulty": "medium",
+      "stimulus": {
+        "type": "code",
+        "content": "data ← [10, 20, 30, 40, 50]\ntotal ← 0\nFOR EACH n IN data\n{\n    total ← total + n\n}\naverage ← total / LENGTH(data)\nDISPLAY(average)"
+      },
+      "question": "What value does the code above display?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "30",
+          "is_correct": true,
+          "explanation": "total = 10+20+30+40+50 = 150. LENGTH(data) = 5. average = 150/5 = 30. DISPLAY outputs 30."
+        },
+        {
+          "id": "B",
+          "text": "150",
+          "is_correct": false,
+          "explanation": "150 is the sum (total), not the average — the code divides by LENGTH(data) = 5 before displaying."
+        },
+        {
+          "id": "C",
+          "text": "5",
+          "is_correct": false,
+          "explanation": "5 is LENGTH(data) — the count of elements — not the average."
+        },
+        {
+          "id": "D",
+          "text": "50",
+          "is_correct": false,
+          "explanation": "50 is the last element of the list — the code computes and displays the average (30), not the final element."
+        }
+      ],
+      "unit_objective": "DAT-2.B"
+    },
+    {
+      "id": "csp-u2-q015",
+      "unit": "unit-2",
+      "subject": "ap-csp",
+      "difficulty": "hard",
+      "stimulus": {
+        "type": "text",
+        "content": "A healthcare researcher has a dataset of patient records that includes: Age, Blood Pressure, Cholesterol Level, Medication Taken (yes/no), and Outcome (recovered/not recovered). She wants to determine if taking medication improves outcomes."
+      },
+      "question": "Which of the following would most improve the validity of her conclusion that medication improves outcomes?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Controlling for other variables (age, blood pressure, cholesterol) to isolate the effect of medication on outcome",
+          "is_correct": true,
+          "explanation": "Confounding variables can make it appear medication helps when another factor is the real cause — controlling for them lets the researcher isolate the medication effect."
+        },
+        {
+          "id": "B",
+          "text": "Increasing the number of data fields in the dataset to include more patient information",
+          "is_correct": false,
+          "explanation": "Adding more fields does not by itself control for confounding — more data alone does not eliminate the causation problem."
+        },
+        {
+          "id": "C",
+          "text": "Visualizing the data as a bar chart before drawing conclusions",
+          "is_correct": false,
+          "explanation": "Visualization helps communicate findings but does not address the confounding variable problem in a causal analysis."
+        },
+        {
+          "id": "D",
+          "text": "Removing all patients who did not take medication from the dataset",
+          "is_correct": false,
+          "explanation": "Removing the non-medication group eliminates the comparison needed to assess whether medication makes a difference."
+        }
+      ],
+      "unit_objective": "DAT-2.C"
+    },
+    {
+      "id": "csp-u2-q016",
+      "unit": "unit-2",
+      "subject": "ap-csp",
+      "difficulty": "easy",
+      "stimulus": {
+        "type": "text",
+        "content": "All digital data is ultimately stored as bits. A single bit can represent two values (0 or 1). With 2 bits, four values can be represented (00, 01, 10, 11). With 3 bits, eight values can be represented."
+      },
+      "question": "How many different values can be represented using 4 bits?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "16",
+          "is_correct": true,
+          "explanation": "With n bits, 2^n unique values can be represented. 2^4 = 16 unique bit patterns (0000 through 1111)."
+        },
+        {
+          "id": "B",
+          "text": "8",
+          "is_correct": false,
+          "explanation": "8 = 2^3 is the number of values for 3 bits — 4 bits doubles this to 2^4 = 16."
+        },
+        {
+          "id": "C",
+          "text": "4",
+          "is_correct": false,
+          "explanation": "4 is the number of bits, not the number of representable values — confusing n with 2^n gives this wrong answer."
+        },
+        {
+          "id": "D",
+          "text": "32",
+          "is_correct": false,
+          "explanation": "32 = 2^5 is the number of values for 5 bits — 4 bits can represent 2^4 = 16 values."
+        }
+      ],
+      "unit_objective": "DAT-1.A"
+    },
+    {
+      "id": "csp-u2-q017",
+      "unit": "unit-2",
+      "subject": "ap-csp",
+      "difficulty": "medium",
+      "stimulus": {
+        "type": "text",
+        "content": "A software team analyzes bug reports submitted by users over 12 months. They use a program to count how many bugs were reported per month, sort them by category (UI, performance, crash), and display the results as a bar chart."
+      },
+      "question": "Which of the following best describes how the team is using the data?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "They are using a program to process data and generate a visualization that reveals patterns in bug categories over time",
+          "is_correct": true,
+          "explanation": "Processing data programmatically and visualizing it to reveal patterns (category distribution over time) is exactly what 'using programs with data' and 'data visualization' involve."
+        },
+        {
+          "id": "B",
+          "text": "They are sampling the data by selecting only some of the 12 months for analysis",
+          "is_correct": false,
+          "explanation": "The team analyzes all 12 months — there is no indication of selecting a subset, so this is not sampling."
+        },
+        {
+          "id": "C",
+          "text": "They are compressing the bug reports to reduce the storage space used",
+          "is_correct": false,
+          "explanation": "Compression reduces file size — counting, sorting, and charting data is analysis and visualization, not compression."
+        },
+        {
+          "id": "D",
+          "text": "They are cleaning the data by removing duplicate bug reports",
+          "is_correct": false,
+          "explanation": "Data cleaning is not described — the team is analyzing and visualizing already-collected reports."
+        }
+      ],
+      "unit_objective": "DAT-2.D"
+    },
+    {
+      "id": "csp-u2-q018",
+      "unit": "unit-2",
+      "subject": "ap-csp",
+      "difficulty": "hard",
+      "stimulus": {
+        "type": "text",
+        "content": "A system transmits a file over a network. To check for errors, it uses a simple parity bit scheme: it adds a 1 at the end of each 8-bit chunk if there is an odd number of 1s, or a 0 if there is an even number. The receiver checks if the parity bit matches."
+      },
+      "question": "Which of the following best describes a limitation of this parity bit error-detection scheme?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "It cannot detect errors when an even number of bits are flipped, because flipping two bits preserves the parity",
+          "is_correct": true,
+          "explanation": "If exactly 2 bits flip, the count of 1s changes by 0 or 2 (even), leaving parity unchanged — the receiver sees correct parity but receives wrong data."
+        },
+        {
+          "id": "B",
+          "text": "It cannot detect any errors because the parity bit is too small to check 8 bits",
+          "is_correct": false,
+          "explanation": "A single parity bit can detect all single-bit errors — the limitation is with even numbers of errors, not with the bit-checking capability itself."
+        },
+        {
+          "id": "C",
+          "text": "It can only work if the transmission uses binary data",
+          "is_correct": false,
+          "explanation": "All digital transmission uses binary — this is not a limitation unique to parity checking."
+        },
+        {
+          "id": "D",
+          "text": "Adding a parity bit doubles the file size, making transmission too slow",
+          "is_correct": false,
+          "explanation": "Adding one bit per 8 increases file size by 12.5%, not 100% — this is not a major limitation compared to the error-detection gap."
+        }
+      ],
+      "unit_objective": "DAT-1.A"
+    },
+    {
+      "id": "csp-u2-q019",
+      "unit": "unit-2",
+      "subject": "ap-csp",
+      "difficulty": "medium",
+      "stimulus": {
+        "type": "text",
+        "content": "A social scientist studies whether social media use (hours/day) correlates with self-reported happiness scores in a sample of 500 teenagers. He finds a correlation coefficient of -0.72."
+      },
+      "question": "Which of the following most accurately describes what this finding means?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "There is a strong negative correlation — students who use social media more tend to report lower happiness scores",
+          "is_correct": true,
+          "explanation": "A correlation of -0.72 is strong and negative — as social media use increases, happiness scores tend to decrease. This is a correlation, not causation."
+        },
+        {
+          "id": "B",
+          "text": "Social media use causes unhappiness in teenagers",
+          "is_correct": false,
+          "explanation": "Correlation does not establish causation — unhappy teens may seek more social media, or a third factor could explain both."
+        },
+        {
+          "id": "C",
+          "text": "72% of teenagers who use social media are unhappy",
+          "is_correct": false,
+          "explanation": "A correlation coefficient of -0.72 describes the strength and direction of a linear relationship, not a percentage of unhappy users."
+        },
+        {
+          "id": "D",
+          "text": "The finding is unreliable because the sample includes only 500 teenagers",
+          "is_correct": false,
+          "explanation": "500 participants is a reasonable sample for a social science study — sample size concerns are not the main issue with this finding."
+        }
+      ],
+      "unit_objective": "DAT-2.C"
+    },
+    {
+      "id": "csp-u2-q020",
+      "unit": "unit-2",
+      "subject": "ap-csp",
+      "difficulty": "hard",
+      "stimulus": {
+        "type": "text",
+        "content": "A company has a database of customer transactions. A data scientist uses a machine learning model trained on this data to predict which customers are likely to cancel their subscriptions. The model finds that customers who have not logged in for 30+ days and have raised 2+ support tickets are likely to cancel."
+      },
+      "question": "Which of the following best describes the process the data scientist used?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Extracting information from data — using a program to discover non-obvious patterns in the dataset that generate actionable insights",
+          "is_correct": true,
+          "explanation": "Machine learning applied to transactional data to discover predictive patterns (login inactivity + support tickets → cancellation) is extracting information from data."
+        },
+        {
+          "id": "B",
+          "text": "Data cleaning — removing customers with incomplete transaction histories from the dataset",
+          "is_correct": false,
+          "explanation": "The model is being applied to discover predictive patterns, not to fix or remove data — this is information extraction, not cleaning."
+        },
+        {
+          "id": "C",
+          "text": "Data compression — encoding the customer records into a smaller format for faster processing",
+          "is_correct": false,
+          "explanation": "The data scientist is building a predictive model, not reducing storage — compression is not the process described."
+        },
+        {
+          "id": "D",
+          "text": "Sampling — selecting only customers who have not logged in recently for analysis",
+          "is_correct": false,
+          "explanation": "Sampling selects a subset for analysis — the model is trained on all transaction data to find patterns, not on a selected subset only."
+        }
+      ],
+      "unit_objective": "DAT-2.E"
+    },
+    {
+      "id": "csp-u2-q021",
+      "question": "A dataset contains the ages of participants in a study. A researcher calculates that the average age is 34 years. Which of the following BEST describes what this statistic is?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "An extraction of data",
+          "is_correct": false,
+          "explanation": "Extraction refers to retrieving data from a source, not computing a summary statistic."
+        },
+        {
+          "id": "B",
+          "text": "A transformation of data",
+          "is_correct": false,
+          "explanation": "Transformation changes data format (e.g., Fahrenheit to Celsius); computing an average is an analysis step."
+        },
+        {
+          "id": "C",
+          "text": "A cleaned version of the dataset",
+          "is_correct": false,
+          "explanation": "Data cleaning removes errors and inconsistencies; it does not produce a single summary value."
+        },
+        {
+          "id": "D",
+          "text": "An insight extracted through data analysis",
+          "is_correct": true,
+          "explanation": "Computing an average is a form of data analysis that produces a meaningful insight (a summary statistic) from raw data."
+        }
+      ],
+      "difficulty": "easy",
+      "topic": "data_analysis",
+      "stimulus": {
+        "type": "text",
+        "content": "A researcher collects data from 500 study participants. She computes a single average value from the raw dataset to summarize the data for publication."
+      }
+    },
+    {
+      "id": "csp-u2-q022",
+      "question": "A file stores the color red as the binary value 11111111 00000000 00000000 (8 bits each for red, green, blue). If the number of bits per channel is reduced from 8 to 4, what is the effect?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "The file size doubles",
+          "is_correct": false,
+          "explanation": "Reducing bits per channel reduces file size, not increases it."
+        },
+        {
+          "id": "B",
+          "text": "More color values can be represented",
+          "is_correct": false,
+          "explanation": "Fewer bits means fewer possible values (2^4 = 16 vs. 2^8 = 256 per channel). This is a reduction in color depth."
+        },
+        {
+          "id": "C",
+          "text": "The file uses less storage but can represent fewer color values",
+          "is_correct": true,
+          "explanation": "With 4 bits per channel instead of 8, storage is halved but only 2^4 = 16 values per channel are representable instead of 2^8 = 256."
+        },
+        {
+          "id": "D",
+          "text": "The file size remains the same because RGB still uses 3 channels",
+          "is_correct": false,
+          "explanation": "File size depends on total bits (channels x bits per channel). Reducing bits per channel reduces total size."
+        }
+      ],
+      "difficulty": "hard",
+      "topic": "binary_data_representation",
+      "stimulus": {
+        "type": "text",
+        "content": "A digital image format stores the intensity of red, green, and blue color channels for each pixel. A developer is choosing how many bits to allocate per channel when designing a new file format."
+      }
+    },
+    {
+      "id": "csp-u2-q023",
+      "question": "Which of the following BEST explains why combining two datasets that individually contain no PII can still create a privacy risk?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Combining datasets always introduces malware",
+          "is_correct": false,
+          "explanation": "Combining datasets creates privacy risks through information aggregation, not malware."
+        },
+        {
+          "id": "B",
+          "text": "When combined, the data fields may uniquely identify a specific individual",
+          "is_correct": true,
+          "explanation": "Data aggregation means that combining non-PII fields (e.g., ZIP code + birth date + gender) can uniquely identify a person, creating PII where none existed individually."
+        },
+        {
+          "id": "C",
+          "text": "The second dataset always overrides the first",
+          "is_correct": false,
+          "explanation": "Data combination is additive, not overriding. Both datasets contribute information."
+        },
+        {
+          "id": "D",
+          "text": "Digital data cannot be stored anonymously",
+          "is_correct": false,
+          "explanation": "Anonymous storage is possible; the issue is that specific combinations of fields can de-anonymize people."
+        }
+      ],
+      "difficulty": "medium",
+      "topic": "data_privacy",
+      "stimulus": {
+        "type": "text",
+        "content": "A data analyst receives two separate datasets. Dataset A contains only zip codes. Dataset B contains only birth dates and genders. Neither dataset contains names or contact information."
+      }
+    },
+    {
+      "id": "csp-u2-q024",
+      "question": "A weather sensor records temperature every minute, producing a continuous stream of real-world values. Before these readings can be stored on a computer, what transformation must occur?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "The data must be compressed using a lossless algorithm",
+          "is_correct": false,
+          "explanation": "Compression is optional and separate from the fundamental requirement of converting analog data to digital form."
+        },
+        {
+          "id": "B",
+          "text": "The analog data must be converted to a digital (binary) representation",
+          "is_correct": true,
+          "explanation": "Computers store and process digital data. Continuous analog signals (like temperature) must be sampled and encoded in binary before storage or processing."
+        },
+        {
+          "id": "C",
+          "text": "The data must be encrypted before storage",
+          "is_correct": false,
+          "explanation": "Encryption is a security step, not a required part of converting analog data to digital form."
+        },
+        {
+          "id": "D",
+          "text": "The data must be stored in a spreadsheet",
+          "is_correct": false,
+          "explanation": "Spreadsheets are one storage format, but the fundamental requirement is digital encoding, not a specific format."
+        }
+      ],
+      "difficulty": "medium",
+      "topic": "analog_digital",
+      "stimulus": {
+        "type": "text",
+        "content": "A smart home thermostat continuously measures the temperature in a room and adjusts heating automatically. The continuous temperature readings must be stored in the home controller's memory."
+      }
+    },
+    {
+      "id": "csp-u2-q025",
+      "question": "A researcher finds that cities with more ice cream shops have higher crime rates. Which of the following conclusions is BEST supported by this data?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Ice cream shops cause crime to increase",
+          "is_correct": false,
+          "explanation": "Correlation does not imply causation. The data shows a relationship, not a cause-and-effect link."
+        },
+        {
+          "id": "B",
+          "text": "Closing ice cream shops will reduce crime",
+          "is_correct": false,
+          "explanation": "This assumes causation. Without evidence of a direct causal link, this conclusion is not supported."
+        },
+        {
+          "id": "C",
+          "text": "There is a correlation between ice cream shops and crime rates",
+          "is_correct": true,
+          "explanation": "The data shows a correlation (both variables increase together) but does not establish causation. A confounding variable (population size) likely explains both."
+        },
+        {
+          "id": "D",
+          "text": "The data contains an overflow error",
+          "is_correct": false,
+          "explanation": "Overflow errors are binary storage issues. The question is about interpreting statistical correlation."
+        }
+      ],
+      "difficulty": "medium",
+      "topic": "correlation_causation",
+      "stimulus": {
+        "type": "text",
+        "content": "A researcher plots a scatter plot of ice cream sales and crime rates for 50 cities. The scatter plot shows that cities with more ice cream shops also have higher crime rates."
+      }
+    },
+    {
+      "id": "csp-u2-q026",
+      "question": "An image file stores each pixel using 3 bytes (one byte per color channel: red, green, blue). The image is 100 pixels wide and 100 pixels tall. What is the uncompressed file size in bytes?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "100 bytes",
+          "is_correct": false,
+          "explanation": "This only counts 100 pixels with 1 byte each. The correct calculation is pixels x bytes per pixel = 10,000 x 3."
+        },
+        {
+          "id": "B",
+          "text": "300 bytes",
+          "is_correct": false,
+          "explanation": "This counts 100 pixels x 3 channels but does not account for the full 100 x 100 grid. Total pixels = 10,000."
+        },
+        {
+          "id": "C",
+          "text": "10,000 bytes",
+          "is_correct": false,
+          "explanation": "This is the total pixel count without accounting for 3 bytes per pixel. Total = 10,000 x 3 = 30,000 bytes."
+        },
+        {
+          "id": "D",
+          "text": "30,000 bytes",
+          "is_correct": true,
+          "explanation": "100 x 100 = 10,000 pixels. Each pixel uses 3 bytes (one per channel). 10,000 x 3 = 30,000 bytes."
+        }
+      ],
+      "difficulty": "medium",
+      "topic": "binary_data_representation",
+      "stimulus": {
+        "type": "text",
+        "content": "A digital photograph is captured at 100 x 100 pixels. The image is stored in a format that uses exactly 3 bytes per pixel (one byte for each of the red, green, and blue color channels)."
+      }
+    },
+    {
+      "id": "csp-u2-q027",
+      "question": "A student claims that lossless compression is always better than lossy compression because no data is lost. Which of the following identifies a flaw in this reasoning?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Lossless compression cannot be applied to images",
+          "is_correct": false,
+          "explanation": "Lossless compression can be applied to images (e.g., PNG format). The flaw is about the trade-off, not the file type."
+        },
+        {
+          "id": "B",
+          "text": "Lossy compression can achieve much smaller file sizes, which may be acceptable when some quality loss is tolerable",
+          "is_correct": true,
+          "explanation": "Lossless compression preserves all data but achieves smaller reductions. Lossy compression removes non-essential data for far smaller files, which is often acceptable for photos, audio, and video."
+        },
+        {
+          "id": "C",
+          "text": "Lossless compression always produces larger files than the original",
+          "is_correct": false,
+          "explanation": "Lossless compression always produces files equal to or smaller than the original. It never increases file size."
+        },
+        {
+          "id": "D",
+          "text": "Lossy compression can restore the original file exactly when decompressed",
+          "is_correct": false,
+          "explanation": "By definition, lossy compression permanently discards data and cannot restore the original exactly."
+        }
+      ],
+      "difficulty": "medium",
+      "topic": "compression",
+      "stimulus": {
+        "type": "text",
+        "content": "A developer is designing an image storage system. She is deciding whether to use lossless compression (like PNG) or lossy compression (like JPEG) for storing user photos on a mobile app."
+      }
+    },
+    {
+      "id": "csp-u2-q028",
+      "question": "A data scientist wants to visualize how global temperature has changed over 100 years. Which visualization type would BEST show this trend?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "A pie chart showing the proportion of hot and cold years",
+          "is_correct": false,
+          "explanation": "Pie charts show proportions at a single point in time; they cannot show trends over time."
+        },
+        {
+          "id": "B",
+          "text": "A bar chart comparing temperature by continent",
+          "is_correct": false,
+          "explanation": "This shows geographic comparison, not a 100-year time trend."
+        },
+        {
+          "id": "C",
+          "text": "A line graph showing average temperature per year over 100 years",
+          "is_correct": true,
+          "explanation": "Line graphs are ideal for showing continuous change over time. Each data point represents a year, and the line shows the overall trend."
+        },
+        {
+          "id": "D",
+          "text": "A scatter plot comparing temperature and rainfall",
+          "is_correct": false,
+          "explanation": "A scatter plot shows the relationship between two variables; it does not inherently show a time trend for a single variable."
+        }
+      ],
+      "difficulty": "easy",
+      "topic": "data_visualization",
+      "stimulus": {
+        "type": "text",
+        "content": "A climate scientist has 100 years of annual average temperature data for a city. She wants to create a visualization that shows how the city's temperature has changed over this time period."
+      }
+    },
+    {
+      "id": "csp-u2-q029",
+      "question": "A 3-bit binary number can represent values from 0 to 7. If a calculation produces the value 9, what happens when stored in a 3-bit system?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "The value 9 is stored correctly in 3 bits",
+          "is_correct": false,
+          "explanation": "3 bits can only represent 0 through 7 (2^3 = 8 values). The value 9 cannot be stored correctly."
+        },
+        {
+          "id": "B",
+          "text": "An overflow error occurs, and the stored value is incorrect",
+          "is_correct": true,
+          "explanation": "9 exceeds the maximum (7) of a 3-bit system. The excess bits are lost, causing an overflow error and an incorrect stored value."
+        },
+        {
+          "id": "C",
+          "text": "The value 9 is automatically rounded to 7",
+          "is_correct": false,
+          "explanation": "Overflow does not round values; it wraps or truncates bits, producing an incorrect value (not necessarily 7)."
+        },
+        {
+          "id": "D",
+          "text": "The computer requests more storage space automatically",
+          "is_correct": false,
+          "explanation": "Fixed-width binary systems do not automatically expand. Overflow errors occur when the value exceeds the fixed bit capacity."
+        }
+      ],
+      "difficulty": "medium",
+      "topic": "overflow_error",
+      "stimulus": {
+        "type": "text",
+        "content": "A student is working with a 3-bit binary counter on a microcontroller. The counter tracks how many times a button has been pressed. After 7 presses, the student presses the button one more time and the display shows an unexpected value."
+      }
+    },
+    {
+      "id": "csp-u2-q030",
+      "question": "Which of the following is an example of metadata associated with a digital photograph?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "The pixel color values that form the image",
+          "is_correct": false,
+          "explanation": "Pixel color values are the data (the image content itself), not metadata about the image."
+        },
+        {
+          "id": "B",
+          "text": "The date and time the photo was taken and the GPS coordinates of the location",
+          "is_correct": true,
+          "explanation": "Metadata is data about data. Date, time, GPS coordinates, and camera settings are all metadata stored with a photo but separate from the image content."
+        },
+        {
+          "id": "C",
+          "text": "The compressed version of the image file",
+          "is_correct": false,
+          "explanation": "Compression is a storage technique; the compressed image data is still the primary data, not metadata."
+        },
+        {
+          "id": "D",
+          "text": "The file extension (.jpg or .png) of the image",
+          "is_correct": false,
+          "explanation": "While file extension indicates format, it is not metadata stored within the file. Metadata includes embedded EXIF data like GPS and timestamps."
+        }
+      ],
+      "difficulty": "easy",
+      "topic": "metadata",
+      "stimulus": {
+        "type": "text",
+        "content": "A photographer uses a smartphone to take a picture at a protest. When she shares the photo online, she later discovers that people are able to determine the exact time, date, and GPS location where the photo was taken."
+      }
+    },
+    {
+      "id": "csp-u2-q031",
+      "question": "A researcher collects survey data from 200 participants and finds that people who exercise more report higher happiness scores. Which of the following is a valid concern about concluding that exercise causes happiness?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "The sample size of 200 is too small for any analysis",
+          "is_correct": false,
+          "explanation": "200 participants is a reasonable sample size. The issue is about causation, not sample size."
+        },
+        {
+          "id": "B",
+          "text": "A third variable (like better health) could explain both higher exercise and higher happiness",
+          "is_correct": true,
+          "explanation": "A confounding variable could cause both outcomes. Without a controlled experiment, we can only establish correlation, not causation."
+        },
+        {
+          "id": "C",
+          "text": "Self-reported happiness data is stored in binary, introducing errors",
+          "is_correct": false,
+          "explanation": "Binary storage does not inherently cause logical errors in data analysis. The concern is about inferring causation from correlation."
+        },
+        {
+          "id": "D",
+          "text": "Survey data cannot be used for any statistical analysis",
+          "is_correct": false,
+          "explanation": "Survey data is commonly used in statistical analysis. The limitation is about what types of conclusions can be drawn."
+        }
+      ],
+      "difficulty": "medium",
+      "topic": "correlation_causation",
+      "stimulus": {
+        "type": "text",
+        "content": "A researcher analyzes survey data from 200 participants and finds that people who exercise more frequently report higher happiness scores on a 1-10 scale."
+      }
+    },
+    {
+      "id": "csp-u2-q032",
+      "question": "A music file is compressed using an algorithm that removes sound frequencies humans cannot hear. The decompressed file sounds identical to human listeners but is slightly different from the original binary data. What type of compression was used?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Lossless compression",
+          "is_correct": false,
+          "explanation": "Lossless compression perfectly recreates the original binary data. Since the binary data is slightly different, this cannot be lossless."
+        },
+        {
+          "id": "B",
+          "text": "Lossy compression",
+          "is_correct": true,
+          "explanation": "Lossy compression permanently removes data (inaudible frequencies) to reduce file size. The binary data cannot be perfectly restored, though the perceptual quality may seem unchanged."
+        },
+        {
+          "id": "C",
+          "text": "Binary encoding",
+          "is_correct": false,
+          "explanation": "Binary encoding is how all digital data is stored; it is not a compression type."
+        },
+        {
+          "id": "D",
+          "text": "Symmetric encryption",
+          "is_correct": false,
+          "explanation": "Encryption protects data from unauthorized access; it does not reduce file size."
+        }
+      ],
+      "difficulty": "medium",
+      "topic": "compression",
+      "stimulus": {
+        "type": "text",
+        "content": "A music producer has an audio file of a new song. She compresses it using a format that removes sound frequencies above 20,000 Hz (above the range of normal human hearing). When she decompresses and listens to it, the audio sounds identical to the original."
+      }
+    },
+    {
+      "id": "csp-u2-q033",
+      "question": "What does it mean when two variables have a negative correlation?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "As one variable increases, the other also increases",
+          "is_correct": false,
+          "explanation": "This describes a positive correlation, not a negative one."
+        },
+        {
+          "id": "B",
+          "text": "One variable causes the other to decrease",
+          "is_correct": false,
+          "explanation": "Correlation never implies causation. Negative correlation only describes the direction of the relationship."
+        },
+        {
+          "id": "C",
+          "text": "As one variable increases, the other tends to decrease",
+          "is_correct": true,
+          "explanation": "Negative correlation means the two variables move in opposite directions: when one goes up, the other tends to go down."
+        },
+        {
+          "id": "D",
+          "text": "The two variables are completely unrelated",
+          "is_correct": false,
+          "explanation": "No correlation means the variables are unrelated. Negative correlation describes an inverse relationship."
+        }
+      ],
+      "difficulty": "easy",
+      "topic": "data_analysis",
+      "stimulus": {
+        "type": "text",
+        "content": "A data scientist creates a scatter plot analyzing two variables. As one variable increases on the x-axis, the values on the y-axis consistently decrease. The points form a clear downward-sloping trend."
+      }
+    },
+    {
+      "id": "csp-u2-q034",
+      "question": "A program stores a person's full name, email address, and birth date in separate database fields. An analyst queries all three fields together. Which of the following BEST describes the result?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "The data becomes anonymized when stored separately",
+          "is_correct": false,
+          "explanation": "Storing fields separately does not make data anonymous; combining them can uniquely identify a person."
+        },
+        {
+          "id": "B",
+          "text": "The combination of these fields constitutes PII",
+          "is_correct": true,
+          "explanation": "Full name, email, and birth date together constitute PII (Personally Identifiable Information) because they can uniquely identify a specific individual."
+        },
+        {
+          "id": "C",
+          "text": "The data is protected by copyright once combined",
+          "is_correct": false,
+          "explanation": "Copyright protects creative works; it does not protect personal data records. PII law applies here."
+        },
+        {
+          "id": "D",
+          "text": "The data can only be read by the person it describes",
+          "is_correct": false,
+          "explanation": "Database access is controlled by permissions, not by the subject of the data. Anyone with database access can query it."
+        }
+      ],
+      "difficulty": "hard",
+      "topic": "PII",
+      "stimulus": {
+        "type": "text",
+        "content": "A software engineer builds a human resources database with separate fields for employee full name, company email address, and date of birth. An analyst runs a query to retrieve all three fields together for each employee."
+      }
+    },
+    {
+      "id": "csp-u2-q035",
+      "question": "Which of the following scenarios represents a problem that could be solved using data visualization?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Encrypting a file so that only authorized users can read it",
+          "is_correct": false,
+          "explanation": "Encryption is a security technique; it does not involve visualizing data patterns."
+        },
+        {
+          "id": "B",
+          "text": "Identifying which months of the year have the highest sales from a table of 1,200 rows of transaction data",
+          "is_correct": true,
+          "explanation": "A chart (e.g., bar chart by month) transforms raw transaction data into a visual pattern that makes trends immediately apparent."
+        },
+        {
+          "id": "C",
+          "text": "Compressing a video file to reduce its storage size",
+          "is_correct": false,
+          "explanation": "File compression is a storage technique, not data visualization."
+        },
+        {
+          "id": "D",
+          "text": "Converting analog audio to digital binary data",
+          "is_correct": false,
+          "explanation": "This is analog-to-digital conversion, not data visualization."
+        }
+      ],
+      "difficulty": "easy",
+      "topic": "data_visualization",
+      "stimulus": {
+        "type": "text",
+        "content": "A business owner has a spreadsheet with 1,200 rows of individual transaction records including date, product, amount, and customer location. She wants to understand which months of the year generate the most revenue."
+      }
+    },
+    {
+      "id": "csp-u2-q036",
+      "question": "A programmer stores the integer 300 in an 8-bit unsigned field. The maximum value for an 8-bit unsigned integer is 255. What is the result?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "The value 300 is stored correctly",
+          "is_correct": false,
+          "explanation": "8 bits can represent 0 through 255. The value 300 exceeds this range."
+        },
+        {
+          "id": "B",
+          "text": "The program crashes immediately",
+          "is_correct": false,
+          "explanation": "Overflow does not always crash a program; it stores an incorrect value. The behavior depends on the language, but storing an incorrect value is the standard result."
+        },
+        {
+          "id": "C",
+          "text": "An overflow error occurs and the stored value is incorrect",
+          "is_correct": true,
+          "explanation": "300 - 256 = 44, so an 8-bit overflow would store 44, not 300. The result is an overflow error with incorrect data stored."
+        },
+        {
+          "id": "D",
+          "text": "The program automatically expands the field to 16 bits",
+          "is_correct": false,
+          "explanation": "Fixed-width fields do not automatically expand. The programmer must use a larger data type to accommodate the value."
+        }
+      ],
+      "difficulty": "medium",
+      "topic": "overflow_error",
+      "stimulus": {
+        "type": "text",
+        "content": "A programmer stores inventory counts in an 8-bit unsigned integer field. The maximum value for an 8-bit unsigned integer is 255. A holiday sale results in a shipment of 300 new items being added to inventory in a single transaction."
+      }
+    },
+    {
+      "id": "csp-u2-q037",
+      "question": "A researcher collects data on student test scores and the number of hours slept the night before. She creates a scatter plot and observes a clear upward trend. Which of the following is the MOST appropriate conclusion?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "More sleep directly causes higher test scores",
+          "is_correct": false,
+          "explanation": "A scatter plot shows correlation only. Causation requires a controlled experiment to eliminate confounding variables."
+        },
+        {
+          "id": "B",
+          "text": "There is a positive correlation between sleep and test scores in this dataset",
+          "is_correct": true,
+          "explanation": "The scatter plot shows both variables increase together (positive correlation). This does not establish causation without further study."
+        },
+        {
+          "id": "C",
+          "text": "Students who sleep less always score lower",
+          "is_correct": false,
+          "explanation": "Correlation is a general trend, not an absolute rule. Some students may score well with less sleep."
+        },
+        {
+          "id": "D",
+          "text": "The data is invalid because the sample size is unknown",
+          "is_correct": false,
+          "explanation": "The question asks about the appropriate conclusion from the data shown. Unknown sample size is not mentioned as an issue here."
+        }
+      ],
+      "difficulty": "hard",
+      "topic": "data_analysis",
+      "stimulus": {
+        "type": "text",
+        "content": "A school researcher collects data on 500 students, recording both the number of hours they slept the night before a standardized test and their test score. She creates a scatter plot of the two variables and observes a clear upward trend line."
+      }
+    },
+    {
+      "id": "csp-u2-q038",
+      "question": "Which of the following BEST describes the purpose of encoding data in binary?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Binary encoding makes data easier for humans to read",
+          "is_correct": false,
+          "explanation": "Binary (0s and 1s) is harder for humans to read than decimal or text. It is designed for machine processing."
+        },
+        {
+          "id": "B",
+          "text": "Binary encoding allows physical hardware to represent data using two electrical states (on/off)",
+          "is_correct": true,
+          "explanation": "Binary uses two symbols (0 and 1) that map to physical states in hardware (high/low voltage, on/off). This is the fundamental basis for digital computing."
+        },
+        {
+          "id": "C",
+          "text": "Binary encoding compresses all data automatically",
+          "is_correct": false,
+          "explanation": "Binary encoding is a representation system, not a compression algorithm. Compression is a separate process."
+        },
+        {
+          "id": "D",
+          "text": "Binary encoding is only used for storing images",
+          "is_correct": false,
+          "explanation": "Binary is used to represent all digital data: text, numbers, images, audio, video, and code."
+        }
+      ],
+      "difficulty": "easy",
+      "topic": "binary_data_representation",
+      "stimulus": {
+        "type": "text",
+        "content": "A computer science teacher explains to students why computers use binary (base-2) representation rather than decimal (base-10) representation internally."
+      }
+    },
+    {
+      "id": "csp-u2-q039",
+      "question": "A company stores customer data including names, addresses, and purchase histories in a database. A security breach exposes all of this data. Which of the following types of harm is MOST directly caused?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Overflow error in the database",
+          "is_correct": false,
+          "explanation": "A data breach is a security/privacy violation, not a programming error. Overflow errors relate to binary storage capacity."
+        },
+        {
+          "id": "B",
+          "text": "A violation of customer privacy through exposure of PII",
+          "is_correct": true,
+          "explanation": "Names, addresses, and purchase histories are PII. Unauthorized exposure violates privacy and potentially consumer protection laws."
+        },
+        {
+          "id": "C",
+          "text": "Lossy compression of customer records",
+          "is_correct": false,
+          "explanation": "Lossy compression is a data storage technique unrelated to security breaches."
+        },
+        {
+          "id": "D",
+          "text": "A metadata error in the stored files",
+          "is_correct": false,
+          "explanation": "Metadata errors involve incorrect file information. A breach is a security event that exposes data, not an error in metadata."
+        }
+      ],
+      "difficulty": "easy",
+      "topic": "data_privacy",
+      "stimulus": {
+        "type": "text",
+        "content": "A retail company stores customer records in a database including customer names, home addresses, email addresses, and complete purchase histories. A cybersecurity incident allows an unauthorized party to access the entire database."
+      }
+    },
+    {
+      "id": "csp-u2-q040",
+      "question": "Select TWO answers. Which of the following are examples of data that can be encoded in binary on a computer?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "A written paragraph of text",
+          "is_correct": true,
+          "explanation": "Text can be encoded in binary using standards like ASCII or Unicode, where each character maps to a unique binary value."
+        },
+        {
+          "id": "B",
+          "text": "An audio recording",
+          "is_correct": true,
+          "explanation": "Audio can be digitized by sampling the sound wave at regular intervals and encoding each sample as a binary value."
+        },
+        {
+          "id": "C",
+          "text": "A physical handwritten letter",
+          "is_correct": false,
+          "explanation": "A physical object cannot be encoded in binary without first being converted to digital form (e.g., by scanning it)."
+        },
+        {
+          "id": "D",
+          "text": "A smell from a flower",
+          "is_correct": false,
+          "explanation": "Smells are chemical phenomena that cannot currently be stored as binary data on a computer."
+        }
+      ],
+      "difficulty": "medium",
+      "topic": "binary_data_representation",
+      "stimulus": null
+    },
+    {
+      "id": "csp-u2-q041",
+      "question": "A PNG image file and a JPEG file contain the same photograph. The PNG file is larger. Which of the following BEST explains why?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "PNG files store more metadata than JPEG files",
+          "is_correct": false,
+          "explanation": "Metadata differences are minor; the primary reason for size difference is the compression type used."
+        },
+        {
+          "id": "B",
+          "text": "PNG uses lossless compression while JPEG uses lossy compression, so the JPEG removes some data to achieve smaller size",
+          "is_correct": true,
+          "explanation": "PNG (lossless) preserves all pixel data; JPEG (lossy) discards some visual data to achieve smaller file sizes."
+        },
+        {
+          "id": "C",
+          "text": "PNG images always have more pixels than JPEG images",
+          "is_correct": false,
+          "explanation": "The image dimensions and pixel count are determined by the original photo, not the file format."
+        },
+        {
+          "id": "D",
+          "text": "JPEG files are encrypted while PNG files are not",
+          "is_correct": false,
+          "explanation": "Neither JPEG nor PNG standard formats use encryption. The size difference is due to compression type."
+        }
+      ],
+      "difficulty": "hard",
+      "topic": "compression",
+      "stimulus": null
+    },
+    {
+      "id": "csp-u2-q042",
+      "question": "A researcher wants to determine whether there is a relationship between the number of books students own and their reading test scores. She has data from 500 students. What tool would BEST help her identify whether a correlation exists?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "A pie chart showing the percentage of students in each grade level",
+          "is_correct": false,
+          "explanation": "Pie charts show proportions of categories, not relationships between two quantitative variables."
+        },
+        {
+          "id": "B",
+          "text": "A scatter plot with books owned on one axis and test scores on the other",
+          "is_correct": true,
+          "explanation": "Scatter plots are the standard tool for visualizing the relationship (correlation) between two quantitative variables."
+        },
+        {
+          "id": "C",
+          "text": "A binary tree representing student reading levels",
+          "is_correct": false,
+          "explanation": "Binary trees are a data structure used in programming, not a data analysis visualization tool."
+        },
+        {
+          "id": "D",
+          "text": "An overflow table recording values that exceed storage capacity",
+          "is_correct": false,
+          "explanation": "Overflow tables do not exist as a data analysis tool. This is a distractor referencing an unrelated concept."
+        }
+      ],
+      "difficulty": "easy",
+      "topic": "data_visualization",
+      "stimulus": {
+        "type": "text",
+        "content": "A reading specialist wants to investigate whether a relationship exists between the number of books students own at home and their performance on a standardized reading test. She has test and survey data from 500 elementary students."
+      }
+    },
+    {
+      "id": "csp-u2-q043",
+      "question": "A data engineer receives a dataset containing employee ID numbers, job department codes, and salary ranges. No names or contact information are included. A colleague argues the data is completely anonymous. Which of the following BEST evaluates this claim?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "The claim is correct because no names are present",
+          "is_correct": false,
+          "explanation": "Absence of names alone does not guarantee anonymity. Combining other data sources with employee IDs could re-identify individuals."
+        },
+        {
+          "id": "B",
+          "text": "The claim is incorrect because employee IDs could be cross-referenced with another database to identify individuals",
+          "is_correct": true,
+          "explanation": "Even without names, unique identifiers like employee IDs can be linked to other databases (e.g., HR records) to re-identify people, violating anonymity."
+        },
+        {
+          "id": "C",
+          "text": "The claim is correct because salary data is not legally classified as PII",
+          "is_correct": false,
+          "explanation": "Whether salary is legally PII depends on jurisdiction, but the concern here is about cross-referencing identifiers, not legal classification."
+        },
+        {
+          "id": "D",
+          "text": "The claim is incorrect because all data stored digitally is PII",
+          "is_correct": false,
+          "explanation": "Not all digital data is PII. PII specifically refers to data that can identify a specific individual."
+        }
+      ],
+      "difficulty": "hard",
+      "topic": "PII",
+      "stimulus": {
+        "type": "text",
+        "content": "A data engineer receives a dataset from the company HR department. The dataset contains fields for employee ID number, job department code, and salary range. The dataset does NOT include employee names, contact information, or social security numbers."
+      }
+    },
+    {
+      "id": "csp-u2-q044",
+      "question": "The binary number 1010 represents which decimal value?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "5",
+          "is_correct": false,
+          "explanation": "1010 in binary = 1x8 + 0x4 + 1x2 + 0x1 = 10, not 5."
+        },
+        {
+          "id": "B",
+          "text": "10",
+          "is_correct": true,
+          "explanation": "1010 in binary = 1x2^3 + 0x2^2 + 1x2^1 + 0x2^0 = 8 + 0 + 2 + 0 = 10."
+        },
+        {
+          "id": "C",
+          "text": "12",
+          "is_correct": false,
+          "explanation": "12 in binary is 1100, not 1010. 1010 = 8 + 2 = 10."
+        },
+        {
+          "id": "D",
+          "text": "20",
+          "is_correct": false,
+          "explanation": "20 in binary is 10100, a 5-bit number. 1010 is only 4 bits, representing 10."
+        }
+      ],
+      "difficulty": "medium",
+      "topic": "binary_data_representation",
+      "stimulus": null
+    },
+    {
+      "id": "csp-u2-q045",
+      "question": "A smartphone photo app automatically adds the GPS location, date, and device model to every saved image. A user is unaware of this. Which of the following BEST describes a privacy concern with this feature?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "The GPS data causes the image file to use lossy compression",
+          "is_correct": false,
+          "explanation": "GPS data stored as metadata does not affect the compression type of the image."
+        },
+        {
+          "id": "B",
+          "text": "Sharing the image could reveal the user's location without their awareness",
+          "is_correct": true,
+          "explanation": "Embedded GPS metadata (EXIF data) is often invisible to users but readable by anyone with the file. This can unintentionally disclose where the user lives, works, or travels."
+        },
+        {
+          "id": "C",
+          "text": "The device model information constitutes PII",
+          "is_correct": false,
+          "explanation": "Device model alone is not PII because it does not identify a specific individual. GPS + timestamp + device combinations could be more identifying."
+        },
+        {
+          "id": "D",
+          "text": "Binary encoding of GPS coordinates creates overflow errors",
+          "is_correct": false,
+          "explanation": "GPS coordinates are stored in standard floating-point binary without overflow. The concern is privacy, not storage errors."
+        }
+      ],
+      "difficulty": "medium",
+      "topic": "metadata",
+      "stimulus": {
+        "type": "text",
+        "content": "A user takes a photo with a smartphone and immediately shares it in a group chat. Several days later, the user learns that every photo taken with the phone app automatically includes GPS coordinates, the exact date and time, and the phone model number embedded in the file."
+      }
+    },
+    {
+      "id": "csp-u2-q046",
+      "question": "Which of the following represents the decimal number 13 in binary?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "1011",
+          "is_correct": false,
+          "explanation": "1011 = 8 + 2 + 1 = 11, not 13."
+        },
+        {
+          "id": "B",
+          "text": "1101",
+          "is_correct": true,
+          "explanation": "1101 = 1x8 + 1x4 + 0x2 + 1x1 = 8 + 4 + 0 + 1 = 13."
+        },
+        {
+          "id": "C",
+          "text": "1110",
+          "is_correct": false,
+          "explanation": "1110 = 8 + 4 + 2 = 14, not 13."
+        },
+        {
+          "id": "D",
+          "text": "1111",
+          "is_correct": false,
+          "explanation": "1111 = 8 + 4 + 2 + 1 = 15, not 13."
+        }
+      ],
+      "difficulty": "medium",
+      "topic": "binary_data_representation",
+      "stimulus": null
+    },
+    {
+      "id": "csp-u2-q047",
+      "question": "A social media company analyzes user behavior data and finds that users who post late at night tend to receive fewer likes. The company concludes that posting late at night causes fewer likes. Which of the following best identifies the error in the conclusion?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "The data is stored using lossy compression, making it inaccurate",
+          "is_correct": false,
+          "explanation": "Data storage format does not affect the logical validity of a statistical conclusion."
+        },
+        {
+          "id": "B",
+          "text": "Correlation in the dataset does not establish a causal relationship",
+          "is_correct": true,
+          "explanation": "The data shows correlation (both variables relate). Other factors (like fewer active users at night) could explain the pattern. Causation requires controlled experimentation."
+        },
+        {
+          "id": "C",
+          "text": "The dataset is too large to analyze reliably",
+          "is_correct": false,
+          "explanation": "Larger datasets generally produce more reliable analysis. The flaw is in the logical leap from correlation to causation."
+        },
+        {
+          "id": "D",
+          "text": "Binary data cannot accurately represent social media metrics",
+          "is_correct": false,
+          "explanation": "All digital data is stored in binary; this does not affect the validity of analysis performed on it."
+        }
+      ],
+      "difficulty": "medium",
+      "topic": "correlation_causation",
+      "stimulus": {
+        "type": "text",
+        "content": "A social media analytics team analyzes a dataset of 10 million posts and their engagement metrics. The analysis reveals that posts published between 11 PM and 2 AM consistently receive fewer likes than posts published during peak afternoon hours."
+      }
+    },
+    {
+      "id": "csp-u2-q048",
+      "question": "A digital audio file samples sound 44,100 times per second (44.1 kHz). What does increasing the sampling rate to 96 kHz accomplish?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "The file size decreases because fewer bits are used",
+          "is_correct": false,
+          "explanation": "Higher sampling rate means more samples per second, which increases the amount of data and file size."
+        },
+        {
+          "id": "B",
+          "text": "The audio representation more accurately captures high-frequency sounds but produces a larger file",
+          "is_correct": true,
+          "explanation": "Higher sampling rates capture more detail (especially high frequencies) but require more data storage, resulting in larger files."
+        },
+        {
+          "id": "C",
+          "text": "The audio file becomes encrypted automatically",
+          "is_correct": false,
+          "explanation": "Sampling rate is about audio quality and file size, not encryption."
+        },
+        {
+          "id": "D",
+          "text": "Overflow errors are reduced because fewer bits are needed",
+          "is_correct": false,
+          "explanation": "Higher sampling rates increase data volume. Overflow relates to integer storage limits, not audio sampling."
+        }
+      ],
+      "difficulty": "hard",
+      "topic": "analog_digital",
+      "stimulus": {
+        "type": "text",
+        "content": "A music studio records songs at 44,100 samples per second (44.1 kHz). The studio is considering upgrading to recording at 96,000 samples per second (96 kHz) for archive-quality masters."
+      }
+    },
+    {
+      "id": "csp-u2-q049",
+      "question": "A hospital database stores patient records including medical history, diagnoses, and treatment plans but stores each type of information in a separate database. A court order requests a patient record. Which of the following BEST describes the privacy implication when all three databases are queried together?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Querying three separate databases creates overflow errors",
+          "is_correct": false,
+          "explanation": "Combining database queries is a data operation, not a cause of overflow errors."
+        },
+        {
+          "id": "B",
+          "text": "The combined query produces a comprehensive medical profile that constitutes sensitive PII",
+          "is_correct": true,
+          "explanation": "When data from multiple sources is combined, it creates a detailed profile that is more sensitive than any individual dataset. Medical history + diagnoses + treatment plans together constitute highly sensitive PII."
+        },
+        {
+          "id": "C",
+          "text": "Separate storage makes the data completely anonymous",
+          "is_correct": false,
+          "explanation": "Separate storage does not create anonymity if the records share a patient ID or can be joined on matching fields."
+        },
+        {
+          "id": "D",
+          "text": "Only the diagnosis database contains PII",
+          "is_correct": false,
+          "explanation": "All three databases contain information related to identifiable patients. Each constitutes PII in the context of medical records."
+        }
+      ],
+      "difficulty": "hard",
+      "topic": "PII",
+      "stimulus": {
+        "type": "text",
+        "content": "A hospital separates patient data across three databases: Database 1 stores medical history, Database 2 stores diagnoses, and Database 3 stores treatment plans. Each database uses a patient ID as a common key. A court order requires production of a complete patient record."
+      }
+    },
+    {
+      "id": "csp-u2-q050",
+      "question": "Which of the following BEST explains why digital data can be copied an unlimited number of times without degradation, while analog data degrades with each copy?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Digital data uses higher-quality materials than analog recordings",
+          "is_correct": false,
+          "explanation": "The advantage of digital data is in its representation (discrete binary values), not the physical materials used."
+        },
+        {
+          "id": "B",
+          "text": "Digital data is represented as discrete binary values that can be exactly reproduced, while analog data is a continuous signal that picks up noise with each copy",
+          "is_correct": true,
+          "explanation": "Binary values (0 and 1) can be copied exactly because there are only two precise states. Analog signals are continuous and accumulate noise and distortion with each generation of copying."
+        },
+        {
+          "id": "C",
+          "text": "Digital files are automatically compressed during copying, removing errors",
+          "is_correct": false,
+          "explanation": "Copying a digital file does not involve automatic compression. The exact binary values are reproduced each time."
+        },
+        {
+          "id": "D",
+          "text": "Analog data contains more bits than digital data",
+          "is_correct": false,
+          "explanation": "Analog data does not use bits; it is a continuous physical signal. Bits are a digital concept."
+        }
+      ],
+      "difficulty": "hard",
+      "topic": "analog_digital",
+      "stimulus": null
+    }
+  ]
+}

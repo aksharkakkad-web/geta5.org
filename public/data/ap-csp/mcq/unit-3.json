@@ -1,0 +1,1844 @@
+{
+  "subject": "ap-csp",
+  "unit": "unit-3",
+  "unit_name": "Algorithms and Programming",
+  "questions": [
+    {
+      "id": "csp-u3-q001",
+      "unit": "unit-3",
+      "subject": "ap-csp",
+      "difficulty": "easy",
+      "stimulus": {
+        "type": "code",
+        "content": "x ← 5\ny ← 3\nx ← y\ny ← x\nDISPLAY(x)\nDISPLAY(y)"
+      },
+      "question": "What are the values displayed by the code above?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "3 and 3",
+          "is_correct": true,
+          "explanation": "x ← y sets x to 3. Then y ← x sets y to 3 (x is now 3, not 5). Both DISPLAY calls output 3."
+        },
+        {
+          "id": "B",
+          "text": "5 and 3",
+          "is_correct": false,
+          "explanation": "After x ← y, x becomes 3 — then y ← x sets y to 3 (not the original 5). A student who tracks original values gets this wrong answer."
+        },
+        {
+          "id": "C",
+          "text": "3 and 5",
+          "is_correct": false,
+          "explanation": "This would only be correct if the assignments were swapped (y ← x first, then x ← y) — but the order matters in sequential assignment."
+        },
+        {
+          "id": "D",
+          "text": "5 and 5",
+          "is_correct": false,
+          "explanation": "5 would only appear if x were never changed — but x ← y sets x to 3, so 5 does not appear in either output."
+        }
+      ],
+      "unit_objective": "AAP-1.A"
+    },
+    {
+      "id": "csp-u3-q002",
+      "unit": "unit-3",
+      "subject": "ap-csp",
+      "difficulty": "easy",
+      "stimulus": {
+        "type": "code",
+        "content": "nums ← [10, 20, 30, 40, 50]\ntotal ← 0\nFOR EACH n IN nums\n{\n    total ← total + n\n}\nDISPLAY(total)"
+      },
+      "question": "What value does the code above display?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "150",
+          "is_correct": true,
+          "explanation": "The loop accumulates: 0+10=10, 10+20=30, 30+30=60, 60+40=100, 100+50=150. DISPLAY outputs 150."
+        },
+        {
+          "id": "B",
+          "text": "50",
+          "is_correct": false,
+          "explanation": "50 is the last element of the list — a student who thinks total ← total + n overwrites rather than accumulates would get this wrong answer."
+        },
+        {
+          "id": "C",
+          "text": "5",
+          "is_correct": false,
+          "explanation": "5 is the number of elements (LENGTH) — confusing count with sum leads to this error."
+        },
+        {
+          "id": "D",
+          "text": "30",
+          "is_correct": false,
+          "explanation": "30 is the middle element or the average — the code computes the sum, not the average or the middle value."
+        }
+      ],
+      "unit_objective": "AAP-2.D"
+    },
+    {
+      "id": "csp-u3-q003",
+      "unit": "unit-3",
+      "subject": "ap-csp",
+      "difficulty": "medium",
+      "stimulus": {
+        "type": "code",
+        "content": "PROCEDURE double(n)\n{\n    RETURN(n * 2)\n}\n\nresult ← double(double(3))\nDISPLAY(result)"
+      },
+      "question": "What value does the code above display?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "12",
+          "is_correct": true,
+          "explanation": "double(3) = 3*2 = 6. double(6) = 6*2 = 12. result ← 12. DISPLAY outputs 12."
+        },
+        {
+          "id": "B",
+          "text": "6",
+          "is_correct": false,
+          "explanation": "6 = double(3) — a student who evaluates only the inner call and ignores the outer call would get this wrong answer."
+        },
+        {
+          "id": "C",
+          "text": "9",
+          "is_correct": false,
+          "explanation": "9 = 3*3 — a student who confuses doubling with squaring would calculate 3^2 = 9 instead of double(double(3)) = 12."
+        },
+        {
+          "id": "D",
+          "text": "3",
+          "is_correct": false,
+          "explanation": "3 is the original input — the procedure is called twice, so the result is 4× the original (12), not the original value."
+        }
+      ],
+      "unit_objective": "AAP-3.A"
+    },
+    {
+      "id": "csp-u3-q004",
+      "unit": "unit-3",
+      "subject": "ap-csp",
+      "difficulty": "medium",
+      "stimulus": {
+        "type": "code",
+        "content": "score ← 75\nIF(score >= 90)\n{\n    grade ← \"A\"\n}\nELSE\n{\n    IF(score >= 80)\n    {\n        grade ← \"B\"\n    }\n    ELSE\n    {\n        IF(score >= 70)\n        {\n            grade ← \"C\"\n        }\n        ELSE\n        {\n            grade ← \"F\"\n        }\n    }\n}\nDISPLAY(grade)"
+      },
+      "question": "What does the code above display when score is 75?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "C",
+          "is_correct": true,
+          "explanation": "75 >= 90 is false. 75 >= 80 is false. 75 >= 70 is true, so grade ← \"C\" executes. DISPLAY outputs C."
+        },
+        {
+          "id": "B",
+          "text": "B",
+          "is_correct": false,
+          "explanation": "B requires score >= 80 — since 75 < 80, this branch does not execute."
+        },
+        {
+          "id": "C",
+          "text": "F",
+          "is_correct": false,
+          "explanation": "F requires score < 70 — since 75 >= 70, the C branch executes before reaching F."
+        },
+        {
+          "id": "D",
+          "text": "A",
+          "is_correct": false,
+          "explanation": "A requires score >= 90 — since 75 < 90, this branch does not execute."
+        }
+      ],
+      "unit_objective": "AAP-2.F"
+    },
+    {
+      "id": "csp-u3-q005",
+      "unit": "unit-3",
+      "subject": "ap-csp",
+      "difficulty": "hard",
+      "stimulus": {
+        "type": "code",
+        "content": "count ← 0\nREPEAT UNTIL(count >= 5)\n{\n    count ← count + 2\n}\nDISPLAY(count)"
+      },
+      "question": "What does the code above display?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "6",
+          "is_correct": true,
+          "explanation": "count starts at 0. Iteration 1: count = 2 (2 < 5, continue). Iteration 2: count = 4 (4 < 5, continue). Iteration 3: count = 6 (6 >= 5, stop). DISPLAY outputs 6."
+        },
+        {
+          "id": "B",
+          "text": "5",
+          "is_correct": false,
+          "explanation": "5 is never reached since count increments by 2 — it jumps from 4 to 6, skipping 5."
+        },
+        {
+          "id": "C",
+          "text": "4",
+          "is_correct": false,
+          "explanation": "4 is the value before the final iteration — but after count = 4, the condition 4 >= 5 is false, so the loop runs once more to 6."
+        },
+        {
+          "id": "D",
+          "text": "10",
+          "is_correct": false,
+          "explanation": "10 would result if the loop ran 5 times — the loop stops as soon as count >= 5, which happens at count = 6 (after 3 iterations)."
+        }
+      ],
+      "unit_objective": "AAP-2.H"
+    },
+    {
+      "id": "csp-u3-q006",
+      "unit": "unit-3",
+      "subject": "ap-csp",
+      "difficulty": "medium",
+      "stimulus": {
+        "type": "code",
+        "content": "list ← [1, 2, 3, 4, 5]\nAPPEND(list, 6)\nREMOVE(list, 1)\nDISPLAY(list[1])"
+      },
+      "question": "What does the code above display? (Note: lists are 1-indexed in College Board pseudocode)",
+      "choices": [
+        {
+          "id": "A",
+          "text": "2",
+          "is_correct": true,
+          "explanation": "APPEND adds 6: list = [1,2,3,4,5,6]. REMOVE(list,1) removes the first element (1): list = [2,3,4,5,6]. list[1] is now 2."
+        },
+        {
+          "id": "B",
+          "text": "1",
+          "is_correct": false,
+          "explanation": "1 was the original first element, but REMOVE(list,1) removes index 1 (the element '1') — list[1] is now 2."
+        },
+        {
+          "id": "C",
+          "text": "6",
+          "is_correct": false,
+          "explanation": "6 is the last element after APPEND — list[1] accesses the first position, not the last."
+        },
+        {
+          "id": "D",
+          "text": "3",
+          "is_correct": false,
+          "explanation": "3 was originally at index 3 — after removing index 1, the elements shift: 3 is now at index 2."
+        }
+      ],
+      "unit_objective": "AAP-2.L"
+    },
+    {
+      "id": "csp-u3-q007",
+      "unit": "unit-3",
+      "subject": "ap-csp",
+      "difficulty": "hard",
+      "stimulus": {
+        "type": "code",
+        "content": "PROCEDURE hasNegative(numList)\n{\n    FOR EACH n IN numList\n    {\n        IF(n < 0)\n        {\n            RETURN(true)\n        }\n    }\n    RETURN(false)\n}\n\nDISPLAY(hasNegative([5, -3, 8, 2]))\nDISPLAY(hasNegative([1, 2, 3]))"
+      },
+      "question": "What are the two values displayed by the code above?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "true and false",
+          "is_correct": true,
+          "explanation": "First call: -3 < 0 is true, so RETURN(true) is reached. Second call: no element < 0, so RETURN(false) at the end."
+        },
+        {
+          "id": "B",
+          "text": "false and true",
+          "is_correct": false,
+          "explanation": "The first list contains -3, which triggers RETURN(true) — only the second list with all positive numbers returns false."
+        },
+        {
+          "id": "C",
+          "text": "true and true",
+          "is_correct": false,
+          "explanation": "The second list [1,2,3] has no negative numbers — the loop finishes without hitting RETURN(true), so RETURN(false) executes."
+        },
+        {
+          "id": "D",
+          "text": "false and false",
+          "is_correct": false,
+          "explanation": "The first list contains -3 — the IF condition n < 0 is true for -3, causing RETURN(true) before the loop ends."
+        }
+      ],
+      "unit_objective": "AAP-3.B"
+    },
+    {
+      "id": "csp-u3-q008",
+      "unit": "unit-3",
+      "subject": "ap-csp",
+      "difficulty": "hard",
+      "stimulus": {
+        "type": "code",
+        "content": "nums ← [3, 7, 1, 9, 4, 6, 2, 8, 5]\ntarget ← 6\nfound ← false\nFOR EACH n IN nums\n{\n    IF(n = target)\n    {\n        found ← true\n    }\n}\nDISPLAY(found)"
+      },
+      "question": "Which of the following best describes the algorithm above?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Linear search — it checks each element one at a time from beginning to end",
+          "is_correct": true,
+          "explanation": "The algorithm traverses the entire list sequentially checking each element — this is linear (sequential) search."
+        },
+        {
+          "id": "B",
+          "text": "Binary search — it divides the search range in half with each comparison",
+          "is_correct": false,
+          "explanation": "Binary search requires a sorted list and divides the search space in half — this code checks every element in order, which is linear search."
+        },
+        {
+          "id": "C",
+          "text": "The code has a logic error because it continues searching after finding the target",
+          "is_correct": false,
+          "explanation": "While the loop does not stop early (which could be optimized), the final result is still correct — found is set to true and remains true. This is not a logic error."
+        },
+        {
+          "id": "D",
+          "text": "The code cannot work because the list is not sorted",
+          "is_correct": false,
+          "explanation": "Linear search works on both sorted and unsorted lists — the code correctly finds the target in any order."
+        }
+      ],
+      "unit_objective": "AAP-2.O"
+    },
+    {
+      "id": "csp-u3-q009",
+      "unit": "unit-3",
+      "subject": "ap-csp",
+      "difficulty": "medium",
+      "stimulus": {
+        "type": "code",
+        "content": "a ← true\nb ← false\nc ← true\n\nresult ← (a AND b) OR (NOT c)\nDISPLAY(result)"
+      },
+      "question": "What does the code above display?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "false",
+          "is_correct": true,
+          "explanation": "(a AND b) = (true AND false) = false. (NOT c) = (NOT true) = false. false OR false = false. DISPLAY outputs false."
+        },
+        {
+          "id": "B",
+          "text": "true",
+          "is_correct": false,
+          "explanation": "For the OR to be true, at least one operand must be true — (true AND false) = false and (NOT true) = false, so false OR false = false."
+        },
+        {
+          "id": "C",
+          "text": "error — cannot display boolean values",
+          "is_correct": false,
+          "explanation": "DISPLAY can output any value including boolean values — false is a valid output."
+        },
+        {
+          "id": "D",
+          "text": "true, because a is true and c is true",
+          "is_correct": false,
+          "explanation": "The expression evaluates the full compound boolean — the AND is with false (b), and the NOT negates true (c), both producing false."
+        }
+      ],
+      "unit_objective": "AAP-2.E"
+    },
+    {
+      "id": "csp-u3-q010",
+      "unit": "unit-3",
+      "subject": "ap-csp",
+      "difficulty": "hard",
+      "stimulus": {
+        "type": "code",
+        "content": "PROCEDURE mystery(list)\n{\n    maxVal ← list[1]\n    FOR EACH item IN list\n    {\n        IF(item > maxVal)\n        {\n            maxVal ← item\n        }\n    }\n    RETURN(maxVal)\n}\n\nDISPLAY(mystery([4, 7, 2, 9, 1, 5]))"
+      },
+      "question": "What does the code above display?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "9",
+          "is_correct": true,
+          "explanation": "The procedure finds the maximum value. Starting with maxVal=4, it updates to 7 (7>4), then to 9 (9>7). No subsequent element exceeds 9. Returns 9."
+        },
+        {
+          "id": "B",
+          "text": "4",
+          "is_correct": false,
+          "explanation": "4 is the initial value of maxVal (list[1]) — but the loop updates it when larger values are found."
+        },
+        {
+          "id": "C",
+          "text": "1",
+          "is_correct": false,
+          "explanation": "1 is the minimum value in the list — the procedure finds the maximum, not the minimum."
+        },
+        {
+          "id": "D",
+          "text": "5",
+          "is_correct": false,
+          "explanation": "5 is the last element — the procedure returns the largest element found, not the last one."
+        }
+      ],
+      "unit_objective": "AAP-2.N"
+    },
+    {
+      "id": "csp-u3-q011",
+      "unit": "unit-3",
+      "subject": "ap-csp",
+      "difficulty": "easy",
+      "stimulus": {
+        "type": "code",
+        "content": "n ← 7\nIF(n MOD 2 = 0)\n{\n    DISPLAY(\"even\")\n}\nELSE\n{\n    DISPLAY(\"odd\")\n}"
+      },
+      "question": "What does the code above display?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "odd",
+          "is_correct": true,
+          "explanation": "7 MOD 2 = 1, not 0. The IF condition is false, so the ELSE branch executes, displaying 'odd'."
+        },
+        {
+          "id": "B",
+          "text": "even",
+          "is_correct": false,
+          "explanation": "7 is not divisible by 2 — 7 MOD 2 = 1, not 0, so the IF condition is false."
+        },
+        {
+          "id": "C",
+          "text": "7",
+          "is_correct": false,
+          "explanation": "7 is the value of n — the DISPLAY statements output 'even' or 'odd', not the variable's value."
+        },
+        {
+          "id": "D",
+          "text": "1",
+          "is_correct": false,
+          "explanation": "1 is the result of 7 MOD 2 — the code displays the word 'odd', not the modulus result."
+        }
+      ],
+      "unit_objective": "AAP-2.F"
+    },
+    {
+      "id": "csp-u3-q012",
+      "unit": "unit-3",
+      "subject": "ap-csp",
+      "difficulty": "medium",
+      "stimulus": {
+        "type": "code",
+        "content": "numbers ← []\ni ← 1\nREPEAT 5 TIMES\n{\n    APPEND(numbers, i * i)\n    i ← i + 1\n}\nDISPLAY(numbers)"
+      },
+      "question": "What does the code above display?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "[1, 4, 9, 16, 25]",
+          "is_correct": true,
+          "explanation": "Each iteration appends i²: 1²=1, 2²=4, 3²=9, 4²=16, 5²=25. After 5 iterations, numbers = [1,4,9,16,25]."
+        },
+        {
+          "id": "B",
+          "text": "[1, 2, 3, 4, 5]",
+          "is_correct": false,
+          "explanation": "The code appends i*i (squares), not i itself — [1,2,3,4,5] would result if APPEND(numbers, i) were used instead."
+        },
+        {
+          "id": "C",
+          "text": "[2, 4, 6, 8, 10]",
+          "is_correct": false,
+          "explanation": "This would result from i*2 (even numbers) — the code uses i*i (squares), not i*2."
+        },
+        {
+          "id": "D",
+          "text": "[1, 4, 9, 16, 25, 36]",
+          "is_correct": false,
+          "explanation": "The loop runs exactly 5 times (REPEAT 5 TIMES), stopping after i=5. i=6 is never appended."
+        }
+      ],
+      "unit_objective": "AAP-2.D"
+    },
+    {
+      "id": "csp-u3-q013",
+      "unit": "unit-3",
+      "subject": "ap-csp",
+      "difficulty": "hard",
+      "stimulus": {
+        "type": "code",
+        "content": "PROCEDURE filterPositive(numList)\n{\n    result ← []\n    FOR EACH n IN numList\n    {\n        IF(n > 0)\n        {\n            APPEND(result, n)\n        }\n    }\n    RETURN(result)\n}\n\nDISPLAY(filterPositive([-3, 5, -1, 8, 0, 2]))"
+      },
+      "question": "What does the code above display?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "[5, 8, 2]",
+          "is_correct": true,
+          "explanation": "The procedure appends only values where n > 0. -3 fails, 5 passes, -1 fails, 8 passes, 0 fails (not > 0), 2 passes. Result = [5, 8, 2]."
+        },
+        {
+          "id": "B",
+          "text": "[5, 8, 0, 2]",
+          "is_correct": false,
+          "explanation": "0 does not satisfy n > 0 — the condition is strictly greater than, so 0 is excluded."
+        },
+        {
+          "id": "C",
+          "text": "[-3, -1, 0]",
+          "is_correct": false,
+          "explanation": "The procedure filters for positive (> 0) values and returns them — negative and zero values are excluded."
+        },
+        {
+          "id": "D",
+          "text": "[5, 8, 2, -3, -1, 0]",
+          "is_correct": false,
+          "explanation": "The procedure selectively appends only positive values — it does not return the original list."
+        }
+      ],
+      "unit_objective": "AAP-3.B"
+    },
+    {
+      "id": "csp-u3-q014",
+      "unit": "unit-3",
+      "subject": "ap-csp",
+      "difficulty": "medium",
+      "stimulus": {
+        "type": "text",
+        "content": "Binary search requires that the list be sorted before searching. It works by comparing the target to the middle element, then eliminating half the remaining list with each step.\n\nA sorted list of 1,024 elements is searched for a target value."
+      },
+      "question": "What is the maximum number of comparisons binary search needs to find the target (or determine it is absent)?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "10",
+          "is_correct": true,
+          "explanation": "Binary search requires at most log₂(n) comparisons. log₂(1024) = 10. So at most 10 comparisons are needed."
+        },
+        {
+          "id": "B",
+          "text": "512",
+          "is_correct": false,
+          "explanation": "512 would be the average for linear search — binary search is far more efficient at log₂(1024) = 10 comparisons."
+        },
+        {
+          "id": "C",
+          "text": "1,024",
+          "is_correct": false,
+          "explanation": "1,024 is the worst case for linear search — binary search reduces this to just 10 by halving the search space each step."
+        },
+        {
+          "id": "D",
+          "text": "100",
+          "is_correct": false,
+          "explanation": "100 comparisons is excessive for a 1,024-element list — binary search needs only log₂(1024) = 10 steps."
+        }
+      ],
+      "unit_objective": "AAP-2.P"
+    },
+    {
+      "id": "csp-u3-q015",
+      "unit": "unit-3",
+      "subject": "ap-csp",
+      "difficulty": "hard",
+      "stimulus": {
+        "type": "code",
+        "content": "x ← 1\nREPEAT 4 TIMES\n{\n    x ← x + x\n}\nDISPLAY(x)"
+      },
+      "question": "What does the code above display?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "16",
+          "is_correct": true,
+          "explanation": "x starts at 1. Iteration 1: x = 1+1 = 2. Iteration 2: x = 2+2 = 4. Iteration 3: x = 4+4 = 8. Iteration 4: x = 8+8 = 16."
+        },
+        {
+          "id": "B",
+          "text": "8",
+          "is_correct": false,
+          "explanation": "8 is the value after 3 iterations — the loop runs 4 times, reaching 16."
+        },
+        {
+          "id": "C",
+          "text": "5",
+          "is_correct": false,
+          "explanation": "5 = 1 + 4 suggests confusing the loop count with accumulation — the operation x ← x + x doubles x each time."
+        },
+        {
+          "id": "D",
+          "text": "4",
+          "is_correct": false,
+          "explanation": "4 is the number of loop repetitions — not the final value of x, which doubles each iteration."
+        }
+      ],
+      "unit_objective": "AAP-2.G"
+    },
+    {
+      "id": "csp-u3-q016",
+      "unit": "unit-3",
+      "subject": "ap-csp",
+      "difficulty": "medium",
+      "stimulus": {
+        "type": "code",
+        "content": "PROCEDURE isEven(n)\n{\n    IF(n MOD 2 = 0)\n    {\n        RETURN(true)\n    }\n    ELSE\n    {\n        RETURN(false)\n    }\n}\n\nevens ← []\nFOR EACH num IN [1, 2, 3, 4, 5, 6]\n{\n    IF(isEven(num))\n    {\n        APPEND(evens, num)\n    }\n}\nDISPLAY(evens)"
+      },
+      "question": "What does the code above display?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "[2, 4, 6]",
+          "is_correct": true,
+          "explanation": "isEven returns true for 2, 4, and 6 (n MOD 2 = 0). These are appended to evens. DISPLAY outputs [2, 4, 6]."
+        },
+        {
+          "id": "B",
+          "text": "[1, 3, 5]",
+          "is_correct": false,
+          "explanation": "1, 3, and 5 are odd (MOD 2 = 1), so isEven returns false for them — they are not appended."
+        },
+        {
+          "id": "C",
+          "text": "[1, 2, 3, 4, 5, 6]",
+          "is_correct": false,
+          "explanation": "The full list would be returned if there were no filter — the IF(isEven(num)) condition filters out odd numbers."
+        },
+        {
+          "id": "D",
+          "text": "true, true, true",
+          "is_correct": false,
+          "explanation": "The procedure returns boolean values internally, but the main code uses them in a condition — what is displayed is the evens list, not the boolean values."
+        }
+      ],
+      "unit_objective": "AAP-3.B"
+    },
+    {
+      "id": "csp-u3-q017",
+      "unit": "unit-3",
+      "subject": "ap-csp",
+      "difficulty": "hard",
+      "stimulus": {
+        "type": "text",
+        "content": "Two algorithms are available to sort a list of n items:\n- Algorithm X: always takes n² steps to complete\n- Algorithm Y: always takes n × log₂(n) steps to complete\n\nFor n = 1,000:"
+      },
+      "question": "Which algorithm is more efficient for large values of n, and why?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Algorithm Y, because n × log₂(n) grows much more slowly than n² for large n",
+          "is_correct": true,
+          "explanation": "For n=1,000: X needs 1,000,000 steps; Y needs ~10,000 steps. Y's n·log(n) complexity is far more efficient than X's quadratic n² for large inputs."
+        },
+        {
+          "id": "B",
+          "text": "Algorithm X, because n² is simpler to compute and more predictable",
+          "is_correct": false,
+          "explanation": "Simplicity of the formula does not make an algorithm more efficient — X requires 100× more steps than Y for n=1,000."
+        },
+        {
+          "id": "C",
+          "text": "Algorithm Y, because it always takes exactly n steps",
+          "is_correct": false,
+          "explanation": "Algorithm Y takes n × log₂(n) steps, not n steps — linear (n) would be even better, but Y is n·log(n), still far better than X's n²."
+        },
+        {
+          "id": "D",
+          "text": "Both algorithms are equally efficient for n = 1,000",
+          "is_correct": false,
+          "explanation": "For n=1,000: X takes 1,000,000 steps vs. Y's ~10,000 steps — they are not equally efficient."
+        }
+      ],
+      "unit_objective": "AAP-4.A"
+    },
+    {
+      "id": "csp-u3-q018",
+      "unit": "unit-3",
+      "subject": "ap-csp",
+      "difficulty": "hard",
+      "stimulus": {
+        "type": "text",
+        "content": "Select TWO answers.\n\nA programmer wants to check if a number x is between 10 (inclusive) and 20 (exclusive)."
+      },
+      "question": "Select TWO answers. Which of the following correctly expresses this condition in College Board pseudocode?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "x >= 10 AND x < 20",
+          "is_correct": true,
+          "explanation": "This correctly captures 'at least 10 AND less than 20' — inclusive lower bound (>=) and exclusive upper bound (<)."
+        },
+        {
+          "id": "B",
+          "text": "NOT(x < 10 OR x >= 20)",
+          "is_correct": true,
+          "explanation": "By De Morgan's law: NOT(x < 10 OR x >= 20) = (x >= 10 AND x < 20) — logically equivalent to choice A."
+        },
+        {
+          "id": "C",
+          "text": "x > 10 AND x <= 20",
+          "is_correct": false,
+          "explanation": "This uses strict greater-than for the lower bound and inclusive upper bound — it excludes 10 and includes 20, which reverses the requirements."
+        },
+        {
+          "id": "D",
+          "text": "x >= 10 OR x < 20",
+          "is_correct": false,
+          "explanation": "Using OR instead of AND — OR would be true for any x (e.g., 100 satisfies x >= 10, and -5 satisfies x < 20) — this is too permissive."
+        }
+      ],
+      "unit_objective": "AAP-2.E"
+    },
+    {
+      "id": "csp-u3-q019",
+      "unit": "unit-3",
+      "subject": "ap-csp",
+      "difficulty": "easy",
+      "stimulus": {
+        "type": "code",
+        "content": "roll ← RANDOM(1, 6)\nDISPLAY(roll)"
+      },
+      "question": "Which of the following best describes what the code above does?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "It generates and displays a random integer between 1 and 6, inclusive — simulating a die roll",
+          "is_correct": true,
+          "explanation": "RANDOM(a, b) returns a random integer between a and b inclusive — RANDOM(1, 6) simulates rolling a standard die."
+        },
+        {
+          "id": "B",
+          "text": "It always displays the same value between 1 and 6 each time the program runs",
+          "is_correct": false,
+          "explanation": "RANDOM generates a different value each call — it does not return the same value consistently."
+        },
+        {
+          "id": "C",
+          "text": "It displays a random decimal number between 1.0 and 6.0",
+          "is_correct": false,
+          "explanation": "RANDOM(a, b) in CB pseudocode returns a random integer, not a decimal — the output is one of: 1, 2, 3, 4, 5, or 6."
+        },
+        {
+          "id": "D",
+          "text": "It rolls a die 6 times and displays the total",
+          "is_correct": false,
+          "explanation": "RANDOM is called once — the 6 is the upper bound of the range, not the number of rolls."
+        }
+      ],
+      "unit_objective": "AAP-3.E"
+    },
+    {
+      "id": "csp-u3-q020",
+      "unit": "unit-3",
+      "subject": "ap-csp",
+      "difficulty": "hard",
+      "stimulus": {
+        "type": "code",
+        "content": "PROCEDURE countdown(n)\n{\n    IF(n <= 0)\n    {\n        DISPLAY(\"Go!\")\n    }\n    ELSE\n    {\n        DISPLAY(n)\n        countdown(n - 1)\n    }\n}"
+      },
+      "question": "What does calling countdown(3) display?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "3, 2, 1, Go! (in order)",
+          "is_correct": true,
+          "explanation": "countdown(3): DISPLAY 3, call countdown(2). countdown(2): DISPLAY 2, call countdown(1). countdown(1): DISPLAY 1, call countdown(0). countdown(0): DISPLAY Go!."
+        },
+        {
+          "id": "B",
+          "text": "Go!, 1, 2, 3 (in reverse order)",
+          "is_correct": false,
+          "explanation": "DISPLAY(n) executes before the recursive call — each number displays before the next recursive call is made, so numbers appear before 'Go!'."
+        },
+        {
+          "id": "C",
+          "text": "3",
+          "is_correct": false,
+          "explanation": "The procedure recurses — it does not stop after displaying 3; it continues calling itself down to 0."
+        },
+        {
+          "id": "D",
+          "text": "Go!",
+          "is_correct": false,
+          "explanation": "Go! only displays when n <= 0 — but n starts at 3, so 3, 2, and 1 are displayed before the base case is reached."
+        }
+      ],
+      "unit_objective": "AAP-3.C"
+    },
+    {
+      "id": "csp-u3-q021",
+      "question": "What is the output of the following code?\n\nx ← 5\ny ← 3\nIF x > y\n{\n   DISPLAY(x - y)\n}\nELSE\n{\n   DISPLAY(y - x)\n}",
+      "choices": [
+        {
+          "id": "A",
+          "text": "2",
+          "is_correct": true,
+          "explanation": "x = 5, y = 3. Since 5 > 3 is true, the IF branch executes: DISPLAY(5 - 3) = DISPLAY(2). Output is 2."
+        },
+        {
+          "id": "B",
+          "text": "-2",
+          "is_correct": false,
+          "explanation": "The ELSE branch (y - x = 3 - 5 = -2) does not execute because x > y is true."
+        },
+        {
+          "id": "C",
+          "text": "5",
+          "is_correct": false,
+          "explanation": "The code displays x - y, not x alone."
+        },
+        {
+          "id": "D",
+          "text": "3",
+          "is_correct": false,
+          "explanation": "The code displays x - y, not y alone."
+        }
+      ],
+      "difficulty": "easy",
+      "topic": "conditionals",
+      "stimulus": {
+        "type": "code",
+        "content": "x ← 5\ny ← 3\nIF x > y\n{\n   DISPLAY(x - y)\n}\nELSE\n{\n   DISPLAY(y - x)\n}"
+      }
+    },
+    {
+      "id": "csp-u3-q022",
+      "question": "A programmer writes the following procedure:\n\nPROCEDURE double(n)\n{\n   RETURN(n * 2)\n}\n\nWhat is the value returned by double(double(3))?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "6",
+          "is_correct": false,
+          "explanation": "double(3) = 6, but then double(6) = 12. Only the first call is computed here."
+        },
+        {
+          "id": "B",
+          "text": "9",
+          "is_correct": false,
+          "explanation": "9 would be 3 * 3. The procedure doubles (multiplies by 2), not squares."
+        },
+        {
+          "id": "C",
+          "text": "12",
+          "is_correct": true,
+          "explanation": "double(3) returns 3 * 2 = 6. Then double(6) returns 6 * 2 = 12."
+        },
+        {
+          "id": "D",
+          "text": "24",
+          "is_correct": false,
+          "explanation": "24 would be double(double(double(3))). There are only two calls here, not three."
+        }
+      ],
+      "difficulty": "medium",
+      "topic": "procedures",
+      "stimulus": {
+        "type": "code",
+        "content": "PROCEDURE double(n)\n{\n   RETURN(n * 2)\n}"
+      }
+    },
+    {
+      "id": "csp-u3-q023",
+      "question": "What are the values in myList after this code executes?\n\nmyList ← [10, 20, 30]\nAPPEND(myList, 40)\nREMOVE(myList, 1)",
+      "choices": [
+        {
+          "id": "A",
+          "text": "[20, 30, 40]",
+          "is_correct": true,
+          "explanation": "After APPEND, the list is [10, 20, 30, 40]. REMOVE(myList, 1) removes the element at index 1 (value 10). Result: [20, 30, 40]."
+        },
+        {
+          "id": "B",
+          "text": "[10, 20, 30, 40]",
+          "is_correct": false,
+          "explanation": "This is the list after APPEND but before REMOVE. REMOVE(myList, 1) removes index 1."
+        },
+        {
+          "id": "C",
+          "text": "[10, 30, 40]",
+          "is_correct": false,
+          "explanation": "This would result from removing index 2 (value 20). REMOVE(myList, 1) removes index 1 (value 10)."
+        },
+        {
+          "id": "D",
+          "text": "[10, 20, 40]",
+          "is_correct": false,
+          "explanation": "This would result from removing index 3 (value 30). REMOVE(myList, 1) removes index 1 (value 10)."
+        }
+      ],
+      "difficulty": "medium",
+      "topic": "lists",
+      "stimulus": {
+        "type": "code",
+        "content": "myList ← [10, 20, 30]\nAPPEND(myList, 40)\nREMOVE(myList, 1)"
+      }
+    },
+    {
+      "id": "csp-u3-q024",
+      "question": "Which of the following algorithms has a reasonable run time for a list of 1 million elements?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "An algorithm that examines all possible orderings of the list",
+          "is_correct": false,
+          "explanation": "Examining all permutations grows as n! (factorial). For 1 million elements this is astronomically large, far beyond reasonable."
+        },
+        {
+          "id": "B",
+          "text": "An algorithm that divides the list in half with each step until one element is found",
+          "is_correct": true,
+          "explanation": "Binary search runs in O(log n). For 1 million elements, log2(1,000,000) is about 20 steps, which is extremely efficient and runs in reasonable time."
+        },
+        {
+          "id": "C",
+          "text": "An algorithm that compares every pair of elements",
+          "is_correct": false,
+          "explanation": "Comparing every pair is O(n^2). For 1 million elements, this requires approximately 1 trillion comparisons, which is unreasonably slow."
+        },
+        {
+          "id": "D",
+          "text": "An algorithm that generates all possible subsets of the list",
+          "is_correct": false,
+          "explanation": "Generating all subsets grows as 2^n. For 1 million elements, this is computationally infeasible."
+        }
+      ],
+      "difficulty": "medium",
+      "topic": "algorithm_efficiency",
+      "stimulus": {
+        "type": "text",
+        "content": "A programmer is writing software to process one million customer records. She is evaluating several searching and sorting algorithms and considering how each will perform on this large dataset."
+      }
+    },
+    {
+      "id": "csp-u3-q025",
+      "question": "A programmer needs to find whether the value 7 is in a list. She uses the following algorithm:\n\nFOR EACH item IN myList\n{\n   IF item = 7\n   {\n      DISPLAY(\"Found\")\n   }\n}\n\nWhat type of search algorithm is this?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Binary search",
+          "is_correct": false,
+          "explanation": "Binary search requires a sorted list and repeatedly divides the search space in half. This algorithm checks every element one by one."
+        },
+        {
+          "id": "B",
+          "text": "Linear search",
+          "is_correct": true,
+          "explanation": "Linear search (also called sequential search) examines each element in order from start to finish. This FOR EACH loop does exactly that."
+        },
+        {
+          "id": "C",
+          "text": "Recursive search",
+          "is_correct": false,
+          "explanation": "Recursive search calls itself; this algorithm uses a loop, not recursion."
+        },
+        {
+          "id": "D",
+          "text": "Heuristic search",
+          "is_correct": false,
+          "explanation": "Heuristic searches use problem-specific knowledge to guide search direction. This is a simple sequential check."
+        }
+      ],
+      "difficulty": "easy",
+      "topic": "searching",
+      "stimulus": {
+        "type": "code",
+        "content": "FOR EACH item IN myList\n{\n   IF item = 7\n   {\n      DISPLAY(\"Found\")\n   }\n}"
+      }
+    },
+    {
+      "id": "csp-u3-q026",
+      "question": "What is the output of the following code?\n\ncount ← 1\nREPEAT 4 TIMES\n{\n   count ← count + count\n}\nDISPLAY(count)",
+      "choices": [
+        {
+          "id": "A",
+          "text": "5",
+          "is_correct": false,
+          "explanation": "If count were incremented by 1 each time, it would be 5. But count is doubled each iteration."
+        },
+        {
+          "id": "B",
+          "text": "8",
+          "is_correct": false,
+          "explanation": "After 3 doublings: 1 -> 2 -> 4 -> 8. But the loop repeats 4 times, giving 1 -> 2 -> 4 -> 8 -> 16."
+        },
+        {
+          "id": "C",
+          "text": "16",
+          "is_correct": true,
+          "explanation": "Each iteration doubles count: 1 -> 2 -> 4 -> 8 -> 16. After 4 iterations (2^4 = 16), DISPLAY shows 16."
+        },
+        {
+          "id": "D",
+          "text": "4",
+          "is_correct": false,
+          "explanation": "4 would be the result after 2 doublings (1 -> 2 -> 4). The loop runs 4 times, not 2."
+        }
+      ],
+      "difficulty": "medium",
+      "topic": "iteration",
+      "stimulus": {
+        "type": "code",
+        "content": "count ← 1\nREPEAT 4 TIMES\n{\n   count ← count + count\n}\nDISPLAY(count)"
+      }
+    },
+    {
+      "id": "csp-u3-q027",
+      "question": "A student models a weather system using a computer program with 100,000 random variables. She runs the simulation 1,000 times to estimate the probability of a hurricane forming. What term BEST describes this approach?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Binary search",
+          "is_correct": false,
+          "explanation": "Binary search is an algorithm for finding an element in a sorted list, not a modeling technique."
+        },
+        {
+          "id": "B",
+          "text": "Simulation",
+          "is_correct": true,
+          "explanation": "A simulation is a program that models a complex real-world phenomenon. Running it many times with random variables to estimate probability is a Monte Carlo simulation."
+        },
+        {
+          "id": "C",
+          "text": "Linear search",
+          "is_correct": false,
+          "explanation": "Linear search sequentially checks list elements. This is a computational modeling approach, not a search algorithm."
+        },
+        {
+          "id": "D",
+          "text": "Procedural abstraction",
+          "is_correct": false,
+          "explanation": "Procedural abstraction is organizing code into named procedures. The scenario describes using a program to model a real-world system."
+        }
+      ],
+      "difficulty": "easy",
+      "topic": "simulation",
+      "stimulus": {
+        "type": "text",
+        "content": "A meteorologist wants to predict the probability that a hurricane will form in the Gulf of Mexico during August. The phenomenon involves hundreds of thousands of interacting variables and no closed-form mathematical formula can predict the outcome."
+      }
+    },
+    {
+      "id": "csp-u3-q028",
+      "question": "Which of the following problems is considered undecidable?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Determining whether a given integer is even or odd",
+          "is_correct": false,
+          "explanation": "Even/odd can be determined with a simple MOD 2 check. This is a decidable problem with a straightforward algorithm."
+        },
+        {
+          "id": "B",
+          "text": "Sorting a list of numbers from smallest to largest",
+          "is_correct": false,
+          "explanation": "Sorting is a classic decidable problem with many well-known algorithms (bubble sort, merge sort, etc.)."
+        },
+        {
+          "id": "C",
+          "text": "Determining whether an arbitrary program will halt (stop running) for a given input",
+          "is_correct": true,
+          "explanation": "The Halting Problem is the classic example of an undecidable problem. Alan Turing proved no general algorithm can determine whether any arbitrary program will halt or run forever."
+        },
+        {
+          "id": "D",
+          "text": "Searching a list for a specific value",
+          "is_correct": false,
+          "explanation": "List search is decidable using linear or binary search algorithms. It always produces a correct result."
+        }
+      ],
+      "difficulty": "medium",
+      "topic": "undecidable_problems",
+      "stimulus": {
+        "type": "text",
+        "content": "A computer science professor presents several computational problems to her class. For each problem, she asks students to determine whether a general algorithmic solution exists that always produces a correct answer in a finite number of steps."
+      }
+    },
+    {
+      "id": "csp-u3-q029",
+      "question": "What does the following procedure return when called as mystery(10)?\n\nPROCEDURE mystery(n)\n{\n   IF n MOD 2 = 0\n   {\n      RETURN(\"even\")\n   }\n   ELSE\n   {\n      RETURN(\"odd\")\n   }\n}",
+      "choices": [
+        {
+          "id": "A",
+          "text": "0",
+          "is_correct": false,
+          "explanation": "The procedure returns a string (\"even\" or \"odd\"), not the remainder."
+        },
+        {
+          "id": "B",
+          "text": "\"odd\"",
+          "is_correct": false,
+          "explanation": "10 MOD 2 = 0, so the IF condition is true. The procedure returns \"even\"."
+        },
+        {
+          "id": "C",
+          "text": "\"even\"",
+          "is_correct": true,
+          "explanation": "10 MOD 2 = 0 (10 is divisible by 2 with no remainder), so n MOD 2 = 0 is true, and the procedure returns \"even\"."
+        },
+        {
+          "id": "D",
+          "text": "10",
+          "is_correct": false,
+          "explanation": "The procedure returns a string (\"even\" or \"odd\"), not the input value."
+        }
+      ],
+      "difficulty": "easy",
+      "topic": "procedures",
+      "stimulus": {
+        "type": "code",
+        "content": "PROCEDURE mystery(n)\n{\n   IF n MOD 2 = 0\n   {\n      RETURN(\"even\")\n   }\n   ELSE\n   {\n      RETURN(\"odd\")\n   }\n}"
+      }
+    },
+    {
+      "id": "csp-u3-q030",
+      "question": "A programmer writes the following code to find the maximum value in a list:\n\nPROCEDURE findMax(numList)\n{\n   maxVal ← numList[1]\n   FOR EACH num IN numList\n   {\n      IF num > maxVal\n      {\n         maxVal ← num\n      }\n   }\n   RETURN(maxVal)\n}\n\nWhat type of algorithm is findMax?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Binary search",
+          "is_correct": false,
+          "explanation": "Binary search finds a specific value in a sorted list by dividing in half. findMax checks every element to find the largest."
+        },
+        {
+          "id": "B",
+          "text": "A recursive algorithm",
+          "is_correct": false,
+          "explanation": "Recursive algorithms call themselves. findMax uses a loop, not recursion."
+        },
+        {
+          "id": "C",
+          "text": "A linear search variant that finds the largest element",
+          "is_correct": true,
+          "explanation": "findMax uses a FOR EACH loop to examine every element (linear traversal), tracking the maximum. This is a linear algorithm running in O(n)."
+        },
+        {
+          "id": "D",
+          "text": "An undecidable algorithm",
+          "is_correct": false,
+          "explanation": "Undecidable problems cannot be solved by any algorithm. findMax always produces a correct result for any list."
+        }
+      ],
+      "difficulty": "medium",
+      "topic": "searching",
+      "stimulus": {
+        "type": "code",
+        "content": "PROCEDURE findMax(numList)\n{\n   maxVal ← numList[1]\n   FOR EACH num IN numList\n   {\n      IF num > maxVal\n      {\n         maxVal ← num\n      }\n   }\n   RETURN(maxVal)\n}"
+      }
+    },
+    {
+      "id": "csp-u3-q031",
+      "question": "Which of the following BEST describes what a variable is in a program?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "A fixed value that cannot change while the program runs",
+          "is_correct": false,
+          "explanation": "A fixed value that cannot change is called a constant. Variables, by definition, can change during program execution."
+        },
+        {
+          "id": "B",
+          "text": "A named storage location that holds a value which can change during program execution",
+          "is_correct": true,
+          "explanation": "A variable is a named reference to a memory location. The stored value can be read and updated throughout the program."
+        },
+        {
+          "id": "C",
+          "text": "A procedure that performs a specific task",
+          "is_correct": false,
+          "explanation": "Procedures are named blocks of code. Variables are named data storage locations."
+        },
+        {
+          "id": "D",
+          "text": "A type of loop that repeats a block of code",
+          "is_correct": false,
+          "explanation": "Loops are control structures. Variables store data values."
+        }
+      ],
+      "difficulty": "easy",
+      "topic": "variables",
+      "stimulus": {
+        "type": "text",
+        "content": "A beginning programming student is learning the fundamental building blocks of programs. His teacher explains the difference between elements that store data and those that perform actions."
+      }
+    },
+    {
+      "id": "csp-u3-q032",
+      "question": "A student writes the following code but gets an unexpected result. What is wrong?\n\nscore ← 85\nIF score > 90\n{\n   DISPLAY(\"A\")\n}\nIF score > 80\n{\n   DISPLAY(\"B\")\n}\nIF score > 70\n{\n   DISPLAY(\"C\")\n}",
+      "choices": [
+        {
+          "id": "A",
+          "text": "The code has a syntax error because it uses three IF statements",
+          "is_correct": false,
+          "explanation": "Multiple sequential IF statements are syntactically valid. The issue is logical, not syntactic."
+        },
+        {
+          "id": "B",
+          "text": "The code displays both \"B\" and \"C\" for a score of 85, when it should display only \"B\"",
+          "is_correct": true,
+          "explanation": "85 > 80 is true so \"B\" displays. 85 > 70 is also true so \"C\" also displays. Each IF is evaluated independently. The fix would be to use IF/ELSE IF."
+        },
+        {
+          "id": "C",
+          "text": "The code will display nothing because 85 is not greater than 90",
+          "is_correct": false,
+          "explanation": "The first IF is false, but the second (score > 80) and third (score > 70) are both true. Multiple outputs will display."
+        },
+        {
+          "id": "D",
+          "text": "The code has a runtime error because the variable score is undefined",
+          "is_correct": false,
+          "explanation": "score is defined as 85 in the first line. There is no undefined variable."
+        }
+      ],
+      "difficulty": "hard",
+      "topic": "conditionals",
+      "stimulus": {
+        "type": "code",
+        "content": "score ← 85\nIF score > 90\n{\n   DISPLAY(\"A\")\n}\nIF score > 80\n{\n   DISPLAY(\"B\")\n}\nIF score > 70\n{\n   DISPLAY(\"C\")\n}"
+      }
+    },
+    {
+      "id": "csp-u3-q033",
+      "question": "What is the LENGTH of myList after this code executes?\n\nmyList ← [1, 2, 3]\nAPPEND(myList, 4)\nAPPEND(myList, 5)\nREMOVE(myList, 2)",
+      "choices": [
+        {
+          "id": "A",
+          "text": "3",
+          "is_correct": false,
+          "explanation": "Starting with 3 elements, adding 2 gives 5, then removing 1 gives 4."
+        },
+        {
+          "id": "B",
+          "text": "4",
+          "is_correct": true,
+          "explanation": "Start: [1,2,3] (length 3). APPEND 4: [1,2,3,4] (length 4). APPEND 5: [1,2,3,4,5] (length 5). REMOVE index 2: [1,3,4,5] (length 4)."
+        },
+        {
+          "id": "C",
+          "text": "5",
+          "is_correct": false,
+          "explanation": "5 would be the length after two APPENDs but before REMOVE. REMOVE decrements the length."
+        },
+        {
+          "id": "D",
+          "text": "2",
+          "is_correct": false,
+          "explanation": "2 would require removing 3 elements from the starting 3. Only one element was removed."
+        }
+      ],
+      "difficulty": "medium",
+      "topic": "lists",
+      "stimulus": {
+        "type": "code",
+        "content": "myList ← [1, 2, 3]\nAPPEND(myList, 4)\nAPPEND(myList, 5)\nREMOVE(myList, 2)"
+      }
+    },
+    {
+      "id": "csp-u3-q034",
+      "question": "Which of the following BEST describes procedural abstraction?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Writing code that uses only built-in operations without defining new procedures",
+          "is_correct": false,
+          "explanation": "Using only built-in operations is the opposite of procedural abstraction, which involves defining and using named procedures."
+        },
+        {
+          "id": "B",
+          "text": "Giving a name to a sequence of instructions so it can be reused without re-writing the same code",
+          "is_correct": true,
+          "explanation": "Procedural abstraction defines a named procedure that encapsulates a set of instructions. The procedure can then be called by name, hiding its implementation details."
+        },
+        {
+          "id": "C",
+          "text": "Removing all comments from code to make it shorter",
+          "is_correct": false,
+          "explanation": "Removing comments reduces readability. Abstraction is about hiding implementation complexity, not removing documentation."
+        },
+        {
+          "id": "D",
+          "text": "Converting a program from one programming language to another",
+          "is_correct": false,
+          "explanation": "Language translation is called porting or transpiling, not procedural abstraction."
+        }
+      ],
+      "difficulty": "easy",
+      "topic": "procedural_abstraction",
+      "stimulus": {
+        "type": "text",
+        "content": "A software engineering team is building a large application. The team lead instructs developers to package groups of related instructions into named units that can be called from multiple places in the codebase."
+      }
+    },
+    {
+      "id": "csp-u3-q035",
+      "question": "What is the final value of result after this code runs?\n\nresult ← 0\nnumbers ← [3, 7, 2, 9, 1]\nFOR EACH n IN numbers\n{\n   IF n > 5\n   {\n      result ← result + n\n   }\n}\nDISPLAY(result)",
+      "choices": [
+        {
+          "id": "A",
+          "text": "22",
+          "is_correct": false,
+          "explanation": "22 is the sum of all elements (3+7+2+9+1). The code only sums elements greater than 5."
+        },
+        {
+          "id": "B",
+          "text": "16",
+          "is_correct": true,
+          "explanation": "Only elements > 5 are added: 7 and 9. 7 + 9 = 16. Elements 3, 2, and 1 are skipped."
+        },
+        {
+          "id": "C",
+          "text": "9",
+          "is_correct": false,
+          "explanation": "9 is only the largest element. Both 7 and 9 are greater than 5, so result = 7 + 9 = 16."
+        },
+        {
+          "id": "D",
+          "text": "10",
+          "is_correct": false,
+          "explanation": "10 would be the sum of 3+7 (first two) or similar. Only elements > 5 count: 7 + 9 = 16."
+        }
+      ],
+      "difficulty": "hard",
+      "topic": "iteration",
+      "stimulus": {
+        "type": "code",
+        "content": "result ← 0\nnumbers ← [3, 7, 2, 9, 1]\nFOR EACH n IN numbers\n{\n   IF n > 5\n   {\n      result ← result + n\n   }\n}\nDISPLAY(result)"
+      }
+    },
+    {
+      "id": "csp-u3-q036",
+      "question": "Which of the following BEST explains why binary search requires the list to be sorted before searching?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Sorted lists are always shorter than unsorted lists",
+          "is_correct": false,
+          "explanation": "Sorting does not change the number of elements; it only reorders them."
+        },
+        {
+          "id": "B",
+          "text": "Binary search eliminates half the remaining elements at each step by comparing the target to the middle element; this only works correctly if the data is ordered",
+          "is_correct": true,
+          "explanation": "Binary search uses the sorted order to determine which half to eliminate. On an unsorted list, the comparison would not reliably eliminate the correct half."
+        },
+        {
+          "id": "C",
+          "text": "An unsorted list cannot be stored in a variable",
+          "is_correct": false,
+          "explanation": "Lists can be stored in any order. The requirement for sorting is specific to binary search, not to storage."
+        },
+        {
+          "id": "D",
+          "text": "Binary search uses a special data structure that only accepts sorted input",
+          "is_correct": false,
+          "explanation": "Binary search works on any sorted array or list. It does not require a special data structure."
+        }
+      ],
+      "difficulty": "medium",
+      "topic": "searching",
+      "stimulus": {
+        "type": "text",
+        "content": "A student is learning about two searching algorithms in her computer science class. Her teacher asks her to explain a key requirement that distinguishes one algorithm from the other in terms of the state of the data before searching begins."
+      }
+    },
+    {
+      "id": "csp-u3-q037",
+      "question": "A programmer writes a procedure called computeAverage that takes a list of numbers and returns their average. Other programmers on the team use this procedure without knowing how it works internally. What concept does this demonstrate?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Simulation",
+          "is_correct": false,
+          "explanation": "Simulation models real-world phenomena. Using a procedure without knowing its internals demonstrates abstraction."
+        },
+        {
+          "id": "B",
+          "text": "Procedural abstraction",
+          "is_correct": true,
+          "explanation": "Procedural abstraction allows programmers to use a procedure by knowing only its name and what it does (its interface), without needing to understand the implementation details."
+        },
+        {
+          "id": "C",
+          "text": "Linear search",
+          "is_correct": false,
+          "explanation": "Linear search is an algorithm for finding elements. The scenario describes using a named procedure to hide implementation details."
+        },
+        {
+          "id": "D",
+          "text": "An undecidable problem",
+          "is_correct": false,
+          "explanation": "Computing an average is a decidable problem with a straightforward algorithm. This scenario illustrates procedural abstraction."
+        }
+      ],
+      "difficulty": "medium",
+      "topic": "procedural_abstraction",
+      "stimulus": {
+        "type": "text",
+        "content": "A data science team at a research company needs to compute averages, medians, and standard deviations for large datasets. The team lead writes a procedure called computeAverage and publishes it to the team's shared code library. Other team members begin calling this procedure in their own code."
+      }
+    },
+    {
+      "id": "csp-u3-q038",
+      "question": "What does the following code display?\n\nx ← 10\ny ← 4\nDISPLAY(x MOD y)\nDISPLAY(x / y)",
+      "choices": [
+        {
+          "id": "A",
+          "text": "2 and 2.5",
+          "is_correct": true,
+          "explanation": "x MOD y = 10 MOD 4 = 2 (remainder when 10 is divided by 4: 10 = 2*4 + 2). x / y = 10 / 4 = 2.5."
+        },
+        {
+          "id": "B",
+          "text": "2 and 2",
+          "is_correct": false,
+          "explanation": "MOD gives the remainder (2), but / gives the full quotient (2.5), not just the integer part."
+        },
+        {
+          "id": "C",
+          "text": "0 and 2.5",
+          "is_correct": false,
+          "explanation": "10 MOD 4 = 2, not 0. (10 = 4*2 + 2, remainder is 2.)"
+        },
+        {
+          "id": "D",
+          "text": "4 and 2.5",
+          "is_correct": false,
+          "explanation": "MOD gives the remainder, not the divisor. 10 MOD 4 = 2."
+        }
+      ],
+      "difficulty": "medium",
+      "topic": "operators",
+      "stimulus": {
+        "type": "code",
+        "content": "x ← 10\ny ← 4\nDISPLAY(x MOD y)\nDISPLAY(x / y)"
+      }
+    },
+    {
+      "id": "csp-u3-q039",
+      "question": "Which of the following boolean expressions evaluates to TRUE when x is 5?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "(x > 10) AND (x < 3)",
+          "is_correct": false,
+          "explanation": "5 > 10 is false and 5 < 3 is false. AND requires both to be true. Result: FALSE."
+        },
+        {
+          "id": "B",
+          "text": "(x > 3) AND (x < 8)",
+          "is_correct": true,
+          "explanation": "5 > 3 is true AND 5 < 8 is true. Both conditions are satisfied, so the entire expression is TRUE."
+        },
+        {
+          "id": "C",
+          "text": "(x = 3) OR (x = 10)",
+          "is_correct": false,
+          "explanation": "5 = 3 is false and 5 = 10 is false. OR requires at least one to be true. Result: FALSE."
+        },
+        {
+          "id": "D",
+          "text": "NOT (x > 3)",
+          "is_correct": false,
+          "explanation": "5 > 3 is true. NOT(true) = FALSE."
+        }
+      ],
+      "difficulty": "hard",
+      "topic": "boolean_expressions",
+      "stimulus": {
+        "type": "text",
+        "content": "A programmer is writing a grading program. The program should set a student to eligible for honors if their score is between 85 and 95, inclusive. She needs to write a boolean expression to check this condition."
+      }
+    },
+    {
+      "id": "csp-u3-q040",
+      "question": "A student uses RANDOM(1, 6) in a simulation to model rolling a six-sided die. She runs the simulation 600 times and expects each value (1-6) to appear about 100 times. After running, each value appears between 95 and 107 times. What does this result demonstrate?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "The simulation has a logic error because the results are not exactly 100 each",
+          "is_correct": false,
+          "explanation": "Random variation in a simulation is expected. Results near but not exactly equal to 100 confirm correct behavior."
+        },
+        {
+          "id": "B",
+          "text": "RANDOM(1, 6) is biased toward higher numbers",
+          "is_correct": false,
+          "explanation": "Values between 95-107 for 600 rolls is within normal statistical variation. There is no evidence of bias."
+        },
+        {
+          "id": "C",
+          "text": "The simulation correctly models the random nature of a die roll, with results close to expected values",
+          "is_correct": true,
+          "explanation": "Simulations model probability through many trials. Results close to (but not exactly at) expected values are consistent with a correct simulation of a fair die."
+        },
+        {
+          "id": "D",
+          "text": "The simulation should use an algorithm instead of RANDOM to produce exact results",
+          "is_correct": false,
+          "explanation": "The purpose of using RANDOM is to model randomness. Exact results would indicate non-random (biased) behavior."
+        }
+      ],
+      "difficulty": "medium",
+      "topic": "simulation",
+      "stimulus": {
+        "type": "text",
+        "content": "A computer science student uses RANDOM(1, 6) to model a fair six-sided die. She runs the simulation 600 times to see how frequently each value (1 through 6) appears."
+      }
+    },
+    {
+      "id": "csp-u3-q041",
+      "question": "What is the value of count after the following code runs?\n\ncount ← 0\nx ← 1\nREPEAT UNTIL x > 5\n{\n   count ← count + x\n   x ← x + 1\n}\nDISPLAY(count)",
+      "choices": [
+        {
+          "id": "A",
+          "text": "10",
+          "is_correct": false,
+          "explanation": "The loop runs while x <= 5, adding x=1,2,3,4,5. 1+2+3+4+5 = 15, not 10."
+        },
+        {
+          "id": "B",
+          "text": "15",
+          "is_correct": true,
+          "explanation": "The loop adds x to count and increments x until x > 5. Values added: 1+2+3+4+5 = 15."
+        },
+        {
+          "id": "C",
+          "text": "5",
+          "is_correct": false,
+          "explanation": "5 would be the value of x after 5 increments, not the sum accumulated in count."
+        },
+        {
+          "id": "D",
+          "text": "6",
+          "is_correct": false,
+          "explanation": "6 would be the value of x when the loop condition x > 5 first becomes true. count accumulates the sum 1+2+3+4+5 = 15."
+        }
+      ],
+      "difficulty": "hard",
+      "topic": "iteration",
+      "stimulus": {
+        "type": "code",
+        "content": "count ← 0\nx ← 1\nREPEAT UNTIL x > 5\n{\n   count ← count + x\n   x ← x + 1\n}\nDISPLAY(count)"
+      }
+    },
+    {
+      "id": "csp-u3-q042",
+      "question": "Select TWO answers. Which of the following are TRUE about the difference between linear search and binary search?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Binary search requires the list to be sorted; linear search does not",
+          "is_correct": true,
+          "explanation": "Binary search relies on sorted order to eliminate half the elements at each step. Linear search works on any list regardless of order."
+        },
+        {
+          "id": "B",
+          "text": "Binary search is generally faster than linear search on large sorted lists",
+          "is_correct": true,
+          "explanation": "Binary search runs in O(log n) vs. linear search at O(n). For large sorted lists, binary search is significantly faster."
+        },
+        {
+          "id": "C",
+          "text": "Linear search can only be used on lists of numbers, not strings",
+          "is_correct": false,
+          "explanation": "Linear search can search any list of comparable elements, including strings."
+        },
+        {
+          "id": "D",
+          "text": "Binary search always examines every element in the list",
+          "is_correct": false,
+          "explanation": "Binary search eliminates half the remaining elements at each step and typically examines far fewer than all elements."
+        }
+      ],
+      "difficulty": "medium",
+      "topic": "searching",
+      "stimulus": null
+    },
+    {
+      "id": "csp-u3-q043",
+      "question": "A programmer wants to write a procedure that takes a list of numbers and returns the count of numbers that are greater than the average. What is the MOST appropriate first step?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Write the code immediately and test it",
+          "is_correct": false,
+          "explanation": "Writing code without a plan increases the chance of logic errors. The first step should be defining the algorithm."
+        },
+        {
+          "id": "B",
+          "text": "Define the algorithm: first compute the average, then count elements greater than it",
+          "is_correct": true,
+          "explanation": "Defining the steps of the algorithm before writing code ensures logical correctness. The natural decomposition is: compute average (needs a separate procedure), then count qualifying elements."
+        },
+        {
+          "id": "C",
+          "text": "Use binary search to find elements greater than the average",
+          "is_correct": false,
+          "explanation": "Binary search finds a specific value in a sorted list; it does not count elements meeting a condition."
+        },
+        {
+          "id": "D",
+          "text": "Use RANDOM to approximate the count",
+          "is_correct": false,
+          "explanation": "RANDOM introduces randomness; the correct count can be calculated deterministically without approximation."
+        }
+      ],
+      "difficulty": "medium",
+      "topic": "algorithm_design",
+      "stimulus": {
+        "type": "text",
+        "content": "A programmer receives a specification: \"Write a procedure that takes a list of numbers and returns a count of how many numbers in the list are greater than the average of all numbers in the list.\" He begins planning his approach."
+      }
+    },
+    {
+      "id": "csp-u3-q044",
+      "question": "What does the following code display?\n\na ← TRUE\nb ← FALSE\nIF a AND NOT b\n{\n   DISPLAY(\"yes\")\n}\nELSE\n{\n   DISPLAY(\"no\")\n}",
+      "choices": [
+        {
+          "id": "A",
+          "text": "no",
+          "is_correct": false,
+          "explanation": "a = TRUE and NOT b = NOT FALSE = TRUE. So a AND NOT b = TRUE AND TRUE = TRUE. The IF branch executes."
+        },
+        {
+          "id": "B",
+          "text": "yes",
+          "is_correct": true,
+          "explanation": "a = TRUE. NOT b = NOT FALSE = TRUE. TRUE AND TRUE = TRUE. The IF condition is true, so DISPLAY(\"yes\")."
+        },
+        {
+          "id": "C",
+          "text": "An error because AND and NOT cannot be combined",
+          "is_correct": false,
+          "explanation": "AND and NOT are standard boolean operators that can be combined in any boolean expression."
+        },
+        {
+          "id": "D",
+          "text": "Nothing is displayed",
+          "is_correct": false,
+          "explanation": "The IF condition evaluates to TRUE, so \"yes\" is displayed."
+        }
+      ],
+      "difficulty": "medium",
+      "topic": "boolean_expressions",
+      "stimulus": {
+        "type": "code",
+        "content": "a ← TRUE\nb ← FALSE\nIF a AND NOT b\n{\n   DISPLAY(\"yes\")\n}\nELSE\n{\n   DISPLAY(\"no\")\n}"
+      }
+    },
+    {
+      "id": "csp-u3-q045",
+      "question": "A student writes a program to simulate rolling two dice and adds their values. She wants to find what sum appears most frequently across 10,000 rolls. Which of the following BEST explains why running the simulation many times is important?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "More trials reduce the reliance on random number generation",
+          "is_correct": false,
+          "explanation": "More trials still rely on RANDOM; the goal is for the distribution of results to approximate the theoretical probability."
+        },
+        {
+          "id": "B",
+          "text": "More trials make the simulation run faster",
+          "is_correct": false,
+          "explanation": "More trials require more computation, not less. Speed and accuracy are separate concerns."
+        },
+        {
+          "id": "C",
+          "text": "A larger number of trials produces results that more closely approximate the true probability distribution",
+          "is_correct": true,
+          "explanation": "By the Law of Large Numbers, more trials bring the simulated frequency distribution closer to the true probability distribution. 10,000 trials is far more reliable than 10 trials."
+        },
+        {
+          "id": "D",
+          "text": "A simulation can only be trusted after exactly 10,000 trials",
+          "is_correct": false,
+          "explanation": "There is no magic number. The principle is that more trials generally produce more accurate approximations of true probabilities."
+        }
+      ],
+      "difficulty": "hard",
+      "topic": "simulation",
+      "stimulus": {
+        "type": "text",
+        "content": "A computer science teacher assigns a probability simulation project. Students must write a program using RANDOM(1, 6) to simulate rolling two dice and summing the results. They must determine which sum is most common by running many trials."
+      }
+    },
+    {
+      "id": "csp-u3-q046",
+      "question": "A procedure is supposed to compute the sum of numbers from 1 to n. Here is the code:\n\nPROCEDURE sumTo(n)\n{\n   total ← 0\n   i ← 1\n   REPEAT UNTIL i > n\n   {\n      total ← total + i\n      i ← i + 1\n   }\n   RETURN(total)\n}\n\nWhat does sumTo(4) return?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "6",
+          "is_correct": false,
+          "explanation": "6 = 1+2+3. sumTo(4) includes 4 as well: 1+2+3+4 = 10."
+        },
+        {
+          "id": "B",
+          "text": "4",
+          "is_correct": false,
+          "explanation": "4 is the input value, not the sum. The procedure adds 1+2+3+4 = 10."
+        },
+        {
+          "id": "C",
+          "text": "10",
+          "is_correct": true,
+          "explanation": "i goes from 1 to 4: total = 0+1+2+3+4 = 10. When i = 5, REPEAT UNTIL i > 4 becomes true and the loop ends."
+        },
+        {
+          "id": "D",
+          "text": "5",
+          "is_correct": false,
+          "explanation": "5 is the value of i when the loop stops. total accumulates the sum 1+2+3+4 = 10."
+        }
+      ],
+      "difficulty": "hard",
+      "topic": "iteration",
+      "stimulus": {
+        "type": "code",
+        "content": "PROCEDURE sumTo(n)\n{\n   total ← 0\n   i ← 1\n   REPEAT UNTIL i > n\n   {\n      total ← total + i\n      i ← i + 1\n   }\n   RETURN(total)\n}"
+      }
+    },
+    {
+      "id": "csp-u3-q047",
+      "question": "Which of the following scenarios BEST represents a problem that is difficult or impossible to solve algorithmically?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Computing the average of a list of 1 million exam scores",
+          "is_correct": false,
+          "explanation": "This is a straightforward algorithmic problem with a simple loop. It has a clear, efficient solution."
+        },
+        {
+          "id": "B",
+          "text": "Searching for a specific name in a phone book with 1 billion entries",
+          "is_correct": false,
+          "explanation": "Binary search on a sorted phone book handles 1 billion entries in about 30 steps. This is very tractable."
+        },
+        {
+          "id": "C",
+          "text": "Finding the optimal route visiting 100 cities, returning to the start, with the shortest total distance",
+          "is_correct": true,
+          "explanation": "This is the Travelling Salesman Problem. For 100 cities, checking every possible route requires examining more combinations than there are atoms in the universe. No polynomial-time algorithm is known."
+        },
+        {
+          "id": "D",
+          "text": "Determining whether a number is prime",
+          "is_correct": false,
+          "explanation": "Primality testing has efficient algorithms (e.g., Miller-Rabin). It runs in polynomial time and is tractable even for very large numbers."
+        }
+      ],
+      "difficulty": "hard",
+      "topic": "algorithm_efficiency",
+      "stimulus": {
+        "type": "text",
+        "content": "A computational problem can be solved algorithmically if an algorithm exists that always produces a correct answer in a finite number of steps for every valid input. Not all problems have such algorithms."
+      }
+    },
+    {
+      "id": "csp-u3-q048",
+      "question": "What value is stored in the list after this code executes?\n\nmyList ← [5, 10, 15]\nINSERT(myList, 2, 8)\nDISPLAY(myList)",
+      "choices": [
+        {
+          "id": "A",
+          "text": "[5, 10, 8, 15]",
+          "is_correct": false,
+          "explanation": "INSERT(myList, 2, 8) inserts 8 AT index 2, shifting existing elements right. The value at index 2 (10) moves to index 3."
+        },
+        {
+          "id": "B",
+          "text": "[5, 8, 10, 15]",
+          "is_correct": true,
+          "explanation": "INSERT(myList, 2, 8) places 8 at index 2. The original elements at index 2 and beyond shift right: [5, 8, 10, 15]."
+        },
+        {
+          "id": "C",
+          "text": "[8, 5, 10, 15]",
+          "is_correct": false,
+          "explanation": "This would be INSERT at index 1. INSERT at index 2 places 8 after the first element (5)."
+        },
+        {
+          "id": "D",
+          "text": "[5, 10, 15, 8]",
+          "is_correct": false,
+          "explanation": "This is APPEND(myList, 8). INSERT at index 2 places 8 between 5 and 10."
+        }
+      ],
+      "difficulty": "hard",
+      "topic": "lists",
+      "stimulus": {
+        "type": "code",
+        "content": "myList ← [5, 10, 15]\nINSERT(myList, 2, 8)"
+      }
+    },
+    {
+      "id": "csp-u3-q049",
+      "question": "A student writes the following code to check if a list contains any negative numbers:\n\nPROCEDURE hasNegative(numList)\n{\n   FOR EACH num IN numList\n   {\n      IF num < 0\n      {\n         RETURN(TRUE)\n      }\n   }\n   RETURN(FALSE)\n}\n\nWhat does hasNegative([3, -1, 5]) return?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "FALSE",
+          "is_correct": false,
+          "explanation": "The list contains -1, which is less than 0. The procedure returns TRUE when it finds the first negative number."
+        },
+        {
+          "id": "B",
+          "text": "TRUE",
+          "is_correct": true,
+          "explanation": "The loop checks 3 (not < 0), then -1 (< 0 is true). RETURN(TRUE) is executed immediately when -1 is found."
+        },
+        {
+          "id": "C",
+          "text": "-1",
+          "is_correct": false,
+          "explanation": "The procedure returns a boolean (TRUE or FALSE), not the negative number itself."
+        },
+        {
+          "id": "D",
+          "text": "An error occurs because RETURN is inside a loop",
+          "is_correct": false,
+          "explanation": "RETURN inside a loop is valid; it exits the procedure immediately with the specified value."
+        }
+      ],
+      "difficulty": "hard",
+      "topic": "procedures",
+      "stimulus": {
+        "type": "code",
+        "content": "PROCEDURE hasNegative(numList)\n{\n   FOR EACH num IN numList\n   {\n      IF num < 0\n      {\n         RETURN(TRUE)\n      }\n   }\n   RETURN(FALSE)\n}"
+      }
+    },
+    {
+      "id": "csp-u3-q050",
+      "question": "Which of the following BEST describes the advantage of using a procedure (named abstraction) when writing a large program?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Procedures make programs run faster by using less memory",
+          "is_correct": false,
+          "explanation": "Procedures primarily improve code organization and reusability; they do not inherently make programs faster or use less memory."
+        },
+        {
+          "id": "B",
+          "text": "Procedures allow a block of code to be written once and reused many times, reducing repetition and making the program easier to maintain",
+          "is_correct": true,
+          "explanation": "Procedural abstraction enables code reuse: write once, call many times. This reduces duplication and makes updates easier because you only need to change the procedure in one place."
+        },
+        {
+          "id": "C",
+          "text": "Procedures eliminate all bugs from the program automatically",
+          "is_correct": false,
+          "explanation": "Procedures can themselves contain bugs. They improve organization but do not guarantee correctness."
+        },
+        {
+          "id": "D",
+          "text": "Procedures can only be called from within the same procedure that defines them",
+          "is_correct": false,
+          "explanation": "Procedures can generally be called from anywhere in the program (subject to scope rules). This is the point of abstraction: use the procedure without knowing its internals."
+        }
+      ],
+      "difficulty": "medium",
+      "topic": "procedural_abstraction",
+      "stimulus": {
+        "type": "text",
+        "content": "A project manager at a software company observes that her most productive developer writes procedures for every repeated operation, even if the procedure is called only twice. She asks the developer to explain the reasoning behind this practice."
+      }
+    }
+  ]
+}
