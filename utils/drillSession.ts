@@ -13,7 +13,7 @@ export interface DrillCard {
   subject: string
   mode: DrillMode
   prompt: string
-  answer: string
+  answer?: string
   difficulty: 'easy' | 'medium' | 'hard'
   katex_required?: boolean
   is_key_term?: boolean
@@ -72,7 +72,7 @@ export function normalizeCard(card: DrillCard): NormalizedCard {
   if (card.mode === 'definition_to_term') {
     return {
       id: card.id,
-      term: card.answer,
+      term: card.answer ?? '',
       definition: card.prompt,
       mode: card.mode,
       katex_required: card.katex_required,
@@ -81,7 +81,7 @@ export function normalizeCard(card: DrillCard): NormalizedCard {
   return {
     id: card.id,
     term: card.prompt,
-    definition: card.answer,
+    definition: card.answer ?? '',
     mode: card.mode,
     katex_required: card.katex_required,
   }

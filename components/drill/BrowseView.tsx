@@ -43,9 +43,9 @@ export default function BrowseView({ cards, unitSlug, subject, onBack }: BrowseV
   const visible = useMemo(() => {
     let result = normalized
     if (filter === 'people') {
-      result = result.filter(c => c.mode === 'person_to_significance')
+      result = result.filter(c => c.mode === 'significance_to_person')
     } else if (filter === 'terms') {
-      result = result.filter(c => c.mode !== 'person_to_significance')
+      result = result.filter(c => c.mode !== 'significance_to_person')
     }
     const q = search.trim().toLowerCase()
     if (q) {
@@ -244,7 +244,7 @@ export default function BrowseView({ cards, unitSlug, subject, onBack }: BrowseV
                 <span style={{ fontSize: '0.9375rem', fontWeight: 600, color: 'var(--text-primary)', lineHeight: '1.4' }}>
                   {card.term}
                 </span>
-                {card.mode === 'person_to_significance' && (
+                {card.mode === 'significance_to_person' && (
                   <span
                     style={{
                       fontSize: '0.625rem',

@@ -1,4 +1,4 @@
-import { handleSessionComplete, SessionState, DrillCard, normalizeCard } from '../drillSession'
+import { handleSessionComplete, SessionState, DrillCard, DrillMode, normalizeCard } from '../drillSession'
 import { lsGet, lsSet, LS_KEYS } from '../localStorage'
 import { logEvent } from '../analytics'
 
@@ -150,51 +150,66 @@ describe('handleSessionComplete', () => {
 })
 
 describe('normalizeCard', () => {
-  it('swaps prompt/answer for definition_to_term so answer becomes the term', () => {
-    const card = makeCard({ mode: 'definition_to_term', prompt: 'A nerve cell', answer: 'Neuron' })
-    const result = normalizeCard(card)
-    expect(result.term).toBe('Neuron')
-    expect(result.definition).toBe('A nerve cell')
-    expect(result.mode).toBe('definition_to_term')
+  function makeCard(mode: DrillMode, overrides: Partial<DrillCard> = {}): DrillCard {
+    return {
+      id: 'test-1',
+      unit: 'unit-1',
+      subject: 'ap-psychology',
+      mode,
+      prompt: 'PROMPT',
+      answer: 'ANSWER',
+      difficulty: 'medium',
+      ...overrides,
+    }
+  }
+
+  it('definition_to_term: term=answer, definition=prompt', () => {
+    const card = makeCard('definition_to_term')
+    const norm = normalizeCard(card)
+    expect(norm.term).toBe('ANSWER')
+    expect(norm.definition).toBe('PROMPT')
   })
 
-  it('keeps prompt as term for term_to_definition', () => {
-    const card = makeCard({ mode: 'term_to_definition', prompt: 'Dopamine', answer: 'Neurotransmitter involved in reward' })
-    const result = normalizeCard(card)
-    expect(result.term).toBe('Dopamine')
-    expect(result.definition).toBe('Neurotransmitter involved in reward')
+  it('significance_to_person: term=prompt, definition=answer', () => {
+    const card = makeCard('significance_to_person')
+    const norm = normalizeCard(card)
+    expect(norm.term).toBe('PROMPT')
+    expect(norm.definition).toBe('ANSWER')
   })
 
-  it('keeps prompt as term for person_to_significance', () => {
-    const card = makeCard({ mode: 'person_to_significance', prompt: 'Roger Sperry', answer: 'Split-brain research' })
-    const result = normalizeCard(card)
-    expect(result.term).toBe('Roger Sperry')
-    expect(result.definition).toBe('Split-brain research')
+  it('significance_to_event: term=prompt, definition=answer', () => {
+    const card = makeCard('significance_to_event')
+    const norm = normalizeCard(card)
+    expect(norm.term).toBe('PROMPT')
+    expect(norm.definition).toBe('ANSWER')
   })
 
-  it('keeps prompt as term for formula_to_type', () => {
-    const card = makeCard({ mode: 'formula_to_type', prompt: "f'(x)", answer: 'Derivative' })
-    const result = normalizeCard(card)
-    expect(result.term).toBe("f'(x)")
-    expect(result.definition).toBe('Derivative')
+  it('significance_to_case: term=prompt, definition=answer', () => {
+    const card = makeCard('significance_to_case')
+    const norm = normalizeCard(card)
+    expect(norm.term).toBe('PROMPT')
+    expect(norm.definition).toBe('ANSWER')
   })
 
-  it('keeps prompt as term for event_to_date', () => {
-    const card = makeCard({ mode: 'event_to_date', prompt: 'French Revolution', answer: '1789' })
-    const result = normalizeCard(card)
-    expect(result.term).toBe('French Revolution')
-    expect(result.definition).toBe('1789')
+  it('name_to_formula: term=prompt (formula name), definition=answer (KaTeX)', () => {
+    const card = makeCard('name_to_formula', { katex_required: true })
+    const norm = normalizeCard(card)
+    expect(norm.term).toBe('PROMPT')
+    expect(norm.definition).toBe('ANSWER')
   })
 
-  it('keeps prompt as term for concept_to_example', () => {
-    const card = makeCard({ mode: 'concept_to_example', prompt: 'Classical conditioning', answer: "Pavlov's dogs salivating at a bell" })
-    const result = normalizeCard(card)
-    expect(result.term).toBe('Classical conditioning')
-    expect(result.definition).toBe("Pavlov's dogs salivating at a bell")
+  it('concept_mc: term=prompt, definition=answer (may be undefined)', () => {
+    const card = makeCard('concept_mc', {
+      choices: [{ text: 'A', is_correct: true, explanation: 'Because A' }],
+    })
+    const norm = normalizeCard(card)
+    expect(norm.term).toBe('PROMPT')
+    // definition comes from answer — may be undefined for concept_mc
+    expect(norm.definition).toBe('ANSWER')
   })
 
   it('preserves id and katex_required', () => {
-    const card = makeCard({ id: 'abc-123', mode: 'term_to_definition', katex_required: true })
+    const card = makeCard('name_to_formula', { id: 'abc-123', katex_required: true })
     const result = normalizeCard(card)
     expect(result.id).toBe('abc-123')
     expect(result.katex_required).toBe(true)
