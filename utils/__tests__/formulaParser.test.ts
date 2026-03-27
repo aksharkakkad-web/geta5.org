@@ -91,4 +91,10 @@ describe('compareFormulas', () => {
   it('rejects empty input', () => {
     expect(compareFormulas('', 'x^{2}')).toBe(false)
   })
+
+  it('matches Greek shorthand against pre-escaped KaTeX canonical', () => {
+    expect(compareFormulas('Delta x', '\\Delta x')).toBe(true)
+    expect(compareFormulas('alpha', '\\alpha')).toBe(true)
+    expect(compareFormulas('pi r^2', '\\pi r^{2}')).toBe(true)
+  })
 })

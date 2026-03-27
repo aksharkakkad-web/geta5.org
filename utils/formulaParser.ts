@@ -62,6 +62,6 @@ export function parseFormula(input: string): string {
  */
 export function compareFormulas(student: string, canonical: string): boolean {
   if (!student.trim()) return false
-  const normalize = (s: string) => parseFormula(s).replace(/\s+/g, '').toLowerCase()
+  const normalize = (s: string) => parseFormula(s).replace(/\s+/g, '').replace(/\\/g, '').toLowerCase()
   return normalize(student) === normalize(canonical)
 }
