@@ -44,6 +44,11 @@ function ConceptMcCard({ card, onAnswer, onNext }: DrillCardProps) {
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null)
   const [verdict, setVerdict] = useState<'correct' | 'wrong' | null>(null)
 
+  useEffect(() => {
+    setSelectedIdx(null)
+    setVerdict(null)
+  }, [card.id])
+
   const choices = card.choices ?? []
 
   function handleSelect(idx: number) {
@@ -176,19 +181,6 @@ export default function DrillCard({ card, onAnswer, onNext }: DrillCardProps) {
   const [inputValue, setInputValue] = useState('')
   const [verdict, setVerdict] = useState<'correct' | 'wrong' | null>(null)
 
-  if (card.mode === 'concept_mc') {
-    return <ConceptMcCard card={card} onAnswer={onAnswer} onNext={onNext} />
-  }
-
-  const cardState: CardState =
-    verdict === 'correct'
-      ? 'correct'
-      : verdict === 'wrong'
-        ? 'wrong'
-        : inputValue.trim().length > 0
-          ? 'typing'
-          : 'idle'
-
   // Reset state when card changes
   useEffect(() => {
     setInputValue('')
@@ -197,7 +189,7 @@ export default function DrillCard({ card, onAnswer, onNext }: DrillCardProps) {
 
   const handleSubmit = useCallback(() => {
     if (!inputValue.trim() || verdict !== null) return
-    const isCorrect = fuzzyMatch(inputValue.trim(), card.answer, card.alternate_answers ?? [])
+    const isCorrect = fuzzyMatch(inputValue.trim(), card.answer ?? '', [])
     const v: 'correct' | 'wrong' = isCorrect ? 'correct' : 'wrong'
     if (isCorrect) playCorrect(); else playWrong()
     setVerdict(v)
@@ -219,6 +211,19 @@ export default function DrillCard({ card, onAnswer, onNext }: DrillCardProps) {
       window.removeEventListener('keydown', handler)
     }
   }, [verdict, onNext])
+
+  if (card.mode === 'concept_mc') {
+    return <ConceptMcCard card={card} onAnswer={onAnswer} onNext={onNext} />
+  }
+
+  const cardState: CardState =
+    verdict === 'correct'
+      ? 'correct'
+      : verdict === 'wrong'
+        ? 'wrong'
+        : inputValue.trim().length > 0
+          ? 'typing'
+          : 'idle'
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
@@ -359,10 +364,10 @@ export default function DrillCard({ card, onAnswer, onNext }: DrillCardProps) {
             <span style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>Answer: </span>
             {card.katex_required ? (
               <strong>
-                <KatexRenderer formula={card.answer} displayMode={false} />
+                <KatexRenderer formula={card.answer ?? ''} displayMode={false} />
               </strong>
             ) : (
-              <strong style={{ color: 'var(--text-primary)' }}>{card.answer}</strong>
+              <strong style={{ color: 'var(--text-primary)' }}>{card.answer ?? ''}</strong>
             )}
           </div>
         </div>
@@ -401,10 +406,10 @@ export default function DrillCard({ card, onAnswer, onNext }: DrillCardProps) {
               Correct:{' '}
               {card.katex_required ? (
                 <strong style={{ color: 'var(--text-primary)' }}>
-                  <KatexRenderer formula={card.answer} displayMode={false} />
+                  <KatexRenderer formula={card.answer ?? ''} displayMode={false} />
                 </strong>
               ) : (
-                <strong style={{ color: 'var(--text-primary)' }}>{card.answer}</strong>
+                <strong style={{ color: 'var(--text-primary)' }}>{card.answer ?? ''}</strong>
               )}
             </span>
           </div>
