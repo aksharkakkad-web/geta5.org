@@ -32,6 +32,7 @@ export default function DrillsPage({ params }: DrillsPageProps) {
     if (!draft) return
     const resumedSession: SessionState = {
       cards: draft.cards,
+      workingDeck: draft.workingDeck,
       index: draft.currentIndex,
       answers: draft.answers,
       isRetry: draft.isRetry,
