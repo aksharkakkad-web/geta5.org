@@ -40,9 +40,145 @@ function getCardBorderColor(state: CardState): string {
   }
 }
 
+function ConceptMcCard({ card, onAnswer, onNext }: DrillCardProps) {
+  const [selectedIdx, setSelectedIdx] = useState<number | null>(null)
+  const [verdict, setVerdict] = useState<'correct' | 'wrong' | null>(null)
+
+  const choices = card.choices ?? []
+
+  function handleSelect(idx: number) {
+    if (verdict !== null) return
+    const choice = choices[idx]
+    const v: 'correct' | 'wrong' = choice.is_correct ? 'correct' : 'wrong'
+    if (choice.is_correct) playCorrect(); else playWrong()
+    setSelectedIdx(idx)
+    setVerdict(v)
+    onAnswer(card.id, v, choice.text)
+  }
+
+  useEffect(() => {
+    if (verdict === null) return
+    let ready = false
+    const id = setTimeout(() => { ready = true }, 0)
+    const handler = (e: KeyboardEvent) => { if (e.key === 'Enter' && ready) onNext() }
+    window.addEventListener('keydown', handler)
+    return () => { clearTimeout(id); window.removeEventListener('keydown', handler) }
+  }, [verdict, onNext])
+
+  const LABELS = ['A', 'B', 'C', 'D']
+
+  function choiceStyle(idx: number): React.CSSProperties {
+    if (verdict === null) {
+      return { background: 'var(--bg-secondary)', border: '1px solid var(--bg-border)', cursor: 'pointer' }
+    }
+    const choice = choices[idx]
+    if (choice.is_correct) {
+      return {
+        background: 'color-mix(in srgb, var(--accent-success) 10%, transparent)',
+        border: '1px solid color-mix(in srgb, var(--accent-success) 30%, transparent)',
+        cursor: 'default',
+      }
+    }
+    if (idx === selectedIdx) {
+      return {
+        background: 'color-mix(in srgb, var(--accent-danger) 10%, transparent)',
+        border: '1px solid color-mix(in srgb, var(--accent-danger) 30%, transparent)',
+        cursor: 'default',
+      }
+    }
+    return { background: 'var(--bg-secondary)', border: '1px solid var(--bg-border)', opacity: 0.45, cursor: 'default' }
+  }
+
+  return (
+    <div
+      className="mx-auto w-full"
+      style={{
+        maxWidth: '880px',
+        background: 'var(--bg-card)',
+        borderRadius: 'var(--radius-xl)',
+        border: `1px solid ${verdict === 'correct' ? 'var(--accent-success)' : verdict === 'wrong' ? 'var(--accent-danger)' : 'var(--bg-border)'}`,
+        padding: '52px 64px',
+        transition: 'border-color 200ms ease',
+      }}
+    >
+      {/* Mode tag */}
+      <div style={{ color: 'var(--text-muted)', fontSize: '0.75rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '20px' }}>
+        {MODE_LABELS[card.mode]}
+      </div>
+
+      {/* Prompt */}
+      <div style={{ fontSize: '1.5rem', lineHeight: '1.65', color: 'var(--text-primary)', marginBottom: '32px', fontWeight: 500 }}>
+        {parseInlineMath(card.prompt)}
+      </div>
+
+      {/* Choices */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: verdict !== null ? '24px' : '0' }}>
+        {choices.map((choice, idx) => (
+          <button
+            key={idx}
+            onClick={() => handleSelect(idx)}
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '6px',
+              width: '100%',
+              textAlign: 'left',
+              padding: '14px 16px',
+              borderRadius: 'var(--radius-md)',
+              transition: 'opacity 150ms ease, border-color 150ms ease',
+              ...choiceStyle(idx),
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+              <span style={{
+                flexShrink: 0, width: '22px', height: '22px', borderRadius: '50%',
+                background: 'var(--bg-border)', display: 'flex', alignItems: 'center',
+                justifyContent: 'center', fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)',
+              }}>
+                {LABELS[idx]}
+              </span>
+              <span style={{ fontSize: '0.9375rem', color: 'var(--text-primary)', lineHeight: '1.5' }}>
+                {parseInlineMath(choice.text)}
+              </span>
+            </div>
+            {verdict !== null && (
+              <div style={{
+                marginLeft: '32px', fontSize: '0.8125rem',
+                color: choice.is_correct ? 'var(--accent-success)' : 'var(--text-muted)',
+                lineHeight: '1.5',
+              }}>
+                {choice.explanation}
+              </div>
+            )}
+          </button>
+        ))}
+      </div>
+
+      {/* Next card button */}
+      {verdict !== null && (
+        <button
+          onClick={onNext}
+          style={{
+            width: '100%', padding: '13px 20px', borderRadius: 'var(--radius-md)', border: 'none',
+            background: verdict === 'correct' ? 'var(--accent-success)' : 'var(--accent-danger)',
+            color: 'white', fontSize: '0.9375rem', fontWeight: 600, cursor: 'pointer',
+            display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px',
+          }}
+        >
+          Next card <ChevronRight size={16} />
+        </button>
+      )}
+    </div>
+  )
+}
+
 export default function DrillCard({ card, onAnswer, onNext }: DrillCardProps) {
   const [inputValue, setInputValue] = useState('')
   const [verdict, setVerdict] = useState<'correct' | 'wrong' | null>(null)
+
+  if (card.mode === 'concept_mc') {
+    return <ConceptMcCard card={card} onAnswer={onAnswer} onNext={onNext} />
+  }
 
   const cardState: CardState =
     verdict === 'correct'
