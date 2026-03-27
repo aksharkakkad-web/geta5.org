@@ -1,10 +1,12 @@
+import { normalizeCard, type DrillCard } from '@/utils/drillSession'
+
 export interface StudyGuide {
   id: string
   unit: string
   subject: string
   theme: string
   core_concepts: string[]
-  key_terms: { term: string; definition: string }[]
+  key_terms?: { term: string; definition: string }[]
   formulas?: { name: string; katex_string: string }[]
   diagrams?: { type: 'table' | 'chart'; data: unknown }[]
   exam_tip: string
@@ -36,5 +38,32 @@ export async function fetchStudyGuide(subject: string, unitNumber: number): Prom
     return (await res.json()) as StudyGuide
   } catch {
     return null
+  }
+}
+
+/**
+ * Fetch is_key_term drill cards for a unit and map them to {term, definition} pairs
+ * for display in the study guide Key Terms section.
+ *
+ * Mapping (mirrors normalizeCard):
+ *   definition_to_term   → { term: card.answer, definition: card.prompt }
+ *   all other modes      → { term: card.prompt, definition: card.answer }
+ */
+export async function fetchDrillKeyTerms(
+  subject: string,
+  unitNumber: number
+): Promise<{ term: string; definition: string }[]> {
+  try {
+    const res = await fetch(`/data/${subject}/drills/unit-${unitNumber}.json`)
+    if (!res.ok) return []
+    const data = (await res.json()) as { cards: DrillCard[] }
+    return data.cards
+      .filter(c => c.is_key_term === true)
+      .map(c => {
+        const norm = normalizeCard(c)
+        return { term: norm.term, definition: norm.definition }
+      })
+  } catch {
+    return []
   }
 }

@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { use } from 'react'
 import { StudyGuideUnitSelector } from '@/components/study-guide/StudyGuideUnitSelector'
 import StudyGuideReader from '@/components/study-guide/StudyGuideReader'
-import { fetchStudyGuide, type StudyGuide } from '@/utils/studyGuide'
+import { fetchStudyGuide, fetchDrillKeyTerms, type StudyGuide } from '@/utils/studyGuide'
 import { logEvent } from '@/utils/analytics'
 
 interface StudyGuidePageProps {
@@ -17,24 +17,29 @@ export default function StudyGuidePage({ params }: StudyGuidePageProps) {
   const { subject } = use(params)
   const [view, setView] = useState<StudyGuideView>('unit-select')
   const [guide, setGuide] = useState<StudyGuide | null>(null)
+  const [keyTerms, setKeyTerms] = useState<{ term: string; definition: string }[]>([])
   const [loading, setLoading] = useState(false)
 
   const handleSelectUnit = async (unitNumber: number) => {
     setLoading(true)
-    const result = await fetchStudyGuide(subject, unitNumber)
+    const [result, terms] = await Promise.all([
+      fetchStudyGuide(subject, unitNumber),
+      fetchDrillKeyTerms(subject, unitNumber),
+    ])
     if (result === null) {
       setLoading(false)
       return
     }
     setGuide(result)
+    setKeyTerms(terms)
     setView('reading')
     setLoading(false)
-    // Fire-and-forget analytics (Critical Rule #6: never block UI on Supabase)
     logEvent({ event_type: 'study_guide_view', subject, unit: `unit-${unitNumber}` })
   }
 
   const handleBack = () => {
     setGuide(null)
+    setKeyTerms([])
     setView('unit-select')
   }
 
@@ -53,7 +58,7 @@ export default function StudyGuidePage({ params }: StudyGuidePageProps) {
         </div>
       )}
       {view === 'reading' && guide && (
-        <StudyGuideReader guide={guide} subject={subject} onBack={handleBack} />
+        <StudyGuideReader guide={guide} subject={subject} onBack={handleBack} keyTerms={keyTerms} />
       )}
     </main>
   )

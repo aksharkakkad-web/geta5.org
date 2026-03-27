@@ -22,9 +22,10 @@ interface Props {
   guide: StudyGuide
   subject: string
   onBack: () => void
+  keyTerms: { term: string; definition: string }[]
 }
 
-export default function StudyGuideReader({ guide, subject, onBack }: Props) {
+export default function StudyGuideReader({ guide, subject, onBack, keyTerms }: Props) {
   const router = useRouter()
   const visibleSections = getVisibleSections(guide)
   const [activeSection, setActiveSection] = useState<StudyGuideSection>(visibleSections[0].key)
@@ -45,7 +46,7 @@ export default function StudyGuideReader({ guide, subject, onBack }: Props) {
       case 'core_concepts':
         return <CoreConceptsSection concepts={guide.core_concepts} />
       case 'key_terms':
-        return <KeyTermsSection terms={guide.key_terms} />
+        return <KeyTermsSection terms={keyTerms} />
       case 'formulas':
         return <FormulasSection formulas={guide.formulas ?? []} />
       case 'exam_tip':
