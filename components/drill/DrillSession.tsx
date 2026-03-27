@@ -72,13 +72,13 @@ export default function DrillSession({ session, subject, onComplete }: DrillSess
   }
 
   const handleNext = () => {
-    const currentCard = workingDeckRef.current[currentIndex]
-    const finalVerdict = answersRef.current[currentCard.id]?.verdict
+    const cardBeingAnswered = workingDeckRef.current[currentIndex]
+    const finalVerdict = answersRef.current[cardBeingAnswered.id]?.verdict
 
     // If wrong, splice card back into deck RETRY_INTERVAL positions ahead
     let nextDeck = workingDeckRef.current
     if (finalVerdict === 'wrong') {
-      nextDeck = insertRetryCard(workingDeckRef.current, currentCard, currentIndex)
+      nextDeck = insertRetryCard(workingDeckRef.current, cardBeingAnswered, currentIndex)
       setWorkingDeck(nextDeck)
     }
 
