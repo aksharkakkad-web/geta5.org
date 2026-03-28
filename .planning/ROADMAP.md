@@ -139,8 +139,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 07-01: Research (CED brief + meta.json) + Units 1-5 content
-- [ ] 07-02: Units 6-9 content
+- [ ] 07-01-PLAN.md — meta.json + Units 1–5 content (drills, MCQs, study guides) + Reviewer sign-off
+- [ ] 07-02-PLAN.md — Units 6–9 content (drills, MCQs, study guides) + Reviewer sign-off
 
 ### Phase 8: AP Government Content
 **Goal**: Complete content for all 5 AP Government units.
