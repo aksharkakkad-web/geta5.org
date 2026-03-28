@@ -1,0 +1,430 @@
+{
+  "subject": "ap-chemistry",
+  "unit": 5,
+  "unit_name": "Kinetics",
+  "questions": [
+    {
+      "id": "chem-mcq-5-001",
+      "stimulus": { "type": "none" },
+      "question": "For the reaction $\\text{A} + \\text{B} \\rightarrow \\text{C}$, the rate law is $rate = k[\\text{A}]^2[\\text{B}]$. If the concentration of A is doubled while the concentration of B is held constant, how does the reaction rate change?",
+      "choices": [
+        { "id": "A", "text": "The rate doubles", "is_correct": false, "explanation": "Doubling [A] would double the rate only if the reaction were first order in A; since it is second order in A, the rate increases by 2² = 4." },
+        { "id": "B", "text": "The rate increases by a factor of 4", "is_correct": true, "explanation": "The rate is second order in A: rate ∝ [A]². When [A] is doubled, rate ∝ (2)² = 4 times the original rate." },
+        { "id": "C", "text": "The rate increases by a factor of 8", "is_correct": false, "explanation": "A factor of 8 = 2³ would apply if the reaction were third order in A; with second order in A, doubling [A] gives a factor of 4." },
+        { "id": "D", "text": "The rate decreases by half because B is limiting", "is_correct": false, "explanation": "The question specifies [B] is constant; [B] is not limiting in this context. The rate increases when [A] doubles." }
+      ],
+      "difficulty": "easy",
+      "unit_objective": "5.A"
+    },
+    {
+      "id": "chem-mcq-5-002",
+      "stimulus": {
+        "type": "table",
+        "headers": ["Experiment", "[A] (mol/L)", "[B] (mol/L)", "Initial Rate (mol/L·s)"],
+        "rows": [
+          ["1", "0.10", "0.10", "$1.2 \\times 10^{-3}$"],
+          ["2", "0.20", "0.10", "$2.4 \\times 10^{-3}$"],
+          ["3", "0.10", "0.20", "$4.8 \\times 10^{-3}$"],
+          ["4", "0.20", "0.20", "$9.6 \\times 10^{-3}$"]
+        ]
+      },
+      "question": "Based on the data in the table, what are the orders with respect to A and B, and what is the overall order of the reaction?",
+      "choices": [
+        { "id": "A", "text": "First order in A, first order in B, second order overall", "is_correct": false, "explanation": "Comparing experiments 3 and 1: doubling [B] increases the rate by a factor of 4.8/1.2 = 4 = 2², indicating second order in B, not first." },
+        { "id": "B", "text": "First order in A, second order in B, third order overall", "is_correct": true, "explanation": "Comparing experiments 1 & 2: doubling [A] doubles rate → first order in A. Comparing 1 & 3: doubling [B] quadruples rate → second order in B. Overall order = 1 + 2 = 3." },
+        { "id": "C", "text": "Second order in A, first order in B, third order overall", "is_correct": false, "explanation": "Comparing experiments 1 & 2: doubling [A] gives rate ratio 2.4/1.2 = 2 = 2¹, indicating first order in A, not second." },
+        { "id": "D", "text": "Second order in A, second order in B, fourth order overall", "is_correct": false, "explanation": "The data show first order in A (doubling [A] doubles rate) and second order in B (doubling [B] quadruples rate)." }
+      ],
+      "difficulty": "medium",
+      "unit_objective": "5.A"
+    },
+    {
+      "id": "chem-mcq-5-003",
+      "stimulus": { "type": "none" },
+      "question": "Which of the following best explains why increasing temperature increases the rate of most chemical reactions?",
+      "choices": [
+        { "id": "A", "text": "Higher temperature increases the concentration of reactants by making them denser", "is_correct": false, "explanation": "Higher temperature does not significantly increase concentration; in fact, gas concentrations decrease with temperature at constant pressure (PV = nRT)." },
+        { "id": "B", "text": "Higher temperature increases the fraction of collisions with energy equal to or greater than the activation energy", "is_correct": true, "explanation": "The Maxwell-Boltzmann distribution shifts to higher energies at higher temperatures; more molecules exceed the activation energy threshold, increasing the frequency of successful collisions." },
+        { "id": "C", "text": "Higher temperature decreases the activation energy by providing energy to the reactants", "is_correct": false, "explanation": "The activation energy is a fixed property of the reaction; temperature does not change Ea. Temperature increases the fraction of molecules with enough energy to overcome Ea." },
+        { "id": "D", "text": "Higher temperature increases the collision frequency proportionally to the increase in rate", "is_correct": false, "explanation": "Collision frequency increases only as √T with temperature; the large rate increases observed are primarily due to increased fraction of energetic collisions, not just more collisions." }
+      ],
+      "difficulty": "easy",
+      "unit_objective": "5.B"
+    },
+    {
+      "id": "chem-mcq-5-004",
+      "stimulus": {
+        "type": "chart",
+        "chart_config": {
+          "type": "line",
+          "data": {
+            "labels": ["0", "1", "2", "3", "4", "5"],
+            "datasets": [{
+              "label": "Concentration of A (mol/L)",
+              "data": [1.00, 0.50, 0.25, 0.125, 0.0625, 0.03125],
+              "borderColor": "#6366f1",
+              "fill": false
+            }]
+          },
+          "options": {
+            "plugins": { "title": { "display": true, "text": "Concentration of A vs. Time" } },
+            "scales": {
+              "x": { "title": { "display": true, "text": "Time (min)" } },
+              "y": { "title": { "display": true, "text": "[A] (mol/L)" } }
+            }
+          }
+        }
+      },
+      "question": "Based on the graph, what is the half-life of reactant A, and what is the order of the reaction with respect to A?",
+      "choices": [
+        { "id": "A", "text": "Half-life = 1 min; first order in A", "is_correct": true, "explanation": "[A] decreases from 1.00 to 0.50 in 1 minute, from 0.50 to 0.25 in the next minute, etc. The constant half-life (1 min) is the hallmark of a first-order reaction." },
+        { "id": "B", "text": "Half-life = 2 min; second order in A", "is_correct": false, "explanation": "The data show [A] halves every minute (not every 2 minutes); second-order reactions have half-lives that increase as concentration decreases." },
+        { "id": "C", "text": "Half-life = 1 min; zero order in A", "is_correct": false, "explanation": "Zero-order reactions have half-lives that decrease as concentration decreases; the constant half-life here indicates first order." },
+        { "id": "D", "text": "Half-life cannot be determined from concentration vs. time data alone", "is_correct": false, "explanation": "Half-life is directly read from a concentration-time graph as the time for concentration to decrease by half; it can absolutely be determined from this graph." }
+      ],
+      "difficulty": "medium",
+      "unit_objective": "5.C"
+    },
+    {
+      "id": "chem-mcq-5-005",
+      "stimulus": { "type": "none" },
+      "question": "The rate constant for a first-order reaction is $0.0693\\text{ min}^{-1}$. What is the half-life of this reaction?",
+      "choices": [
+        { "id": "A", "text": "0.0693 min", "is_correct": false, "explanation": "0.0693 min is the rate constant itself; for a first-order reaction, $t_{1/2} = \\ln 2 / k = 0.693 / 0.0693 = 10.0$ min." },
+        { "id": "B", "text": "10.0 min", "is_correct": true, "explanation": "For a first-order reaction, $t_{1/2} = \\ln 2 / k = 0.693 / 0.0693\\text{ min}^{-1} = 10.0$ min." },
+        { "id": "C", "text": "14.4 min", "is_correct": false, "explanation": "14.4 min would come from using $1/k$ instead of $\\ln 2 / k$; the correct formula for first-order half-life uses $\\ln 2 = 0.693$." },
+        { "id": "D", "text": "1.00 min", "is_correct": false, "explanation": "1.00 min would require a rate constant of $\\ln 2 / 1.00 = 0.693\\text{ min}^{-1}$; the given rate constant is 10 times smaller, giving a 10-fold longer half-life." }
+      ],
+      "difficulty": "medium",
+      "unit_objective": "5.C"
+    },
+    {
+      "id": "chem-mcq-5-006",
+      "stimulus": { "type": "none" },
+      "question": "A catalyst provides an alternative reaction pathway. Which of the following best describes how a catalyst affects the potential energy diagram of a reaction?",
+      "choices": [
+        { "id": "A", "text": "The catalyst raises the energy of reactants, making the reaction more thermodynamically favorable", "is_correct": false, "explanation": "A catalyst does not change the energy of reactants or products; it lowers the activation energy by providing an alternative pathway." },
+        { "id": "B", "text": "The catalyst lowers the activation energy without changing the overall energy difference between reactants and products", "is_correct": true, "explanation": "A catalyst provides an alternative pathway with a lower transition state energy, reducing Ea and increasing reaction rate; the ΔH of the reaction (reactant and product energies) is unchanged." },
+        { "id": "C", "text": "The catalyst lowers the energy of both reactants and products equally, maintaining the activation energy", "is_correct": false, "explanation": "Lowering both energies equally would not change the activation energy; a catalyst selectively lowers the transition state energy." },
+        { "id": "D", "text": "The catalyst increases the rate constant $k$ by increasing the temperature of the reaction", "is_correct": false, "explanation": "Catalysts do not change reaction temperature; they increase $k$ by lowering Ea, as described by the Arrhenius equation $k = Ae^{-E_a/RT}$." }
+      ],
+      "difficulty": "easy",
+      "unit_objective": "5.D"
+    },
+    {
+      "id": "chem-mcq-5-007",
+      "stimulus": {
+        "type": "text",
+        "content": "A reaction mechanism is proposed for the overall reaction $2\\text{NO}(g) + \\text{O}_2(g) \\rightarrow 2\\text{NO}_2(g)$:\nStep 1 (fast): $\\text{NO}(g) + \\text{NO}(g) \\rightleftharpoons \\text{N}_2\\text{O}_2(g)$\nStep 2 (slow): $\\text{N}_2\\text{O}_2(g) + \\text{O}_2(g) \\rightarrow 2\\text{NO}_2(g)$"
+      },
+      "question": "Based on this mechanism, what is the predicted rate law for the overall reaction?",
+      "choices": [
+        { "id": "A", "text": "$rate = k[\\text{NO}][\\text{O}_2]$", "is_correct": false, "explanation": "This rate law would apply if the slow step involved NO and O₂ directly; with the fast pre-equilibrium step, the [N₂O₂] in the slow step must be expressed in terms of [NO]." },
+        { "id": "B", "text": "$rate = k[\\text{NO}]^2[\\text{O}_2]$", "is_correct": true, "explanation": "Step 2 (slow) gives: rate = k'[N₂O₂][O₂]. From Step 1 equilibrium: K = [N₂O₂]/[NO]² → [N₂O₂] = K[NO]². Substituting: rate = k'K[NO]²[O₂] = k[NO]²[O₂]." },
+        { "id": "C", "text": "$rate = k[\\text{N}_2\\text{O}_2][\\text{O}_2]$", "is_correct": false, "explanation": "This is the rate for the elementary slow step, but N₂O₂ is an intermediate (not an initial reactant) and must be eliminated using the fast equilibrium step." },
+        { "id": "D", "text": "$rate = k[\\text{NO}]^2$", "is_correct": false, "explanation": "Excluding [O₂] from the rate law ignores its role in the rate-limiting step; the slow step consumes O₂, so it appears in the rate law." }
+      ],
+      "difficulty": "hard",
+      "unit_objective": "5.E"
+    },
+    {
+      "id": "chem-mcq-5-008",
+      "stimulus": { "type": "none" },
+      "question": "Which of the following correctly describes the relationship between activation energy ($E_a$) and the rate constant ($k$) according to the Arrhenius equation?",
+      "choices": [
+        { "id": "A", "text": "As $E_a$ increases, $k$ increases because molecules have more energy to react", "is_correct": false, "explanation": "The Arrhenius equation shows $k = Ae^{-E_a/RT}$; as Ea increases, the exponent becomes more negative, decreasing k." },
+        { "id": "B", "text": "As $E_a$ decreases, $k$ increases because a lower energy barrier means more molecules can react", "is_correct": true, "explanation": "In the Arrhenius equation, a lower Ea makes the exponent $-E_a/RT$ less negative, increasing $e^{-E_a/RT}$ and therefore increasing k." },
+        { "id": "C", "text": "$E_a$ and $k$ are independent; only temperature affects $k$", "is_correct": false, "explanation": "The Arrhenius equation explicitly shows that both Ea and T affect k; they are not independent." },
+        { "id": "D", "text": "As $E_a$ increases, $k$ increases only at high temperatures", "is_correct": false, "explanation": "Regardless of temperature, increasing Ea always decreases k (the exponent becomes more negative); higher T partially compensates but never reverses this relationship." }
+      ],
+      "difficulty": "easy",
+      "unit_objective": "5.B"
+    },
+    {
+      "id": "chem-mcq-5-009",
+      "stimulus": {
+        "type": "text",
+        "content": "The following energy diagram data was collected for a reaction at 300 K:\n- Energy of reactants: 50 kJ/mol\n- Energy of products: 30 kJ/mol\n- Energy of transition state: 120 kJ/mol"
+      },
+      "question": "What is the activation energy for the forward reaction, and what is the activation energy for the reverse reaction?",
+      "choices": [
+        { "id": "A", "text": "$E_{a,forward} = 70$ kJ/mol; $E_{a,reverse} = 90$ kJ/mol", "is_correct": false, "explanation": "Ea,forward = transition state − reactants = 120 − 50 = 70 kJ/mol ✓. Ea,reverse = transition state − products = 120 − 30 = 90 kJ/mol ✓. This answer is correct!" },
+        { "id": "B", "text": "$E_{a,forward} = 90$ kJ/mol; $E_{a,reverse} = 70$ kJ/mol", "is_correct": false, "explanation": "Forward Ea is measured from reactants (50 kJ) to transition state (120 kJ) = 70 kJ/mol; reverse Ea is from products (30 kJ) to transition state (120 kJ) = 90 kJ/mol. These values are swapped." },
+        { "id": "C", "text": "$E_{a,forward} = 70$ kJ/mol; $E_{a,reverse} = 90$ kJ/mol", "is_correct": true, "explanation": "Ea,forward = transition state energy − reactant energy = 120 − 50 = 70 kJ/mol. Ea,reverse = transition state energy − product energy = 120 − 30 = 90 kJ/mol." },
+        { "id": "D", "text": "$E_{a,forward} = 120$ kJ/mol; $E_{a,reverse} = 120$ kJ/mol", "is_correct": false, "explanation": "120 kJ/mol is the absolute energy of the transition state, not the activation energy; Ea is measured as the difference between the transition state and reactants (or products for reverse)." }
+      ],
+      "difficulty": "medium",
+      "unit_objective": "5.B"
+    },
+    {
+      "id": "chem-mcq-5-010",
+      "stimulus": { "type": "none" },
+      "question": "A reaction is found to be zero order in reactant A. Which of the following correctly describes what happens to the rate when [A] is tripled?",
+      "choices": [
+        { "id": "A", "text": "The rate triples", "is_correct": false, "explanation": "Tripling concentration affects rate only for first-order reactions; zero order means rate is independent of concentration." },
+        { "id": "B", "text": "The rate increases by a factor of 9", "is_correct": false, "explanation": "A factor of 9 = 3² would apply for a second-order reaction; zero order means the rate does not change with concentration." },
+        { "id": "C", "text": "The rate remains unchanged", "is_correct": true, "explanation": "For a zero-order reaction, rate = k[A]⁰ = k; the rate is independent of concentration. Tripling [A] has no effect on rate." },
+        { "id": "D", "text": "The rate decreases because more A molecules collide and inhibit the reaction", "is_correct": false, "explanation": "Zero order means the rate is constant regardless of concentration; more molecules do not inhibit the reaction." }
+      ],
+      "difficulty": "easy",
+      "unit_objective": "5.A"
+    },
+    {
+      "id": "chem-mcq-5-011",
+      "stimulus": {
+        "type": "table",
+        "headers": ["Time (s)", "[A] (mol/L)", "ln[A]", "1/[A] (L/mol)"],
+        "rows": [
+          ["0", "1.00", "0.000", "1.00"],
+          ["10", "0.670", "−0.400", "1.49"],
+          ["20", "0.449", "−0.800", "2.23"],
+          ["30", "0.301", "−1.200", "3.32"],
+          ["40", "0.201", "−1.600", "4.98"]
+        ]
+      },
+      "question": "Based on the integrated rate law data in the table, what is the order of the reaction with respect to A?",
+      "choices": [
+        { "id": "A", "text": "Zero order, because [A] decreases linearly with time", "is_correct": false, "explanation": "[A] does not decrease by a constant amount per unit time; e.g., it drops 0.330 in the first 10 s but only 0.100 in the last 10 s, so it is not zero order." },
+        { "id": "B", "text": "First order, because ln[A] decreases linearly with time", "is_correct": true, "explanation": "The ln[A] column shows a constant decrease of −0.400 per 10 s, indicating a linear ln[A] vs. time relationship — the hallmark of first-order kinetics." },
+        { "id": "C", "text": "Second order, because 1/[A] increases linearly with time", "is_correct": false, "explanation": "1/[A] does increase with time, but not linearly (1.00, 1.49, 2.23, 3.32, 4.98 — not constant increments); the linear relationship is in ln[A], indicating first order." },
+        { "id": "D", "text": "The order cannot be determined without a rate law equation", "is_correct": false, "explanation": "The integrated rate law approach using concentration-time data is a standard method for determining reaction order; the linear ln[A] vs. time plot identifies first order." }
+      ],
+      "difficulty": "hard",
+      "unit_objective": "5.C"
+    },
+    {
+      "id": "chem-mcq-5-012",
+      "stimulus": { "type": "none" },
+      "question": "Which of the following best describes the role of an enzyme in a biochemical reaction?",
+      "choices": [
+        { "id": "A", "text": "An enzyme acts as a reactant and is consumed during the reaction", "is_correct": false, "explanation": "Enzymes are biological catalysts; they are not consumed in the reaction — they can catalyze many reaction cycles without being permanently altered." },
+        { "id": "B", "text": "An enzyme lowers the activation energy by providing an active site where reactants can bind and react more easily", "is_correct": true, "explanation": "Enzymes stabilize the transition state in the active site, lowering the activation energy and increasing reaction rate without being consumed." },
+        { "id": "C", "text": "An enzyme increases the activation energy to make the reaction more selective", "is_correct": false, "explanation": "Increasing activation energy would slow the reaction; enzymes lower Ea to speed up specific reactions." },
+        { "id": "D", "text": "An enzyme shifts the reaction equilibrium toward products by consuming reactants faster", "is_correct": false, "explanation": "Catalysts (including enzymes) do not shift equilibrium; they speed up both forward and reverse reactions equally, reaching the same equilibrium position faster." }
+      ],
+      "difficulty": "easy",
+      "unit_objective": "5.D"
+    },
+    {
+      "id": "chem-mcq-5-013",
+      "stimulus": {
+        "type": "text",
+        "content": "For the reaction $2\\text{N}_2\\text{O}_5(g) \\rightarrow 4\\text{NO}_2(g) + \\text{O}_2(g)$, the rate of disappearance of $\\text{N}_2\\text{O}_5$ is $2.4 \\times 10^{-5}$ mol/L·s."
+      },
+      "question": "What is the rate of appearance of $\\text{NO}_2$?",
+      "choices": [
+        { "id": "A", "text": "$2.4 \\times 10^{-5}$ mol/L·s", "is_correct": false, "explanation": "This equals the rate of disappearance of N₂O₅; the stoichiometric ratio is 2:4, so NO₂ appears twice as fast as N₂O₅ disappears." },
+        { "id": "B", "text": "$4.8 \\times 10^{-5}$ mol/L·s", "is_correct": true, "explanation": "From stoichiometry: (4 mol NO₂)/(2 mol N₂O₅) = 2. Rate of NO₂ appearance = 2 × rate of N₂O₅ disappearance = 2 × 2.4 × 10⁻⁵ = 4.8 × 10⁻⁵ mol/L·s." },
+        { "id": "C", "text": "$1.2 \\times 10^{-5}$ mol/L·s", "is_correct": false, "explanation": "1.2 × 10⁻⁵ would apply if NO₂ appeared at half the rate of N₂O₅ disappearance (ratio 1:2); the actual ratio is 4:2 = 2:1, so NO₂ appears twice as fast." },
+        { "id": "D", "text": "$6.0 \\times 10^{-6}$ mol/L·s", "is_correct": false, "explanation": "This value has no simple stoichiometric relationship to the given rate; the correct answer uses the 4:2 mole ratio from the balanced equation." }
+      ],
+      "difficulty": "medium",
+      "unit_objective": "5.A"
+    },
+    {
+      "id": "chem-mcq-5-014",
+      "stimulus": { "type": "none" },
+      "question": "A student claims that increasing the concentration of reactants always increases the rate of a reaction. Which of the following is the best evaluation of this claim?",
+      "choices": [
+        { "id": "A", "text": "The claim is always correct; more molecules mean more collisions and thus a faster rate", "is_correct": false, "explanation": "For zero-order reactions, rate is independent of concentration; the claim is not universally true." },
+        { "id": "B", "text": "The claim is correct for first-order and second-order reactions, but not for zero-order reactions", "is_correct": true, "explanation": "Zero-order reactions have rate = k (concentration-independent); for first- and second-order reactions, rate does increase with concentration. The claim is not universally true." },
+        { "id": "C", "text": "The claim is incorrect; higher concentration always decreases rate due to increased collision frequency causing products to reform", "is_correct": false, "explanation": "Increased collision frequency generally increases rate; this explanation confuses forward reaction rate with equilibrium considerations." },
+        { "id": "D", "text": "The claim is correct for all reactions because the rate law always includes reactant concentrations", "is_correct": false, "explanation": "Zero-order rate laws are rate = k[A]⁰ = k; concentration does not appear in the rate expression for zero-order reactions." }
+      ],
+      "difficulty": "medium",
+      "unit_objective": "5.A"
+    },
+    {
+      "id": "chem-mcq-5-015",
+      "stimulus": {
+        "type": "text",
+        "content": "A reaction mechanism for $\\text{A} \\rightarrow \\text{D}$ is:\nStep 1: $\\text{A} \\rightarrow \\text{B} + \\text{C}$ (slow)\nStep 2: $\\text{B} + \\text{E} \\rightarrow \\text{D}$ (fast)\nStep 3: $\\text{C} + \\text{F} \\rightarrow \\text{G}$ (fast)"
+      },
+      "question": "Which of the following correctly identifies the reaction intermediates in this mechanism?",
+      "choices": [
+        { "id": "A", "text": "A and E are intermediates", "is_correct": false, "explanation": "A is the overall reactant (appears in the rate-determining step but not as a product of a prior step); E is also an initial reactant. Neither is an intermediate." },
+        { "id": "B", "text": "B and C are intermediates", "is_correct": true, "explanation": "B and C are produced in Step 1 and consumed in Steps 2 and 3, respectively. Intermediates are species formed in one step and consumed in a subsequent step; they do not appear in the overall reaction equation." },
+        { "id": "C", "text": "D and G are intermediates", "is_correct": false, "explanation": "D and G are final products, not intermediates; they are produced but not subsequently consumed in the mechanism." },
+        { "id": "D", "text": "Only B is an intermediate because it is produced and consumed in adjacent steps", "is_correct": false, "explanation": "C also qualifies as an intermediate — produced in Step 1 and consumed in Step 3; both B and C are intermediates." }
+      ],
+      "difficulty": "medium",
+      "unit_objective": "5.E"
+    },
+    {
+      "id": "chem-mcq-5-016",
+      "stimulus": {
+        "type": "chart",
+        "chart_config": {
+          "type": "line",
+          "data": {
+            "labels": ["Reaction coordinate →"],
+            "datasets": [
+              {
+                "label": "Without catalyst",
+                "data": [{ "x": 0, "y": 40 }, { "x": 1, "y": 110 }, { "x": 2, "y": 20 }],
+                "borderColor": "#f59e0b",
+                "fill": false
+              },
+              {
+                "label": "With catalyst",
+                "data": [{ "x": 0, "y": 40 }, { "x": 1, "y": 75 }, { "x": 2, "y": 20 }],
+                "borderColor": "#6366f1",
+                "fill": false
+              }
+            ]
+          },
+          "options": {
+            "plugins": { "title": { "display": true, "text": "Potential Energy Diagram: Catalyzed vs. Uncatalyzed Reaction" } },
+            "scales": {
+              "x": { "title": { "display": true, "text": "Reaction coordinate" } },
+              "y": { "title": { "display": true, "text": "Potential energy (kJ/mol)" } }
+            }
+          }
+        }
+      },
+      "question": "Based on the potential energy diagram, which of the following correctly compares the catalyzed and uncatalyzed reactions?",
+      "choices": [
+        { "id": "A", "text": "The catalyzed reaction has a lower activation energy and a more negative $\\Delta H$", "is_correct": false, "explanation": "Both reactions start and end at the same energy levels (40 and 20 kJ/mol), so ΔH is identical (−20 kJ/mol for both); only the activation energy differs." },
+        { "id": "B", "text": "The catalyzed reaction has a lower activation energy but the same $\\Delta H$ as the uncatalyzed reaction", "is_correct": true, "explanation": "The catalyst lowers the transition state from 110 to 75 kJ/mol (Ea decreases from 70 to 35 kJ/mol), but reactant and product energies are unchanged, so ΔH = 40 − 20 = −20 kJ/mol for both." },
+        { "id": "C", "text": "The catalyzed reaction has both a lower activation energy and a higher product energy", "is_correct": false, "explanation": "The product energy (20 kJ/mol) is the same for both reactions; a catalyst does not change the stability of products." },
+        { "id": "D", "text": "The catalyzed reaction is thermodynamically more favorable because it releases more energy", "is_correct": false, "explanation": "Thermodynamic favorability (ΔH and ΔG) is unchanged by a catalyst; the catalyst only affects kinetics (rate), not thermodynamics." }
+      ],
+      "difficulty": "medium",
+      "unit_objective": "5.D"
+    },
+    {
+      "id": "chem-mcq-5-017",
+      "stimulus": { "type": "none" },
+      "question": "For a second-order reaction, how does the half-life change as the initial concentration decreases?",
+      "choices": [
+        { "id": "A", "text": "Half-life remains constant regardless of initial concentration", "is_correct": false, "explanation": "Constant half-life is the hallmark of first-order reactions; for second-order reactions, half-life depends on concentration." },
+        { "id": "B", "text": "Half-life increases as initial concentration decreases", "is_correct": true, "explanation": "For a second-order reaction, $t_{1/2} = 1/(k[\\text{A}]_0)$; as [A]₀ decreases, the half-life increases. The reaction slows down as it proceeds." },
+        { "id": "C", "text": "Half-life decreases as initial concentration decreases", "is_correct": false, "explanation": "For zero-order reactions, $t_{1/2} = [A]_0/(2k)$, so half-life decreases with concentration; for second-order, the relationship is inverse." },
+        { "id": "D", "text": "Half-life is independent of concentration for all reaction orders above zero", "is_correct": false, "explanation": "Only first-order reactions have concentration-independent half-lives; both zero- and second-order half-lives depend on concentration." }
+      ],
+      "difficulty": "hard",
+      "unit_objective": "5.C"
+    },
+    {
+      "id": "chem-mcq-5-018",
+      "stimulus": {
+        "type": "text",
+        "content": "A researcher increases the temperature from 298 K to 308 K for a chemical reaction and finds the rate doubles."
+      },
+      "question": "Which of the following best explains this observation in terms of the Arrhenius equation?",
+      "choices": [
+        { "id": "A", "text": "A 10 K increase doubles the kinetic energy of all molecules equally, so all reactions double in rate", "is_correct": false, "explanation": "The temperature effect depends on the specific activation energy; different reactions have different temperature sensitivities. Not all reactions double with a 10 K increase." },
+        { "id": "B", "text": "The exponential factor $e^{-E_a/RT}$ increases significantly with a modest temperature rise when $E_a$ is high, dramatically increasing $k$", "is_correct": true, "explanation": "The exponential term is very sensitive to temperature when Ea is moderate to high; a 10 K rise can roughly double k for reactions with Ea ≈ 50 kJ/mol, consistent with the observation." },
+        { "id": "C", "text": "Doubling the rate requires halving the activation energy, which a 10 K increase accomplishes", "is_correct": false, "explanation": "Temperature does not change Ea; k increases because the fraction of molecules with energy ≥ Ea increases exponentially with temperature." },
+        { "id": "D", "text": "The rate doubles because concentration of reactants increases with temperature", "is_correct": false, "explanation": "Temperature does not change the concentration of reactants (only the rate constant k); the rate increase comes from the Arrhenius equation, not concentration changes." }
+      ],
+      "difficulty": "hard",
+      "unit_objective": "5.B"
+    },
+    {
+      "id": "chem-mcq-5-019",
+      "stimulus": { "type": "none" },
+      "question": "Which of the following is true of a reaction intermediate but NOT of a transition state?",
+      "choices": [
+        { "id": "A", "text": "It has a finite lifetime and can sometimes be detected or isolated", "is_correct": true, "explanation": "Intermediates are actual chemical species with finite lifetimes that sit in energy wells between steps; transition states are fleeting, unstable energy maxima that cannot be isolated." },
+        { "id": "B", "text": "It represents the highest-energy point on the potential energy diagram", "is_correct": false, "explanation": "The transition state (activated complex) is at the maximum energy point; intermediates occupy local minima between transition states." },
+        { "id": "C", "text": "It is always a free radical with unpaired electrons", "is_correct": false, "explanation": "Intermediates can be ions, molecules, radicals, or other species; they are not exclusively free radicals." },
+        { "id": "D", "text": "It appears in the rate law for the overall reaction", "is_correct": false, "explanation": "Intermediates are eliminated from the rate law by substitution; the rate law is expressed in terms of initial reactants, not intermediates." }
+      ],
+      "difficulty": "hard",
+      "unit_objective": "5.E"
+    },
+    {
+      "id": "chem-mcq-5-020",
+      "stimulus": {
+        "type": "table",
+        "headers": ["Experiment", "[A] (mol/L)", "[B] (mol/L)", "Initial Rate (mol/L·min)"],
+        "rows": [
+          ["1", "0.20", "0.30", "8.0 × 10⁻³"],
+          ["2", "0.40", "0.30", "8.0 × 10⁻³"],
+          ["3", "0.20", "0.60", "1.6 × 10⁻²"]
+        ]
+      },
+      "question": "Based on the data, what is the rate law for this reaction?",
+      "choices": [
+        { "id": "A", "text": "$rate = k[\\text{A}][\\text{B}]$", "is_correct": false, "explanation": "Experiments 1 and 2 show the rate is unchanged when [A] doubles; this indicates zero order in A, not first order." },
+        { "id": "B", "text": "$rate = k[\\text{B}]$", "is_correct": true, "explanation": "Comparing 1 & 2: doubling [A] has no effect on rate → zero order in A. Comparing 1 & 3: doubling [B] doubles rate (8.0×10⁻³ → 1.6×10⁻²) → first order in B. Rate law: rate = k[B]." },
+        { "id": "C", "text": "$rate = k[\\text{B}]^2$", "is_correct": false, "explanation": "If rate were second order in B, doubling [B] would quadruple the rate; the data show only a doubling of rate when [B] doubles, indicating first order in B." },
+        { "id": "D", "text": "$rate = k[\\text{A}]^2[\\text{B}]$", "is_correct": false, "explanation": "The data clearly show that changing [A] has no effect on rate; the reaction is zero order in A, not second order." }
+      ],
+      "difficulty": "medium",
+      "unit_objective": "5.A"
+    },
+    {
+      "id": "chem-mcq-5-021",
+      "stimulus": { "type": "none" },
+      "question": "A homogeneous catalyst differs from a heterogeneous catalyst in that a homogeneous catalyst:",
+      "choices": [
+        { "id": "A", "text": "Is in the same phase as the reactants", "is_correct": true, "explanation": "A homogeneous catalyst exists in the same phase as the reactants (e.g., acid catalyst dissolved in solution); a heterogeneous catalyst is in a different phase (e.g., solid Pt in a gas-phase reaction)." },
+        { "id": "B", "text": "Is consumed in the reaction and must be replenished", "is_correct": false, "explanation": "Both homogeneous and heterogeneous catalysts are not consumed; they are regenerated and can catalyze many reaction cycles." },
+        { "id": "C", "text": "Always has a larger surface area than a heterogeneous catalyst", "is_correct": false, "explanation": "Surface area is a key factor for heterogeneous catalysts (solid catalysts); homogeneous catalysts are fully dissolved and do not have a distinct surface area." },
+        { "id": "D", "text": "Lowers only the forward activation energy, while heterogeneous catalysts lower both", "is_correct": false, "explanation": "All catalysts lower activation energy for both the forward and reverse reactions equally; neither type is selective for only one direction." }
+      ],
+      "difficulty": "easy",
+      "unit_objective": "5.D"
+    },
+    {
+      "id": "chem-mcq-5-022",
+      "stimulus": { "type": "none" },
+      "question": "According to collision theory, which of the following factors must both be true for a collision to result in a successful chemical reaction?",
+      "choices": [
+        { "id": "A", "text": "The collision must have sufficient energy, and the molecules must collide with the correct orientation", "is_correct": true, "explanation": "Collision theory states that two conditions are needed for a productive collision: the kinetic energy must meet or exceed the activation energy, and the molecules must be oriented correctly for bond breaking/forming." },
+        { "id": "B", "text": "The concentration must be high enough, and the temperature must be above 300 K", "is_correct": false, "explanation": "These are conditions that affect the rate of reaction but are not the two conditions for a single successful collision; energy and orientation are the collision-level requirements." },
+        { "id": "C", "text": "Both molecules must be gases, and the collision must occur at a surface", "is_correct": false, "explanation": "Collision theory applies to all phases; reactions do not require both molecules to be gases or to occur at a surface." },
+        { "id": "D", "text": "The activation energy must be zero, and the molecules must move in opposite directions", "is_correct": false, "explanation": "Zero activation energy is not required; the energy only needs to meet the (non-zero) activation energy threshold. Direction alone does not determine reaction success." }
+      ],
+      "difficulty": "easy",
+      "unit_objective": "5.B"
+    },
+    {
+      "id": "chem-mcq-5-023",
+      "stimulus": {
+        "type": "text",
+        "content": "A chemist runs a reaction at two different temperatures. At $T_1 = 300$ K, $k_1 = 2.0 \\times 10^{-3}$ L/mol·s. At $T_2 = 320$ K, $k_2 = 6.0 \\times 10^{-3}$ L/mol·s. The Arrhenius equation in two-point form is: $\\ln(k_2/k_1) = (E_a/R)(1/T_1 - 1/T_2)$, where $R = 8.314$ J/mol·K."
+      },
+      "question": "Which of the following most closely approximates the activation energy $E_a$ for this reaction?",
+      "choices": [
+        { "id": "A", "text": "22 kJ/mol", "is_correct": false, "explanation": "22 kJ/mol is too low. Using the formula: ln(6.0/2.0) = ln(3) ≈ 1.099; (1/300 − 1/320) = (320−300)/(300×320) = 20/96000 = 2.083×10⁻⁴; Ea = R × ln(k₂/k₁)/(1/T₁ − 1/T₂) = 8.314 × 1.099 / 2.083×10⁻⁴ ≈ 43900 J/mol ≈ 44 kJ/mol." },
+        { "id": "B", "text": "44 kJ/mol", "is_correct": true, "explanation": "ln(3) ≈ 1.099; (1/300 − 1/320) ≈ 2.08×10⁻⁴ K⁻¹; Ea = (8.314 J/mol·K)(1.099)/(2.08×10⁻⁴ K⁻¹) ≈ 43,900 J/mol ≈ 44 kJ/mol." },
+        { "id": "C", "text": "88 kJ/mol", "is_correct": false, "explanation": "88 kJ/mol is double the correct value; this error might arise from using the wrong temperature difference or doubling ln(k₂/k₁) unnecessarily." },
+        { "id": "D", "text": "132 kJ/mol", "is_correct": false, "explanation": "132 kJ/mol corresponds to roughly 3× the correct value; this might arise from using the ratio 6:2 directly (as 3) without taking the natural log." }
+      ],
+      "difficulty": "hard",
+      "unit_objective": "5.B"
+    },
+    {
+      "id": "chem-mcq-5-024",
+      "stimulus": { "type": "none" },
+      "question": "Which of the following statements about a rate-determining step is correct?",
+      "choices": [
+        { "id": "A", "text": "The rate-determining step is the fastest step in a mechanism because it produces the most product", "is_correct": false, "explanation": "The rate-determining step is the slowest step; it limits how fast the overall reaction can proceed, just as the narrowest point limits flow in a pipeline." },
+        { "id": "B", "text": "The rate-determining step is the slowest step and determines the rate law for the overall reaction", "is_correct": true, "explanation": "The slowest elementary step is the bottleneck for the reaction; the rate law for the overall reaction is determined by the rate law of the slow (rate-determining) step." },
+        { "id": "C", "text": "The rate-determining step has the lowest activation energy in the mechanism", "is_correct": false, "explanation": "The rate-determining step has the highest activation energy (it is the slowest); lowest Ea corresponds to the fastest steps." },
+        { "id": "D", "text": "A reaction can have multiple rate-determining steps of equal importance", "is_correct": false, "explanation": "By definition, the rate-determining step is uniquely the slowest; if two steps had equal (slowest) rates, the overall kinetics would be more complex, but a single rate-determining step is the standard simplifying assumption." }
+      ],
+      "difficulty": "easy",
+      "unit_objective": "5.E"
+    },
+    {
+      "id": "chem-mcq-5-025",
+      "stimulus": {
+        "type": "text",
+        "content": "Radioactive decay follows first-order kinetics. Carbon-14 has a half-life of 5730 years. A sample of wood is found to have 25% of the $^{14}\\text{C}$ activity of a modern sample."
+      },
+      "question": "How old is the wood sample?",
+      "choices": [
+        { "id": "A", "text": "5,730 years", "is_correct": false, "explanation": "After one half-life (5,730 years), 50% of C-14 remains; 25% remaining requires two half-lives." },
+        { "id": "B", "text": "11,460 years", "is_correct": true, "explanation": "25% = (1/2)² of original activity, meaning 2 half-lives have elapsed. Age = 2 × 5,730 = 11,460 years." },
+        { "id": "C", "text": "17,190 years", "is_correct": false, "explanation": "17,190 years = 3 half-lives, leaving (1/2)³ = 12.5% of C-14; the sample has 25%, corresponding to 2 half-lives." },
+        { "id": "D", "text": "22,920 years", "is_correct": false, "explanation": "22,920 years = 4 half-lives, leaving (1/2)⁴ = 6.25% of C-14; 25% remaining corresponds to exactly 2 half-lives (11,460 years)." }
+      ],
+      "difficulty": "medium",
+      "unit_objective": "5.C"
+    }
+  ]
+}

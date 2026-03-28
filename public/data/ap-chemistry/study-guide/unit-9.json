@@ -1,0 +1,69 @@
+{
+  "id": "chem-sg-9",
+  "unit": 9,
+  "subject": "ap-chemistry",
+  "theme": "Thermodynamics governs whether reactions are possible, while electrochemistry harnesses electron transfer between half-reactions to produce or consume electrical energy.",
+  "core_concepts": [
+    {
+      "title": "Entropy and the Second Law",
+      "detail": "Entropy ($S$) is a measure of disorder or the number of microstates available to a system. Gases > liquids > solids in entropy. Reactions that increase moles of gas or disorder increase entropy ($\\Delta S > 0$). The second law states that the total entropy of the universe increases in all spontaneous processes: $\\Delta S_{univ} = \\Delta S_{sys} + \\Delta S_{surr} > 0$."
+    },
+    {
+      "title": "Gibbs Free Energy",
+      "detail": "$\\Delta G = \\Delta H - T\\Delta S$ at constant $T$ and $P$. $\\Delta G < 0$: spontaneous (exergonic). $\\Delta G > 0$: non-spontaneous (endergonic). $\\Delta G = 0$: at equilibrium. When $\\Delta H < 0$ and $\\Delta S > 0$: always spontaneous. When $\\Delta H > 0$ and $\\Delta S < 0$: never spontaneous. Otherwise, temperature determines spontaneity."
+    },
+    {
+      "title": "ΔG° and Equilibrium",
+      "detail": "$\\Delta G^\\circ = -RT \\ln K$. If $K > 1$: $\\Delta G^\\circ < 0$ (products favored). If $K < 1$: $\\Delta G^\\circ > 0$ (reactants favored). $\\Delta G = \\Delta G^\\circ + RT\\ln Q$; at equilibrium ($Q = K$), $\\Delta G = 0$. Also: $\\Delta G^\\circ = -nFE^\\circ_{cell}$ (connects thermodynamics to electrochemistry)."
+    },
+    {
+      "title": "Galvanic (Voltaic) Cells",
+      "detail": "Galvanic cells convert chemical energy to electrical energy via spontaneous redox reactions. Oxidation occurs at the anode (negative terminal in galvanic cell); reduction at the cathode (positive terminal). Electrons flow through the external circuit from anode to cathode. A salt bridge maintains electrical neutrality by allowing ion migration between half-cells."
+    },
+    {
+      "title": "Standard Cell Potentials",
+      "detail": "$E^\\circ_{cell} = E^\\circ_{cathode} - E^\\circ_{anode}$ (using standard reduction potentials). Positive $E^\\circ_{cell}$ means the reaction is spontaneous under standard conditions. The species with the higher (more positive) reduction potential is reduced; the one with the lower potential is oxidized."
+    },
+    {
+      "title": "Electrolytic Cells and Faraday's Law",
+      "detail": "Electrolytic cells use external electrical energy to drive non-spontaneous reactions ($E^\\circ_{cell} < 0$, $\\Delta G^\\circ > 0$). Faraday's Law: $m = MIt/(nF)$ calculates the mass deposited/dissolved. $F = 96,485$ C/mol electrons. In electroplating, the object to be plated is the cathode (reduction)."
+    },
+    {
+      "title": "The Nernst Equation",
+      "detail": "At non-standard conditions: $E = E^\\circ - \\frac{RT}{nF}\\ln Q = E^\\circ - \\frac{0.0592}{n}\\log Q$ (at 25°C). When Q < 1 (reactants favored), $E > E^\\circ$. When Q > 1 (products favored), $E < E^\\circ$. At equilibrium ($Q = K$, $E = 0$): $E^\\circ = (0.0592/n) \\log K$."
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Gibbs free energy",
+      "katex_string": "\\Delta G = \\Delta H - T\\Delta S",
+      "description": "Combines enthalpy and entropy to determine spontaneity at constant temperature and pressure; negative ΔG means the process is thermodynamically spontaneous.",
+      "example": "At 500 K, $\\Delta H = +50$ kJ/mol, $\\Delta S = +120$ J/mol·K: $\\Delta G = 50,000 - (500)(120) = 50,000 - 60,000 = -10,000$ J = $-10$ kJ. Spontaneous."
+    },
+    {
+      "name": "ΔG° and equilibrium constant",
+      "katex_string": "\\Delta G^\\circ = -RT\\ln K",
+      "description": "Relates the standard Gibbs free energy change to the equilibrium constant; $R = 8.314$ J/mol·K, $T$ in Kelvin.",
+      "example": "At 298 K, $K = 1.0 \\times 10^{10}$: $\\Delta G^\\circ = -(8.314)(298)\\ln(10^{10}) = -(2478)(23.03) = -57,100$ J = $-57.1$ kJ/mol."
+    },
+    {
+      "name": "Standard cell potential to ΔG°",
+      "katex_string": "\\Delta G^\\circ = -nFE^\\circ_{cell}",
+      "description": "Connects thermodynamics and electrochemistry; $n$ = moles of electrons transferred, $F = 96,485$ C/mol, $E^\\circ_{cell}$ in volts.",
+      "example": "For a Zn/Cu cell with $E^\\circ = 1.10$ V and $n = 2$: $\\Delta G^\\circ = -(2)(96485)(1.10) = -212,000$ J $= -212$ kJ."
+    },
+    {
+      "name": "Nernst equation (at 25°C)",
+      "katex_string": "E = E^\\circ - \\frac{0.0592}{n}\\log Q",
+      "description": "Calculates cell potential under non-standard conditions at 25°C; $n$ is moles of electrons transferred, $Q$ is the reaction quotient.",
+      "example": "For Zn/Cu cell with $E^\\circ = 1.10$ V, $n = 2$, $[\\text{Zn}^{2+}] = 0.01$ M, $[\\text{Cu}^{2+}] = 1.0$ M: $Q = 0.01/1.0 = 0.01$; $E = 1.10 - (0.0296)\\log(0.01) = 1.10 + 0.059 = 1.16$ V."
+    },
+    {
+      "name": "Faraday's law",
+      "katex_string": "m = \\frac{M \\cdot I \\cdot t}{n \\cdot F}",
+      "description": "Mass ($m$ in grams) deposited at an electrode; $M$ = molar mass (g/mol), $I$ = current (A), $t$ = time (s), $n$ = electrons per ion, $F = 96,485$ C/mol.",
+      "example": "Depositing Cu²⁺ ($M = 63.55$, $n = 2$) at 3.0 A for 600 s: $m = (63.55)(3.0)(600)/(2 \\times 96485) = 114,390/192,970 = 0.593$ g."
+    }
+  ],
+  "exam_tip": "The four-way connection in electrochemistry is critical: $E^\\circ_{cell}$, $\\Delta G^\\circ$, $K$, and spontaneity are all linked. Positive $E^\\circ_{cell}$ ↔ negative $\\Delta G^\\circ$ ↔ $K > 1$ ↔ spontaneous. Memorize this chain. For the Nernst equation, remember: $Q < 1$ means more reactant than product → $E > E^\\circ$; $Q > 1$ means more product → $E < E^\\circ$."
+}
