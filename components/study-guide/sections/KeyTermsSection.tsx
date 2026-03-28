@@ -15,9 +15,7 @@ export default function KeyTermsSection({ terms }: Props) {
           gap: 8px;
         }
         @media (max-width: 639px) {
-          .sg-term-grid {
-            grid-template-columns: 1fr;
-          }
+          .sg-term-grid { grid-template-columns: 1fr; }
         }
       `}</style>
       <div className="sg-term-grid">
@@ -27,15 +25,16 @@ export default function KeyTermsSection({ terms }: Props) {
             style={{
               background: 'var(--bg-secondary)',
               border: '1px solid var(--bg-border)',
-              borderRadius: 'var(--radius-md)',
-              padding: '12px 14px',
+              borderRadius: '8px',
+              padding: '14px 16px',
             }}
           >
             <div
               style={{
                 fontSize: '13px',
-                fontWeight: 700,
-                color: 'var(--accent-hover)',
+                fontWeight: 600,
+                color: 'var(--text-primary)',
+                marginBottom: '6px',
               }}
             >
               {item.term}
@@ -44,8 +43,7 @@ export default function KeyTermsSection({ terms }: Props) {
               style={{
                 fontSize: '12px',
                 color: 'var(--text-secondary)',
-                marginTop: '4px',
-                lineHeight: '1.5',
+                lineHeight: '1.6',
               }}
             >
               <InlineKatex text={item.definition} />
