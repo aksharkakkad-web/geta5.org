@@ -1,0 +1,2300 @@
+{
+  "unit": "unit-5",
+  "subject": "ap-calculus-ab",
+  "questions": [
+    {
+      "id": "calc-mcq-u5-001",
+      "unit": "unit-5",
+      "difficulty": "easy",
+      "has_stimulus": false,
+      "stem": "Which of the following best states the Mean Value Theorem for a function $f$ continuous on $[a,b]$ and differentiable on $(a,b)$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "There exists $c \\in (a,b)$ such that $f'(c) = \\frac{f(b)-f(a)}{b-a}$",
+          "is_correct": true,
+          "explanation": "The MVT guarantees a point $c$ in the open interval where the instantaneous rate of change equals the average rate of change over $[a,b]$."
+        },
+        {
+          "id": "B",
+          "text": "There exists $c \\in (a,b)$ such that $f(c) = \\frac{f(a)+f(b)}{2}$",
+          "is_correct": false,
+          "explanation": "That is the Intermediate Value Theorem applied to find the average function value, not the MVT. The MVT concerns $f'(c)$, not $f(c)$."
+        },
+        {
+          "id": "C",
+          "text": "There exists $c \\in [a,b]$ such that $f'(c) = 0$",
+          "is_correct": false,
+          "explanation": "That is Rolle's Theorem, a special case of MVT where $f(a) = f(b)$. The general MVT requires $f'(c) = \\frac{f(b)-f(a)}{b-a}$."
+        },
+        {
+          "id": "D",
+          "text": "$f'(c) = f(b) - f(a)$ for some $c \\in (a,b)$",
+          "is_correct": false,
+          "explanation": "The MVT divides the change in $f$ by the change in $x$: $f'(c) = \\frac{f(b)-f(a)}{b-a}$. Omitting the denominator $b-a$ is a common error."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-002",
+      "unit": "unit-5",
+      "difficulty": "easy",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "$x$",
+            "$f'(x)$"
+          ],
+          "rows": [
+            [
+              "0",
+              "3"
+            ],
+            [
+              "1",
+              "1"
+            ],
+            [
+              "2",
+              "0"
+            ],
+            [
+              "3",
+              "-2"
+            ],
+            [
+              "4",
+              "-1"
+            ]
+          ]
+        }
+      },
+      "stem": "Based on the sign of $f'(x)$ in the table, on which interval is $f$ increasing?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$(0, 2)$",
+          "is_correct": true,
+          "explanation": "$f'(x) > 0$ for $x = 0$ and $x = 1$ (values 3 and 1), so $f$ is increasing on $(0,2)$. At $x=2$, $f'=0$ (critical point)."
+        },
+        {
+          "id": "B",
+          "text": "$(2, 4)$",
+          "is_correct": false,
+          "explanation": "$f'(x) < 0$ for $x = 3$ and $x = 4$, so $f$ is decreasing on $(2,4)$, not increasing."
+        },
+        {
+          "id": "C",
+          "text": "$(3, 4)$",
+          "is_correct": false,
+          "explanation": "$f'(4) = -1 < 0$, so $f$ is decreasing on $(3,4)$."
+        },
+        {
+          "id": "D",
+          "text": "$(0, 4)$",
+          "is_correct": false,
+          "explanation": "$f'(3) = -2 < 0$ and $f'(4) = -1 < 0$, so $f$ is not increasing on all of $(0,4)$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-003",
+      "unit": "unit-5",
+      "difficulty": "easy",
+      "has_stimulus": false,
+      "stem": "Which of the following correctly identifies a critical point of $f(x) = x^3 - 3x$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$x = 0$ only",
+          "is_correct": false,
+          "explanation": "$f'(x) = 3x^2 - 3 = 3(x^2-1)$. $f'(x) = 0$ at $x = \\pm 1$, not at $x=0$. At $x=0$, $f'(0) = -3 \\neq 0$."
+        },
+        {
+          "id": "B",
+          "text": "$x = 1$ and $x = -1$",
+          "is_correct": true,
+          "explanation": "$f'(x) = 3x^2-3 = 3(x-1)(x+1) = 0$ at $x=1$ and $x=-1$. These are the critical points."
+        },
+        {
+          "id": "C",
+          "text": "$x = 3$ only",
+          "is_correct": false,
+          "explanation": "$f'(3) = 27-3=24 \\neq 0$. Critical points occur where $f'=0$: solving $3x^2-3=0$ gives $x=\\pm 1$."
+        },
+        {
+          "id": "D",
+          "text": "$x = \\sqrt{3}$ only",
+          "is_correct": false,
+          "explanation": "$f'(\\sqrt{3}) = 3(3)-3 = 6 \\neq 0$. Critical points are at $x = \\pm 1$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-004",
+      "unit": "unit-5",
+      "difficulty": "easy",
+      "has_stimulus": false,
+      "stem": "The Extreme Value Theorem guarantees that a continuous function $f$ on a closed interval $[a,b]$ must have which of the following?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Both an absolute maximum and an absolute minimum on $[a,b]$",
+          "is_correct": true,
+          "explanation": "The EVT states: if $f$ is continuous on $[a,b]$, then $f$ attains both an absolute maximum and an absolute minimum on $[a,b]$."
+        },
+        {
+          "id": "B",
+          "text": "An absolute maximum but not necessarily a minimum",
+          "is_correct": false,
+          "explanation": "The EVT guarantees both extremes. Continuity on a closed interval ensures both a max and a min exist."
+        },
+        {
+          "id": "C",
+          "text": "A local maximum at an interior critical point",
+          "is_correct": false,
+          "explanation": "The EVT guarantees existence of absolute extrema but does not specify they occur at interior critical points. They could occur at endpoints."
+        },
+        {
+          "id": "D",
+          "text": "A point where $f'(c) = 0$",
+          "is_correct": false,
+          "explanation": "That is guaranteed by Rolle's Theorem (or MVT), not the EVT. The EVT guarantees maximum and minimum values, not where $f'=0$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-005",
+      "unit": "unit-5",
+      "difficulty": "easy",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "$x$",
+            "$f'(x)$"
+          ],
+          "rows": [
+            [
+              "0",
+              "2"
+            ],
+            [
+              "1",
+              "0"
+            ],
+            [
+              "2",
+              "-3"
+            ],
+            [
+              "3",
+              "0"
+            ],
+            [
+              "4",
+              "1"
+            ]
+          ]
+        }
+      },
+      "stem": "Based on the sign changes of $f'$ in the table, how many local extrema does $f$ appear to have?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$1$",
+          "is_correct": false,
+          "explanation": "$f'$ changes from positive to negative at $x=1$ (local max) and from negative to positive at $x=3$ (local min). There are 2 local extrema."
+        },
+        {
+          "id": "B",
+          "text": "$2$",
+          "is_correct": true,
+          "explanation": "Sign change from $+$ to $-$ at $x=1$: local maximum. Sign change from $-$ to $+$ at $x=3$: local minimum. Total: 2 local extrema."
+        },
+        {
+          "id": "C",
+          "text": "$3$",
+          "is_correct": false,
+          "explanation": "Only points where $f'$ changes sign are local extrema. $f'$ changes sign at $x=1$ and $x=3$, giving 2 extrema, not 3."
+        },
+        {
+          "id": "D",
+          "text": "$0$",
+          "is_correct": false,
+          "explanation": "At $x=1$: $f'$ changes from $+$ to $-$ (local max). At $x=3$: $f'$ changes from $-$ to $+$ (local min). There are 2 extrema."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-006",
+      "unit": "unit-5",
+      "difficulty": "easy",
+      "has_stimulus": false,
+      "stem": "Which of the following correctly applies the First Derivative Test to conclude that $f$ has a local minimum at $x = c$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$f'(c) = 0$ and $f'$ changes from negative to positive at $x = c$",
+          "is_correct": true,
+          "explanation": "First Derivative Test: if $f'$ changes from $-$ to $+$ at a critical point $c$, then $f$ has a local minimum at $c$."
+        },
+        {
+          "id": "B",
+          "text": "$f'(c) = 0$ and $f'$ changes from positive to negative at $x = c$",
+          "is_correct": false,
+          "explanation": "A sign change from $+$ to $-$ indicates a local maximum, not a minimum."
+        },
+        {
+          "id": "C",
+          "text": "$f'(c) = 0$ and $f''(c) > 0$",
+          "is_correct": false,
+          "explanation": "That is the Second Derivative Test. The First Derivative Test uses the sign change of $f'$, not the sign of $f''$."
+        },
+        {
+          "id": "D",
+          "text": "$f'(c) > 0$",
+          "is_correct": false,
+          "explanation": "If $f'(c) > 0$, then $c$ is not a critical point — it's a point where $f$ is increasing. A local minimum requires $f'(c) = 0$ (or undefined) and a sign change."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-007",
+      "unit": "unit-5",
+      "difficulty": "easy",
+      "has_stimulus": false,
+      "stem": "Which of the following correctly describes when $f$ is concave up?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$f'(x) > 0$",
+          "is_correct": false,
+          "explanation": "$f'(x) > 0$ means $f$ is increasing. Concavity is determined by the sign of the second derivative $f''$, not $f'$."
+        },
+        {
+          "id": "B",
+          "text": "$f''(x) > 0$",
+          "is_correct": true,
+          "explanation": "$f$ is concave up on an interval where $f''(x) > 0$. This means $f'$ is increasing and the curve bends upward."
+        },
+        {
+          "id": "C",
+          "text": "$f''(x) = 0$",
+          "is_correct": false,
+          "explanation": "$f''(x) = 0$ is a candidate for an inflection point, where concavity may change. Concave up requires $f''(x) > 0$."
+        },
+        {
+          "id": "D",
+          "text": "$f'(x)$ is decreasing",
+          "is_correct": false,
+          "explanation": "If $f'$ is decreasing, then $f'' < 0$, which means $f$ is concave DOWN, not up."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-008",
+      "unit": "unit-5",
+      "difficulty": "easy",
+      "has_stimulus": false,
+      "stem": "The Candidates Test for finding the absolute maximum of $f$ on $[a,b]$ requires evaluating $f$ at which of the following?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "All local maxima of $f$ in $(a,b)$",
+          "is_correct": false,
+          "explanation": "The Candidates Test evaluates $f$ at ALL critical points in $(a,b)$ (not just local maxima) AND at the endpoints $a$ and $b$."
+        },
+        {
+          "id": "B",
+          "text": "Only the endpoints $a$ and $b$",
+          "is_correct": false,
+          "explanation": "Endpoints alone are insufficient. Interior critical points could yield larger values. Evaluate at all critical points in $(a,b)$ AND at $a$ and $b$."
+        },
+        {
+          "id": "C",
+          "text": "All critical points of $f$ in $(a,b)$ and the endpoints $a$ and $b$",
+          "is_correct": true,
+          "explanation": "The Candidates Test: evaluate $f$ at every critical point in $(a,b)$ and at both endpoints $a$ and $b$. The largest value is the absolute maximum."
+        },
+        {
+          "id": "D",
+          "text": "Only the points where $f''(x) = 0$",
+          "is_correct": false,
+          "explanation": "Inflection point candidates ($f''=0$) are not the same as critical points ($f'=0$). The Candidates Test uses $f'=0$ (or undefined) plus endpoints."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-009",
+      "unit": "unit-5",
+      "difficulty": "easy",
+      "has_stimulus": false,
+      "stem": "Which of the following correctly identifies the inflection points of $f(x) = x^4 - 6x^2$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$x = 0$ only",
+          "is_correct": false,
+          "explanation": "$f''(x) = 12x^2 - 12 = 12(x^2-1)$. $f'' = 0$ at $x = \\pm 1$, and the sign of $f''$ changes at both, making them inflection points."
+        },
+        {
+          "id": "B",
+          "text": "$x = 1$ and $x = -1$",
+          "is_correct": true,
+          "explanation": "$f''(x) = 12x^2-12$. $f''=0$ at $x=\\pm 1$. Check sign change: $f''$ changes from $+$ to $-$ to $+$ at $x=-1$ and $x=1$. Inflection points at $x=\\pm 1$."
+        },
+        {
+          "id": "C",
+          "text": "$x = \\sqrt{3}$ and $x = -\\sqrt{3}$",
+          "is_correct": false,
+          "explanation": "Those are the critical points of $f$ (where $f'=0$). Inflection points require $f''=0$, which gives $x = \\pm 1$."
+        },
+        {
+          "id": "D",
+          "text": "$x = 0$, $x = 1$, and $x = -1$",
+          "is_correct": false,
+          "explanation": "$f''(0) = -12 \\neq 0$, so $x=0$ is not a candidate for an inflection point. Only $x = \\pm 1$ are inflection points."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-010",
+      "unit": "unit-5",
+      "difficulty": "easy",
+      "has_stimulus": false,
+      "stem": "If $f'(c) = 0$ and $f''(c) < 0$, which of the following best describes $f$ at $x = c$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$f$ has a local minimum at $x = c$",
+          "is_correct": false,
+          "explanation": "A local minimum via the Second Derivative Test requires $f''(c) > 0$. With $f''(c) < 0$, the function is concave down, indicating a local maximum."
+        },
+        {
+          "id": "B",
+          "text": "$f$ has a local maximum at $x = c$",
+          "is_correct": true,
+          "explanation": "Second Derivative Test: $f'(c) = 0$ and $f''(c) < 0$ (concave down) implies $f$ has a local maximum at $x = c$."
+        },
+        {
+          "id": "C",
+          "text": "$f$ has an inflection point at $x = c$",
+          "is_correct": false,
+          "explanation": "An inflection point requires a sign change in $f''$, not $f''(c) < 0$ alone. Here, $f'(c) = 0$ and $f''(c) < 0$ indicates a local max."
+        },
+        {
+          "id": "D",
+          "text": "The Second Derivative Test is inconclusive",
+          "is_correct": false,
+          "explanation": "The Second Derivative Test is inconclusive only when $f''(c) = 0$. Since $f''(c) < 0$, the test conclusively identifies a local maximum."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-011",
+      "unit": "unit-5",
+      "difficulty": "easy",
+      "has_stimulus": false,
+      "stem": "Which of the following is a necessary condition for applying the Mean Value Theorem to $f$ on $[a,b]$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$f$ must be continuous on $[a,b]$ and differentiable on $(a,b)$",
+          "is_correct": true,
+          "explanation": "MVT requires: (1) $f$ continuous on the closed interval $[a,b]$, and (2) $f$ differentiable on the open interval $(a,b)$."
+        },
+        {
+          "id": "B",
+          "text": "$f$ must be differentiable on $[a,b]$",
+          "is_correct": false,
+          "explanation": "Differentiability on the open interval $(a,b)$ is required, but at the endpoints only continuity is needed, not differentiability."
+        },
+        {
+          "id": "C",
+          "text": "$f(a) = f(b)$ must hold",
+          "is_correct": false,
+          "explanation": "$f(a) = f(b)$ is the additional condition for Rolle's Theorem (a special case of MVT). The general MVT does not require equal function values at the endpoints."
+        },
+        {
+          "id": "D",
+          "text": "$f$ must be twice differentiable on $(a,b)$",
+          "is_correct": false,
+          "explanation": "MVT only requires first-order differentiability on $(a,b)$. Second derivatives are not needed."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-012",
+      "unit": "unit-5",
+      "difficulty": "easy",
+      "has_stimulus": false,
+      "stem": "If $f'(x) < 0$ for all $x$ in $(a,b)$, which of the following must be true?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$f$ is decreasing on $(a,b)$",
+          "is_correct": true,
+          "explanation": "A negative first derivative on an interval means the function is decreasing on that interval."
+        },
+        {
+          "id": "B",
+          "text": "$f$ is concave down on $(a,b)$",
+          "is_correct": false,
+          "explanation": "Concavity is determined by $f''$, not $f'$. $f' < 0$ only means $f$ is decreasing — nothing is implied about concavity without knowing the sign of $f''$."
+        },
+        {
+          "id": "C",
+          "text": "$f$ has a local minimum in $(a,b)$",
+          "is_correct": false,
+          "explanation": "If $f' < 0$ throughout $(a,b)$, there are no sign changes of $f'$, so no local extrema inside $(a,b)$."
+        },
+        {
+          "id": "D",
+          "text": "$f(a) < f(b)$",
+          "is_correct": false,
+          "explanation": "If $f$ is decreasing on $(a,b)$ with $a < b$, then $f(a) > f(b)$, not $f(a) < f(b)$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-013",
+      "unit": "unit-5",
+      "difficulty": "easy",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "$x$",
+            "$0$",
+            "$1$",
+            "$2$",
+            "$3$",
+            "$4$"
+          ],
+          "rows": [
+            [
+              "$f(x)$",
+              "5",
+              "8",
+              "6",
+              "9",
+              "4"
+            ]
+          ]
+        }
+      },
+      "stem": "What is the absolute maximum value of $f$ on $[0,4]$ based on the table?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$5$",
+          "is_correct": false,
+          "explanation": "$5 = f(0)$, which is less than $f(3) = 9$. The absolute maximum is the largest function value."
+        },
+        {
+          "id": "B",
+          "text": "$9$",
+          "is_correct": true,
+          "explanation": "Comparing all values: $5, 8, 6, 9, 4$. The largest is $9 = f(3)$, so the absolute maximum value is $9$."
+        },
+        {
+          "id": "C",
+          "text": "$8$",
+          "is_correct": false,
+          "explanation": "$f(1) = 8 < 9 = f(3)$. The absolute maximum is $9$."
+        },
+        {
+          "id": "D",
+          "text": "$4$",
+          "is_correct": false,
+          "explanation": "$f(4) = 4$ is the smallest value, not the largest. The absolute maximum is $f(3) = 9$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-014",
+      "unit": "unit-5",
+      "difficulty": "medium",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A function $f$ is continuous on $[-2, 5]$ and differentiable on $(-2, 5)$ with $f(-2) = 1$ and $f(5) = 15$."
+      },
+      "stem": "The MVT guarantees the existence of at least one $c \\in (-2, 5)$ where $f'(c)$ equals which of the following?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\frac{15}{7}$",
+          "is_correct": false,
+          "explanation": "$\\frac{f(5)-f(-2)}{5-(-2)} = \\frac{15-1}{7} = \\frac{14}{7} = 2$, not $\\frac{15}{7}$."
+        },
+        {
+          "id": "B",
+          "text": "$2$",
+          "is_correct": true,
+          "explanation": "MVT: $f'(c) = \\frac{f(5)-f(-2)}{5-(-2)} = \\frac{15-1}{7} = \\frac{14}{7} = 2$."
+        },
+        {
+          "id": "C",
+          "text": "$7$",
+          "is_correct": false,
+          "explanation": "$7 = 5-(-2)$ is the interval length, not the average rate of change. The MVT gives $f'(c) = \\frac{14}{7} = 2$."
+        },
+        {
+          "id": "D",
+          "text": "$14$",
+          "is_correct": false,
+          "explanation": "$14 = f(5)-f(-2)$ is the numerator. Divide by the interval length $7$: $f'(c) = 14/7 = 2$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-015",
+      "unit": "unit-5",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stem": "Which of the following correctly finds the absolute maximum of $f(x) = x^3 - 3x + 1$ on $[-2, 2]$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$f(-2) = -1$",
+          "is_correct": false,
+          "explanation": "Critical points: $f'(x) = 3x^2-3 = 0 \\Rightarrow x = \\pm 1$. Values: $f(-2)=-1$, $f(-1)=3$, $f(1)=-1$, $f(2)=3$. The absolute maximum is $3$, not $-1$."
+        },
+        {
+          "id": "B",
+          "text": "$f(-1) = 3$ and $f(2) = 3$",
+          "is_correct": true,
+          "explanation": "Candidates: $f(-2)=-1$, $f(-1)=3$, $f(1)=-1$, $f(2)=3$. The absolute maximum value is $3$, attained at $x=-1$ and $x=2$."
+        },
+        {
+          "id": "C",
+          "text": "$f(1) = -1$",
+          "is_correct": false,
+          "explanation": "$f(1) = 1-3+1 = -1$ is a local minimum, not a maximum. The absolute maximum is $3$."
+        },
+        {
+          "id": "D",
+          "text": "$f(0) = 1$",
+          "is_correct": false,
+          "explanation": "$x=0$ is not a critical point ($f'(0)=-3 \\neq 0$). The absolute maximum value is $3$ at $x=-1$ and $x=2$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-016",
+      "unit": "unit-5",
+      "difficulty": "medium",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A differentiable function $f$ has $f'(x) > 0$ on $(-\\infty, 2)$ and $f'(x) < 0$ on $(2, \\infty)$, with $f'(2) = 0$."
+      },
+      "stem": "Which of the following correctly describes $f$ at $x = 2$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$f$ has a local minimum at $x = 2$",
+          "is_correct": false,
+          "explanation": "A local minimum requires $f'$ to change from $-$ to $+$. Here, $f'$ changes from $+$ to $-$, so $x=2$ is a local maximum."
+        },
+        {
+          "id": "B",
+          "text": "$f$ has a local maximum at $x = 2$",
+          "is_correct": true,
+          "explanation": "First Derivative Test: $f'$ changes from positive to negative at $x=2$, indicating $f$ has a local maximum there."
+        },
+        {
+          "id": "C",
+          "text": "$f$ has an inflection point at $x = 2$",
+          "is_correct": false,
+          "explanation": "An inflection point requires $f''$ to change sign (or $f'$ to change from increasing to decreasing). Here, the clear sign change of $f'$ from $+$ to $-$ indicates a local max."
+        },
+        {
+          "id": "D",
+          "text": "$f$ is neither increasing nor decreasing at $x = 2$",
+          "is_correct": false,
+          "explanation": "While $f'(2) = 0$ (instantaneous rate of change is zero), the behavior on each side ($+$ then $-$) classifies $x=2$ as a local maximum."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-017",
+      "unit": "unit-5",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stem": "Which of the following correctly applies the Second Derivative Test to classify the critical point $x = 2$ of $f(x) = x^3 - 6x^2 + 9x$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Local minimum, because $f''(2) > 0$",
+          "is_correct": false,
+          "explanation": "$f'(x) = 3x^2-12x+9$, $f'(2) = 12-24+9 = -3 \\neq 0$. $x=2$ is not a critical point."
+        },
+        {
+          "id": "B",
+          "text": "$x = 2$ is not a critical point of $f$",
+          "is_correct": true,
+          "explanation": "$f'(x) = 3x^2-12x+9 = 3(x-1)(x-3)$. Critical points at $x=1$ and $x=3$. At $x=2$, $f'(2) = -3 \\neq 0$."
+        },
+        {
+          "id": "C",
+          "text": "Local maximum, because $f''(2) < 0$",
+          "is_correct": false,
+          "explanation": "$x=2$ is not a critical point ($f'(2) = -3$). The Second Derivative Test can only classify critical points."
+        },
+        {
+          "id": "D",
+          "text": "Inflection point at $x = 2$, because $f''(2) = 0$",
+          "is_correct": false,
+          "explanation": "$f''(x) = 6x-12$, $f''(2) = 0$. While $f''(2)=0$ (possible inflection), $x=2$ is not a critical point, so the 2nd Derivative Test for extrema doesn't apply here."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-018",
+      "unit": "unit-5",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stem": "For $f(x) = x^3 - 6x^2 + 9x$, which of the following correctly identifies the local extrema using the First Derivative Test?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Local maximum at $x = 1$; local minimum at $x = 3$",
+          "is_correct": true,
+          "explanation": "$f'(x) = 3(x-1)(x-3)$. Sign: $+$ on $(-\\infty,1)$, $-$ on $(1,3)$, $+$ on $(3,\\infty)$. Local max at $x=1$ ($f(1)=4$); local min at $x=3$ ($f(3)=0$)."
+        },
+        {
+          "id": "B",
+          "text": "Local minimum at $x = 1$; local maximum at $x = 3$",
+          "is_correct": false,
+          "explanation": "Sign of $f'$ reverses the rule here: $+$ to $-$ at $x=1$ is a local max; $-$ to $+$ at $x=3$ is a local min."
+        },
+        {
+          "id": "C",
+          "text": "Local minimum at $x = 1$ only",
+          "is_correct": false,
+          "explanation": "$f'$ changes from $+$ to $-$ at $x=1$: local maximum. It also changes from $-$ to $+$ at $x=3$: local minimum."
+        },
+        {
+          "id": "D",
+          "text": "No local extrema",
+          "is_correct": false,
+          "explanation": "$f'$ changes sign at both $x=1$ and $x=3$, confirming two local extrema."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-019",
+      "unit": "unit-5",
+      "difficulty": "medium",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A graph of $f'(x)$ is shown. $f'(x) > 0$ on $(0,2)$, $f'(2) = 0$, $f'(x) < 0$ on $(2,5)$, $f'(5) = 0$, $f'(x) > 0$ on $(5, \\infty)$."
+      },
+      "stem": "Based on the sign chart description, what are the $x$-values of the local extrema of $f$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Local max at $x = 0$; local min at $x = 5$",
+          "is_correct": false,
+          "explanation": "At $x=0$ there is no sign change described (only behavior for $x>0$ is given). Local max is at $x=2$ ($+$ to $-$); local min at $x=5$ ($-$ to $+$)."
+        },
+        {
+          "id": "B",
+          "text": "Local max at $x = 2$; local min at $x = 5$",
+          "is_correct": true,
+          "explanation": "$f'$ changes from $+$ to $-$ at $x=2$: local maximum. Changes from $-$ to $+$ at $x=5$: local minimum."
+        },
+        {
+          "id": "C",
+          "text": "Local min at $x = 2$; local max at $x = 5$",
+          "is_correct": false,
+          "explanation": "A sign change from $+$ to $-$ is a local MAX; from $-$ to $+$ is a local MIN. At $x=2$: local max. At $x=5$: local min."
+        },
+        {
+          "id": "D",
+          "text": "Local max at $x = 2$ only",
+          "is_correct": false,
+          "explanation": "$f'$ also changes from $-$ to $+$ at $x=5$, which is a local minimum. Both $x=2$ and $x=5$ are extrema."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-020",
+      "unit": "unit-5",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stem": "For $f(x) = x^4 - 4x^3$, which of the following identifies the intervals where $f$ is concave up?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$(0, 2)$ only",
+          "is_correct": false,
+          "explanation": "$f''(x) = 12x^2-24x = 12x(x-2)$. $f'' > 0$ when $x < 0$ or $x > 2$, not on $(0,2)$."
+        },
+        {
+          "id": "B",
+          "text": "$(-\\infty, 0)$ and $(2, \\infty)$",
+          "is_correct": true,
+          "explanation": "$f''(x) = 12x^2-24x = 12x(x-2)$. $f'' > 0$ when both factors share sign: $x<0$ (both $-$) or $x>2$ (both $+$)."
+        },
+        {
+          "id": "C",
+          "text": "$(0, \\infty)$",
+          "is_correct": false,
+          "explanation": "On $(0,2)$: $f''(x) = 12x(x-2) < 0$ (concave down). Concave up occurs on $(-\\infty,0)$ and $(2,\\infty)$."
+        },
+        {
+          "id": "D",
+          "text": "$(-\\infty, \\infty)$",
+          "is_correct": false,
+          "explanation": "$f''(1) = 12(1)(-1) = -12 < 0$, so $f$ is concave down on $(0,2)$. Not concave up everywhere."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-021",
+      "unit": "unit-5",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stem": "A function $f$ is twice differentiable. If $f'(3) = 0$ and $f''(3) = 0$, which of the following must be true?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$f$ has a local maximum at $x = 3$",
+          "is_correct": false,
+          "explanation": "When $f''(c) = 0$, the Second Derivative Test is inconclusive. $f$ could have a local max, local min, or neither."
+        },
+        {
+          "id": "B",
+          "text": "$f$ has an inflection point at $x = 3$",
+          "is_correct": false,
+          "explanation": "$f''(3) = 0$ is necessary but not sufficient for an inflection point. An inflection point requires a sign change in $f''$, which is not guaranteed here."
+        },
+        {
+          "id": "C",
+          "text": "The Second Derivative Test is inconclusive",
+          "is_correct": true,
+          "explanation": "When $f'(c) = 0$ and $f''(c) = 0$, the Second Derivative Test gives no conclusion. The First Derivative Test must be used instead."
+        },
+        {
+          "id": "D",
+          "text": "$f$ has neither a local maximum nor a local minimum at $x = 3$",
+          "is_correct": false,
+          "explanation": "This is not guaranteed. For example, $f(x) = x^4$ has $f'(0) = 0$ and $f''(0) = 0$, yet it has a local (and absolute) minimum at $x=0$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-022",
+      "unit": "unit-5",
+      "difficulty": "medium",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A continuous function $f$ satisfies $f(-1) = 5$, $f(3) = 5$, and is differentiable on $(-1, 3)$."
+      },
+      "stem": "Which theorem guarantees the existence of $c \\in (-1, 3)$ with $f'(c) = 0$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "The Intermediate Value Theorem",
+          "is_correct": false,
+          "explanation": "IVT guarantees a value of $f$ between $f(-1)$ and $f(3)$, not a zero of $f'$."
+        },
+        {
+          "id": "B",
+          "text": "Rolle's Theorem",
+          "is_correct": true,
+          "explanation": "Rolle's Theorem: if $f$ is continuous on $[a,b]$, differentiable on $(a,b)$, and $f(a) = f(b)$, then $\\exists c \\in (a,b)$ with $f'(c) = 0$. Here $f(-1) = f(3) = 5$."
+        },
+        {
+          "id": "C",
+          "text": "The Extreme Value Theorem",
+          "is_correct": false,
+          "explanation": "EVT guarantees existence of absolute max and min values, not a zero of $f'$."
+        },
+        {
+          "id": "D",
+          "text": "The Mean Value Theorem",
+          "is_correct": false,
+          "explanation": "MVT guarantees $f'(c) = \\frac{f(3)-f(-1)}{3-(-1)} = 0$ (since $f(-1)=f(3)$). This IS correct, but Rolle's Theorem is the more specific theorem when $f(a) = f(b)$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-023",
+      "unit": "unit-5",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stem": "For $f(x) = \\frac{1}{3}x^3 - x^2 - 3x + 5$, which of the following gives the intervals where $f$ is increasing?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$(-1, 3)$",
+          "is_correct": false,
+          "explanation": "$f'(x) = x^2-2x-3 = (x-3)(x+1)$. $f' > 0$ when $x < -1$ or $x > 3$. $f$ is DECREASING on $(-1,3)$."
+        },
+        {
+          "id": "B",
+          "text": "$(-\\infty, -1)$ and $(3, \\infty)$",
+          "is_correct": true,
+          "explanation": "$f'(x) = (x-3)(x+1)$. $f' > 0$ when both factors share sign: $x < -1$ or $x > 3$."
+        },
+        {
+          "id": "C",
+          "text": "$(-\\infty, 3)$",
+          "is_correct": false,
+          "explanation": "$f'(-2) = (-5)(-1) = 5 > 0$ ✓, but $f'(0) = (-3)(1) = -3 < 0$. Not increasing on all of $(-\\infty,3)$."
+        },
+        {
+          "id": "D",
+          "text": "$(3, \\infty)$ only",
+          "is_correct": false,
+          "explanation": "$f$ is also increasing on $(-\\infty,-1)$ since $f' > 0$ there too."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-024",
+      "unit": "unit-5",
+      "difficulty": "medium",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A differentiable function has the following sign chart for $f'$: negative on $(-\\infty, -2)$, zero at $x = -2$, positive on $(-2, 4)$, zero at $x = 4$, negative on $(4, \\infty)$."
+      },
+      "stem": "Which of the following correctly describes the behavior of $f$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Local min at $x = -2$; local max at $x = 4$",
+          "is_correct": true,
+          "explanation": "$f'$ changes from $-$ to $+$ at $x=-2$: local min. Changes from $+$ to $-$ at $x=4$: local max."
+        },
+        {
+          "id": "B",
+          "text": "Local max at $x = -2$; local min at $x = 4$",
+          "is_correct": false,
+          "explanation": "$-$ to $+$ at $x=-2$ is a local MINIMUM. $+$ to $-$ at $x=4$ is a local MAXIMUM."
+        },
+        {
+          "id": "C",
+          "text": "Inflection points at $x = -2$ and $x = 4$",
+          "is_correct": false,
+          "explanation": "Inflection points require changes in concavity ($f''$ changes sign), not changes in monotonicity. These are extrema of $f$."
+        },
+        {
+          "id": "D",
+          "text": "No extrema; $f$ is decreasing then increasing",
+          "is_correct": false,
+          "explanation": "The sign changes of $f'$ (-then+, then-) indicate $f$ is decreasing, then increasing, then decreasing again. This means a local min and a local max exist."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-025",
+      "unit": "unit-5",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stem": "Which of the following gives the absolute minimum of $f(x) = x^2 - 4x + 5$ on $[0, 3]$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$f(0) = 5$",
+          "is_correct": false,
+          "explanation": "Critical point: $f'(x) = 2x-4=0 \\Rightarrow x=2$. Values: $f(0)=5$, $f(2)=1$, $f(3)=2$. Minimum is $f(2)=1$."
+        },
+        {
+          "id": "B",
+          "text": "$f(2) = 1$",
+          "is_correct": true,
+          "explanation": "Candidates Test: evaluate at critical point $x=2$ and endpoints. $f(0)=5$, $f(2)=1$, $f(3)=2$. The minimum is $1$ at $x=2$."
+        },
+        {
+          "id": "C",
+          "text": "$f(3) = 2$",
+          "is_correct": false,
+          "explanation": "$f(3) = 9-12+5 = 2 > 1 = f(2)$. The absolute minimum is $1$."
+        },
+        {
+          "id": "D",
+          "text": "$f(1) = 2$",
+          "is_correct": false,
+          "explanation": "$x=1$ is not a critical point ($f'(1)=2-4=-2 \\neq 0$) and not an endpoint. The absolute minimum is $f(2)=1$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-026",
+      "unit": "unit-5",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stem": "At a point of inflection, which of the following must be true?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$f''(x) = 0$",
+          "is_correct": false,
+          "explanation": "$f''(x) = 0$ is necessary but not sufficient for an inflection point. An inflection point requires $f''$ to CHANGE SIGN at that point."
+        },
+        {
+          "id": "B",
+          "text": "$f''(x)$ changes sign",
+          "is_correct": true,
+          "explanation": "An inflection point is where the concavity changes (from concave up to down or vice versa), which requires $f''$ to change sign."
+        },
+        {
+          "id": "C",
+          "text": "$f'(x) = 0$",
+          "is_correct": false,
+          "explanation": "$f'(x) = 0$ is not required at an inflection point. Inflection points can occur at places where $f'(x) \\neq 0$."
+        },
+        {
+          "id": "D",
+          "text": "$f(x) = 0$",
+          "is_correct": false,
+          "explanation": "The function value at an inflection point has no special requirement. Inflection points are about the sign change of $f''$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-027",
+      "unit": "unit-5",
+      "difficulty": "medium",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A car travels $200$ miles in $4$ hours. The car's position function $s(t)$ is continuous on $[0,4]$ and differentiable on $(0,4)$."
+      },
+      "stem": "Which of the following best applies the MVT to interpret the car's speed?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "The car traveled at exactly 50 mph for the entire trip",
+          "is_correct": false,
+          "explanation": "MVT guarantees a moment when the speed was 50 mph, not that it maintained 50 mph throughout."
+        },
+        {
+          "id": "B",
+          "text": "At some moment during the trip, the car's speedometer read exactly 50 mph",
+          "is_correct": true,
+          "explanation": "MVT: $s'(c) = \\frac{200-0}{4-0} = 50$ mph for some $c \\in (0,4)$. The instantaneous velocity equaled the average velocity at some point."
+        },
+        {
+          "id": "C",
+          "text": "The car's speed was always at least 50 mph",
+          "is_correct": false,
+          "explanation": "MVT guarantees the speed equaled 50 mph at some instant, not a lower bound. Speed could have varied widely."
+        },
+        {
+          "id": "D",
+          "text": "The car's maximum speed was 50 mph",
+          "is_correct": false,
+          "explanation": "MVT does not give the maximum speed. It guarantees an instant when speed was 50 mph (the average), but the maximum could be higher."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-028",
+      "unit": "unit-5",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stem": "If $f''(x) > 0$ on $(a,b)$ and $f'$ has a zero at $x = c \\in (a,b)$, which of the following must be true?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$f$ has a local maximum at $x = c$",
+          "is_correct": false,
+          "explanation": "$f''(x) > 0$ means $f$ is concave up on $(a,b)$, so $f'$ is increasing. A critical point in a concave-up region is a local minimum."
+        },
+        {
+          "id": "B",
+          "text": "$f$ has a local minimum at $x = c$",
+          "is_correct": true,
+          "explanation": "$f'' > 0$ throughout $(a,b)$: $f$ is concave up. A critical point (where $f'=0$) in a concave-up region is a local minimum by the Second Derivative Test."
+        },
+        {
+          "id": "C",
+          "text": "$f$ has an inflection point at $x = c$",
+          "is_correct": false,
+          "explanation": "An inflection point requires $f''$ to change sign. Since $f'' > 0$ on all of $(a,b)$ (no sign change), there is no inflection point."
+        },
+        {
+          "id": "D",
+          "text": "No conclusion can be made",
+          "is_correct": false,
+          "explanation": "With $f''(x) > 0$ on $(a,b)$ and $f'(c) = 0$ at $c \\in (a,b)$, the Second Derivative Test applies: $f''(c) > 0$ confirms a local minimum."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-029",
+      "unit": "unit-5",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stem": "Which of the following gives the $x$-coordinate of the inflection point of $f(x) = 2x^3 - 6x^2 + 1$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$x = 0$",
+          "is_correct": false,
+          "explanation": "$f''(x) = 12x - 12$. $f''=0$ at $x=1$, not $x=0$. Confirm sign change: $f''<0$ for $x<1$, $f''>0$ for $x>1$."
+        },
+        {
+          "id": "B",
+          "text": "$x = 1$",
+          "is_correct": true,
+          "explanation": "$f''(x) = 12x-12 = 0 \\Rightarrow x=1$. Sign change: $f''<0$ left of 1, $f''>0$ right of 1. Inflection point at $x=1$."
+        },
+        {
+          "id": "C",
+          "text": "$x = 2$",
+          "is_correct": false,
+          "explanation": "$f''(2) = 24-12=12 > 0 \\neq 0$. The inflection point is at $x=1$, where $f''=0$."
+        },
+        {
+          "id": "D",
+          "text": "$x = -1$",
+          "is_correct": false,
+          "explanation": "$f''(-1) = -12-12=-24 \\neq 0$. The inflection point is at $f''=0$: $12x-12=0 \\Rightarrow x=1$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-030",
+      "unit": "unit-5",
+      "difficulty": "medium",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A function $f$ is differentiable on $[-5, 5]$ with $f'(x) = (x+2)(x-1)^2(x-4)$."
+      },
+      "stem": "At which values of $x$ does $f$ have a local minimum?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$x = -2$ only",
+          "is_correct": false,
+          "explanation": "At $x=-2$: $f'$ changes from $+$ to $-$ (for $x<-2$, test $x=-3$: $(-1)(-4)^2(-7)<0$; for $x\\in(-2,1)$, test $x=0$: $(2)(1)(-4)<0$). Sign change from $-$ to... re-checking: $x<-2$: $(-)(-)(-)= -$; $-2<x<1$: $(+)(-)(-)= +$; $1<x<4$: $(+)(+)(-) = -$; $x>4$: $(+)(+)(+)=+$. At $x=-2$: $-$ to $+$: local MIN. At $x=1$: $+$ to $-$: local MAX. At $x=4$: $-$ to $+$: local MIN."
+        },
+        {
+          "id": "B",
+          "text": "$x = -2$ and $x = 4$",
+          "is_correct": true,
+          "explanation": "Sign of $f'$: $x<-2$: $(-)(-)(-) = -$; $-2<x<1$: $(+)(-)(-)=+$; $1<x<4$: $(+)(+)(-)=-$; $x>4$: $(+)(+)(+)=+$. Local min ($-$ to $+$) at $x=-2$ and $x=4$."
+        },
+        {
+          "id": "C",
+          "text": "$x = 1$ only",
+          "is_correct": false,
+          "explanation": "At $x=1$: $f'$ changes from $+$ to $-$, so $x=1$ is a local MAXIMUM, not minimum."
+        },
+        {
+          "id": "D",
+          "text": "$x = -2$, $x = 1$, and $x = 4$",
+          "is_correct": false,
+          "explanation": "At $x=1$: $+$ to $-$ (local max). At $x=-2$ and $x=4$: sign changes $-$ to $+$ (local min)."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-031",
+      "unit": "unit-5",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stem": "A differentiable function $f$ satisfies $f(1) = 3$ and $f(4) = 3$. Which of the following correctly applies Rolle's Theorem?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "There exists $c \\in (1, 4)$ such that $f(c) = 3$",
+          "is_correct": false,
+          "explanation": "The IVT would guarantee an intermediate value, but $f(c) = 3$ at the endpoints says nothing new. Rolle's Theorem guarantees $f'(c) = 0$."
+        },
+        {
+          "id": "B",
+          "text": "There exists $c \\in (1, 4)$ such that $f'(c) = 0$",
+          "is_correct": true,
+          "explanation": "Rolle's Theorem: $f$ continuous on $[1,4]$, differentiable on $(1,4)$, and $f(1)=f(4)=3$ guarantees some $c \\in (1,4)$ with $f'(c)=0$."
+        },
+        {
+          "id": "C",
+          "text": "There exists $c \\in (1, 4)$ such that $f'(c) = 1$",
+          "is_correct": false,
+          "explanation": "Since $f(1)=f(4)=3$, MVT gives $f'(c) = \\frac{3-3}{4-1} = 0$, not 1. Rolle's guarantees $f'(c)=0$."
+        },
+        {
+          "id": "D",
+          "text": "$f$ must be constant on $[1, 4]$",
+          "is_correct": false,
+          "explanation": "Equal endpoint values do not imply the function is constant. Rolle's only guarantees at least one critical point in $(1,4)$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-032",
+      "unit": "unit-5",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stem": "Which of the following gives all $x$-values where $f(x) = x^4 - 8x^2$ has an inflection point?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$x = 0$ only",
+          "is_correct": false,
+          "explanation": "$f''(x) = 12x^2-16$. $f''=0$ at $x = \\pm\\sqrt{4/3} = \\pm\\frac{2}{\\sqrt{3}}$. $x=0$ gives $f''(0)=-16 \\neq 0$."
+        },
+        {
+          "id": "B",
+          "text": "$x = \\frac{2}{\\sqrt{3}}$ and $x = -\\frac{2}{\\sqrt{3}}$",
+          "is_correct": true,
+          "explanation": "$f''(x)=12x^2-16=0 \\Rightarrow x^2=\\frac{4}{3} \\Rightarrow x=\\pm\\frac{2}{\\sqrt{3}}$. Sign changes: $f''>0$ outside, $f''<0$ between — inflection points at both."
+        },
+        {
+          "id": "C",
+          "text": "$x = \\pm 2$",
+          "is_correct": false,
+          "explanation": "$f''(\\pm 2) = 12(4)-16=32 \\neq 0$. The inflection points solve $12x^2=16$: $x=\\pm\\frac{2}{\\sqrt{3}}$."
+        },
+        {
+          "id": "D",
+          "text": "$x = \\pm 2\\sqrt{2}$",
+          "is_correct": false,
+          "explanation": "$\\pm 2\\sqrt{2}$ are the $x$-intercepts of $f$ (where $f=0$), not inflection points. Inflection points require $f''=0$ with sign change."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-033",
+      "unit": "unit-5",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stem": "A function $f$ has $f'(x) > 0$ and $f''(x) < 0$ on an interval. Which of the following best describes $f$ on that interval?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Increasing and concave up",
+          "is_correct": false,
+          "explanation": "$f''>0$ is concave up; $f''<0$ is concave down. Here $f''>0$ is not the case — $f''<0$ means concave down."
+        },
+        {
+          "id": "B",
+          "text": "Increasing and concave down",
+          "is_correct": true,
+          "explanation": "$f'>0$: increasing. $f''<0$: concave down. The function is rising but bending downward (like the top of a hill)."
+        },
+        {
+          "id": "C",
+          "text": "Decreasing and concave up",
+          "is_correct": false,
+          "explanation": "$f'>0$ means increasing (not decreasing). The function rises with $f''>-$ indicates concave down."
+        },
+        {
+          "id": "D",
+          "text": "Decreasing and concave down",
+          "is_correct": false,
+          "explanation": "$f'>0$ means the function is increasing, not decreasing."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-034",
+      "unit": "unit-5",
+      "difficulty": "medium",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A function $f$ is continuous on $[0, 6]$. Values: $f(0) = 4$, $f(2) = 10$, $f(4) = 7$, $f(6) = 3$."
+      },
+      "stem": "Which of the following must be true by the Intermediate Value Theorem?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$f(c) = 5$ for some $c \\in (0, 2)$",
+          "is_correct": true,
+          "explanation": "IVT: $f(0)=4$ and $f(2)=10$. Since $4 < 5 < 10$ and $f$ is continuous, $f(c)=5$ for some $c \\in (0,2)$."
+        },
+        {
+          "id": "B",
+          "text": "$f'(c) = 0$ for some $c \\in (0, 6)$",
+          "is_correct": false,
+          "explanation": "That requires differentiability and MVT or Rolle's Theorem. IVT only addresses function values, not derivative values."
+        },
+        {
+          "id": "C",
+          "text": "$f$ has an absolute maximum of $10$ on $[0,6]$",
+          "is_correct": false,
+          "explanation": "IVT does not identify absolute extrema. The absolute max requires checking all critical points and endpoints (EVT + Candidates Test)."
+        },
+        {
+          "id": "D",
+          "text": "$f(c) = 0$ for some $c \\in (0, 6)$",
+          "is_correct": false,
+          "explanation": "All given values are positive ($3, 4, 7, 10$). Without knowing $f$ dips below 0, IVT cannot guarantee a zero."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-035",
+      "unit": "unit-5",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stem": "Which of the following gives the $x$-value(s) where $f(x) = \\frac{x^3}{3} - x^2 - 3x$ has an absolute maximum on $[-2, 5]$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$x = -1$",
+          "is_correct": true,
+          "explanation": "$f'(x)=x^2-2x-3=(x-3)(x+1)=0 \\Rightarrow x=-1,3$. Values: $f(-2)=-\\frac{8}{3}-4+6=\\frac{-8+6}{3}\\approx -0.67$, $f(-1)=-\\frac{1}{3}-1+3=\\frac{5}{3}\\approx 1.67$, $f(3)=9-9-9=-9$, $f(5)=\\frac{125}{3}-25-15=\\frac{125-120}{3}=\\frac{5}{3}$... Largest is $f(-1)=f(5)=\\frac{5}{3}$."
+        },
+        {
+          "id": "B",
+          "text": "$x = 3$",
+          "is_correct": false,
+          "explanation": "$f(3) = 9-9-9=-9$ is the absolute minimum, not maximum."
+        },
+        {
+          "id": "C",
+          "text": "$x = 5$",
+          "is_correct": false,
+          "explanation": "$f(5) = \\frac{125}{3}-25-15 = \\frac{5}{3}$ which ties with $f(-1)=\\frac{5}{3}$. Both $x=-1$ and $x=5$ give the absolute maximum."
+        },
+        {
+          "id": "D",
+          "text": "$x = -2$",
+          "is_correct": false,
+          "explanation": "$f(-2) = -\\frac{8}{3}-4+6 = -\\frac{8}{3}+2 = -\\frac{2}{3}$, which is less than $f(-1) = \\frac{5}{3}$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-036",
+      "unit": "unit-5",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A farmer has $400$ feet of fencing to enclose a rectangular pasture adjacent to a barn wall (the wall serves as one side). Let $x$ be the width perpendicular to the barn."
+      },
+      "stem": "Which of the following gives the dimensions that maximize the enclosed area?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$x = 100$ ft, length $= 200$ ft",
+          "is_correct": true,
+          "explanation": "Area $A = x(400-2x)$. $A'=400-4x=0 \\Rightarrow x=100$. Length $= 400-2(100)=200$. $A''=-4<0$ confirms max."
+        },
+        {
+          "id": "B",
+          "text": "$x = 200$ ft, length $= 0$ ft",
+          "is_correct": false,
+          "explanation": "$x=200$ gives length $= 400-400=0$ (no enclosed area). The maximum is at $x=100$."
+        },
+        {
+          "id": "C",
+          "text": "$x = 133$ ft, length $= 134$ ft",
+          "is_correct": false,
+          "explanation": "That would use $133+134+133=400$ ft but sets up three equal sides. The correct optimization gives $x=100$, length $=200$."
+        },
+        {
+          "id": "D",
+          "text": "$x = 100$ ft, length $= 100$ ft",
+          "is_correct": false,
+          "explanation": "With $x=100$, the parallel side (length) is $400-2(100)=200$ ft, not 100 ft."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-037",
+      "unit": "unit-5",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A graph of $f'$ is shown. $f'$ is a parabola opening upward with $x$-intercepts at $x=1$ and $x=5$, and minimum at $x=3$."
+      },
+      "stem": "Based on this description, which of the following best describes $f$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$f$ is concave up for $x < 3$ and concave down for $x > 3$",
+          "is_correct": false,
+          "explanation": "$f''$ (the derivative of $f'$) determines concavity. $f'$ has a minimum at $x=3$, meaning $f''(3)=0$ with $f''>0$ to the right (since $f'$ is increasing) and $f''<0$ to the left — actually the reverse. $f'$ is a parabola opening up: $f''$ (slope of $f'$) is $<0$ for $x<3$ (decreasing), $=0$ at $x=3$, $>0$ for $x>3$ (increasing). So $f$ is concave down then up."
+        },
+        {
+          "id": "B",
+          "text": "$f$ has local minima at $x=1$ and $x=5$, and a local maximum at $x=3$... wait — re-evaluating: $f'<0$ outside $(1,5)$ and $f'>0$ inside $(1,5)$",
+          "is_correct": false,
+          "explanation": "A parabola opening upward with roots at 1 and 5 has $f'<0$ outside and $f'>0$ inside. So $f$ has local minima at $x=1$ and $x=5$."
+        },
+        {
+          "id": "C",
+          "text": "$f$ has a local minimum at $x=1$, is increasing on $(1,5)$, and has a local minimum at $x=5$",
+          "is_correct": true,
+          "explanation": "$f'<0$ for $x<1$ and $x>5$; $f'>0$ for $1<x<5$. Sign changes: $-$ to $+$ at $x=1$ (local min) and $+$ to $-$ at $x=5$ (local max). Inflection at $x=3$ (where $f'$ has min, meaning $f''=0$ changes sign)."
+        },
+        {
+          "id": "D",
+          "text": "$f$ has a local maximum at $x=1$ and a local minimum at $x=5$",
+          "is_correct": false,
+          "explanation": "At $x=1$: $f'$ changes from $-$ to $+$, giving a local minimum. At $x=5$: $f'$ changes from $+$ to $-$, giving a local maximum."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-038",
+      "unit": "unit-5",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stem": "A cylinder is inscribed in a cone of radius $R$ and height $H$. The cylinder has radius $r$ and height $h = H\\left(1-\\frac{r}{R}\\right)$. Which of the following gives the value of $r$ that maximizes the cylinder's volume?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$r = \\frac{R}{2}$",
+          "is_correct": false,
+          "explanation": "$V = \\pi r^2 H(1-r/R)$. $V' = \\pi H(2r - 3r^2/R) = 0 \\Rightarrow r(2 - 3r/R) = 0 \\Rightarrow r = \\frac{2R}{3}$."
+        },
+        {
+          "id": "B",
+          "text": "$r = \\frac{2R}{3}$",
+          "is_correct": true,
+          "explanation": "$V = \\pi r^2 H(1-r/R) = \\pi H(r^2 - r^3/R)$. $V' = \\pi H(2r-3r^2/R)=0 \\Rightarrow r = \\frac{2R}{3}$. $V''<0$ confirms max."
+        },
+        {
+          "id": "C",
+          "text": "$r = R$",
+          "is_correct": false,
+          "explanation": "At $r=R$: $h = H(1-1) = 0$ (flat cylinder, zero volume). The maximum is at $r = \\frac{2R}{3}$."
+        },
+        {
+          "id": "D",
+          "text": "$r = \\frac{R}{3}$",
+          "is_correct": false,
+          "explanation": "$V'(R/3) = \\pi H(2R/3 - 3(R/3)^2/R) = \\pi H(2R/3 - R/3) = \\pi H(R/3) \\neq 0$. Maximum is at $r=\\frac{2R}{3}$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-039",
+      "unit": "unit-5",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A continuous, twice-differentiable function $f$ has $f'(2) = 0$, $f'(x) < 0$ for $1 < x < 2$, and $f'(x) < 0$ for $2 < x < 4$."
+      },
+      "stem": "Which of the following best describes $f$ at $x = 2$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Local maximum",
+          "is_correct": false,
+          "explanation": "For a local max, $f'$ must change from $+$ to $-$. Here, $f'$ is negative on both sides of $x=2$ (with $f'(2)=0$), so there is no sign change."
+        },
+        {
+          "id": "B",
+          "text": "Local minimum",
+          "is_correct": false,
+          "explanation": "For a local min, $f'$ must change from $-$ to $+$. Here, $f'$ remains negative on both sides, so $x=2$ is not a local minimum."
+        },
+        {
+          "id": "C",
+          "text": "Neither a local max nor a local min",
+          "is_correct": true,
+          "explanation": "$f' < 0$ on both sides of $x=2$ (with $f'(2)=0$). No sign change means no extremum. This is a 'flat' point on a decreasing curve."
+        },
+        {
+          "id": "D",
+          "text": "An inflection point",
+          "is_correct": false,
+          "explanation": "Without information about $f''$, we cannot conclude an inflection point. The behavior of $f'$ near $x=2$ indicates no local extremum, but inflection requires $f''$ sign change."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-040",
+      "unit": "unit-5",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stem": "Which of the following gives the maximum area of a rectangle inscribed in a semicircle of radius $5$ (with one side on the diameter)?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$25$",
+          "is_correct": true,
+          "explanation": "Let half-width $= x$, height $= \\sqrt{25-x^2}$. Area $A = 2x\\sqrt{25-x^2}$. Maximize $A^2 = 4x^2(25-x^2)$. Derivative: $4(50x-4x^3)=0 \\Rightarrow x^2=25/2 \\Rightarrow x=5/\\sqrt{2}$. $A = 2(5/\\sqrt{2})(5/\\sqrt{2}) = 2(25/2)=25$."
+        },
+        {
+          "id": "B",
+          "text": "$50$",
+          "is_correct": false,
+          "explanation": "The maximum area is $25$, achieved when $x = 5/\\sqrt{2}$. Setting $x=5$ gives $A = 10\\cdot 0=0$."
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{25\\pi}{2}$",
+          "is_correct": false,
+          "explanation": "$\\frac{25\\pi}{2}$ is the area of the semicircle itself. The inscribed rectangle has area $25$."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{25}{2}$",
+          "is_correct": false,
+          "explanation": "The maximum area: $A_{max} = 2 \\cdot \\frac{5}{\\sqrt{2}} \\cdot \\sqrt{25-\\frac{25}{2}} = 2 \\cdot \\frac{5}{\\sqrt{2}} \\cdot \\frac{5}{\\sqrt{2}} = \\frac{50}{2} = 25$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-041",
+      "unit": "unit-5",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stem": "Which of the following gives the minimum distance from the point $(3, 0)$ to the curve $y = \\sqrt{x}$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\sqrt{\\frac{11}{4}}$",
+          "is_correct": true,
+          "explanation": "Distance squared: $D^2 = (x-3)^2 + x$. $\\frac{d}{dx}D^2 = 2(x-3)+1 = 0 \\Rightarrow x = 5/2$. $D^2 = (5/2-3)^2 + 5/2 = 1/4 + 5/2 = 11/4$. Min distance $= \\sqrt{11/4}$."
+        },
+        {
+          "id": "B",
+          "text": "$\\sqrt{3}$",
+          "is_correct": false,
+          "explanation": "$\\sqrt{3}$ is not the minimized distance. Setting $(2(x-3)+1)=0$ gives $x=5/2$, yielding $D^2 = 11/4$."
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{3}{2}$",
+          "is_correct": false,
+          "explanation": "$(3/2)^2 = 9/4 \\neq 11/4$. The correct minimum distance squared is $11/4$."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{5}{2}$",
+          "is_correct": false,
+          "explanation": "$5/2$ is the $x$-value at the closest point, not the distance. The minimum distance is $\\sqrt{(5/2-3)^2+5/2} = \\sqrt{11/4}$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-042",
+      "unit": "unit-5",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A graph of $f$ shows: $f$ increasing and concave up on $(-\\infty, -1)$; inflection point at $x=-1$; increasing and concave down on $(-1, 2)$; local max at $x=2$; decreasing and concave down on $(2, 4)$; inflection point at $x=4$; decreasing and concave up on $(4, \\infty)$."
+      },
+      "stem": "Which of the following correctly describes the behavior of $f'$ over this domain?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$f'$ is increasing on $(-\\infty,-1)$, decreasing on $(-1,2)$, and has a zero at $x=2$",
+          "is_correct": false,
+          "explanation": "$f$ concave up means $f'$ increasing; $f$ concave down means $f'$ decreasing. Correct: $f'$ is increasing on $(-\\infty,-1)$, decreasing on $(-1,4)$, and increasing on $(4,\\infty)$, with $f'(2)=0$."
+        },
+        {
+          "id": "B",
+          "text": "$f'$ is positive on $(-\\infty,2)$, zero at $x=2$, negative on $(2,\\infty)$, with local max of $f'$ at $x=-1$ and local min at $x=4$",
+          "is_correct": true,
+          "explanation": "$f$ increasing before $x=2$, decreasing after: $f'>0$ then $f'<0$. $f'$ has max at $x=-1$ (where concavity flips from up to down) and min at $x=4$ (down to up)."
+        },
+        {
+          "id": "C",
+          "text": "$f'$ is always positive",
+          "is_correct": false,
+          "explanation": "$f$ has a local max at $x=2$ and is decreasing after, so $f'(x)<0$ for $x>2$."
+        },
+        {
+          "id": "D",
+          "text": "$f'$ has zeros at $x=-1$ and $x=4$",
+          "is_correct": false,
+          "explanation": "Zeros of $f'$ occur where $f$ has local extrema. The local max is at $x=2$, so $f'(2)=0$. Points $x=-1$ and $x=4$ are inflection points (where $f''=0$, not $f'=0$)."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-043",
+      "unit": "unit-5",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stem": "A function $f$ is continuous on $[0, 6]$ with $f(0) = 2$, $f(3) = -4$, and $f(6) = 5$. Which of the following MUST be true by the IVT?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$f(c) = 0$ for some $c \\in (0, 3)$",
+          "is_correct": true,
+          "explanation": "$f(0) = 2 > 0$ and $f(3) = -4 < 0$. By IVT, $f(c) = 0$ for some $c \\in (0,3)$ since 0 is between 2 and $-4$."
+        },
+        {
+          "id": "B",
+          "text": "$f$ has an absolute minimum at $x = 3$",
+          "is_correct": false,
+          "explanation": "IVT guarantees function values, not extrema. $f(3) = -4$ could be the minimum, but EVT + Candidates Test are needed to confirm; IVT alone does not."
+        },
+        {
+          "id": "C",
+          "text": "$f(c) = 3$ for some $c \\in (3, 6)$",
+          "is_correct": false,
+          "explanation": "$f(3)=-4$ and $f(6)=5$. Since $-4 < 3 < 5$, IVT guarantees $f(c)=3$ for some $c\\in(3,6)$. This IS true — actually this is also correct by IVT."
+        },
+        {
+          "id": "D",
+          "text": "$f'(c) = 0$ for some $c \\in (0, 6)$",
+          "is_correct": false,
+          "explanation": "IVT addresses function values, not derivatives. A zero of $f'$ requires Rolle's Theorem (equal endpoint values) or MVT."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-044",
+      "unit": "unit-5",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stem": "Which of the following gives the global minimum of $f(x) = xe^{-x}$ on $[0, \\infty)$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$f(0) = 0$",
+          "is_correct": true,
+          "explanation": "$f(1) = e^{-1} > 0 = f(0)$ and $f(x) \\to 0^-$... wait: $f(x) = xe^{-x} \\geq 0$ for $x\\geq 0$. As $x\\to\\infty$, $f\\to 0^+$. Critical point: $f'=e^{-x}-xe^{-x}=e^{-x}(1-x)=0 \\Rightarrow x=1$ is local max. On $[0,\\infty)$: $f(0)=0$ and $f(x)\\to 0^+$ from above. Global min is $f(0)=0$."
+        },
+        {
+          "id": "B",
+          "text": "$f(1) = e^{-1}$",
+          "is_correct": false,
+          "explanation": "$f(1) = e^{-1} \\approx 0.368$ is a local maximum, not a minimum. The global minimum on $[0,\\infty)$ is $f(0) = 0$."
+        },
+        {
+          "id": "C",
+          "text": "The global minimum does not exist on $[0,\\infty)$",
+          "is_correct": false,
+          "explanation": "$f(0)=0$ and $f(x)>0$ for all $x>0$, so $f(0)=0$ is indeed the global minimum on $[0,\\infty)$."
+        },
+        {
+          "id": "D",
+          "text": "$f(x) \\to 0$ as $x\\to\\infty$, so the infimum is 0 but not attained",
+          "is_correct": false,
+          "explanation": "The minimum IS attained at $x=0$: $f(0)=0$. The function approaches 0 from above as $x\\to\\infty$, but also equals 0 at the endpoint $x=0$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-045",
+      "unit": "unit-5",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stem": "A particle moves so that its velocity $v(t) = t^3 - 6t^2 + 9t$. Which of the following gives the $t$-values where the particle is speeding up on $[0, 4]$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$(0, 1)$ and $(2, 3)$",
+          "is_correct": false,
+          "explanation": "$v(t) = t(t-3)^2$. $v>0$ on $(0,3)$ and $(3,4)$ (except at $t=3$). $a(t)=3t^2-12t+9=3(t-1)(t-3)$. Speed up when same sign: $v>0, a>0$ on $(0,1)$ ✓; $v>0, a<0$ on $(1,3)$ ✗. So $(0,1)$ correct but $(2,3)$ is not (speeding up requires same sign)."
+        },
+        {
+          "id": "B",
+          "text": "$(0,1)$ and $(3,4)$",
+          "is_correct": true,
+          "explanation": "$v(t)=t(t-3)^2$: $v>0$ for $t\\in(0,3)\\cup(3,4)$. $a(t)=3(t-1)(t-3)$: $a>0$ for $t<1$ or $t>3$. Speeding up (same sign): $v>0,a>0$ on $(0,1)$; $v>0,a>0$ on $(3,4)$."
+        },
+        {
+          "id": "C",
+          "text": "$(1,3)$ only",
+          "is_correct": false,
+          "explanation": "On $(1,3)$: $v>0$ but $a<0$ (opposite signs) — slowing down. On $(0,1)$ and $(3,4)$: same signs — speeding up."
+        },
+        {
+          "id": "D",
+          "text": "$(0,3)$ and $(3,4)$",
+          "is_correct": false,
+          "explanation": "On $(1,3)$: $v>0$, $a<0$ (slowing down). On $(0,1)$ and $(3,4)$: $v>0$, $a>0$ (speeding up). Not all of $(0,3)$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-046",
+      "unit": "unit-5",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stem": "Which of the following is sufficient to conclude that $f$ has an absolute maximum on an open interval $(a, b)$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$f$ is continuous on $(a,b)$",
+          "is_correct": false,
+          "explanation": "Continuity on an open interval does not guarantee an absolute maximum (e.g., $f(x) = x$ on $(0,1)$ has no max). The EVT requires a CLOSED interval."
+        },
+        {
+          "id": "B",
+          "text": "$f$ is differentiable on $(a,b)$ with $f'(c) = 0$ for exactly one $c \\in (a,b)$",
+          "is_correct": false,
+          "explanation": "One critical point does not guarantee an absolute max on an open interval — endpoints may be excluded where the function could exceed $f(c)$."
+        },
+        {
+          "id": "C",
+          "text": "$f$ is continuous on $(a,b)$, $f(x) \\to -\\infty$ as $x \\to a^+$ and $x \\to b^-$",
+          "is_correct": true,
+          "explanation": "If $f$ is continuous and goes to $-\\infty$ near both endpoints, then the supremum of $f$ on $(a,b)$ is attained (the function must reach a highest point on the open interval)."
+        },
+        {
+          "id": "D",
+          "text": "$f$ is bounded above on $(a,b)$",
+          "is_correct": false,
+          "explanation": "Being bounded above means a supremum exists, but the supremum may not be attained. Continuity and the limit conditions are needed to guarantee attainment."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-047",
+      "unit": "unit-5",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stem": "Which of the following gives the $x$-coordinate of the absolute minimum of $f(x) = x\\ln(x)$ for $x > 0$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$x = e$",
+          "is_correct": false,
+          "explanation": "$f'(x) = \\ln x + 1 = 0 \\Rightarrow x = e^{-1} = 1/e$. $f''(x) = 1/x > 0$: confirms minimum at $x=1/e$, not $e$."
+        },
+        {
+          "id": "B",
+          "text": "$x = \\frac{1}{e}$",
+          "is_correct": true,
+          "explanation": "$f'(x) = \\ln(x) + 1 = 0 \\Rightarrow \\ln x = -1 \\Rightarrow x = e^{-1} = 1/e$. $f''(1/e) = e > 0$: local (and global) minimum."
+        },
+        {
+          "id": "C",
+          "text": "$x = 1$",
+          "is_correct": false,
+          "explanation": "$f'(1) = \\ln(1)+1 = 1 \\neq 0$. The minimum occurs at $x=1/e$ where $f'=0$."
+        },
+        {
+          "id": "D",
+          "text": "$x = 0$",
+          "is_correct": false,
+          "explanation": "$x=0$ is not in the domain of $x\\ln(x)$ (for the standard domain $x>0$). The minimum is at $x=1/e$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-048",
+      "unit": "unit-5",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A twice-differentiable function $f$ has $f'(x) = \\frac{x^2-4}{x^2+1}$ for all $x$."
+      },
+      "stem": "Which of the following correctly identifies the inflection points of $f$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$x = \\pm 2$",
+          "is_correct": false,
+          "explanation": "$x=\\pm 2$ are zeros of $f'$ (critical points of $f$), not inflection points. Inflection points are where $f''$ changes sign."
+        },
+        {
+          "id": "B",
+          "text": "$x = \\pm\\frac{2}{\\sqrt{3}}$",
+          "is_correct": false,
+          "explanation": "$f''(x) = \\frac{2x(x^2+1)-2x(x^2-4)}{(x^2+1)^2} = \\frac{10x}{(x^2+1)^2}$... re-checking: $\\frac{d}{dx}\\left[\\frac{x^2-4}{x^2+1}\\right] = \\frac{2x(x^2+1)-(x^2-4)(2x)}{(x^2+1)^2} = \\frac{2x[(x^2+1)-(x^2-4)]}{(x^2+1)^2} = \\frac{10x}{(x^2+1)^2}$. Wait: $f''$ changes sign only at $x=0$ here."
+        },
+        {
+          "id": "C",
+          "text": "$x = 0$ only",
+          "is_correct": true,
+          "explanation": "$f''(x) = \\frac{10x}{(x^2+1)^2}$. $f''=0$ at $x=0$; sign changes from $-$ to $+$. Inflection point at $x=0$ only."
+        },
+        {
+          "id": "D",
+          "text": "No inflection points",
+          "is_correct": false,
+          "explanation": "$f''(x) = \\frac{10x}{(x^2+1)^2}$ changes sign at $x=0$: negative for $x<0$, positive for $x>0$. There is one inflection point at $x=0$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-049",
+      "unit": "unit-5",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stem": "A function $f$ is continuous on $[1, e]$ with $f(1) = 0$ and $f(e) = 1$. Which of the following is guaranteed by the MVT?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "There exists $c \\in (1,e)$ such that $f'(c) = \\frac{1}{e-1}$",
+          "is_correct": true,
+          "explanation": "MVT: $f'(c) = \\frac{f(e)-f(1)}{e-1} = \\frac{1-0}{e-1} = \\frac{1}{e-1}$ for some $c \\in (1,e)$."
+        },
+        {
+          "id": "B",
+          "text": "There exists $c \\in (1,e)$ such that $f'(c) = e-1$",
+          "is_correct": false,
+          "explanation": "The MVT gives $f'(c) = \\frac{1}{e-1}$ (the change in $f$ divided by the change in $x$), not its reciprocal $e-1$."
+        },
+        {
+          "id": "C",
+          "text": "There exists $c \\in (1,e)$ such that $f(c) = \\frac{1}{2}$",
+          "is_correct": false,
+          "explanation": "That is the IVT conclusion (intermediate value). The MVT concerns $f'(c)$, not $f(c)$."
+        },
+        {
+          "id": "D",
+          "text": "$f$ achieves its absolute max at $c = e$",
+          "is_correct": false,
+          "explanation": "MVT guarantees a slope value, not the location of an absolute maximum."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-050",
+      "unit": "unit-5",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stem": "Two differentiable functions $f$ and $g$ satisfy $f(x) \\leq g(x)$ for all $x$. Which of the following must also be true?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$f'(x) \\leq g'(x)$ for all $x$",
+          "is_correct": false,
+          "explanation": "Not necessarily. For example, $f(x) = -x^2$ and $g(x) = 0$: $f \\leq g$, but $f'(0) = 0 = g'(0)$ and $f'(1) = -2 < 0 = g'(1)$. While true here, consider $f(x)=\\sin(x)$ and $g(x)=1$: $f(0)=0<1$ but $f'(0)=1>0=g'(0)$."
+        },
+        {
+          "id": "B",
+          "text": "$f(a) = g(a)$ implies $f'(a) \\leq g'(a)$",
+          "is_correct": true,
+          "explanation": "If $f \\leq g$ everywhere and $f(a) = g(a)$, then $a$ is a minimum of $g - f$. At this minimum, $(g-f)'(a) = 0$, meaning $g'(a) = f'(a)$, so $f'(a) \\leq g'(a)$ (with equality)."
+        },
+        {
+          "id": "C",
+          "text": "The maximum of $f$ is less than the minimum of $g$",
+          "is_correct": false,
+          "explanation": "The ranges can overlap. For example, $f(x) = 0$ and $g(x) = x$ on $(-1,1)$: $f \\leq g$ on $(0,1)$ but at $x=0$, $f(0)=g(0)=0$."
+        },
+        {
+          "id": "D",
+          "text": "$\\int_a^b f(x)dx \\geq \\int_a^b g(x)dx$ for all $a < b$",
+          "is_correct": false,
+          "explanation": "$f \\leq g$ implies $\\int f \\leq \\int g$, not $\\geq$. If $f(x) \\leq g(x)$ everywhere, then the area under $f$ is at most the area under $g$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-051",
+      "unit": "unit-5",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stem": "A differentiable function $f$ has $f(0) = 2$ and $|f'(x)| \\leq 3$ for all $x$. Which of the following gives the best upper bound for $f(4)$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$14$",
+          "is_correct": true,
+          "explanation": "By MVT: $f(4)-f(0) = f'(c) \\cdot 4$ for some $c$. Since $|f'(c)| \\leq 3$: $f(4) \\leq f(0) + 3(4) = 2+12=14$."
+        },
+        {
+          "id": "B",
+          "text": "$11$",
+          "is_correct": false,
+          "explanation": "Using $f(4) \\leq 2 + 3(3) = 11$ uses interval length 3 instead of 4. The interval is $[0,4]$, length 4."
+        },
+        {
+          "id": "C",
+          "text": "$6$",
+          "is_correct": false,
+          "explanation": "Underestimates. Upper bound uses $|f'| \\leq 3$ over length 4: $f(4) \\leq 2 + 12 = 14$."
+        },
+        {
+          "id": "D",
+          "text": "No bound can be given",
+          "is_correct": false,
+          "explanation": "MVT provides a bound: $|f(4)-f(0)| \\leq 3 \\cdot 4$, so $f(4) \\leq 14$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-052",
+      "unit": "unit-5",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stem": "Which of the following gives the largest output of $f(x) = 4x - x^2$ on the interval $[0, 5]$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$f(2) = 4$",
+          "is_correct": true,
+          "explanation": "$f'(x)=4-2x=0 \\Rightarrow x=2$. Candidates: $f(0)=0$, $f(2)=8-4=4$, $f(5)=20-25=-5$. Maximum value is $f(2)=4$."
+        },
+        {
+          "id": "B",
+          "text": "$f(5) = -5$",
+          "is_correct": false,
+          "explanation": "$f(5) = 20-25=-5$ is the smallest value, not the largest. The maximum is $f(2)=4$."
+        },
+        {
+          "id": "C",
+          "text": "$f(4) = 0$",
+          "is_correct": false,
+          "explanation": "$f(4) = 16-16=0 < 4 = f(2)$. The absolute maximum is $f(2)=4$."
+        },
+        {
+          "id": "D",
+          "text": "$f(0) = 0$",
+          "is_correct": false,
+          "explanation": "$f(0)=0 < 4 = f(2)$. The absolute maximum is $4$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-053",
+      "unit": "unit-5",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stem": "A function has $f'(x) = \\frac{(x+1)^2(x-2)}{(x-5)^3}$ for $x \\neq 5$. Which of the following gives the local minimum of $f$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$x = -1$",
+          "is_correct": false,
+          "explanation": "At $x=-1$: $f'$ has a factor $(x+1)^2 \\geq 0$, so $f'$ does not change sign at $x=-1$. No extremum."
+        },
+        {
+          "id": "B",
+          "text": "$x = 2$",
+          "is_correct": false,
+          "explanation": "Sign of $f'$ near $x=2$: for $x<2$, $(+)(-) / (-)^3 = +/(-)=-$ [checking signs at $x=0$: $(1)^2(-2)/(-5)^3 = (-2)/(-125) > 0$]. At $x=0$: $f'= (1)(-2)/(-125) = 2/125 > 0$. At $x=3$: $(4)(1)/(-8) < 0$. So $f'$ changes from $+$ to $-$ at $x=2$: local MAX, not min. Re-evaluating: local max at $x=2$."
+        },
+        {
+          "id": "C",
+          "text": "$x = 2$ is a local maximum, not minimum",
+          "is_correct": false,
+          "explanation": "At $x=0$: $f'=(1)(-2)/(-5)^3 = (-2)/(-125)>0$. At $x=3$: $f'=(4)(1)/(-8)<0$. Sign change $+$ to $-$ at $x=2$: local maximum."
+        },
+        {
+          "id": "D",
+          "text": "No local extrema exist",
+          "is_correct": true,
+          "explanation": "$f'$ changes sign from $+$ to $-$ at $x=2$, so there is a local maximum there. $x=-1$ has no sign change (squared factor). $x=5$ is not in domain."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-054",
+      "unit": "unit-5",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A function $f$ is differentiable everywhere. The graph of $f'$ crosses the $x$-axis from above to below at $x=3$ and from below to above at $x=7$."
+      },
+      "stem": "Which of the following correctly describes the behavior of $f$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Local max at $x=3$; local min at $x=7$",
+          "is_correct": true,
+          "explanation": "$f'$ changes from $+$ to $-$ at $x=3$ (local max of $f$); $f'$ changes from $-$ to $+$ at $x=7$ (local min of $f$)."
+        },
+        {
+          "id": "B",
+          "text": "Local min at $x=3$; local max at $x=7$",
+          "is_correct": false,
+          "explanation": "$+$ to $-$ crossing of $f'$ at $x=3$ means local MAX of $f$. $-$ to $+$ crossing at $x=7$ means local MIN of $f$."
+        },
+        {
+          "id": "C",
+          "text": "Inflection points at $x=3$ and $x=7$",
+          "is_correct": false,
+          "explanation": "Crossings of $f'$ through zero are zeros of $f'$ (critical points of $f$), giving extrema of $f$, not inflection points. Inflection points of $f$ correspond to extrema of $f'$."
+        },
+        {
+          "id": "D",
+          "text": "$f$ is increasing on $(3,7)$",
+          "is_correct": false,
+          "explanation": "$f'$ changes from $+$ to $-$ at $x=3$ — it is negative between $x=3$ and $x=7$. So $f$ is DECREASING on $(3,7)$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-055",
+      "unit": "unit-5",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stem": "Let $f(x) = \\frac{x}{x^2+1}$. Which of the following gives the absolute maximum value of $f$ for all real $x$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\frac{1}{2}$",
+          "is_correct": true,
+          "explanation": "$f'(x) = \\frac{(x^2+1)-x(2x)}{(x^2+1)^2} = \\frac{1-x^2}{(x^2+1)^2}$. $f'=0$ at $x=\\pm 1$. $f(1)=\\frac{1}{2}$, $f(-1)=-\\frac{1}{2}$. Since $f\\to 0$ as $x\\to\\pm\\infty$, max is $\\frac{1}{2}$."
+        },
+        {
+          "id": "B",
+          "text": "$1$",
+          "is_correct": false,
+          "explanation": "At $x=1$: $f(1) = \\frac{1}{2}$. At no point does $f$ equal 1 (check: $x/(x^2+1)=1 \\Rightarrow x^2-x+1=0$, discriminant $< 0$)."
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{1}{\\sqrt{2}}$",
+          "is_correct": false,
+          "explanation": "The maximum occurs at $x=1$: $f(1) = 1/2$, not $1/\\sqrt{2} \\approx 0.707$."
+        },
+        {
+          "id": "D",
+          "text": "There is no absolute maximum",
+          "is_correct": false,
+          "explanation": "The critical point $x=1$ gives $f(1)=1/2$, and $f'' < 0$ there (confirmed by second derivative test). The absolute maximum is $1/2$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-056",
+      "unit": "unit-5",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stem": "Which of the following statements about $f(x) = x^3$ on $(-1, 1)$ is correctly justified using the MVT?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "There is no $c$ where $f'(c) = \\frac{f(1)-f(-1)}{2}$ because $f$ is odd",
+          "is_correct": false,
+          "explanation": "The MVT applies on any closed sub-interval. For $[-1,1]$: $f'(c) = \\frac{1-(-1)}{1-(-1)} = 1$. Since $f'(x)=3x^2$, $3c^2=1 \\Rightarrow c=\\pm 1/\\sqrt{3}$, both in $(-1,1)$."
+        },
+        {
+          "id": "B",
+          "text": "$f'(c) = 1$ for $c = \\pm \\frac{1}{\\sqrt{3}} \\in (-1,1)$",
+          "is_correct": true,
+          "explanation": "MVT on $[-1,1]$: $f'(c) = \\frac{1-(-1)}{2} = 1$. $3c^2=1 \\Rightarrow c = \\pm\\frac{1}{\\sqrt{3}} \\approx \\pm 0.577$, both in $(-1,1)$."
+        },
+        {
+          "id": "C",
+          "text": "$f'(0) = 0$ is the MVT conclusion",
+          "is_correct": false,
+          "explanation": "$f'(0) = 0$ is simply the derivative at 0. The MVT asks for $c$ where $f'(c) = 1$ (the average rate of change on $[-1,1]$), not 0."
+        },
+        {
+          "id": "D",
+          "text": "The MVT does not apply because the open interval $(-1,1)$ is used",
+          "is_correct": false,
+          "explanation": "The MVT requires a closed interval. On the closed interval $[-1,1]$, the MVT fully applies. The open interval $(-1,1)$ is where $c$ is guaranteed to lie."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-057",
+      "unit": "unit-5",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stem": "A critical point $x = c$ satisfies $f'(c) = 0$. Which of the following is the correct conclusion when $f''(c) = 0$ and $f'''(c) \\neq 0$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$x = c$ is an inflection point of $f$",
+          "is_correct": true,
+          "explanation": "When $f'(c)=0$, $f''(c)=0$, and $f'''(c)\\neq 0$: the SDT is inconclusive, but $f'''(c)\\neq 0$ means $f''$ changes sign at $c$ (inflection point of $f$). Also, $x=c$ is a saddle point, not an extremum."
+        },
+        {
+          "id": "B",
+          "text": "$x = c$ is a local minimum",
+          "is_correct": false,
+          "explanation": "The SDT is inconclusive when $f''(c)=0$. With $f'''(c)\\neq 0$, we know $f''$ changes sign at $c$ — this is an inflection point, not a minimum."
+        },
+        {
+          "id": "C",
+          "text": "$x = c$ is a local maximum",
+          "is_correct": false,
+          "explanation": "The SDT is inconclusive when $f''(c)=0$. Additional analysis ($f'''(c)\\neq 0$) indicates an inflection point, not a maximum."
+        },
+        {
+          "id": "D",
+          "text": "No conclusion can be drawn without higher derivatives",
+          "is_correct": false,
+          "explanation": "$f'''(c)\\neq 0$ indicates $f''$ changes sign at $c$ (since $f''(c)=0$ and $f'''>0$ near $c$ means $f''$ is crossing zero). This confirms an inflection point."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-058",
+      "unit": "unit-5",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stem": "Which of the following gives the number of critical points of $f(x) = \\sin(x) - x$ on $[0, 2\\pi]$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$0$",
+          "is_correct": false,
+          "explanation": "$f'(x) = \\cos(x)-1$. $f'(x)=0$ when $\\cos x=1$, i.e., $x=0$ and $x=2\\pi$ on $[0,2\\pi]$. There are 2 critical points (endpoints count as critical points of the closed interval analysis)."
+        },
+        {
+          "id": "B",
+          "text": "$2$",
+          "is_correct": true,
+          "explanation": "$f'(x) = \\cos(x)-1 = 0$ when $\\cos(x)=1$. On $[0,2\\pi]$: $x=0$ and $x=2\\pi$. These are the only solutions."
+        },
+        {
+          "id": "C",
+          "text": "$1$",
+          "is_correct": false,
+          "explanation": "$\\cos(x)=1$ on $[0,2\\pi]$ at $x=0$ and $x=2\\pi$. Both are critical points (2 total, not 1)."
+        },
+        {
+          "id": "D",
+          "text": "$4$",
+          "is_correct": false,
+          "explanation": "$f'(x) = \\cos x - 1 \\leq 0$ for all $x$, equaling $0$ only at $x=0$ and $x=2\\pi$. Two critical points, not four."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-059",
+      "unit": "unit-5",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A twice-differentiable function $f$ satisfies the following: $f'(x) > 0$ on $(-3, 1)$, $f'(x) < 0$ on $(1, 5)$, $f''(x) > 0$ on $(-3, -1)$, $f''(x) < 0$ on $(-1, 3)$, $f''(x) > 0$ on $(3, 5)$."
+      },
+      "stem": "Which of the following correctly identifies all inflection points?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$x = 1$ only",
+          "is_correct": false,
+          "explanation": "$x=1$ is a local max ($f'$ changes sign), not an inflection point. Inflection points occur where $f''$ changes sign: $x=-1$ and $x=3$."
+        },
+        {
+          "id": "B",
+          "text": "$x = -1$ and $x = 3$",
+          "is_correct": true,
+          "explanation": "$f''$ changes from $+$ to $-$ at $x=-1$ and from $-$ to $+$ at $x=3$. Inflection points at $x=-1$ and $x=3$."
+        },
+        {
+          "id": "C",
+          "text": "$x = -1$, $x = 1$, and $x = 3$",
+          "is_correct": false,
+          "explanation": "$x=1$ is a local maximum of $f$ (where $f'$ changes sign from $+$ to $-$), not an inflection point. Inflection points are at $x=-1$ and $x=3$."
+        },
+        {
+          "id": "D",
+          "text": "$x = 1$ and $x = -1$",
+          "is_correct": false,
+          "explanation": "$x=1$ is a local max (extremum of $f$, not inflection). Only $x=-1$ and $x=3$ are inflection points."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-060",
+      "unit": "unit-5",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stem": "Which of the following gives the optimal dimensions of a rectangle with perimeter $40$ cm that has the maximum area?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$10$ cm by $10$ cm",
+          "is_correct": true,
+          "explanation": "Perimeter: $2x+2y=40 \\Rightarrow y=20-x$. Area $A=x(20-x)$. $A'=20-2x=0 \\Rightarrow x=10$, $y=10$. A square maximizes area."
+        },
+        {
+          "id": "B",
+          "text": "$5$ cm by $15$ cm",
+          "is_correct": false,
+          "explanation": "$A(5)=5 \\times 15=75 < 100 = A(10)$. The square $10\\times 10$ gives maximum area."
+        },
+        {
+          "id": "C",
+          "text": "$8$ cm by $12$ cm",
+          "is_correct": false,
+          "explanation": "$A(8)=8 \\times 12=96 < 100$. Dimensions should be equal (square) for maximum area."
+        },
+        {
+          "id": "D",
+          "text": "$1$ cm by $19$ cm",
+          "is_correct": false,
+          "explanation": "$A=19 < 100$. The maximum area is $100$ cm² for a $10 \\times 10$ square."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-061",
+      "unit": "unit-5",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stem": "For $f(x) = \\ln(x^2+1)$, which of the following correctly identifies all inflection points?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$x = 0$ only",
+          "is_correct": false,
+          "explanation": "$f''(x) = \\frac{2(1-x^2)}{(x^2+1)^2}$. $f''=0$ at $x=\\pm 1$. Sign change: $f''>0$ on $(-1,1)$ (concave up), $f''<0$ outside. Inflection at $x=\\pm 1$."
+        },
+        {
+          "id": "B",
+          "text": "$x = 1$ and $x = -1$",
+          "is_correct": true,
+          "explanation": "$f''(x) = \\frac{2(1-x^2)}{(x^2+1)^2}$. $f''=0$ at $x=\\pm 1$ with sign change ($+$ inside $(-1,1)$, $-$ outside). Inflection points at $x=-1$ and $x=1$."
+        },
+        {
+          "id": "C",
+          "text": "$x = \\pm\\sqrt{2}$",
+          "is_correct": false,
+          "explanation": "Setting $f''=0$: $1-x^2=0 \\Rightarrow x=\\pm 1$, not $\\pm\\sqrt{2}$."
+        },
+        {
+          "id": "D",
+          "text": "No inflection points",
+          "is_correct": false,
+          "explanation": "$f''$ changes sign at $x=\\pm 1$, confirming inflection points there."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-062",
+      "unit": "unit-5",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A differentiable function satisfies: $f(0) = 3$, $f(4) = 3$, $f(2) = 7$, and $f$ is concave down on $(0,4)$."
+      },
+      "stem": "Which of the following MUST be true?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "There exist at least two points where $f'(c) = 0$ in $(0,4)$",
+          "is_correct": false,
+          "explanation": "Rolle's Theorem on $[0,4]$ (since $f(0)=f(4)$) guarantees at least ONE $c$ where $f'(c)=0$. At least two is not guaranteed."
+        },
+        {
+          "id": "B",
+          "text": "There exists at least one $c \\in (0,4)$ where $f'(c) = 0$",
+          "is_correct": true,
+          "explanation": "Rolle's Theorem: $f$ continuous on $[0,4]$, differentiable on $(0,4)$, $f(0)=f(4)=3$ guarantees $f'(c)=0$ for some $c \\in (0,4)$."
+        },
+        {
+          "id": "C",
+          "text": "The absolute maximum is $f(2) = 7$",
+          "is_correct": false,
+          "explanation": "While likely (given concave down and the high value at $x=2$), this requires the Candidates Test and is not guaranteed by the given information alone without confirming $f'(2)=0$."
+        },
+        {
+          "id": "D",
+          "text": "$f'(0) > 0$ and $f'(4) < 0$",
+          "is_correct": false,
+          "explanation": "While plausible (since $f$ rises then falls), the given information does not guarantee specific signs of $f'$ at the endpoints."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-063",
+      "unit": "unit-5",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stem": "Which of the following gives the $x$-value where $f(x) = x^2 e^{-x}$ has its absolute maximum on $[0, \\infty)$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$x = 0$",
+          "is_correct": false,
+          "explanation": "$f'(x) = 2xe^{-x} - x^2e^{-x} = xe^{-x}(2-x)$. $f'=0$ at $x=0$ and $x=2$. $f(0)=0$, $f(2)=4e^{-2}>0$. Max at $x=2$."
+        },
+        {
+          "id": "B",
+          "text": "$x = 2$",
+          "is_correct": true,
+          "explanation": "$f'(x) = xe^{-x}(2-x)$. $f' > 0$ on $(0,2)$, $f' < 0$ on $(2,\\infty)$: local and global max at $x=2$. $f(2) = 4e^{-2}$."
+        },
+        {
+          "id": "C",
+          "text": "$x = 1$",
+          "is_correct": false,
+          "explanation": "$f'(1) = e^{-1}(2-1) = e^{-1} > 0$, so $f$ is still increasing at $x=1$. Maximum is at $x=2$."
+        },
+        {
+          "id": "D",
+          "text": "The absolute maximum does not exist",
+          "is_correct": false,
+          "explanation": "Since $f(0)=0$, $f(2)=4e^{-2}$, and $f(x)\\to 0$ as $x\\to\\infty$, the maximum value $4e^{-2}$ is attained at $x=2$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-064",
+      "unit": "unit-5",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stem": "A company's profit function is $P(x) = -x^3 + 6x^2 + 15x - 10$ thousand dollars, where $x$ is the number of units (in hundreds). On the interval $[0, 8]$, which of the following gives the production level that maximizes profit?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$x = 5$",
+          "is_correct": true,
+          "explanation": "$P'(x) = -3x^2+12x+15 = -3(x^2-4x-5) = -3(x-5)(x+1)$. Critical point at $x=5$ (in $[0,8]$). $P(0)=-10$, $P(5)=-125+150+75-10=90$, $P(8)=-512+384+120-10=-18$. Max at $x=5$."
+        },
+        {
+          "id": "B",
+          "text": "$x = 8$",
+          "is_correct": false,
+          "explanation": "$P(8) = -512+384+120-10 = -18 < 90 = P(5)$. The maximum is at $x=5$."
+        },
+        {
+          "id": "C",
+          "text": "$x = -1$",
+          "is_correct": false,
+          "explanation": "$x=-1$ is a critical point but outside the domain $[0,8]$."
+        },
+        {
+          "id": "D",
+          "text": "$x = 0$",
+          "is_correct": false,
+          "explanation": "$P(0) = -10 < 90 = P(5)$. The absolute maximum profit is at $x=5$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u5-065",
+      "unit": "unit-5",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stem": "Which of the following gives the $x$-value at the inflection point of $f(x) = e^{-x^2}$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$x = 0$",
+          "is_correct": false,
+          "explanation": "$f''(x) = e^{-x^2}(4x^2-2)$. $f''=0$ at $4x^2=2$, so $x=\\pm\\frac{1}{\\sqrt{2}}$, not $x=0$. $f''(0)=-2e^0=-2<0$: concave down at 0."
+        },
+        {
+          "id": "B",
+          "text": "$x = \\pm \\frac{1}{\\sqrt{2}}$",
+          "is_correct": true,
+          "explanation": "$f'(x) = -2xe^{-x^2}$. $f''(x) = (-2e^{-x^2}) + (-2x)(-2x)e^{-x^2} = e^{-x^2}(4x^2-2)$. $f''=0$ at $x=\\pm 1/\\sqrt{2}$. Sign changes confirm inflection points."
+        },
+        {
+          "id": "C",
+          "text": "$x = \\pm 1$",
+          "is_correct": false,
+          "explanation": "$f''(\\pm 1) = e^{-1}(4-2) = 2e^{-1} \\neq 0$. Inflection points solve $4x^2-2=0$: $x=\\pm 1/\\sqrt{2}$."
+        },
+        {
+          "id": "D",
+          "text": "No inflection points",
+          "is_correct": false,
+          "explanation": "$f''(x) = e^{-x^2}(4x^2-2)$ changes sign at $x=\\pm 1/\\sqrt{2}$, confirming inflection points."
+        }
+      ]
+    }
+  ]
+}

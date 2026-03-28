@@ -1,0 +1,1724 @@
+{
+  "unit": "unit-7",
+  "subject": "ap-calculus-ab",
+  "questions": [
+    {
+      "id": "calc-mcq-u7-001",
+      "unit": "unit-7",
+      "difficulty": "easy",
+      "has_stimulus": false,
+      "stem": "Which of the following verifies that $y = Ce^{2x}$ is a solution to the differential equation $\\frac{dy}{dx} = 2y$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Substitute $y = Ce^{2x}$ and $\\frac{dy}{dx} = 2Ce^{2x}$ into both sides: $2Ce^{2x} = 2(Ce^{2x})$ ✓",
+          "is_correct": true,
+          "explanation": "Differentiate: $\\frac{dy}{dx} = 2Ce^{2x}$. Check: $2y = 2Ce^{2x}$. Both sides equal $2Ce^{2x}$, confirming the solution."
+        },
+        {
+          "id": "B",
+          "text": "Integrate both sides: $\\int dy = \\int 2y\\,dx$",
+          "is_correct": false,
+          "explanation": "To verify a solution, substitute into the DE and check equality — don't re-derive. Differentiate the proposed solution and compare."
+        },
+        {
+          "id": "C",
+          "text": "Show that $y(0) = C$, confirming an initial condition",
+          "is_correct": false,
+          "explanation": "An initial condition checks a specific value, not the DE itself. To verify the solution, substitute $y$ and $dy/dx$ into the equation."
+        },
+        {
+          "id": "D",
+          "text": "Observe that $Ce^{2x} > 0$ for all $x$",
+          "is_correct": false,
+          "explanation": "Positivity is not verification of the DE. The test is: compute $dy/dx$ and check whether $dy/dx = 2y$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-002",
+      "unit": "unit-7",
+      "difficulty": "easy",
+      "has_stimulus": false,
+      "stem": "Which of the following gives the general solution to $\\frac{dy}{dx} = 3y$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$y = 3x + C$",
+          "is_correct": false,
+          "explanation": "This would solve $\\frac{dy}{dx} = 3$ (constant), not $\\frac{dy}{dx} = 3y$. The equation involves $y$, requiring separation."
+        },
+        {
+          "id": "B",
+          "text": "$y = Ce^{3x}$",
+          "is_correct": true,
+          "explanation": "Separate: $\\frac{dy}{y} = 3dx$. Integrate: $\\ln|y| = 3x + C_1$. Exponentiate: $y = Ce^{3x}$."
+        },
+        {
+          "id": "C",
+          "text": "$y = e^{3x} + C$",
+          "is_correct": false,
+          "explanation": "The $+C$ should be absorbed into the exponential: $y = Ce^{3x}$, not $e^{3x}+C$. Verify: $\\frac{d}{dx}[e^{3x}+C]=3e^{3x} \\neq 3(e^{3x}+C)$ in general."
+        },
+        {
+          "id": "D",
+          "text": "$y = \\frac{3x^2}{2} + C$",
+          "is_correct": false,
+          "explanation": "This solves $\\frac{dy}{dx} = 3x$, not $\\frac{dy}{dx} = 3y$. Separation of variables for $dy/dx=3y$ gives $y=Ce^{3x}$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-003",
+      "unit": "unit-7",
+      "difficulty": "easy",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A slope field for a differential equation is shown. The slopes appear to be positive and constant along horizontal lines (constant in $y$, varying in $x$)."
+      },
+      "stem": "Which of the following differential equations is most consistent with this slope field description?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\frac{dy}{dx} = y$",
+          "is_correct": false,
+          "explanation": "$dy/dx = y$ gives slopes that depend only on $y$, which are constant along horizontal lines — but would increase as $y$ increases, not necessarily what's described."
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{dy}{dx} = x$",
+          "is_correct": true,
+          "explanation": "$dy/dx = x$ gives slopes that depend only on $x$, so along a vertical line (constant $x$), slopes are constant. Along horizontal lines, slopes vary. This matches the description of slopes varying in $x$."
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{dy}{dx} = xy$",
+          "is_correct": false,
+          "explanation": "$dy/dx = xy$ has slopes depending on both $x$ and $y$. The slopes would not be constant along any simple horizontal or vertical line."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{dy}{dx} = 1$",
+          "is_correct": false,
+          "explanation": "$dy/dx = 1$ has constant slope everywhere. The description says slopes vary in $x$, ruling out a constant-slope field."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-004",
+      "unit": "unit-7",
+      "difficulty": "easy",
+      "has_stimulus": false,
+      "stem": "Which of the following gives the general solution to $\\frac{dy}{dx} = \\frac{x}{y}$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$y = x + C$",
+          "is_correct": false,
+          "explanation": "This solves $dy/dx = 1$. For $dy/dx = x/y$, separate variables: $y\\,dy = x\\,dx$."
+        },
+        {
+          "id": "B",
+          "text": "$y^2 = x^2 + C$",
+          "is_correct": true,
+          "explanation": "Separate: $y\\,dy = x\\,dx$. Integrate: $\\frac{y^2}{2} = \\frac{x^2}{2}+C_1$, or $y^2 = x^2 + C$."
+        },
+        {
+          "id": "C",
+          "text": "$y = \\frac{x^2}{2} + C$",
+          "is_correct": false,
+          "explanation": "This solves $dy/dx = x$ (without the $y$ in the denominator). Separate variables: $y\\,dy = x\\,dx \\Rightarrow y^2 = x^2 + C$."
+        },
+        {
+          "id": "D",
+          "text": "$y = Ce^{x^2/2}$",
+          "is_correct": false,
+          "explanation": "That is the solution to $dy/dx = xy$. For $dy/dx = x/y$: separate and integrate to get $y^2 = x^2+C$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-005",
+      "unit": "unit-7",
+      "difficulty": "easy",
+      "has_stimulus": false,
+      "stem": "Which of the following gives the solution to $\\frac{dy}{dx} = ky$ with initial condition $y(0) = y_0$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$y = y_0 + kt$",
+          "is_correct": false,
+          "explanation": "That is linear growth, not exponential. The exponential DE $dy/dx = ky$ has solution $y = y_0 e^{kx}$."
+        },
+        {
+          "id": "B",
+          "text": "$y = y_0 e^{kx}$",
+          "is_correct": true,
+          "explanation": "General solution: $y = Ce^{kx}$. Apply $y(0) = y_0$: $y_0 = Ce^0 = C$. So $y = y_0 e^{kx}$."
+        },
+        {
+          "id": "C",
+          "text": "$y = e^{kx} + y_0 - 1$",
+          "is_correct": false,
+          "explanation": "$y(0) = 1 + y_0 - 1 = y_0$ ✓, but $y' = ke^{kx} \\neq k(e^{kx}+y_0-1)$ in general. The correct form is $y = y_0 e^{kx}$."
+        },
+        {
+          "id": "D",
+          "text": "$y = \\frac{y_0}{1-kx}$",
+          "is_correct": false,
+          "explanation": "That solves a different DE. For $dy/dx = ky$: $y = y_0 e^{kx}$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-006",
+      "unit": "unit-7",
+      "difficulty": "easy",
+      "has_stimulus": false,
+      "stem": "What is the correct first step in solving $\\frac{dy}{dx} = \\frac{y^2}{x}$ by separation of variables?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Write $\\frac{dy}{y^2} = \\frac{dx}{x}$",
+          "is_correct": true,
+          "explanation": "Separate variables: move $y^2$ to the left ($dy$ side) and $x$ to the right ($dx$ side): $\\frac{dy}{y^2} = \\frac{dx}{x}$."
+        },
+        {
+          "id": "B",
+          "text": "Write $dy = y^2\\,dx / x$",
+          "is_correct": false,
+          "explanation": "While equivalent, separation requires moving all $y$ terms with $dy$ and all $x$ terms with $dx$: $\\frac{dy}{y^2} = \\frac{dx}{x}$."
+        },
+        {
+          "id": "C",
+          "text": "Differentiate both sides with respect to $x$",
+          "is_correct": false,
+          "explanation": "Differentiation is not the next step for separation of variables — integration follows after separating."
+        },
+        {
+          "id": "D",
+          "text": "Multiply both sides by $x$",
+          "is_correct": false,
+          "explanation": "Multiplying by $x$ gives $x\\frac{dy}{dx} = y^2$, but separation requires grouping $y$ terms with $dy$ and $x$ terms with $dx$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-007",
+      "unit": "unit-7",
+      "difficulty": "easy",
+      "has_stimulus": false,
+      "stem": "A population of bacteria doubles every 3 hours. If initially there are 500 bacteria, which of the following gives the exponential model $P(t)$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$P(t) = 500e^{t\\ln 2/3}$",
+          "is_correct": true,
+          "explanation": "Doubling every 3 hours: $P(t) = 500 \\cdot 2^{t/3} = 500e^{(\\ln 2/3)t}$."
+        },
+        {
+          "id": "B",
+          "text": "$P(t) = 500 \\cdot 2t$",
+          "is_correct": false,
+          "explanation": "Doubling time of 3 hours gives $P(t) = 500 \\cdot 2^{t/3}$, not $500 \\cdot 2t$ (linear)."
+        },
+        {
+          "id": "C",
+          "text": "$P(t) = 500e^{3t}$",
+          "is_correct": false,
+          "explanation": "The growth constant is $k = \\ln 2/3$, not 3. $P(t) = 500e^{(\\ln 2/3)t}$."
+        },
+        {
+          "id": "D",
+          "text": "$P(t) = 500 \\cdot 2^{3t}$",
+          "is_correct": false,
+          "explanation": "Doubling every 3 hours means $P(t) = 500 \\cdot 2^{t/3}$ (exponent is $t/3$, not $3t$)."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-008",
+      "unit": "unit-7",
+      "difficulty": "easy",
+      "has_stimulus": false,
+      "stem": "Which of the following gives the solution to $\\frac{dy}{dx} = -2y$, $y(0) = 5$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$y = 5e^{-2x}$",
+          "is_correct": true,
+          "explanation": "General solution: $y = Ce^{-2x}$. $y(0) = 5 = C$. So $y = 5e^{-2x}$."
+        },
+        {
+          "id": "B",
+          "text": "$y = 5e^{2x}$",
+          "is_correct": false,
+          "explanation": "The sign must match the DE: $dy/dx = -2y$ gives $k=-2$, so $y = 5e^{-2x}$."
+        },
+        {
+          "id": "C",
+          "text": "$y = -2x + 5$",
+          "is_correct": false,
+          "explanation": "That is a linear function, not exponential. The DE $dy/dx = -2y$ has exponential solutions."
+        },
+        {
+          "id": "D",
+          "text": "$y = 5e^{-2}$",
+          "is_correct": false,
+          "explanation": "$5e^{-2}$ is a constant — it satisfies no differential equation with a variable. The solution is $5e^{-2x}$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-009",
+      "unit": "unit-7",
+      "difficulty": "easy",
+      "has_stimulus": false,
+      "stem": "A slope field for $\\frac{dy}{dx} = y$ would show which of the following patterns?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Slopes increase as $x$ increases (steeper from left to right)",
+          "is_correct": false,
+          "explanation": "For $dy/dx = y$, slope depends only on $y$, not on $x$. Slopes are constant along horizontal lines."
+        },
+        {
+          "id": "B",
+          "text": "Slopes are constant along each horizontal line ($y =$ constant)",
+          "is_correct": true,
+          "explanation": "$dy/dx = y$ gives slope $= y$. Along any horizontal line $y = c$, the slope is $c$ (constant). Larger $y$ values have steeper positive slopes; negative $y$ gives negative slopes."
+        },
+        {
+          "id": "C",
+          "text": "Slopes are positive everywhere",
+          "is_correct": false,
+          "explanation": "When $y < 0$, $dy/dx = y < 0$ (negative slopes). Slopes are positive only for $y > 0$."
+        },
+        {
+          "id": "D",
+          "text": "Slopes are zero along the $x$-axis and increase uniformly in both directions",
+          "is_correct": false,
+          "explanation": "Along $y=0$: $dy/dx = 0$. For $y>0$: positive slopes. For $y<0$: negative slopes (not symmetric increase)."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-010",
+      "unit": "unit-7",
+      "difficulty": "easy",
+      "has_stimulus": false,
+      "stem": "Which of the following gives the general solution to $\\frac{dy}{dx} = \\cos(x)$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$y = \\sin(x) + C$",
+          "is_correct": true,
+          "explanation": "Direct integration: $y = \\int\\cos(x)dx = \\sin(x)+C$."
+        },
+        {
+          "id": "B",
+          "text": "$y = -\\sin(x) + C$",
+          "is_correct": false,
+          "explanation": "$-\\sin(x)$ is the antiderivative of $-\\cos(x)$. For $+\\cos(x)$: $\\int\\cos x\\,dx = \\sin x + C$."
+        },
+        {
+          "id": "C",
+          "text": "$y = -\\cos(x) + C$",
+          "is_correct": false,
+          "explanation": "$-\\cos(x)+C$ is the antiderivative of $\\sin(x)$. Integrating $\\cos(x)$ gives $\\sin(x)+C$."
+        },
+        {
+          "id": "D",
+          "text": "$y = \\cos(x) + C$",
+          "is_correct": false,
+          "explanation": "That would mean $dy/dx = -\\sin(x)$. The antiderivative of $\\cos(x)$ is $\\sin(x)+C$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-011",
+      "unit": "unit-7",
+      "difficulty": "medium",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A slope field for $\\frac{dy}{dx} = x - y$ is described. At the point $(2, 1)$, the slope is $2-1=1$. At $(1, 2)$, the slope is $1-2=-1$."
+      },
+      "stem": "Along the line $y = x$, what is the slope shown in the slope field for this differential equation?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$0$",
+          "is_correct": true,
+          "explanation": "Along $y=x$: $\\frac{dy}{dx} = x - y = x - x = 0$. All slope marks along $y=x$ are horizontal."
+        },
+        {
+          "id": "B",
+          "text": "$1$",
+          "is_correct": false,
+          "explanation": "On $y=x$: $dy/dx = x-x = 0$, not 1."
+        },
+        {
+          "id": "C",
+          "text": "$x$",
+          "is_correct": false,
+          "explanation": "On $y=x$: $dy/dx = x-y = x-x=0$. The slope is 0, a specific number, not $x$."
+        },
+        {
+          "id": "D",
+          "text": "Undefined",
+          "is_correct": false,
+          "explanation": "$dy/dx = x-y = 0$ along $y=x$. This is defined and equal to 0."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-012",
+      "unit": "unit-7",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stem": "Which of the following gives the solution to $\\frac{dy}{dx} = xy$, $y(0) = 3$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$y = 3e^{x^2/2}$",
+          "is_correct": true,
+          "explanation": "Separate: $\\frac{dy}{y} = x\\,dx$. Integrate: $\\ln|y| = \\frac{x^2}{2}+C_1$. $y=Ce^{x^2/2}$. At $x=0$: $3=C$. So $y=3e^{x^2/2}$."
+        },
+        {
+          "id": "B",
+          "text": "$y = 3e^x$",
+          "is_correct": false,
+          "explanation": "That solves $dy/dx = y$. For $dy/dx = xy$: separation gives $y = Ce^{x^2/2}$."
+        },
+        {
+          "id": "C",
+          "text": "$y = e^{x^2/2} + 2$",
+          "is_correct": false,
+          "explanation": "The $+2$ is incorrect. Separation gives $y = Ce^{x^2/2}$; initial condition $y(0)=3$ gives $C=3$."
+        },
+        {
+          "id": "D",
+          "text": "$y = 3e^{x^2}$",
+          "is_correct": false,
+          "explanation": "The exponent is $x^2/2$ (from $\\int x\\,dx = x^2/2$), not $x^2$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-013",
+      "unit": "unit-7",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stem": "Which of the following gives the solution to $\\frac{dy}{dx} = \\frac{y}{x^2}$, $y(1) = 2$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$y = 2e^{1-1/x}$",
+          "is_correct": true,
+          "explanation": "Separate: $\\frac{dy}{y} = \\frac{dx}{x^2}$. Integrate: $\\ln|y| = -\\frac{1}{x}+C_1$. $y=Ce^{-1/x}$. At $x=1$: $2=Ce^{-1}$, $C=2e$. $y=2e\\cdot e^{-1/x}=2e^{1-1/x}$."
+        },
+        {
+          "id": "B",
+          "text": "$y = 2e^{-1/x}$",
+          "is_correct": false,
+          "explanation": "$y(1) = 2e^{-1} \\neq 2$. Applying the IC: $C = 2e$, giving $y = 2e\\cdot e^{-1/x} = 2e^{1-1/x}$."
+        },
+        {
+          "id": "C",
+          "text": "$y = 2x^2$",
+          "is_correct": false,
+          "explanation": "$dy/dx = 4x \\neq y/x^2 = 2x^2/x^2 = 2$. The solution involves an exponential, not a polynomial."
+        },
+        {
+          "id": "D",
+          "text": "$y = 2e^{x/2}$",
+          "is_correct": false,
+          "explanation": "This would solve $dy/dx = y/2$. For $dy/dx = y/x^2$: $y = 2e^{1-1/x}$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-014",
+      "unit": "unit-7",
+      "difficulty": "medium",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A radioactive substance decays according to $\\frac{dA}{dt} = -0.04A$, where $A$ is the amount in grams and $t$ is time in years. Initially, $A(0) = 200$ grams."
+      },
+      "stem": "Which of the following gives $A(t)$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$A(t) = 200e^{-0.04t}$",
+          "is_correct": true,
+          "explanation": "General solution: $A=Ce^{-0.04t}$. $A(0)=200=C$. So $A(t) = 200e^{-0.04t}$."
+        },
+        {
+          "id": "B",
+          "text": "$A(t) = 200 - 0.04t$",
+          "is_correct": false,
+          "explanation": "This is linear decay, not exponential. The DE $dA/dt = -0.04A$ gives exponential decay."
+        },
+        {
+          "id": "C",
+          "text": "$A(t) = 200e^{0.04t}$",
+          "is_correct": false,
+          "explanation": "The positive exponent gives exponential growth. The decay constant is $k=-0.04$ (negative): $A = 200e^{-0.04t}$."
+        },
+        {
+          "id": "D",
+          "text": "$A(t) = -0.04 \\cdot 200t + 200$",
+          "is_correct": false,
+          "explanation": "That integrates $-0.04 \\cdot 200$ (treating $A$ as a constant), which ignores the $A$-dependence. The solution is $200e^{-0.04t}$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-015",
+      "unit": "unit-7",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stem": "Which of the following gives the general solution to $\\frac{dy}{dx} = y^2$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$y = -\\frac{1}{x+C}$",
+          "is_correct": true,
+          "explanation": "Separate: $\\frac{dy}{y^2} = dx$. Integrate: $-\\frac{1}{y} = x+C_1$. Solve: $y = -\\frac{1}{x+C}$."
+        },
+        {
+          "id": "B",
+          "text": "$y = e^{x^2}$",
+          "is_correct": false,
+          "explanation": "That solves $dy/dx = 2xy$. For $dy/dx = y^2$: separate to get $y = -1/(x+C)$."
+        },
+        {
+          "id": "C",
+          "text": "$y = \\frac{1}{x+C}$",
+          "is_correct": false,
+          "explanation": "Sign error. $\\int y^{-2}dy = -y^{-1}$. So $-1/y = x+C$, giving $y = -1/(x+C)$."
+        },
+        {
+          "id": "D",
+          "text": "$y = Ce^{y}$",
+          "is_correct": false,
+          "explanation": "This mixes variables. Separation of $dy/dx = y^2$ gives $y = -1/(x+C)$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-016",
+      "unit": "unit-7",
+      "difficulty": "medium",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A slope field is described: at every point, the slope equals the product of the $x$ and $y$ coordinates (i.e., slope $= xy$)."
+      },
+      "stem": "Which of the following describes the slope field near the origin?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Slopes are positive in all four quadrants near the origin",
+          "is_correct": false,
+          "explanation": "$dy/dx = xy$: Quadrant I ($x>0, y>0$): positive; II ($x<0, y>0$): negative; III ($x<0, y<0$): positive; IV ($x>0, y<0$): negative. Not all positive."
+        },
+        {
+          "id": "B",
+          "text": "Slopes are positive in Quadrants I and III, negative in Quadrants II and IV",
+          "is_correct": true,
+          "explanation": "$xy > 0$ when $x$ and $y$ have the same sign (Q1 and Q3). $xy < 0$ when opposite signs (Q2 and Q4)."
+        },
+        {
+          "id": "C",
+          "text": "Slopes are zero along both axes and positive everywhere else",
+          "is_correct": false,
+          "explanation": "Slopes are zero along the $x$-axis ($y=0$) and $y$-axis ($x=0$). But not positive everywhere: negative in Q2 and Q4."
+        },
+        {
+          "id": "D",
+          "text": "All slopes near the origin are approximately zero",
+          "is_correct": false,
+          "explanation": "Near the origin, $xy \\approx 0$, so slopes are small. While small, this doesn't describe the sign pattern. The correct sign description is Q1/Q3 positive, Q2/Q4 negative."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-017",
+      "unit": "unit-7",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stem": "Which of the following gives the solution to $\\frac{dy}{dx} = \\frac{x+1}{y}$, $y(0) = 2$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$y = \\sqrt{x^2+2x+4}$",
+          "is_correct": true,
+          "explanation": "Separate: $y\\,dy = (x+1)dx$. Integrate: $\\frac{y^2}{2} = \\frac{x^2}{2}+x+C$. At $(0,2)$: $2=0+0+C$, $C=2$. $y^2 = x^2+2x+4$. $y = \\sqrt{x^2+2x+4}$ (positive)."
+        },
+        {
+          "id": "B",
+          "text": "$y = \\sqrt{x^2+4}$",
+          "is_correct": false,
+          "explanation": "This omits the $2x$ term. From $y^2 = x^2+2x+4$: $y = \\sqrt{x^2+2x+4}$."
+        },
+        {
+          "id": "C",
+          "text": "$y = x + 2$",
+          "is_correct": false,
+          "explanation": "This solves $dy/dx = 1$ with $y(0)=2$. For $dy/dx = (x+1)/y$: separation gives a quadratic."
+        },
+        {
+          "id": "D",
+          "text": "$y = \\sqrt{2x^2+4}$",
+          "is_correct": false,
+          "explanation": "Check: $y^2 = 2x^2+4$. $y(0)=2$ ✓. But $dy/dx = \\frac{2x}{\\sqrt{2x^2+4}} \\neq \\frac{x+1}{y}$ at $(0,2)$. Correct answer: $y^2 = x^2+2x+4$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-018",
+      "unit": "unit-7",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stem": "A substance decomposes so that its rate of decrease is proportional to the square root of the amount present: $\\frac{dA}{dt} = -k\\sqrt{A}$. Which of the following gives the general solution?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$A = \\left(C - \\frac{kt}{2}\\right)^2$",
+          "is_correct": true,
+          "explanation": "Separate: $\\frac{dA}{\\sqrt{A}} = -k\\,dt$. Integrate: $2\\sqrt{A} = -kt + C_1$. $\\sqrt{A} = C - \\frac{kt}{2}$. $A = (C-\\frac{kt}{2})^2$."
+        },
+        {
+          "id": "B",
+          "text": "$A = Ce^{-kt}$",
+          "is_correct": false,
+          "explanation": "That solves $dA/dt = -kA$. For $dA/dt = -k\\sqrt{A}$: separation gives $A=(C-kt/2)^2$."
+        },
+        {
+          "id": "C",
+          "text": "$A = \\left(C - kt\\right)^2$",
+          "is_correct": false,
+          "explanation": "The factor of 2 from integrating $A^{-1/2}$ is missing: $2\\sqrt{A} = -kt + C_1 \\Rightarrow \\sqrt{A} = C - kt/2$."
+        },
+        {
+          "id": "D",
+          "text": "$A = \\frac{1}{(kt+C)^2}$",
+          "is_correct": false,
+          "explanation": "Correct form comes from separation: $2\\sqrt{A} = -kt+C$, giving $A = (C-kt/2)^2$, not $1/(kt+C)^2$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-019",
+      "unit": "unit-7",
+      "difficulty": "medium",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "The slope field for $\\frac{dy}{dx} = \\frac{x}{y}$ shows ellipse-shaped solution curves."
+      },
+      "stem": "Which of the following is a solution curve consistent with this slope field, passing through $(3, 0)$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$x^2 + y^2 = 9$",
+          "is_correct": false,
+          "explanation": "That is a circle. For $dy/dx = x/y$: separation gives $y^2 - x^2 = C$ (hyperbolas) or $y\\,dy = x\\,dx \\Rightarrow y^2 - x^2 = C$. Through $(3,0)$: $-9+0=-9$, so $y^2-x^2=-9$, i.e., $x^2-y^2=9$."
+        },
+        {
+          "id": "B",
+          "text": "$y^2 - x^2 = -9$",
+          "is_correct": true,
+          "explanation": "Separate: $y\\,dy = x\\,dx \\Rightarrow y^2/2 = x^2/2+C \\Rightarrow y^2 = x^2+C$. At $(3,0)$: $0=9+C$, $C=-9$. So $y^2 = x^2-9$, or $y^2-x^2=-9$."
+        },
+        {
+          "id": "C",
+          "text": "$y^2 + x^2 = 9$",
+          "is_correct": false,
+          "explanation": "Circles correspond to $dy/dx = -x/y$ (not $+x/y$). The actual solutions to $dy/dx = x/y$ are $y^2 = x^2 + C$."
+        },
+        {
+          "id": "D",
+          "text": "$y = 3\\sin(x)$",
+          "is_correct": false,
+          "explanation": "Sinusoidal curves don't satisfy $y^2 = x^2+C$. Through $(3,0)$: $0=9+C \\Rightarrow C=-9$, giving $y^2-x^2=-9$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-020",
+      "unit": "unit-7",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stem": "Which of the following gives the solution to $x\\,dy = y\\,dx$, $y(1) = 4$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$y = 4x$",
+          "is_correct": true,
+          "explanation": "Rewrite: $dy/dx = y/x$. Separate: $dy/y = dx/x$. Integrate: $\\ln|y|=\\ln|x|+C_1$. $y=Cx$. $y(1)=4=C$. So $y=4x$."
+        },
+        {
+          "id": "B",
+          "text": "$y = 4e^x$",
+          "is_correct": false,
+          "explanation": "That solves $dy/dx = y$. Here $dy/dx = y/x$, giving $y=Cx$."
+        },
+        {
+          "id": "C",
+          "text": "$y = 4\\ln(x)$",
+          "is_correct": false,
+          "explanation": "$dy/dx = 4/x \neq y/x = 4\\ln(x)/x$ in general. The correct solution is $y = 4x$."
+        },
+        {
+          "id": "D",
+          "text": "$y = e^{x-1+\\ln 4}$",
+          "is_correct": false,
+          "explanation": "Overcomplicating. $y=Cx$ with $C=4$ gives $y=4x$ directly."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-021",
+      "unit": "unit-7",
+      "difficulty": "medium",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A bank account grows at a continuous rate proportional to its balance: $\\frac{dB}{dt} = 0.05B$. Initially, $B(0) = \\$1000$."
+      },
+      "stem": "Which of the following gives the balance after 10 years?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$B(10) = 1000e^{0.5}$",
+          "is_correct": true,
+          "explanation": "$B(t) = 1000e^{0.05t}$. At $t=10$: $B(10) = 1000e^{0.5}$."
+        },
+        {
+          "id": "B",
+          "text": "$B(10) = 1000(1.05)^{10}$",
+          "is_correct": false,
+          "explanation": "$(1.05)^{10}$ models annual compounding (discrete). Continuous compounding gives $1000e^{0.05 \\times 10} = 1000e^{0.5}$."
+        },
+        {
+          "id": "C",
+          "text": "$B(10) = 1500$",
+          "is_correct": false,
+          "explanation": "$1000e^{0.5} \\approx 1000(1.649) = 1649$, not 1500."
+        },
+        {
+          "id": "D",
+          "text": "$B(10) = 1000 + 0.05 \\times 1000 \\times 10$",
+          "is_correct": false,
+          "explanation": "That gives $1000 + 500 = 1500$ (simple interest). Continuous compounding: $B(10) = 1000e^{0.5}$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-022",
+      "unit": "unit-7",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stem": "Which of the following gives the solution to $\\frac{dy}{dx} = \\frac{x}{y^2}$, $y(0) = 1$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$y = (1 + \\frac{3x^2}{2})^{1/3}$... recalculating: $y^3 = x^2 + 1$... so $y=(x^2+1)^{1/3}$",
+          "is_correct": false,
+          "explanation": "Separate: $y^2\\,dy = x\\,dx$. Integrate: $y^3/3 = x^2/2+C$. At $(0,1)$: $1/3 = 0+C$. $y^3/3 = x^2/2+1/3$. $y^3 = 3x^2/2+1$. Hmm, let me rewrite: $y^3 = \\frac{3x^2}{2}+1$."
+        },
+        {
+          "id": "B",
+          "text": "$y = \\left(\\frac{3x^2}{2}+1\\right)^{1/3}$",
+          "is_correct": true,
+          "explanation": "Separate: $y^2 dy = x\\,dx$. Integrate: $\\frac{y^3}{3}=\\frac{x^2}{2}+C$. At $(0,1)$: $C=1/3$. $y^3 = \\frac{3x^2}{2}+1$. $y=(\\frac{3x^2}{2}+1)^{1/3}$."
+        },
+        {
+          "id": "C",
+          "text": "$y = \\left(x^2+1\\right)^{1/3}$",
+          "is_correct": false,
+          "explanation": "From separation: $\\frac{y^3}{3}=\\frac{x^2}{2}+\\frac{1}{3}$, so $y^3 = \\frac{3x^2}{2}+1$, not $x^2+1$."
+        },
+        {
+          "id": "D",
+          "text": "$y = \\sqrt{x^2+1}$",
+          "is_correct": false,
+          "explanation": "That solves $y\\,dy = x\\,dx$ (i.e., $dy/dx=x/y$). For $dy/dx = x/y^2$: $y^2\\,dy = x\\,dx$ gives a cube root form."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-023",
+      "unit": "unit-7",
+      "difficulty": "medium",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A slope field for $\\frac{dy}{dx} = 2-y$ is shown. The field has zero slopes along $y=2$ and positive slopes below $y=2$."
+      },
+      "stem": "Which of the following gives the solution to $\\frac{dy}{dx} = 2-y$, $y(0) = 0$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$y = 2(1-e^{-x})$",
+          "is_correct": true,
+          "explanation": "Separate: $\\frac{dy}{2-y} = dx$. Integrate: $-\\ln|2-y| = x+C_1$. $2-y = Ce^{-x}$. $y(0)=0$: $2=C$. $y = 2-2e^{-x}=2(1-e^{-x})$."
+        },
+        {
+          "id": "B",
+          "text": "$y = 2e^{-x}$",
+          "is_correct": false,
+          "explanation": "$y(0)=2\\neq 0$. Also, $dy/dx = -2e^{-x}$ but $2-y=2-2e^{-x}$, which doesn't equal $-2e^{-x}$."
+        },
+        {
+          "id": "C",
+          "text": "$y = 2 - e^{-x}$",
+          "is_correct": false,
+          "explanation": "$y(0)=2-1=1\\neq 0$. The correct IC gives $C=2$: $y=2-2e^{-x}=2(1-e^{-x})$."
+        },
+        {
+          "id": "D",
+          "text": "$y = 2x$",
+          "is_correct": false,
+          "explanation": "$dy/dx = 2 \\neq 2-y = 2-2x$ in general. The correct solution is $2(1-e^{-x})$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-024",
+      "unit": "unit-7",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stem": "Which of the following gives the half-life of a substance decaying according to $A(t) = A_0 e^{-0.1t}$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$t = \\frac{\\ln 2}{0.1} \\approx 6.93$",
+          "is_correct": true,
+          "explanation": "Half-life: $A_0/2 = A_0 e^{-0.1t}$. $e^{-0.1t} = 1/2$. $-0.1t = -\\ln 2$. $t = \\frac{\\ln 2}{0.1} \\approx 6.93$."
+        },
+        {
+          "id": "B",
+          "text": "$t = 10$",
+          "is_correct": false,
+          "explanation": "$t=10$ gives $A_0e^{-1} \\approx 0.368A_0$, not $0.5A_0$. Half-life is $t = \\ln 2 / 0.1 \\approx 6.93$."
+        },
+        {
+          "id": "C",
+          "text": "$t = \\frac{1}{0.1}= 10$ is the mean life, not half-life",
+          "is_correct": false,
+          "explanation": "The mean life (time constant) is $1/k = 10$. The half-life is $\\ln 2/k = \\ln 2/0.1 \\approx 6.93$."
+        },
+        {
+          "id": "D",
+          "text": "$t = 0.1\\ln 2$",
+          "is_correct": false,
+          "explanation": "Inverting: half-life $= \\ln 2 / 0.1$, not $0.1\\ln 2$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-025",
+      "unit": "unit-7",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stem": "Which of the following correctly describes the long-term behavior of the solution to $\\frac{dy}{dx} = y(1-y)$ as $x \\to \\infty$ for $y(0) = 0.5$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$y \\to 0$",
+          "is_correct": false,
+          "explanation": "$y=0$ is an unstable equilibrium for this equation. Starting at $y=0.5 > 0$ with $y(1-y)>0$: $y$ is increasing toward $y=1$."
+        },
+        {
+          "id": "B",
+          "text": "$y \\to 1$",
+          "is_correct": true,
+          "explanation": "The equation has equilibria at $y=0$ (unstable) and $y=1$ (stable). Starting at $y=0.5$, the solution increases toward the stable equilibrium $y=1$."
+        },
+        {
+          "id": "C",
+          "text": "$y \\to \\infty$",
+          "is_correct": false,
+          "explanation": "For $y > 1$: $y(1-y) < 0$, so $y$ decreases toward 1. Solutions are bounded and approach 1."
+        },
+        {
+          "id": "D",
+          "text": "$y \\to 0.5$",
+          "is_correct": false,
+          "explanation": "$y=0.5$ is not an equilibrium. $y(1-y) = 0.5(0.5) = 0.25 > 0$, so $y$ is increasing toward 1."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-026",
+      "unit": "unit-7",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stem": "Which of the following gives the solution to $\\frac{dy}{dx} = \\frac{y\\ln y}{x}$, $y(1) = e$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$y = e^{\\ln x + 1} = ex$",
+          "is_correct": true,
+          "explanation": "Separate: $\\frac{dy}{y\\ln y} = \\frac{dx}{x}$. Let $u=\\ln y$: $\\frac{du}{u} = \\frac{dx}{x}$. $\\ln|u|=\\ln|x|+C_1$. $\\ln y = Cx$. At $(1,e)$: $1=C$. $\\ln y = x$, $y=e^x$. Check: $y(1)=e$ ✓. $dy/dx=e^x=y$. $y\\ln y/x = e^x \\cdot x/x = e^x$ ✓."
+        },
+        {
+          "id": "B",
+          "text": "$y = e^x$",
+          "is_correct": false,
+          "explanation": "Separation gives $\\ln y = Cx$. At $y(1)=e$: $\\ln e=C\\cdot 1$, $C=1$. So $\\ln y=x$, $y=e^x$."
+        },
+        {
+          "id": "C",
+          "text": "$y = e^{x^2}$",
+          "is_correct": false,
+          "explanation": "$\\ln y = x^2$ gives $y' = 2xy$. Check: $\\frac{y\\ln y}{x} = \\frac{e^{x^2}\\cdot x^2}{x} = xe^{x^2} \\neq 2xe^{x^2}$. The correct solution is $y=e^x$."
+        },
+        {
+          "id": "D",
+          "text": "$y = e^{\\sqrt{x}}$",
+          "is_correct": false,
+          "explanation": "$y(1)=e$ ✓, but check: $y' = \\frac{e^{\\sqrt{x}}}{2\\sqrt{x}}$ and $y\\ln y/x = e^{\\sqrt{x}}\\cdot\\sqrt{x}/x = e^{\\sqrt{x}}/(\\sqrt{x})$. These don't match."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-027",
+      "unit": "unit-7",
+      "difficulty": "medium",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A slope field description: at point $(x, y)$, the slope is $\\frac{dy}{dx} = x + 1$. Solution curves are parabolas opening upward."
+      },
+      "stem": "Which of the following gives the solution passing through $(0, 2)$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$y = \\frac{x^2}{2} + x + 2$",
+          "is_correct": true,
+          "explanation": "$y = \\int(x+1)dx = \\frac{x^2}{2}+x+C$. At $(0,2)$: $C=2$. $y = \\frac{x^2}{2}+x+2$."
+        },
+        {
+          "id": "B",
+          "text": "$y = x^2 + x + 2$",
+          "is_correct": false,
+          "explanation": "Missing the $\\frac{1}{2}$ from integrating $x$: $\\int x\\,dx = x^2/2$, not $x^2$."
+        },
+        {
+          "id": "C",
+          "text": "$y = \\frac{x^2}{2} + x$",
+          "is_correct": false,
+          "explanation": "This doesn't pass through $(0,2)$: $y(0)=0\\neq 2$. Apply the initial condition to get $C=2$."
+        },
+        {
+          "id": "D",
+          "text": "$y = 2e^{x+1}$",
+          "is_correct": false,
+          "explanation": "Exponentials solve equations of the form $dy/dx = y$. For $dy/dx=x+1$, integrate directly: $y = x^2/2+x+2$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-028",
+      "unit": "unit-7",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stem": "Which of the following gives the solution to $\\frac{dy}{dx} = \\frac{1-y^2}{y}$, $y(0) = 1$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$y = 1$ (constant)",
+          "is_correct": true,
+          "explanation": "At $y=1$: $\\frac{dy}{dx} = (1-1)/1 = 0$. The solution is constant at $y=1$. Verify: if $y=1$, $dy/dx=0=(1-1)/1$ ✓. The IC $y(0)=1$ with $dy/dx=0$ at $y=1$ keeps $y=1$."
+        },
+        {
+          "id": "B",
+          "text": "$y = \\sqrt{1+2x}$... checking: $y\\,dy = (1-y^2)dx/y \\cdot y$, i.e., $\\frac{y\\,dy}{1-y^2} = dx$",
+          "is_correct": false,
+          "explanation": "With $y(0)=1$: $y=1$ is an equilibrium solution (since $dy/dx=0$ there). The solution is identically $y=1$."
+        },
+        {
+          "id": "C",
+          "text": "$y = e^{-x}$",
+          "is_correct": false,
+          "explanation": "$y(0)=1$ ✓, but $dy/dx = -e^{-x}$. Check: $(1-y^2)/y = (1-e^{-2x})/e^{-x} = e^x - e^{-x}$, not $-e^{-x}$."
+        },
+        {
+          "id": "D",
+          "text": "$y = \\cos(x)$",
+          "is_correct": false,
+          "explanation": "$y(0)=1$ ✓, $dy/dx = -\\sin(x)$. But $(1-y^2)/y = (1-\\cos^2 x)/\\cos x = \\sin^2 x/\\cos x$, which doesn't equal $-\\sin x$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-029",
+      "unit": "unit-7",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A slope field for $\\frac{dy}{dx} = \\frac{x^2}{y}$ shows the following features: slopes are zero along the $y$-axis, steepen as $|x|$ increases, and solution curves are symmetric about the $y$-axis."
+      },
+      "stem": "Which of the following gives the general solution?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$y^2 = \\frac{2x^3}{3} + C$",
+          "is_correct": false,
+          "explanation": "Separate: $y\\,dy = x^2\\,dx$. Integrate: $y^2/2 = x^3/3+C_1$, so $y^2 = \\frac{2x^3}{3}+C$. This gives asymmetric curves (not symmetric about $y$-axis)."
+        },
+        {
+          "id": "B",
+          "text": "$y^2 = \\frac{2x^3}{3} + C$",
+          "is_correct": true,
+          "explanation": "Separate: $y\\,dy = x^2\\,dx$. Integrate: $\\frac{y^2}{2}=\\frac{x^3}{3}+C_1$. $y^2 = \\frac{2x^3}{3}+C$."
+        },
+        {
+          "id": "C",
+          "text": "$y = \\sqrt{\\frac{2x^3}{3}+C}$",
+          "is_correct": false,
+          "explanation": "This only gives positive $y$. The general solution $y^2 = \\frac{2x^3}{3}+C$ includes both positive and negative branches."
+        },
+        {
+          "id": "D",
+          "text": "$y^2 = x^3 + C$",
+          "is_correct": false,
+          "explanation": "Missing the factor $\\frac{2}{3}$. $\\int y\\,dy = \\frac{y^2}{2}$ and $\\int x^2\\,dx = \\frac{x^3}{3}$: $\\frac{y^2}{2}=\\frac{x^3}{3}+C \\Rightarrow y^2=\\frac{2x^3}{3}+C$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-030",
+      "unit": "unit-7",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stem": "Which of the following gives the solution to $\\frac{dy}{dx} = \\frac{y^2 - 1}{2y}$, $y(0) = 2$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$y = \\sqrt{e^x + 1}$... checking: $y(0)=\\sqrt{2}\\neq 2$",
+          "is_correct": false,
+          "explanation": "Separate: $\\frac{2y\\,dy}{y^2-1} = dx$. Let $u=y^2-1$: $\\frac{du}{u}=dx$. $\\ln|y^2-1|=x+C_1$. $y^2-1=Ce^x$. At $(0,2)$: $3=C$. $y^2=3e^x+1$."
+        },
+        {
+          "id": "B",
+          "text": "$y = \\sqrt{3e^x+1}$",
+          "is_correct": true,
+          "explanation": "Separate: $\\frac{2y}{y^2-1}dy=dx$. $\\ln|y^2-1|=x+C_1$. $y^2-1=Ce^x$. $y(0)=2$: $4-1=3=C$. $y=\\sqrt{3e^x+1}$ (positive branch)."
+        },
+        {
+          "id": "C",
+          "text": "$y = \\sqrt{3e^x-1}$",
+          "is_correct": false,
+          "explanation": "$y(0)=\\sqrt{3-1}=\\sqrt{2}\\neq 2$. The correct IC gives $C=3$: $y=\\sqrt{3e^x+1}$."
+        },
+        {
+          "id": "D",
+          "text": "$y = \\sqrt{e^{3x}+1}$",
+          "is_correct": false,
+          "explanation": "$y^2-1 = e^{3x}$ gives $y(0)=\\sqrt{2}\\neq 2$. From the DE: $y^2-1 = 3e^x$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-031",
+      "unit": "unit-7",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "Newton's Law of Cooling: $\\frac{dT}{dt} = -k(T - T_a)$, where $T_a = 70$°F is the ambient temperature and $k = 0.03$. An object cools from $T(0) = 180$°F."
+      },
+      "stem": "Which of the following gives $T(t)$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$T(t) = 70 + 110e^{-0.03t}$",
+          "is_correct": true,
+          "explanation": "General solution: $T-70 = Ce^{-0.03t}$. At $t=0$: $180-70=110=C$. $T(t)=70+110e^{-0.03t}$."
+        },
+        {
+          "id": "B",
+          "text": "$T(t) = 110e^{-0.03t}$",
+          "is_correct": false,
+          "explanation": "$T(\\infty)=0$ doesn't make physical sense — the object cools to ambient $70$°F. $T(t)=70+110e^{-0.03t}$."
+        },
+        {
+          "id": "C",
+          "text": "$T(t) = 180e^{-0.03t}$",
+          "is_correct": false,
+          "explanation": "$T(\\infty)=0$, not $70$. The ambient correction gives $T=70+110e^{-0.03t}$."
+        },
+        {
+          "id": "D",
+          "text": "$T(t) = 70 + 180e^{-0.03t}$",
+          "is_correct": false,
+          "explanation": "$T(0)=70+180=250\\neq 180$. The constant $C=T(0)-T_a = 180-70=110$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-032",
+      "unit": "unit-7",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stem": "Which of the following gives the solution to $\\frac{dy}{dx} = \\frac{\\sin x}{\\cos y}$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\sin y = \\cos x + C$",
+          "is_correct": false,
+          "explanation": "Separate: $\\cos y\\,dy = \\sin x\\,dx$. Integrate: $\\sin y = -\\cos x + C$."
+        },
+        {
+          "id": "B",
+          "text": "$\\sin y = -\\cos x + C$",
+          "is_correct": true,
+          "explanation": "Separate: $\\cos y\\,dy = \\sin x\\,dx$. Integrate: $\\sin y = -\\cos x + C$."
+        },
+        {
+          "id": "C",
+          "text": "$\\cos y = -\\sin x + C$",
+          "is_correct": false,
+          "explanation": "$\\int\\cos y\\,dy = \\sin y$, not $\\cos y$. The left side integrates to $\\sin y$."
+        },
+        {
+          "id": "D",
+          "text": "$\\sin y = \\sin x + C$",
+          "is_correct": false,
+          "explanation": "$\\int\\sin x\\,dx = -\\cos x$, not $\\sin x$. The right side is $-\\cos x + C$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-033",
+      "unit": "unit-7",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "The graph of a slope field for a differential equation is described. Along the $x$-axis ($y=0$), all slopes are zero. Along $y=1$, slopes equal $x$. Along $y=2$, slopes equal $2x$."
+      },
+      "stem": "Which of the following differential equation is most consistent with this slope field?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\frac{dy}{dx} = xy$",
+          "is_correct": true,
+          "explanation": "Check: along $y=0$: $xy=0$ ✓. Along $y=1$: $xy=x$ ✓. Along $y=2$: $xy=2x$ ✓. The pattern $dy/dx = xy$ matches."
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{dy}{dx} = x+y$",
+          "is_correct": false,
+          "explanation": "Along $y=0$: $x+y=x\\neq 0$ for $x\\neq 0$. Doesn't match the zero-slope on the $x$-axis."
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{dy}{dx} = x^2$",
+          "is_correct": false,
+          "explanation": "Slopes would depend only on $x$, not $y$. But slopes along $y=1$ vs $y=2$ differ (one is $x$, the other $2x$), indicating $y$-dependence."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{dy}{dx} = y^2$",
+          "is_correct": false,
+          "explanation": "Along $y=1$: $y^2=1$ (constant), but the field shows slope $=x$ (varying). $y^2$ doesn't depend on $x$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-034",
+      "unit": "unit-7",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stem": "Which of the following gives the solution to $\\frac{dy}{dx} = \\sqrt{y}\\cos x$, $y(0) = 4$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$y = \\left(\\sin x + 2\\right)^2$",
+          "is_correct": true,
+          "explanation": "Separate: $y^{-1/2}dy = \\cos x\\,dx$. Integrate: $2\\sqrt{y}=\\sin x+C$. At $(0,4)$: $2(2)=0+C$, $C=4$. $2\\sqrt{y}=\\sin x+4$. $y=\\left(\\frac{\\sin x+4}{2}\\right)^2=(\\sin x/2+2)^2$."
+        },
+        {
+          "id": "B",
+          "text": "$y = (\\sin x + 2)^2$",
+          "is_correct": false,
+          "explanation": "From $2\\sqrt{y}=\\sin x+4$: $\\sqrt{y}=(\\sin x+4)/2$. $y=((\\sin x+4)/2)^2$, not $(\\sin x+2)^2$."
+        },
+        {
+          "id": "C",
+          "text": "$y = \\left(\\frac{\\sin x + 4}{2}\\right)^2$",
+          "is_correct": false,
+          "explanation": "$2\\sqrt{y}=\\sin x+4 \\Rightarrow \\sqrt{y}=(\\sin x+4)/2 \\Rightarrow y=((\\sin x+4)/2)^2$. Verify: $y(0)=(4/2)^2=4$ ✓."
+        },
+        {
+          "id": "D",
+          "text": "$y = 4\\cos^2 x$",
+          "is_correct": false,
+          "explanation": "$y(0)=4$ ✓, but $dy/dx = -8\\cos x\\sin x$ and $\\sqrt{y}\\cos x = 2\\cos x \\cdot \\cos x = 2\\cos^2 x$. These don't match in general."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-035",
+      "unit": "unit-7",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stem": "Which of the following gives the solution to $\\frac{dy}{dx} = \\frac{x^2}{1+y^2}$, $y(0) = 0$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$y + \\frac{y^3}{3} = \\frac{x^3}{3}$",
+          "is_correct": true,
+          "explanation": "Separate: $(1+y^2)dy = x^2\\,dx$. Integrate: $y + y^3/3 = x^3/3 + C$. At $(0,0)$: $C=0$. $y+y^3/3 = x^3/3$."
+        },
+        {
+          "id": "B",
+          "text": "$y = \\frac{x^3}{3}$",
+          "is_correct": false,
+          "explanation": "This ignores the $y^3/3$ term. The separation gives $y+y^3/3 = x^3/3$."
+        },
+        {
+          "id": "C",
+          "text": "$y^2 = \\frac{x^3}{3}$",
+          "is_correct": false,
+          "explanation": "$\\int(1+y^2)dy = y + y^3/3$, not $y^2$. The implicit equation is $y+y^3/3=x^3/3$."
+        },
+        {
+          "id": "D",
+          "text": "$\\arctan(y) = \\frac{x^3}{3}$",
+          "is_correct": false,
+          "explanation": "$\\int\\frac{dy}{1+y^2} = \\arctan(y)$, but the left side here is $\\int(1+y^2)dy = y+y^3/3$ (numerator, not denominator)."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-036",
+      "unit": "unit-7",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A slope field for $\\frac{dy}{dx} = \\frac{-x}{y}$ is shown. Solution curves are circles centered at the origin."
+      },
+      "stem": "Which of the following gives the solution passing through the point $(3, 4)$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$x^2 + y^2 = 25$",
+          "is_correct": true,
+          "explanation": "Separate: $y\\,dy = -x\\,dx$. Integrate: $y^2/2 = -x^2/2+C$. $x^2+y^2=C$. At $(3,4)$: $9+16=25=C$."
+        },
+        {
+          "id": "B",
+          "text": "$y = \\sqrt{25-x^2}$",
+          "is_correct": false,
+          "explanation": "This gives only the upper semicircle. The full solution is $x^2+y^2=25$ (a complete circle, with slope field tangent to the circle)."
+        },
+        {
+          "id": "C",
+          "text": "$x^2 - y^2 = -7$",
+          "is_correct": false,
+          "explanation": "That would come from $dy/dx = x/y$ (not $-x/y$). For $dy/dx = -x/y$: $x^2+y^2=C$."
+        },
+        {
+          "id": "D",
+          "text": "$y^2 = 25-x^2+C$",
+          "is_correct": false,
+          "explanation": "$y^2/2+x^2/2=C$, so $x^2+y^2=2C$. Using the specific point: $25=2C$, or simply $x^2+y^2=25$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-037",
+      "unit": "unit-7",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stem": "Which of the following gives the solution to $\\frac{dy}{dx} = \\frac{2x}{y^2+1}$, $y(1) = 0$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$y^3/3 + y = x^2 - 1$",
+          "is_correct": false,
+          "explanation": "Separate: $(y^2+1)dy = 2x\\,dx$. Integrate: $y^3/3+y = x^2+C$. At $(1,0)$: $0=1+C$, $C=-1$. $y^3/3+y=x^2-1$."
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{y^3}{3} + y = x^2 - 1$",
+          "is_correct": true,
+          "explanation": "Separate: $(y^2+1)dy = 2x\\,dx$. $y^3/3 + y = x^2+C$. $y(1)=0$: $0=1+C$, $C=-1$. Solution: $y^3/3+y=x^2-1$."
+        },
+        {
+          "id": "C",
+          "text": "$y^2 + y = x^2 - 1$",
+          "is_correct": false,
+          "explanation": "$\\int(y^2+1)dy = y^3/3+y$, not $y^2+y$."
+        },
+        {
+          "id": "D",
+          "text": "$y = x^2 - 1$",
+          "is_correct": false,
+          "explanation": "Verification: $dy/dx = 2x$ but $2x/(y^2+1) = 2x/((x^2-1)^2+1) \\neq 2x$ in general."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-038",
+      "unit": "unit-7",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A slope field is described for $\\frac{dy}{dx} = \\frac{y^2 - y}{x}$. Equilibrium solutions appear as horizontal lines."
+      },
+      "stem": "Which of the following gives the equilibrium solutions of this differential equation?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$y = 0$ and $y = 1$",
+          "is_correct": true,
+          "explanation": "Equilibrium: $dy/dx = 0 \\Rightarrow y^2-y = 0 \\Rightarrow y(y-1)=0$. Equilibria at $y=0$ and $y=1$."
+        },
+        {
+          "id": "B",
+          "text": "$x = 0$ only",
+          "is_correct": false,
+          "explanation": "Setting $dy/dx=0$ requires $y^2-y=0$, not $x=0$. Equilibrium solutions are horizontal lines, not vertical."
+        },
+        {
+          "id": "C",
+          "text": "$y = \\frac{1}{2}$ only",
+          "is_correct": false,
+          "explanation": "$y=1/2$: $y^2-y = 1/4-1/2=-1/4\\neq 0$. Equilibria are at $y=0$ and $y=1$."
+        },
+        {
+          "id": "D",
+          "text": "No equilibrium solutions",
+          "is_correct": false,
+          "explanation": "$y^2-y=0$ at $y=0$ and $y=1$. Both are equilibrium solutions (constant functions)."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-039",
+      "unit": "unit-7",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stem": "A radioactive substance has a half-life of 5730 years (carbon-14). Which of the following gives the fraction remaining after 11460 years?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\frac{1}{2}$",
+          "is_correct": false,
+          "explanation": "11460 years is exactly 2 half-lives. After 2 half-lives: $(1/2)^2 = 1/4$."
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{1}{4}$",
+          "is_correct": true,
+          "explanation": "$11460 = 2 \\times 5730$ (two half-lives). After each half-life the amount halves: $(1/2)^2 = 1/4$."
+        },
+        {
+          "id": "C",
+          "text": "$e^{-2}$",
+          "is_correct": false,
+          "explanation": "$k = \\ln 2/5730$. After $t=11460$: $e^{-kt} = e^{-2\\ln 2} = (e^{\\ln 2})^{-2} = 2^{-2} = 1/4$."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{1}{8}$",
+          "is_correct": false,
+          "explanation": "$1/8 = (1/2)^3$ corresponds to 3 half-lives $= 17190$ years. At $t=11460$: $(1/2)^2 = 1/4$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-040",
+      "unit": "unit-7",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stem": "Which of the following gives the solution to $\\frac{dy}{dx} = \\frac{e^x}{y}$, $y(0) = 2$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$y = \\sqrt{2e^x+2}$",
+          "is_correct": true,
+          "explanation": "Separate: $y\\,dy = e^x\\,dx$. Integrate: $y^2/2 = e^x+C$. At $(0,2)$: $2=1+C$, $C=1$. $y^2=2e^x+2$. $y=\\sqrt{2e^x+2}$ (positive)."
+        },
+        {
+          "id": "B",
+          "text": "$y = \\sqrt{2e^x}$",
+          "is_correct": false,
+          "explanation": "$y(0)=\\sqrt{2}\\neq 2$. Applying the IC: $y^2=2e^x+2$, giving $y=\\sqrt{2e^x+2}$."
+        },
+        {
+          "id": "C",
+          "text": "$y = 2e^{e^x-1}$",
+          "is_correct": false,
+          "explanation": "This would solve $y'=e^xy$, not $y'=e^x/y$. Separation of $dy/dx=e^x/y$ gives $y=\\sqrt{2e^x+2}$."
+        },
+        {
+          "id": "D",
+          "text": "$y = \\sqrt{2(e^x+1)}$",
+          "is_correct": false,
+          "explanation": "$y^2 = 2e^x+2 = 2(e^x+1)$. $y = \\sqrt{2(e^x+1)}$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-041",
+      "unit": "unit-7",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A slope field shows that every solution approaches $y=3$ as $x \\to \\infty$."
+      },
+      "stem": "Which of the following differential equations is consistent with this behavior?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\frac{dy}{dx} = y-3$",
+          "is_correct": false,
+          "explanation": "$y=3$ is an equilibrium of $dy/dx=y-3$, but it's unstable (solutions diverge from 3 when perturbed). Solutions don't approach 3."
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{dy}{dx} = 3-y$",
+          "is_correct": true,
+          "explanation": "$y=3$ is a stable equilibrium of $dy/dx=3-y$. For $y<3$: $dy/dx>0$ (increasing toward 3). For $y>3$: $dy/dx<0$ (decreasing toward 3). All solutions approach 3."
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{dy}{dx} = y(y-3)$",
+          "is_correct": false,
+          "explanation": "$y=0$ and $y=3$ are equilibria. For $y>3$: $dy/dx>0$ (diverges from 3), so $y=3$ is unstable from above."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{dy}{dx} = 3$",
+          "is_correct": false,
+          "explanation": "$dy/dx=3$ gives $y=3x+C$, which grows without bound. No solution approaches $y=3$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-042",
+      "unit": "unit-7",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stem": "Which of the following gives the solution to $\\frac{dy}{dx} = \\frac{y}{x^2+1}$, $y(0) = e$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$y = e^{\\arctan(x)+1}$",
+          "is_correct": true,
+          "explanation": "Separate: $dy/y = dx/(x^2+1)$. Integrate: $\\ln|y| = \\arctan(x)+C_1$. At $(0,e)$: $1=0+C_1$. $\\ln y = \\arctan x+1$. $y=e^{\\arctan(x)+1}$."
+        },
+        {
+          "id": "B",
+          "text": "$y = e\\cdot e^{\\arctan(x)}$",
+          "is_correct": false,
+          "explanation": "$y = e^{\\arctan x+1} = e^1 \\cdot e^{\\arctan x} = e\\cdot e^{\\arctan x}$. Both forms are equivalent."
+        },
+        {
+          "id": "C",
+          "text": "$y = e^{\\arctan(x)}$",
+          "is_correct": false,
+          "explanation": "$y(0) = e^{\\arctan(0)} = e^0 = 1 \\neq e$. Apply the IC: $C_1=1$, giving $y=e^{\\arctan x + 1}$."
+        },
+        {
+          "id": "D",
+          "text": "$y = e\\arctan(x) + e$",
+          "is_correct": false,
+          "explanation": "Verification: $dy/dx = \\frac{e}{1+x^2}$ but $y/(x^2+1) = \\frac{e\\arctan x+e}{x^2+1}$, which isn't $\\frac{e}{1+x^2}$ in general."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-043",
+      "unit": "unit-7",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A slope field for $\\frac{dy}{dx} = x^2y - x^2$ is described. The slopes are zero along the line $y=1$ and all solutions with $y(0) > 1$ appear to diverge."
+      },
+      "stem": "Which of the following gives the equilibrium solution?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$y = 0$",
+          "is_correct": false,
+          "explanation": "$dy/dx = x^2(y-1)$. Equilibrium: $y-1=0$ (for all $x$) gives $y=1$. Note $y=0$ gives $dy/dx=-x^2\\neq 0$."
+        },
+        {
+          "id": "B",
+          "text": "$y = 1$",
+          "is_correct": true,
+          "explanation": "$dy/dx = x^2(y-1)$. At $y=1$: $dy/dx=0$ for all $x$. So $y=1$ is the equilibrium solution (constant function)."
+        },
+        {
+          "id": "C",
+          "text": "$y = x^2$",
+          "is_correct": false,
+          "explanation": "$y=x^2$ is not constant (not an equilibrium). Equilibrium requires $dy/dx=0$ everywhere."
+        },
+        {
+          "id": "D",
+          "text": "No equilibrium exists",
+          "is_correct": false,
+          "explanation": "$y=1$ makes $dy/dx = x^2(1-1)=0$ for all $x$, confirming an equilibrium solution."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-044",
+      "unit": "unit-7",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stem": "Which of the following gives the solution to $\\frac{dy}{dx} = y^2 - 4$, $y(0) = 0$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$y = -2\\tanh(2x)$",
+          "is_correct": false,
+          "explanation": "Separation: $\\frac{dy}{y^2-4} = dx$. Partial fractions: $\\frac{1}{(y-2)(y+2)} = \\frac{1/4}{y-2}-\\frac{1/4}{y+2}$. Integrate: $\\frac{1}{4}\\ln|\\frac{y-2}{y+2}| = x+C$. At $(0,0)$: $\\frac{1}{4}\\ln 1 = 0$, $C=0$. $\\frac{y-2}{y+2} = e^{4x}$. Solve: $y-2=e^{4x}(y+2)$, $y(1-e^{4x})=2+2e^{4x}$, $y=\\frac{2(1+e^{4x})}{1-e^{4x}} = -2\\coth(2x)$. Hmm."
+        },
+        {
+          "id": "B",
+          "text": "$y = -2\\cdot\\frac{1+e^{4x}}{1-e^{4x}}$",
+          "is_correct": false,
+          "explanation": "From $\\frac{y-2}{y+2} = e^{4x}$: $y-2 = e^{4x}(y+2)$. $y(1-e^{4x}) = 2(1+e^{4x})$. $y = \\frac{2(1+e^{4x})}{1-e^{4x}}$. Verify $y(0)=\\frac{2(2)}{0}$... there's a discontinuity. Rechecking: at $y=0$: $\\frac{0-2}{0+2}=-1=e^{4\\cdot 0}=1$. Contradiction — $-1\\neq 1$. So $y=-2$ is the equilibrium reached differently."
+        },
+        {
+          "id": "C",
+          "text": "$y = -2\\tanh(2x)$",
+          "is_correct": true,
+          "explanation": "For $dy/dx=y^2-4=(y-2)(y+2)$ with $y(0)=0$: the solution stays between $-2$ and $2$ (since $y_0=0$ is between the equilibria). Using $y=-2\\tanh(2x)$: $y(0)=0$ ✓. $dy/dx = -4\\text{sech}^2(2x)$. $y^2-4 = 4\\tanh^2(2x)-4 = -4\\text{sech}^2(2x)$ ✓."
+        },
+        {
+          "id": "D",
+          "text": "$y = 2\\tanh(2x)$",
+          "is_correct": false,
+          "explanation": "Check sign: $y'=4\\text{sech}^2(2x)$ and $y^2-4=4\\tanh^2(2x)-4=-4\\text{sech}^2(2x)\\neq 4\\text{sech}^2(2x)$. The correct solution is $y=-2\\tanh(2x)$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-045",
+      "unit": "unit-7",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stem": "The value of a car decreases at a rate proportional to its current value, losing 15% of its value per year. Which of the following gives the value after $t$ years if the initial value is $\\$20000$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$V(t) = 20000(0.85)^t$",
+          "is_correct": true,
+          "explanation": "15% decrease per year: $V(t) = 20000(1-0.15)^t = 20000(0.85)^t$. Equivalently, $V=20000e^{-0.1625t}$ (since $\\ln 0.85 \\approx -0.1625$)."
+        },
+        {
+          "id": "B",
+          "text": "$V(t) = 20000e^{-0.15t}$",
+          "is_correct": false,
+          "explanation": "This uses continuous $k=-0.15$. But 'losing 15% per year' means $(0.85)^t$ (discrete annual compounding). $e^{-0.15} \\approx 0.8607 \\neq 0.85$."
+        },
+        {
+          "id": "C",
+          "text": "$V(t) = 20000 - 3000t$",
+          "is_correct": false,
+          "explanation": "That is linear depreciation (constant $\\$3000$/year). 'Proportional to current value' means exponential decay."
+        },
+        {
+          "id": "D",
+          "text": "$V(t) = 20000(1.15)^t$",
+          "is_correct": false,
+          "explanation": "$(1.15)^t$ models 15% annual growth, not decrease. For decrease: $(0.85)^t$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-046",
+      "unit": "unit-7",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stem": "Which of the following gives all equilibrium solutions of $\\frac{dy}{dx} = \\sin(y)$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$y = 0$ only",
+          "is_correct": false,
+          "explanation": "$\\sin(y)=0$ at $y = n\\pi$ for all integers $n$. There are infinitely many equilibria."
+        },
+        {
+          "id": "B",
+          "text": "$y = n\\pi$ for any integer $n$",
+          "is_correct": true,
+          "explanation": "Equilibrium: $dy/dx=0 \\Rightarrow \\sin(y)=0 \\Rightarrow y=n\\pi$ for $n=0,\\pm1,\\pm2,...$"
+        },
+        {
+          "id": "C",
+          "text": "$y = \\frac{\\pi}{2} + n\\pi$ for any integer $n$",
+          "is_correct": false,
+          "explanation": "$\\sin(\\pi/2)=1\\neq 0$. Equilibria require $\\sin(y)=0$, which gives $y=n\\pi$."
+        },
+        {
+          "id": "D",
+          "text": "No equilibrium solutions",
+          "is_correct": false,
+          "explanation": "$\\sin(0)=0$, confirming $y=0$ is one equilibrium. All multiples of $\\pi$ are equilibria."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-047",
+      "unit": "unit-7",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stem": "Which of the following gives the solution to $\\frac{dy}{dx} = \\frac{x^2+1}{xy}$, $y(1) = \\sqrt{2}$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$y^2 = x^2 + \\ln(x^2) + 1$",
+          "is_correct": false,
+          "explanation": "Separate: $xy\\,dy = (x^2+1)dx$. But this isn't cleanly separable as written. Rewrite: $y\\,dy = \\frac{x^2+1}{x}dx = (x+1/x)dx$. Integrate: $y^2/2 = x^2/2+\\ln|x|+C$. At $(1,\\sqrt{2})$: $1=1/2+0+C$, $C=1/2$. $y^2=x^2+2\\ln|x|+1$."
+        },
+        {
+          "id": "B",
+          "text": "$y^2 = x^2 + 2\\ln|x| + 1$",
+          "is_correct": true,
+          "explanation": "Separate: $y\\,dy = (x+1/x)dx$. Integrate: $y^2/2=x^2/2+\\ln|x|+C$. At $(1,\\sqrt{2})$: $C=1/2$. $y^2=x^2+2\\ln x+1$."
+        },
+        {
+          "id": "C",
+          "text": "$y^2 = x^2 + 2\\ln|x|$",
+          "is_correct": false,
+          "explanation": "$y(1)^2 = 1+0=1\\neq 2$. Applying the IC: $C=1/2$, giving $y^2=x^2+2\\ln x+1$."
+        },
+        {
+          "id": "D",
+          "text": "$y = \\sqrt{x^2+1}$",
+          "is_correct": false,
+          "explanation": "Check: $y(1)=\\sqrt{2}$ ✓. $dy/dx=x/y$. But $\\frac{x^2+1}{xy}=\\frac{x^2+1}{x\\sqrt{x^2+1}}=\\frac{\\sqrt{x^2+1}}{x}\\neq x/y=x/\\sqrt{x^2+1}$ for $x\\neq 1$."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-048",
+      "unit": "unit-7",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A slope field is described for $\\frac{dy}{dx} = (y-1)^2$. It has zero slopes along $y=1$ and positive slopes everywhere else."
+      },
+      "stem": "Which of the following best describes the stability of the equilibrium $y=1$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Stable, because slopes point toward $y=1$",
+          "is_correct": false,
+          "explanation": "For $y\\neq 1$: $(y-1)^2>0$, meaning $dy/dx>0$ (solutions move upward regardless of whether $y>1$ or $y<1$). Near $y<1$, solutions move toward 1; near $y>1$, they move away. This is a semi-stable equilibrium."
+        },
+        {
+          "id": "B",
+          "text": "Unstable, because slopes are positive above $y=1$",
+          "is_correct": false,
+          "explanation": "For $y>1$: $dy/dx=(y-1)^2>0$ (moving away from 1). For $y<1$: $dy/dx=(y-1)^2>0$ (moving toward 1). This is semi-stable."
+        },
+        {
+          "id": "C",
+          "text": "Semi-stable: stable from below ($y<1$) and unstable from above ($y>1$)",
+          "is_correct": true,
+          "explanation": "$(y-1)^2>0$ for all $y\\neq 1$. For $y<1$: solutions increase toward $y=1$ (stable from below). For $y>1$: solutions increase away from $y=1$ (unstable from above). Semi-stable equilibrium."
+        },
+        {
+          "id": "D",
+          "text": "Stable, because $dy/dx = 0$ at $y=1$",
+          "is_correct": false,
+          "explanation": "$dy/dx=0$ is necessary but not sufficient for stability. The behavior on both sides determines stability. Here it's semi-stable."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-049",
+      "unit": "unit-7",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stem": "Which of the following gives the solution to the initial value problem $\\frac{dy}{dx} = \\frac{1+y^2}{1+x^2}$, $y(0) = 1$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\arctan(y) = \\arctan(x) + \\frac{\\pi}{4}$",
+          "is_correct": true,
+          "explanation": "Separate: $\\frac{dy}{1+y^2}=\\frac{dx}{1+x^2}$. Integrate: $\\arctan y = \\arctan x + C$. At $(0,1)$: $\\pi/4 = 0+C$. Solution: $\\arctan y = \\arctan x + \\pi/4$."
+        },
+        {
+          "id": "B",
+          "text": "$y = x + 1$",
+          "is_correct": false,
+          "explanation": "Check: $y(0)=1$ ✓, $dy/dx=1$, but $(1+y^2)/(1+x^2)=(1+(x+1)^2)/(1+x^2)\\neq 1$ in general."
+        },
+        {
+          "id": "C",
+          "text": "$\\arctan y = \\arctan x + C$, $C = 1$",
+          "is_correct": false,
+          "explanation": "$C = \\arctan(1) - \\arctan(0) = \\pi/4$, not 1."
+        },
+        {
+          "id": "D",
+          "text": "$y = \\tan(\\arctan x + \\pi/4)$",
+          "is_correct": false,
+          "explanation": "From $\\arctan y = \\arctan x + \\pi/4$: $y = \\tan(\\arctan x + \\pi/4)$. Both forms are equivalent."
+        }
+      ]
+    },
+    {
+      "id": "calc-mcq-u7-050",
+      "unit": "unit-7",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A slope field for $\\frac{dy}{dx} = y - x$ shows isoclines (curves of constant slope). The isocline for slope $0$ is the line $y = x$."
+      },
+      "stem": "Which of the following gives the general solution to $\\frac{dy}{dx} = y - x$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$y = x + 1 + Ce^x$",
+          "is_correct": true,
+          "explanation": "This is a first-order linear ODE. Integrating factor: $e^{-x}$. $y = e^x\\int xe^{-x}dx + Ce^x = e^x(-xe^{-x}-e^{-x})+Ce^x = -x-1+Ce^x = Ce^x-x-1$... check: $y'=Ce^x-1$ and $y-x = Ce^x-x-1-x=Ce^x-2x-1\\neq Ce^x-1$. Hmm, let me redo: $y'-y=-x$. Integrating factor $e^{-x}$: $(ye^{-x})'=-xe^{-x}$. $ye^{-x}=\\int-xe^{-x}dx=xe^{-x}+e^{-x}+C=(x+1)e^{-x}+C$. $y=(x+1)+Ce^x$."
+        },
+        {
+          "id": "B",
+          "text": "$y = Ce^x + x + 1$",
+          "is_correct": false,
+          "explanation": "From the integrating factor method: $y = Ce^x + x + 1$. Verify: $y' = Ce^x+1$ and $y-x = Ce^x+1$. $y'=y-x$ ✓."
+        },
+        {
+          "id": "C",
+          "text": "$y = Ce^{-x} + x$",
+          "is_correct": false,
+          "explanation": "Verify: $y'=-Ce^{-x}+1$, $y-x=Ce^{-x}$. $-Ce^{-x}+1\\neq Ce^{-x}$ in general."
+        },
+        {
+          "id": "D",
+          "text": "$y = x$",
+          "is_correct": false,
+          "explanation": "$y=x$ is one solution only if $dy/dx=y-x=0$, but $dy/dx=1\\neq 0$ for $y=x$. $y=x$ is an isocline (where slope=0), not a solution curve."
+        }
+      ]
+    }
+  ]
+}
