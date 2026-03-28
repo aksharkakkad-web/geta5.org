@@ -31,6 +31,21 @@ export function getVisibleSections(guide: StudyGuide): typeof SECTIONS {
   })
 }
 
+export type ViewSection = 'overview' | 'key_terms' | 'formulas'
+
+export const VIEW_SECTIONS: { key: ViewSection; label: string }[] = [
+  { key: 'overview', label: 'Overview' },
+  { key: 'key_terms', label: 'Key Terms' },
+  { key: 'formulas', label: 'Formulas' },
+]
+
+export function getViewSections(guide: StudyGuide): { key: ViewSection; label: string }[] {
+  return VIEW_SECTIONS.filter(s => {
+    if (s.key === 'formulas') return (guide.formulas?.length ?? 0) > 0
+    return true
+  })
+}
+
 export async function fetchStudyGuide(subject: string, unitNumber: number): Promise<StudyGuide | null> {
   try {
     const res = await fetch(`/data/${subject}/study-guide/unit-${unitNumber}.json`)
