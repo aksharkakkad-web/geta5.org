@@ -56,10 +56,11 @@ URL: ascendly.vercel.app (planned)
 - Tester verifies each Planner objective is actually met
 
 ### Content Pipeline (enforce for every content generation task)
-**Researcher → Writer → Reviewer** — no step may be skipped.
-- Researcher produces a College Board brief before Writer starts
-- Writer outputs valid JSON matching `/data/schemas/*.schema.json`
-- Reviewer verifies accuracy, curriculum alignment, KaTeX, correct answers
+**Researcher → Planner → Writer → Reviewer** — no step may be skipped.
+- Researcher performs live web research on the College Board CED, produces RESEARCH.md + draft meta.json — **model: Sonnet**
+- Planner reads RESEARCH.md, produces PLAN.md (per-unit topic breakdown, stimulus types, difficulty targets) — **model: Sonnet**
+- Writer reads PLAN.md, outputs valid JSON matching `/data/schemas/*.schema.json` — **model: Sonnet**
+- Reviewer validates all 10 quality gates, curriculum alignment, KaTeX, correct answers — **model: Sonnet** (Opus only for AP Calculus AB and AP Chemistry — the two KaTeX/equation-heavy subjects)
 
 Full handoff format, role details, and data schemas in `docs/PRD.md`.
 
@@ -87,7 +88,7 @@ After completing any phase or significant milestone, immediately update the Phas
 If session context contains `GSD AUTO-RESUME SIGNAL`, immediately invoke `/gsd:plan-phase` for the named phase — do not ask the user first, do not wait for a prompt. Check `.planning/STATE.md` for any `--prd` flag to pass.
 
 ### Content JSON Files:
-When writing any file under `/data/`, the pipeline is: Researcher → Writer → Reviewer (subagent) → only then can Coder integrate it. No shortcuts.
+When writing any file under `/data/`, the pipeline is: Researcher → Planner → Writer → Reviewer (subagent) → only then can Coder integrate it. No shortcuts.
 
 ## Critical Rules
 1. NEVER render formulas as plain text — KaTeX always
@@ -104,9 +105,27 @@ When writing any file under `/data/`, the pipeline is: Researcher → Writer →
 ## Content Standards Summary
 - MCQ difficulty: 20% easy / 45% medium / 35% hard per unit
 - MCQ count: 50-100 per unit per subject
-- Drills: cover every testable term, formula, person, concept, event — no fixed count
+- MCQ stimulus rates: World History ~95%, Gov ~90%, CSP ~85%, Calc ~80%, Precalc ~75%, Psych ~70%, Chemistry ~70% (see redesign spec)
+- MCQ question language: College Board register ("Which of the following best explains…") — no "What is…" or "Name the…"
+- Drills: cover every testable term, formula, person, concept, event — no fixed count; subject-specific modes (see phase CONTEXT.md)
+- Drill single canonical answer — no alternate_answers. Fuzzy match for typos/case/punctuation only.
+- is_key_term: true on 8–15 drills per unit (typed-recall only, never concept_mc)
 - Stimulus: text passages, Chart.js graphs, HTML tables, College Board pseudocode (CSP)
-- Study guide structure: theme → core concepts → key terms → formulas → exam tip
+- Study guide structure: theme → core concepts → formulas → exam tip (key terms sourced from is_key_term drill cards)
+
+### Math Subject Drill Rules (Phases 9, 10 — Calc AB, Precalculus)
+- Drill modes: `name_to_formula` + `definition_to_term` ONLY — no `concept_mc`
+- All drills are typed-recall — conceptual application belongs in MCQs only
+- `is_key_term: true` applies normally (8–15 per unit) for highest-yield formulas and vocab terms
+
+### Chemistry Drill Rules (Phase 12)
+- Drill modes: `definition_to_term` + `significance_to_person` + `concept_mc` — NO `name_to_formula`
+- AP Chem provides a formula reference sheet — formula memorization is not tested
+- `is_key_term: true` applies normally (8–15 per unit) for highest-yield vocab/concept terms
+
+### Math Study Guide Formula Rules (Phases 9, 10, 12)
+- Every formula object MUST include `description` (plain English, no jargon) and `example` (worked example with `$...$` KaTeX)
+- `core_concepts` strings MUST use `$...$` for any math/chemistry expression — plain English with KaTeX for symbols
 
 ## Subjects (Launch)
 1. AP Psychology
@@ -126,7 +145,7 @@ Phases 6–12 run as **parallel content generation** in two waves. Full orchestr
 | 1 | 6, 7, 8, 11 | Psychology, World History, Government, CSP | Text-heavy; CSP = pseudocode only |
 | 2 | 9, 10, 12 | Calculus AB, Precalculus, Chemistry | KaTeX-heavy; Chemistry = Chem Checker |
 
-**Each agent runs:** Researcher → Writer → Reviewer (Content) → Commit in worktree
+**Each agent runs:** Researcher → Planner → Writer → Reviewer (Content) → Commit in worktree
 **Quality gates:** 10 gates (G1–G10) defined in CONTENT-WAVES.md — non-negotiable
 **Merge strategy:** Conflict-free (each subject writes to its own directory)
 
@@ -137,6 +156,7 @@ Phases 6–12 run as **parallel content generation** in two waves. Full orchestr
 4. `public/data/ap-psychology/` — reference fixtures (calibration)
 5. `.planning/CONTENT-WAVES.md` — orchestration + quality gates
 6. `.planning/phases/[NN]-*/[NN]-CONTEXT.md` — subject-specific details
+7. **Web (Researcher phase only):** College Board CED for the target subject — use WebSearch/WebFetch
 
 ## Phase Tracker
 | Phase | Description | Status |
@@ -148,10 +168,10 @@ Phases 6–12 run as **parallel content generation** in two waves. Full orchestr
 | 4 | Study Guide Interface | Complete |
 | 5 | Practice Test Interface | Complete |
 | **Wave 1** | | |
-| 6 | AP Psychology Content | Not Started |
-| 7 | AP World History Content | Not Started |
-| 8 | AP Government Content | Not Started |
-| 11 | AP CSP Content | Not Started |
+| 6 | AP Psychology Content | Complete |
+| 7 | AP World History Content | In Progress |
+| 8 | AP Government Content | Complete |
+| 11 | AP CSP Content | Complete |
 | **Wave 2** | | |
 | 9 | AP Calculus AB Content | Not Started |
 | 10 | AP Precalculus Content | Not Started |
@@ -178,13 +198,16 @@ Table: `events`
   - Per-unit score breakdown is derived at results-render time from mastery keys — not stored separately
 - `ascendly_total_questions`: number — incremented by drill (Phase 2) and MCQ (Phase 3) completion handlers in localStorage.ts
 - `ascendly_active_subject`: string — stores URL slug format (e.g. 'ap-psychology'), NOT display name. Display name derived from meta.json at render time.
+- `ascendly_draft_drill_[subject]`: DrillDraft — auto-saved drill session state; cleared on session complete
+- `ascendly_draft_mcq_[subject]`: MCQDraft — auto-saved MCQ session state; cleared on session complete
+- `ascendly_draft_test_[subject]`: TestDraft — auto-saved practice test state (includes remaining seconds); cleared on submit
 
 ## Decisions Log
 - 2026-03-22: Using Tailwind v4 (no tailwind.config.ts — configuration via @theme in globals.css)
 - 2026-03-22: Supabase credentials to be added in Task 6 (deferred — user action required)
 - 2026-03-22: Supabase via server Route Handler — keep anon key out of client bundle
 - 2026-03-23: GSD YOLO mode — user preference: autonomous execution
-- 2026-03-23: Balanced model profile — Opus for planning, Sonnet for execution
+- 2026-03-27: Model profile updated to budget — Sonnet for all GSD agents (planner, executor, researcher); Opus reserved only for AP Calculus AB and AP Chemistry content Reviewers
 - 2026-03-24: answersRef pattern in DrillSession/MCQSession — prevents stale closure when handleNext fires after last card
 - 2026-03-24: color-mix() for feedback backgrounds — avoids hardcoded rgba, uses CSS custom properties with opacity
 - 2026-03-24: Promise.allSettled for unit JSON fetch — allows partial success, 404s silently become null
@@ -197,3 +220,7 @@ Table: `events`
 - 2026-03-25: PRD.md data_schemas section rewritten to match actual schema files + fixture format (was stale — had wrong field names)
 - 2026-03-25: Each content agent runs in isolated git worktree, produces meta.json + all unit files, Reviewer validates all 10 quality gates before commit
 - 2026-03-25: ModeCard colorMap — cyan (#06b6d4) and green (#10b981) are intentional design-system extensions with no global token; indigo/amber reference var(--accent)/var(--accent-warning)
+- 2026-03-25: Content pipeline upgraded — Researcher now performs live College Board CED web research; Planner role added between Researcher and Writer to produce per-unit question plan before any JSON is written
+- 2026-03-26: Session persistence complete (feat/session-persistence branch) — drills, MCQ, and practice test auto-save to localStorage draft keys after each card; resume prompt shown on next visit
+- 2026-03-26: Drill/MCQ redesign locked — new mode taxonomy (definition_to_term, significance_to_person, significance_to_event, significance_to_case, name_to_formula, concept_mc); no alternate_answers; is_key_term flag replaces study guide key_terms array; concept_mc cards mixed into drill sessions; MCQ stimulus rates set per subject (see docs/superpowers/specs/2026-03-26-drill-mcq-redesign.md)
+- 2026-03-26: All existing public/data/ content is discarded — regenerated from scratch following the new drill/MCQ spec after schema changes are implemented in components
