@@ -2,15 +2,33 @@
   "id": "csp-sg-unit-3",
   "unit": "unit-3",
   "subject": "ap-csp",
-  "theme": "Algorithms and programming involve using sequencing, selection, and iteration with CB pseudocode to build efficient, abstract solutions — including understanding what problems computers cannot solve.",
+  "slug": "ap-csp-unit-3",
+  "theme": "Algorithms and programs use sequencing, selection, iteration, procedures, and lists to solve problems — and understanding their efficiency, equivalence, and limits determines what computing can and cannot do.",
   "core_concepts": [
-    "CB pseudocode uses ← for assignment (not =), DISPLAY(), IF/ELSE, REPEAT n TIMES, REPEAT UNTIL, FOR EACH, and PROCEDURE with RETURN.",
-    "Lists are 1-indexed; key operations: APPEND(list, val), INSERT(list, i, val), REMOVE(list, i), LENGTH(list).",
-    "Linear search checks every element sequentially (works on any list); binary search halves the search space each step (requires sorted list, max log₂(n) steps).",
-    "Procedural abstraction hides implementation details behind a named procedure — callers only need to know what it does, not how.",
-    "Algorithms that run in polynomial time (n, n², n³) are considered to run in reasonable time (tractable); exponential time algorithms are often impractical.",
-    "The halting problem is undecidable — no algorithm can determine for all programs whether they will eventually halt.",
-    "Simulations model real-world processes with simplified rules; RANDOM(a, b) returns a random integer between a and b inclusive."
+    "The three building blocks of all algorithms are sequencing (statements execute in order), selection (IF/ELSE chooses between paths based on a condition), and iteration (REPEAT loops execute code multiple times). Every program is a combination of these three elements.",
+    "Variables store values that can be read and reassigned during execution. The CB pseudocode assignment operator is ← (not =). Lists store multiple values under one name, accessed by 1-based index — list[1] is the first element.",
+    "Procedures (functions) group reusable code under a name, accept parameters, and optionally return a value. Procedural abstraction means callers use a procedure without knowing how it is implemented — hiding complexity behind a clean interface.",
+    "Data abstraction uses lists (and other structures) to manage multiple related values as a single unit — instead of 20 separate score variables, use scores[1] through scores[20]. Libraries provide pre-written procedures that programmers can call without writing them from scratch.",
+    "Linear search checks every element one by one (works on any list). Binary search repeatedly halves the search space by comparing to the middle element — it requires a sorted list but is dramatically faster for large datasets (log₂N steps vs N steps).",
+    "Algorithm efficiency matters at scale: an algorithm that does n² operations for an input of size n becomes impossibly slow as n grows large. Some problems cannot be solved in reasonable time regardless of hardware; others (undecidable problems) cannot be solved by any algorithm.",
+    "Two code segments are equivalent if they produce identical outputs for every possible input — not just for specific test cases. Simulations model real-world processes computationally, allowing scientists to test scenarios that would be impractical in the real world."
   ],
-  "exam_tip": "Unit 3 is 30–35% of the exam — trace pseudocode carefully (remember ← is assignment, not comparison), know list indexing starts at 1, and be able to identify when binary vs. linear search is more efficient."
+  "key_terms": [
+    "variable",
+    "sequencing",
+    "selection",
+    "iteration",
+    "list",
+    "procedure",
+    "parameter",
+    "RETURN",
+    "procedural abstraction",
+    "data abstraction",
+    "library",
+    "linear search",
+    "binary search",
+    "heuristic",
+    "undecidable problem"
+  ],
+  "exam_tip": "The AP exam heavily tests tracing CB pseudocode — practice reading code with nested conditionals, REPEAT UNTIL loops, and list operations. Binary search requires a sorted list and takes at most log₂(n) steps; the Halting Problem is the canonical undecidable problem."
 }

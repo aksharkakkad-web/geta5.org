@@ -2,15 +2,28 @@
   "id": "csp-sg-unit-4",
   "unit": "unit-4",
   "subject": "ap-csp",
-  "theme": "The internet is a decentralized, packet-switched network that achieves fault tolerance through redundancy, and parallel/distributed computing can dramatically increase processing efficiency.",
+  "slug": "ap-csp-unit-4",
+  "theme": "The internet is a fault-tolerant, packet-switched network of networks — built on protocols, redundancy, and distributed routing — that enables scalable global communication.",
   "core_concepts": [
-    "The internet is decentralized and packet-switched — data is broken into packets that travel independently and may take different routes to the destination.",
-    "DNS translates domain names (www.example.com) to IP addresses; IPv4 uses 32 bits (~4 billion addresses); IPv6 uses 128 bits (vastly more addresses).",
-    "TCP is reliable (acknowledges, retransmits lost packets); UDP is faster but unreliable (no guaranteed delivery) — used for real-time applications.",
-    "Fault tolerance is achieved through redundancy — multiple paths and duplicate servers mean the network continues functioning when components fail.",
-    "Parallel computing divides a task among multiple processors running simultaneously; sequential computing processes steps one at a time.",
-    "Distributed computing spreads work across multiple networked machines — tasks with sequential dependencies limit the speedup achievable.",
-    "Bandwidth is the maximum data transfer rate — insufficient bandwidth causes buffering or reduced quality in streaming applications."
+    "The internet is built on protocols — agreed-upon rules like IP (routing), TCP (reliable delivery), HTTP (web pages), and DNS (translating domain names to IP addresses). The World Wide Web is a service running on the internet, not the internet itself.",
+    "Data is broken into packets, each containing source/destination IP addresses and a portion of the message. Packets are switched independently — each router decides the best next hop based on current network conditions, so packets from the same message can travel different routes.",
+    "TCP ensures reliable delivery by acknowledging packets and retransmitting any that are lost. DNS resolves human-readable domain names (like google.com) into numeric IP addresses that routers use to direct traffic.",
+    "Redundancy — multiple paths between network nodes — makes the internet fault tolerant. If one router or link fails, packets are automatically rerouted through an alternative path. A network with only one path between nodes is a single point of failure.",
+    "Fault tolerance means a system continues operating correctly even when some components fail. Scalability means a system can handle growing load without significant performance loss. Both are design goals for robust internet infrastructure.",
+    "Parallel computing runs multiple tasks simultaneously on multiple processors within one machine, reducing total execution time for divisible tasks. Distributed computing divides a task across many separate networked computers, enabling problems too large for any single machine.",
+    "Parallel speedup is limited by the sequential (non-parallelizable) portions of a task — this is known as Amdahl's Law. Tasks that are fully independent are ideal for parallel or distributed computing and can achieve near-linear speedup with more processors."
   ],
-  "exam_tip": "The CB frequently tests fault tolerance (how redundancy provides reliability), parallel vs. sequential computing speedup calculations, and the specific roles of DNS, TCP, and UDP."
+  "key_terms": [
+    "internet",
+    "protocol",
+    "IP address",
+    "packet",
+    "TCP",
+    "redundancy",
+    "fault tolerant",
+    "scalability",
+    "parallel computing",
+    "distributed computing"
+  ],
+  "exam_tip": "The AP exam frequently tests fault tolerance (redundant paths vs. single points of failure) and parallel computing speedup — remember that adding processors does not produce proportional speedup because sequential portions limit maximum parallelism."
 }

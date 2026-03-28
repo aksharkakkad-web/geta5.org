@@ -9,113 +9,110 @@
       "subject": "ap-csp",
       "difficulty": "easy",
       "stimulus": {
-        "type": "text",
-        "content": "The internet is a global network of interconnected computing devices. It is a packet-switched network, meaning data is broken into small chunks called packets. Each packet independently travels from source to destination, potentially taking different routes, before being reassembled."
+        "type": "none"
       },
-      "question": "Which of the following best explains why the internet uses packet switching rather than sending data as a continuous stream?",
+      "question": "Which of the following BEST describes the purpose of an IP address?",
       "choices": [
         {
           "id": "A",
-          "text": "Packets can take different routes, so if one path is congested or broken, other paths are available",
-          "is_correct": true,
-          "explanation": "Packet switching allows dynamic routing — each packet finds its own path, improving fault tolerance and network efficiency."
+          "text": "To encrypt data before it is transmitted across the internet",
+          "is_correct": false,
+          "explanation": "Encryption is handled by protocols like HTTPS/TLS, not IP addresses. An IP address is a unique numeric identifier used to route data to the correct device."
         },
         {
           "id": "B",
-          "text": "Continuous data streams are impossible to encrypt, while packets can be encrypted",
-          "is_correct": false,
-          "explanation": "Both streams and packets can be encrypted — encryption is unrelated to why packet switching is preferred."
+          "text": "To uniquely identify a device on a network so that data can be routed to the correct destination",
+          "is_correct": true,
+          "explanation": "Every device on a network has an IP address. Routers use these addresses to forward packets to their correct destination, much like a mailing address for digital data."
         },
         {
           "id": "C",
-          "text": "Packets are always delivered faster than continuous streams",
+          "text": "To compress data packets so they travel faster across the network",
           "is_correct": false,
-          "explanation": "Packets don't guarantee faster delivery — the advantage is resilience and efficient use of network resources, not guaranteed speed."
+          "explanation": "Compression reduces data size — it is not a function of IP addresses. IP addresses identify devices and enable routing of packets."
         },
         {
           "id": "D",
-          "text": "Packet switching requires less bandwidth than streaming",
+          "text": "To synchronize the clocks of all devices connected to the internet",
           "is_correct": false,
-          "explanation": "Packet switching can use bandwidth more efficiently due to shared paths, but this is not the primary reason it was adopted."
+          "explanation": "Clock synchronization is handled by protocols like NTP (Network Time Protocol). IP addresses serve as unique device identifiers for routing purposes."
         }
       ],
-      "unit_objective": "CSN-1.A"
+      "unit_objective": "CSN-1.D"
     },
     {
       "id": "csp-u4-q002",
       "unit": "unit-4",
       "subject": "ap-csp",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "stimulus": {
-        "type": "text",
-        "content": "A school network has three routers (A, B, C) and three servers (X, Y, Z). Currently:\n- Router A connects to B and to Server X\n- Router B connects to A, C, and Server Y\n- Router C connects to B and Server Z\n\nRouter B suddenly fails."
+        "type": "none"
       },
-      "question": "Which of the following best describes the consequence of Router B's failure for network access?",
+      "question": "Which of the following BEST describes the role of a protocol in computer networking?",
       "choices": [
         {
           "id": "A",
-          "text": "Servers Y, and connectivity between A and C, become inaccessible — the network lacks redundant paths",
-          "is_correct": true,
-          "explanation": "B is the only connection between A and C, and the only path to Y — with no redundant routes, B's failure isolates Server Y and cuts A-C connectivity."
+          "text": "A physical cable that connects computers in a network",
+          "is_correct": false,
+          "explanation": "Physical cables are hardware — they are part of the network infrastructure, not protocols. A protocol is a set of agreed-upon rules for communication."
         },
         {
           "id": "B",
-          "text": "The network continues functioning normally — the internet automatically reroutes all traffic",
-          "is_correct": false,
-          "explanation": "This network lacks redundancy — if B is the only path between nodes, there are no alternate routes to reroute through."
+          "text": "An agreed-upon set of rules that govern how data is formatted and transmitted between devices",
+          "is_correct": true,
+          "explanation": "A protocol defines the rules devices follow to communicate — how data is packaged, addressed, transmitted, and interpreted. Without common protocols, devices from different manufacturers could not communicate."
         },
         {
           "id": "C",
-          "text": "Only Router A is affected since it connects directly to B",
+          "text": "A device that routes packets from one network to another",
           "is_correct": false,
-          "explanation": "Router C also connects only through B — B's failure affects all traffic that must pass through B, including A-C communication."
+          "explanation": "This describes a router. A protocol is a set of communication rules, not a physical device."
         },
         {
           "id": "D",
-          "text": "Server X becomes inaccessible since Router A can no longer connect to any router",
+          "text": "A storage medium used to back up data on a network",
           "is_correct": false,
-          "explanation": "Server X connects directly to Router A — A can still serve X locally; it's A's connection to the rest of the network (through B) that fails."
+          "explanation": "Backup storage is a data management concept. A protocol is a standardized communication ruleset used by network devices."
         }
       ],
-      "unit_objective": "CSN-1.C"
+      "unit_objective": "CSN-1.A"
     },
     {
       "id": "csp-u4-q003",
       "unit": "unit-4",
       "subject": "ap-csp",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "stimulus": {
-        "type": "text",
-        "content": "IPv4 uses 32-bit addresses, supporting approximately 4 billion unique addresses. IPv6 was developed to address the exhaustion of IPv4 address space and uses 128-bit addresses."
+        "type": "none"
       },
-      "question": "How many more unique addresses does IPv6 support compared to IPv4?",
+      "question": "Which of the following BEST describes what a packet is in computer networking?",
       "choices": [
         {
           "id": "A",
-          "text": "IPv6 supports approximately 2^96 times more unique addresses than IPv4",
-          "is_correct": true,
-          "explanation": "IPv4: 2^32 addresses. IPv6: 2^128 addresses. The difference factor is 2^128 / 2^32 = 2^96 — an astronomically larger address space."
+          "text": "A physical box used to transport hard drives between data centers",
+          "is_correct": false,
+          "explanation": "In networking, a packet is a unit of digital data — not a physical container. It is transmitted electronically across a network."
         },
         {
           "id": "B",
-          "text": "IPv6 supports exactly 4 times more addresses than IPv4 since 128 = 4 × 32",
-          "is_correct": false,
-          "explanation": "Doubling the bit length does not double the address count — it squares it. 128 bits gives 2^128, not 4 × 2^32 = 2^34."
+          "text": "A small unit of data containing a portion of a message along with source and destination addresses",
+          "is_correct": true,
+          "explanation": "A packet is a fragment of a larger message. It includes the data payload plus header information — including source and destination IP addresses — allowing it to be routed independently across a network."
         },
         {
           "id": "C",
-          "text": "IPv6 supports 96 billion more addresses than IPv4",
+          "text": "A type of encryption key used to secure data in transit",
           "is_correct": false,
-          "explanation": "96 = 128 - 32 is the bit difference, but address counts grow exponentially — 2^128 vs 2^32 is astronomically more than 96 billion."
+          "explanation": "An encryption key is a cryptographic value used to secure data. A packet is a unit of network data that may or may not be encrypted."
         },
         {
           "id": "D",
-          "text": "IPv6 and IPv4 support the same number of addresses — IPv6 just uses longer format for security",
+          "text": "A complete message transmitted in a single uninterrupted stream from sender to receiver",
           "is_correct": false,
-          "explanation": "IPv6 was designed specifically to provide more addresses — 128 bits provides vastly more than 32 bits."
+          "explanation": "Messages are broken into multiple packets for transmission — each packet travels independently and may take different routes. They are reassembled at the destination."
         }
       ],
-      "unit_objective": "CSN-1.B"
+      "unit_objective": "CSN-1.C"
     },
     {
       "id": "csp-u4-q004",
@@ -123,151 +120,148 @@
       "subject": "ap-csp",
       "difficulty": "easy",
       "stimulus": {
-        "type": "text",
-        "content": "Protocols are standardized rules that devices must follow to communicate over a network. Without protocols, devices from different manufacturers using different software could not exchange data."
+        "type": "none"
       },
-      "question": "Which of the following best describes why the internet relies on standardized protocols?",
+      "question": "Which of the following BEST describes bandwidth?",
       "choices": [
         {
           "id": "A",
-          "text": "Standardized protocols allow devices from any manufacturer to communicate by following the same rules",
+          "text": "The maximum amount of data that can be transmitted over a network connection in a given time period",
           "is_correct": true,
-          "explanation": "Without common protocols, each device manufacturer's systems could only talk to identical systems — protocols enable interoperability across different hardware and software."
+          "explanation": "Bandwidth is the capacity of a network connection — typically measured in bits per second (bps). Higher bandwidth means more data can be transmitted per second."
         },
         {
           "id": "B",
-          "text": "Protocols make the internet faster by compressing all data before transmission",
+          "text": "The time it takes for a single packet to travel from sender to receiver",
           "is_correct": false,
-          "explanation": "Protocols define communication rules, not data compression — compression is handled separately and is not the purpose of protocols."
+          "explanation": "Travel time for a single packet is called latency or ping, not bandwidth. Bandwidth measures capacity — how much data can flow, not how fast one packet travels."
         },
         {
           "id": "C",
-          "text": "Standardized protocols are required to encrypt internet traffic",
+          "text": "The number of packets that are lost during transmission",
           "is_correct": false,
-          "explanation": "Encryption is one function of specific protocols (like HTTPS/TLS), not the reason for all standardized protocols — the primary purpose is interoperability."
+          "explanation": "Lost packets are called packet loss. Bandwidth refers to the maximum data throughput capacity of a connection."
         },
         {
           "id": "D",
-          "text": "Protocols prevent unauthorized devices from connecting to a network",
+          "text": "The physical width of the cables used in a network",
           "is_correct": false,
-          "explanation": "Access control is handled by authentication and firewall rules, not by protocols themselves — protocols define how to communicate, not who can connect."
+          "explanation": "Bandwidth is a measure of data capacity, not a physical dimension. Thicker cables may support higher bandwidth, but bandwidth itself is measured in data transfer rate (bits per second)."
         }
       ],
-      "unit_objective": "CSN-1.D"
+      "unit_objective": "CSN-1.B"
     },
     {
       "id": "csp-u4-q005",
       "unit": "unit-4",
       "subject": "ap-csp",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "stimulus": {
-        "type": "text",
-        "content": "A weather simulation requires analyzing 1 trillion data points. The task is divided into 1,000 independent subtasks of equal size. Four computing approaches are considered:\n\nApproach 1: One computer, sequential\nApproach 2: 100 computers, parallel\nApproach 3: 1,000 computers, parallel\nApproach 4: 10,000 computers, parallel"
+        "type": "none"
       },
-      "question": "Which approach most efficiently reduces the total computation time, assuming perfect task distribution?",
+      "question": "HTTP is a protocol used to transfer data on the web. Which of the following BEST describes what HTTP does?",
       "choices": [
         {
           "id": "A",
-          "text": "Approach 3 — 1,000 computers can each handle one subtask simultaneously, minimizing total time",
-          "is_correct": true,
-          "explanation": "With 1,000 equal subtasks and 1,000 processors, each processor handles exactly one subtask — maximum parallelism for this task division."
+          "text": "It encrypts all data transmitted between a web browser and a server",
+          "is_correct": false,
+          "explanation": "HTTP does not encrypt data — HTTPS (HTTP with TLS) provides encryption. Standard HTTP transmits data in plaintext."
         },
         {
           "id": "B",
-          "text": "Approach 4 — more processors always means faster completion",
-          "is_correct": false,
-          "explanation": "With 1,000 subtasks and 10,000 processors, 9,000 processors sit idle — adding processors beyond the task count provides no additional speedup."
+          "text": "It provides rules for how web browsers request web pages and how servers respond with that content",
+          "is_correct": true,
+          "explanation": "HTTP (HyperText Transfer Protocol) defines how clients (browsers) request resources from web servers, and how servers respond with those resources — it is the protocol underlying the World Wide Web."
         },
         {
           "id": "C",
-          "text": "Approach 1 — a single powerful computer avoids coordination overhead",
+          "text": "It assigns unique IP addresses to devices when they connect to the internet",
           "is_correct": false,
-          "explanation": "Sequential processing of 1 trillion data points takes far longer than parallel processing — coordination overhead is minimal compared to the computation savings."
+          "explanation": "IP address assignment is handled by DHCP (Dynamic Host Configuration Protocol), not HTTP. HTTP is specifically for web resource transfer."
         },
         {
           "id": "D",
-          "text": "Approach 2 — 100 computers provide the best balance of speed and resource use",
+          "text": "It compresses web page data to reduce bandwidth usage",
           "is_correct": false,
-          "explanation": "Approach 2 still assigns 10 subtasks per computer — Approach 3 assigns one subtask per computer, completing everything in 1/10th the time."
+          "explanation": "HTTP can optionally carry compressed content, but compression is not its primary function. HTTP defines the request-response communication rules for web content transfer."
         }
       ],
-      "unit_objective": "CSN-2.A"
+      "unit_objective": "CSN-1.A"
     },
     {
       "id": "csp-u4-q006",
       "unit": "unit-4",
       "subject": "ap-csp",
-      "difficulty": "hard",
+      "difficulty": "easy",
       "stimulus": {
-        "type": "text",
-        "content": "A hospital network stores patient records on three identical servers (S1, S2, S3) in different buildings. All three servers contain the same data. Each is connected to the others by independent network paths."
+        "type": "none"
       },
-      "question": "Which of the following best explains how this design improves fault tolerance?",
+      "question": "Which of the following BEST describes what DNS (Domain Name System) does?",
       "choices": [
         {
           "id": "A",
-          "text": "Redundancy — if one server fails or its building loses power, the data remains accessible through the other servers",
-          "is_correct": true,
-          "explanation": "Redundancy creates backups — keeping three identical servers on independent paths ensures that even if one or two fail, the data is still accessible."
+          "text": "DNS encrypts website traffic to prevent interception",
+          "is_correct": false,
+          "explanation": "Encryption is handled by TLS/HTTPS. DNS translates human-readable domain names into numeric IP addresses."
         },
         {
           "id": "B",
-          "text": "Bandwidth — having three servers triples the data transfer speed for all users",
-          "is_correct": false,
-          "explanation": "Load distribution can improve performance, but the primary purpose of three identical servers on independent paths is fault tolerance, not bandwidth."
+          "text": "DNS translates human-readable domain names (like example.com) into numeric IP addresses",
+          "is_correct": true,
+          "explanation": "DNS acts like a phone book for the internet. When you type 'example.com', DNS resolves it to the server's IP address so your browser can connect to the correct machine."
         },
         {
           "id": "C",
-          "text": "Parallel computing — the three servers process requests simultaneously to reduce computation time",
+          "text": "DNS stores backup copies of websites in case the original server goes down",
           "is_correct": false,
-          "explanation": "Storing identical copies for reliability is redundancy for fault tolerance — parallel computing divides computation work, which is different."
+          "explanation": "Content delivery networks (CDNs) cache website content, not DNS. DNS only translates domain names to IP addresses."
         },
         {
           "id": "D",
-          "text": "Protocol standardization — using the same data format on all three servers ensures compatibility",
+          "text": "DNS assigns unique IP addresses to devices when they join a network",
           "is_correct": false,
-          "explanation": "Protocol standardization is about communication rules — storing redundant copies for availability is fault tolerance."
+          "explanation": "Dynamic IP address assignment is done by DHCP (Dynamic Host Configuration Protocol). DNS resolves domain names to existing IP addresses — it does not assign them."
         }
       ],
-      "unit_objective": "CSN-1.C"
+      "unit_objective": "CSN-1.D"
     },
     {
       "id": "csp-u4-q007",
       "unit": "unit-4",
       "subject": "ap-csp",
-      "difficulty": "hard",
+      "difficulty": "easy",
       "stimulus": {
         "type": "text",
-        "content": "Select TWO answers.\n\nA software team is designing a distributed computing system to process video files. Each video is divided into 10-second segments, and different computers process different segments."
+        "content": "A user sends a large video file to a friend over the internet. The file is broken into hundreds of smaller units, each labeled with the sender's address, the recipient's address, and the portion of the file it contains. Each unit is sent independently and may travel a different path across the internet, arriving at the destination in a different order. The receiving computer reassembles them into the original video file."
       },
-      "question": "Select TWO answers. Which of the following are advantages of this distributed approach compared to processing each full video on one computer?",
+      "question": "Which of the following terms BEST describes each small unit described in the scenario?",
       "choices": [
         {
           "id": "A",
-          "text": "Multiple segments can be processed simultaneously, reducing total processing time",
-          "is_correct": true,
-          "explanation": "Processing segments in parallel is the core advantage of distributed computing — total time is reduced when independent pieces run concurrently."
+          "text": "Protocol",
+          "is_correct": false,
+          "explanation": "A protocol is a set of communication rules — not a unit of data. Each small unit of the transmitted file is called a packet."
         },
         {
           "id": "B",
-          "text": "If one computer fails mid-task, only its segment needs to be reprocessed, not the entire video",
+          "text": "Packet",
           "is_correct": true,
-          "explanation": "Distributing work limits the impact of failures — only the affected segment needs to be rerun rather than restarting the entire file."
+          "explanation": "Packets are the small units into which large messages are broken for transmission. Each packet contains payload data plus source/destination addressing information, and packets may travel independently across the network."
         },
         {
           "id": "C",
-          "text": "The distributed system requires no network connection between computers",
+          "text": "Router",
           "is_correct": false,
-          "explanation": "Distributed computing requires network communication to divide tasks and combine results — no network connection is not an advantage."
+          "explanation": "A router is a network device that forwards packets — it is not the data unit itself. The small units of the video are packets."
         },
         {
           "id": "D",
-          "text": "Video quality is automatically improved when multiple computers process the file",
+          "text": "Bandwidth",
           "is_correct": false,
-          "explanation": "Processing distribution does not affect output quality — video quality is determined by encoding parameters, not how many machines process it."
+          "explanation": "Bandwidth is the data capacity of a network connection, not a unit of data. Each small unit described is a packet."
         }
       ],
-      "unit_objective": "CSN-2.B"
+      "unit_objective": "CSN-1.C"
     },
     {
       "id": "csp-u4-q008",
@@ -275,227 +269,223 @@
       "subject": "ap-csp",
       "difficulty": "easy",
       "stimulus": {
-        "type": "text",
-        "content": "Bandwidth is the maximum rate at which data can be transmitted over a network connection, typically measured in bits per second (bps). Higher bandwidth allows more data to be transferred in a given time period."
+        "type": "none"
       },
-      "question": "A video streaming service needs to deliver 4K video at 25 Mbps (megabits per second). A user's internet connection has a bandwidth of 10 Mbps. Which of the following best predicts what will happen?",
+      "question": "Which of the following BEST describes TCP (Transmission Control Protocol)?",
       "choices": [
         {
           "id": "A",
-          "text": "The video will buffer or lower quality because the user's bandwidth is insufficient to deliver 4K video in real time",
-          "is_correct": true,
-          "explanation": "When required data rate (25 Mbps) exceeds available bandwidth (10 Mbps), the stream cannot deliver data fast enough — resulting in buffering or quality reduction."
+          "text": "A protocol that encrypts internet traffic to keep it private",
+          "is_correct": false,
+          "explanation": "Encryption is provided by TLS/HTTPS. TCP ensures reliable delivery of packets — it retransmits any packets that are lost during transmission."
         },
         {
           "id": "B",
-          "text": "The video will play perfectly because the service will compress the video to fit 10 Mbps",
-          "is_correct": false,
-          "explanation": "While services may auto-reduce quality, this is not a guaranteed outcome — the primary issue is insufficient bandwidth for 4K."
+          "text": "A protocol that ensures reliable delivery of data by breaking messages into packets, sending them, and retransmitting any that are lost",
+          "is_correct": true,
+          "explanation": "TCP is a reliable transport protocol. It breaks data into packets, acknowledges receipt, and retransmits lost packets — ensuring all data arrives correctly and in order."
         },
         {
           "id": "C",
-          "text": "The video will play at 4K quality because internet connections always deliver their maximum bandwidth",
+          "text": "A protocol that assigns IP addresses to new devices when they connect to a network",
           "is_correct": false,
-          "explanation": "10 Mbps is the maximum — actual throughput may be lower due to network conditions. 4K requires 25 Mbps, far exceeding 10 Mbps."
+          "explanation": "IP address assignment is handled by DHCP. TCP handles reliable packet delivery, not address assignment."
         },
         {
           "id": "D",
-          "text": "Bandwidth only affects upload speed, not video streaming download performance",
+          "text": "A protocol used by web browsers to request and receive web pages from servers",
           "is_correct": false,
-          "explanation": "Video streaming is primarily a download activity — bandwidth directly limits how quickly streaming data can be received."
+          "explanation": "HTTP is the protocol used for web page requests and responses. TCP operates at a lower layer, providing reliable delivery for many higher-level protocols including HTTP."
         }
       ],
-      "unit_objective": "CSN-1.E"
+      "unit_objective": "CSN-1.C"
     },
     {
       "id": "csp-u4-q009",
       "unit": "unit-4",
       "subject": "ap-csp",
-      "difficulty": "hard",
+      "difficulty": "easy",
       "stimulus": {
-        "type": "text",
-        "content": "HTTP (HyperText Transfer Protocol) allows browsers to request and receive web pages from servers. HTTPS adds TLS (Transport Layer Security) encryption to HTTP connections. When a browser connects to a site using HTTPS, the data exchanged between the browser and server is encrypted."
+        "type": "none"
       },
-      "question": "Which of the following best explains why HTTPS is preferred over HTTP for online banking?",
+      "question": "Which of the following BEST describes redundancy in a computer network?",
       "choices": [
         {
           "id": "A",
-          "text": "HTTPS encrypts data in transit, preventing an eavesdropper from reading sensitive information like account numbers and passwords",
-          "is_correct": true,
-          "explanation": "Encryption via TLS means intercepted data appears as unreadable ciphertext — HTTPS protects confidential transactions from network eavesdropping."
+          "text": "Having duplicate copies of data stored on multiple servers so that if one fails, another can serve the data",
+          "is_correct": false,
+          "explanation": "While this describes data redundancy, the question is about network redundancy. Network redundancy refers specifically to multiple paths between nodes."
         },
         {
           "id": "B",
-          "text": "HTTPS is faster than HTTP, which is critical for processing banking transactions quickly",
-          "is_correct": false,
-          "explanation": "HTTPS adds a slight overhead from encryption — the reason to use it is security, not speed."
+          "text": "The existence of multiple paths between nodes so that if one path fails, data can still travel via another route",
+          "is_correct": true,
+          "explanation": "Network redundancy means building multiple routing paths between nodes. If a router or link fails, packets can be rerouted through an alternative path — this is what makes the internet fault tolerant."
         },
         {
           "id": "C",
-          "text": "HTTPS prevents phishing attacks by blocking fake banking websites",
+          "text": "Using the same IP address for multiple devices to reduce address space usage",
           "is_correct": false,
-          "explanation": "HTTPS encrypts data but does not prevent phishing — an attacker can host a phishing site using HTTPS. Encryption protects data in transit, not site authenticity alone."
+          "explanation": "IP addresses must be unique — sharing them would cause routing failures. Redundancy refers to having multiple routing paths between nodes, not shared addresses."
         },
         {
           "id": "D",
-          "text": "HTTP cannot be used for financial transactions because banks are required by law to use HTTPS",
+          "text": "Compressing packets to reduce the bandwidth required for transmission",
           "is_correct": false,
-          "explanation": "Regulatory requirements vary — the technical reason HTTPS is preferred is encryption of data in transit, not solely legal mandate."
+          "explanation": "Compression reduces packet size — it is an efficiency technique, not redundancy. Redundancy specifically means multiple alternative paths or copies."
         }
       ],
-      "unit_objective": "CSN-1.D"
+      "unit_objective": "CSN-1.E"
     },
     {
       "id": "csp-u4-q010",
       "unit": "unit-4",
       "subject": "ap-csp",
-      "difficulty": "hard",
+      "difficulty": "easy",
       "stimulus": {
-        "type": "text",
-        "content": "A program consists of three tasks:\n- Task A: 10 seconds, must complete before Task C\n- Task B: 8 seconds, independent\n- Task C: 5 seconds, depends on Task A\n\nThe program is run on a system with 2 processors."
+        "type": "none"
       },
-      "question": "What is the minimum time needed to complete all three tasks using 2 processors?",
+      "question": "Which of the following BEST describes a fault tolerant system?",
       "choices": [
         {
           "id": "A",
-          "text": "15 seconds",
-          "is_correct": true,
-          "explanation": "Processor 1: A (10s) then C (5s) = 15s. Processor 2: B (8s) — runs concurrently. The bottleneck is A→C chain = 15s. B finishes at 8s. Total = 15s."
+          "text": "A system that never experiences hardware failures",
+          "is_correct": false,
+          "explanation": "No system is immune to hardware failures. Fault tolerance means the system continues to operate correctly even when some components fail — not that failures never occur."
         },
         {
           "id": "B",
-          "text": "23 seconds",
-          "is_correct": false,
-          "explanation": "23s would be sequential execution (10+8+5) — with 2 processors and parallel execution, B runs at the same time as A."
+          "text": "A system that continues operating correctly even when some of its components fail",
+          "is_correct": true,
+          "explanation": "Fault tolerance means the system is designed to handle component failures gracefully — through redundancy, failover mechanisms, or other techniques — so that the overall system keeps working."
         },
         {
           "id": "C",
-          "text": "10 seconds",
+          "text": "A system that automatically repairs broken hardware components",
           "is_correct": false,
-          "explanation": "10s would only work if all tasks could run in parallel — but C depends on A, so C cannot start until A finishes at 10s."
+          "explanation": "Fault tolerance does not mean self-repair. It means the system continues functioning despite failures, typically by rerouting to functioning components."
         },
         {
           "id": "D",
-          "text": "18 seconds",
+          "text": "A system that uses encryption to protect data from unauthorized access",
           "is_correct": false,
-          "explanation": "18s = 10 + 8 would result from running A and B sequentially — but with 2 processors, they run simultaneously."
+          "explanation": "Encryption provides security. Fault tolerance provides resilience — the ability to continue operating when components fail."
         }
       ],
-      "unit_objective": "CSN-2.A"
+      "unit_objective": "CSN-1.E"
     },
     {
       "id": "csp-u4-q011",
       "unit": "unit-4",
       "subject": "ap-csp",
-      "difficulty": "medium",
-      "stimulus": {
-        "type": "text",
-        "content": "The following describes two computing configurations:\n\nConfiguration 1: Four processors each solve one-quarter of a problem simultaneously.\nConfiguration 2: One processor solves the entire problem step by step."
-      },
-      "question": "Assuming the problem is perfectly divisible and equal, approximately how much faster is Configuration 1?",
-      "choices": [
-        {
-          "id": "A",
-          "text": "Approximately 4 times faster",
-          "is_correct": true,
-          "explanation": "With 4 equal parallel tasks, each takes 1/4 of the sequential time — the total time is 1/4, making it 4× faster."
-        },
-        {
-          "id": "B",
-          "text": "Approximately 16 times faster",
-          "is_correct": false,
-          "explanation": "16× speedup would require 16 processors on equal tasks — 4 processors provide at most a 4× speedup for a perfectly parallel task."
-        },
-        {
-          "id": "C",
-          "text": "No difference — sequential tasks cannot benefit from parallel processors",
-          "is_correct": false,
-          "explanation": "The problem is stated to be perfectly divisible — independent portions benefit directly from parallelism."
-        },
-        {
-          "id": "D",
-          "text": "Approximately 2 times faster — parallel systems always have coordination overhead that halves efficiency",
-          "is_correct": false,
-          "explanation": "The question assumes perfect division — even with some overhead, 4 processors on 4 equal tasks provides approximately 4× speedup, not 2×."
-        }
-      ],
-      "unit_objective": "CSN-2.A"
-    },
-    {
-      "id": "csp-u4-q012",
-      "unit": "unit-4",
-      "subject": "ap-csp",
       "difficulty": "easy",
       "stimulus": {
-        "type": "text",
-        "content": "A user types 'www.school.edu' into a browser. The browser does not know the IP address for this domain. It queries a DNS server, which looks up the domain name and returns the IP address 192.168.1.100. The browser then sends an HTTP request to that IP address."
+        "type": "none"
       },
-      "question": "What is the purpose of the DNS server in this scenario?",
+      "question": "Which of the following BEST distinguishes the World Wide Web from the internet?",
       "choices": [
         {
           "id": "A",
-          "text": "To translate the human-readable domain name into the IP address the browser needs to connect",
-          "is_correct": true,
-          "explanation": "DNS (Domain Name System) resolves domain names to IP addresses — without it, users would need to memorize IP addresses to visit websites."
+          "text": "The internet and the World Wide Web are identical — they refer to the same thing",
+          "is_correct": false,
+          "explanation": "They are distinct: the internet is the global network infrastructure; the World Wide Web is an application built on top of that infrastructure."
         },
         {
           "id": "B",
-          "text": "To verify that the website is safe before allowing the browser to connect",
-          "is_correct": false,
-          "explanation": "DNS only translates names to IP addresses — security checking is performed by the browser, antivirus, or security services."
+          "text": "The internet is the global network infrastructure; the World Wide Web is a system of interlinked documents accessible via the internet using HTTP",
+          "is_correct": true,
+          "explanation": "The internet is the underlying network of connected devices. The World Wide Web is one service running on the internet — a collection of web pages and resources linked by URLs, accessed via HTTP."
         },
         {
           "id": "C",
-          "text": "To encrypt the HTTP request before it is sent to the server",
+          "text": "The World Wide Web is the physical cables; the internet is the software layer",
           "is_correct": false,
-          "explanation": "Encryption is handled by TLS/HTTPS, not DNS — DNS only resolves addresses."
+          "explanation": "This reverses the relationship. Physical cables are part of the internet's hardware infrastructure. The World Wide Web is the collection of web documents and sites — a software application layer."
         },
         {
           "id": "D",
-          "text": "To route the data packets from the browser to the server",
+          "text": "The internet can only be accessed wirelessly; the World Wide Web requires a wired connection",
           "is_correct": false,
-          "explanation": "Packet routing is handled by routers using IP addresses — DNS provides the IP address, but routing decisions are made by routers."
+          "explanation": "Both the internet and the Web are accessible via wired or wireless connections. The distinction is that the internet is the network infrastructure and the Web is a service on it."
         }
       ],
       "unit_objective": "CSN-1.A"
     },
     {
-      "id": "csp-u4-q013",
+      "id": "csp-u4-q012",
       "unit": "unit-4",
       "subject": "ap-csp",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "stimulus": {
         "type": "text",
-        "content": "A researcher is analyzing the performance of parallel computing for three tasks:\n\n- Task P: All steps are independent and can be parallelized\n- Task Q: 60% of steps are independent; 40% must run sequentially\n- Task R: All steps must run sequentially"
+        "content": "A network diagram shows four computers connected in a ring: A → B → C → D → A. If the connection between B and C fails, computers A and D can no longer reach B or C."
       },
-      "question": "Which of the following correctly ranks the potential speedup from parallel computing from greatest to least?",
+      "question": "Which of the following BEST describes a limitation of this network design?",
       "choices": [
         {
           "id": "A",
-          "text": "Task P > Task Q > Task R",
+          "text": "The network has no redundancy — if any single connection fails, some computers become unreachable",
           "is_correct": true,
-          "explanation": "P is fully parallelizable (maximum speedup). Q gains partial speedup from its 60% parallel portion. R gains no speedup (sequential). P > Q > R."
+          "explanation": "In a ring topology with no alternative paths, a single connection failure creates a break that isolates parts of the network. True fault tolerance requires multiple independent paths between nodes."
         },
         {
           "id": "B",
-          "text": "Task R > Task Q > Task P",
+          "text": "The network has too many connections, which reduces bandwidth",
           "is_correct": false,
-          "explanation": "Sequential tasks gain no speedup from parallel processors — fully parallel tasks gain the most."
+          "explanation": "A ring with 4 nodes has only 4 connections — not too many. The limitation is insufficient connections (no redundant paths), not too many."
         },
         {
           "id": "C",
-          "text": "Task Q > Task P > Task R",
+          "text": "The network cannot use TCP because there are no routers",
           "is_correct": false,
-          "explanation": "Task P is fully parallelizable — it achieves greater speedup than Q (which has a 40% sequential bottleneck)."
+          "explanation": "TCP can operate in any network — it does not require routers specifically. The limitation here is the single-path ring topology's lack of fault tolerance."
         },
         {
           "id": "D",
-          "text": "All tasks benefit equally from parallel computing",
+          "text": "The network uses too many IP addresses",
           "is_correct": false,
-          "explanation": "The degree of parallelism directly determines speedup — sequential dependencies (Task R and Q's 40%) limit or prevent parallel gains."
+          "explanation": "A 4-node network uses 4 IP addresses — this is not excessive. The design limitation is the lack of redundant routing paths."
         }
       ],
-      "unit_objective": "CSN-2.A"
+      "unit_objective": "CSN-1.E"
+    },
+    {
+      "id": "csp-u4-q013",
+      "unit": "unit-4",
+      "subject": "ap-csp",
+      "difficulty": "medium",
+      "stimulus": {
+        "type": "text",
+        "content": "A company sends a 10 MB file from an office in New York to a server in London. The file is broken into packets, and each packet independently travels across the internet — some taking a route through Toronto, others through Madrid, and some through both. All packets eventually arrive at the London server and are reassembled."
+      },
+      "question": "Which of the following BEST explains why packets can take different routes?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "The internet uses packet switching, where each packet is routed independently based on network conditions",
+          "is_correct": true,
+          "explanation": "Packet switching allows each packet to be routed independently based on current network conditions (congestion, available links). This improves efficiency and provides fault tolerance — if one route is congested or broken, packets can take alternative paths."
+        },
+        {
+          "id": "B",
+          "text": "The file was split into different formats — some packets use TCP and others use HTTP",
+          "is_correct": false,
+          "explanation": "Packets in a single transmission use the same protocol. The reason for different routes is packet switching — each router independently decides the best next hop based on current conditions."
+        },
+        {
+          "id": "C",
+          "text": "Different packets have different bandwidth allocations, which determines their routing",
+          "is_correct": false,
+          "explanation": "Individual packets do not have different bandwidth allocations. Routing decisions are made by routers based on network topology, congestion, and available paths."
+        },
+        {
+          "id": "D",
+          "text": "The internet requires all packets from a single file to travel on different routes to increase security",
+          "is_correct": false,
+          "explanation": "Packets take different routes based on network conditions and routing algorithms — not as a security requirement. Security is provided by encryption, not path diversity."
+        }
+      ],
+      "unit_objective": "CSN-1.C"
     },
     {
       "id": "csp-u4-q014",
@@ -503,1332 +493,677 @@
       "subject": "ap-csp",
       "difficulty": "medium",
       "stimulus": {
-        "type": "text",
-        "content": "TCP (Transmission Control Protocol) establishes a connection before sending data, acknowledges received packets, and retransmits any lost packets. UDP (User Datagram Protocol) sends packets without establishing a connection or guaranteeing delivery."
+        "type": "table",
+        "content": {
+          "headers": ["Network Design", "Description"],
+          "rows": [
+            ["Design A", "Each device connects directly to every other device"],
+            ["Design B", "All devices connect to a single central hub — if the hub fails, all devices lose connectivity"],
+            ["Design C", "Each device has two independent connections to the network — if one fails, the other remains active"],
+            ["Design D", "Devices are connected in a linear chain — removing any device breaks the chain"]
+          ]
+        }
       },
-      "question": "Which protocol would be most appropriate for a live sports score app that updates the score every second?",
+      "question": "Which design BEST demonstrates fault tolerance?",
       "choices": [
         {
           "id": "A",
-          "text": "UDP, because real-time score updates prioritize timeliness over guaranteed delivery",
-          "is_correct": true,
-          "explanation": "For real-time data like live scores, receiving the latest update quickly matters more than getting every update — a missed score packet is less disruptive than delayed delivery."
+          "text": "Design A",
+          "is_correct": false,
+          "explanation": "While Design A is highly redundant (every device connects to every other), Design C specifically demonstrates the defining characteristic of fault tolerance: continued operation when a single component fails."
         },
         {
           "id": "B",
-          "text": "TCP, because every score update must be delivered to ensure accuracy",
+          "text": "Design B",
           "is_correct": false,
-          "explanation": "While accuracy matters, TCP's retransmission can introduce delays — a score from 1 second ago arriving late is less useful than a fresh score arriving now."
+          "explanation": "Design B has a single point of failure — if the hub fails, all devices lose connectivity. This is the opposite of fault tolerance."
         },
         {
           "id": "C",
-          "text": "TCP, because UDP cannot transmit text data",
-          "is_correct": false,
-          "explanation": "UDP can transmit any type of data including text — the choice between UDP and TCP depends on reliability vs. speed trade-offs, not data type."
+          "text": "Design C",
+          "is_correct": true,
+          "explanation": "Design C explicitly provides redundancy — each device has two independent connections. If one connection fails, the other keeps the device connected. This is fault tolerance: continued operation despite component failure."
         },
         {
           "id": "D",
-          "text": "UDP, because it requires less bandwidth than TCP",
+          "text": "Design D",
           "is_correct": false,
-          "explanation": "While UDP has less overhead than TCP, the primary reason for choosing UDP for live scores is latency, not bandwidth conservation."
+          "explanation": "A linear chain has no redundancy — removing one device or link breaks the entire chain. This design is highly vulnerable to failures."
         }
       ],
-      "unit_objective": "CSN-1.D"
+      "unit_objective": "CSN-1.E"
     },
     {
       "id": "csp-u4-q015",
       "unit": "unit-4",
       "subject": "ap-csp",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "stimulus": {
-        "type": "text",
-        "content": "A distributed computing project called FoldingAtHome allows volunteers to donate their home computer's idle processing power. The project divides protein folding simulations into small tasks, sends them to volunteer computers worldwide, and combines results to understand diseases like Alzheimer's."
+        "type": "none"
       },
-      "question": "Which of the following best explains how this project benefits from distributed computing compared to using one supercomputer?",
+      "question": "Which of the following BEST describes the difference between parallel computing and distributed computing?",
       "choices": [
         {
           "id": "A",
-          "text": "The combined processing power of millions of volunteer computers can exceed that of a single supercomputer at far lower cost",
+          "text": "Parallel computing runs multiple tasks on multiple processors in the same computer; distributed computing divides a task across multiple separate computers",
           "is_correct": true,
-          "explanation": "Distributed volunteer computing harnesses massive parallelism across many computers — the aggregate computing power can surpass even expensive supercomputers."
+          "explanation": "Parallel computing uses multiple processors within one system. Distributed computing splits tasks across multiple independent computers connected by a network — enabling problems too large for any single machine."
         },
         {
           "id": "B",
-          "text": "Distributed computing is more accurate than supercomputers because each volunteer verifies others' work",
+          "text": "Parallel computing is only used for sorting algorithms; distributed computing is only used for web servers",
           "is_correct": false,
-          "explanation": "Accuracy depends on algorithms, not distribution method — the advantage is computing power and cost, not built-in verification."
+          "explanation": "Both parallel and distributed computing have broad applications beyond specific algorithm types. The distinction is about hardware architecture — single multi-processor system vs. multiple networked computers."
         },
         {
           "id": "C",
-          "text": "A single supercomputer cannot perform protein folding simulations",
+          "text": "Parallel computing requires more bandwidth than distributed computing",
           "is_correct": false,
-          "explanation": "Supercomputers can perform these simulations — the distributed approach is about scale and cost efficiency, not capability limitations of supercomputers."
+          "explanation": "Parallel computing happens within a single machine and does not require network bandwidth. Distributed computing uses network connections — but bandwidth is not the defining distinction."
         },
         {
           "id": "D",
-          "text": "Distributed computing eliminates all network communication overhead",
+          "text": "Parallel and distributed computing are identical — both run tasks simultaneously on multiple processors",
           "is_correct": false,
-          "explanation": "Distributed systems require network communication to send tasks and collect results — they don't eliminate communication overhead."
+          "explanation": "While both involve simultaneous processing, they differ structurally: parallel = multiple processors in one machine; distributed = task split across multiple separate, networked computers."
         }
       ],
-      "unit_objective": "CSN-2.B"
+      "unit_objective": "CSN-2.A"
     },
     {
       "id": "csp-u4-q016",
-      "question": "Which of the following BEST describes the role of a DNS (Domain Name System) server?",
+      "unit": "unit-4",
+      "subject": "ap-csp",
+      "difficulty": "medium",
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": ["Task", "Sequential Time", "Parallel Time (4 processors)"],
+          "rows": [
+            ["Task A", "40 seconds", "10 seconds"],
+            ["Task B", "60 seconds", "15 seconds"],
+            ["Task C", "80 seconds", "30 seconds"],
+            ["Task D", "100 seconds", "50 seconds"]
+          ]
+        }
+      },
+      "question": "A programmer uses 4 processors to run Task D. Which of the following BEST explains why the parallel time is 50 seconds rather than 25 seconds (which would be 100 seconds ÷ 4)?",
       "choices": [
         {
           "id": "A",
-          "text": "It encrypts web traffic between a user and a server",
+          "text": "Task D uses a less efficient algorithm than the other tasks",
           "is_correct": false,
-          "explanation": "Encryption is handled by protocols like HTTPS/TLS. DNS translates domain names to IP addresses."
+          "explanation": "Algorithm efficiency affects sequential time, not the gap between expected and actual parallel speedup. The reason parallel time is not 1/4 of sequential time is that not all of Task D can be parallelized."
         },
         {
           "id": "B",
-          "text": "It translates human-readable domain names (like example.com) into IP addresses",
+          "text": "Some parts of Task D must be executed sequentially and cannot be parallelized, limiting the achievable speedup",
           "is_correct": true,
-          "explanation": "DNS acts as the internet's phone book, converting domain names to the numeric IP addresses that routers use to direct traffic."
+          "explanation": "Amdahl's Law states that the maximum speedup from parallelism is limited by the sequential (non-parallelizable) portion of the task. If some steps must happen in order, they cannot be split across processors."
         },
         {
           "id": "C",
-          "text": "It stores backup copies of all web pages for faster loading",
+          "text": "Using 4 processors always produces exactly a 2× speedup, regardless of the task",
           "is_correct": false,
-          "explanation": "Caching proxies and CDNs store content for faster delivery. DNS only resolves names to addresses."
+          "explanation": "Speedup depends on how much of the task is parallelizable. Tasks A and B achieve 4× speedup; Task D achieves only 2× speedup because it has a larger sequential portion."
         },
         {
           "id": "D",
-          "text": "It assigns IP addresses to devices on a local network",
+          "text": "The 4 processors are using different bandwidth allocations, which slows some of them down",
           "is_correct": false,
-          "explanation": "IP address assignment on a local network is handled by DHCP (Dynamic Host Configuration Protocol), not DNS."
+          "explanation": "Bandwidth affects data transfer, not processor computation speed. The limitation here is that part of Task D must be executed sequentially, preventing full 4× parallelization."
         }
       ],
-      "difficulty": "medium",
-      "topic": "DNS",
-      "stimulus": {
-        "type": "text",
-        "content": "A user types \"www.example.com\" into a web browser and presses Enter. Before the browser can display the website, it must find the server associated with that domain name."
-      }
+      "unit_objective": "CSN-2.A"
     },
     {
       "id": "csp-u4-q017",
-      "question": "An internet backbone has two redundant fiber optic paths between City A and City B. One path fails due to a storm. Which of the following BEST describes the internet response to this failure?",
+      "unit": "unit-4",
+      "subject": "ap-csp",
+      "difficulty": "medium",
+      "stimulus": {
+        "type": "text",
+        "content": "A web browser needs to load a web page hosted at the URL https://www.example.com/page. The user's computer does not know the server's IP address. The browser must resolve the domain name to an IP address before connecting."
+      },
+      "question": "Which network service does the browser use to resolve 'www.example.com' into an IP address?",
       "choices": [
         {
           "id": "A",
-          "text": "All internet traffic between City A and City B stops until the path is repaired",
+          "text": "HTTP",
           "is_correct": false,
-          "explanation": "The internet is designed with fault tolerance; redundant paths allow traffic to reroute around failures."
+          "explanation": "HTTP is the protocol used to request and transfer web content after the connection is established. It does not resolve domain names."
         },
         {
           "id": "B",
-          "text": "Packets are automatically rerouted through the remaining path with minimal disruption",
-          "is_correct": true,
-          "explanation": "The internet uses packet switching with redundant paths. Routers detect the failed path and automatically send packets through the remaining operational route."
+          "text": "TCP",
+          "is_correct": false,
+          "explanation": "TCP provides reliable packet delivery — it ensures data arrives correctly. DNS resolves domain names to IP addresses."
         },
         {
           "id": "C",
-          "text": "All packets on the failed path are permanently lost",
-          "is_correct": false,
-          "explanation": "If packets are lost, TCP handles retransmission. Additionally, the redundant path allows traffic to continue."
+          "text": "DNS",
+          "is_correct": true,
+          "explanation": "DNS (Domain Name System) translates human-readable domain names like 'www.example.com' into numeric IP addresses that routers can use to direct network traffic to the correct server."
         },
         {
           "id": "D",
-          "text": "The DNS server shuts down for both cities",
+          "text": "Redundancy",
           "is_correct": false,
-          "explanation": "DNS servers and network routing are separate functions. A single path failure does not shut down DNS."
+          "explanation": "Redundancy is a network design property (multiple paths), not a service that resolves domain names. DNS performs the name-to-IP resolution."
         }
       ],
-      "difficulty": "medium",
-      "topic": "fault_tolerance",
-      "stimulus": {
-        "type": "text",
-        "content": "A major storm damages the primary fiber optic cable connecting two large cities. The internet backbone in this region has a second redundant fiber optic path between the same two cities."
-      }
+      "unit_objective": "CSN-1.D"
     },
     {
       "id": "csp-u4-q018",
-      "question": "Which of the following BEST describes how bandwidth affects the internet user experience?",
+      "unit": "unit-4",
+      "subject": "ap-csp",
+      "difficulty": "medium",
+      "stimulus": {
+        "type": "text",
+        "content": "A company is designing a network for a hospital. Patient records must remain accessible even if some network components fail. An IT consultant recommends a 'mesh' design where each node has multiple connections to other nodes, rather than a star design where all nodes connect to a single central switch."
+      },
+      "question": "Which of the following BEST justifies the consultant's recommendation?",
       "choices": [
         {
           "id": "A",
-          "text": "Higher bandwidth reduces the number of packets a message is split into",
+          "text": "The mesh design requires fewer IP addresses than the star design",
           "is_correct": false,
-          "explanation": "Packet count depends on message size and packet size protocol, not bandwidth. Bandwidth is about transmission rate."
+          "explanation": "IP address count depends on the number of devices, not the topology. The justification for the mesh design is fault tolerance, not IP address efficiency."
         },
         {
           "id": "B",
-          "text": "Higher bandwidth allows more data to be transmitted per unit of time, enabling faster loading of large files and videos",
+          "text": "The mesh design provides redundant paths — if any single node or link fails, data can be rerouted, keeping records accessible",
           "is_correct": true,
-          "explanation": "Bandwidth is the maximum data transmission rate (measured in bits/second). Higher bandwidth means more data can move simultaneously, reducing loading times for large content."
+          "explanation": "In a hospital, continuous availability is critical. A mesh design with multiple paths is fault tolerant — any single failure can be routed around. The star design has a single point of failure (the central switch)."
         },
         {
           "id": "C",
-          "text": "Bandwidth only affects downloads, not uploads",
+          "text": "The mesh design compresses patient records more efficiently than the star design",
           "is_correct": false,
-          "explanation": "Bandwidth affects both download and upload speeds, though many consumer internet plans have asymmetric bandwidth (higher download than upload)."
+          "explanation": "Network topology does not affect data compression. The recommendation is justified by the mesh design's fault tolerance through redundant paths."
         },
         {
           "id": "D",
-          "text": "Bandwidth determines the physical distance data can travel over a network",
+          "text": "The mesh design transmits data faster because it uses parallel computing",
           "is_correct": false,
-          "explanation": "Data can travel globally regardless of bandwidth. Bandwidth is transmission rate, not transmission distance."
+          "explanation": "Mesh topology provides routing redundancy — it does not inherently use parallel computing. The benefit is fault tolerance, not speed improvement."
         }
       ],
-      "difficulty": "easy",
-      "topic": "bandwidth",
-      "stimulus": {
-        "type": "text",
-        "content": "A broadband internet provider offers residential plans ranging from 25 Mbps to 1,000 Mbps. A customer chooses the higher bandwidth plan primarily to improve their experience when streaming 4K video."
-      }
+      "unit_objective": "CSN-1.E"
     },
     {
       "id": "csp-u4-q019",
-      "question": "A company has four servers (A, B, C, D). Any two servers can communicate directly. If server A fails, which of the following BEST describes the impact on the overall network?",
+      "unit": "unit-4",
+      "subject": "ap-csp",
+      "difficulty": "medium",
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": ["Task Segment", "Can run in parallel?", "Time required"],
+          "rows": [
+            ["Segment 1", "No (must run first)", "10 seconds"],
+            ["Segment 2", "Yes (runs parallel with 3 and 4)", "5 seconds"],
+            ["Segment 3", "Yes (runs parallel with 2 and 4)", "8 seconds"],
+            ["Segment 4", "Yes (runs parallel with 2 and 3)", "6 seconds"],
+            ["Segment 5", "No (must run after 2, 3, 4)", "4 seconds"]
+          ]
+        }
+      },
+      "question": "If a programmer runs this task using parallel computing (where segments 2, 3, and 4 run simultaneously), what is the minimum total execution time?",
       "choices": [
         {
           "id": "A",
-          "text": "The entire network fails because server A is the central server",
+          "text": "10 seconds",
           "is_correct": false,
-          "explanation": "In a fully connected (redundant) network, no single server is a required central hub. Data can route through B, C, and D."
+          "explanation": "10 seconds is just the time for Segment 1. Segments 2-4 run in parallel (taking the max time: 8 seconds) and then Segment 5 takes 4 more seconds: 10 + 8 + 4 = 22 seconds total."
         },
         {
           "id": "B",
-          "text": "Servers B, C, and D can continue to communicate with each other through direct connections",
+          "text": "22 seconds",
           "is_correct": true,
-          "explanation": "Fault-tolerant networks are designed so that any single node failure does not disrupt the rest of the network. B, C, and D all have direct paths to each other."
+          "explanation": "Segment 1 (sequential): 10s. Segments 2, 3, 4 (parallel): the parallel group takes as long as the slowest = 8s (Segment 3). Segment 5 (sequential after parallel): 4s. Total = 10 + 8 + 4 = 22 seconds."
         },
         {
           "id": "C",
-          "text": "The network automatically adds a replacement server A",
+          "text": "33 seconds",
           "is_correct": false,
-          "explanation": "Networks do not automatically provision replacement servers. Fault tolerance means existing paths can handle the failure."
+          "explanation": "33 seconds would be the sum of all segments run sequentially (10+5+8+6+4=33). With parallel computing, Segments 2, 3, and 4 run simultaneously: 10 + max(5,8,6) + 4 = 10 + 8 + 4 = 22 seconds."
         },
         {
           "id": "D",
-          "text": "All data sent to server A is permanently lost",
+          "text": "14 seconds",
           "is_correct": false,
-          "explanation": "Data destined for server A cannot be delivered while it is offline, but data between B, C, and D continues normally."
+          "explanation": "14 would equal Segment 1 + Segment 5 alone (10 + 4). The parallel segments must also complete before Segment 5 can run: 10 + 8 + 4 = 22 seconds."
         }
       ],
-      "difficulty": "medium",
-      "topic": "fault_tolerance",
-      "stimulus": {
-        "type": "text",
-        "content": "A company runs a fault-tolerant network with four servers: A, B, C, and D. Every server has a direct connection to every other server. During routine maintenance, Server A is taken offline."
-      }
+      "unit_objective": "CSN-2.A"
     },
     {
       "id": "csp-u4-q020",
-      "question": "Which of the following BEST explains why the internet uses packet switching instead of circuit switching?",
+      "unit": "unit-4",
+      "subject": "ap-csp",
+      "difficulty": "medium",
+      "stimulus": {
+        "type": "text",
+        "content": "A user visits a website that uses HTTP (not HTTPS). She uses the site to order food for delivery and types in her home address and credit card number."
+      },
+      "question": "Which of the following BEST describes a security risk in this scenario?",
       "choices": [
         {
           "id": "A",
-          "text": "Packet switching is simpler and requires no routers",
+          "text": "The website cannot store data because HTTP does not support databases",
           "is_correct": false,
-          "explanation": "Packet switching actually requires routers to direct each packet. Circuit switching uses dedicated channels without routing decisions per packet."
+          "explanation": "HTTP has no restrictions on what a server stores in its database. The security risk is that HTTP transmits data in plaintext, which can be intercepted."
         },
         {
           "id": "B",
-          "text": "Packet switching dedicates a single path for each conversation, making it faster",
-          "is_correct": false,
-          "explanation": "Dedicated single paths describe circuit switching, not packet switching. Packet switching shares paths and routes packets independently."
+          "text": "HTTP transmits data in plaintext, so anyone who intercepts the packets can read the credit card number and home address",
+          "is_correct": true,
+          "explanation": "HTTP is unencrypted — data is transmitted in readable plaintext. A network attacker (e.g., on a shared Wi-Fi network) could intercept the packets and read the sensitive information."
         },
         {
           "id": "C",
-          "text": "Packet switching allows multiple communications to share the same network infrastructure, making networks more efficient and resilient",
-          "is_correct": true,
-          "explanation": "Packet switching breaks data into independent packets that can use any available path. This makes efficient use of network capacity and enables fault tolerance through rerouting."
+          "text": "The website uses too much bandwidth because HTTP is less efficient than HTTPS",
+          "is_correct": false,
+          "explanation": "Bandwidth efficiency is not the concern here. The risk is that HTTP transmits sensitive data without encryption, making it readable if intercepted."
         },
         {
           "id": "D",
-          "text": "Packet switching guarantees that packets arrive in the correct order",
+          "text": "The DNS server will expose the user's home address to third parties",
           "is_correct": false,
-          "explanation": "Packet switching does not guarantee order. TCP, a separate protocol, handles packet reordering and reassembly."
+          "explanation": "DNS resolves domain names to IP addresses — it does not transmit or see application-layer data like addresses or credit card numbers."
         }
       ],
-      "difficulty": "hard",
-      "topic": "internet",
-      "stimulus": {
-        "type": "text",
-        "content": "An internet engineer is explaining to a group of students why the internet uses packet switching rather than circuit switching (the method used by traditional phone networks)."
-      }
+      "unit_objective": "CSN-1.A"
     },
     {
       "id": "csp-u4-q021",
-      "question": "Task A takes 6 seconds and Task B takes 4 seconds. If they run sequentially, what is the total time? If they run in parallel, what is the total time (assuming a processor for each)?",
+      "unit": "unit-4",
+      "subject": "ap-csp",
+      "difficulty": "medium",
+      "stimulus": {
+        "type": "none"
+      },
+      "question": "Which of the following BEST describes scalability in the context of a computer system?",
       "choices": [
         {
           "id": "A",
-          "text": "Sequential: 10 seconds; Parallel: 10 seconds",
+          "text": "The ability of a system to encrypt data as traffic increases",
           "is_correct": false,
-          "explanation": "Sequential is correct at 10 seconds. But parallel tasks run simultaneously, taking only as long as the longest task."
+          "explanation": "Encryption is a security property. Scalability is about a system's ability to handle increased workload without performance degradation."
         },
         {
           "id": "B",
-          "text": "Sequential: 10 seconds; Parallel: 6 seconds",
+          "text": "The ability of a system to handle an increasing number of users or requests without a significant drop in performance",
           "is_correct": true,
-          "explanation": "Sequential: 6 + 4 = 10 seconds. Parallel: both run at the same time, finishing when the longest (Task A) completes at 6 seconds."
+          "explanation": "Scalability means a system can grow to accommodate more users, data, or load while maintaining acceptable performance — a critical property of web services and distributed systems."
         },
         {
           "id": "C",
-          "text": "Sequential: 6 seconds; Parallel: 4 seconds",
+          "text": "The ability of a system to repair itself when hardware components fail",
           "is_correct": false,
-          "explanation": "Sequential time is the sum of both tasks (6 + 4 = 10). Parallel time is the maximum of the two (max(6,4) = 6)."
+          "explanation": "Self-repair is related to fault tolerance, not scalability. Scalability addresses growth in load, not recovery from failures."
         },
         {
           "id": "D",
-          "text": "Sequential: 10 seconds; Parallel: 5 seconds",
+          "text": "The maximum bandwidth of a network connection",
           "is_correct": false,
-          "explanation": "Parallel computing does not average task times. Parallel completion time is determined by the longest-running task (6 seconds)."
+          "explanation": "Bandwidth is a capacity measurement for a specific link. Scalability refers to the system's ability to grow and handle increased demand."
         }
       ],
-      "difficulty": "medium",
-      "topic": "parallel_computing",
-      "stimulus": {
-        "type": "text",
-        "content": "A software developer has two independent tasks: Task A (rendering a report) takes 6 seconds and Task B (generating a thumbnail) takes 4 seconds. She runs them on a single processor sequentially, then on two processors in parallel."
-      }
+      "unit_objective": "CSN-1.E"
     },
     {
       "id": "csp-u4-q022",
-      "question": "Which of the following BEST describes the purpose of an IP address?",
+      "unit": "unit-4",
+      "subject": "ap-csp",
+      "difficulty": "hard",
+      "stimulus": {
+        "type": "text",
+        "content": "An internet service provider (ISP) builds a network connecting 10 cities. The network is designed so that every city has at least 3 independent connections to other cities. The ISP claims the network is highly fault tolerant."
+      },
+      "question": "Which of the following BEST explains why the network design supports fault tolerance?",
       "choices": [
         {
           "id": "A",
-          "text": "To encrypt data sent between two devices",
-          "is_correct": false,
-          "explanation": "Encryption is handled by protocols like TLS. IP addresses are for device identification and routing."
+          "text": "With 3 independent connections per city, up to 2 connections to any single city can fail simultaneously without isolating that city",
+          "is_correct": true,
+          "explanation": "If each city has at least 3 independent paths, losing 1 or 2 still leaves at least 1 active path. The city remains reachable as long as at least one connection is active — this is the essence of fault tolerance via redundancy."
         },
         {
           "id": "B",
-          "text": "To uniquely identify a device on a network so that data packets can be routed to the correct destination",
-          "is_correct": true,
-          "explanation": "An IP address is a unique numeric identifier assigned to each device on a network. Routers use IP addresses to forward packets to their destination."
+          "text": "The network uses TCP, which automatically repairs broken connections",
+          "is_correct": false,
+          "explanation": "TCP retransmits lost packets but cannot repair broken physical connections. Fault tolerance here comes from multiple independent network paths, not TCP's retransmission mechanism."
         },
         {
           "id": "C",
-          "text": "To measure the speed of a network connection",
+          "text": "Each city has a separate IP address, preventing routing conflicts when links fail",
           "is_correct": false,
-          "explanation": "Network speed (bandwidth, latency) is measured separately from addressing. IP addresses identify devices, not connection speed."
+          "explanation": "Each city having unique IP addresses is a basic networking requirement, not a fault tolerance mechanism. Fault tolerance comes from the redundant multiple connections per city."
         },
         {
           "id": "D",
-          "text": "To translate domain names into URLs",
+          "text": "The 10-city network is small enough that all packets arrive within 1 millisecond",
           "is_correct": false,
-          "explanation": "DNS translates domain names to IP addresses. URLs are formatted addresses, not the result of IP-to-domain translation."
+          "explanation": "Speed is not fault tolerance. Fault tolerance is about continued operation when connections fail — the redundant connections (3 per city) provide this property."
         }
       ],
-      "difficulty": "easy",
-      "topic": "IP_address",
-      "stimulus": {
-        "type": "text",
-        "content": "A network engineer is configuring a router to forward packets to their destination. To route a packet correctly, the router examines a specific field in each packet header."
-      }
+      "unit_objective": "CSN-1.E"
     },
     {
       "id": "csp-u4-q023",
-      "question": "A hospital uses a single database server to store all patient records. Which of the following represents the GREATEST risk of this architecture?",
+      "unit": "unit-4",
+      "subject": "ap-csp",
+      "difficulty": "hard",
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": ["Process", "Time on 1 processor", "Can be parallelized?"],
+          "rows": [
+            ["Load data", "4 seconds", "No"],
+            ["Process chunk A", "10 seconds", "Yes"],
+            ["Process chunk B", "10 seconds", "Yes"],
+            ["Process chunk C", "10 seconds", "Yes"],
+            ["Combine results", "3 seconds", "No"]
+          ]
+        }
+      },
+      "question": "A programmer runs this workflow on 3 processors, with chunk A, B, and C running simultaneously. What is the speedup compared to running sequentially on 1 processor?",
       "choices": [
         {
           "id": "A",
-          "text": "The server uses too much bandwidth",
+          "text": "The speedup is 3× because 3 processors are used",
           "is_correct": false,
-          "explanation": "Bandwidth usage is a performance concern, not the primary risk of a single-server architecture."
+          "explanation": "The speedup is not simply equal to the number of processors because the sequential portions (load + combine = 7s) cannot be parallelized. Sequential total = 37s; parallel = 17s. Speedup ≈ 2.18×, not 3×."
         },
         {
           "id": "B",
-          "text": "A single point of failure could make all patient records inaccessible",
+          "text": "The speedup is approximately 2.18× (sequential = 37s, parallel = 17s)",
           "is_correct": true,
-          "explanation": "A single server with no redundancy creates a single point of failure. If it fails, all records become inaccessible, which could be life-threatening in a hospital."
+          "explanation": "Sequential: 4+10+10+10+3 = 37s. Parallel: 4s (load) + 10s (A, B, C run simultaneously — max = 10s) + 3s (combine) = 17s. Speedup = 37 ÷ 17 ≈ 2.18×."
         },
         {
           "id": "C",
-          "text": "The DNS server cannot resolve the hospital domain name",
+          "text": "The speedup is approximately 1.3× because only the processing chunks are parallelized",
           "is_correct": false,
-          "explanation": "DNS resolution is separate from database architecture. A single database server does not affect DNS."
+          "explanation": "The parallel time is 17s and sequential is 37s. 37 ÷ 17 ≈ 2.18, not 1.3. The processing chunks alone reduce total time significantly."
         },
         {
           "id": "D",
-          "text": "The database uses too many IP addresses",
+          "text": "There is no speedup because the sequential portions prevent any parallel benefit",
           "is_correct": false,
-          "explanation": "A single server uses one IP address. The concern with single-server architecture is availability, not IP address usage."
+          "explanation": "The sequential portions (7 seconds total) do limit speedup, but the parallel chunks (30 seconds of work compressed into 10) provide a significant reduction from 37s to 17s — a real speedup."
         }
       ],
-      "difficulty": "medium",
-      "topic": "fault_tolerance",
-      "stimulus": {
-        "type": "text",
-        "content": "A hospital administrator discovers that the hospital's patient record system runs entirely on a single physical server with no backup or failover system."
-      }
+      "unit_objective": "CSN-2.A"
     },
     {
       "id": "csp-u4-q024",
-      "question": "Which of the following is NOT a reason why distributed computing is used?",
+      "unit": "unit-4",
+      "subject": "ap-csp",
+      "difficulty": "hard",
+      "stimulus": {
+        "type": "text",
+        "content": "A researcher is analyzing DNA sequences from 1 million genetic samples. Each analysis is completely independent — analyzing one sample does not affect or depend on any other. She has access to a computing cluster of 10,000 machines."
+      },
+      "question": "Select TWO answers.\n\nWhich of the following statements BEST describe this scenario?",
       "choices": [
         {
           "id": "A",
-          "text": "To allow many computers to collaborate on a problem that would take too long for one computer",
-          "is_correct": false,
-          "explanation": "This is a valid reason for distributed computing. Many large-scale computations use distributed systems."
+          "text": "This task is well-suited for distributed computing because all 1 million samples can be processed independently across many machines",
+          "is_correct": true,
+          "explanation": "When tasks are independent (embarrassingly parallel), they are ideal for distributed computing — different machines handle different samples simultaneously with no coordination overhead."
         },
         {
           "id": "B",
-          "text": "To eliminate the need for any internet protocols",
-          "is_correct": true,
-          "explanation": "Distributed computing typically REQUIRES network protocols (like IP, TCP) to coordinate between computers. It does not eliminate the need for protocols."
+          "text": "The task cannot benefit from parallel processing because DNA analysis is undecidable",
+          "is_correct": false,
+          "explanation": "DNA sequence analysis is decidable (algorithms exist). The independence of each analysis makes it ideal for parallel/distributed processing."
         },
         {
           "id": "C",
-          "text": "To improve fault tolerance by spreading workload across multiple machines",
-          "is_correct": false,
-          "explanation": "Distributed computing improves fault tolerance because if one machine fails, others can continue. This is a valid reason."
+          "text": "Using 10,000 machines could reduce the total analysis time by approximately a factor of 10,000 since tasks are independent",
+          "is_correct": true,
+          "explanation": "When tasks are fully independent, distributing across N machines reduces total time by approximately N. With 10,000 machines each handling 100 samples, the workload completes ~10,000× faster than sequential processing."
         },
         {
           "id": "D",
-          "text": "To scale computing capacity beyond what a single machine can provide",
+          "text": "Distributed computing is not appropriate because each machine needs the same IP address to share data",
           "is_correct": false,
-          "explanation": "Horizontal scaling (adding more machines) is a primary advantage of distributed computing. This is a valid reason."
+          "explanation": "Machines in a distributed system each have unique IP addresses — they communicate over a network. Shared IP addresses would cause routing failures, not enable communication."
         }
       ],
-      "difficulty": "medium",
-      "topic": "distributed_computing",
-      "stimulus": {
-        "type": "text",
-        "content": "A computer science student argues that distributed computing is the best solution for all large-scale computational problems. Her teacher challenges her to identify a reason this claim might not always be true."
-      }
+      "unit_objective": "CSN-2.A"
     },
     {
       "id": "csp-u4-q025",
-      "question": "A programmer has four tasks: P (3 sec), Q (2 sec), R (4 sec), and S (1 sec). Tasks P and Q can run in parallel, and R and S can run in parallel. What is the minimum time to complete all four tasks?",
+      "unit": "unit-4",
+      "subject": "ap-csp",
+      "difficulty": "hard",
+      "stimulus": {
+        "type": "text",
+        "content": "A company runs a website that serves millions of users. The system architect needs to ensure the website remains available even if multiple servers fail simultaneously. The architect proposes placing servers in three different geographic data centers, with automatic failover — if one data center goes down, traffic is automatically routed to the remaining centers."
+      },
+      "question": "Which of the following properties does this design BEST demonstrate, and why?",
       "choices": [
         {
           "id": "A",
-          "text": "10 seconds",
+          "text": "Scalability, because multiple data centers can handle more users than a single center",
           "is_correct": false,
-          "explanation": "10 seconds is the sum of all tasks (sequential). P+Q run in parallel (max 3 sec), then R+S run in parallel (max 4 sec): 3 + 4 = 7 seconds."
+          "explanation": "While multiple data centers do add capacity, the key property demonstrated here is fault tolerance — the automatic failover when a data center fails. Continued availability despite failures is fault tolerance, not just scalability."
         },
         {
           "id": "B",
-          "text": "3 seconds",
-          "is_correct": false,
-          "explanation": "3 seconds would only complete the first parallel group (P and Q). R and S still need to run."
+          "text": "Fault tolerance, because the system continues operating even when entire data centers fail, due to geographic redundancy",
+          "is_correct": true,
+          "explanation": "Geographic redundancy and automatic failover are fault tolerance mechanisms. If one data center fails, traffic automatically reroutes to the others — the service remains available. This is fault tolerance through redundancy."
         },
         {
           "id": "C",
-          "text": "7 seconds",
-          "is_correct": true,
-          "explanation": "P and Q run in parallel: max(3,2) = 3 seconds. Then R and S run in parallel: max(4,1) = 4 seconds. Total = 3 + 4 = 7 seconds."
+          "text": "Bandwidth, because three data centers combined have three times the network bandwidth",
+          "is_correct": false,
+          "explanation": "Bandwidth is a connection capacity measure. The design feature described — continued operation despite data center failure — is fault tolerance through geographic redundancy."
         },
         {
           "id": "D",
-          "text": "4 seconds",
+          "text": "Parallel computing, because each data center runs the same code simultaneously",
           "is_correct": false,
-          "explanation": "4 seconds is only the time for the second group (R and S). Both groups must complete."
+          "explanation": "Parallel computing involves splitting a single task across multiple processors. Multiple data centers serving different users is load distribution — the key property enabling failure survival is fault tolerance."
         }
       ],
-      "difficulty": "hard",
-      "topic": "parallel_computing",
-      "stimulus": {
-        "type": "text",
-        "content": "A software project has four tasks: P (3 seconds), Q (2 seconds), R (4 seconds), and S (1 second). Tasks P and Q can run in parallel with each other. After P and Q complete, Tasks R and S can run in parallel with each other."
-      }
+      "unit_objective": "CSN-1.E"
     },
     {
       "id": "csp-u4-q026",
-      "question": "Which of the following BEST describes the difference between the internet and the World Wide Web?",
+      "unit": "unit-4",
+      "subject": "ap-csp",
+      "difficulty": "hard",
+      "stimulus": {
+        "type": "text",
+        "content": "Select TWO answers.\n\nA city is designing a smart traffic system that will send sensor data from thousands of intersections to a central server every second. Each sensor sends approximately 1 KB of data per second."
+      },
+      "question": "Which of the following BEST describe challenges or considerations for this system?",
       "choices": [
         {
           "id": "A",
-          "text": "The internet is software; the World Wide Web is hardware",
-          "is_correct": false,
-          "explanation": "The internet is a global hardware and software infrastructure; the World Wide Web is a collection of web pages and services that run ON the internet."
+          "text": "With thousands of sensors sending data every second, the system requires high bandwidth and scalable server infrastructure",
+          "is_correct": true,
+          "explanation": "Thousands of sensors × 1 KB/sec = potentially gigabytes per second of data. This requires high-bandwidth network connections and servers that can scale to process and store this continuous high-volume data stream."
         },
         {
           "id": "B",
-          "text": "The internet is the global network infrastructure; the World Wide Web is a collection of web pages and services accessed via the internet",
-          "is_correct": true,
-          "explanation": "The internet is the physical and protocol infrastructure (routers, cables, IP). The Web is one application that uses the internet, consisting of HTML pages accessed via HTTP/HTTPS."
+          "text": "The system should use DNS to compress sensor data before transmission",
+          "is_correct": false,
+          "explanation": "DNS translates domain names to IP addresses — it does not compress data. Data compression (if used) would be handled by the application layer."
         },
         {
           "id": "C",
-          "text": "They are the same thing",
-          "is_correct": false,
-          "explanation": "The internet and the Web are distinct. Email, streaming, and file sharing also use the internet but are not part of the Web."
+          "text": "Network redundancy is important because a failure that cuts off sensor data from key intersections could impair the city's ability to manage traffic",
+          "is_correct": true,
+          "explanation": "If a single network failure disconnects multiple sensors, the central system loses real-time data needed for traffic management. Redundant paths ensure sensor data continues flowing even if individual network links fail."
         },
         {
           "id": "D",
-          "text": "The World Wide Web includes all internet traffic; the internet is only used for email",
+          "text": "Each sensor must use TCP because packet switching is not available for city networks",
           "is_correct": false,
-          "explanation": "The internet carries many types of traffic (email, streaming, VoIP, etc.). The Web is a subset of internet applications, not the whole thing."
+          "explanation": "Packet switching is the fundamental mechanism of the internet and all modern IP networks. City networks use standard packet-switched infrastructure, and not all IoT sensors require TCP specifically."
         }
       ],
-      "difficulty": "easy",
-      "topic": "internet",
-      "stimulus": {
-        "type": "text",
-        "content": "A first-year computer science student asks her teacher what the difference is between \"the internet\" and \"the World Wide Web,\" believing they are the same thing."
-      }
+      "unit_objective": "CSN-1.E"
     },
     {
       "id": "csp-u4-q027",
-      "question": "When you type a website address in a browser and press Enter, which of the following happens FIRST?",
+      "unit": "unit-4",
+      "subject": "ap-csp",
+      "difficulty": "hard",
+      "stimulus": {
+        "type": "text",
+        "content": "A programmer is running a data analysis task. She tests the program on a single processor (taking 120 seconds) and with 6 processors (taking 30 seconds)."
+      },
+      "question": "Which of the following BEST explains why the program with 6 processors takes 30 seconds instead of 20 seconds (120 ÷ 6)?",
       "choices": [
         {
           "id": "A",
-          "text": "The browser downloads the web page content",
+          "text": "The program is undecidable, so additional processors do not help",
           "is_correct": false,
-          "explanation": "The browser cannot download content until it knows the IP address of the server. DNS lookup must happen first."
+          "explanation": "An undecidable program would not produce results with any number of processors. The program finishes in 30 seconds — it is decidable. The speedup limitation is due to sequential portions."
         },
         {
           "id": "B",
-          "text": "A DNS query converts the domain name to an IP address",
+          "text": "Some portion of the program must run sequentially and cannot be divided across processors, limiting the maximum speedup",
           "is_correct": true,
-          "explanation": "DNS resolution is the first step: the browser contacts a DNS server to get the IP address associated with the domain name, then connects to that IP address."
+          "explanation": "Amdahl's Law: if any portion of a program is sequential (cannot be parallelized), it creates a ceiling on speedup. The sequential portion takes the same time regardless of processor count, pulling the total time above the ideal 120÷6=20s."
         },
         {
           "id": "C",
-          "text": "The router assigns the page a new IP address",
+          "text": "Adding more processors always reduces performance because they compete for bandwidth",
           "is_correct": false,
-          "explanation": "Routers forward packets; they do not assign IP addresses to web pages. DHCP assigns device IP addresses."
+          "explanation": "The program runs faster with 6 processors (30s vs 120s). More processors can improve performance — the limitation is the sequential portion, not processor competition."
         },
         {
           "id": "D",
-          "text": "The browser encrypts the domain name before sending it",
+          "text": "The 6 processors each have lower clock speeds than the single processor",
           "is_correct": false,
-          "explanation": "Standard DNS queries are typically unencrypted. DNS-over-HTTPS is newer but not the default behavior described here."
+          "explanation": "Clock speed differences are not described in the scenario. The reason speedup is less than 6× is that some program steps must run sequentially — Amdahl's Law."
         }
       ],
-      "difficulty": "medium",
-      "topic": "DNS",
-      "stimulus": {
-        "type": "text",
-        "content": "A user opens a web browser and navigates to \"https://www.store.example.com/products\". The browser must perform several steps in sequence before the page begins to load."
-      }
+      "unit_objective": "CSN-2.A"
     },
     {
       "id": "csp-u4-q028",
-      "question": "A network has five routers and is designed so that each router connects to at least two other routers. A software bug takes one router offline. Which of the following BEST describes the impact?",
+      "unit": "unit-4",
+      "subject": "ap-csp",
+      "difficulty": "hard",
+      "stimulus": {
+        "type": "text",
+        "content": "A software company offers a web application that 10,000 users access simultaneously. They plan to grow to 1,000,000 users over the next two years. Their current infrastructure runs on a single powerful server."
+      },
+      "question": "Select TWO answers.\n\nWhich of the following BEST describe concerns with this architecture as the user base grows?",
       "choices": [
         {
           "id": "A",
-          "text": "All network traffic stops immediately",
-          "is_correct": false,
-          "explanation": "Each router connects to at least two others, providing redundant paths. Traffic reroutes around the failed router."
+          "text": "A single server creates a single point of failure — if it goes down, all 1,000,000 users lose access",
+          "is_correct": true,
+          "explanation": "A single server has no redundancy. Any failure — hardware, software, or network — takes down the entire service for all users. Fault tolerance requires distributing the service across multiple servers."
         },
         {
           "id": "B",
-          "text": "Traffic can reroute through alternative paths, maintaining connectivity",
+          "text": "A single server may not scale to handle 1,000,000 simultaneous users — distributing load across multiple servers would improve scalability",
           "is_correct": true,
-          "explanation": "Redundant connections (each router to at least two others) provide fault tolerance. If one router fails, packets can travel alternate paths."
+          "explanation": "A single server has finite processing capacity. As user load grows 100×, the server will likely become a bottleneck. Distributing load across multiple servers improves scalability."
         },
         {
           "id": "C",
-          "text": "DNS servers are automatically disabled",
+          "text": "The server must change its IP address for each new user to ensure packets are routed correctly",
           "is_correct": false,
-          "explanation": "DNS is a separate service from routing infrastructure. A router failure does not disable DNS servers."
+          "explanation": "A server uses one (or a few) fixed IP addresses — it does not change addresses per user. Users' clients connect to the server's IP; the server handles multiple concurrent connections with the same IP."
         },
         {
           "id": "D",
-          "text": "Bandwidth doubles because remaining routers handle more traffic",
+          "text": "TCP must be replaced with HTTP to handle more than 100,000 simultaneous connections",
           "is_correct": false,
-          "explanation": "Bandwidth does not double when a router fails. Remaining routers handle more traffic but their individual bandwidth capacity is unchanged."
+          "explanation": "HTTP runs on top of TCP — replacing TCP with HTTP makes no sense. HTTP is the application protocol; TCP is the transport protocol. Neither needs to be replaced to scale — the architecture needs more servers."
         }
       ],
-      "difficulty": "medium",
-      "topic": "redundancy",
-      "stimulus": {
-        "type": "text",
-        "content": "A telecommunications company operates a network with five routers. Each router is connected to at least two other routers. A software bug causes one router to crash and stop forwarding packets."
-      }
+      "unit_objective": "CSN-1.E"
     },
     {
       "id": "csp-u4-q029",
-      "question": "A large file is too big to send as a single unit over the internet. How does packet switching address this?",
+      "unit": "unit-4",
+      "subject": "ap-csp",
+      "difficulty": "hard",
+      "stimulus": {
+        "type": "text",
+        "content": "A network engineer designs two versions of a data center network:\n\nDesign X: Each server connects to one switch, and all switches connect to one central router. If the central router fails, no servers can communicate.\n\nDesign Y: Each server connects to two independent switches. Each switch connects to two independent routers. Multiple paths exist between any two servers."
+      },
+      "question": "Which of the following BEST explains why Design Y is more appropriate for a production data center?",
       "choices": [
         {
           "id": "A",
-          "text": "The file is compressed automatically by the router before sending",
+          "text": "Design Y uses fewer components, which reduces the probability of any single component failing",
           "is_correct": false,
-          "explanation": "Routers route packets but do not compress file content. Compression is handled by application-layer protocols."
+          "explanation": "Design Y uses MORE components (two switches, two routers per path). The benefit is not fewer components but more redundant paths that survive individual component failures."
         },
         {
           "id": "B",
-          "text": "The file is divided into smaller packets, each routed independently and reassembled at the destination",
+          "text": "Design Y is fault tolerant — multiple independent paths mean any single component failure can be worked around, keeping all servers connected",
           "is_correct": true,
-          "explanation": "Packet switching breaks data into packets. Each packet may travel a different path, and the receiving device reassembles them in the correct order (using TCP)."
+          "explanation": "Design Y's redundant switches and routers mean no single point of failure. If one switch or router fails, packets reroute through the remaining devices — all servers stay connected."
         },
         {
           "id": "C",
-          "text": "The file waits in a queue until the entire connection is free to send it at once",
+          "text": "Design Y compresses data more efficiently because packets can choose shorter routes",
           "is_correct": false,
-          "explanation": "This describes circuit switching. Packet switching does not require a dedicated channel; packets share the network."
+          "explanation": "Path selection does not affect data compression. Design Y's advantage is fault tolerance through multiple redundant paths — not compression efficiency."
         },
         {
           "id": "D",
-          "text": "DNS assigns a special IP address for large files",
+          "text": "Design Y is better because it uses DNS to resolve server addresses more quickly",
           "is_correct": false,
-          "explanation": "DNS translates domain names to IP addresses; it does not handle file transmission. Large file handling is managed by transport protocols."
+          "explanation": "DNS performs name resolution — it is not affected by whether one or two routers are used. Design Y's advantage is fault tolerance through physical network redundancy."
         }
       ],
-      "difficulty": "hard",
-      "topic": "packet_switching",
-      "stimulus": {
-        "type": "text",
-        "content": "A user uploads a 500 MB video file to a cloud storage service. The file is transmitted over the internet, but the connection uses standard packet-switched networking."
-      }
+      "unit_objective": "CSN-1.E"
     },
     {
       "id": "csp-u4-q030",
-      "question": "Which of the following BEST describes the purpose of a protocol in computer networking?",
-      "choices": [
-        {
-          "id": "A",
-          "text": "A physical cable that connects two computers",
-          "is_correct": false,
-          "explanation": "A protocol is a set of rules (software/standards), not a physical connection."
-        },
-        {
-          "id": "B",
-          "text": "A set of rules that defines how data is formatted, transmitted, and received on a network",
-          "is_correct": true,
-          "explanation": "Protocols (like TCP, IP, HTTP, DNS) are agreed-upon rules that allow different devices and software to communicate reliably across a network."
-        },
-        {
-          "id": "C",
-          "text": "A software program that compresses files before uploading",
-          "is_correct": false,
-          "explanation": "Compression software is an application, not a protocol. Protocols define communication standards."
-        },
-        {
-          "id": "D",
-          "text": "A measure of how fast data travels through a network cable",
-          "is_correct": false,
-          "explanation": "Network speed (bandwidth/latency) is a measurement, not a protocol. Protocols define rules for communication."
-        }
-      ],
-      "difficulty": "easy",
-      "topic": "protocol",
-      "stimulus": {
-        "type": "text",
-        "content": "A network administrator explains to new employees why all the different computers, phones, and smart devices in the company can communicate with each other despite being made by different manufacturers."
-      }
-    },
-    {
-      "id": "csp-u4-q031",
-      "question": "Select TWO answers. Which of the following are TRUE about parallel computing?",
-      "choices": [
-        {
-          "id": "A",
-          "text": "Not all problems can benefit from parallel computing because some tasks must be completed sequentially",
-          "is_correct": true,
-          "explanation": "Some steps depend on prior results (sequential dependencies). These cannot run in parallel. Only independent subtasks can be parallelized."
-        },
-        {
-          "id": "B",
-          "text": "The maximum speedup from parallel computing is limited by the portion of the program that cannot be parallelized",
-          "is_correct": true,
-          "explanation": "This is Amdahl's Law: if 50% of a program is sequential (non-parallelizable), the maximum speedup from parallelism is 2x, regardless of how many processors are added."
-        },
-        {
-          "id": "C",
-          "text": "Parallel computing always makes programs exactly twice as fast",
-          "is_correct": false,
-          "explanation": "Speedup depends on how much of the program can be parallelized and communication overhead. The improvement is never guaranteed to be exactly 2x."
-        },
-        {
-          "id": "D",
-          "text": "Parallel computing requires each task to share the same IP address",
-          "is_correct": false,
-          "explanation": "Parallel computing involves distributing tasks across processors or computers; IP addresses are network identifiers, not a requirement for parallelism."
-        }
-      ],
+      "unit": "unit-4",
+      "subject": "ap-csp",
       "difficulty": "hard",
-      "topic": "parallel_computing",
-      "stimulus": null
-    },
-    {
-      "id": "csp-u4-q032",
-      "question": "A content delivery network (CDN) stores copies of a website on servers around the world. When a user in Tokyo requests the website, they receive data from the nearest CDN server instead of the origin server in New York. Which of the following BEST describes the benefit of this architecture?",
+      "stimulus": {
+        "type": "text",
+        "content": "Select TWO answers.\n\nA streaming video service uses a content delivery network (CDN) — copies of popular videos are stored on servers at hundreds of locations worldwide. When a user in Tokyo requests a video that originated in New York, the CDN serves it from a server in Tokyo rather than New York."
+      },
+      "question": "Which of the following properties does the CDN design BEST demonstrate?",
       "choices": [
         {
           "id": "A",
-          "text": "It reduces the bandwidth of the internet connection needed in New York",
-          "is_correct": false,
-          "explanation": "CDNs reduce the load on the origin server but do not inherently reduce the origin bandwidth capacity required."
+          "text": "Fault tolerance — if the New York server goes down, users can still access the video from Tokyo or other CDN nodes",
+          "is_correct": true,
+          "explanation": "Geographic redundancy means the video is available from multiple locations. If the origin server fails, CDN nodes worldwide continue serving the content — this is fault tolerance through distributed redundancy."
         },
         {
           "id": "B",
-          "text": "It reduces latency and load on the origin server by serving content from a geographically closer location",
+          "text": "Scalability — serving content from local CDN nodes reduces load on the origin server and improves response times for large user populations",
           "is_correct": true,
-          "explanation": "Serving from a nearby CDN node reduces the physical distance data must travel (reducing latency) and distributes load away from the single origin server."
+          "explanation": "CDNs distribute load away from a single origin server to many local servers. As user count grows globally, the CDN scales to serve users from nearby locations without overloading the origin."
         },
         {
           "id": "C",
-          "text": "It eliminates the need for DNS resolution",
+          "text": "Packet switching — each video frame travels independently via a different CDN node",
           "is_correct": false,
-          "explanation": "CDNs still use DNS (often via anycast routing) to direct users to the nearest server. DNS is not eliminated."
+          "explanation": "Packet switching describes how individual packets are routed — it is not the same as distributing content across geographic CDN nodes. The CDN design demonstrates fault tolerance and scalability."
         },
         {
           "id": "D",
-          "text": "It ensures all packets travel through New York regardless of user location",
+          "text": "Data abstraction — users do not need to know the IP addresses of CDN servers",
           "is_correct": false,
-          "explanation": "The entire purpose of a CDN is to serve content from nearby locations, NOT from the origin server in New York."
+          "explanation": "Users not knowing IP addresses is an abstraction layer, but the CDN design's primary properties demonstrated here are fault tolerance and scalability — not data abstraction."
         }
       ],
-      "difficulty": "hard",
-      "topic": "distributed_computing",
-      "stimulus": {
-        "type": "text",
-        "content": "A popular website serves millions of users globally. The company deploys copies of its website content to servers in North America, Europe, Asia, and South America. Users are automatically connected to the nearest server."
-      }
-    },
-    {
-      "id": "csp-u4-q033",
-      "question": "What is a key advantage of open standards and protocols on the internet?",
-      "choices": [
-        {
-          "id": "A",
-          "text": "They restrict which devices can connect to the internet for security reasons",
-          "is_correct": false,
-          "explanation": "Open standards are designed to be inclusive, not restrictive. Any device implementing the standard can participate."
-        },
-        {
-          "id": "B",
-          "text": "They allow devices from different manufacturers to communicate with each other",
-          "is_correct": true,
-          "explanation": "Open standards (like TCP/IP, HTTP, DNS) define agreed-upon rules that any manufacturer can implement, enabling interoperability between billions of different devices globally."
-        },
-        {
-          "id": "C",
-          "text": "They prevent data from being intercepted by unauthorized parties",
-          "is_correct": false,
-          "explanation": "Open standards define communication rules; security (encryption, authentication) is handled by specific security protocols built on top of the open standard."
-        },
-        {
-          "id": "D",
-          "text": "They allow the government to monitor all internet traffic",
-          "is_correct": false,
-          "explanation": "Open standards enable interoperability, not surveillance. Monitoring capabilities are separate from the standard protocols themselves."
-        }
-      ],
-      "difficulty": "medium",
-      "topic": "protocol",
-      "stimulus": {
-        "type": "text",
-        "content": "An internet standards body publishes the specifications for a new networking protocol, making the full technical details freely available for any company or developer to implement."
-      }
-    },
-    {
-      "id": "csp-u4-q034",
-      "question": "A scientist has a computation that takes 100 hours on a single computer. She splits the computation into 10 equal, independent parts and runs them on 10 computers simultaneously. Approximately how long will the computation take?",
-      "choices": [
-        {
-          "id": "A",
-          "text": "100 hours",
-          "is_correct": false,
-          "explanation": "100 hours is the single-computer (sequential) time. Running 10 independent parts in parallel reduces this significantly."
-        },
-        {
-          "id": "B",
-          "text": "10 hours",
-          "is_correct": true,
-          "explanation": "10 equal independent parts run on 10 computers simultaneously. Each computer handles 100/10 = 10 hours of work. Total time is approximately 10 hours."
-        },
-        {
-          "id": "C",
-          "text": "1 hour",
-          "is_correct": false,
-          "explanation": "1 hour would require 100 computers for 100 parts. With 10 computers and 10 equal parts, each part takes 10 hours."
-        },
-        {
-          "id": "D",
-          "text": "1,000 hours",
-          "is_correct": false,
-          "explanation": "1,000 hours would be sequential time multiplied by the number of computers, which makes no sense. Parallel computing reduces, not increases, total time."
-        }
-      ],
-      "difficulty": "medium",
-      "topic": "parallel_computing",
-      "stimulus": {
-        "type": "text",
-        "content": "A computational biologist has a protein folding simulation that requires 100 hours on a single computer. She divides the simulation into 10 equal, completely independent computational chunks and sends each chunk to a different computer in her university's computing cluster."
-      }
-    },
-    {
-      "id": "csp-u4-q035",
-      "question": "Which of the following BEST describes fault tolerance in a computer network?",
-      "choices": [
-        {
-          "id": "A",
-          "text": "The ability of a network to encrypt all transmitted data",
-          "is_correct": false,
-          "explanation": "Encryption is a security feature. Fault tolerance is about maintaining operation despite component failures."
-        },
-        {
-          "id": "B",
-          "text": "The ability of a network to continue operating correctly even when some components fail",
-          "is_correct": true,
-          "explanation": "Fault tolerance means the system remains functional when individual components fail, typically through redundant hardware, alternative paths, or backup systems."
-        },
-        {
-          "id": "C",
-          "text": "The maximum speed at which data can travel over a network connection",
-          "is_correct": false,
-          "explanation": "This describes bandwidth or throughput. Fault tolerance is about reliability and availability, not speed."
-        },
-        {
-          "id": "D",
-          "text": "The process of dividing data into packets for transmission",
-          "is_correct": false,
-          "explanation": "This describes packet switching. Fault tolerance is about the network continuing to operate despite failures."
-        }
-      ],
-      "difficulty": "easy",
-      "topic": "fault_tolerance",
-      "stimulus": {
-        "type": "text",
-        "content": "A system administrator is evaluating two network designs for a new data center. Design A uses a single central switch connecting all servers. Design B uses multiple interconnected switches with redundant paths between all servers."
-      }
-    },
-    {
-      "id": "csp-u4-q036",
-      "question": "A streaming service experiences a 10x increase in viewers during a major sporting event. The service quickly adds more servers to handle the load. Which computing concept does this demonstrate?",
-      "choices": [
-        {
-          "id": "A",
-          "text": "Sequential computing",
-          "is_correct": false,
-          "explanation": "Sequential computing means executing one task at a time. Adding servers to handle more load simultaneously is a different concept."
-        },
-        {
-          "id": "B",
-          "text": "Distributed computing used to scale capacity",
-          "is_correct": true,
-          "explanation": "Adding more servers to distribute the workload is distributed computing. It allows the system to scale horizontally to meet demand."
-        },
-        {
-          "id": "C",
-          "text": "DNS redundancy",
-          "is_correct": false,
-          "explanation": "DNS redundancy means having backup DNS servers. Adding streaming servers is about scaling compute capacity, not DNS."
-        },
-        {
-          "id": "D",
-          "text": "Packet switching optimization",
-          "is_correct": false,
-          "explanation": "Packet switching is a network transmission method. Adding servers is about scaling application infrastructure."
-        }
-      ],
-      "difficulty": "medium",
-      "topic": "distributed_computing",
-      "stimulus": {
-        "type": "text",
-        "content": "A sports streaming service normally handles 50,000 concurrent viewers on a typical evening. During the championship game, viewership spikes to 500,000 concurrent users. The service automatically provisions additional servers within minutes to handle the load."
-      }
-    },
-    {
-      "id": "csp-u4-q037",
-      "question": "A message is sent from Computer A to Computer B through a network with three intermediate routers. The message is split into 4 packets. Which of the following is TRUE about how the packets travel?",
-      "choices": [
-        {
-          "id": "A",
-          "text": "All 4 packets must travel the same path in sequence",
-          "is_correct": false,
-          "explanation": "In packet switching, each packet is routed independently. Different packets may travel different paths."
-        },
-        {
-          "id": "B",
-          "text": "Each packet may travel a different path and they may arrive out of order",
-          "is_correct": true,
-          "explanation": "Packets are routed independently through the network. Due to different path lengths or congestion, packets may arrive at different times and out of order. TCP reassembles them correctly."
-        },
-        {
-          "id": "C",
-          "text": "The first packet must arrive before the others depart",
-          "is_correct": false,
-          "explanation": "Packets depart independently. The network does not wait for packet 1 to arrive before sending packet 2."
-        },
-        {
-          "id": "D",
-          "text": "Packets are all deleted if any single router fails",
-          "is_correct": false,
-          "explanation": "If a router fails, packets are rerouted through alternative paths, not deleted (assuming redundant routes exist)."
-        }
-      ],
-      "difficulty": "hard",
-      "topic": "packet_switching",
-      "stimulus": {
-        "type": "text",
-        "content": "A user sends a large document to a colleague using email. The email system transmits the document as multiple packets over the internet. The sender and receiver are in different countries with the message passing through several routers."
-      }
-    },
-    {
-      "id": "csp-u4-q038",
-      "question": "Which layer of the internet model is responsible for logical addressing and routing packets between networks?",
-      "choices": [
-        {
-          "id": "A",
-          "text": "Physical layer (hardware connections)",
-          "is_correct": false,
-          "explanation": "The physical layer handles the actual transmission of bits over physical media (wires, fiber, radio). Logical addressing is at a higher layer."
-        },
-        {
-          "id": "B",
-          "text": "Internet layer using the IP protocol",
-          "is_correct": true,
-          "explanation": "The Internet (network) layer, using IP, handles logical addressing (IP addresses) and routing decisions to direct packets from source to destination across multiple networks."
-        },
-        {
-          "id": "C",
-          "text": "Application layer using HTTP",
-          "is_correct": false,
-          "explanation": "HTTP is an application-layer protocol used by web browsers. Routing and addressing are handled at the internet/network layer."
-        },
-        {
-          "id": "D",
-          "text": "DNS layer",
-          "is_correct": false,
-          "explanation": "DNS is an application-layer service that translates names to addresses. Routing is handled by IP at the internet layer."
-        }
-      ],
-      "difficulty": "hard",
-      "topic": "protocol",
-      "stimulus": {
-        "type": "text",
-        "content": "A network textbook describes four layers of internet communication: the physical layer (hardware), the internet layer (addressing and routing), the transport layer (reliability), and the application layer (user programs)."
-      }
-    },
-    {
-      "id": "csp-u4-q039",
-      "question": "A city has two bridges connecting the east and west sides. During rush hour, if only one bridge is open, traffic is slow. Which of the following computing concepts does this scenario BEST model?",
-      "choices": [
-        {
-          "id": "A",
-          "text": "Parallel computing increasing throughput",
-          "is_correct": false,
-          "explanation": "Using both bridges is more like redundancy or load distribution; the scenario emphasizes that one bridge causes slowdown, not computational speedup."
-        },
-        {
-          "id": "B",
-          "text": "Bandwidth as a measure of network capacity",
-          "is_correct": true,
-          "explanation": "The bridges represent network capacity (bandwidth). One bridge open = reduced bandwidth, causing congestion. Both bridges open = more capacity, faster throughput. This models bandwidth limitations."
-        },
-        {
-          "id": "C",
-          "text": "DNS resolution failure",
-          "is_correct": false,
-          "explanation": "DNS failure means names cannot be resolved. The scenario is about capacity limitations during high demand, not name resolution."
-        },
-        {
-          "id": "D",
-          "text": "An undecidable routing problem",
-          "is_correct": false,
-          "explanation": "Undecidable problems have no algorithmic solution. Routing traffic across bridges is a decidable optimization problem."
-        }
-      ],
-      "difficulty": "medium",
-      "topic": "bandwidth",
-      "stimulus": {
-        "type": "text",
-        "content": "A city has two bridges connecting its east and west districts. During rush hour with both bridges open, traffic flows smoothly. When construction closes one bridge, severe traffic jams form throughout the city."
-      }
-    },
-    {
-      "id": "csp-u4-q040",
-      "question": "Which of the following BEST describes the relationship between latency and bandwidth?",
-      "choices": [
-        {
-          "id": "A",
-          "text": "Latency and bandwidth are the same measurement expressed in different units",
-          "is_correct": false,
-          "explanation": "They measure different things: latency is delay (time), bandwidth is capacity (data per time). They are related but distinct."
-        },
-        {
-          "id": "B",
-          "text": "Increasing bandwidth always reduces latency proportionally",
-          "is_correct": false,
-          "explanation": "Bandwidth and latency are independent characteristics. A high-bandwidth connection can still have high latency (e.g., a satellite link has high bandwidth but also high latency due to signal travel distance)."
-        },
-        {
-          "id": "C",
-          "text": "Bandwidth measures the amount of data that can be transmitted per unit of time; latency measures the time delay for a signal to travel from source to destination",
-          "is_correct": true,
-          "explanation": "Bandwidth (capacity, bits/second) and latency (delay, milliseconds) are distinct measurements that both affect user experience but in different ways."
-        },
-        {
-          "id": "D",
-          "text": "High latency always indicates low bandwidth",
-          "is_correct": false,
-          "explanation": "A satellite internet connection can have very high bandwidth but also very high latency. They are independent metrics."
-        }
-      ],
-      "difficulty": "hard",
-      "topic": "bandwidth",
-      "stimulus": {
-        "type": "text",
-        "content": "A network engineer compares two internet connections: Connection X has 1 Gbps bandwidth but 300 millisecond latency (due to satellite transmission). Connection Y has 100 Mbps bandwidth but only 5 millisecond latency (fiber to the home)."
-      }
-    },
-    {
-      "id": "csp-u4-q041",
-      "question": "Which of the following BEST explains why a task with multiple steps where each step depends on the result of the previous step cannot be made faster through parallel computing?",
-      "choices": [
-        {
-          "id": "A",
-          "text": "Parallel computing only works for programs written in specific programming languages",
-          "is_correct": false,
-          "explanation": "Parallel computing is a hardware and algorithmic concept; it is not language-specific."
-        },
-        {
-          "id": "B",
-          "text": "Sequential dependencies prevent tasks from being broken into independent parallel subtasks",
-          "is_correct": true,
-          "explanation": "When each step must wait for the previous result, all steps must run in sequence. There are no independent subtasks that can run simultaneously."
-        },
-        {
-          "id": "C",
-          "text": "Parallel computing requires more than 1,000 processors to be effective",
-          "is_correct": false,
-          "explanation": "Parallel computing can provide benefits with even 2 processors. The limitation is about task structure, not processor count."
-        },
-        {
-          "id": "D",
-          "text": "Parallel computing cannot be used for programs that have any conditional statements",
-          "is_correct": false,
-          "explanation": "Conditional statements are present in most programs; they do not prevent parallelism. The key constraint is data dependencies between steps."
-        }
-      ],
-      "difficulty": "medium",
-      "topic": "parallel_computing",
-      "stimulus": {
-        "type": "text",
-        "content": "A programmer is told that his multi-step financial calculation runs slowly and wants to improve it using parallel computing. Each calculation step uses the output of the previous step as its input."
-      }
-    },
-    {
-      "id": "csp-u4-q042",
-      "question": "Which of the following is the BEST example of using distributed computing to solve a large-scale problem?",
-      "choices": [
-        {
-          "id": "A",
-          "text": "A single supercomputer solving a complex physics simulation",
-          "is_correct": false,
-          "explanation": "A single supercomputer is centralized computing, not distributed computing."
-        },
-        {
-          "id": "B",
-          "text": "A global network of volunteers donating their idle computer time to analyze astronomical data",
-          "is_correct": true,
-          "explanation": "Projects like SETI@home use distributed computing: volunteers worldwide contribute processing power to analyze data collaboratively. No single computer could handle the scale alone."
-        },
-        {
-          "id": "C",
-          "text": "A programmer writing sequential code that runs one instruction at a time",
-          "is_correct": false,
-          "explanation": "Sequential code on a single computer is the opposite of distributed computing."
-        },
-        {
-          "id": "D",
-          "text": "A cloud server that stores data for a single company",
-          "is_correct": false,
-          "explanation": "A single cloud server is centralized storage. Distributed computing involves multiple machines working together on a computation."
-        }
-      ],
-      "difficulty": "easy",
-      "topic": "distributed_computing",
-      "stimulus": {
-        "type": "text",
-        "content": "The SETI@home project allowed millions of volunteers worldwide to donate idle time on their personal computers to help analyze radio telescope data searching for signs of extraterrestrial intelligence. No single institution had enough computing power to analyze the volume of data alone."
-      }
-    },
-    {
-      "id": "csp-u4-q043",
-      "question": "A company needs to ensure that its website is always accessible, even during hardware failures. Which of the following approaches BEST addresses this need?",
-      "choices": [
-        {
-          "id": "A",
-          "text": "Increasing the bandwidth of the website's server",
-          "is_correct": false,
-          "explanation": "Bandwidth affects how much data can flow, not whether the server survives hardware failures."
-        },
-        {
-          "id": "B",
-          "text": "Using load balancers and redundant servers so that if one fails, others continue serving requests",
-          "is_correct": true,
-          "explanation": "Redundancy with load balancing is the standard fault tolerance approach. If one server fails, the load balancer redirects requests to functioning servers."
-        },
-        {
-          "id": "C",
-          "text": "Using a faster DNS server to resolve the domain name more quickly",
-          "is_correct": false,
-          "explanation": "Faster DNS improves initial connection speed but does not prevent downtime due to server hardware failures."
-        },
-        {
-          "id": "D",
-          "text": "Compressing all website files to reduce packet count",
-          "is_correct": false,
-          "explanation": "Compression reduces bandwidth usage; it does not protect against server hardware failures."
-        }
-      ],
-      "difficulty": "medium",
-      "topic": "redundancy",
-      "stimulus": {
-        "type": "text",
-        "content": "A startup company launches a website that quickly goes viral and attracts millions of visitors. The company wants to ensure the site stays online even if some servers fail and can handle sudden increases in traffic."
-      }
-    },
-    {
-      "id": "csp-u4-q044",
-      "question": "A network engineer finds that a path between two cities has a bandwidth of 1 Gbps but a latency of 300 ms (milliseconds). A second path has 100 Mbps bandwidth and 5 ms latency. For which use case would the SECOND path be preferred?",
-      "choices": [
-        {
-          "id": "A",
-          "text": "Downloading a 10 GB movie file",
-          "is_correct": false,
-          "explanation": "Large file downloads benefit most from high bandwidth (1 Gbps vs 100 Mbps). The first path is much better for this use case."
-        },
-        {
-          "id": "B",
-          "text": "Online gaming requiring real-time response",
-          "is_correct": true,
-          "explanation": "Real-time interactive applications like gaming are extremely sensitive to latency (delay). 5 ms is far better than 300 ms for responsiveness, even though bandwidth is lower."
-        },
-        {
-          "id": "C",
-          "text": "Streaming a 4K video to thousands of users simultaneously",
-          "is_correct": false,
-          "explanation": "High-quality streaming to many users requires high bandwidth. The first path (1 Gbps) is much better for this."
-        },
-        {
-          "id": "D",
-          "text": "Backing up 1 TB of data to cloud storage overnight",
-          "is_correct": false,
-          "explanation": "Large overnight backups benefit from high bandwidth. Speed of response (latency) is not a concern here."
-        }
-      ],
-      "difficulty": "hard",
-      "topic": "bandwidth",
-      "stimulus": {
-        "type": "text",
-        "content": "A network engineer must choose between two data transmission paths for a new application. Path 1 offers 1 Gbps bandwidth with 300 ms latency. Path 2 offers 100 Mbps bandwidth with 5 ms latency."
-      }
-    },
-    {
-      "id": "csp-u4-q045",
-      "question": "Which of the following BEST describes why the internet was designed to be decentralized?",
-      "choices": [
-        {
-          "id": "A",
-          "text": "Decentralization allows a single organization to control all internet traffic",
-          "is_correct": false,
-          "explanation": "A centralized design would give control to one entity. Decentralization was specifically designed to prevent this and increase resilience."
-        },
-        {
-          "id": "B",
-          "text": "Decentralization ensures that no single point of failure can take down the entire network",
-          "is_correct": true,
-          "explanation": "The internet was designed (initially as ARPANET) to survive node failures by routing around them. Decentralization means there is no single critical node whose failure would disable the whole network."
-        },
-        {
-          "id": "C",
-          "text": "Decentralization makes it easier for governments to block specific websites",
-          "is_correct": false,
-          "explanation": "Decentralization actually makes censorship harder because there are many alternative paths. This was not the design goal."
-        },
-        {
-          "id": "D",
-          "text": "Decentralization reduces the total bandwidth available on the internet",
-          "is_correct": false,
-          "explanation": "Decentralization does not reduce bandwidth; it distributes network infrastructure across many independent nodes and paths."
-        }
-      ],
-      "difficulty": "hard",
-      "topic": "internet",
-      "stimulus": {
-        "type": "text",
-        "content": "The original ARPANET, which evolved into the modern internet, was designed as a research network with a specific structural principle that influenced all future development of the internet."
-      }
-    },
-    {
-      "id": "csp-u4-q046",
-      "question": "What does it mean for a computing system to be scalable?",
-      "choices": [
-        {
-          "id": "A",
-          "text": "The system automatically fixes its own bugs without programmer intervention",
-          "is_correct": false,
-          "explanation": "Self-healing or self-correcting software is a different concept. Scalability is about handling increased load."
-        },
-        {
-          "id": "B",
-          "text": "The system can handle increased workload by adding resources (more servers, more processors)",
-          "is_correct": true,
-          "explanation": "Scalability means the system can grow to handle more users, data, or transactions by adding resources, without requiring a complete redesign."
-        },
-        {
-          "id": "C",
-          "text": "The system encrypts all data automatically as it grows",
-          "is_correct": false,
-          "explanation": "Encryption is a security feature, not a scalability characteristic."
-        },
-        {
-          "id": "D",
-          "text": "The system uses smaller packets to reduce bandwidth usage",
-          "is_correct": false,
-          "explanation": "Packet size is a protocol detail. Scalability refers to the system growing to handle more demand."
-        }
-      ],
-      "difficulty": "medium",
-      "topic": "distributed_computing",
-      "stimulus": {
-        "type": "text",
-        "content": "A cloud service provider advertises that its platform can handle 10x traffic spikes during major events by automatically adding servers, and then release those servers when traffic returns to normal."
-      }
-    },
-    {
-      "id": "csp-u4-q047",
-      "question": "A parallel program divides a task into 5 equal parts and runs them simultaneously on 5 processors. After completion, a final step merges the results and takes 2 seconds. Each of the 5 parts takes 8 seconds. What is the total time?",
-      "choices": [
-        {
-          "id": "A",
-          "text": "40 seconds",
-          "is_correct": false,
-          "explanation": "40 seconds = 5 x 8 (sequential). Running in parallel means all 5 parts complete in 8 seconds (max of parallel tasks)."
-        },
-        {
-          "id": "B",
-          "text": "8 seconds",
-          "is_correct": false,
-          "explanation": "8 seconds is the parallel phase time, but the final sequential merge step (2 seconds) must also be added."
-        },
-        {
-          "id": "C",
-          "text": "10 seconds",
-          "is_correct": true,
-          "explanation": "5 parallel parts each take 8 seconds (they all run simultaneously): 8 seconds. Then the sequential merge: 2 seconds. Total = 8 + 2 = 10 seconds."
-        },
-        {
-          "id": "D",
-          "text": "2 seconds",
-          "is_correct": false,
-          "explanation": "2 seconds is only the merge step. The parallel computation phase (8 seconds) must be added."
-        }
-      ],
-      "difficulty": "hard",
-      "topic": "parallel_computing",
-      "stimulus": {
-        "type": "text",
-        "content": "A genomics research team divides a computational task into 5 equal independent subtasks, each requiring 8 seconds. They run all 5 subtasks simultaneously on 5 separate processors. Once all complete, a final sequential step merges the results, requiring an additional 2 seconds."
-      }
-    },
-    {
-      "id": "csp-u4-q048",
-      "question": "Which of the following BEST describes how adding redundancy to a network increases fault tolerance?",
-      "choices": [
-        {
-          "id": "A",
-          "text": "Redundancy adds extra encryption to all data",
-          "is_correct": false,
-          "explanation": "Redundancy duplicates network paths or hardware components. It does not add encryption."
-        },
-        {
-          "id": "B",
-          "text": "Redundancy provides multiple alternative paths so that if one component fails, traffic can use another route",
-          "is_correct": true,
-          "explanation": "Network redundancy means having backup components (servers, links, routers). When one fails, traffic reroutes through the redundant path, maintaining service."
-        },
-        {
-          "id": "C",
-          "text": "Redundancy reduces the bandwidth required for data transmission",
-          "is_correct": false,
-          "explanation": "Redundancy may increase total network capacity, but its primary purpose is availability and fault tolerance, not bandwidth reduction."
-        },
-        {
-          "id": "D",
-          "text": "Redundancy prevents DNS servers from resolving incorrect domain names",
-          "is_correct": false,
-          "explanation": "DNS accuracy is about correct name-to-IP mappings. Redundancy is about having backup components to maintain availability."
-        }
-      ],
-      "difficulty": "medium",
-      "topic": "redundancy",
-      "stimulus": {
-        "type": "text",
-        "content": "A network architect is designing a new hospital network. She adds extra servers, switches, and communication links beyond what is strictly needed for minimum functionality."
-      }
-    },
-    {
-      "id": "csp-u4-q049",
-      "question": "An internet service provider offers two plans: Plan A with 25 Mbps bandwidth and Plan B with 100 Mbps bandwidth. A user on Plan B downloads a 200 MB file. Approximately how much faster will the download be compared to Plan A?",
-      "choices": [
-        {
-          "id": "A",
-          "text": "2 times faster",
-          "is_correct": false,
-          "explanation": "100 Mbps / 25 Mbps = 4 times the bandwidth. 4x bandwidth means 4x faster download (at theoretical maximum)."
-        },
-        {
-          "id": "B",
-          "text": "4 times faster",
-          "is_correct": true,
-          "explanation": "Plan B has 100 Mbps vs. Plan A 25 Mbps. That is 4x the bandwidth, so the same file downloads in approximately 1/4 the time, meaning 4x faster."
-        },
-        {
-          "id": "C",
-          "text": "75 times faster",
-          "is_correct": false,
-          "explanation": "75 is the difference in Mbps (100 - 25), not the ratio. Speed ratio = 100/25 = 4."
-        },
-        {
-          "id": "D",
-          "text": "The download time is the same because both plans use the same internet protocol",
-          "is_correct": false,
-          "explanation": "Both plans use standard protocols, but bandwidth directly affects download speed. More bandwidth = faster downloads."
-        }
-      ],
-      "difficulty": "hard",
-      "topic": "bandwidth",
-      "stimulus": {
-        "type": "text",
-        "content": "An internet service provider offers two residential plans: Plan A provides 25 Mbps download bandwidth and Plan B provides 100 Mbps download bandwidth. A customer wants to know how much faster large file downloads will be on Plan B."
-      }
-    },
-    {
-      "id": "csp-u4-q050",
-      "question": "Which of the following BEST explains why many websites use HTTPS instead of HTTP?",
-      "choices": [
-        {
-          "id": "A",
-          "text": "HTTPS makes websites load faster by using smaller packets",
-          "is_correct": false,
-          "explanation": "HTTPS can actually add slight overhead. The purpose of HTTPS is security (encryption), not speed."
-        },
-        {
-          "id": "B",
-          "text": "HTTPS encrypts data between the browser and server, protecting it from interception",
-          "is_correct": true,
-          "explanation": "HTTPS (HTTP Secure) uses TLS encryption to protect data in transit. Without it, network observers could read usernames, passwords, and other sensitive data."
-        },
-        {
-          "id": "C",
-          "text": "HTTPS bypasses DNS so domain names are resolved faster",
-          "is_correct": false,
-          "explanation": "HTTPS uses DNS like HTTP does. The S in HTTPS stands for Secure, referring to encryption, not DNS behavior."
-        },
-        {
-          "id": "D",
-          "text": "HTTPS stores a backup copy of the web page on the user computer",
-          "is_correct": false,
-          "explanation": "Caching stores page copies, but this is a browser or CDN feature unrelated to whether HTTP or HTTPS is used."
-        }
-      ],
-      "difficulty": "medium",
-      "topic": "protocol",
-      "stimulus": {
-        "type": "text",
-        "content": "A web developer notices that all major banking and e-commerce websites use \"https://\" at the start of their URLs, while a few older information websites still use \"http://\". She asks her colleague why this matters."
-      }
+      "unit_objective": "CSN-1.E"
     }
   ]
 }
