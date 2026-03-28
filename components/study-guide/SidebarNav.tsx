@@ -27,7 +27,6 @@ interface Props {
   unitTitle: string
   sections: Section[]
   activeSection: ViewSection
-  totalSections: number
   onSectionChange: (section: ViewSection) => void
   onPracticeNow: () => void
 }
@@ -37,13 +36,9 @@ export default function SidebarNav({
   unitTitle,
   sections,
   activeSection,
-  totalSections,
   onSectionChange,
   onPracticeNow,
 }: Props) {
-  const currentIndex = sections.findIndex(s => s.key === activeSection)
-  const progressPct = Math.round(((currentIndex + 1) / totalSections) * 100)
-
   return (
     <div
       className="sg-sidebar"
@@ -122,7 +117,7 @@ export default function SidebarNav({
         })}
       </nav>
 
-      {/* Progress + CTA */}
+      {/* CTA */}
       <div
         style={{
           marginTop: 'auto',
@@ -130,54 +125,6 @@ export default function SidebarNav({
           borderTop: '1px solid var(--bg-border)',
         }}
       >
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            marginBottom: '6px',
-          }}
-        >
-          <span
-            style={{
-              fontSize: '10px',
-              fontWeight: 500,
-              textTransform: 'uppercase',
-              letterSpacing: '0.07em',
-              color: 'var(--text-muted)',
-            }}
-          >
-            Progress
-          </span>
-          <span
-            style={{
-              fontSize: '10px',
-              fontWeight: 600,
-              color: 'var(--accent-hover)',
-            }}
-          >
-            {progressPct}%
-          </span>
-        </div>
-        <div
-          style={{
-            height: '3px',
-            background: 'var(--bg-border)',
-            borderRadius: '2px',
-            overflow: 'hidden',
-            marginBottom: '16px',
-          }}
-        >
-          <div
-            style={{
-              height: '100%',
-              width: `${progressPct}%`,
-              background: 'var(--accent)',
-              borderRadius: '2px',
-              transition: 'width 0.3s ease',
-            }}
-          />
-        </div>
         <button
           onClick={onPracticeNow}
           style={{

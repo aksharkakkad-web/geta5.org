@@ -71,7 +71,6 @@ export default function StudyGuideReader({ guide, subject, onBack, keyTerms }: P
           unitTitle={guide.theme.length > 55 ? guide.theme.slice(0, 55) + '…' : guide.theme}
           sections={sections}
           activeSection={activeSection}
-          totalSections={sections.length}
           onSectionChange={setActiveSection}
           onPracticeNow={handlePracticeNow}
         />
