@@ -80,7 +80,7 @@
       "id": "calc-mcq-u4-003",
       "unit": "unit-4",
       "difficulty": "easy",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following is the linearization of $f(x) = \\sqrt{x}$ at $x = 9$?",
       "choices": [
         {
@@ -107,13 +107,45 @@
           "is_correct": false,
           "explanation": "Linearization uses the derivative evaluated at $a$, not the original function. The linear approximation is $3 + \\frac{1}{6}(x-9)$, a line, not a radical."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "$x$",
+            "$f(x) = \\sqrt{x}$",
+            "$f'(x)$"
+          ],
+          "rows": [
+            [
+              "4",
+              "2",
+              "0.25"
+            ],
+            [
+              "9",
+              "3",
+              "0.167"
+            ],
+            [
+              "16",
+              "4",
+              "0.125"
+            ],
+            [
+              "25",
+              "5",
+              "0.1"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u4-004",
       "unit": "unit-4",
       "difficulty": "easy",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following correctly applies L'Hôpital's Rule to evaluate $\\lim_{x \\to 0} \\frac{\\sin(x)}{x}$?",
       "choices": [
         {
@@ -140,7 +172,38 @@
           "is_correct": false,
           "explanation": "L'Hôpital's Rule differentiates numerator and denominator separately: $\\frac{d}{dx}[\\sin x] = \\cos x$, and $\\frac{d}{dx}[x] = 1$. The result is $\\frac{\\cos(0)}{1} = 1$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "$x$",
+            "$\\sin(x)$",
+            "$x$",
+            "$\\frac{\\sin x}{x}$"
+          ],
+          "rows": [
+            [
+              "0.1",
+              "0.0998",
+              "0.1",
+              "0.998"
+            ],
+            [
+              "0.01",
+              "0.00999",
+              "0.01",
+              "0.9999"
+            ],
+            [
+              "0.001",
+              "0.000999",
+              "0.001",
+              "0.99999"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u4-005",
@@ -183,7 +246,7 @@
       "id": "calc-mcq-u4-006",
       "unit": "unit-4",
       "difficulty": "easy",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "The volume of a cube with side length $s$ is $V = s^3$. If the side length is measured in centimeters and changes with time, which of the following gives $\\frac{dV}{dt}$?",
       "choices": [
         {
@@ -210,13 +273,17 @@
           "is_correct": false,
           "explanation": "Missing the coefficient 3 from the Power Rule. $\\frac{dV}{ds} = 3s^2$, so $\\frac{dV}{dt} = 3s^2 \\frac{ds}{dt}$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "text",
+        "content": "A cube has side length $s$ (in centimeters) and volume $V = s^3$. The side length changes with time $t$ (in seconds) at a rate of $\\frac{ds}{dt}$ cm/s. Use the chain rule to express $\\frac{dV}{dt}$ in terms of $s$ and $\\frac{ds}{dt}$."
+      }
     },
     {
       "id": "calc-mcq-u4-007",
       "unit": "unit-4",
       "difficulty": "easy",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following is the correct form of L'Hôpital's Rule for $\\lim_{x \\to a} \\frac{f(x)}{g(x)}$ when the form is $\\frac{0}{0}$?",
       "choices": [
         {
@@ -243,7 +310,34 @@
           "is_correct": false,
           "explanation": "The denominator must also be differentiated. L'Hôpital's Rule gives $\\lim\\frac{f'(x)}{g'(x)}$, not $\\frac{\\lim f'(x)}{\\lim g(x)}$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "Indeterminate Form",
+            "Apply L'Hopital?"
+          ],
+          "rows": [
+            [
+              "$\\frac{0}{0}$",
+              "Yes"
+            ],
+            [
+              "$\\frac{\\infty}{\\infty}$",
+              "Yes"
+            ],
+            [
+              "$\\frac{1}{0}$",
+              "No (not indeterminate)"
+            ],
+            [
+              "$0 \\cdot \\infty$",
+              "Rewrite first"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u4-008",
@@ -286,7 +380,7 @@
       "id": "calc-mcq-u4-009",
       "unit": "unit-4",
       "difficulty": "easy",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\lim_{x \\to 0} \\frac{x^2}{\\sin(x)}$ using L'Hôpital's Rule?",
       "choices": [
         {
@@ -313,13 +407,44 @@
           "is_correct": false,
           "explanation": "The limit exists after L'Hôpital's: $\\lim_{x\\to 0}\\frac{2x}{\\cos x} = 0$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "$x$",
+            "$x^2$",
+            "$\\sin(x)$",
+            "$\\frac{x^2}{\\sin x}$"
+          ],
+          "rows": [
+            [
+              "0.1",
+              "0.01",
+              "0.0998",
+              "0.100"
+            ],
+            [
+              "0.01",
+              "0.0001",
+              "0.00999",
+              "0.01001"
+            ],
+            [
+              "0.001",
+              "0.000001",
+              "0.000999",
+              "0.001001"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u4-010",
       "unit": "unit-4",
       "difficulty": "easy",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "If $f(4) = 2$ and $f'(4) = 3$, which of the following best approximates $f(4.1)$ using local linearization?",
       "choices": [
         {
@@ -346,13 +471,35 @@
           "is_correct": false,
           "explanation": "Using a step of $0.01$ instead of $0.1$. The difference is $4.1 - 4 = 0.1$, giving $2 + 3(0.1) = 2.3$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "$x$",
+            "$f(x)$",
+            "$f'(x)$"
+          ],
+          "rows": [
+            [
+              "4.0",
+              "2.0",
+              "3"
+            ],
+            [
+              "4.1",
+              "?",
+              "3"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u4-011",
       "unit": "unit-4",
       "difficulty": "easy",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\lim_{x \\to 0} \\frac{e^x - 1}{x}$ using L'Hôpital's Rule?",
       "choices": [
         {
@@ -379,7 +526,38 @@
           "is_correct": false,
           "explanation": "L'Hôpital's applies to the $\\frac{0}{0}$ form and yields $\\lim_{x\\to 0} e^x = 1$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "$x$",
+            "$e^x - 1$",
+            "$x$",
+            "$\\frac{e^x-1}{x}$"
+          ],
+          "rows": [
+            [
+              "0.1",
+              "0.1052",
+              "0.1",
+              "1.052"
+            ],
+            [
+              "0.01",
+              "0.01005",
+              "0.01",
+              "1.005"
+            ],
+            [
+              "0.001",
+              "0.001001",
+              "0.001",
+              "1.001"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u4-012",
@@ -607,7 +785,7 @@
       "id": "calc-mcq-u4-018",
       "unit": "unit-4",
       "difficulty": "medium",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\lim_{x \\to 0} \\frac{\\tan(x)}{x}$ using L'Hôpital's Rule?",
       "choices": [
         {
@@ -634,13 +812,44 @@
           "is_correct": false,
           "explanation": "$\\frac{d}{dx}[\\tan x] = \\sec^2(x)$ evaluated at $x=0$ is $1$, not $\\frac{1}{2}$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "$x$",
+            "$\\tan(x)$",
+            "$x$",
+            "$\\frac{\\tan x}{x}$"
+          ],
+          "rows": [
+            [
+              "0.1",
+              "0.1003",
+              "0.1",
+              "1.003"
+            ],
+            [
+              "0.01",
+              "0.010001",
+              "0.01",
+              "1.0001"
+            ],
+            [
+              "0.001",
+              "0.0010001",
+              "0.001",
+              "1.00001"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u4-019",
       "unit": "unit-4",
       "difficulty": "medium",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "The position of a particle is $s(t) = \\sin(\\pi t)$ for $t \\geq 0$. Which of the following gives the velocity at $t = \\frac{1}{2}$?",
       "choices": [
         {
@@ -667,13 +876,50 @@
           "is_correct": false,
           "explanation": "$v(t) = \\pi\\cos(\\pi t)$. At $t = \\frac{1}{2}$: $\\cos(\\pi/2) = 0$, giving $v = 0$. The value $1$ would require $\\cos(\\pi t) = 1/\\pi$, which is not the case here."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "$t$",
+            "$s(t)=\\sin(\\pi t)$",
+            "$v(t)=s'(t)$"
+          ],
+          "rows": [
+            [
+              "0",
+              "0",
+              "$\\pi$"
+            ],
+            [
+              "0.5",
+              "1",
+              "0"
+            ],
+            [
+              "1",
+              "0",
+              "$-\\pi$"
+            ],
+            [
+              "1.5",
+              "-1",
+              "0"
+            ],
+            [
+              "2",
+              "0",
+              "$\\pi$"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u4-020",
       "unit": "unit-4",
       "difficulty": "medium",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "A differentiable function $f$ satisfies $f(5) = 10$ and $f'(5) = -2$. The linearization of $f$ at $x = 5$ gives which of the following approximations for $f(5.5)$?",
       "choices": [
         {
@@ -700,13 +946,40 @@
           "is_correct": false,
           "explanation": "That is $f(5)$, the base value. The linearization adds the correction $f'(5)(0.5) = -1$, giving $9$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "$x$",
+            "$f(x)$",
+            "$f'(x)$"
+          ],
+          "rows": [
+            [
+              "4",
+              "8",
+              "?"
+            ],
+            [
+              "5",
+              "10",
+              "-2"
+            ],
+            [
+              "6",
+              "8",
+              "?"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u4-021",
       "unit": "unit-4",
       "difficulty": "medium",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\lim_{x \\to \\infty} \\frac{\\ln(x)}{x}$ using L'Hôpital's Rule?",
       "choices": [
         {
@@ -733,7 +1006,72 @@
           "is_correct": false,
           "explanation": "L'Hôpital's gives $\\lim_{x\\to\\infty}\\frac{1/x}{1} = 0$, not $e$. The limit is 0."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "chart",
+        "content": {
+          "type": "line",
+          "data": {
+            "labels": [
+              "1",
+              "2",
+              "4",
+              "8",
+              "16",
+              "32"
+            ],
+            "datasets": [
+              {
+                "label": "ln(x)",
+                "data": [
+                  0,
+                  0.69,
+                  1.39,
+                  2.08,
+                  2.77,
+                  3.47
+                ],
+                "borderColor": "#6366f1",
+                "fill": false
+              },
+              {
+                "label": "x",
+                "data": [
+                  1,
+                  2,
+                  4,
+                  8,
+                  16,
+                  32
+                ],
+                "borderColor": "#f59e0b",
+                "fill": false,
+                "borderDash": [
+                  5,
+                  5
+                ]
+              }
+            ]
+          },
+          "options": {
+            "scales": {
+              "x": {
+                "title": {
+                  "display": true,
+                  "text": "x"
+                }
+              },
+              "y": {
+                "title": {
+                  "display": true,
+                  "text": "y"
+                },
+                "suggestedMax": 10
+              }
+            }
+          }
+        }
+      }
     },
     {
       "id": "calc-mcq-u4-022",
@@ -776,7 +1114,7 @@
       "id": "calc-mcq-u4-023",
       "unit": "unit-4",
       "difficulty": "medium",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\lim_{x \\to 0^+} x \\ln(x)$?",
       "choices": [
         {
@@ -803,7 +1141,38 @@
           "is_correct": false,
           "explanation": "The limit exists and equals 0. L'Hôpital's applied to $\\frac{\\ln x}{1/x}$ gives $-x \\to 0^+$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "$x$",
+            "$x\\ln(x)$"
+          ],
+          "rows": [
+            [
+              "0.5",
+              "-0.347"
+            ],
+            [
+              "0.1",
+              "-0.230"
+            ],
+            [
+              "0.01",
+              "-0.046"
+            ],
+            [
+              "0.001",
+              "-0.007"
+            ],
+            [
+              "0.0001",
+              "-0.0009"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u4-024",
@@ -846,7 +1215,7 @@
       "id": "calc-mcq-u4-025",
       "unit": "unit-4",
       "difficulty": "medium",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "A function $f$ is concave up near $x = a$. Which of the following best describes the relationship between the linearization $L(x)$ and the true value $f(x)$ near $x = a$?",
       "choices": [
         {
@@ -873,13 +1242,74 @@
           "is_correct": false,
           "explanation": "For concave up functions, the tangent line lies below the curve on BOTH sides of $a$. The linearization is an underestimate regardless of direction."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "chart",
+        "content": {
+          "type": "line",
+          "data": {
+            "labels": [
+              "a-2",
+              "a-1",
+              "a",
+              "a+1",
+              "a+2"
+            ],
+            "datasets": [
+              {
+                "label": "f(x) concave up",
+                "data": [
+                  3,
+                  1.5,
+                  1,
+                  1.5,
+                  3
+                ],
+                "borderColor": "#6366f1",
+                "fill": false
+              },
+              {
+                "label": "Linearization L(x)",
+                "data": [
+                  3,
+                  2,
+                  1,
+                  0,
+                  -1
+                ],
+                "borderColor": "#f59e0b",
+                "fill": false,
+                "borderDash": [
+                  5,
+                  5
+                ]
+              }
+            ]
+          },
+          "options": {
+            "scales": {
+              "x": {
+                "title": {
+                  "display": true,
+                  "text": "x"
+                }
+              },
+              "y": {
+                "title": {
+                  "display": true,
+                  "text": "y"
+                }
+              }
+            }
+          }
+        }
+      }
     },
     {
       "id": "calc-mcq-u4-026",
       "unit": "unit-4",
       "difficulty": "medium",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "The units of $\\frac{d^2s}{dt^2}$ when $s$ is in meters and $t$ is in seconds are best described as which of the following?",
       "choices": [
         {
@@ -906,7 +1336,11 @@
           "is_correct": false,
           "explanation": "The units are $\\frac{\\text{m}}{\\text{s}^2}$ (meters per second squared), not $\\frac{\\text{m}^2}{\\text{s}}$. Differentiation affects the time unit, not the position unit."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "text",
+        "content": "A particle moves along a straight line with position $s(t)$ measured in meters and time $t$ in seconds. The velocity is $v(t) = \\frac{ds}{dt}$ and the acceleration is $a(t) = \\frac{d^2s}{dt^2}$. What are the units of acceleration?"
+      }
     },
     {
       "id": "calc-mcq-u4-027",
@@ -949,7 +1383,7 @@
       "id": "calc-mcq-u4-028",
       "unit": "unit-4",
       "difficulty": "medium",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\lim_{x \\to 0} \\frac{1 - \\cos(x)}{x^2}$ using L'Hôpital's Rule?",
       "choices": [
         {
@@ -976,7 +1410,38 @@
           "is_correct": false,
           "explanation": "Inverting $1/2$ gives 2. The correct answer is $\\frac{1}{2}$, obtained by applying L'Hôpital's Rule twice."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "$x$",
+            "$1-\\cos(x)$",
+            "$x^2$",
+            "Ratio"
+          ],
+          "rows": [
+            [
+              "0.1",
+              "0.00499",
+              "0.01",
+              "0.499"
+            ],
+            [
+              "0.01",
+              "0.0000499",
+              "0.0001",
+              "0.4999"
+            ],
+            [
+              "0.001",
+              "4.99e-7",
+              "1e-6",
+              "0.49999"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u4-029",
@@ -1019,7 +1484,7 @@
       "id": "calc-mcq-u4-030",
       "unit": "unit-4",
       "difficulty": "medium",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "A function $f$ is concave down near $x = a$ and $f'(a) > 0$. Which of the following best describes the local linearization near $x = a$?",
       "choices": [
         {
@@ -1046,13 +1511,74 @@
           "is_correct": false,
           "explanation": "Whether the linearization over- or underestimates depends on concavity ($f''$), not the sign of $f'$. For concave down, it overestimates regardless."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "chart",
+        "content": {
+          "type": "line",
+          "data": {
+            "labels": [
+              "a-2",
+              "a-1",
+              "a",
+              "a+1",
+              "a+2"
+            ],
+            "datasets": [
+              {
+                "label": "f(x) concave down, increasing",
+                "data": [
+                  1,
+                  2.5,
+                  3,
+                  3.3,
+                  3.5
+                ],
+                "borderColor": "#6366f1",
+                "fill": false
+              },
+              {
+                "label": "Linearization L(x)",
+                "data": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "borderColor": "#f59e0b",
+                "fill": false,
+                "borderDash": [
+                  5,
+                  5
+                ]
+              }
+            ]
+          },
+          "options": {
+            "scales": {
+              "x": {
+                "title": {
+                  "display": true,
+                  "text": "x"
+                }
+              },
+              "y": {
+                "title": {
+                  "display": true,
+                  "text": "y"
+                }
+              }
+            }
+          }
+        }
+      }
     },
     {
       "id": "calc-mcq-u4-031",
       "unit": "unit-4",
       "difficulty": "medium",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\lim_{x \\to \\infty} \\frac{3x^2 - 5}{x^2 + 1}$ using L'Hôpital's Rule?",
       "choices": [
         {
@@ -1079,7 +1605,38 @@
           "is_correct": false,
           "explanation": "Equal degrees means the limit is the leading coefficient ratio, not $\\infty$. L'Hôpital's: $\\frac{6x}{2x} = 3$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "$x$",
+            "$3x^2-5$",
+            "$x^2+1$",
+            "Ratio"
+          ],
+          "rows": [
+            [
+              "10",
+              "295",
+              "101",
+              "2.92"
+            ],
+            [
+              "100",
+              "29995",
+              "10001",
+              "2.999"
+            ],
+            [
+              "1000",
+              "2999995",
+              "1000001",
+              "2.99999"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u4-032",
@@ -1122,7 +1679,7 @@
       "id": "calc-mcq-u4-033",
       "unit": "unit-4",
       "difficulty": "medium",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\lim_{x \\to 0} \\frac{e^{2x}-1}{\\sin(3x)}$ using L'Hôpital's Rule?",
       "choices": [
         {
@@ -1149,7 +1706,38 @@
           "is_correct": false,
           "explanation": "Both $e^{2x}-1$ and $\\sin(3x)$ approach 0, but L'Hôpital's gives $\\frac{2}{3}$, not 0."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "$x$",
+            "$e^{2x}-1$",
+            "$\\sin(3x)$",
+            "Ratio"
+          ],
+          "rows": [
+            [
+              "0.1",
+              "0.2214",
+              "0.2955",
+              "0.749"
+            ],
+            [
+              "0.01",
+              "0.02020",
+              "0.02999",
+              "0.6736"
+            ],
+            [
+              "0.001",
+              "0.002002",
+              "0.002999",
+              "0.6675"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u4-034",
@@ -1192,7 +1780,7 @@
       "id": "calc-mcq-u4-035",
       "unit": "unit-4",
       "difficulty": "medium",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives the linearization of $f(x) = e^x$ at $x = 0$, and what is the approximate value of $e^{0.1}$?",
       "choices": [
         {
@@ -1219,7 +1807,39 @@
           "is_correct": false,
           "explanation": "$f(0) = 1$, so the linearization starts at 1, not 0. $L(x) = 1 + x$, giving $e^{0.1} \\approx 1.1$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "$x$",
+            "$e^x$ (actual)",
+            "$L(x) = 1+x$ (linear)"
+          ],
+          "rows": [
+            [
+              "0",
+              "1",
+              "1"
+            ],
+            [
+              "0.1",
+              "1.105",
+              "1.1"
+            ],
+            [
+              "0.2",
+              "1.221",
+              "1.2"
+            ],
+            [
+              "0.5",
+              "1.649",
+              "1.5"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u4-036",
@@ -1299,7 +1919,7 @@
       "id": "calc-mcq-u4-038",
       "unit": "unit-4",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\lim_{x \\to 0^+} x^x$ ?",
       "choices": [
         {
@@ -1326,7 +1946,38 @@
           "is_correct": false,
           "explanation": "$\\ln(\\lim x^x) = \\lim x\\ln x = 0$, so the limit is $e^0 = 1$, not $e^{-1}$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "$x$",
+            "$x^x = e^{x\\ln x}$"
+          ],
+          "rows": [
+            [
+              "0.5",
+              "0.707"
+            ],
+            [
+              "0.1",
+              "0.794"
+            ],
+            [
+              "0.01",
+              "0.955"
+            ],
+            [
+              "0.001",
+              "0.993"
+            ],
+            [
+              "0.0001",
+              "0.999"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u4-039",
@@ -1406,7 +2057,7 @@
       "id": "calc-mcq-u4-041",
       "unit": "unit-4",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\lim_{x \\to \\infty} x\\left(e^{1/x}-1\\right)$?",
       "choices": [
         {
@@ -1433,7 +2084,34 @@
           "is_correct": false,
           "explanation": "While $e^{1/x}-1 \\to 0$ and $x \\to \\infty$, the product is finite. The rewritten form shows the limit equals 1."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "$x$ (large)",
+            "$x(e^{1/x}-1)$"
+          ],
+          "rows": [
+            [
+              "10",
+              "1.052"
+            ],
+            [
+              "100",
+              "1.005"
+            ],
+            [
+              "1000",
+              "1.0005"
+            ],
+            [
+              "10000",
+              "1.00005"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u4-042",
@@ -1476,7 +2154,7 @@
       "id": "calc-mcq-u4-043",
       "unit": "unit-4",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\lim_{x \\to 0} \\frac{\\ln(1+x) - x}{x^2}$?",
       "choices": [
         {
@@ -1503,7 +2181,38 @@
           "is_correct": false,
           "explanation": "Applying L'Hôpital's only once: $\\frac{1/(1+x)-1}{2x}$, which is still $\\frac{0}{0}$ at $x=0$. A second application gives $-\\frac{1}{2}$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "$x$",
+            "$\\ln(1+x)-x$",
+            "$x^2$",
+            "Ratio"
+          ],
+          "rows": [
+            [
+              "0.1",
+              "-0.00484",
+              "0.01",
+              "-0.484"
+            ],
+            [
+              "0.01",
+              "-0.0000498",
+              "0.0001",
+              "-0.498"
+            ],
+            [
+              "0.001",
+              "-4.998e-7",
+              "1e-6",
+              "-0.4998"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u4-044",
@@ -1546,7 +2255,7 @@
       "id": "calc-mcq-u4-045",
       "unit": "unit-4",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\lim_{x \\to 0^+} \\left(1 + x\\right)^{1/x}$?",
       "choices": [
         {
@@ -1573,7 +2282,34 @@
           "is_correct": false,
           "explanation": "The limit exists and equals $e$ — this is one of the fundamental definitions of $e$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "$x$ (small)",
+            "$(1+x)^{1/x}$"
+          ],
+          "rows": [
+            [
+              "0.1",
+              "2.594"
+            ],
+            [
+              "0.01",
+              "2.705"
+            ],
+            [
+              "0.001",
+              "2.717"
+            ],
+            [
+              "0.0001",
+              "2.71827"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u4-046",
@@ -1616,7 +2352,7 @@
       "id": "calc-mcq-u4-047",
       "unit": "unit-4",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\lim_{x \\to \\infty} \\frac{x^3}{e^x}$ using L'Hôpital's Rule?",
       "choices": [
         {
@@ -1643,7 +2379,72 @@
           "is_correct": false,
           "explanation": "After three L'Hôpital applications, the form is $\\frac{6}{e^x}$, which approaches 0 (not 6) as $x \\to \\infty$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "chart",
+        "content": {
+          "type": "line",
+          "data": {
+            "labels": [
+              "1",
+              "2",
+              "5",
+              "10",
+              "20",
+              "50"
+            ],
+            "datasets": [
+              {
+                "label": "x^3 (numerator)",
+                "data": [
+                  1,
+                  8,
+                  125,
+                  1000,
+                  8000,
+                  125000
+                ],
+                "borderColor": "#6366f1",
+                "fill": false
+              },
+              {
+                "label": "e^x (denominator)",
+                "data": [
+                  2.72,
+                  7.39,
+                  148,
+                  22026,
+                  485165195,
+                  null
+                ],
+                "borderColor": "#f59e0b",
+                "fill": false,
+                "borderDash": [
+                  5,
+                  5
+                ]
+              }
+            ]
+          },
+          "options": {
+            "scales": {
+              "x": {
+                "title": {
+                  "display": true,
+                  "text": "x"
+                }
+              },
+              "y": {
+                "title": {
+                  "display": true,
+                  "text": "y"
+                },
+                "suggestedMax": 2000
+              }
+            }
+          }
+        }
+      }
     },
     {
       "id": "calc-mcq-u4-048",
@@ -1760,7 +2561,7 @@
       "id": "calc-mcq-u4-051",
       "unit": "unit-4",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\lim_{x \\to 0} \\frac{\\sin(x) - x}{x^3}$?",
       "choices": [
         {
@@ -1787,7 +2588,38 @@
           "is_correct": false,
           "explanation": "The three L'Hôpital applications are needed. The final form $\\frac{-\\cos x}{6}$ evaluated at $x=0$ gives $-\\frac{1}{6}$, not 1."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "$x$",
+            "$\\sin(x)-x$",
+            "$x^3$",
+            "Ratio"
+          ],
+          "rows": [
+            [
+              "0.1",
+              "-0.000166",
+              "0.001",
+              "-0.166"
+            ],
+            [
+              "0.01",
+              "-1.67e-7",
+              "1e-6",
+              "-0.167"
+            ],
+            [
+              "0.001",
+              "-1.67e-10",
+              "1e-9",
+              "-0.167"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u4-052",
@@ -1867,7 +2699,7 @@
       "id": "calc-mcq-u4-054",
       "unit": "unit-4",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\lim_{x \\to \\infty} \\left(1 + \\frac{2}{x}\\right)^x$?",
       "choices": [
         {
@@ -1894,7 +2726,38 @@
           "is_correct": false,
           "explanation": "$\\ln L = \\lim x\\ln(1+2/x) \\to 2$, giving $L = e^2$, not $e^{1/2}$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "$x$ (large)",
+            "$(1+\\frac{2}{x})^x$"
+          ],
+          "rows": [
+            [
+              "10",
+              "6.192"
+            ],
+            [
+              "100",
+              "7.245"
+            ],
+            [
+              "1000",
+              "7.374"
+            ],
+            [
+              "10000",
+              "7.386"
+            ],
+            [
+              "100000",
+              "7.388"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u4-055",

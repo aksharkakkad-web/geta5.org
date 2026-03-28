@@ -6,7 +6,7 @@
       "id": "calc-mcq-u6-001",
       "unit": "unit-6",
       "difficulty": "easy",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int x^4\\,dx$?",
       "choices": [
         {
@@ -33,13 +33,36 @@
           "is_correct": false,
           "explanation": "This would be the antiderivative of $x^2$, not $x^4$. Add 1 to the exponent: $4+1=5$, giving $\\frac{x^5}{5}+C$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "Integral",
+            "Result"
+          ],
+          "rows": [
+            [
+              "$\\int x^n\\,dx$ ($n \\neq -1$)",
+              "$\\frac{x^{n+1}}{n+1} + C$"
+            ],
+            [
+              "$\\int e^x\\,dx$",
+              "$e^x + C$"
+            ],
+            [
+              "$\\int \\frac{1}{x}\\,dx$",
+              "$\\ln|x| + C$"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-002",
       "unit": "unit-6",
       "difficulty": "easy",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int e^x\\,dx$?",
       "choices": [
         {
@@ -66,13 +89,32 @@
           "is_correct": false,
           "explanation": "The Power Rule for integration does not apply to $e^x$. The antiderivative of $e^x$ is simply $e^x + C$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "Function",
+            "Antiderivative"
+          ],
+          "rows": [
+            [
+              "$e^x$",
+              "$e^x + C$"
+            ],
+            [
+              "$e^{kx}$",
+              "$\\frac{1}{k}e^{kx}+C$"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-003",
       "unit": "unit-6",
       "difficulty": "easy",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int \\cos(x)\\,dx$?",
       "choices": [
         {
@@ -99,13 +141,36 @@
           "is_correct": false,
           "explanation": "$-\\cos x + C$ is the antiderivative of $\\sin x$, not $\\cos x$. Verify: $\\frac{d}{dx}[-\\cos x] = \\sin x$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "Trig Function",
+            "Antiderivative"
+          ],
+          "rows": [
+            [
+              "$\\cos(x)$",
+              "$\\sin(x)+C$"
+            ],
+            [
+              "$\\sin(x)$",
+              "$-\\cos(x)+C$"
+            ],
+            [
+              "$\\sec^2(x)$",
+              "$\\tan(x)+C$"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-004",
       "unit": "unit-6",
       "difficulty": "easy",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int \\frac{1}{x}\\,dx$ for $x > 0$?",
       "choices": [
         {
@@ -132,13 +197,32 @@
           "is_correct": false,
           "explanation": "$-\\frac{1}{x^2}+C$ is the antiderivative of $\\frac{2}{x^3}$. For $\\frac{1}{x}$: $\\int \\frac{1}{x}dx = \\ln|x|+C$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "Form",
+            "Antiderivative"
+          ],
+          "rows": [
+            [
+              "$\\int \\frac{1}{x}\\,dx$",
+              "$\\ln|x|+C$"
+            ],
+            [
+              "$\\int \\frac{1}{x^2}\\,dx$",
+              "$-\\frac{1}{x}+C$"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-005",
       "unit": "unit-6",
       "difficulty": "easy",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int_0^3 (2x+1)\\,dx$?",
       "choices": [
         {
@@ -165,13 +249,57 @@
           "is_correct": false,
           "explanation": "$[x^2+x]_0^3 = 12$. $6$ would result from integrating $2x$ only ($[x^2]_0^3=9$) or a factor error."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "chart",
+        "content": {
+          "type": "line",
+          "data": {
+            "labels": [
+              "0",
+              "1",
+              "2",
+              "3"
+            ],
+            "datasets": [
+              {
+                "label": "f(x) = 2x+1",
+                "data": [
+                  1,
+                  3,
+                  5,
+                  7
+                ],
+                "borderColor": "#6366f1",
+                "fill": true,
+                "backgroundColor": "rgba(99,102,241,0.2)"
+              }
+            ]
+          },
+          "options": {
+            "scales": {
+              "x": {
+                "title": {
+                  "display": true,
+                  "text": "x"
+                }
+              },
+              "y": {
+                "title": {
+                  "display": true,
+                  "text": "y"
+                }
+              }
+            }
+          }
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-006",
       "unit": "unit-6",
       "difficulty": "easy",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int_1^e \\frac{1}{x}\\,dx$?",
       "choices": [
         {
@@ -198,13 +326,55 @@
           "is_correct": false,
           "explanation": "$[\\ln x]_1^e = \\ln e - \\ln 1 = 1 - 0 = 1$, not $\\ln 2$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "chart",
+        "content": {
+          "type": "line",
+          "data": {
+            "labels": [
+              "1",
+              "e/2",
+              "e"
+            ],
+            "datasets": [
+              {
+                "label": "f(x) = 1/x",
+                "data": [
+                  1,
+                  0.74,
+                  0.37
+                ],
+                "borderColor": "#6366f1",
+                "fill": true,
+                "backgroundColor": "rgba(99,102,241,0.2)"
+              }
+            ]
+          },
+          "options": {
+            "scales": {
+              "x": {
+                "title": {
+                  "display": true,
+                  "text": "x"
+                }
+              },
+              "y": {
+                "title": {
+                  "display": true,
+                  "text": "y"
+                }
+              }
+            }
+          }
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-007",
       "unit": "unit-6",
       "difficulty": "easy",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "If $F'(x) = f(x)$, which of the following gives $\\int_a^b f(x)\\,dx$ by the Fundamental Theorem of Calculus (Part 2)?",
       "choices": [
         {
@@ -231,13 +401,17 @@
           "is_correct": false,
           "explanation": "The order matters: $F(b)-F(a)$ (upper limit minus lower limit). Reversing gives the negative of the integral."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "text",
+        "content": "The Fundamental Theorem of Calculus Part 2 states: If $F$ is an antiderivative of $f$ on $[a,b]$, then $\\int_a^b f(x)\\,dx = F(b) - F(a)$. This is also written as $\\left[F(x)\\right]_a^b$."
+      }
     },
     {
       "id": "calc-mcq-u6-008",
       "unit": "unit-6",
       "difficulty": "easy",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int \\sin(x)\\,dx$?",
       "choices": [
         {
@@ -264,7 +438,26 @@
           "is_correct": false,
           "explanation": "$\\frac{d}{dx}[-\\sin x] = -\\cos x$, not $\\sin x$. The correct antiderivative is $-\\cos x + C$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "Trig Function",
+            "Antiderivative"
+          ],
+          "rows": [
+            [
+              "$\\sin(x)$",
+              "$-\\cos(x)+C$"
+            ],
+            [
+              "$\\cos(x)$",
+              "$\\sin(x)+C$"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-009",
@@ -326,7 +519,7 @@
       "id": "calc-mcq-u6-010",
       "unit": "unit-6",
       "difficulty": "easy",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\frac{d}{dx}\\left[\\int_0^x \\sin(t^2)\\,dt\\right]$ by FTC Part 1?",
       "choices": [
         {
@@ -353,13 +546,17 @@
           "is_correct": false,
           "explanation": "That would be differentiating under the integral sign incorrectly. FTC Part 1 directly gives $\\sin(x^2)$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "text",
+        "content": "FTC Part 1 states: If $g(x) = \\int_a^x f(t)\\,dt$, then $g'(x) = f(x)$. For a variable upper limit, differentiate by replacing the dummy variable $t$ with $x$."
+      }
     },
     {
       "id": "calc-mcq-u6-011",
       "unit": "unit-6",
       "difficulty": "easy",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int_2^5 f(x)\\,dx + \\int_5^8 f(x)\\,dx$ using properties of definite integrals?",
       "choices": [
         {
@@ -386,13 +583,17 @@
           "is_correct": false,
           "explanation": "$\\int_5^5 f = 0$ (zero-width interval). The two integrals combine to $\\int_2^8 f$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "text",
+        "content": "A key property of definite integrals: $\\int_a^b f(x)\\,dx + \\int_b^c f(x)\\,dx = \\int_a^c f(x)\\,dx$ (additivity over adjacent intervals)."
+      }
     },
     {
       "id": "calc-mcq-u6-012",
       "unit": "unit-6",
       "difficulty": "easy",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int_a^b f(x)\\,dx$ when $f(x) \\geq 0$ on $[a,b]$?",
       "choices": [
         {
@@ -419,13 +620,55 @@
           "is_correct": false,
           "explanation": "The FTC gives $\\int_a^b f = F(b)-F(a)$, not $F(a)-F(b)$. Order matters."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "chart",
+        "content": {
+          "type": "line",
+          "data": {
+            "labels": [
+              "a",
+              "m",
+              "b"
+            ],
+            "datasets": [
+              {
+                "label": "f(x) >= 0 on [a,b]",
+                "data": [
+                  0.5,
+                  2,
+                  1
+                ],
+                "borderColor": "#6366f1",
+                "fill": true,
+                "backgroundColor": "rgba(99,102,241,0.2)"
+              }
+            ]
+          },
+          "options": {
+            "scales": {
+              "x": {
+                "title": {
+                  "display": true,
+                  "text": "x"
+                }
+              },
+              "y": {
+                "title": {
+                  "display": true,
+                  "text": "y"
+                }
+              }
+            }
+          }
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-013",
       "unit": "unit-6",
       "difficulty": "easy",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int_0^{\\pi} \\sin(x)\\,dx$?",
       "choices": [
         {
@@ -452,13 +695,59 @@
           "is_correct": false,
           "explanation": "$[-\\cos x]_0^\\pi = -(-1) - (-1) = 1+1 = 2$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "chart",
+        "content": {
+          "type": "line",
+          "data": {
+            "labels": [
+              "0",
+              "pi/4",
+              "pi/2",
+              "3pi/4",
+              "pi"
+            ],
+            "datasets": [
+              {
+                "label": "f(x) = sin(x)",
+                "data": [
+                  0,
+                  0.707,
+                  1,
+                  0.707,
+                  0
+                ],
+                "borderColor": "#6366f1",
+                "fill": true,
+                "backgroundColor": "rgba(99,102,241,0.2)"
+              }
+            ]
+          },
+          "options": {
+            "scales": {
+              "x": {
+                "title": {
+                  "display": true,
+                  "text": "x"
+                }
+              },
+              "y": {
+                "title": {
+                  "display": true,
+                  "text": "y"
+                }
+              }
+            }
+          }
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-014",
       "unit": "unit-6",
       "difficulty": "easy",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int_0^2 3x^2\\,dx$?",
       "choices": [
         {
@@ -485,7 +774,53 @@
           "is_correct": false,
           "explanation": "$[x^3]_0^2 = 8$. Using $[3x^3/3]_0^2 = [x^3]_0^2 = 8$, not 4."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "chart",
+        "content": {
+          "type": "line",
+          "data": {
+            "labels": [
+              "0",
+              "0.5",
+              "1",
+              "1.5",
+              "2"
+            ],
+            "datasets": [
+              {
+                "label": "f(x) = 3x^2",
+                "data": [
+                  0,
+                  0.75,
+                  3,
+                  6.75,
+                  12
+                ],
+                "borderColor": "#6366f1",
+                "fill": true,
+                "backgroundColor": "rgba(99,102,241,0.2)"
+              }
+            ]
+          },
+          "options": {
+            "scales": {
+              "x": {
+                "title": {
+                  "display": true,
+                  "text": "x"
+                }
+              },
+              "y": {
+                "title": {
+                  "display": true,
+                  "text": "y"
+                }
+              }
+            }
+          }
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-015",
@@ -547,7 +882,7 @@
       "id": "calc-mcq-u6-016",
       "unit": "unit-6",
       "difficulty": "medium",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int x\\cos(x^2)\\,dx$?",
       "choices": [
         {
@@ -574,13 +909,17 @@
           "is_correct": false,
           "explanation": "Verify: $\\frac{d}{dx}[x\\sin(x^2)] = \\sin(x^2)+2x^2\\cos(x^2)\\neq x\\cos(x^2)$. Use $u$-substitution: $\\frac{1}{2}\\sin(x^2)+C$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "text",
+        "content": "Evaluate $\\int x\\cos(x^2)\\,dx$ using substitution. Let $u = x^2$, so $du = 2x\\,dx$, meaning $x\\,dx = \\frac{du}{2}$. The integral becomes $\\int \\cos(u) \\cdot \\frac{du}{2}$."
+      }
     },
     {
       "id": "calc-mcq-u6-017",
       "unit": "unit-6",
       "difficulty": "medium",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int_0^1 2xe^{x^2}\\,dx$?",
       "choices": [
         {
@@ -607,13 +946,44 @@
           "is_correct": false,
           "explanation": "$[e^{x^2}]_0^1 = e - 1 \\approx 1.718$, not 1."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "Step",
+            "Expression"
+          ],
+          "rows": [
+            [
+              "Let $u$",
+              "$x^2$"
+            ],
+            [
+              "Then $du$",
+              "$2x\\,dx$"
+            ],
+            [
+              "So $x\\,dx$",
+              "$\\frac{du}{2}$"
+            ],
+            [
+              "Integral becomes",
+              "$\\int_0^1 e^u \\cdot \\frac{du}{2}$"
+            ],
+            [
+              "New bounds",
+              "$u(0)=0$, $u(1)=1$"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-018",
       "unit": "unit-6",
       "difficulty": "medium",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\frac{d}{dx}\\left[\\int_0^{x^2} e^t\\,dt\\right]$?",
       "choices": [
         {
@@ -640,13 +1010,17 @@
           "is_correct": false,
           "explanation": "The chain rule factor is $g'(x) = 2x$, not $x^2$. FTC Part 1 gives $e^{x^2} \\cdot 2x = 2xe^{x^2}$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "text",
+        "content": "By FTC Part 1 with chain rule: $\\frac{d}{dx}\\!\\left[\\int_0^{x^2} e^t\\,dt\\right] = e^{x^2} \\cdot \\frac{d}{dx}[x^2] = 2xe^{x^2}$. The chain rule multiplies by the derivative of the upper limit."
+      }
     },
     {
       "id": "calc-mcq-u6-019",
       "unit": "unit-6",
       "difficulty": "medium",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int \\frac{3x^2}{x^3+1}\\,dx$?",
       "choices": [
         {
@@ -673,7 +1047,34 @@
           "is_correct": false,
           "explanation": "After $u$-sub, no factor of 3 remains: $\\int \\frac{du}{u} = \\ln|u|+C = \\ln|x^3+1|+C$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "Step",
+            "Expression"
+          ],
+          "rows": [
+            [
+              "Let $u$",
+              "$x^3+1$"
+            ],
+            [
+              "Then $du$",
+              "$3x^2\\,dx$"
+            ],
+            [
+              "Integral becomes",
+              "$\\int \\frac{du}{u} = \\ln|u|+C$"
+            ],
+            [
+              "Result",
+              "$\\ln|x^3+1|+C$"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-020",
@@ -735,7 +1136,7 @@
       "id": "calc-mcq-u6-021",
       "unit": "unit-6",
       "difficulty": "medium",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int (x+1)^{10}\\,dx$?",
       "choices": [
         {
@@ -762,13 +1163,40 @@
           "is_correct": false,
           "explanation": "The coefficient should be $\\frac{1}{11}$, not $11$. $u$-sub gives $\\frac{u^{11}}{11}+C = \\frac{(x+1)^{11}}{11}+C$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "Step",
+            "Expression"
+          ],
+          "rows": [
+            [
+              "Let $u$",
+              "$x+1$"
+            ],
+            [
+              "Then $du$",
+              "$dx$"
+            ],
+            [
+              "Integral becomes",
+              "$\\int u^{10}\\,du$"
+            ],
+            [
+              "Result",
+              "$\\frac{(x+1)^{11}}{11}+C$"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-022",
       "unit": "unit-6",
       "difficulty": "medium",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "If $f$ is an odd function and $\\int_0^3 f(x)\\,dx = 5$, which of the following gives $\\int_{-3}^3 f(x)\\,dx$?",
       "choices": [
         {
@@ -795,13 +1223,62 @@
           "is_correct": false,
           "explanation": "$\\int_{-3}^0 f = -5$ for an odd function. But $\\int_{-3}^3 f = \\int_{-3}^0 f + \\int_0^3 f = -5+5=0$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "chart",
+        "content": {
+          "type": "line",
+          "data": {
+            "labels": [
+              "-3",
+              "-2",
+              "-1",
+              "0",
+              "1",
+              "2",
+              "3"
+            ],
+            "datasets": [
+              {
+                "label": "Odd function f(x): f(-x) = -f(x)",
+                "data": [
+                  -3,
+                  -2,
+                  -1,
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "borderColor": "#6366f1",
+                "fill": false
+              }
+            ]
+          },
+          "options": {
+            "scales": {
+              "x": {
+                "title": {
+                  "display": true,
+                  "text": "x"
+                }
+              },
+              "y": {
+                "title": {
+                  "display": true,
+                  "text": "y"
+                }
+              }
+            }
+          }
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-023",
       "unit": "unit-6",
       "difficulty": "medium",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int_1^4 \\frac{1}{2\\sqrt{x}}\\,dx$?",
       "choices": [
         {
@@ -828,13 +1305,57 @@
           "is_correct": false,
           "explanation": "$[\\sqrt{x}]_1^4 = 2-1=1$, not 3."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "chart",
+        "content": {
+          "type": "line",
+          "data": {
+            "labels": [
+              "1",
+              "2",
+              "3",
+              "4"
+            ],
+            "datasets": [
+              {
+                "label": "f(x) = 1/(2*sqrt(x))",
+                "data": [
+                  0.5,
+                  0.354,
+                  0.289,
+                  0.25
+                ],
+                "borderColor": "#6366f1",
+                "fill": true,
+                "backgroundColor": "rgba(99,102,241,0.2)"
+              }
+            ]
+          },
+          "options": {
+            "scales": {
+              "x": {
+                "title": {
+                  "display": true,
+                  "text": "x"
+                }
+              },
+              "y": {
+                "title": {
+                  "display": true,
+                  "text": "y"
+                }
+              }
+            }
+          }
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-024",
       "unit": "unit-6",
       "difficulty": "medium",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\frac{d}{dx}\\left[\\int_{x}^{5} t^3\\,dt\\right]$?",
       "choices": [
         {
@@ -861,13 +1382,17 @@
           "is_correct": false,
           "explanation": "That is not a result of FTC differentiation. The derivative of $\\int_x^5 t^3 dt$ with respect to $x$ is $-x^3$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "text",
+        "content": "FTC Part 1 with a variable lower limit: $\\frac{d}{dx}\\!\\left[\\int_{x}^{5} t^3\\,dt\\right] = \\frac{d}{dx}\\!\\left[-\\int_{5}^{x} t^3\\,dt\\right] = -x^3$. Swapping limits introduces a negative sign."
+      }
     },
     {
       "id": "calc-mcq-u6-025",
       "unit": "unit-6",
       "difficulty": "medium",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int \\sec^2(x)\\,dx$?",
       "choices": [
         {
@@ -894,13 +1419,32 @@
           "is_correct": false,
           "explanation": "$-\\cot x + C$ is the antiderivative of $\\csc^2 x$. For $\\sec^2 x$: antiderivative is $\\tan x + C$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "Trig Function",
+            "Antiderivative"
+          ],
+          "rows": [
+            [
+              "$\\sec^2(x)$",
+              "$\\tan(x)+C$"
+            ],
+            [
+              "$\\csc^2(x)$",
+              "$-\\cot(x)+C$"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-026",
       "unit": "unit-6",
       "difficulty": "medium",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int_0^{\\pi/2} \\cos(2x)\\,dx$?",
       "choices": [
         {
@@ -927,13 +1471,59 @@
           "is_correct": false,
           "explanation": "$\\frac{\\sin(\\pi)}{2} - \\frac{\\sin(0)}{2} = 0-0=0$. The result is 0."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "chart",
+        "content": {
+          "type": "line",
+          "data": {
+            "labels": [
+              "0",
+              "pi/8",
+              "pi/4",
+              "3pi/8",
+              "pi/2"
+            ],
+            "datasets": [
+              {
+                "label": "f(x) = cos(2x)",
+                "data": [
+                  1,
+                  0.707,
+                  0,
+                  -0.707,
+                  -1
+                ],
+                "borderColor": "#6366f1",
+                "fill": true,
+                "backgroundColor": "rgba(99,102,241,0.2)"
+              }
+            ]
+          },
+          "options": {
+            "scales": {
+              "x": {
+                "title": {
+                  "display": true,
+                  "text": "x"
+                }
+              },
+              "y": {
+                "title": {
+                  "display": true,
+                  "text": "y"
+                }
+              }
+            }
+          }
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-027",
       "unit": "unit-6",
       "difficulty": "medium",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int_0^4 |x-2|\\,dx$?",
       "choices": [
         {
@@ -960,13 +1550,59 @@
           "is_correct": false,
           "explanation": "Each triangular region has area 2; total is 4, not 8."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "chart",
+        "content": {
+          "type": "line",
+          "data": {
+            "labels": [
+              "0",
+              "1",
+              "2",
+              "3",
+              "4"
+            ],
+            "datasets": [
+              {
+                "label": "f(x) = |x-2|",
+                "data": [
+                  2,
+                  1,
+                  0,
+                  1,
+                  2
+                ],
+                "borderColor": "#6366f1",
+                "fill": true,
+                "backgroundColor": "rgba(99,102,241,0.2)"
+              }
+            ]
+          },
+          "options": {
+            "scales": {
+              "x": {
+                "title": {
+                  "display": true,
+                  "text": "x"
+                }
+              },
+              "y": {
+                "title": {
+                  "display": true,
+                  "text": "y"
+                }
+              }
+            }
+          }
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-028",
       "unit": "unit-6",
       "difficulty": "medium",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int \\frac{x}{x^2+4}\\,dx$?",
       "choices": [
         {
@@ -993,7 +1629,34 @@
           "is_correct": false,
           "explanation": "That is not an antiderivative. $u$-substitution correctly gives $\\frac{1}{2}\\ln|x^2+4|+C$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "Step",
+            "Expression"
+          ],
+          "rows": [
+            [
+              "Let $u$",
+              "$x^2+4$"
+            ],
+            [
+              "Then $du$",
+              "$2x\\,dx$"
+            ],
+            [
+              "So $x\\,dx$",
+              "$\\frac{du}{2}$"
+            ],
+            [
+              "Result",
+              "$\\frac{1}{2}\\ln|x^2+4|+C$"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-029",
@@ -1036,7 +1699,7 @@
       "id": "calc-mcq-u6-030",
       "unit": "unit-6",
       "difficulty": "medium",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int_1^2 \\frac{\\ln(x)}{x}\\,dx$?",
       "choices": [
         {
@@ -1063,13 +1726,40 @@
           "is_correct": false,
           "explanation": "$\\frac{(\\ln 2)^2}{2} \\approx \\frac{(0.693)^2}{2} \\approx 0.24$, not $\\frac{1}{2}$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "Step",
+            "Expression"
+          ],
+          "rows": [
+            [
+              "Let $u$",
+              "$\\ln(x)$"
+            ],
+            [
+              "Then $du$",
+              "$\\frac{1}{x}dx$"
+            ],
+            [
+              "New bounds",
+              "$u(1)=0$, $u(2)=\\ln 2$"
+            ],
+            [
+              "Integral",
+              "$\\int_0^{\\ln 2} u\\,du = \\frac{(\\ln 2)^2}{2}$"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-031",
       "unit": "unit-6",
       "difficulty": "medium",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "If $\\int_0^5 f(x)\\,dx = 10$ and $\\int_3^5 f(x)\\,dx = 4$, which of the following gives $\\int_0^3 f(x)\\,dx$?",
       "choices": [
         {
@@ -1096,13 +1786,17 @@
           "is_correct": false,
           "explanation": "$4 = \\int_3^5 f$, not $\\int_0^3 f$. The latter is $10-4=6$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "text",
+        "content": "Given: $\\int_0^5 f(x)\\,dx = 10$ and $\\int_3^5 f(x)\\,dx = 4$. Using the additive property of integrals: $\\int_0^3 f(x)\\,dx + \\int_3^5 f(x)\\,dx = \\int_0^5 f(x)\\,dx$."
+      }
     },
     {
       "id": "calc-mcq-u6-032",
       "unit": "unit-6",
       "difficulty": "medium",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int \\frac{e^x}{e^x+1}\\,dx$?",
       "choices": [
         {
@@ -1129,7 +1823,34 @@
           "is_correct": false,
           "explanation": "This is not a standard antiderivative form. $u=e^x+1$ gives $\\int du/u = \\ln|u|+C = \\ln(e^x+1)+C$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "Step",
+            "Expression"
+          ],
+          "rows": [
+            [
+              "Let $u$",
+              "$e^x+1$"
+            ],
+            [
+              "Then $du$",
+              "$e^x\\,dx$"
+            ],
+            [
+              "Integral becomes",
+              "$\\int \\frac{du}{u}$"
+            ],
+            [
+              "Result",
+              "$\\ln|e^x+1|+C$"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-033",
@@ -1172,7 +1893,7 @@
       "id": "calc-mcq-u6-034",
       "unit": "unit-6",
       "difficulty": "medium",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int \\tan(x)\\,dx$?",
       "choices": [
         {
@@ -1199,13 +1920,40 @@
           "is_correct": false,
           "explanation": "$\\frac{d}{dx}[\\ln|\\sin x|] = \\frac{\\cos x}{\\sin x} = \\cot x$, not $\\tan x$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "Step",
+            "Expression"
+          ],
+          "rows": [
+            [
+              "Rewrite",
+              "$\\tan(x) = \\frac{\\sin x}{\\cos x}$"
+            ],
+            [
+              "Let $u$",
+              "$\\cos(x)$"
+            ],
+            [
+              "Then $du$",
+              "$-\\sin(x)\\,dx$"
+            ],
+            [
+              "Result",
+              "$-\\ln|\\cos x|+C$"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-035",
       "unit": "unit-6",
       "difficulty": "medium",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int_0^1 \\frac{x}{\\sqrt{1-x^2}}\\,dx$?",
       "choices": [
         {
@@ -1232,13 +1980,40 @@
           "is_correct": false,
           "explanation": "While the integrand has a singularity at $x=1$, the integral converges (improper integral equals 1 via $u$-sub)."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "Step",
+            "Expression"
+          ],
+          "rows": [
+            [
+              "Let $u$",
+              "$1-x^2$"
+            ],
+            [
+              "Then $du$",
+              "$-2x\\,dx$"
+            ],
+            [
+              "New bounds",
+              "$u(0)=1$, $u(1)=0$"
+            ],
+            [
+              "Integral",
+              "$-\\frac{1}{2}\\int_1^0 u^{-1/2}\\,du = \\frac{1}{2}\\int_0^1 u^{-1/2}\\,du$"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-036",
       "unit": "unit-6",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int \\frac{x^2+1}{x^3+3x}\\,dx$?",
       "choices": [
         {
@@ -1265,13 +2040,17 @@
           "is_correct": false,
           "explanation": "The constant factor from $u$-sub is $\\frac{1}{3}$ (the reciprocal of the derivative coefficient), not $\\frac{1}{3x^2+3}$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "text",
+        "content": "To evaluate $\\int \\frac{x^2+1}{x^3+3x}\\,dx$, first factor the denominator: $x^3+3x = x(x^2+3)$. Then use partial fractions or recognize the numerator as the derivative of the denominator divided by 3."
+      }
     },
     {
       "id": "calc-mcq-u6-037",
       "unit": "unit-6",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int_0^{\\pi/4} \\tan^2(x)\\,dx$?",
       "choices": [
         {
@@ -1298,13 +2077,28 @@
           "is_correct": false,
           "explanation": "$[\\tan x - x]_0^{\\pi/4} = 1-\\pi/4 \\neq 1$. The $-x$ term contributes $-\\pi/4$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "Identity",
+            "Form"
+          ],
+          "rows": [
+            [
+              "$\\tan^2(x) = \\sec^2(x)-1$",
+              "Substitute to get $\\int_0^{\\pi/4}(\\sec^2 x - 1)\\,dx$"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-038",
       "unit": "unit-6",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int x\\sqrt{x+1}\\,dx$?",
       "choices": [
         {
@@ -1331,7 +2125,30 @@
           "is_correct": false,
           "explanation": "Not a valid antiderivative. Use $u=x+1$ to get $\\frac{2(x+1)^{5/2}}{5}-\\frac{2(x+1)^{3/2}}{3}+C$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "Step",
+            "Expression"
+          ],
+          "rows": [
+            [
+              "Let $u$",
+              "$x+1$, so $x=u-1$"
+            ],
+            [
+              "Then $dx$",
+              "$du$"
+            ],
+            [
+              "Integral becomes",
+              "$\\int (u-1)\\sqrt{u}\\,du = \\int (u^{3/2}-u^{1/2})\\,du$"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-039",
@@ -1374,7 +2191,7 @@
       "id": "calc-mcq-u6-040",
       "unit": "unit-6",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int \\frac{1}{x^2-4}\\,dx$ using partial fractions?",
       "choices": [
         {
@@ -1401,13 +2218,17 @@
           "is_correct": false,
           "explanation": "Sign error. $\\frac{1}{4}\\ln|x-2| - \\frac{1}{4}\\ln|x+2| = \\frac{1}{4}\\ln\\left|\\frac{x-2}{x+2}\\right|$ (positive $\\frac{1}{4}$)."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "text",
+        "content": "To evaluate $\\int \\frac{1}{x^2-4}\\,dx$, factor the denominator: $x^2-4 = (x-2)(x+2)$. Use partial fractions: $\\frac{1}{(x-2)(x+2)} = \\frac{A}{x-2}+\\frac{B}{x+2}$."
+      }
     },
     {
       "id": "calc-mcq-u6-041",
       "unit": "unit-6",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\frac{d}{dx}\\left[\\int_{\\sin x}^{\\cos x} t^2\\,dt\\right]$?",
       "choices": [
         {
@@ -1434,13 +2255,17 @@
           "is_correct": false,
           "explanation": "While $\\cos^2+\\sin^2=1$, this does not follow from differentiating the integral. Apply Leibniz rule with chain factors."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "text",
+        "content": "By FTC Part 1 with chain rule applied to both limits: $\\frac{d}{dx}\\!\\left[\\int_{\\sin x}^{\\cos x} t^2\\,dt\\right] = \\cos^2(x) \\cdot (-\\sin x) - \\sin^2(x) \\cdot \\cos x$."
+      }
     },
     {
       "id": "calc-mcq-u6-042",
       "unit": "unit-6",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int_0^2 xe^{-x}\\,dx$?",
       "choices": [
         {
@@ -1467,13 +2292,40 @@
           "is_correct": false,
           "explanation": "$[-(x+1)e^{-x}]_0^2 = -3e^{-2}+1$, which simplifies to $1-3e^{-2}$, not $2-e^{-2}$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "Step",
+            "Expression"
+          ],
+          "rows": [
+            [
+              "Integration by parts",
+              "$\\int u\\,dv = uv - \\int v\\,du$"
+            ],
+            [
+              "Let $u=x$",
+              "$du=dx$"
+            ],
+            [
+              "Let $dv=e^{-x}dx$",
+              "$v=-e^{-x}$"
+            ],
+            [
+              "Result",
+              "$\\left[-xe^{-x}\\right]_0^2 + \\int_0^2 e^{-x}\\,dx$"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-043",
       "unit": "unit-6",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int \\sin^2(x)\\,dx$?",
       "choices": [
         {
@@ -1500,7 +2352,22 @@
           "is_correct": false,
           "explanation": "$\\frac{d}{dx}[\\sin^3 x/3] = \\sin^2 x \\cos x \\neq \\sin^2 x$. The half-angle identity is needed."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "Identity",
+            "Form"
+          ],
+          "rows": [
+            [
+              "$\\sin^2(x) = \\frac{1-\\cos(2x)}{2}$",
+              "Substitute to get $\\int \\frac{1-\\cos(2x)}{2}\\,dx$"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-044",
@@ -1543,7 +2410,7 @@
       "id": "calc-mcq-u6-045",
       "unit": "unit-6",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "If $f$ is decreasing on $[a,b]$, which of the following correctly describes the relationship between the left and right Riemann sums and the actual integral?",
       "choices": [
         {
@@ -1570,13 +2437,72 @@
           "is_correct": false,
           "explanation": "This is the relationship for INCREASING functions. For decreasing functions, left sums overestimate and right sums underestimate."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "chart",
+        "content": {
+          "type": "line",
+          "data": {
+            "labels": [
+              "a",
+              "x1",
+              "x2",
+              "b"
+            ],
+            "datasets": [
+              {
+                "label": "f(x) decreasing",
+                "data": [
+                  5,
+                  3,
+                  2,
+                  1
+                ],
+                "borderColor": "#6366f1",
+                "fill": false
+              },
+              {
+                "label": "Left Riemann sum (overestimate)",
+                "data": [
+                  5,
+                  5,
+                  3,
+                  2
+                ],
+                "borderColor": "#f59e0b",
+                "fill": true,
+                "backgroundColor": "rgba(245,158,11,0.15)",
+                "borderDash": [
+                  5,
+                  5
+                ]
+              }
+            ]
+          },
+          "options": {
+            "scales": {
+              "x": {
+                "title": {
+                  "display": true,
+                  "text": "x"
+                }
+              },
+              "y": {
+                "title": {
+                  "display": true,
+                  "text": "y"
+                }
+              }
+            }
+          }
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-046",
       "unit": "unit-6",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int_0^{\\pi} x\\sin(x)\\,dx$?",
       "choices": [
         {
@@ -1603,13 +2529,40 @@
           "is_correct": false,
           "explanation": "$[-x\\cos x + \\sin x]_0^\\pi = \\pi$, not 2."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "Step",
+            "Expression"
+          ],
+          "rows": [
+            [
+              "Integration by parts",
+              "$\\int u\\,dv = uv - \\int v\\,du$"
+            ],
+            [
+              "Let $u=x$",
+              "$du=dx$"
+            ],
+            [
+              "Let $dv=\\sin(x)dx$",
+              "$v=-\\cos(x)$"
+            ],
+            [
+              "Result",
+              "$\\left[-x\\cos x\\right]_0^\\pi + \\int_0^\\pi \\cos(x)\\,dx$"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-047",
       "unit": "unit-6",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int \\frac{1}{\\sqrt{4-x^2}}\\,dx$?",
       "choices": [
         {
@@ -1636,7 +2589,26 @@
           "is_correct": false,
           "explanation": "$\\frac{d}{dx}[-\\sqrt{4-x^2}] = \\frac{x}{\\sqrt{4-x^2}} \\neq \\frac{1}{\\sqrt{4-x^2}}$. The correct antiderivative is $\\arcsin(x/2)+C$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "Standard Form",
+            "Result"
+          ],
+          "rows": [
+            [
+              "$\\int \\frac{1}{\\sqrt{a^2-x^2}}\\,dx$",
+              "$\\arcsin\\!\\left(\\frac{x}{a}\\right)+C$"
+            ],
+            [
+              "$\\int \\frac{1}{a^2+x^2}\\,dx$",
+              "$\\frac{1}{a}\\arctan\\!\\left(\\frac{x}{a}\\right)+C$"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-048",
@@ -1679,7 +2651,7 @@
       "id": "calc-mcq-u6-049",
       "unit": "unit-6",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int \\frac{\\ln(x)}{x^2}\\,dx$?",
       "choices": [
         {
@@ -1706,13 +2678,40 @@
           "is_correct": false,
           "explanation": "$\\frac{d}{dx}[\\frac{\\ln x}{x}] = \\frac{1-\\ln x}{x^2} \\neq \\frac{\\ln x}{x^2}$. The integration by parts result has two terms."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "Step",
+            "Expression"
+          ],
+          "rows": [
+            [
+              "Integration by parts",
+              "$\\int u\\,dv = uv - \\int v\\,du$"
+            ],
+            [
+              "Let $u=\\ln x$",
+              "$du=\\frac{1}{x}dx$"
+            ],
+            [
+              "Let $dv=x^{-2}dx$",
+              "$v=-x^{-1}$"
+            ],
+            [
+              "Result",
+              "$-\\frac{\\ln x}{x} + \\int \\frac{1}{x^2}\\,dx$"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-050",
       "unit": "unit-6",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int_0^{\\pi/2} \\sin(x)\\cos(x)\\,dx$?",
       "choices": [
         {
@@ -1739,13 +2738,32 @@
           "is_correct": false,
           "explanation": "$\\frac{1}{4}$ is each individual piece ($\\frac{1}{4}$), but both limits contribute: $\\frac{1}{4}+\\frac{1}{4}=\\frac{1}{2}$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "Method",
+            "Expression"
+          ],
+          "rows": [
+            [
+              "Direct substitution: $u=\\sin x$",
+              "$\\int_0^1 u\\,du = \\frac{1}{2}$"
+            ],
+            [
+              "Half-angle identity: $\\sin x\\cos x = \\frac{1}{2}\\sin(2x)$",
+              "$\\int_0^{\\pi/2}\\frac{1}{2}\\sin(2x)\\,dx$"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-051",
       "unit": "unit-6",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int e^{\\sqrt{x}}\\,dx$? (Hint: use $u=\\sqrt{x}$)",
       "choices": [
         {
@@ -1772,13 +2790,44 @@
           "is_correct": false,
           "explanation": "$2(u-1)e^u = 2ue^u-2e^u = 2e^u(u-1)$, which means the factor is $(\\sqrt{x}-1)$, not $(\\sqrt{x}+1)$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "Step",
+            "Expression"
+          ],
+          "rows": [
+            [
+              "Let $u$",
+              "$\\sqrt{x}$, so $x=u^2$"
+            ],
+            [
+              "Then $dx$",
+              "$2u\\,du$"
+            ],
+            [
+              "Integral becomes",
+              "$\\int e^u \\cdot 2u\\,du$"
+            ],
+            [
+              "Apply IBP",
+              "$2ue^u - 2e^u + C = 2(u-1)e^u+C$"
+            ],
+            [
+              "Back-substitute",
+              "$2(\\sqrt{x}-1)e^{\\sqrt{x}}+C$"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-052",
       "unit": "unit-6",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following correctly identifies whether the trapezoidal approximation overestimates or underestimates $\\int_a^b f(x)\\,dx$ when $f$ is concave up on $[a,b]$?",
       "choices": [
         {
@@ -1805,13 +2854,72 @@
           "is_correct": false,
           "explanation": "$f$ concave up means $f'' > 0$ (equivalently, $f'$ is increasing). For concave up functions, trapezoidal approximations always overestimate."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "chart",
+        "content": {
+          "type": "line",
+          "data": {
+            "labels": [
+              "a",
+              "m1",
+              "m2",
+              "b"
+            ],
+            "datasets": [
+              {
+                "label": "f(x) concave up",
+                "data": [
+                  1,
+                  1.5,
+                  3,
+                  5
+                ],
+                "borderColor": "#6366f1",
+                "fill": false
+              },
+              {
+                "label": "Trapezoid approx",
+                "data": [
+                  1,
+                  2,
+                  4,
+                  5
+                ],
+                "borderColor": "#f59e0b",
+                "fill": true,
+                "backgroundColor": "rgba(245,158,11,0.15)",
+                "borderDash": [
+                  5,
+                  5
+                ]
+              }
+            ]
+          },
+          "options": {
+            "scales": {
+              "x": {
+                "title": {
+                  "display": true,
+                  "text": "x"
+                }
+              },
+              "y": {
+                "title": {
+                  "display": true,
+                  "text": "y"
+                }
+              }
+            }
+          }
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-053",
       "unit": "unit-6",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int_1^e x^2 \\ln(x)\\,dx$?",
       "choices": [
         {
@@ -1838,13 +2946,40 @@
           "is_correct": false,
           "explanation": "The lower-bound contribution: $-\\frac{1^3}{9}(\\ln 1 - 1/3) = -\\frac{1}{9}(0-1/3) = +\\frac{1}{9}$. So the answer has $+1$, not $-1$: $\\frac{2e^3+1}{9}$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "Step",
+            "Expression"
+          ],
+          "rows": [
+            [
+              "Integration by parts",
+              "$\\int u\\,dv = uv - \\int v\\,du$"
+            ],
+            [
+              "Let $u=\\ln x$",
+              "$du=\\frac{1}{x}dx$"
+            ],
+            [
+              "Let $dv=x^2 dx$",
+              "$v=\\frac{x^3}{3}$"
+            ],
+            [
+              "Result",
+              "$\\left[\\frac{x^3\\ln x}{3}\\right]_1^e - \\int_1^e \\frac{x^2}{3}\\,dx$"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-054",
       "unit": "unit-6",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int \\frac{2x+1}{x^2+x}\\,dx$?",
       "choices": [
         {
@@ -1871,13 +3006,17 @@
           "is_correct": false,
           "explanation": "$du = (2x+1)dx$ exactly matches the numerator with no extra coefficient. The answer is $\\ln|x^2+x|+C$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "text",
+        "content": "Evaluate $\\int \\frac{2x+1}{x^2+x}\\,dx$. Factor the denominator: $x^2+x = x(x+1)$. Notice that the numerator $2x+1$ is the derivative of the denominator $x^2+x$, so the integral equals $\\ln|x^2+x|+C$."
+      }
     },
     {
       "id": "calc-mcq-u6-055",
       "unit": "unit-6",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int_0^2 \\sqrt{4-x^2}\\,dx$?",
       "choices": [
         {
@@ -1904,13 +3043,59 @@
           "is_correct": false,
           "explanation": "The integral gives the area of a quarter circle (a geometric region), not a rectangle. Area $= \\pi$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "chart",
+        "content": {
+          "type": "line",
+          "data": {
+            "labels": [
+              "-2",
+              "-1",
+              "0",
+              "1",
+              "2"
+            ],
+            "datasets": [
+              {
+                "label": "f(x) = sqrt(4-x^2) (upper semicircle)",
+                "data": [
+                  0,
+                  1.73,
+                  2,
+                  1.73,
+                  0
+                ],
+                "borderColor": "#6366f1",
+                "fill": true,
+                "backgroundColor": "rgba(99,102,241,0.2)"
+              }
+            ]
+          },
+          "options": {
+            "scales": {
+              "x": {
+                "title": {
+                  "display": true,
+                  "text": "x"
+                }
+              },
+              "y": {
+                "title": {
+                  "display": true,
+                  "text": "y"
+                }
+              }
+            }
+          }
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-056",
       "unit": "unit-6",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int \\frac{dx}{x^2+2x+5}$?",
       "choices": [
         {
@@ -1937,13 +3122,17 @@
           "is_correct": false,
           "explanation": "$\\frac{d}{dx}[\\ln|x^2+2x+5|] = \\frac{2x+2}{x^2+2x+5} \\neq \\frac{1}{x^2+2x+5}$. Complete the square and use arctan."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "text",
+        "content": "To integrate $\\int \\frac{dx}{x^2+2x+5}$, complete the square: $x^2+2x+5 = (x+1)^2+4$. Then use the standard form $\\int \\frac{du}{u^2+a^2} = \\frac{1}{a}\\arctan\\!\\left(\\frac{u}{a}\\right)+C$ with $u=x+1$, $a=2$."
+      }
     },
     {
       "id": "calc-mcq-u6-057",
       "unit": "unit-6",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int_0^1 \\frac{x^3}{\\sqrt{1+x^4}}\\,dx$?",
       "choices": [
         {
@@ -1970,13 +3159,40 @@
           "is_correct": false,
           "explanation": "$\\frac{1}{4}\\cdot 2(\\sqrt{2}-1) = \\frac{\\sqrt{2}-1}{2} \\approx 0.207 \\neq 0.25$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "Step",
+            "Expression"
+          ],
+          "rows": [
+            [
+              "Let $u$",
+              "$1+x^4$"
+            ],
+            [
+              "Then $du$",
+              "$4x^3\\,dx$"
+            ],
+            [
+              "New bounds",
+              "$u(0)=1$, $u(1)=2$"
+            ],
+            [
+              "Integral",
+              "$\\frac{1}{4}\\int_1^2 u^{-1/2}\\,du = \\frac{1}{2}[\\sqrt{u}]_1^2$"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-058",
       "unit": "unit-6",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int \\frac{x^3+x}{x^2+1}\\,dx$?",
       "choices": [
         {
@@ -2003,7 +3219,11 @@
           "is_correct": false,
           "explanation": "Not a valid form here. The integrand simplifies to $x$, whose antiderivative is $\\frac{x^2}{2}+C$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "text",
+        "content": "To integrate $\\int \\frac{x^3+x}{x^2+1}\\,dx$, perform polynomial long division: $\\frac{x^3+x}{x^2+1} = x$. Therefore $\\int \\frac{x^3+x}{x^2+1}\\,dx = \\int x\\,dx = \\frac{x^2}{2}+C$."
+      }
     },
     {
       "id": "calc-mcq-u6-059",
@@ -2046,7 +3266,7 @@
       "id": "calc-mcq-u6-060",
       "unit": "unit-6",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int_0^{\\pi} f(x)\\,dx$ if $\\int_0^{\\pi} f(x)\\,dx = \\int_0^{\\pi/2} f(x)\\,dx + 4$ and $\\int_0^{\\pi/2} f(x)\\,dx = 3$?",
       "choices": [
         {
@@ -2073,13 +3293,17 @@
           "is_correct": false,
           "explanation": "Subtracting instead of adding: $3-4=-1$. But the given relation adds 4: $\\int_0^\\pi f = 3+4=7$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "text",
+        "content": "Given: $\\int_0^{\\pi} f(x)\\,dx = \\int_0^{\\pi/2} f(x)\\,dx + 4$ and $\\int_0^{\\pi/2} f(x)\\,dx = ?$. Use the additive property: $\\int_0^{\\pi} f(x)\\,dx = \\int_0^{\\pi/2} f(x)\\,dx + \\int_{\\pi/2}^{\\pi} f(x)\\,dx$."
+      }
     },
     {
       "id": "calc-mcq-u6-061",
       "unit": "unit-6",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int_0^{\\ln 2} e^x\\sqrt{e^x+1}\\,dx$?",
       "choices": [
         {
@@ -2106,13 +3330,40 @@
           "is_correct": false,
           "explanation": "$[\\frac{2u^{3/2}}{3}]_2^3 = \\frac{2}{3}(3\\sqrt{3}-2\\sqrt{2}) \\neq \\sqrt{3}-\\sqrt{2}$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "Step",
+            "Expression"
+          ],
+          "rows": [
+            [
+              "Let $u$",
+              "$e^x+1$"
+            ],
+            [
+              "Then $du$",
+              "$e^x\\,dx$"
+            ],
+            [
+              "New bounds",
+              "$u(0)=2$, $u(\\ln 2)=3$"
+            ],
+            [
+              "Integral",
+              "$\\int_2^3 \\sqrt{u}\\,du = \\left[\\frac{2}{3}u^{3/2}\\right]_2^3$"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-062",
       "unit": "unit-6",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following correctly evaluates $\\int_{-1}^{1} x^5 e^{x^2}\\,dx$?",
       "choices": [
         {
@@ -2139,13 +3390,58 @@
           "is_correct": false,
           "explanation": "Recognizing the odd symmetry eliminates computation: $\\int_{-1}^1 x^5 e^{x^2}dx = 0$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "chart",
+        "content": {
+          "type": "line",
+          "data": {
+            "labels": [
+              "-1",
+              "-0.5",
+              "0",
+              "0.5",
+              "1"
+            ],
+            "datasets": [
+              {
+                "label": "f(x) = x^5 e^(x^2) — odd function",
+                "data": [
+                  -0.37,
+                  -0.09,
+                  0,
+                  0.09,
+                  0.37
+                ],
+                "borderColor": "#6366f1",
+                "fill": false
+              }
+            ]
+          },
+          "options": {
+            "scales": {
+              "x": {
+                "title": {
+                  "display": true,
+                  "text": "x"
+                }
+              },
+              "y": {
+                "title": {
+                  "display": true,
+                  "text": "y"
+                }
+              }
+            }
+          }
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-063",
       "unit": "unit-6",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int \\frac{\\cos x}{1+\\sin^2 x}\\,dx$?",
       "choices": [
         {
@@ -2172,7 +3468,34 @@
           "is_correct": false,
           "explanation": "$\\frac{d}{dx}[\\ln(1+\\sin^2 x)] = \\frac{2\\sin x\\cos x}{1+\\sin^2 x} \\neq \\frac{\\cos x}{1+\\sin^2 x}$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "Step",
+            "Expression"
+          ],
+          "rows": [
+            [
+              "Let $u$",
+              "$\\sin(x)$"
+            ],
+            [
+              "Then $du$",
+              "$\\cos(x)\\,dx$"
+            ],
+            [
+              "Integral becomes",
+              "$\\int \\frac{du}{1+u^2}$"
+            ],
+            [
+              "Result",
+              "$\\arctan(\\sin x)+C$"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-064",
@@ -2215,7 +3538,7 @@
       "id": "calc-mcq-u6-065",
       "unit": "unit-6",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int \\frac{x^2-x+1}{x^3-x}\\,dx$? (Hint: factor $x^3-x = x(x-1)(x+1)$)",
       "choices": [
         {
@@ -2242,13 +3565,17 @@
           "is_correct": false,
           "explanation": "This would be the antiderivative if the numerator were exactly $\\frac{3x^2-1}{3}$, which it is not. Partial fractions give separate $\\ln$ terms."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "text",
+        "content": "To integrate $\\int \\frac{x^2-x+1}{x^3-x}\\,dx$, factor: $x^3-x = x(x-1)(x+1)$. Use partial fractions: $\\frac{x^2-x+1}{x(x-1)(x+1)} = \\frac{A}{x}+\\frac{B}{x-1}+\\frac{C}{x+1}$."
+      }
     },
     {
       "id": "calc-mcq-u6-066",
       "unit": "unit-6",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int_0^{\\pi/2} \\cos^3(x)\\,dx$?",
       "choices": [
         {
@@ -2275,13 +3602,36 @@
           "is_correct": false,
           "explanation": "$[u-u^3/3]_0^1 = 1-1/3 = 2/3$, not $1/3$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "Step",
+            "Expression"
+          ],
+          "rows": [
+            [
+              "Rewrite",
+              "$\\cos^3 x = \\cos^2 x \\cdot \\cos x = (1-\\sin^2 x)\\cos x$"
+            ],
+            [
+              "Let $u$",
+              "$\\sin x$, $du = \\cos x\\,dx$"
+            ],
+            [
+              "Integral",
+              "$\\int_0^1 (1-u^2)\\,du$"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-067",
       "unit": "unit-6",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int \\frac{1}{x\\ln x}\\,dx$?",
       "choices": [
         {
@@ -2308,7 +3658,34 @@
           "is_correct": false,
           "explanation": "$\\frac{d}{dx}[-1/\\ln x] = \\frac{1}{x(\\ln x)^2} \\neq \\frac{1}{x\\ln x}$. The correct antiderivative is $\\ln|\\ln x|+C$."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "Step",
+            "Expression"
+          ],
+          "rows": [
+            [
+              "Let $u$",
+              "$\\ln x$"
+            ],
+            [
+              "Then $du$",
+              "$\\frac{1}{x}dx$"
+            ],
+            [
+              "Integral becomes",
+              "$\\int \\frac{du}{u} = \\ln|u|+C$"
+            ],
+            [
+              "Result",
+              "$\\ln|\\ln x|+C$"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-068",
@@ -2351,7 +3728,7 @@
       "id": "calc-mcq-u6-069",
       "unit": "unit-6",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int_1^e \\frac{(\\ln x)^2}{x}\\,dx$?",
       "choices": [
         {
@@ -2378,13 +3755,40 @@
           "is_correct": false,
           "explanation": "$[u^3/3]_0^1 = 1/3$, not 1."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": [
+            "Step",
+            "Expression"
+          ],
+          "rows": [
+            [
+              "Let $u$",
+              "$\\ln x$"
+            ],
+            [
+              "Then $du$",
+              "$\\frac{1}{x}dx$"
+            ],
+            [
+              "New bounds",
+              "$u(1)=0$, $u(e)=1$"
+            ],
+            [
+              "Integral",
+              "$\\int_0^1 u^2\\,du = \\frac{1}{3}$"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "calc-mcq-u6-070",
       "unit": "unit-6",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stem": "Which of the following gives $\\int_0^4 f(x)\\,dx$ if $f(x) = \\begin{cases} x & 0 \\leq x < 2 \\\\ 4-x & 2 \\leq x \\leq 4 \\end{cases}$?",
       "choices": [
         {
@@ -2411,7 +3815,53 @@
           "is_correct": false,
           "explanation": "$\\int_0^2 x\\,dx = 2$ and $\\int_2^4(4-x)dx = [4x-x^2/2]_2^4 = 8-6=2$. Total: $4$, not 6."
         }
-      ]
+      ],
+      "stimulus": {
+        "type": "chart",
+        "content": {
+          "type": "line",
+          "data": {
+            "labels": [
+              "0",
+              "1",
+              "2",
+              "3",
+              "4"
+            ],
+            "datasets": [
+              {
+                "label": "f(x): x for x<2, 4-x for x>=2",
+                "data": [
+                  0,
+                  1,
+                  2,
+                  1,
+                  0
+                ],
+                "borderColor": "#6366f1",
+                "fill": true,
+                "backgroundColor": "rgba(99,102,241,0.2)"
+              }
+            ]
+          },
+          "options": {
+            "scales": {
+              "x": {
+                "title": {
+                  "display": true,
+                  "text": "x"
+                }
+              },
+              "y": {
+                "title": {
+                  "display": true,
+                  "text": "y"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   ]
 }
