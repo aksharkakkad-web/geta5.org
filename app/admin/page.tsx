@@ -53,6 +53,7 @@ export default function AdminPage() {
   const [stats, setStats] = useState<Stats | null>(null)
   const [loading, setLoading] = useState(false)
   const [empty, setEmpty] = useState(false)
+  const [dbError, setDbError] = useState('')
 
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault()
@@ -72,6 +73,7 @@ export default function AdminPage() {
     fetch('/api/admin/stats')
       .then(r => r.ok ? r.json() : Promise.reject())
       .then(data => {
+        if (data.error) setDbError(data.error)
         if (data.empty) setEmpty(true)
         else setStats(data)
       })
@@ -95,7 +97,7 @@ export default function AdminPage() {
   }
 
   if (loading) return <Center>Loading...</Center>
-  if (empty) return <Center>No events yet. Start using the app to generate data.</Center>
+  if (empty) return <Center>{dbError ? `Database error: ${dbError}` : 'No events yet. Start using the app to generate data.'}</Center>
   if (!stats) return <Center>Error loading stats.</Center>
 
   const { overview: o, averages: a, time: t } = stats

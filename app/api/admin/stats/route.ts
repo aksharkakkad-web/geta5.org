@@ -25,11 +25,16 @@ export async function GET() {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
-  const { data: events } = await supabase
+  const { data: events, error: dbError } = await supabase
     .from('events')
     .select('event_type, subject, unit, metadata, created_at')
     .order('created_at', { ascending: false })
     .limit(10000)
+
+  if (dbError) {
+    console.error('Supabase query error:', dbError.message)
+    return NextResponse.json({ error: dbError.message, empty: true })
+  }
 
   if (!events || events.length === 0) {
     return NextResponse.json({ empty: true })
