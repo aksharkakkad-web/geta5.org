@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const subject = getSubject(slug)
   if (!subject) return {}
   return {
-    title: `${subject.name} Practice Questions — Free MCQs | Get a 5`,
+    title: `${subject.name} Practice Questions — Free MCQs | geta5.org`,
     description: `Free ${subject.name} multiple-choice practice questions with detailed explanations. AP exam format. No signup required.`,
   }
 }

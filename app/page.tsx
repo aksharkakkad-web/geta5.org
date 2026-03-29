@@ -4,7 +4,7 @@ import { SubjectCard } from '@/components/ui/SubjectCard'
 import { StreakStrip } from '@/components/ui/StreakStrip'
 
 export const metadata: Metadata = {
-  title: 'Get a 5 — 100% Free AP Exam Prep',
+  title: 'geta5.org — 100% Free AP Exam Prep',
   description: 'Free AP practice questions, drills, and study guides for 7 AP subjects. No signup, no paywall, completely free.',
 }
 
