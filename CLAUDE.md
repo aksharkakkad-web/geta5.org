@@ -2,7 +2,7 @@
 
 ## Project
 Free AP exam prep web app. No signup, no accounts, localStorage only.
-URL: geta5.org (domain pending) — deployed via Vercel
+URL: geta5.app (domain pending) — deployed via Vercel
 
 ## Document Map — Where to Find What
 

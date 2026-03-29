@@ -3,7 +3,7 @@ import { getAllSubjects } from '@/utils/subjects'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const subjects = getAllSubjects()
-  const baseUrl = 'https://geta5.org'
+  const baseUrl = 'https://geta5.app'
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },

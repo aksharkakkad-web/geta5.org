@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: SubjectPageProps): Promise<Me
   const subject = getSubject(slug)
   if (!subject) return {}
   return {
-    title: `${subject.name} Prep — Free Practice | geta5.org`,
+    title: `${subject.name} Prep — Free Practice | geta5.app`,
     description: `Free AP ${subject.name} practice questions, drills, and study guides. No signup.`,
   }
 }

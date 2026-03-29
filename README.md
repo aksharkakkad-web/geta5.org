@@ -1,8 +1,8 @@
-# geta5.org
+# geta5.app
 
 100% free AP exam prep. No signup. No paywall. No ads.
 
-**Live:** [geta5.org](https://geta5.org)
+**Live:** [geta5.app](https://geta5.app)
 
 ## What is this?
 

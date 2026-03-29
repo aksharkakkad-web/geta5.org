@@ -26,7 +26,7 @@ export function Header() {
           letterSpacing: '-0.01em',
         }}
       >
-        geta5.org
+        geta5.app
       </Link>
     </header>
   )
