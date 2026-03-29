@@ -157,7 +157,7 @@ export default function MCQCard({ question, onAnswer, onNext, testMode = false, 
     <div>
       {/* Stimulus */}
       <div style={{ marginBottom: stimulus_has_content(question) ? '20px' : 0 }}>
-        <StimulusRenderer stimulus={question.stimulus} />
+        <StimulusRenderer stimulus={question.stimulus ?? { type: 'none' }} />
       </div>
 
       {/* Question text */}
@@ -304,5 +304,5 @@ export default function MCQCard({ question, onAnswer, onNext, testMode = false, 
 
 // Helper to detect if stimulus has renderable content
 function stimulus_has_content(question: MCQ): boolean {
-  return question.stimulus.type !== 'none' && question.stimulus.content != null
+  return question.stimulus != null && question.stimulus.type !== 'none' && question.stimulus.content != null
 }
