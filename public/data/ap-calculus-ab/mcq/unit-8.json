@@ -581,7 +581,7 @@
       ],
       "stimulus": {
         "type": "text",
-        "content": "A solid has a base that is the region between $y = \\sqrt{x}$ and $y = 0$ for $0 \\leq x \\leq 4$. Cross sections perpendicular to the $x$-axis are squares with side length equal to the height of the base at each $x$. For a square cross section, the area at position $x$ is $[f(x)]^2$."
+        "content": "A solid has a base in the region between $y = 0$ and $y = x$ for $0 \\leq x \\leq 4$. Cross sections perpendicular to the $x$-axis are squares with side length equal to the height of the base at each $x$."
       }
     },
     {
@@ -720,14 +720,14 @@
         {
           "id": "B",
           "text": "$\\frac{10}{3}$",
-          "is_correct": true,
-          "explanation": "$v(t) = (t-1)(t-3)$, zeros at $t = 1$ and $t = 3$. Distance $= \\int_0^1 v\\,dt - \\int_1^3 v\\,dt + \\int_3^4 v\\,dt = \\frac{4}{3} + \\frac{4}{3} + \\frac{4}{3} - \\frac{4}{3} = \\frac{10}{3}$. (Each sub-integral $= \\frac{4}{3}$ by symmetry; total $= \\frac{4}{3}+\\frac{4}{3}+\\frac{4}{3} = 4$... recompute: $\\int_0^1(t^2-4t+3)dt = [\\frac{t^3}{3}-2t^2+3t]_0^1 = \\frac{1}{3}-2+3 = \\frac{4}{3}$; $\\int_1^3 = \\frac{27}{3}-18+9-\\frac{1}{3}+2-3 = 9-18+9-\\frac{1}{3}+2-3 = -\\frac{4}{3}$; $\\int_3^4 = \\frac{64}{3}-32+12-9+18-9 = \\frac{64}{3}-3-\\frac{1}{3}\\cdot27... = \\frac{4}{3}$. Total distance $= \\frac{4}{3}+\\frac{4}{3}+\\frac{4}{3} = 4$. Wait: net displacement $= \\frac{4}{3}-\\frac{4}{3}+\\frac{4}{3} = \\frac{4}{3}$. Total distance $= \\frac{4}{3}+\\frac{4}{3}+\\frac{4}{3} = 4$.)"
+          "is_correct": false,
+          "explanation": "$v(t) = (t-1)(t-3) = t^2-4t+3$, zeros at $t=1$ and $t=3$. Each sub-interval: $\\int_0^1|v|=\\frac{4}{3}$, $\\int_1^3|v|=\\frac{4}{3}$, $\\int_3^4|v|=\\frac{4}{3}$. Total distance $= \\frac{4}{3}+\\frac{4}{3}+\\frac{4}{3} = 4$, not $\\frac{10}{3}$."
         },
         {
           "id": "C",
           "text": "$4$",
-          "is_correct": false,
-          "explanation": "Recomputing carefully: $\\int_0^1 = \\frac{4}{3}$, $|\\int_1^3| = \\frac{4}{3}$, $\\int_3^4 = \\frac{4}{3}$. Total $= 4$. See choice B — this may actually be correct; the answer is $4$."
+          "is_correct": true,
+          "explanation": "$v(t) = t^2-4t+3 = (t-1)(t-3)$, zeros at $t=1,3$. $\\int_0^1(t^2-4t+3)\\,dt = \\frac{4}{3}$, $|\\int_1^3(t^2-4t+3)\\,dt| = \\frac{4}{3}$, $\\int_3^4(t^2-4t+3)\\,dt = \\frac{4}{3}$. Total distance $= \\frac{4}{3}+\\frac{4}{3}+\\frac{4}{3} = 4$."
         },
         {
           "id": "D",
@@ -1090,14 +1090,14 @@
         {
           "id": "A",
           "text": "$\\frac{\\pi}{4}\\int_0^\\pi\\sin^2 x\\,dx$",
-          "is_correct": true,
-          "explanation": "Diameter $= \\sin x$, radius $= \\frac{\\sin x}{2}$. Area of semicircle $= \\frac{1}{2}\\pi r^2 = \\frac{\\pi}{2}\\cdot\\frac{\\sin^2 x}{4} = \\frac{\\pi\\sin^2 x}{8}$. Volume $= \\int_0^\\pi\\frac{\\pi\\sin^2 x}{8}\\,dx = \\frac{\\pi}{8}\\cdot\\frac{\\pi}{2}$. Equivalently written as $\\frac{\\pi}{4}\\int_0^\\pi\\frac{\\sin^2 x}{2}\\,dx$... the cleanest form is $\\frac{\\pi}{8}\\int_0^\\pi\\sin^2 x\\,dx$. Choice A is proportional and matches with the factor $\\frac{\\pi}{4}\\cdot\\frac{1}{2} = \\frac{\\pi}{8}$."
+          "is_correct": false,
+          "explanation": "Diameter $= \\sin x$, radius $= \\frac{\\sin x}{2}$. Area of semicircle $= \\frac{1}{2}\\pi r^2 = \\frac{\\pi}{2}\\cdot\\frac{\\sin^2 x}{4} = \\frac{\\pi\\sin^2 x}{8}$. The coefficient is $\\frac{\\pi}{8}$, not $\\frac{\\pi}{4}$."
         },
         {
           "id": "B",
           "text": "$\\frac{\\pi}{8}\\int_0^\\pi\\sin^2 x\\,dx$",
-          "is_correct": false,
-          "explanation": "Actually this is the correct formula: area of semicircle $= \\frac{\\pi}{8}(\\sin x)^2$. See choice A — if A and B differ only in coefficient, B is the correct one."
+          "is_correct": true,
+          "explanation": "Diameter $= \\sin x$, radius $= \\frac{\\sin x}{2}$. Semicircle area $= \\frac{1}{2}\\pi r^2 = \\frac{\\pi}{8}\\sin^2 x$. Volume $= \\int_0^\\pi \\frac{\\pi}{8}\\sin^2 x\\,dx = \\frac{\\pi}{8}\\int_0^\\pi\\sin^2 x\\,dx$."
         },
         {
           "id": "C",
@@ -1179,14 +1179,14 @@
         {
           "id": "B",
           "text": "$8$",
-          "is_correct": true,
-          "explanation": "$v(t) = 3t^2 - 12t + 9 = 3(t-1)(t-3)$, zeros at $t = 1, 3$. Distance $= |x(1)-x(0)| + |x(3)-x(1)| + |x(4)-x(3)| = |4| + |-4| + |4| = 4+4+4... $ Wait: $x(0)=0$, $x(1)=4$, $x(3)=0$, $x(4)=4$. Total distance $= 4+4+4 = 12$. Reconsider choices."
+          "is_correct": false,
+          "explanation": "$v(t) = 3t^2-12t+9 = 3(t-1)(t-3)$, zeros at $t=1,3$. Position: $x(0)=0$, $x(1)=1-6+9=4$, $x(3)=27-54+27=0$, $x(4)=64-96+36=4$. Total distance $= |4-0|+|0-4|+|4-0| = 4+4+4 = 12$, not 8."
         },
         {
           "id": "C",
           "text": "$12$",
-          "is_correct": false,
-          "explanation": "Recomputing: $x(0)=0$, $x(1)=1-6+9=4$, $x(3)=27-54+27=0$, $x(4)=64-96+36=4$. Distance $= 4+4+4 = 12$. This may be the correct answer."
+          "is_correct": true,
+          "explanation": "$v(t) = 3(t-1)(t-3)$, zeros at $t=1,3$. $x(t) = t^3-6t^2+9t$: $x(0)=0$, $x(1)=4$, $x(3)=0$, $x(4)=4$. Total distance $= |4-0|+|0-4|+|4-0| = 4+4+4 = 12$."
         },
         {
           "id": "D",
@@ -1419,9 +1419,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\int_{-2}^{2}4(4-x^2)\\,dx$",
+          "text": "$\\int_{-2}^{2}(4-x^2)\\,dx$",
           "is_correct": false,
-          "explanation": "The side of the square is $2y = 2\\sqrt{4-x^2}$, so area $= (2\\sqrt{4-x^2})^2 = 4(4-x^2)$. This integral is correct."
+          "explanation": "The side of the square is $2y = 2\\sqrt{4-x^2}$, so area $= (2\\sqrt{4-x^2})^2 = 4(4-x^2)$. This integral is missing the factor of 4."
         },
         {
           "id": "B",

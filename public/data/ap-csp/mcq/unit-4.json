@@ -497,7 +497,7 @@
         "content": {
           "headers": ["Network Design", "Description"],
           "rows": [
-            ["Design A", "Each device connects directly to every other device"],
+            ["Design A", "Each device connects to a single shared cable in a linear chain"],
             ["Design B", "All devices connect to a single central hub — if the hub fails, all devices lose connectivity"],
             ["Design C", "Each device has two independent connections to the network — if one fails, the other remains active"],
             ["Design D", "Devices are connected in a linear chain — removing any device breaks the chain"]
@@ -510,7 +510,7 @@
           "id": "A",
           "text": "Design A",
           "is_correct": false,
-          "explanation": "While Design A is highly redundant (every device connects to every other), Design C specifically demonstrates the defining characteristic of fault tolerance: continued operation when a single component fails."
+          "explanation": "A linear chain (bus topology) has single points of failure — if any connection breaks, devices downstream are disconnected. This design offers no redundancy."
         },
         {
           "id": "B",

@@ -719,12 +719,12 @@
               "$2x\\,dx$"
             ],
             [
-              "So $x\\,dx$",
-              "$\\frac{du}{2}$"
+              "So $2x\\,dx$",
+              "$du$"
             ],
             [
               "Integral becomes",
-              "$\\int_0^1 e^u \\cdot \\frac{du}{2}$"
+              "$\\int_0^1 e^u\\,du$"
             ],
             [
               "New bounds",
@@ -1901,9 +1901,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$3$",
+          "text": "$4$",
           "is_correct": false,
-          "explanation": "Midpoint sum with 2 subintervals ($[0,1]$ and $[1,2]$), $\\Delta x=1$: midpoints at $x=0.5$ and $x=1.5$. Sum $= f'(0.5)+f'(1.5) = 2+1=3$."
+          "explanation": "Midpoint sum with 2 subintervals ($[0,1]$ and $[1,2]$), $\\Delta x=1$: midpoints at $x=0.5$ and $x=1.5$. Sum $= 1 \\cdot (f'(0.5)+f'(1.5)) = 2+1=3$, not 4."
         },
         {
           "id": "B",
@@ -1934,9 +1934,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "Left sum $\\geq$ integral $\\geq$ right sum",
+          "text": "Right Riemann sum $\\geq \\int_a^b f(x)\\,dx \\geq$ Left Riemann sum",
           "is_correct": false,
-          "explanation": "If $f$ is decreasing, left endpoints give LARGER values: left sum $\\geq$ integral $\\geq$ right sum. This statement is actually correct."
+          "explanation": "For a decreasing function, left endpoints give larger values (overestimate) and right endpoints give smaller values (underestimate). The correct ordering is left sum $\\geq$ integral $\\geq$ right sum, not the reverse."
         },
         {
           "id": "B",

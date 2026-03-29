@@ -104,7 +104,7 @@
       "has_stimulus": true,
       "stimulus": {
         "type": "text",
-        "content": "A slope field for a differential equation is shown. The slopes appear to be positive and constant along horizontal lines (constant in $y$, varying in $x$)."
+        "content": "A slope field for a differential equation is shown. The slopes appear to depend only on $x$ — they are constant along each vertical line and vary along horizontal lines."
       },
       "stem": "Which of the following differential equations is most consistent with this slope field description?",
       "choices": [
@@ -1158,14 +1158,14 @@
         {
           "id": "A",
           "text": "$y = e^{\\ln x + 1} = ex$",
-          "is_correct": true,
-          "explanation": "Separate: $\\frac{dy}{y\\ln y} = \\frac{dx}{x}$. Let $u=\\ln y$: $\\frac{du}{u} = \\frac{dx}{x}$. $\\ln|u|=\\ln|x|+C_1$. $\\ln y = Cx$. At $(1,e)$: $1=C$. $\\ln y = x$, $y=e^x$. Check: $y(1)=e$ ✓. $dy/dx=e^x=y$. $y\\ln y/x = e^x \\cdot x/x = e^x$ ✓."
+          "is_correct": false,
+          "explanation": "$y = ex$ gives $dy/dx = e$, but $\\frac{y\\ln y}{x} = \\frac{ex\\ln(ex)}{x} = e(1+\\ln x)$. These are not equal for $x \\neq 1$, so $y=ex$ does not satisfy the DE."
         },
         {
           "id": "B",
           "text": "$y = e^x$",
-          "is_correct": false,
-          "explanation": "Separation gives $\\ln y = Cx$. At $y(1)=e$: $\\ln e=C\\cdot 1$, $C=1$. So $\\ln y=x$, $y=e^x$."
+          "is_correct": true,
+          "explanation": "Separate: $\\frac{dy}{y\\ln y} = \\frac{dx}{x}$. Let $u=\\ln y$: $\\frac{du}{u} = \\frac{dx}{x}$. $\\ln|u|=\\ln|x|+C_1$. $\\ln y = Cx$. At $(1,e)$: $1=C$. $\\ln y = x$, $y=e^x$. Check: $y(1)=e$ ✓, $dy/dx=e^x=y$, and $y\\ln y/x = e^x \\cdot x/x = e^x$ ✓."
         },
         {
           "id": "C",
@@ -1266,15 +1266,15 @@
       "has_stimulus": true,
       "stimulus": {
         "type": "text",
-        "content": "A slope field for $\\frac{dy}{dx} = \\frac{x^2}{y}$ shows the following features: slopes are zero along the $y$-axis, steepen as $|x|$ increases, and solution curves are symmetric about the $y$-axis."
+        "content": "A slope field for $\\frac{dy}{dx} = \\frac{x^2}{y}$ shows the following features: slopes are zero along the $y$-axis and steepen as $|x|$ increases."
       },
       "stem": "Which of the following gives the general solution?",
       "choices": [
         {
           "id": "A",
-          "text": "$y^2 = \\frac{2x^3}{3} + C$",
+          "text": "$y^2 = \\frac{x^3}{3} + C$",
           "is_correct": false,
-          "explanation": "Separate: $y\\,dy = x^2\\,dx$. Integrate: $y^2/2 = x^3/3+C_1$, so $y^2 = \\frac{2x^3}{3}+C$. This gives asymmetric curves (not symmetric about $y$-axis)."
+          "explanation": "Separating gives $y\\,dy = x^2\\,dx$, so $\\frac{y^2}{2} = \\frac{x^3}{3}+C_1$. Multiplying both sides by 2: $y^2 = \\frac{2x^3}{3}+C$. This answer is missing the factor of 2."
         },
         {
           "id": "B",
@@ -1454,20 +1454,20 @@
         {
           "id": "A",
           "text": "$y = \\left(\\sin x + 2\\right)^2$",
-          "is_correct": true,
-          "explanation": "Separate: $y^{-1/2}dy = \\cos x\\,dx$. Integrate: $2\\sqrt{y}=\\sin x+C$. At $(0,4)$: $2(2)=0+C$, $C=4$. $2\\sqrt{y}=\\sin x+4$. $y=\\left(\\frac{\\sin x+4}{2}\\right)^2=(\\sin x/2+2)^2$."
+          "is_correct": false,
+          "explanation": "$y(0) = 4$ ✓, but $dy/dx = 2(\\sin x+2)\\cos x$ while $\\sqrt{y}\\cos x = (\\sin x+2)\\cos x$. These differ by a factor of 2, so this does not satisfy the DE."
         },
         {
           "id": "B",
           "text": "$y = (\\sin x + 2)^2$",
           "is_correct": false,
-          "explanation": "From $2\\sqrt{y}=\\sin x+4$: $\\sqrt{y}=(\\sin x+4)/2$. $y=((\\sin x+4)/2)^2$, not $(\\sin x+2)^2$."
+          "explanation": "Same as choice A — this has the same formula and the same issue: $dy/dx = 2\\sqrt{y}\\cos x \\neq \\sqrt{y}\\cos x$."
         },
         {
           "id": "C",
           "text": "$y = \\left(\\frac{\\sin x + 4}{2}\\right)^2$",
-          "is_correct": false,
-          "explanation": "$2\\sqrt{y}=\\sin x+4 \\Rightarrow \\sqrt{y}=(\\sin x+4)/2 \\Rightarrow y=((\\sin x+4)/2)^2$. Verify: $y(0)=(4/2)^2=4$ ✓."
+          "is_correct": true,
+          "explanation": "Separate: $y^{-1/2}dy = \\cos x\\,dx$. Integrate: $2\\sqrt{y}=\\sin x+C$. At $(0,4)$: $C=4$. $\\sqrt{y}=(\\sin x+4)/2$, $y=((\\sin x+4)/2)^2$. Verify: $y(0)=(4/2)^2=4$ ✓, $dy/dx = \\frac{(\\sin x+4)\\cos x}{2} = \\sqrt{y}\\cos x$ ✓."
         },
         {
           "id": "D",

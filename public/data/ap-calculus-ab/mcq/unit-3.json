@@ -722,7 +722,7 @@
             [
               "2",
               "3",
-              "1"
+              "4"
             ],
             [
               "3",
@@ -1495,36 +1495,36 @@
       "unit": "unit-3",
       "difficulty": "hard",
       "has_stimulus": true,
-      "stem": "Which of the following gives the slope of the tangent line to the curve $e^y = x^2 + y$ at the point $(1, 0)$?",
+      "stem": "Which of the following gives the slope of the tangent line to the curve $x^2 + y^2 = 1$ at the point $(0, 1)$?",
       "choices": [
         {
           "id": "A",
-          "text": "$1$",
-          "is_correct": false,
-          "explanation": "Implicitly differentiating: $e^y \\frac{dy}{dx} = 2x + \\frac{dy}{dx}$. At $(1,0)$: $1 \\cdot \\frac{dy}{dx} = 2 + \\frac{dy}{dx}$. This gives $0 = 2$, which is a contradiction — check that $(1,0)$ is on the curve: $e^0 = 1+0=1$. ✓ So $(e^y - 1)\\frac{dy}{dx} = 2x$. At $(1,0)$: $0 = 2$. This means $\\frac{dy}{dx}$ is undefined (vertical tangent)?"
+          "text": "$0$",
+          "is_correct": true,
+          "explanation": "Differentiate implicitly: $2x + 2y\\frac{dy}{dx} = 0$, so $\\frac{dy}{dx} = -\\frac{x}{y}$. At $(0, 1)$: $\\frac{dy}{dx} = -\\frac{0}{1} = 0$. The tangent line is horizontal at the top of the unit circle."
         },
         {
           "id": "B",
-          "text": "$2$",
-          "is_correct": true,
-          "explanation": "Differentiate implicitly: $e^y\\frac{dy}{dx} = 2x + \\frac{dy}{dx}$. Rearrange: $(e^y-1)\\frac{dy}{dx} = 2x$. At $(1,0)$: $e^0 - 1 = 0$, giving $0 \\cdot \\frac{dy}{dx} = 2$. This suggests the approach needs more care — near $(1,0)$ the implicit function theorem doesn't directly apply, but by L'Hôpital-like analysis the slope is $2$."
+          "text": "$1$",
+          "is_correct": false,
+          "explanation": "Substituting $(0,1)$ into $\\frac{dy}{dx} = -\\frac{x}{y}$ gives $-\\frac{0}{1} = 0$, not $1$."
         },
         {
           "id": "C",
-          "text": "$0$",
+          "text": "$-1$",
           "is_correct": false,
-          "explanation": "A slope of 0 would indicate a horizontal tangent, but $2x = 2$ at $x=1$ drives the numerator away from zero."
+          "explanation": "The formula is $\\frac{dy}{dx} = -\\frac{x}{y}$. At $(0, 1)$ the numerator $x = 0$, so the slope is $0$, not $-1$."
         },
         {
           "id": "D",
-          "text": "Undefined (vertical tangent)",
+          "text": "Undefined",
           "is_correct": false,
-          "explanation": "While the implicit differentiation formula gives $0 \\cdot \\frac{dy}{dx} = 2$ at $(1,0)$, this reflects the need to parameterize differently. Near $(1,0)$, analysis shows the slope is 2, not vertical."
+          "explanation": "The slope is undefined only when the denominator $y = 0$, which occurs at $(1, 0)$ and $(-1, 0)$. At $(0, 1)$, $y = 1 \\neq 0$, so the slope is defined and equals $0$."
         }
       ],
       "stimulus": {
         "type": "text",
-        "content": "A curve is defined implicitly by $e^y = x^2 + y$. The point $(1, 0)$ lies on this curve. Use implicit differentiation to find $\\frac{dy}{dx}$, which gives the slope of the tangent line at $(1, 0)$."
+        "content": "A curve is defined implicitly by $x^2 + y^2 = 1$. The point $(0, 1)$ lies on this curve."
       }
     },
     {

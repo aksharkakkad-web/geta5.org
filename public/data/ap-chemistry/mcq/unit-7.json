@@ -130,8 +130,8 @@
       },
       "question": "Which of the following correctly determines the direction the reaction will proceed to reach equilibrium?",
       "choices": [
-        { "id": "A", "text": "Q > K_c, so the reaction proceeds in reverse (toward reactants)", "is_correct": true, "explanation": "Q = [SO₃]²/([SO₂]²[O₂]) = (3.0)²/((0.40)²(0.30)) = 9.0/(0.16 × 0.30) = 9.0/0.048 = 188. Since Q (188) < K_c (280), the forward reaction is actually favored. Wait — recalculate: Q = 9.0/(0.048) = 187.5 < 280 = K_c, so the reaction proceeds forward." },
-        { "id": "B", "text": "Q < K_c, so the reaction proceeds forward (toward products)", "is_correct": false, "explanation": "Q = (3.0)²/((0.40)²(0.30)) = 9.0/0.048 ≈ 188; K_c = 280. Since Q (188) < K_c (280), the reaction does proceed forward. This answer is actually correct — see explanation for A." },
+        { "id": "A", "text": "Q > K_c, so the reaction proceeds in reverse (toward reactants)", "is_correct": false, "explanation": "Q = (3.0)^2/((0.40)^2(0.30)) = 9.0/0.048 = 187.5. Since Q = 187.5 < K_c = 280, the reaction quotient is less than the equilibrium constant, so the reaction proceeds forward, not in reverse." },
+        { "id": "B", "text": "Q < K_c, so the reaction proceeds forward (toward products)", "is_correct": true, "explanation": "Q = (3.0)^2/((0.40)^2(0.30)) = 187.5. Since Q (187.5) < K_c (280), the system has not yet reached equilibrium and must proceed in the forward direction to increase Q toward K_c." },
         { "id": "C", "text": "$Q = K_c$, so the system is already at equilibrium", "is_correct": false, "explanation": "Q = 188 ≠ 280 = K_c; the system is not at equilibrium." },
         { "id": "D", "text": "Q < K_c, so the reaction proceeds in reverse (toward reactants)", "is_correct": false, "explanation": "When Q < K_c, the reaction proceeds forward (more products form); when Q > K_c, the reaction proceeds in reverse." }
       ],
@@ -396,6 +396,448 @@
       ],
       "difficulty": "hard",
       "unit_objective": "7.E"
+    },
+    {
+      "id": "chem-mcq-7-026",
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": ["Reaction", "K value", "Direction favored at equilibrium"],
+          "rows": [
+            ["$\\text{A} \\rightleftharpoons \\text{B}$", "$K = 1 \\times 10^5$", "Products strongly favored"],
+            ["$\\text{C} \\rightleftharpoons \\text{D}$", "$K = 1$", "Neither strongly favored"],
+            ["$\\text{E} \\rightleftharpoons \\text{F}$", "$K = 1 \\times 10^{-5}$", "Reactants strongly favored"]
+          ]
+        }
+      },
+      "question": "Based on the data in the table, which of the following best describes the meaning of a large equilibrium constant ($K \\gg 1$)?",
+      "choices": [
+        { "id": "A", "text": "The reaction proceeds quickly to products because the rate constant is large", "is_correct": false, "explanation": "K (equilibrium constant) describes the position of equilibrium, not the speed of the reaction; rate constant (k) describes reaction speed. A large K means products are favored at equilibrium but says nothing about how quickly equilibrium is reached." },
+        { "id": "B", "text": "At equilibrium, the concentration of products is much greater than the concentration of reactants", "is_correct": true, "explanation": "K = [products]/[reactants] (for a simple reaction); when K ≫ 1, the numerator (products) dominates the denominator (reactants), meaning equilibrium lies far to the right with predominantly product concentrations." },
+        { "id": "C", "text": "The forward reaction is exothermic and releases more energy than the reverse reaction", "is_correct": false, "explanation": "A large K indicates the equilibrium position, not the energetics; an exothermic reaction can have a large or small K depending on the magnitude of ΔH° and the temperature." },
+        { "id": "D", "text": "The reaction goes to completion and cannot reach equilibrium", "is_correct": false, "explanation": "Even with a very large K, a reversible reaction still reaches equilibrium (just with very high product concentrations). Only irreversible reactions go to completion." }
+      ],
+      "difficulty": "easy",
+      "unit_objective": "7.A"
+    },
+    {
+      "id": "chem-mcq-7-027",
+      "stimulus": {
+        "type": "text",
+        "content": "For the reaction $\\text{N}_2(g) + 3\\text{H}_2(g) \\rightleftharpoons 2\\text{NH}_3(g)$, $K_c = 0.500$ at a certain temperature. A reaction mixture contains $[\\text{N}_2] = 0.200$ M, $[\\text{H}_2] = 0.300$ M, and $[\\text{NH}_3] = 0.100$ M."
+      },
+      "question": "Which of the following correctly calculates the reaction quotient $Q$ and predicts the direction the reaction will proceed to reach equilibrium?",
+      "choices": [
+        { "id": "A", "text": "$Q = 0.185$; reaction proceeds forward (toward products) to increase $[\\text{NH}_3]$", "is_correct": false, "explanation": "The calculated Q is 1.85, not 0.185 — this is an arithmetic error (likely a misplaced decimal). $Q_c = [\\text{NH}_3]^2 / ([\\text{N}_2][\\text{H}_2]^3) = (0.100)^2 / [(0.200)(0.300)^3] = 0.0100 / 0.00540 = 1.85$. Since Q = 1.85 > K_c = 0.500, the reaction proceeds in reverse, not forward." },
+        { "id": "B", "text": "$Q = 1.85$; since $Q > K_c$, the reaction proceeds in reverse (toward reactants) to decrease $[\\text{NH}_3]$", "is_correct": true, "explanation": "$Q_c = [\\text{NH}_3]^2 / ([\\text{N}_2][\\text{H}_2]^3) = (0.100)^2 / [(0.200)(0.300)^3] = 0.0100 / 0.00540 = 1.85$. Since $Q = 1.85 > K_c = 0.500$, there is too much product; the reaction shifts in reverse to reach equilibrium." },
+        { "id": "C", "text": "$Q = 0.500$; the system is already at equilibrium and no shift occurs", "is_correct": false, "explanation": "Q = 1.85 ≠ K = 0.500; the system is not at equilibrium. Q must be calculated from the given concentrations and compared to K." },
+        { "id": "D", "text": "$Q = 1.85$; since $Q > K_c$, the reaction proceeds forward to increase $[\\text{NH}_3]$", "is_correct": false, "explanation": "When Q > K, the reaction has too much product relative to equilibrium; it proceeds in reverse (toward reactants) to reduce product concentrations and increase reactant concentrations until Q = K." }
+      ],
+      "difficulty": "hard",
+      "unit_objective": "7.B"
+    },
+    {
+      "id": "chem-mcq-7-028",
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": ["Stress Applied", "Equilibrium Shift", "Effect on K"],
+          "rows": [
+            ["Increase [reactant]", "Forward", "None"],
+            ["Decrease [product]", "Forward", "None"],
+            ["Increase pressure (compress gas)", "Toward fewer moles of gas", "None"],
+            ["Increase temperature (exothermic rxn)", "Reverse (toward reactants)", "K decreases"],
+            ["Add catalyst", "None (reaches eq. faster)", "None"]
+          ]
+        }
+      },
+      "question": "Using the Le Chatelier's principle table, which of the following correctly predicts the effect on $K$ when the temperature is increased for an endothermic reaction?",
+      "choices": [
+        { "id": "A", "text": "K decreases because increasing temperature for any reaction always decreases K", "is_correct": false, "explanation": "The table shows K decreases only for exothermic reactions when temperature increases; for endothermic reactions, increasing temperature shifts equilibrium toward products, increasing K." },
+        { "id": "B", "text": "K increases because increasing temperature shifts an endothermic equilibrium toward products", "is_correct": true, "explanation": "For endothermic reactions, heat is a reactant; increasing temperature is equivalent to adding a reactant, shifting equilibrium toward products. This increases the ratio [products]/[reactants] at equilibrium, increasing K." },
+        { "id": "C", "text": "K is unchanged because the table shows catalysts are the only factor that doesn't change K, and temperature change acts like a catalyst", "is_correct": false, "explanation": "Temperature changes alter K because they change the thermodynamic equilibrium constant (ΔG° = −RT ln K); only temperature changes the value of K, not concentration or pressure changes." },
+        { "id": "D", "text": "K increases only if the pressure is also increased simultaneously", "is_correct": false, "explanation": "Pressure changes affect equilibrium position but not K; temperature is the only variable that changes K. The change in K for an endothermic reaction with increasing temperature is independent of pressure." }
+      ],
+      "difficulty": "medium",
+      "unit_objective": "7.D"
+    },
+    {
+      "id": "chem-mcq-7-029",
+      "stimulus": { "type": "none" },
+      "question": "For the equilibrium $2\\text{SO}_2(g) + \\text{O}_2(g) \\rightleftharpoons 2\\text{SO}_3(g)$, $K_c = 2.8 \\times 10^2$ at 1000 K. Which of the following correctly writes the equilibrium expression $K_c$?",
+      "choices": [
+        { "id": "A", "text": "$K_c = \\frac{[\\text{SO}_3]^2}{[\\text{SO}_2]^2 + [\\text{O}_2]}$", "is_correct": false, "explanation": "The denominator in K_c uses the product of reactant concentrations (each raised to its stoichiometric coefficient), not their sum." },
+        { "id": "B", "text": "$K_c = \\frac{[\\text{SO}_3]^2}{[\\text{SO}_2]^2[\\text{O}_2]}$", "is_correct": true, "explanation": "K_c = [products raised to their coefficients] / [reactants raised to their coefficients]. For $2\\text{SO}_2 + \\text{O}_2 \\rightleftharpoons 2\\text{SO}_3$: $K_c = \\frac{[\\text{SO}_3]^2}{[\\text{SO}_2]^2[\\text{O}_2]}$." },
+        { "id": "C", "text": "$K_c = \\frac{[\\text{SO}_2]^2[\\text{O}_2]}{[\\text{SO}_3]^2}$", "is_correct": false, "explanation": "This is the expression for the reverse reaction; K_c for the forward reaction has products in the numerator and reactants in the denominator." },
+        { "id": "D", "text": "$K_c = \\frac{2[\\text{SO}_3]}{2[\\text{SO}_2] + [\\text{O}_2]}$", "is_correct": false, "explanation": "Stoichiometric coefficients become exponents in the equilibrium expression, not multipliers; K_c uses concentrations raised to their coefficients." }
+      ],
+      "difficulty": "easy",
+      "unit_objective": "7.A"
+    },
+    {
+      "id": "chem-mcq-7-030",
+      "stimulus": {
+        "type": "text",
+        "content": "For the reaction $\\text{CO}(g) + 3\\text{H}_2(g) \\rightleftharpoons \\text{CH}_4(g) + \\text{H}_2\\text{O}(g)$, a chemist places 0.100 mol CO and 0.300 mol H₂ in a 1.00 L flask at a given temperature. At equilibrium, $[\\text{CH}_4] = 0.090$ M."
+      },
+      "question": "Using an ICE table, which of the following correctly identifies the equilibrium concentrations?",
+      "choices": [
+        { "id": "A", "text": "$[\\text{CO}] = 0.010$, $[\\text{H}_2] = 0.030$, $[\\text{CH}_4] = 0.090$, $[\\text{H}_2\\text{O}] = 0.090$", "is_correct": false, "explanation": "If CH₄ = 0.090 M was produced (x = 0.090), then H₂ decreased by 3x = 0.270 (not 0.030). [H₂] = 0.300 − 0.270 = 0.030 M is correct, but [CO] = 0.100 − 0.090 = 0.010 M." },
+        { "id": "B", "text": "$[\\text{CO}] = 0.010$, $[\\text{H}_2] = 0.030$, $[\\text{CH}_4] = 0.090$, $[\\text{H}_2\\text{O}] = 0.090$", "is_correct": true, "explanation": "ICE: initial CO = 0.100, H₂ = 0.300; x = 0.090 (change). [CO] = 0.100 − 0.090 = 0.010 M; [H₂] = 0.300 − 3(0.090) = 0.300 − 0.270 = 0.030 M; [CH₄] = 0.090 M; [H₂O] = 0.090 M." },
+        { "id": "C", "text": "$[\\text{CO}] = 0.010$, $[\\text{H}_2] = 0.210$, $[\\text{CH}_4] = 0.090$, $[\\text{H}_2\\text{O}] = 0.090$", "is_correct": false, "explanation": "H₂ must decrease by 3x = 3(0.090) = 0.270 (stoichiometric ratio H₂:CH₄ = 3:1); [H₂] = 0.300 − 0.270 = 0.030 M, not 0.210 M." },
+        { "id": "D", "text": "$[\\text{CO}] = 0.100$, $[\\text{H}_2] = 0.300$, $[\\text{CH}_4] = 0.090$, $[\\text{H}_2\\text{O}] = 0.090$", "is_correct": false, "explanation": "If CH₄ = 0.090 M was produced, CO and H₂ must have decreased by the stoichiometric amounts; the initial concentrations would only remain if no reaction occurred." }
+      ],
+      "difficulty": "hard",
+      "unit_objective": "7.C"
+    },
+    {
+      "id": "chem-mcq-7-031",
+      "stimulus": { "type": "none" },
+      "question": "The reaction $\\text{PCl}_5(g) \\rightleftharpoons \\text{PCl}_3(g) + \\text{Cl}_2(g)$ is exothermic. According to Le Chatelier's principle, which of the following changes would decrease the equilibrium concentration of $\\text{PCl}_5$?",
+      "choices": [
+        { "id": "A", "text": "Increasing the temperature", "is_correct": false, "explanation": "The forward reaction is exothermic, so heat can be treated as a product: PCl₅ → PCl₃ + Cl₂ + heat. Increasing temperature adds heat, which shifts the equilibrium to the left (toward reactants), increasing [PCl₅] rather than decreasing it." },
+        { "id": "B", "text": "Increasing the pressure by compressing the system", "is_correct": false, "explanation": "The forward reaction produces more moles of gas (1 mol PCl₅ → 2 mol gas); increasing pressure shifts equilibrium left toward fewer gas moles, increasing [PCl₅]." },
+        { "id": "C", "text": "Adding an inert gas at constant volume", "is_correct": false, "explanation": "Adding an inert gas at constant volume does not change the partial pressures of the reacting gases; equilibrium is unaffected and [PCl₅] does not change." },
+        { "id": "D", "text": "Removing $\\text{Cl}_2$ from the equilibrium mixture", "is_correct": true, "explanation": "Removing a product (Cl₂) shifts the equilibrium to the right (toward products) to partially replace the removed species; this consumes PCl₅, decreasing [PCl₅]." }
+      ],
+      "difficulty": "medium",
+      "unit_objective": "7.D"
+    },
+    {
+      "id": "chem-mcq-7-032",
+      "stimulus": {
+        "type": "text",
+        "content": "The $K_{sp}$ of $\\text{AgCl}$ is $1.8 \\times 10^{-10}$ at 25°C."
+      },
+      "question": "What is the molar solubility of AgCl in pure water at 25°C?",
+      "choices": [
+        { "id": "A", "text": "$1.8 \\times 10^{-10}$ mol/L", "is_correct": false, "explanation": "1.8 × 10⁻¹⁰ is K_sp itself; molar solubility s requires taking the square root: s = √K_sp = √(1.8 × 10⁻¹⁰) = 1.34 × 10⁻⁵ mol/L." },
+        { "id": "B", "text": "$1.3 \\times 10^{-5}$ mol/L", "is_correct": true, "explanation": "AgCl ⇌ Ag⁺ + Cl⁻. [Ag⁺] = [Cl⁻] = s. K_sp = s² = 1.8 × 10⁻¹⁰; s = √(1.8 × 10⁻¹⁰) = 1.34 × 10⁻⁵ mol/L." },
+        { "id": "C", "text": "$3.2 \\times 10^{-20}$ mol/L", "is_correct": false, "explanation": "3.2 × 10⁻²⁰ = (1.8 × 10⁻¹⁰)² = K_sp²; molar solubility requires taking the square root of K_sp, not squaring it." },
+        { "id": "D", "text": "$9.0 \\times 10^{-11}$ mol/L", "is_correct": false, "explanation": "9.0 × 10⁻¹¹ = K_sp/2; this incorrectly divides K_sp by 2. For a 1:1 electrolyte like AgCl, s = √K_sp." }
+      ],
+      "difficulty": "easy",
+      "unit_objective": "7.E"
+    },
+    {
+      "id": "chem-mcq-7-033",
+      "stimulus": {
+        "type": "chart",
+        "content": {
+          "chart_config": {
+            "type": "line",
+            "data": {
+              "labels": ["0", "5", "10", "15", "20", "25"],
+              "datasets": [
+                {"label": "[Reactant] (M)", "data": [1.0, 0.7, 0.55, 0.50, 0.50, 0.50], "borderColor": "#6366f1", "fill": false},
+                {"label": "[Product] (M)", "data": [0, 0.15, 0.23, 0.25, 0.25, 0.25], "borderColor": "#10b981", "fill": false}
+              ]
+            },
+            "options": {
+              "plugins": {"title": {"display": true, "text": "Concentration vs Time to Equilibrium"}},
+              "scales": {
+                "x": {"title": {"display": true, "text": "Time (s)"}},
+                "y": {"title": {"display": true, "text": "Concentration (M)"}}
+              }
+            }
+          }
+        }
+      },
+      "question": "Based on the graph, which of the following best describes the system at t = 15 s?",
+      "choices": [
+        { "id": "A", "text": "The reaction has stopped because no more product is being formed after t = 15 s", "is_correct": false, "explanation": "The reaction has not stopped; it has reached dynamic equilibrium. At equilibrium, forward and reverse rates are equal, resulting in constant concentrations, but both reactions continue to occur." },
+        { "id": "B", "text": "The system has reached equilibrium; the forward and reverse rates are equal and concentrations remain constant", "is_correct": true, "explanation": "The graph shows constant concentrations ([reactant] = 0.50 M, [product] = 0.25 M) from t = 15 s onward, which is the hallmark of dynamic equilibrium. Net concentration change = 0 because forward rate = reverse rate." },
+        { "id": "C", "text": "The reactant is fully consumed; all material has converted to product", "is_correct": false, "explanation": "The graph shows [reactant] = 0.50 M (not zero) at equilibrium; reactant is not fully consumed in a reversible reaction that reaches equilibrium." },
+        { "id": "D", "text": "The reaction is second order because the concentrations stabilize after 15 s", "is_correct": false, "explanation": "The stabilization of concentrations reflects equilibrium, not reaction order; reaction order describes the rate law and would need to be determined from initial rate data, not from when equilibrium is reached." }
+      ],
+      "difficulty": "medium",
+      "unit_objective": "7.A"
+    },
+    {
+      "id": "chem-mcq-7-034",
+      "stimulus": { "type": "none" },
+      "question": "For the reaction $\\text{H}_2(g) + \\text{I}_2(g) \\rightleftharpoons 2\\text{HI}(g)$, $K_c = 50$ at 448°C. If $[\\text{H}_2] = [\\text{I}_2] = 0.01$ M at equilibrium, what is the equilibrium concentration of HI?",
+      "choices": [
+        { "id": "A", "text": "0.071 M", "is_correct": true, "explanation": "$K_c = [\\text{HI}]^2 / ([\\text{H}_2][\\text{I}_2]) = [\\text{HI}]^2 / (0.01)^2 = 50$. $[\\text{HI}]^2 = 50 \\times 10^{-4} = 5 \\times 10^{-3}$. $[\\text{HI}] = \\sqrt{5 \\times 10^{-3}} = 0.0707 \\approx 0.071$ M." },
+        { "id": "B", "text": "0.50 M", "is_correct": false, "explanation": "0.50 would result from K_c × [H₂][I₂] = 50 × 0.01 = 0.50 without taking the square root; since [HI] is squared in K_c, the square root is required." },
+        { "id": "C", "text": "0.707 M", "is_correct": false, "explanation": "0.707 would result from using [H₂] = [I₂] = 0.1 M (not 0.01 M); with [H₂] = [I₂] = 0.01 M, the calculation gives √(50 × 0.0001) = √0.005 = 0.071 M." },
+        { "id": "D", "text": "0.005 M", "is_correct": false, "explanation": "0.005 = 50 × (0.01)² = 50 × 10⁻⁴ = [HI]², which is [HI] squared, not [HI] itself; taking the square root gives [HI] = 0.071 M." }
+      ],
+      "difficulty": "hard",
+      "unit_objective": "7.C"
+    },
+    {
+      "id": "chem-mcq-7-035",
+      "stimulus": {
+        "type": "text",
+        "content": "A student tests the common ion effect by measuring the solubility of $\\text{AgCl}$ ($K_{sp} = 1.8 \\times 10^{-10}$) in two solutions: pure water and 0.10 M NaCl."
+      },
+      "question": "Which of the following correctly predicts the molar solubility of AgCl in 0.10 M NaCl and explains why it differs from the solubility in pure water?",
+      "choices": [
+        { "id": "A", "text": "Solubility in 0.10 M NaCl ≈ $1.8 \\times 10^{-9}$ mol/L; the common Cl⁻ ion shifts the equilibrium left, drastically reducing AgCl solubility", "is_correct": true, "explanation": "With 0.10 M Cl⁻ already present: K_sp = [Ag⁺][Cl⁻] = s × (0.10 + s) ≈ s × 0.10 = 1.8 × 10⁻¹⁰; s = 1.8 × 10⁻⁹ mol/L. The common Cl⁻ shifts AgCl ⇌ Ag⁺ + Cl⁻ left (Le Chatelier), dramatically reducing solubility vs ~1.34 × 10⁻⁵ mol/L in pure water." },
+        { "id": "B", "text": "Solubility in 0.10 M NaCl is the same as in pure water because K_sp is constant", "is_correct": false, "explanation": "K_sp is constant, but solubility is not; the common ion (Cl⁻) from NaCl shifts the equilibrium and reduces AgCl solubility. Constant K_sp does not mean constant solubility." },
+        { "id": "C", "text": "Solubility in 0.10 M NaCl is higher than in pure water because ionic strength increases solubility", "is_correct": false, "explanation": "While ionic strength can slightly increase solubility (Debye-Hückel effects), the dominant and tested effect is the common ion effect (Cl⁻ from NaCl reduces AgCl solubility dramatically)." },
+        { "id": "D", "text": "AgCl cannot dissolve in NaCl solution because Cl⁻ reacts with Ag⁺ to form a complex", "is_correct": false, "explanation": "While Ag⁺ can form complexes with excess Cl⁻ (AgCl₂⁻), the primary AP Chemistry answer for the common ion effect is that the equilibrium shifts left, reducing solubility." }
+      ],
+      "difficulty": "hard",
+      "unit_objective": "7.E"
+    },
+    {
+      "id": "chem-mcq-7-036",
+      "stimulus": { "type": "none" },
+      "question": "Which of the following correctly explains why the equilibrium constant $K$ has no units?",
+      "choices": [
+        { "id": "A", "text": "K has no units because concentrations always cancel in the numerator and denominator", "is_correct": false, "explanation": "Concentrations in K do not always cancel (e.g., for N₂ + 3H₂ ⇌ 2NH₃, K_c = [NH₃]²/([N₂][H₂]³) has net units of M⁻²). K is dimensionless by convention because each concentration is divided by a standard reference concentration." },
+        { "id": "B", "text": "K is dimensionless because each concentration term is expressed as a ratio relative to a standard reference concentration (1 M for solutions, 1 atm for gases), making K a ratio of dimensionless quantities", "is_correct": true, "explanation": "Thermodynamically, equilibrium constants use activities (dimensionless ratios). For dilute solutions, activity ≈ [A]/c° where c° = 1 M, making each term dimensionless. Similarly, for gases, activity ≈ P/P° where P° = 1 bar." },
+        { "id": "C", "text": "K has no units because equilibrium applies only to gases, and gas concentrations are always dimensionless", "is_correct": false, "explanation": "Equilibrium applies to solutions as well as gases; gas concentrations have units of mol/L or atm. The dimensionless nature of K comes from using relative activities." },
+        { "id": "D", "text": "K has no units because it is calculated by taking the natural logarithm of concentrations", "is_correct": false, "explanation": "K is not calculated by taking logarithms; it is a ratio of products to reactants raised to their stoichiometric powers. The dimensionlessness comes from the activity concept." }
+      ],
+      "difficulty": "medium",
+      "unit_objective": "7.A"
+    },
+    {
+      "id": "chem-mcq-7-037",
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": ["$K_{sp}$ Value", "Salt", "Molar Solubility in Water"],
+          "rows": [
+            ["$1.8 \\times 10^{-10}$", "AgCl (1:1)", "$1.3 \\times 10^{-5}$ M"],
+            ["$1.1 \\times 10^{-12}$", "AgBr (1:1)", "$1.0 \\times 10^{-6}$ M"],
+            ["$8.5 \\times 10^{-17}$", "AgI (1:1)", "$9.2 \\times 10^{-9}$ M"]
+          ]
+        }
+      },
+      "question": "Based on the data in the table, which of the following conclusions is best supported?",
+      "choices": [
+        { "id": "A", "text": "All three silver halides have the same solubility because they have the same 1:1 formula", "is_correct": false, "explanation": "The table clearly shows different solubilities; for 1:1 salts s = √K_sp, so larger K_sp gives larger molar solubility. AgCl (K_sp 10⁻¹⁰) is far more soluble than AgI (K_sp 10⁻¹⁷)." },
+        { "id": "B", "text": "As K_sp decreases, molar solubility decreases, because lower K_sp means less dissociation at equilibrium", "is_correct": true, "explanation": "For 1:1 salts, s = √K_sp; smaller K_sp gives smaller s. The data confirms: K_sp = 1.8×10⁻¹⁰ (AgCl, s = 1.3×10⁻⁵) > K_sp = 1.1×10⁻¹² (AgBr, s = 1.0×10⁻⁶) > K_sp = 8.5×10⁻¹⁷ (AgI, s = 9.2×10⁻⁹)." },
+        { "id": "C", "text": "AgI is more soluble than AgCl because iodide is larger and creates weaker lattice energy", "is_correct": false, "explanation": "The data show AgI is less soluble (smaller K_sp); while AgI does have lower lattice energy, the hydration energy also decreases, and the net result is AgI being less soluble." },
+        { "id": "D", "text": "Molar solubility equals K_sp for all 1:1 salts", "is_correct": false, "explanation": "For 1:1 salts MX: K_sp = [M⁺][X⁻] = s², so s = √K_sp, not s = K_sp. The table confirms this: s ≠ K_sp for any of the three salts." }
+      ],
+      "difficulty": "medium",
+      "unit_objective": "7.E"
+    },
+    {
+      "id": "chem-mcq-7-038",
+      "stimulus": { "type": "none" },
+      "question": "For the reaction $\\text{A}(g) \\rightleftharpoons \\text{B}(g) + \\text{C}(g)$, $K_c = 0.040$ at 500 K. Initially, only A is present at 1.0 M. Which of the following correctly applies an ICE table to find the equilibrium concentrations?",
+      "choices": [
+        { "id": "A", "text": "ICE gives $x = 0.17$ M; $[\\text{A}]_{eq} = 0.83$ M, $[\\text{B}]_{eq} = [\\text{C}]_{eq} = 0.17$ M", "is_correct": true, "explanation": "ICE: [A] = 1.0 − x; [B] = [C] = x. K_c = x²/(1.0 − x) = 0.040. Assume 1.0 − x ≈ 1.0 (small x approximation): x² ≈ 0.040; x ≈ 0.20. Check: 0.20/1.0 = 20% (not small), so solve exactly: x² + 0.040x − 0.040 = 0. Using quadratic: x = [−0.040 + √(0.0016 + 0.16)]/2 ≈ 0.185/2... approximate gives x ≈ 0.17." },
+        { "id": "B", "text": "ICE gives $x = 0.20$ M; $[\\text{A}]_{eq} = 0.80$ M, $[\\text{B}]_{eq} = [\\text{C}]_{eq} = 0.20$ M", "is_correct": false, "explanation": "x = 0.20 assumes the 5% approximation holds: K_c ≈ x²/1.0; x = √0.040 = 0.20. Check: 0.20²/(1.0 − 0.20) = 0.04/0.80 = 0.050 ≠ 0.040. The approximation fails; x ≈ 0.17 is more accurate from the quadratic." },
+        { "id": "C", "text": "ICE gives $[\\text{A}]_{eq} = 1.0$ M; equilibrium is reached immediately with no conversion", "is_correct": false, "explanation": "K_c = 0.040 ≠ 0; some reaction occurs to establish equilibrium. [A] = 1.0 M is the initial concentration, not the equilibrium concentration." },
+        { "id": "D", "text": "ICE gives $x = 1.0$ M; all A converts to B and C because K_c > 0", "is_correct": false, "explanation": "K_c = 0.040 indicates an equilibrium that slightly favors reactants; it is not large enough to drive the reaction to completion. ICE gives a partial conversion, not complete conversion." }
+      ],
+      "difficulty": "hard",
+      "unit_objective": "7.C"
+    },
+    {
+      "id": "chem-mcq-7-039",
+      "stimulus": { "type": "none" },
+      "question": "Which of the following best explains why adding more solid to an equilibrium system involving a slightly soluble salt does not change the equilibrium concentrations of the dissolved ions?",
+      "choices": [
+        { "id": "A", "text": "Solid compounds are not included in K_sp because their activity is defined as 1 (pure solid), so adding more solid does not change the equilibrium expression", "is_correct": true, "explanation": "The activity of a pure solid is defined as 1 in thermodynamics; adding more solid does not change its activity. K_sp only involves aqueous ion concentrations, so additional solid does not shift the equilibrium." },
+        { "id": "B", "text": "The solid dissolves immediately upon addition, canceling any equilibrium shift", "is_correct": false, "explanation": "If the solution is already saturated at equilibrium, adding more solid does not cause it to dissolve further; the system is already at K_sp." },
+        { "id": "C", "text": "Adding solid increases the pressure, which shifts the equilibrium back to cancel the effect", "is_correct": false, "explanation": "Pressure effects apply to gas-phase equilibria. Dissolving solids in aqueous solution is essentially pressure-independent under normal conditions." },
+        { "id": "D", "text": "Solid salts are always 100% insoluble, so they never affect ion concentrations", "is_correct": false, "explanation": "The concept of K_sp applies to slightly soluble (not fully insoluble) salts; they do partially dissolve to give some ion concentrations. The point is that excess solid does not increase ion concentrations beyond what K_sp allows." }
+      ],
+      "difficulty": "medium",
+      "unit_objective": "7.E"
+    },
+    {
+      "id": "chem-mcq-7-040",
+      "stimulus": {
+        "type": "text",
+        "content": "Consider the reaction: $\\text{A}(g) + \\text{B}(g) \\rightleftharpoons 2\\text{C}(g)$, $\\Delta H = -80$ kJ. At equilibrium, the system is subjected to the following changes:"
+      },
+      "question": "Which of the following changes will shift the equilibrium toward the products (right)?",
+      "choices": [
+        { "id": "A", "text": "Increasing temperature", "is_correct": false, "explanation": "The reaction is exothermic; heat is a product. Increasing temperature shifts equilibrium left (toward reactants) to absorb the added heat." },
+        { "id": "B", "text": "Removing product C", "is_correct": true, "explanation": "Removing a product decreases the concentration of C, causing Q < K; the system responds by shifting right to produce more C until equilibrium is re-established." },
+        { "id": "C", "text": "Increasing the volume of the container", "is_correct": false, "explanation": "The reaction has equal moles of gas on both sides (2 mol A + B on left, 2 mol C on right); a change in volume/pressure has no net effect on the equilibrium position for this reaction." },
+        { "id": "D", "text": "Adding a catalyst", "is_correct": false, "explanation": "A catalyst increases the rate of both forward and reverse reactions equally; it does not shift the equilibrium position or change the value of K." }
+      ],
+      "difficulty": "medium",
+      "unit_objective": "7.D"
+    },
+    {
+      "id": "chem-mcq-7-041",
+      "stimulus": { "type": "none" },
+      "question": "For the equilibrium $2\\text{NO}(g) + \\text{O}_2(g) \\rightleftharpoons 2\\text{NO}_2(g)$, which of the following expressions correctly represents $K_p$?",
+      "choices": [
+        { "id": "A", "text": "$K_p = \\frac{P_{\\text{NO}_2}^2}{P_{\\text{NO}}^2 \\cdot P_{\\text{O}_2}}$", "is_correct": true, "explanation": "K_p uses partial pressures raised to stoichiometric coefficients: products in numerator, reactants in denominator. For $2\\text{NO} + \\text{O}_2 \\rightleftharpoons 2\\text{NO}_2$: $K_p = P_{\\text{NO}_2}^2 / (P_{\\text{NO}}^2 \\cdot P_{\\text{O}_2})$." },
+        { "id": "B", "text": "$K_p = \\frac{P_{\\text{NO}}^2 \\cdot P_{\\text{O}_2}}{P_{\\text{NO}_2}^2}$", "is_correct": false, "explanation": "This is the K_p expression for the reverse reaction; the forward reaction (products in numerator) gives K_p = P(NO₂)²/[P(NO)²·P(O₂)]." },
+        { "id": "C", "text": "$K_p = \\frac{2P_{\\text{NO}_2}}{2P_{\\text{NO}} + P_{\\text{O}_2}}$", "is_correct": false, "explanation": "Stoichiometric coefficients are exponents, not multipliers, in equilibrium expressions; the correct form uses pressures raised to their coefficients." },
+        { "id": "D", "text": "$K_p = K_c \\cdot RT$", "is_correct": false, "explanation": "The relationship between K_p and K_c is $K_p = K_c(RT)^{\\Delta n}$ where Δn = change in moles of gas; for this reaction Δn = 2 − (2+1) = −1, so $K_p = K_c(RT)^{-1}$." }
+      ],
+      "difficulty": "medium",
+      "unit_objective": "7.A"
+    },
+    {
+      "id": "chem-mcq-7-042",
+      "stimulus": {
+        "type": "table",
+        "content": {
+          "headers": ["Compound", "$K_{sp}$ at 25°C", "Formula"],
+          "rows": [
+            ["Silver chloride", "$1.8 \\times 10^{-10}$", "AgCl"],
+            ["Calcium fluoride", "$3.9 \\times 10^{-11}$", "CaF₂"],
+            ["Iron(II) sulfide", "$8 \\times 10^{-19}$", "FeS"],
+            ["Mercury(I) chloride", "$1.3 \\times 10^{-18}$", "$\\text{Hg}_2\\text{Cl}_2$"]
+          ]
+        }
+      },
+      "question": "A student mixes 50.0 mL of $2.0 \\times 10^{-5}$ M AgNO₃ with 50.0 mL of $2.0 \\times 10^{-5}$ M NaCl. Will a precipitate of AgCl form? ($K_{sp}$(AgCl) = $1.8 \\times 10^{-10}$)",
+      "choices": [
+        { "id": "A", "text": "No precipitate forms because both concentrations are very low", "is_correct": false, "explanation": "Whether a precipitate forms depends on comparing Q_sp to K_sp; low concentrations do not automatically prevent precipitation if Q > K_sp." },
+        { "id": "B", "text": "No precipitate forms; Q < K_sp", "is_correct": true, "explanation": "After mixing, each concentration is halved: [Ag⁺] = [Cl⁻] = 1.0 × 10⁻⁵ M. Q_sp = (1.0 × 10⁻⁵)(1.0 × 10⁻⁵) = 1.0 × 10⁻¹⁰ < K_sp (1.8 × 10⁻¹⁰). Since Q < K_sp, the solution is unsaturated and no precipitate forms." },
+        { "id": "C", "text": "A precipitate forms; Q > K_sp", "is_correct": false, "explanation": "Q_sp = (1.0×10⁻⁵)(1.0×10⁻⁵) = 1.0×10⁻¹⁰; K_sp = 1.8×10⁻¹⁰. Since Q < K_sp, the solution is below saturation and no precipitate forms." },
+        { "id": "D", "text": "A precipitate forms only if the temperature is raised above 25°C", "is_correct": false, "explanation": "Temperature affects K_sp (it increases for most salts with increasing temperature), but the Q vs K_sp comparison at 25°C shows Q < K_sp; the relevant comparison is Q vs K_sp at the given temperature." }
+      ],
+      "difficulty": "hard",
+      "unit_objective": "7.E"
+    },
+    {
+      "id": "chem-mcq-7-043",
+      "stimulus": { "type": "none" },
+      "question": "Which of the following correctly relates $K_p$ and $K_c$ for the reaction $\\text{N}_2(g) + 3\\text{H}_2(g) \\rightleftharpoons 2\\text{NH}_3(g)$?",
+      "choices": [
+        { "id": "A", "text": "$K_p = K_c(RT)^{2}$", "is_correct": false, "explanation": "Δn = moles gas products − moles gas reactants = 2 − (1+3) = −2; the relationship is $K_p = K_c(RT)^{\\Delta n} = K_c(RT)^{-2}$, not $(RT)^2$." },
+        { "id": "B", "text": "$K_p = K_c(RT)^{-2}$", "is_correct": true, "explanation": "$\\Delta n_{gas} = 2 - (1+3) = -2$. Therefore $K_p = K_c(RT)^{-2} = K_c/(RT)^2$. Since Δn < 0, K_p < K_c for this reaction at most temperatures." },
+        { "id": "C", "text": "$K_p = K_c$, because all species are gases", "is_correct": false, "explanation": "K_p = K_c only when Δn_gas = 0; here Δn_gas = −2, so K_p ≠ K_c." },
+        { "id": "D", "text": "$K_p = K_c(RT)^{4}$", "is_correct": false, "explanation": "Δn = −2, not +4; even summing |reactant moles| + |product moles| = 4 is not the correct calculation. Δn = products − reactants = 2 − 4 = −2." }
+      ],
+      "difficulty": "hard",
+      "unit_objective": "7.A"
+    },
+    {
+      "id": "chem-mcq-7-044",
+      "stimulus": {
+        "type": "text",
+        "content": "A student observes that when HCl gas is added to a saturated solution of NaCl, a white precipitate of NaCl appears. She knows K_sp of NaCl is quite large (NaCl is very soluble), yet precipitation still occurs."
+      },
+      "question": "Which of the following best explains this observation using equilibrium principles?",
+      "choices": [
+        { "id": "A", "text": "The common ion effect: adding Cl⁻ from HCl increases the ion product $Q_{sp} = [\\text{Na}^+][\\text{Cl}^-]$ above K_sp, causing precipitation", "is_correct": true, "explanation": "Even though K_sp(NaCl) is large, the saturated solution already has [Na⁺][Cl⁻] = K_sp. Adding Cl⁻ from HCl increases [Cl⁻], making Q_sp > K_sp; to restore equilibrium, NaCl precipitates until Q_sp returns to K_sp." },
+        { "id": "B", "text": "HCl reacts with NaCl to form NaHCl₂, a less soluble compound", "is_correct": false, "explanation": "NaHCl₂ does not exist as a stable compound; the precipitation is of NaCl itself due to the common ion effect from added Cl⁻." },
+        { "id": "C", "text": "HCl lowers the pH, which decreases the solubility of all ionic compounds", "is_correct": false, "explanation": "pH (H⁺ concentration) does not directly affect the solubility of NaCl; solubility of basic anions (like S²⁻, CO₃²⁻) is pH-dependent, but Cl⁻ is not." },
+        { "id": "D", "text": "Temperature decreases when HCl is added, lowering K_sp and causing precipitation", "is_correct": false, "explanation": "Adding HCl gas does not significantly lower the temperature; the precipitation is driven by the common ion effect (Q > K_sp), not temperature change." }
+      ],
+      "difficulty": "medium",
+      "unit_objective": "7.E"
+    },
+    {
+      "id": "chem-mcq-7-045",
+      "stimulus": { "type": "none" },
+      "question": "For a reversible reaction at equilibrium, which of the following best describes what happens when an inert gas is added at constant volume?",
+      "choices": [
+        { "id": "A", "text": "The total pressure increases, shifting the equilibrium toward the side with fewer moles of gas", "is_correct": false, "explanation": "Adding an inert gas at constant volume does not change the partial pressures (or concentrations) of the reacting gases; only total pressure increases. Since K depends on partial pressures, not total pressure, the equilibrium is unaffected." },
+        { "id": "B", "text": "The partial pressures and mole fractions of all reacting gases decrease, shifting the equilibrium toward the side with more moles of gas", "is_correct": false, "explanation": "At constant volume, adding an inert gas does not change the partial pressures of the reacting gases (PV = nRT; partial pressure depends only on moles of that specific gas and volume). Equilibrium is unaffected." },
+        { "id": "C", "text": "The equilibrium is unaffected because the partial pressures (and concentrations) of the reacting gases remain unchanged", "is_correct": true, "explanation": "At constant volume, the partial pressure of each reacting gas depends on its own moles and the volume; adding an inert gas does not change either. K_c and K_p involve only reacting species, so the equilibrium position does not shift." },
+        { "id": "D", "text": "Adding an inert gas always favors the reverse reaction because the increased pressure favors fewer particles", "is_correct": false, "explanation": "This would apply if the volume changed (e.g., compression), not if an inert gas is added at constant volume. At constant volume, inert gas addition does not shift equilibrium." }
+      ],
+      "difficulty": "medium",
+      "unit_objective": "7.D"
+    },
+    {
+      "id": "chem-mcq-7-046",
+      "stimulus": { "type": "none" },
+      "question": "Which of the following correctly explains the difference between Q and K in a chemical equilibrium?",
+      "choices": [
+        { "id": "A", "text": "Q is the equilibrium constant at high temperature; K is the equilibrium constant at low temperature", "is_correct": false, "explanation": "Q is the reaction quotient calculated using actual (non-equilibrium) concentrations at any point in the reaction; K is the equilibrium constant using equilibrium concentrations. Both Q and K can be calculated at any temperature." },
+        { "id": "B", "text": "Q is the same expression as K but calculated using the actual concentrations at any given moment; comparing Q to K predicts the direction of reaction", "is_correct": true, "explanation": "Q uses the same ratio as K (products/reactants) but is calculated at the current concentrations, which may or may not be at equilibrium. If Q < K, reaction proceeds forward; Q > K, reaction goes reverse; Q = K, system is at equilibrium." },
+        { "id": "C", "text": "K is always larger than Q because K represents the maximum possible product concentration", "is_correct": false, "explanation": "K is not always larger than Q; Q can be greater than K (when too much product is present). The relative values of Q and K determine reaction direction." },
+        { "id": "D", "text": "Q and K are the same quantity but expressed in different units", "is_correct": false, "explanation": "Q and K use the same expression and the same units (both dimensionless); they differ in that Q uses actual concentrations and K uses equilibrium concentrations." }
+      ],
+      "difficulty": "easy",
+      "unit_objective": "7.B"
+    },
+    {
+      "id": "chem-mcq-7-047",
+      "stimulus": {
+        "type": "text",
+        "content": "A student is given: $K_{sp}(\\text{BaSO}_4) = 1.1 \\times 10^{-10}$. She measures $[\\text{Ba}^{2+}] = 5 \\times 10^{-5}$ M and $[\\text{SO}_4^{2-}] = 5 \\times 10^{-5}$ M in a solution."
+      },
+      "question": "Which of the following best predicts whether BaSO₄ will precipitate?",
+      "choices": [
+        { "id": "A", "text": "$Q_{sp} = 2.5 \\times 10^{-9} > K_{sp}$; BaSO₄ will precipitate", "is_correct": true, "explanation": "$Q_{sp} = [\\text{Ba}^{2+}][\\text{SO}_4^{2-}] = (5 \\times 10^{-5})(5 \\times 10^{-5}) = 2.5 \\times 10^{-9}$. Since $Q_{sp} = 2.5 \\times 10^{-9} > K_{sp} = 1.1 \\times 10^{-10}$, the solution is supersaturated and BaSO₄ will precipitate." },
+        { "id": "B", "text": "$Q_{sp} = 2.5 \\times 10^{-9} < K_{sp}$; no precipitate forms", "is_correct": false, "explanation": "K_sp = 1.1 × 10⁻¹⁰; Q_sp = 2.5 × 10⁻⁹. Since 2.5 × 10⁻⁹ > 1.1 × 10⁻¹⁰, Q > K_sp and BaSO₄ precipitates." },
+        { "id": "C", "text": "$Q_{sp} = 1.0 \\times 10^{-4} > K_{sp}$; BaSO₄ will precipitate", "is_correct": false, "explanation": "Q_sp = [Ba²⁺][SO₄²⁻] = (5×10⁻⁵)(5×10⁻⁵) = 25×10⁻¹⁰ = 2.5×10⁻⁹, not 10⁻⁴; the direction of the prediction (precipitation) is correct, but the Q value is wrong." },
+        { "id": "D", "text": "No prediction can be made without knowing the temperature", "is_correct": false, "explanation": "K_sp is given at 25°C; if the measurement is also at 25°C, the comparison is valid. The relative magnitudes of Q_sp and K_sp clearly predict precipitation." }
+      ],
+      "difficulty": "medium",
+      "unit_objective": "7.E"
+    },
+    {
+      "id": "chem-mcq-7-048",
+      "stimulus": { "type": "none" },
+      "question": "For the exothermic reaction $\\text{A} \\rightleftharpoons \\text{B}$, which of the following correctly describes how the equilibrium constant K changes with temperature?",
+      "choices": [
+        { "id": "A", "text": "K increases as temperature increases because more collisions occur, producing more B", "is_correct": false, "explanation": "More collisions affect reaction rate, not the equilibrium constant. For an exothermic reaction, K decreases as temperature increases (product formation is disfavored at high T)." },
+        { "id": "B", "text": "K decreases as temperature increases because the exothermic forward reaction is disfavored at higher temperatures, shifting equilibrium toward reactants", "is_correct": true, "explanation": "For exothermic reactions, heat is a product; increasing temperature is like adding a product (Le Chatelier), shifting equilibrium left. This reduces [B]/[A] at equilibrium, decreasing K. Thermodynamically, ln K = −ΔH°/RT + ΔS°/R; for ΔH° < 0 (exothermic), increasing T decreases ln K (decreases K)." },
+        { "id": "C", "text": "K is independent of temperature; only concentrations and pressure change K", "is_correct": false, "explanation": "Temperature is the only variable that changes K; concentration and pressure changes shift equilibrium but do not change K. This is a fundamental principle of equilibrium." },
+        { "id": "D", "text": "K first decreases and then increases as temperature rises, following a non-linear pattern", "is_correct": false, "explanation": "For a reaction with constant ΔH°, K varies monotonically with temperature; for exothermic reactions, K decreases continuously as T increases." }
+      ],
+      "difficulty": "medium",
+      "unit_objective": "7.D"
+    },
+    {
+      "id": "chem-mcq-7-049",
+      "stimulus": {
+        "type": "text",
+        "content": "A student measures the equilibrium concentrations for $\\text{H}_2(g) + \\text{Br}_2(g) \\rightleftharpoons 2\\text{HBr}(g)$: $[\\text{H}_2] = 0.20$ M, $[\\text{Br}_2] = 0.30$ M, $[\\text{HBr}] = 0.60$ M."
+      },
+      "question": "Which of the following correctly calculates $K_c$ and interprets the value?",
+      "choices": [
+        { "id": "A", "text": "$K_c = 6.0$; products and reactants are roughly equal at equilibrium", "is_correct": true, "explanation": "$K_c = [\\text{HBr}]^2 / ([\\text{H}_2][\\text{Br}_2]) = (0.60)^2 / (0.20 \\times 0.30) = 0.36 / 0.060 = 6.0$. K = 6.0 is modest; neither side strongly dominates, though products are slightly favored." },
+        { "id": "B", "text": "$K_c = 0.167$; reactants are strongly favored", "is_correct": false, "explanation": "0.167 = 1/6 which is the reciprocal of K (i.e., K for the reverse reaction); the forward K_c = 6.0, not 0.167." },
+        { "id": "C", "text": "$K_c = 36$; products are strongly favored", "is_correct": false, "explanation": "36 = (0.60)² / (0.20 × 0.30) / 0.06... let me check: 0.36/0.060 = 6.0. K_c = 6.0, not 36; 36 would result from squaring (0.60)² = 0.36 and dividing by 0.010 (not 0.060)." },
+        { "id": "D", "text": "$K_c = 60$; the forward reaction is essentially complete", "is_correct": false, "explanation": "60 would result from a calculation error; K_c = (0.60)²/(0.20 × 0.30) = 0.36/0.060 = 6.0. The reaction is not essentially complete." }
+      ],
+      "difficulty": "medium",
+      "unit_objective": "7.A"
+    },
+    {
+      "id": "chem-mcq-7-050",
+      "stimulus": { "type": "none" },
+      "question": "Which of the following correctly explains the concept of dynamic equilibrium?",
+      "choices": [
+        { "id": "A", "text": "At dynamic equilibrium, the forward reaction has stopped and only the reverse reaction continues", "is_correct": false, "explanation": "At dynamic equilibrium, both forward and reverse reactions continue to occur; the key feature is that the rates are equal, not that one has stopped." },
+        { "id": "B", "text": "At dynamic equilibrium, both forward and reverse reactions occur at the same rate, resulting in constant macroscopic concentrations even though reactions continue at the molecular level", "is_correct": true, "explanation": "Dynamic equilibrium means the system appears static (constant concentrations) at the macroscopic level, but at the molecular level, reactants are continuously converting to products and products are converting back at equal rates." },
+        { "id": "C", "text": "Dynamic equilibrium means the concentrations of all species are equal at equilibrium", "is_correct": false, "explanation": "Equal concentrations would require K = 1 for a 1:1 reaction; K can have any value. Dynamic equilibrium means constant concentrations (not necessarily equal) due to equal forward and reverse rates." },
+        { "id": "D", "text": "Dynamic equilibrium only applies to homogeneous reactions; heterogeneous reactions reach static (true) equilibrium", "is_correct": false, "explanation": "Dynamic equilibrium applies to all reversible reactions, including heterogeneous ones (e.g., CaCO₃(s) ⇌ CaO(s) + CO₂(g)). The dynamic nature of equilibrium is universal." }
+      ],
+      "difficulty": "easy",
+      "unit_objective": "7.A"
+    },
+    {
+      "id": "chem-mcq-7-051",
+      "stimulus": {
+        "type": "text",
+        "content": "The industrial synthesis of ammonia uses: $\\text{N}_2(g) + 3\\text{H}_2(g) \\rightleftharpoons 2\\text{NH}_3(g)$, $\\Delta H = -92$ kJ/mol. The process is run at 400-500°C and 150-300 atm with an iron catalyst."
+      },
+      "question": "Which of the following best explains why the industrial Haber process uses high pressure despite the associated engineering costs?",
+      "choices": [
+        { "id": "A", "text": "High pressure increases the temperature, which increases the rate of the forward reaction", "is_correct": false, "explanation": "Pressure and temperature are independent variables; increasing pressure does not directly increase temperature." },
+        { "id": "B", "text": "High pressure shifts the equilibrium toward NH₃ because the forward reaction produces fewer moles of gas (2 mol) from more moles of gas (4 mol)", "is_correct": true, "explanation": "The forward reaction reduces 4 mol of gas to 2 mol; Le Chatelier's principle predicts that increased pressure favors the side with fewer moles of gas (products). High pressure increases the equilibrium yield of NH₃ significantly." },
+        { "id": "C", "text": "High pressure lowers the activation energy for the forward reaction, increasing the rate", "is_correct": false, "explanation": "Activation energy is lowered by catalysts (iron), not by pressure; pressure affects equilibrium position, not activation energy." },
+        { "id": "D", "text": "High pressure prevents the catalyst from deactivating at high temperatures", "is_correct": false, "explanation": "Catalyst stability is addressed by the choice of catalyst material and promoters, not by the operating pressure." }
+      ],
+      "difficulty": "medium",
+      "unit_objective": "7.D"
+    },
+    {
+      "id": "chem-mcq-7-052",
+      "stimulus": { "type": "none" },
+      "question": "For the equilibrium $\\text{FeO}(s) + \\text{CO}(g) \\rightleftharpoons \\text{Fe}(s) + \\text{CO}_2(g)$, which of the following correctly writes $K_c$?",
+      "choices": [
+        { "id": "A", "text": "$K_c = \\frac{[\\text{Fe}][\\text{CO}_2]}{[\\text{FeO}][\\text{CO}]}$", "is_correct": false, "explanation": "Pure solids (Fe and FeO) are not included in the equilibrium expression because their activities are defined as 1." },
+        { "id": "B", "text": "$K_c = \\frac{[\\text{CO}_2]}{[\\text{CO}]}$", "is_correct": true, "explanation": "For heterogeneous equilibria, pure solids (FeO and Fe) are omitted from the K expression (their activities = 1). Only the gaseous species appear: $K_c = [\\text{CO}_2]/[\\text{CO}]$." },
+        { "id": "C", "text": "$K_c = [\\text{CO}_2][\\text{CO}]$", "is_correct": false, "explanation": "K_c has products in the numerator and reactants in the denominator; CO is a reactant, not a product, and should be in the denominator." },
+        { "id": "D", "text": "$K_c = [\\text{CO}]/[\\text{CO}_2]$", "is_correct": false, "explanation": "This is the K_c for the reverse reaction; for the forward reaction (products / reactants), CO₂ (product) is in the numerator and CO (reactant) is in the denominator." }
+      ],
+      "difficulty": "easy",
+      "unit_objective": "7.A"
     }
   ]
 }

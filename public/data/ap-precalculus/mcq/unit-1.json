@@ -376,15 +376,15 @@
           "type": "line",
           "data": {
             "labels": ["-3","-2","-1","0","1","2","3"],
-            "datasets": [{ "label": "f(x)", "data": [-18,-4,0,0,0,4,18], "borderColor": "#6366f1", "backgroundColor": "transparent", "tension": 0.4 }]
+            "datasets": [{ "label": "f(x)", "data": [18,4,0,0,-2,-12,-36], "borderColor": "#6366f1", "backgroundColor": "transparent", "tension": 0.4 }]
           },
           "options": { "plugins":{"legend":{"display":false}}, "scales": { "x":{"title":{"display":true,"text":"x"}}, "y":{"title":{"display":true,"text":"f(x)"}} } }
         }
       },
       "question": "The graph of a polynomial $f$ is shown above. The graph crosses the $x$-axis at $x = -1$ and touches but does not cross at $x = 0$. Which of the following could be a formula for $f$?",
       "choices": [
-        { "id": "A", "text": "$f(x) = x^2(x + 1)$", "is_correct": false, "explanation": "This has a bounce at $x=0$ (multiplicity 2) and a cross at $x=-1$ (multiplicity 1). However, the leading coefficient is positive, causing the right end to rise, which may not match." },
-        { "id": "B", "text": "$f(x) = -x^2(x + 1)$", "is_correct": true, "explanation": "Bounce at $x=0$ (even multiplicity 2) and cross at $x=-1$ (odd multiplicity 1). Leading term $-x^3$: right end falls, left end rises — consistent with the graph showing large negative values for large negative $x$." },
+        { "id": "A", "text": "$f(x) = x^2(x + 1)$", "is_correct": false, "explanation": "This has a bounce at $x=0$ (multiplicity 2) and a cross at $x=-1$ (multiplicity 1). However, the leading coefficient is positive, causing the right end to rise — contradicting the chart which falls to the right ($f(3)=-36$)." },
+        { "id": "B", "text": "$f(x) = -x^2(x + 1)$", "is_correct": true, "explanation": "Bounce at $x=0$ (even multiplicity 2) and cross at $x=-1$ (odd multiplicity 1). Leading term $-x^3$: right end falls, left end rises — consistent with the chart data $f(-3)=18$ and $f(3)=-36$." },
         { "id": "C", "text": "$f(x) = x^3(x + 1)$", "is_correct": false, "explanation": "This has a cross at $x=0$ (odd multiplicity 3) and a cross at $x=-1$ (multiplicity 1). The graph shows a bounce at $x=0$, not a cross." },
         { "id": "D", "text": "$f(x) = x(x + 1)^2$", "is_correct": false, "explanation": "This bounces at $x=-1$ and crosses at $x=0$ — the opposite of what the graph shows." }
       ],
@@ -503,8 +503,8 @@
         "content": {
           "type": "line",
           "data": {
-            "labels": ["-4","-3","-2","-1","0","1","2","3","4"],
-            "datasets": [{ "label": "f(x)", "data": [12,0,-4,-3,0,0,-4,-3,0], "borderColor": "#6366f1", "backgroundColor": "transparent", "tension": 0.4 }]
+            "labels": ["-3","-2","-1","0","1","2","3","4"],
+            "datasets": [{ "label": "f(x)", "data": [0,-50,-32,0,16,10,0,28], "borderColor": "#6366f1", "backgroundColor": "transparent", "tension": 0.4 }]
           },
           "options": { "plugins":{"legend":{"display":false}}, "scales": { "x":{"title":{"display":true,"text":"x"}}, "y":{"title":{"display":true,"text":"f(x)"}} } }
         }
@@ -873,15 +873,15 @@
         "type": "table",
         "content": {
           "headers": ["Year", "Population (thousands)"],
-          "rows": [["0","50"],["5","65"],["10","85"],["15","110"]]
+          "rows": [["0","50"],["5","65"],["10","84"],["15","110"]]
         }
       },
       "question": "A researcher is modeling a town's population using the data in the table. Which type of function would best model the data, and why?",
       "choices": [
-        { "id": "A", "text": "Linear, because the population increases each period", "is_correct": false, "explanation": "AROC: $\\frac{65-50}{5}=3$, $\\frac{85-65}{5}=4$, $\\frac{110-85}{5}=5$. The rate of change is increasing, not constant, so the model is not linear." },
-        { "id": "B", "text": "Exponential, because the population grows by a constant multiplicative factor", "is_correct": false, "explanation": "Check ratios over equal intervals: $65/50=1.3$, $85/65\\approx1.31$, $110/85\\approx1.29$. These are approximately constant, suggesting exponential growth. However, this answer requires verifying the ratios." },
-        { "id": "C", "text": "Quadratic, because the average rate of change is increasing at a constant rate", "is_correct": false, "explanation": "Second differences in AROC: $4-3=1$ and $5-4=1$. Constant second differences do suggest quadratic — this is plausible. But exponential also fits well given the approximately constant multiplicative ratios." },
-        { "id": "D", "text": "Exponential, because the average rate of change is increasing over equal intervals", "is_correct": true, "explanation": "Increasing AROC ($3, 4, 5$ per 5-year period) and near-constant multiplicative ratios ($\\approx1.3$ every 5 years) both suggest an exponential model, where growth compounds over time." }
+        { "id": "A", "text": "Linear, because the population increases each period", "is_correct": false, "explanation": "AROC: $\\frac{65-50}{5}=3$, $\\frac{84-65}{5}=3.8$, $\\frac{110-84}{5}=5.2$. The rate of change is increasing, not constant, so the model is not linear." },
+        { "id": "B", "text": "Exponential, because the population grows by a constant multiplicative factor", "is_correct": false, "explanation": "Check ratios over equal intervals: $65/50=1.30$, $84/65\\approx1.29$, $110/84\\approx1.31$. These are approximately constant, suggesting exponential growth. However, this choice focuses on constant factor without noting the increasing AROC." },
+        { "id": "C", "text": "Quadratic, because the average rate of change is increasing at a constant rate", "is_correct": false, "explanation": "Second differences in AROC: $3.8-3=0.8$ and $5.2-3.8=1.4$. These are NOT constant ($0.8\\neq1.4$), so a quadratic model is not supported." },
+        { "id": "D", "text": "Exponential, because the average rate of change is increasing over equal intervals", "is_correct": true, "explanation": "Increasing AROC ($3, 3.8, 5.2$ per 5-year period) and near-constant multiplicative ratios ($\\approx1.30$ every 5 years) both suggest an exponential model, where growth compounds over time." }
       ],
       "unit_objective": "PCF-1.A"
     },

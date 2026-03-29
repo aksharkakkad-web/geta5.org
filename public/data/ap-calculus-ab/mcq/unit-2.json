@@ -104,8 +104,8 @@
       },
       "stem": "What is the equation of the tangent line to $f$ at $x = 2$?",
       "choices": [
-        { "id": "A", "text": "$y = 6(x - 2) + 2$, or equivalently $y = 6x - 10$", "is_correct": true, "explanation": "$f(2) = 8 - 12 + 2 = -2$. Wait — actually $f(2) = 8 - 12 + 2 = -2$. Then $f'(x) = 3x^2 - 6$, $f'(2) = 12 - 6 = 6$. Tangent: $y - (-2) = 6(x-2)$, i.e., $y = 6x - 14$. So the correct form is $y = 6x - 14$." },
-        { "id": "B", "text": "$y = 6x - 14$", "is_correct": false, "explanation": "Actually $y = 6x - 14$ IS correct. $f(2) = 8 - 12 + 2 = -2$. Slope $= f'(2) = 6$. Tangent: $y+2 = 6(x-2) \\Rightarrow y = 6x - 14$." },
+        { "id": "A", "text": "$y = 6x - 10$", "is_correct": false, "explanation": "The slope $f'(2) = 6$ is correct, but the point is wrong. $f(2) = 8 - 12 + 2 = -2$, so the tangent line passes through $(2, -2)$: $y - (-2) = 6(x-2) \\Rightarrow y = 6x - 14$, not $y = 6x - 10$. A common error is using $f(2) = 2$ instead of $-2$." },
+        { "id": "B", "text": "$y = 6x - 14$", "is_correct": true, "explanation": "$f(2) = 8 - 12 + 2 = -2$. $f'(x) = 3x^2 - 6$, so $f'(2) = 12 - 6 = 6$. Tangent line: $y - (-2) = 6(x - 2) \\Rightarrow y = 6x - 14$." },
         { "id": "C", "text": "$y = 3x^2 - 6$", "is_correct": false, "explanation": "This is $f'(x)$, not the tangent line. The tangent line is evaluated at the specific point $x = 2$." },
         { "id": "D", "text": "$y = 6x + 2$", "is_correct": false, "explanation": "Slope is correct (6), but $y$-intercept is wrong. Tangent passes through $(2, -2)$: $y = 6(2) - b = -2 \\Rightarrow b = 14$, giving $y = 6x - 14$." }
       ]
@@ -117,14 +117,14 @@
       "has_stimulus": true,
       "stimulus": {
         "type": "text",
-        "content": "Let $f(x) = x^3 - 6x + 2$. The tangent line to the graph of $f$ at the point $(2, f(2))$."
+        "content": "Let $f(x) = x^2 - 3x + 1$."
       },
-      "stem": "Which of the following is the correct equation of the tangent line to $f$ at $x = 2$?",
+      "stem": "What is the equation of the tangent line to $f$ at $x = 4$?",
       "choices": [
-        { "id": "A", "text": "$y = 6x - 14$", "is_correct": true, "explanation": "$f(2) = 8 - 12 + 2 = -2$. $f'(x) = 3x^2 - 6$, so $f'(2) = 12 - 6 = 6$. Tangent line: $y - (-2) = 6(x - 2) \\Rightarrow y = 6x - 14$." },
-        { "id": "B", "text": "$y = 6x + 2$", "is_correct": false, "explanation": "The slope $6$ is correct but the $y$-intercept is wrong. Using point $(2, -2)$: $-2 = 6(2) + b \\Rightarrow b = -14$." },
-        { "id": "C", "text": "$y = 3x - 8$", "is_correct": false, "explanation": "Neither slope nor $y$-intercept is correct. Slope at $x=2$ is $f'(2) = 6$." },
-        { "id": "D", "text": "$y = 6x - 10$", "is_correct": false, "explanation": "$y = 6(2) - 10 = 2 \\neq f(2) = -2$. The tangent must pass through $(2, -2)$, giving $y = 6x - 14$." }
+        { "id": "A", "text": "$y = 5x - 15$", "is_correct": true, "explanation": "$f(4) = 16 - 12 + 1 = 5$. $f'(x) = 2x - 3$, so $f'(4) = 8 - 3 = 5$. Tangent line: $y - 5 = 5(x - 4) \\Rightarrow y = 5x - 15$." },
+        { "id": "B", "text": "$y = 5x + 5$", "is_correct": false, "explanation": "The slope $5$ is correct, but the $y$-intercept is wrong. Using point $(4, 5)$: $5 = 5(4) + b \\Rightarrow b = -15$, not $5$." },
+        { "id": "C", "text": "$y = 5x - 20$", "is_correct": false, "explanation": "The slope is correct but an off-by-one error in $f(4)$ leads to the wrong intercept. $f(4) = 16 - 12 + 1 = 5$, so $b = 5 - 5(4) = -15$." },
+        { "id": "D", "text": "$y = 3x - 7$", "is_correct": false, "explanation": "This uses $f'(2) = 1$ instead of $f'(4) = 5$. The slope must be evaluated at $x = 4$: $f'(4) = 2(4) - 3 = 5$." }
       ]
     },
     {
@@ -198,8 +198,8 @@
       },
       "stem": "If $k(x) = \\frac{f(x)}{g(x)}$, what is $k'(5)$?",
       "choices": [
-        { "id": "A", "text": "$\\dfrac{23}{9}$", "is_correct": true, "explanation": "Quotient Rule: $k'(x) = \\frac{f'g - fg'}{g^2}$. At $x=5$: $\\frac{(7)(3) - (-2)(-2)}{(3)^2} = \\frac{21 - 4}{9} = \\frac{17}{9}$. Hmm let me recompute: $f'(5)=7, g(5)=3, f(5)=-2, g'(5)=-2$. $k'(5) = \\frac{7 \\cdot 3 - (-2)(-2)}{3^2} = \\frac{21-4}{9} = \\frac{17}{9}$." },
-        { "id": "B", "text": "$\\dfrac{17}{9}$", "is_correct": false, "explanation": "Actually this is the correct value. Let me verify: $\\frac{f'(5)g(5)-f(5)g'(5)}{[g(5)]^2} = \\frac{(7)(3)-(-2)(-2)}{9} = \\frac{21-4}{9} = \\frac{17}{9}$." },
+        { "id": "A", "text": "$\\dfrac{23}{9}$", "is_correct": false, "explanation": "This result comes from computing $\\frac{(7)(3) - (-2)(2)}{9} = \\frac{21 + 4}{9} = \\frac{25}{9}$... or incorrectly signing $f(5)g'(5)$. The correct computation is $\\frac{(7)(3) - (-2)(-2)}{9} = \\frac{21 - 4}{9} = \\frac{17}{9}$." },
+        { "id": "B", "text": "$\\dfrac{17}{9}$", "is_correct": true, "explanation": "Quotient Rule: $k'(5) = \\frac{f'(5)g(5) - f(5)g'(5)}{[g(5)]^2} = \\frac{(7)(3) - (-2)(-2)}{(3)^2} = \\frac{21 - 4}{9} = \\frac{17}{9}$." },
         { "id": "C", "text": "$-\\dfrac{7}{3}$", "is_correct": false, "explanation": "This is $f(5)/g(5) = -2/3$ ... no. The Quotient Rule gives $\\frac{17}{9}$, not $-7/3$." },
         { "id": "D", "text": "$\\dfrac{21}{9}$", "is_correct": false, "explanation": "You forgot to subtract the $fg'$ term: $21 - 4 = 17$, giving $\\frac{17}{9}$." }
       ]

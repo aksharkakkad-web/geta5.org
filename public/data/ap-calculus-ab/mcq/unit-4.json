@@ -1219,8 +1219,8 @@
         {
           "id": "A",
           "text": "Speeding up, because $v(2) > 0$ and $a(2) > 0$",
-          "is_correct": true,
-          "explanation": "$v(2) = 12-12 = 0$... re-checking: $v(2) = 3(4)-6(2) = 12-12 = 0$. The particle is momentarily at rest at $t=2$. The question tests whether students note $v(2)=0$."
+          "is_correct": false,
+          "explanation": "$v(2) = 3(4)-6(2) = 12-12 = 0$, so the particle is not speeding up. It is momentarily at rest at $t=2$."
         },
         {
           "id": "B",
@@ -1231,8 +1231,8 @@
         {
           "id": "C",
           "text": "At rest (neither speeding up nor slowing down)",
-          "is_correct": false,
-          "explanation": "At $t=2$: $v(2) = 0$, meaning the particle is instantaneously at rest. However, since $a(2) = 6 > 0$, it is about to speed up in the positive direction."
+          "is_correct": true,
+          "explanation": "At $t=2$: $v(2) = 3(4)-6(2) = 0$, so the particle is instantaneously at rest. Since $v(2) = 0$, the particle is neither speeding up nor slowing down at this instant, even though $a(2) = 6 > 0$ means it is about to accelerate in the positive direction."
         },
         {
           "id": "D",
@@ -1403,15 +1403,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{24}{5}$ ft/s",
+          "text": "$\\frac{24\\sqrt{13}}{13}$ ft/s",
           "is_correct": true,
-          "explanation": "$L^2 = x^2 + 100^2$. At $x=150$: $L = \\sqrt{22500+10000} = \\sqrt{32500} = 50\\sqrt{13}$. Differentiate: $2L\\frac{dL}{dt} = 2x\\frac{dx}{dt}$. $\\frac{dL}{dt} = \\frac{150 \\cdot 8}{50\\sqrt{13}} = \\frac{24}{\\sqrt{13}} \\approx \\frac{24}{\\sqrt{13}}$. Numerical: $50\\sqrt{13}\\approx 180.3$. $\\frac{dL}{dt} = \\frac{150(8)}{50\\sqrt{13}} = \\frac{24}{\\sqrt{13}}$. Simplified: $\\frac{24\\sqrt{13}}{13} \\approx \\frac{24}{3.606} \\approx 6.66$. The exact answer depends on computed $L$. With $L = \\sqrt{32500}$: $\\frac{dL}{dt} = \\frac{150 \\cdot 8}{\\sqrt{32500}} = \\frac{1200}{50\\sqrt{13}} = \\frac{24}{\\sqrt{13}}$."
+          "explanation": "$L^2 = x^2 + 100^2$. At $x=150$: $L = \\sqrt{22500+10000} = \\sqrt{32500} = 50\\sqrt{13}$. Differentiate: $2L\\frac{dL}{dt} = 2x\\frac{dx}{dt}$. $\\frac{dL}{dt} = \\frac{x \\cdot \\frac{dx}{dt}}{L} = \\frac{150 \\cdot 8}{50\\sqrt{13}} = \\frac{24}{\\sqrt{13}} = \\frac{24\\sqrt{13}}{13} \\approx 6.66$ ft/s."
         },
         {
           "id": "B",
-          "text": "$\\frac{12}{5}$ ft/s",
+          "text": "$\\frac{24}{5}$ ft/s",
           "is_correct": false,
-          "explanation": "Using $\\frac{x}{L}\\frac{dx}{dt}$ with incorrect $L$. The correct computation is $\\frac{dL}{dt} = \\frac{x\\dot{x}}{L} = \\frac{150(8)}{50\\sqrt{13}} = \\frac{24}{\\sqrt{13}}$."
+          "explanation": "This incorrectly uses $L = \\sqrt{150^2+100^2} = 250/\\sqrt{1}$... actually $L = 50\\sqrt{13} \\neq 250$. Using $L=250$ would give $\\frac{150 \\cdot 8}{250} = 4.8 = \\frac{24}{5}$, but $L = 50\\sqrt{13} \\approx 180.3$."
         },
         {
           "id": "C",
@@ -1653,10 +1653,10 @@
       "id": "calc-mcq-u4-044",
       "unit": "unit-4",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stimulus": {
-        "type": "none",
-        "content": null
+        "type": "text",
+        "content": "A particle moves along a line with acceleration $a(t) = 6t - 2$, initial velocity $v(0) = -4$, and initial position $s(0) = 5$."
       },
       "stem": "Which of the following gives the position function $s(t)$?",
       "choices": [
@@ -1801,10 +1801,10 @@
       "id": "calc-mcq-u4-048",
       "unit": "unit-4",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stimulus": {
-        "type": "none",
-        "content": null
+        "type": "text",
+        "content": "The temperature along a rod is given by $T(x) = 100 - 2x^2$ °C, where $x$ is the position in centimeters."
       },
       "stem": "Which of the following best interprets $T'(x)$ and its units?",
       "choices": [
@@ -1949,10 +1949,10 @@
       "id": "calc-mcq-u4-052",
       "unit": "unit-4",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stimulus": {
-        "type": "none",
-        "content": null
+        "type": "text",
+        "content": "A particle moves along a line with velocity $v(t) = t^2 - 4$ for $t \\geq 0$."
       },
       "stem": "Which of the following gives the displacement of the particle on $[0, 4]$?",
       "choices": [
@@ -1986,10 +1986,10 @@
       "id": "calc-mcq-u4-053",
       "unit": "unit-4",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stimulus": {
-        "type": "none",
-        "content": null
+        "type": "text",
+        "content": "A particle moves along the $y$-axis with velocity $v(t) = 5\\cos(\\pi t)$ and initial position $y(0) = 3$."
       },
       "stem": "Which of the following gives the position $y(t)$?",
       "choices": [
@@ -2060,10 +2060,10 @@
       "id": "calc-mcq-u4-055",
       "unit": "unit-4",
       "difficulty": "hard",
-      "has_stimulus": false,
+      "has_stimulus": true,
       "stimulus": {
-        "type": "none",
-        "content": null
+        "type": "text",
+        "content": "Let $F(x) = x^3 - x^2$. A student uses the linearization of $F$ at $x = 2$ to estimate $F(2.05)$."
       },
       "stem": "Which of the following best describes whether the student's estimate overestimates or underestimates $F(2.05)$?",
       "choices": [
