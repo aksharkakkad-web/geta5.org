@@ -56,6 +56,16 @@ export default function HomePage() {
       <div style={{ marginTop: '32px', paddingBottom: '48px' }}>
         <StreakStrip />
       </div>
+
+      {/* Discrete admin link */}
+      <div style={{ textAlign: 'center', paddingBottom: '24px' }}>
+        <a
+          href="/admin"
+          style={{ color: 'var(--bg-border)', fontSize: '0.625rem', textDecoration: 'none' }}
+        >
+          admin
+        </a>
+      </div>
     </div>
   )
 }
