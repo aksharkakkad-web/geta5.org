@@ -3,6 +3,7 @@ import './globals.css'
 import { Header } from '@/components/layout/Header'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://ascendly.vercel.app'),
   title: 'Ascendly — Free AP Exam Prep',
   description: 'Free AP practice questions, drills, and study guides. No signup required.',
   openGraph: {

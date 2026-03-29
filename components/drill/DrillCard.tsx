@@ -7,7 +7,6 @@ import { fuzzyMatch } from '@/utils/fuzzyMatch'
 import { parseInlineMath } from '@/utils/parseInlineMath'
 import { DrillCard as DrillCardType, MODE_LABELS } from '@/utils/drillSession'
 import { playCorrect, playWrong } from '@/utils/sounds'
-import { parseFormula, compareFormulas } from '@/utils/formulaParser'
 
 interface DrillCardProps {
   card: DrillCardType
@@ -185,7 +184,7 @@ function ConceptMcCard({ card, onAnswer, onNext, isRetry }: DrillCardProps) {
                 color: choice.is_correct ? 'var(--accent-success)' : 'var(--text-muted)',
                 lineHeight: '1.5',
               }}>
-                {choice.explanation}
+                {parseInlineMath(choice.explanation)}
               </div>
             )}
           </button>
@@ -210,42 +209,14 @@ function ConceptMcCard({ card, onAnswer, onNext, isRetry }: DrillCardProps) {
   )
 }
 
-const NOTATION_TABLE = [
-  { input: 'x^2',      renders: 'x^{2}' },
-  { input: 'x_0',      renders: 'x_{0}' },
-  { input: '(a)/(b)',  renders: '\\frac{a}{b}' },
-  { input: 'sqrt(x)',  renders: '\\sqrt{x}' },
-  { input: '+-',       renders: '\\pm' },
-  { input: 'int(f)',   renders: '\\int f' },
-  { input: 'inf',      renders: '\\infty' },
-  { input: 'Delta',    renders: '\\Delta' },
-  { input: 'theta',    renders: '\\theta' },
-  { input: 'pi',       renders: '\\pi' },
-  { input: 'lambda',   renders: '\\lambda' },
-  { input: 'mu',       renders: '\\mu' },
-]
-
 function FormulaCard({ card, onAnswer, onNext, isRetry }: DrillCardProps) {
-  const [inputValue, setInputValue] = useState('')
+  const [revealed, setRevealed] = useState(false)
   const [verdict, setVerdict] = useState<'correct' | 'wrong' | null>(null)
-  const [showModal, setShowModal] = useState(false)
-
-  const previewKatex = parseFormula(inputValue)
 
   useEffect(() => {
-    setInputValue('')
+    setRevealed(false)
     setVerdict(null)
-    setShowModal(false)
   }, [card.id])
-
-  const handleSubmit = useCallback(() => {
-    if (!inputValue.trim() || verdict !== null) return
-    const isCorrect = compareFormulas(inputValue, card.answer ?? '')
-    const v: 'correct' | 'wrong' = isCorrect ? 'correct' : 'wrong'
-    if (isCorrect) playCorrect(); else playWrong()
-    setVerdict(v)
-    onAnswer(card.id, v, inputValue)
-  }, [inputValue, verdict, card, onAnswer])
 
   useEffect(() => {
     if (verdict === null) return
@@ -256,212 +227,160 @@ function FormulaCard({ card, onAnswer, onNext, isRetry }: DrillCardProps) {
     return () => { clearTimeout(id); window.removeEventListener('keydown', handler) }
   }, [verdict, onNext])
 
-  const cardState: CardState =
-    verdict === 'correct' ? 'correct'
-    : verdict === 'wrong' ? 'wrong'
-    : inputValue.trim().length > 0 ? 'typing'
-    : 'idle'
-  const inputBorder = getInputBorderColor(cardState)
-  const cardBorder = getCardBorderColor(cardState, isRetry)
-  const isSubmitDisabled = inputValue.trim().length === 0 || verdict !== null
+  const cardBorder =
+    verdict === 'correct' ? 'var(--accent-success)'
+    : verdict === 'wrong' ? 'var(--accent-danger)'
+    : isRetry ? 'var(--accent-warning)'
+    : 'var(--bg-border)'
+
+  function handleKnew() {
+    playCorrect()
+    setVerdict('correct')
+    onAnswer(card.id, 'correct', '')
+  }
+
+  function handleDidntKnow() {
+    playWrong()
+    setVerdict('wrong')
+    onAnswer(card.id, 'wrong', '')
+  }
 
   return (
-    <>
-      {showModal && (
-        <div
-          onClick={() => setShowModal(false)}
+    <div
+      className="mx-auto w-full"
+      style={{
+        maxWidth: '880px',
+        background: 'var(--bg-card)',
+        borderRadius: 'var(--radius-xl)',
+        border: `1px solid ${cardBorder}`,
+        padding: '52px 64px',
+        transition: 'border-color 200ms ease',
+      }}
+    >
+      {/* Mode tag + retry badge */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
+        <span style={{ color: 'var(--text-muted)', fontSize: '0.75rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+          {MODE_LABELS[card.mode]}
+        </span>
+        {isRetry && <RetryBadge />}
+      </div>
+
+      {/* Prompt */}
+      <div style={{ fontSize: '1.5rem', lineHeight: '1.65', color: 'var(--text-primary)', marginBottom: '32px', fontWeight: 500 }}>
+        {parseInlineMath(card.prompt)}
+      </div>
+
+      {/* Reveal area */}
+      {!revealed && verdict === null && (
+        <button
+          onClick={() => setRevealed(true)}
+          autoFocus
           style={{
-            position: 'fixed', inset: 0, zIndex: 50,
-            background: 'rgba(0,0,0,0.55)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            width: '100%', padding: '13px 20px', borderRadius: 'var(--radius-md)', border: 'none',
+            background: 'var(--accent)', color: 'white',
+            fontSize: '0.9375rem', fontWeight: 600, cursor: 'pointer',
           }}
         >
-          <div
-            onClick={e => e.stopPropagation()}
-            style={{
-              background: 'var(--bg-card)',
-              border: '1px solid var(--bg-border)',
-              borderRadius: 'var(--radius-xl)',
-              padding: '32px',
-              maxWidth: '420px',
-              width: '100%',
-              maxHeight: '80vh',
-              overflowY: 'auto',
-            }}
-          >
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-              <span style={{ fontWeight: 700, fontSize: '1rem', color: 'var(--text-primary)' }}>Notation Reference</span>
-              <button
-                onClick={() => setShowModal(false)}
-                style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-muted)', fontSize: '1.25rem', lineHeight: 1 }}
-              >
-                ✕
-              </button>
-            </div>
-            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.875rem' }}>
-              <thead>
-                <tr>
-                  <th style={{ textAlign: 'left', padding: '6px 8px', color: 'var(--text-muted)', fontWeight: 600, borderBottom: '1px solid var(--bg-border)' }}>Type</th>
-                  <th style={{ textAlign: 'left', padding: '6px 8px', color: 'var(--text-muted)', fontWeight: 600, borderBottom: '1px solid var(--bg-border)' }}>Renders as</th>
-                </tr>
-              </thead>
-              <tbody>
-                {NOTATION_TABLE.map(row => (
-                  <tr key={row.input}>
-                    <td style={{ padding: '6px 8px', fontFamily: 'monospace', color: 'var(--accent)', borderBottom: '1px solid var(--bg-border)' }}>{row.input}</td>
-                    <td style={{ padding: '6px 8px', color: 'var(--text-primary)', borderBottom: '1px solid var(--bg-border)' }}>
-                      <KatexRenderer formula={row.renders} displayMode={false} />
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
+          Show Formula
+        </button>
       )}
 
-      <div
-        className="mx-auto w-full"
-        style={{
-          maxWidth: '880px',
-          background: 'var(--bg-card)',
-          borderRadius: 'var(--radius-xl)',
-          border: `1px solid ${cardBorder}`,
-          padding: '52px 64px',
-          transition: 'border-color 200ms ease',
-        }}
-      >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
-          <span style={{ color: 'var(--text-muted)', fontSize: '0.75rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-            {MODE_LABELS[card.mode]}
-          </span>
-          {isRetry && <RetryBadge />}
-        </div>
-
-        {card.format_hint && (
-          <div style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', marginBottom: '10px', fontStyle: 'italic' }}>
-            {card.format_hint}
+      {/* Formula + self-grade buttons */}
+      {revealed && verdict === null && (
+        <>
+          <div style={{
+            padding: '20px 24px',
+            borderRadius: 'var(--radius-md)',
+            background: 'var(--bg-secondary)',
+            border: '1px solid var(--bg-border)',
+            marginBottom: '20px',
+            textAlign: 'center',
+            fontSize: '1.25rem',
+          }}>
+            <KatexRenderer formula={card.answer ?? ''} displayMode={true} />
           </div>
-        )}
-
-        <div style={{ fontSize: '1.5rem', lineHeight: '1.65', color: 'var(--text-primary)', marginBottom: '32px', fontWeight: 500 }}>
-          {card.prompt}
-        </div>
-
-        {verdict === null && (
-          <div style={{ marginBottom: '16px' }}>
-            <input
-              type="text"
-              value={inputValue}
-              onChange={e => setInputValue(e.target.value)}
-              onKeyDown={e => { if (e.key === 'Enter') handleSubmit() }}
-              placeholder="Type your formula…"
-              autoFocus
-              style={{
-                width: '100%', background: 'transparent', border: 'none',
-                borderBottom: `2px solid ${inputBorder}`, borderRadius: 0,
-                padding: '12px 0', fontSize: '1.25rem', color: 'var(--text-primary)',
-                outline: 'none', transition: 'border-color 150ms ease',
-              }}
-            />
-            {inputValue.trim() && (
-              <div style={{ marginTop: '10px', minHeight: '28px', color: 'var(--text-secondary)', fontSize: '1.1rem' }}>
-                <KatexRenderer formula={previewKatex} displayMode={false} />
-              </div>
-            )}
+          <div style={{ display: 'flex', gap: '8px' }}>
             <button
-              onClick={() => setShowModal(true)}
-              style={{ marginTop: '8px', background: 'none', border: 'none', cursor: 'pointer', color: 'var(--accent)', fontSize: '0.8125rem', padding: 0, textDecoration: 'underline' }}
+              onClick={handleDidntKnow}
+              style={{
+                flex: 1, padding: '13px 20px', borderRadius: 'var(--radius-md)',
+                border: '1px solid var(--bg-border)', background: 'var(--bg-secondary)',
+                color: 'var(--text-secondary)', fontSize: '0.9375rem', fontWeight: 500, cursor: 'pointer',
+              }}
             >
-              formatting help
+              I didn&apos;t know this
+            </button>
+            <button
+              onClick={handleKnew}
+              style={{
+                flex: 1, padding: '13px 20px', borderRadius: 'var(--radius-md)',
+                border: 'none', background: 'var(--accent-success)',
+                color: 'white', fontSize: '0.9375rem', fontWeight: 600, cursor: 'pointer',
+              }}
+            >
+              I knew this
             </button>
           </div>
-        )}
+        </>
+      )}
 
-        {verdict === null && (
+      {/* Post-verdict feedback */}
+      {verdict === 'correct' && (
+        <>
+          <div style={{
+            borderRadius: 'var(--radius-md)', padding: '16px', marginBottom: '16px',
+            background: 'color-mix(in srgb, var(--accent-success) 10%, transparent)',
+            border: '1px solid color-mix(in srgb, var(--accent-success) 30%, transparent)',
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--accent-success)', fontWeight: 600, marginBottom: '12px' }}>
+              <Check size={18} /><span>Nice work!</span>
+            </div>
+            <div style={{ textAlign: 'center', fontSize: '1.1rem' }}>
+              <KatexRenderer formula={card.answer ?? ''} displayMode={true} />
+            </div>
+          </div>
           <button
-            onClick={handleSubmit}
-            disabled={isSubmitDisabled}
+            onClick={onNext}
             style={{
               width: '100%', padding: '13px 20px', borderRadius: 'var(--radius-md)', border: 'none',
-              background: isSubmitDisabled ? 'var(--bg-border)' : 'var(--accent)',
-              color: isSubmitDisabled ? 'var(--text-muted)' : 'white',
-              fontSize: '0.9375rem', fontWeight: 600,
-              cursor: isSubmitDisabled ? 'not-allowed' : 'pointer',
-              opacity: isSubmitDisabled ? 0.5 : 1,
+              background: 'var(--accent-success)', color: 'white',
+              fontSize: '0.9375rem', fontWeight: 600, cursor: 'pointer',
+              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px',
             }}
           >
-            Check Answer
+            Next card <ChevronRight size={16} />
           </button>
-        )}
+        </>
+      )}
 
-        {verdict === 'correct' && (
-          <div style={{ borderRadius: 'var(--radius-md)', padding: '16px', marginBottom: '16px', background: 'color-mix(in srgb, var(--accent-success) 10%, transparent)', border: '1px solid color-mix(in srgb, var(--accent-success) 30%, transparent)' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--accent-success)', fontWeight: 600, marginBottom: '8px' }}>
-              <Check size={18} /><span>Correct!</span>
+      {verdict === 'wrong' && (
+        <>
+          <div style={{
+            borderRadius: 'var(--radius-md)', padding: '16px', marginBottom: '16px',
+            background: 'color-mix(in srgb, var(--accent-danger) 10%, transparent)',
+            border: '1px solid color-mix(in srgb, var(--accent-danger) 30%, transparent)',
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--accent-danger)', fontWeight: 600, marginBottom: '12px' }}>
+              <X size={18} /><span>Keep practicing</span>
             </div>
-            <div style={{ color: 'var(--text-secondary)', fontSize: '0.9375rem' }}>
-              <span style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>Answer: </span>
-              <strong><KatexRenderer formula={card.answer ?? ''} displayMode={false} /></strong>
+            <div style={{ textAlign: 'center', fontSize: '1.1rem' }}>
+              <KatexRenderer formula={card.answer ?? ''} displayMode={true} />
             </div>
           </div>
-        )}
-
-        {verdict === 'wrong' && (
-          <div style={{ borderRadius: 'var(--radius-md)', padding: '16px', marginBottom: '16px', background: 'color-mix(in srgb, var(--accent-danger) 10%, transparent)', border: '1px solid color-mix(in srgb, var(--accent-danger) 30%, transparent)' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--accent-danger)', fontWeight: 600, marginBottom: '8px' }}>
-              <X size={18} /><span>Not quite</span>
-            </div>
-            <div style={{ fontSize: '0.875rem', display: 'flex', flexDirection: 'column', gap: '4px' }}>
-              <span style={{ color: 'var(--text-muted)' }}>You wrote: <span style={{ color: 'var(--accent-danger)', fontFamily: 'monospace' }}>{inputValue}</span></span>
-              <span style={{ color: 'var(--text-muted)' }}>Correct: <strong style={{ color: 'var(--text-primary)' }}><KatexRenderer formula={card.answer ?? ''} displayMode={false} /></strong></span>
-            </div>
-          </div>
-        )}
-
-        {verdict !== null && (
-          <div style={{ display: 'flex', gap: '8px' }}>
-            {verdict === 'wrong' && (
-              <button
-                onClick={() => {
-                  playCorrect()
-                  setVerdict('correct')
-                  onAnswer(card.id, 'correct', inputValue)
-                }}
-                style={{
-                  flex: 1,
-                  padding: '11px 20px',
-                  borderRadius: 'var(--radius-md)',
-                  border: '1px solid var(--bg-border)',
-                  background: 'var(--bg-secondary)',
-                  color: 'var(--text-secondary)',
-                  fontSize: '0.875rem',
-                  fontWeight: 500,
-                  cursor: 'pointer',
-                }}
-              >
-                I knew this
-              </button>
-            )}
-            <button
-              onClick={onNext}
-              style={{
-                flex: verdict === 'wrong' ? 1 : undefined,
-                width: verdict === 'correct' ? '100%' : undefined,
-                padding: '13px 20px',
-                borderRadius: 'var(--radius-md)',
-                border: 'none',
-                background: verdict === 'correct' ? 'var(--accent-success)' : 'var(--accent-danger)',
-                color: 'white', fontSize: '0.9375rem', fontWeight: 600, cursor: 'pointer',
-                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px',
-              }}
-            >
-              Next card <ChevronRight size={16} />
-            </button>
-          </div>
-        )}
-      </div>
-    </>
+          <button
+            onClick={onNext}
+            style={{
+              width: '100%', padding: '13px 20px', borderRadius: 'var(--radius-md)', border: 'none',
+              background: 'var(--accent-danger)', color: 'white',
+              fontSize: '0.9375rem', fontWeight: 600, cursor: 'pointer',
+              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px',
+            }}
+          >
+            Next card <ChevronRight size={16} />
+          </button>
+        </>
+      )}
+    </div>
   )
 }
 
@@ -477,7 +396,34 @@ function DefaultCard({ card, onAnswer, onNext, isRetry }: DrillCardProps) {
 
   const handleSubmit = useCallback(() => {
     if (!inputValue.trim() || verdict !== null) return
-    const isCorrect = fuzzyMatch(inputValue.trim(), card.answer ?? '', [])
+    const input = inputValue.trim()
+
+    // Strip LaTeX backslashes, grouping symbols, and all spaces — normalises
+    // plain-text input (e.g. "log_b(M)-log_b(N)") against LaTeX answers
+    const norm = (s: string) =>
+      s.replace(/\\/g, '')
+       .replace(/[(){}[\]]/g, '')
+       .replace(/\s+/g, '')
+       .toLowerCase()
+
+    let isCorrect: boolean
+
+    if (card.mode === 'name_to_formula') {
+      const answer = card.answer ?? ''
+      const eqIdx = answer.indexOf('=')
+      if (eqIdx !== -1) {
+        // Take everything after the first '=' as the right-hand side
+        const rhs = answer.slice(eqIdx + 1).trim()
+        // Correct if input matches the RHS or the full answer (both normalised)
+        isCorrect = norm(input) === norm(rhs) || norm(input) === norm(answer)
+      } else {
+        isCorrect = norm(input) === norm(answer)
+      }
+    } else {
+      // All other typed-recall modes: fuzzy match with built-in normalisation
+      // (lowercase, trim, collapse spaces, Levenshtein tolerance)
+      isCorrect = fuzzyMatch(input, card.answer ?? '', [])
+    }
     const v: 'correct' | 'wrong' = isCorrect ? 'correct' : 'wrong'
     if (isCorrect) playCorrect(); else playWrong()
     setVerdict(v)
@@ -640,13 +586,7 @@ function DefaultCard({ card, onAnswer, onNext, isRetry }: DrillCardProps) {
           </div>
           <div style={{ color: 'var(--text-secondary)', fontSize: '0.9375rem' }}>
             <span style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>Answer: </span>
-            {card.katex_required ? (
-              <strong>
-                <KatexRenderer formula={card.answer ?? ''} displayMode={false} />
-              </strong>
-            ) : (
-              <strong style={{ color: 'var(--text-primary)' }}>{card.answer ?? ''}</strong>
-            )}
+            <strong style={{ color: 'var(--text-primary)' }}>{parseInlineMath(card.answer ?? '')}</strong>
           </div>
         </div>
       )}
@@ -682,13 +622,7 @@ function DefaultCard({ card, onAnswer, onNext, isRetry }: DrillCardProps) {
             </span>
             <span style={{ color: 'var(--text-muted)' }}>
               Correct:{' '}
-              {card.katex_required ? (
-                <strong style={{ color: 'var(--text-primary)' }}>
-                  <KatexRenderer formula={card.answer ?? ''} displayMode={false} />
-                </strong>
-              ) : (
-                <strong style={{ color: 'var(--text-primary)' }}>{card.answer ?? ''}</strong>
-              )}
+              <strong style={{ color: 'var(--text-primary)' }}>{parseInlineMath(card.answer ?? '')}</strong>
             </span>
           </div>
         </div>

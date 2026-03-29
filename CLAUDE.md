@@ -105,7 +105,7 @@ When writing any file under `/data/`, the pipeline is: Researcher → Planner �
 ## Content Standards Summary
 - MCQ difficulty: 20% easy / 45% medium / 35% hard per unit
 - MCQ count: 50-100 per unit per subject
-- MCQ stimulus rates: World History ~95%, Gov ~90%, CSP ~85%, Calc ~80%, Precalc ~75%, Psych ~70%, Chemistry ~70% (see redesign spec)
+- MCQ stimulus rates: World History ~95%, Gov ~90%, CSP ~85%, Calc ~50%, Precalc ~55%, Psych ~70%, Chemistry ~70% (see redesign spec; Calc/Precalc revised 2026-03-28 — math subjects have significant symbolic computation questions without stimulus)
 - MCQ question language: College Board register ("Which of the following best explains…") — no "What is…" or "Name the…"
 - Drills: cover every testable term, formula, person, concept, event — no fixed count; subject-specific modes (see phase CONTEXT.md)
 - Drill single canonical answer — no alternate_answers. Fuzzy match for typos/case/punctuation only.
@@ -169,16 +169,16 @@ Phases 6–12 run as **parallel content generation** in two waves. Full orchestr
 | 5 | Practice Test Interface | Complete |
 | **Wave 1** | | |
 | 6 | AP Psychology Content | Complete |
-| 7 | AP World History Content | In Progress |
+| 7 | AP World History Content | Complete |
 | 8 | AP Government Content | Complete |
 | 11 | AP CSP Content | Complete |
 | **Wave 2** | | |
-| 9 | AP Calculus AB Content | Not Started |
-| 10 | AP Precalculus Content | Not Started |
-| 12 | AP Chemistry Content | Not Started |
+| 9 | AP Calculus AB Content | Complete |
+| 10 | AP Precalculus Content | Complete |
+| 12 | AP Chemistry Content | Complete |
 | **Post-Content** | | |
-| 13 | Retention Mechanics & Polish | Not Started |
-| 14 | Launch | Not Started |
+| 13 | Retention Mechanics & Polish | Skipped |
+| 14 | Launch | Complete |
 
 ## Supabase Events Table Schema
 Table: `events`
@@ -224,3 +224,5 @@ Table: `events`
 - 2026-03-26: Session persistence complete (feat/session-persistence branch) — drills, MCQ, and practice test auto-save to localStorage draft keys after each card; resume prompt shown on next visit
 - 2026-03-26: Drill/MCQ redesign locked — new mode taxonomy (definition_to_term, significance_to_person, significance_to_event, significance_to_case, name_to_formula, concept_mc); no alternate_answers; is_key_term flag replaces study guide key_terms array; concept_mc cards mixed into drill sessions; MCQ stimulus rates set per subject (see docs/superpowers/specs/2026-03-26-drill-mcq-redesign.md)
 - 2026-03-26: All existing public/data/ content is discarded — regenerated from scratch following the new drill/MCQ spec after schema changes are implemented in components
+- 2026-03-28: Wave 2 complete — AP Calculus AB (8 units), AP Precalculus (3 units), AP Chemistry (9 units) all generated from local CED PDFs
+- 2026-03-28: MCQ stimulus rate for Calc AB revised to ~50% and Precalc to ~55% — math subjects have substantial symbolic computation sections on real AP exam; 80%/75% targets were carried over incorrectly from text-heavy subjects
