@@ -2960,14 +2960,14 @@
         {
           "id": "A",
           "text": "$-\\ln|x| + \\frac{1}{2}\\ln|x-1| + \\frac{1}{2}\\ln|x+1| + C$",
-          "is_correct": true,
-          "explanation": "Partial fractions: $\\frac{x^2-x+1}{x(x-1)(x+1)} = \\frac{A}{x}+\\frac{B}{x-1}+\\frac{C}{x+1}$. Solving: $A=-1$, $B=1/2$, $C=1/2$ (checking: at $x=0$: $A(-1)(1)=1 \\Rightarrow A=-1$; at $x=1$: $B(1)(2)=1 \\Rightarrow B=1/2$; at $x=-1$: $C(-1)(-2)=3 \\Rightarrow C=3/2$). Let me recompute: $x=0$: $\\frac{0-0+1}{0}$... numerator at $x=0$: $1$, so $A(0-1)(0+1)=1$, $A(-1)=1$, $A=-1$. At $x=1$: $B(1)(2)=1-1+1=1$, $B=1/2$. At $x=-1$: $C(-1)(-2)=1+1+1=3$, $2C=3$, $C=3/2$. Hmm, let me re-check: the answer in A uses $C=1/2$."
+          "is_correct": false,
+          "explanation": "This uses $C = 1/2$, but the correct value is $C = 3/2$. At $x = -1$: $C(-1)(-2) = 1 + 1 + 1 = 3$, so $2C = 3$ and $C = 3/2$."
         },
         {
           "id": "B",
           "text": "$-\\ln|x| + \\frac{1}{2}\\ln|x-1| + \\frac{3}{2}\\ln|x+1| + C$",
-          "is_correct": false,
-          "explanation": "Check $C$: $x=-1$ gives $C(-1)(-2) = 1+1+1=3$, so $C=3/2$ is actually correct here. Let me verify $A$ and $B$: $A=-1$, $B=1/2$, $C=3/2$. Answer B is more likely correct."
+          "is_correct": true,
+          "explanation": "Partial fractions: $\\frac{x^2-x+1}{x(x-1)(x+1)} = \\frac{A}{x}+\\frac{B}{x-1}+\\frac{C}{x+1}$. At $x=0$: $A(-1)(1) = 1$, so $A = -1$. At $x=1$: $B(1)(2) = 1$, so $B = 1/2$. At $x=-1$: $C(-1)(-2) = 3$, so $C = 3/2$. Integrating: $-\\ln|x| + \\frac{1}{2}\\ln|x-1| + \\frac{3}{2}\\ln|x+1| + C$."
         },
         {
           "id": "C",

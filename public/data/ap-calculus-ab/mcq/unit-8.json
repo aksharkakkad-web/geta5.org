@@ -2059,26 +2059,26 @@
         {
           "id": "A",
           "text": "$\\frac{1}{30}$",
-          "is_correct": false,
-          "explanation": "Off — the integral of $(\\sqrt{x}-x)^2$ from 0 to 1 is not $\\frac{1}{30}$."
+          "is_correct": true,
+          "explanation": "Side $= \\sqrt{x} - x$. Volume $= \\int_0^1(\\sqrt{x}-x)^2\\,dx = \\int_0^1(x - 2x^{3/2} + x^2)\\,dx = [\\frac{x^2}{2} - \\frac{4x^{5/2}}{5} + \\frac{x^3}{3}]_0^1 = \\frac{1}{2} - \\frac{4}{5} + \\frac{1}{3} = \\frac{15 - 24 + 10}{30} = \\frac{1}{30}$."
         },
         {
           "id": "B",
           "text": "$\\frac{1}{6}$",
           "is_correct": false,
-          "explanation": "$\\int_0^1(\\sqrt{x}-x)\\,dx = \\frac{1}{6}$ is the area, not the volume."
+          "explanation": "$\\int_0^1(\\sqrt{x}-x)\\,dx = \\frac{1}{6}$ is the area between the curves, not the volume of the solid with square cross-sections."
         },
         {
           "id": "C",
           "text": "$\\frac{1}{10}$",
-          "is_correct": true,
-          "explanation": "Side $= \\sqrt{x}-x$. Volume $= \\int_0^1(\\sqrt{x}-x)^2\\,dx = \\int_0^1(x-2x^{3/2}+x^2)\\,dx = [\\frac{x^2}{2}-\\frac{4x^{5/2}}{5}+\\frac{x^3}{3}]_0^1 = \\frac{1}{2}-\\frac{4}{5}+\\frac{1}{3} = \\frac{15-24+10}{30} = \\frac{1}{30}$. Wait: $\\frac{1}{30}$ is correct."
+          "is_correct": false,
+          "explanation": "This does not match the integral. $\\int_0^1(\\sqrt{x}-x)^2\\,dx = \\frac{1}{2} - \\frac{4}{5} + \\frac{1}{3} = \\frac{1}{30}$, not $\\frac{1}{10}$."
         },
         {
           "id": "D",
           "text": "$\\frac{1}{3}$",
           "is_correct": false,
-          "explanation": "This overestimates the volume significantly."
+          "explanation": "$\\frac{1}{3}$ would be $\\int_0^1 x^2\\,dx$. The correct integrand is $(\\sqrt{x}-x)^2$, which gives $\\frac{1}{30}$."
         }
       ]
     },
@@ -2160,14 +2160,14 @@
         {
           "id": "A",
           "text": "$1$",
-          "is_correct": true,
-          "explanation": "Trapezoidal rule: $\\frac{1}{2}\\Delta t\\sum = \\frac{1}{2}\\cdot 1\\cdot[(2+(-1))+(-1+(-3))+((-3)+0)+(0+4)] = \\frac{1}{2}[1+(-4)+(-3)+4] = \\frac{1}{2}(-2) = -1$. Recalculate: $\\frac{1}{2}[v(0)+2v(1)+2v(2)+2v(3)+v(4)] = \\frac{1}{2}[2+(-2)+(-6)+0+4] = \\frac{1}{2}(-2) = -1$."
+          "is_correct": false,
+          "explanation": "This has the wrong sign. Trapezoidal rule: $\\frac{\\Delta t}{2}[v(0)+2v(1)+2v(2)+2v(3)+v(4)] = \\frac{1}{2}[2+(-2)+(-6)+0+4] = \\frac{1}{2}(-2) = -1$, not $+1$."
         },
         {
           "id": "B",
           "text": "$-1$",
-          "is_correct": false,
-          "explanation": "Trapezoidal displacement: $\\frac{1}{2}[v(0)+2v(1)+2v(2)+2v(3)+v(4)] = \\frac{1}{2}[2-2-6+0+4] = \\frac{1}{2}(-2) = -1$. This appears to be correct."
+          "is_correct": true,
+          "explanation": "Trapezoidal rule with $\\Delta t = 1$: $\\frac{1}{2}[v(0)+2v(1)+2v(2)+2v(3)+v(4)] = \\frac{1}{2}[2 + 2(-1) + 2(-3) + 2(0) + 4] = \\frac{1}{2}[2-2-6+0+4] = \\frac{1}{2}(-2) = -1$."
         },
         {
           "id": "C",
@@ -2188,31 +2188,31 @@
       "unit": "unit-8",
       "difficulty": "hard",
       "has_stimulus": true,
-      "question": "The region bounded by $y = \\frac{1}{x}$, $y = 0$, $x = 1$, and $x = b$ is revolved about the $x$-axis. For which value of $b$ does the resulting solid have volume $\\pi \\ln 2$?",
+      "question": "The region bounded by $y = \\frac{1}{x}$, $y = 0$, $x = 1$, and $x = b$ is revolved about the $x$-axis. For which value of $b$ does the resulting solid have volume $\\frac{\\pi}{2}$?",
       "choices": [
         {
           "id": "A",
           "text": "$b = e$",
           "is_correct": false,
-          "explanation": "$V = \\pi\\int_1^e\\frac{1}{x^2}\\,dx = \\pi(1 - \\frac{1}{e}) \\neq \\pi\\ln 2$."
+          "explanation": "$V = \\pi\\int_1^e \\frac{1}{x^2}\\,dx = \\pi[-\\frac{1}{x}]_1^e = \\pi(1 - \\frac{1}{e}) \\approx 0.632\\pi \\neq \\frac{\\pi}{2}$."
         },
         {
           "id": "B",
           "text": "$b = 2$",
-          "is_correct": false,
-          "explanation": "$V = \\pi\\int_1^2\\frac{1}{x^2}\\,dx = \\pi[-\\frac{1}{x}]_1^2 = \\pi(1-\\frac{1}{2}) = \\frac{\\pi}{2} \\neq \\pi\\ln 2$."
+          "is_correct": true,
+          "explanation": "$V = \\pi\\int_1^b \\frac{1}{x^2}\\,dx = \\pi[-\\frac{1}{x}]_1^b = \\pi(1 - \\frac{1}{b})$. Setting equal to $\\frac{\\pi}{2}$: $1 - \\frac{1}{b} = \\frac{1}{2}$, so $\\frac{1}{b} = \\frac{1}{2}$ and $b = 2$."
         },
         {
           "id": "C",
           "text": "$b = e^2$",
           "is_correct": false,
-          "explanation": "$V = \\pi(1-e^{-2}) \\neq \\pi\\ln 2$."
+          "explanation": "$V = \\pi(1 - e^{-2}) \\approx 0.865\\pi \\neq \\frac{\\pi}{2}$."
         },
         {
           "id": "D",
           "text": "No finite $b$ gives this volume",
-          "is_correct": true,
-          "explanation": "$V = \\pi\\int_1^b x^{-2}\\,dx = \\pi(1-\\frac{1}{b})$. Setting equal to $\\pi\\ln 2$: $1-\\frac{1}{b} = \\ln 2 \\Rightarrow \\frac{1}{b} = 1-\\ln 2 \\Rightarrow b = \\frac{1}{1-\\ln 2} \\approx 3.26$. So there IS a finite $b$; rethink the choices."
+          "is_correct": false,
+          "explanation": "Since $V = \\pi(1 - \\frac{1}{b})$ approaches $\\pi$ as $b \\to \\infty$, any target volume less than $\\pi$ can be achieved. $\\frac{\\pi}{2} < \\pi$, so a finite $b$ exists: $b = 2$."
         }
       ],
       "stimulus": {
@@ -2352,14 +2352,14 @@
         {
           "id": "B",
           "text": "$1$",
-          "is_correct": true,
-          "explanation": "$x^3-x = x(x-1)(x+1) = 0$ at $x = -1, 0, 1$. By symmetry, Area $= 2\\int_0^1|x^3-x|\\,dx = 2\\int_0^1(x-x^3)\\,dx = 2[\\frac{x^2}{2}-\\frac{x^4}{4}]_0^1 = 2(\\frac{1}{2}-\\frac{1}{4}) = \\frac{1}{2}$. So total area is $\\frac{1}{2}$."
+          "is_correct": false,
+          "explanation": "Each symmetric piece has area $\\frac{1}{4}$, so the total is $2 \\cdot \\frac{1}{4} = \\frac{1}{2}$, not $1$. This error comes from forgetting the $\\frac{1}{4}$ evaluation of each piece."
         },
         {
           "id": "C",
           "text": "$\\frac{1}{2}$",
-          "is_correct": false,
-          "explanation": "Recomputing: $2\\int_0^1(x-x^3)\\,dx = 2\\cdot\\frac{1}{4} = \\frac{1}{2}$. This may actually be correct."
+          "is_correct": true,
+          "explanation": "$x^3-x = x(x-1)(x+1) = 0$ at $x = -1, 0, 1$. By symmetry, Area $= 2\\int_0^1|x^3-x|\\,dx = 2\\int_0^1(x-x^3)\\,dx = 2[\\frac{x^2}{2}-\\frac{x^4}{4}]_0^1 = 2(\\frac{1}{2}-\\frac{1}{4}) = 2 \\cdot \\frac{1}{4} = \\frac{1}{2}$."
         },
         {
           "id": "D",
@@ -2444,14 +2444,14 @@
         {
           "id": "A",
           "text": "$7$",
-          "is_correct": true,
-          "explanation": "$\\int_0^2(-2)\\,dt = -4$. $\\int_2^6(t-4)\\,dt = [\\frac{t^2}{2}-4t]_2^6 = (18-24)-(2-8) = -6+6 = 0$. Wait: $= (18-24)-(2-8) = -6-(-6) = 0$. Hmm: at $t=2$, $v = -2$; at $t=6$, $v = 2$. $\\int_2^6(t-4)\\,dt = [\\frac{t^2}{2}-4t]_2^6 = (18-24)-(2-8) = -6+6 = 0$. Net displacement $= -4+0 = -4$? Position $= 3-4 = -1$. Reconsider choices."
+          "is_correct": false,
+          "explanation": "This would require a net displacement of $+4$, but the velocity is negative over much of the interval. The actual net displacement is $-4$."
         },
         {
           "id": "B",
           "text": "$-1$",
-          "is_correct": false,
-          "explanation": "This seems to be the calculated answer. Let me recheck: $\\int_2^6(t-4)dt$: zero crossing at $t=4$. $(t-4) < 0$ on $[2,4]$, positive on $[4,6]$. $\\int_2^4(t-4)dt = [\\frac{t^2}{2}-4t]_2^4 = (8-16)-(2-8) = -8+6 = -2$. $\\int_4^6(t-4)dt = (18-24)-(8-16) = -6+8 = 2$. So $\\int_2^6 = -2+2 = 0$. Total displacement $= -4+0 = -4$. Position $= 3+(-4) = -1$."
+          "is_correct": true,
+          "explanation": "$\\int_0^2(-2)\\,dt = -4$. $\\int_2^6(t-4)\\,dt = [\\frac{t^2}{2}-4t]_2^6 = (18-24)-(2-8) = -6+6 = 0$. Net displacement $= -4 + 0 = -4$. Position $= 3 + (-4) = -1$."
         },
         {
           "id": "C",

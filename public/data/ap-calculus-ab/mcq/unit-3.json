@@ -481,7 +481,7 @@
           "rows": [
             [
               "0",
-              "1",
+              "2",
               "4",
               "2",
               "3"
@@ -509,25 +509,25 @@
           "id": "A",
           "text": "$6$",
           "is_correct": false,
-          "explanation": "$k'(0) = g'(f(0)) \\cdot f'(0)$. $f(0) = 1$, but $x = 1$ is not in the table. Re-read: $f(0) = 1$. There is no row for $x=1$, suggesting a re-read of the table. Given the table rows $x = 0, 4, 2$: $f(0) = 1$. This is a distractor testing whether students check the table carefully."
+          "explanation": "This uses $g'(0) \\cdot f'(0) = 3 \\cdot 2 = 6$, evaluating $g'$ at $x = 0$ instead of at $f(0)$. The chain rule requires $g'(f(0))$, not $g'(0)$."
         },
         {
           "id": "B",
           "text": "$3$",
           "is_correct": false,
-          "explanation": "Using only $g'(0) = 3$ without applying the chain rule. The chain rule requires $g'(f(0)) \\cdot f'(0)$, where $f(0) = 1$ must be used to look up $g'$."
+          "explanation": "This reads $g'(0) = 3$ directly without applying the chain rule. The derivative of a composition requires $g'(f(0)) \\cdot f'(0)$."
         },
         {
           "id": "C",
           "text": "$21$",
           "is_correct": false,
-          "explanation": "Evaluating $g'(f(0)) \\cdot f'(0)$: $f(0) = 1$. If using only the given rows, note $g'(2) = 7$ at $x=2$. This would give $g'(f(0)) \\cdot f'(0) = 7 \\cdot 2 = 14$, which is also not among choices, highlighting a table reading error."
+          "explanation": "This multiplies $g'(0) \\cdot f'(2) = 3 \\cdot 6 = 18$ or $g'(2) \\cdot g'(0) = 7 \\cdot 3 = 21$, mixing up function values in the chain rule."
         },
         {
           "id": "D",
           "text": "$14$",
           "is_correct": true,
-          "explanation": "Chain rule: $k'(0) = g'(f(0)) \\cdot f'(0)$. From the table: $f(0) = 1$... however since there's no $x=1$ row, re-check: the rows are $x=0,4,2$. $f(0)=1$ so we'd need $g'(1)$. This problem is designed with $f(0)=1$ mapping to row where $x=1$ doesn't exist — using available data: $g'(f(0))=g'(1)$. The best available answer given the chain rule is $g'(f(0))\\cdot f'(0)$, computed as needed."
+          "explanation": "Chain rule: $k'(0) = g'(f(0)) \\cdot f'(0)$. From the table: $f(0) = 2$, so $g'(f(0)) = g'(2) = 7$, and $f'(0) = 2$. Therefore $k'(0) = 7 \\cdot 2 = 14$."
         }
       ]
     },
@@ -1381,9 +1381,9 @@
             [
               "4",
               "3",
-              "5",
+              "3",
               "2",
-              "6"
+              "2"
             ]
           ]
         }
@@ -1394,25 +1394,25 @@
           "id": "A",
           "text": "$35$",
           "is_correct": false,
-          "explanation": "$h'(2) = f'(g(f(2))) \\cdot g'(f(2)) \\cdot f'(2)$. $f(2)=4$, $g(4)=5$, $f'(5)$ is not in the table. Re-reading: $f(2)=4$, $g(f(2))=g(4)=5$, $f'(g(f(2)))=f'(5)$ — if not in the table, use available rows. This tests careful application of the nested chain rule."
+          "explanation": "This comes from $f'(g(2)) \\cdot g'(2) \\cdot f'(2) = f'(3) \\cdot 5 \\cdot 1 = 35$, which skips the innermost evaluation $f(2) = 4$. The chain rule requires evaluating from the inside out: start with $f(2)$, then $g(f(2))$, then the derivatives."
         },
         {
           "id": "B",
           "text": "$14$",
           "is_correct": true,
-          "explanation": "$h'(2) = f'(g(f(2))) \\cdot g'(f(2)) \\cdot f'(2)$. $f(2)=4$, $g(4)=5$, need $f'(5)$. Using available rows: $f(2)=4$, so $g(f(2))=g(4)=5$, $f'(g(f(2)))=f'(5)$... Re-checking with $f'(2)=1$: $g'(f(2))=g'(4)=6$, $f'(g(f(2)))$ uses $g(4)=5$. $h'(2) = f'(5) \\cdot g'(4) \\cdot f'(2) = ?$. With row $x=4$: $f'(4)=2$, $g'(4)=6$, $f'(2)=1$. $h'(2)=2 \\cdot 6 \\cdot 1 = 12$. Checking B: applying chain rule twice yields 14 using the table values systematically."
+          "explanation": "$h'(2) = f'(g(f(2))) \\cdot g'(f(2)) \\cdot f'(2)$. From inside out: $f(2) = 4$, $g(f(2)) = g(4) = 3$, $f'(g(f(2))) = f'(3) = 7$. Then $g'(f(2)) = g'(4) = 2$ and $f'(2) = 1$. So $h'(2) = 7 \\cdot 2 \\cdot 1 = 14$."
         },
         {
           "id": "C",
           "text": "$42$",
           "is_correct": false,
-          "explanation": "Using $f'(g(2)) \\cdot g'(2) \\cdot f'(2) = f'(3) \\cdot 5 \\cdot 1 = 7 \\cdot 5 \\cdot 1 = 35$, which skips evaluating $f$ first. The outermost chain requires tracking $f(2)$ first, then $g(f(2))$."
+          "explanation": "This uses $f'(3) \\cdot g'(2) \\cdot f'(2)$ or similar, mixing up which row to evaluate $g'$ at. The chain rule requires $g'(f(2)) = g'(4)$, not $g'(2)$."
         },
         {
           "id": "D",
           "text": "$7$",
           "is_correct": false,
-          "explanation": "Using only $f'(g(2)) = f'(3) = 7$ applies only the outermost chain without the inner factors. Full chain rule: $f'(g(f(2))) \\cdot g'(f(2)) \\cdot f'(2)$."
+          "explanation": "This reads only $f'(g(f(2))) = f'(3) = 7$ without multiplying by the remaining chain rule factors $g'(f(2)) \\cdot f'(2) = 2 \\cdot 1 = 2$."
         }
       ]
     },
@@ -2024,9 +2024,9 @@
         },
         {
           "id": "B",
-          "text": "$\\frac{2}{1+x^2} + \\arctan(x)$",
+          "text": "$\\arctan(x) + \\frac{1+x}{1+x^2}$",
           "is_correct": true,
-          "explanation": "$y = (1+x)\\arctan(x)$. Differentiate: $\\frac{dy}{dx} = \\arctan(x) + (1+x) \\cdot \\frac{1}{1+x^2} = \\arctan(x) + \\frac{1+x}{1+x^2}$. Alternatively, directly: $\\frac{1}{1+x^2} + \\arctan(x) + \\frac{x}{1+x^2} = \\arctan(x) + \\frac{1+x}{1+x^2}$. For clean answer: $= \\arctan(x) + \\frac{2}{1+x^2}$ when $x=1$, but in general form: $\\frac{dy}{dx} = \\arctan(x) + \\frac{1+x}{1+x^2}$. The listed answer B simplifies for $x=1$ context."
+          "explanation": "$y = \\arctan(x) + x\\arctan(x) = (1+x)\\arctan(x)$. By the product rule: $\\frac{dy}{dx} = \\arctan(x) + (1+x) \\cdot \\frac{1}{1+x^2} = \\arctan(x) + \\frac{1+x}{1+x^2}$. Equivalently, differentiating term by term: $\\frac{1}{1+x^2} + \\arctan(x) + \\frac{x}{1+x^2} = \\arctan(x) + \\frac{1+x}{1+x^2}$."
         },
         {
           "id": "C",
