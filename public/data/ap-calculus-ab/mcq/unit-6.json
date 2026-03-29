@@ -1792,66 +1792,6 @@
       }
     },
     {
-      "id": "calc-mcq-u6-042",
-      "unit": "unit-6",
-      "difficulty": "hard",
-      "has_stimulus": true,
-      "question": "Which of the following gives $\\int_0^2 xe^{-x}\\,dx$?",
-      "choices": [
-        {
-          "id": "A",
-          "text": "$1 - 3e^{-2}$",
-          "is_correct": true,
-          "explanation": "Integration by parts: $u=x$, $dv=e^{-x}dx$. $\\int xe^{-x}dx = -xe^{-x} + \\int e^{-x}dx = -xe^{-x}-e^{-x}+C$. Evaluate: $[-(x+1)e^{-x}]_0^2 = -3e^{-2}+1 = 1-3e^{-2}$."
-        },
-        {
-          "id": "B",
-          "text": "$1 - 2e^{-2}$",
-          "is_correct": false,
-          "explanation": "$[-(x+1)e^{-x}]_0^2 = -(2+1)e^{-2}-(-(0+1)e^0) = -3e^{-2}+1$. The factor is $3$, not $2$."
-        },
-        {
-          "id": "C",
-          "text": "$e^{-2}$",
-          "is_correct": false,
-          "explanation": "Integration by parts gives $1-3e^{-2} \\approx 1-0.406 = 0.594$. $e^{-2} \\approx 0.135 \\neq 0.594$."
-        },
-        {
-          "id": "D",
-          "text": "$2 - e^{-2}$",
-          "is_correct": false,
-          "explanation": "$[-(x+1)e^{-x}]_0^2 = -3e^{-2}+1$, which simplifies to $1-3e^{-2}$, not $2-e^{-2}$."
-        }
-      ],
-      "stimulus": {
-        "type": "table",
-        "content": {
-          "headers": [
-            "Step",
-            "Expression"
-          ],
-          "rows": [
-            [
-              "Integration by parts",
-              "$\\int u\\,dv = uv - \\int v\\,du$"
-            ],
-            [
-              "Let $u=x$",
-              "$du=dx$"
-            ],
-            [
-              "Let $dv=e^{-x}dx$",
-              "$v=-e^{-x}$"
-            ],
-            [
-              "Result",
-              "$\\left[-xe^{-x}\\right]_0^2 + \\int_0^2 e^{-x}\\,dx$"
-            ]
-          ]
-        }
-      }
-    },
-    {
       "id": "calc-mcq-u6-043",
       "unit": "unit-6",
       "difficulty": "hard",
@@ -2018,43 +1958,6 @@
       }
     },
     {
-      "id": "calc-mcq-u6-046",
-      "unit": "unit-6",
-      "difficulty": "hard",
-      "has_stimulus": false,
-      "question": "Which of the following gives $\\int_0^{\\pi} x\\sin(x)\\,dx$?",
-      "choices": [
-        {
-          "id": "A",
-          "text": "$\\pi$",
-          "is_correct": true,
-          "explanation": "Integration by parts: $u=x$, $dv=\\sin x\\,dx$. $\\int x\\sin x\\,dx = -x\\cos x + \\int\\cos x\\,dx = -x\\cos x + \\sin x + C$. Evaluate: $[-x\\cos x + \\sin x]_0^\\pi = (-\\pi(-1)+0)-(0+0) = \\pi$."
-        },
-        {
-          "id": "B",
-          "text": "$0$",
-          "is_correct": false,
-          "explanation": "$[-x\\cos x + \\sin x]_0^\\pi = \\pi\\cos\\pi$... wait: $-\\pi\\cos\\pi + \\sin\\pi = -\\pi(-1)+0 = \\pi$. Not 0."
-        },
-        {
-          "id": "C",
-          "text": "$-\\pi$",
-          "is_correct": false,
-          "explanation": "$-x\\cos x|_{x=\\pi} = -\\pi(-1) = \\pi$. The result is $+\\pi$."
-        },
-        {
-          "id": "D",
-          "text": "$2$",
-          "is_correct": false,
-          "explanation": "$[-x\\cos x + \\sin x]_0^\\pi = \\pi$, not 2."
-        }
-      ],
-      "stimulus": {
-        "type": "none",
-        "content": null
-      }
-    },
-    {
       "id": "calc-mcq-u6-047",
       "unit": "unit-6",
       "difficulty": "hard",
@@ -2127,43 +2030,6 @@
           "explanation": "We can determine: $g$ increases on $(0,3)$ (since $f>0$) and decreases on $(3,6)$ (since $f<0$). Maximum at $x=3$: $g(3)=5$."
         }
       ]
-    },
-    {
-      "id": "calc-mcq-u6-049",
-      "unit": "unit-6",
-      "difficulty": "hard",
-      "has_stimulus": false,
-      "question": "Which of the following gives $\\int \\frac{\\ln(x)}{x^2}\\,dx$?",
-      "choices": [
-        {
-          "id": "A",
-          "text": "$-\\frac{\\ln(x)}{x} - \\frac{1}{x} + C$",
-          "is_correct": true,
-          "explanation": "Integration by parts: $u=\\ln x$, $dv=x^{-2}dx$. $v=-x^{-1}$. $\\int\\frac{\\ln x}{x^2}dx = -\\frac{\\ln x}{x} + \\int\\frac{1}{x^2}dx = -\\frac{\\ln x}{x}-\\frac{1}{x}+C$."
-        },
-        {
-          "id": "B",
-          "text": "$\\frac{(\\ln x)^2}{2x^2} + C$",
-          "is_correct": false,
-          "explanation": "Not a valid antiderivative. Integration by parts is needed: $-\\frac{\\ln x}{x}-\\frac{1}{x}+C$."
-        },
-        {
-          "id": "C",
-          "text": "$\\frac{\\ln x}{x} + \\frac{1}{x} + C$",
-          "is_correct": false,
-          "explanation": "Sign error in both terms. From integration by parts: $-\\frac{\\ln x}{x} - \\frac{1}{x} + C$."
-        },
-        {
-          "id": "D",
-          "text": "$\\frac{1}{x}\\ln x + C$",
-          "is_correct": false,
-          "explanation": "$\\frac{d}{dx}[\\frac{\\ln x}{x}] = \\frac{1-\\ln x}{x^2} \\neq \\frac{\\ln x}{x^2}$. The integration by parts result has two terms."
-        }
-      ],
-      "stimulus": {
-        "type": "none",
-        "content": null
-      }
     },
     {
       "id": "calc-mcq-u6-050",
@@ -2505,43 +2371,6 @@
             }
           }
         }
-      }
-    },
-    {
-      "id": "calc-mcq-u6-056",
-      "unit": "unit-6",
-      "difficulty": "hard",
-      "has_stimulus": true,
-      "question": "Which of the following gives $\\int \\frac{dx}{x^2+2x+5}$?",
-      "choices": [
-        {
-          "id": "A",
-          "text": "$\\frac{1}{2}\\arctan\\left(\\frac{x+1}{2}\\right) + C$",
-          "is_correct": true,
-          "explanation": "Complete the square: $x^2+2x+5 = (x+1)^2+4$. $\\int\\frac{dx}{(x+1)^2+4} = \\frac{1}{2}\\arctan\\left(\\frac{x+1}{2}\\right)+C$."
-        },
-        {
-          "id": "B",
-          "text": "$\\arctan\\left(\\frac{x+1}{2}\\right) + C$",
-          "is_correct": false,
-          "explanation": "Missing the $\\frac{1}{2}$ scaling factor. $\\int\\frac{du}{u^2+a^2} = \\frac{1}{a}\\arctan(u/a)+C$ with $a=2$: $\\frac{1}{2}\\arctan(\\frac{x+1}{2})+C$."
-        },
-        {
-          "id": "C",
-          "text": "$\\arctan(x+1) + C$",
-          "is_correct": false,
-          "explanation": "The denominator is $(x+1)^2+4$, not $(x+1)^2+1$. With $a=2$: $\\frac{1}{2}\\arctan\\left(\\frac{x+1}{2}\\right)+C$."
-        },
-        {
-          "id": "D",
-          "text": "$\\ln|x^2+2x+5| + C$",
-          "is_correct": false,
-          "explanation": "$\\frac{d}{dx}[\\ln|x^2+2x+5|] = \\frac{2x+2}{x^2+2x+5} \\neq \\frac{1}{x^2+2x+5}$. Complete the square and use arctan."
-        }
-      ],
-      "stimulus": {
-        "type": "text",
-        "content": "To integrate $\\int \\frac{dx}{x^2+2x+5}$, complete the square: $x^2+2x+5 = (x+1)^2+4$. Then use the standard form $\\int \\frac{du}{u^2+a^2} = \\frac{1}{a}\\arctan\\!\\left(\\frac{u}{a}\\right)+C$ with $u=x+1$, $a=2$."
       }
     },
     {
