@@ -7,6 +7,7 @@ import MCQCard from '@/components/mcq/MCQCard'
 import TestTimer from '@/components/test/TestTimer'
 import { saveTestDraft, clearTestDraft } from '@/utils/testSession'
 import type { TestSessionState, TestAnswer } from '@/utils/testSession'
+import { logEvent } from '@/utils/analytics'
 
 interface TestSessionProps {
   session: TestSessionState
@@ -67,6 +68,13 @@ export default function TestSession({
       const next = { ...prev, [questionId]: { selectedChoiceId, isCorrect } }
       answersRef.current = next
       return next
+    })
+    const q = session.questions[session.currentIndex]
+    logEvent({
+      event_type: 'test_answer',
+      subject: session.subjectSlug,
+      unit: q?.unit ?? '',
+      metadata: { correct: isCorrect },
     })
   }
 

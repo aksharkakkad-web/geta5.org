@@ -6,14 +6,17 @@ import MCQCard from '@/components/mcq/MCQCard'
 import { getSubject } from '@/utils/subjects'
 import { saveMCQDraft, clearMCQDraft } from '@/utils/mcqSession'
 import type { MCQSessionState, MCQAnswer } from '@/utils/mcqSession'
+import { lsGet, lsSet, LS_KEYS } from '@/utils/localStorage'
+import { logEvent } from '@/utils/analytics'
 
 interface MCQSessionProps {
   session: MCQSessionState
   subject: string
   onComplete: (finalSession: MCQSessionState) => void
+  onStartFresh?: () => void
 }
 
-export default function MCQSession({ session, subject, onComplete }: MCQSessionProps) {
+export default function MCQSession({ session, subject, onComplete, onStartFresh }: MCQSessionProps) {
   const [currentIndex, setCurrentIndex] = useState(session.currentIndex ?? 0)
   const [answers, setAnswers] = useState<Record<string, MCQAnswer>>(session.answers ?? {})
 
@@ -21,7 +24,7 @@ export default function MCQSession({ session, subject, onComplete }: MCQSessionP
   const answersRef = useRef(answers)
   answersRef.current = answers
 
-  // Auto-save draft whenever currentIndex advances
+  // Auto-save draft + update partial mastery whenever currentIndex advances
   useEffect(() => {
     if (currentIndex > 0) {
       saveMCQDraft(subject, {
@@ -33,6 +36,16 @@ export default function MCQSession({ session, subject, onComplete }: MCQSessionP
         retryQuestionIds: session.retryQuestionIds,
         savedAt: Date.now(),
       })
+      // Update mastery progressively so bars reflect partial sessions
+      if (!session.isRetry && session.unitSlug !== 'all') {
+        const ans = answersRef.current
+        const answered = Object.keys(ans).length
+        if (answered > 0) {
+          const correct = Object.values(ans).filter(a => a.isCorrect).length
+          const existing = lsGet(LS_KEYS.mastery(subject, session.unitSlug), { drillAccuracy: 0, mcqAccuracy: 0, totalAttempts: 0 })
+          lsSet(LS_KEYS.mastery(subject, session.unitSlug), { ...existing, mcqAccuracy: correct / answered })
+        }
+      }
     }
   }, [currentIndex]) // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -58,6 +71,13 @@ export default function MCQSession({ session, subject, onComplete }: MCQSessionP
 
   const handleAnswer = (questionId: string, selectedChoiceId: string, isCorrect: boolean) => {
     setAnswers(prev => ({ ...prev, [questionId]: { selectedChoiceId, isCorrect } }))
+    const q = session.questions[currentIndex]
+    logEvent({
+      event_type: 'mcq_answer',
+      subject,
+      unit: q?.unit ?? session.unitSlug,
+      metadata: { correct: isCorrect },
+    })
   }
 
   const handleNext = () => {
@@ -72,8 +92,6 @@ export default function MCQSession({ session, subject, onComplete }: MCQSessionP
       setCurrentIndex(prev => prev + 1)
     }
   }
-
-  const progressPercent = (currentIndex / totalQuestions) * 100
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: 'calc(100dvh - 120px)' }}>
@@ -99,7 +117,7 @@ export default function MCQSession({ session, subject, onComplete }: MCQSessionP
           {unitLabel}
         </span>
 
-        {/* Right: progress + score badges */}
+        {/* Right: progress + score badges + start fresh */}
         <div
           style={{
             display: 'flex',
@@ -109,39 +127,6 @@ export default function MCQSession({ session, subject, onComplete }: MCQSessionP
             justifyContent: 'flex-end',
           }}
         >
-          {/* Progress bar + count */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flex: 1, maxWidth: '200px' }}>
-            <div
-              style={{
-                flex: 1,
-                background: 'var(--mastery-empty)',
-                borderRadius: '999px',
-                height: '6px',
-                overflow: 'hidden',
-              }}
-            >
-              <div
-                style={{
-                  width: `${progressPercent}%`,
-                  background: 'var(--accent)',
-                  height: '100%',
-                  borderRadius: '999px',
-                  transition: 'width 400ms ease',
-                }}
-              />
-            </div>
-            <span
-              style={{
-                fontSize: '0.8125rem',
-                color: 'var(--text-muted)',
-                whiteSpace: 'nowrap',
-                flexShrink: 0,
-              }}
-            >
-              {currentIndex} of {totalQuestions}
-            </span>
-          </div>
-
           {/* Score badges */}
           <div style={{ display: 'flex', gap: '6px', flexShrink: 0 }}>
             {/* Correct badge */}
@@ -182,6 +167,26 @@ export default function MCQSession({ session, subject, onComplete }: MCQSessionP
               <span>{wrongCount}</span>
             </div>
           </div>
+
+          {/* Start fresh button */}
+          {onStartFresh && (
+            <button
+              onClick={onStartFresh}
+              style={{
+                flexShrink: 0,
+                padding: '4px 12px',
+                borderRadius: '999px',
+                border: '1px solid var(--bg-border)',
+                background: 'transparent',
+                color: 'var(--text-secondary)',
+                fontSize: '0.8125rem',
+                fontWeight: 500,
+                cursor: 'pointer',
+              }}
+            >
+              Start fresh
+            </button>
+          )}
         </div>
       </div>
 

@@ -44,11 +44,18 @@ export async function GET() {
     if (typeof id === 'string') anonIds.add(id)
   })
 
-  // By mode
+  // By mode — sessions
   const drills = allEvents.filter(e => e.event_type === 'drill_completed')
   const mcqs = allEvents.filter(e => e.event_type === 'mcq_completed')
   const tests = allEvents.filter(e => e.event_type === 'test_completed')
   const guides = allEvents.filter(e => e.event_type === 'study_guide_view')
+
+  // Per-question events
+  const drillAnswers = allEvents.filter(e => e.event_type === 'drill_answer')
+  const mcqAnswers = allEvents.filter(e => e.event_type === 'mcq_answer')
+  const testAnswers = allEvents.filter(e => e.event_type === 'test_answer')
+  const allAnswers = [...drillAnswers, ...mcqAnswers, ...testAnswers]
+  const correctAnswers = allAnswers.filter(e => e.metadata?.correct === true)
 
   function sumDuration(evts: RawEvent[]): number {
     return evts.reduce((acc, e) => acc + (Number(e.metadata?.duration_ms) || 0), 0)
@@ -103,6 +110,12 @@ export async function GET() {
       totalDrillCards: totalQuestions(drills, 'cards_count'),
       totalMCQQuestions: totalQuestions(mcqs, 'question_count'),
       totalTestQuestions: totalQuestions(tests, 'total'),
+      // Per-question counts
+      drillAnswers: drillAnswers.length,
+      mcqAnswers: mcqAnswers.length,
+      testAnswers: testAnswers.length,
+      totalAnswers: allAnswers.length,
+      totalCorrect: correctAnswers.length,
     },
     averages: {
       drillAccuracy: avgAccuracy(drills),

@@ -5,14 +5,17 @@ import { Check, X } from 'lucide-react'
 import DrillCard from '@/components/drill/DrillCard'
 import { SessionState, saveDrillDraft, clearDrillDraft, insertRetryCard } from '@/utils/drillSession'
 import { getSubject } from '@/utils/subjects'
+import { lsGet, lsSet, LS_KEYS } from '@/utils/localStorage'
+import { logEvent } from '@/utils/analytics'
 
 interface DrillSessionProps {
   session: SessionState
   subject: string
   onComplete: (finalSession: SessionState) => void
+  onStartFresh?: () => void
 }
 
-export default function DrillSession({ session, subject, onComplete }: DrillSessionProps) {
+export default function DrillSession({ session, subject, onComplete, onStartFresh }: DrillSessionProps) {
   const [currentIndex, setCurrentIndex] = useState(session.index ?? 0)
   const [answers, setAnswers] = useState<
     Record<string, { verdict: 'correct' | 'wrong'; userInput: string }>
@@ -28,7 +31,7 @@ export default function DrillSession({ session, subject, onComplete }: DrillSess
   const workingDeckRef = useRef(workingDeck)
   workingDeckRef.current = workingDeck
 
-  // Auto-save draft whenever currentIndex advances (fires after each card answered and Next clicked)
+  // Auto-save draft + update partial mastery whenever currentIndex advances
   useEffect(() => {
     if (currentIndex > 0) {
       saveDrillDraft(subject, {
@@ -40,6 +43,16 @@ export default function DrillSession({ session, subject, onComplete }: DrillSess
         unitSlug: session.unitSlug,
         savedAt: Date.now(),
       })
+      // Update mastery progressively so bars reflect partial sessions
+      if (!session.isRetry && session.unitSlug !== 'all') {
+        const ans = answersRef.current
+        const answered = Object.keys(ans).length
+        if (answered > 0) {
+          const correct = Object.values(ans).filter(a => a.verdict === 'correct').length
+          const existing = lsGet(LS_KEYS.mastery(subject, session.unitSlug), { drillAccuracy: 0, mcqAccuracy: 0, totalAttempts: 0 })
+          lsSet(LS_KEYS.mastery(subject, session.unitSlug), { ...existing, drillAccuracy: correct / answered })
+        }
+      }
     }
   }, [currentIndex]) // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -69,6 +82,13 @@ export default function DrillSession({ session, subject, onComplete }: DrillSess
     userInput: string
   ) => {
     setAnswers(prev => ({ ...prev, [cardId]: { verdict, userInput } }))
+    const card = workingDeckRef.current[currentIndex]
+    logEvent({
+      event_type: 'drill_answer',
+      subject,
+      unit: card?.unit ?? session.unitSlug,
+      metadata: { correct: verdict === 'correct', mode: card?.mode },
+    })
   }
 
   const handleNext = () => {
@@ -94,8 +114,6 @@ export default function DrillSession({ session, subject, onComplete }: DrillSess
       setCurrentIndex(prev => prev + 1)
     }
   }
-
-  const progressPercent = (currentIndex / totalCards) * 100
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: 'calc(100dvh - 120px)' }}>
@@ -131,39 +149,6 @@ export default function DrillSession({ session, subject, onComplete }: DrillSess
             justifyContent: 'flex-end',
           }}
         >
-          {/* Progress bar + count */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flex: 1, maxWidth: '200px' }}>
-            <div
-              style={{
-                flex: 1,
-                background: 'var(--mastery-empty)',
-                borderRadius: '999px',
-                height: '6px',
-                overflow: 'hidden',
-              }}
-            >
-              <div
-                style={{
-                  width: `${progressPercent}%`,
-                  background: 'var(--accent)',
-                  height: '100%',
-                  borderRadius: '999px',
-                  transition: 'width 400ms ease',
-                }}
-              />
-            </div>
-            <span
-              style={{
-                fontSize: '0.8125rem',
-                color: 'var(--text-muted)',
-                whiteSpace: 'nowrap',
-                flexShrink: 0,
-              }}
-            >
-              {currentIndex} of {totalCards}
-            </span>
-          </div>
-
           {/* Score badges */}
           <div style={{ display: 'flex', gap: '6px', flexShrink: 0 }}>
             {/* Correct badge */}
@@ -204,6 +189,26 @@ export default function DrillSession({ session, subject, onComplete }: DrillSess
               <span>{wrongCount}</span>
             </div>
           </div>
+
+          {/* Start fresh button */}
+          {onStartFresh && (
+            <button
+              onClick={onStartFresh}
+              style={{
+                flexShrink: 0,
+                padding: '4px 12px',
+                borderRadius: '999px',
+                border: '1px solid var(--bg-border)',
+                background: 'transparent',
+                color: 'var(--text-secondary)',
+                fontSize: '0.8125rem',
+                fontWeight: 500,
+                cursor: 'pointer',
+              }}
+            >
+              Start fresh
+            </button>
+          )}
         </div>
       </div>
 

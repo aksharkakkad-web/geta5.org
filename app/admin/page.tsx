@@ -16,6 +16,11 @@ interface Stats {
     totalDrillCards: number
     totalMCQQuestions: number
     totalTestQuestions: number
+    drillAnswers: number
+    mcqAnswers: number
+    testAnswers: number
+    totalAnswers: number
+    totalCorrect: number
   }
   averages: {
     drillAccuracy: number
@@ -100,19 +105,20 @@ export default function AdminPage() {
       <h1 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '28px' }}>Dashboard</h1>
 
       {/* ── Top Cards ── */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px', marginBottom: '28px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '12px', marginBottom: '28px' }}>
         <Card label="Unique Users" value={o.uniqueUsers} />
-        <Card label="Total Sessions" value={o.totalDrillSessions + o.totalMCQSessions + o.totalTests} />
-        <Card label="Questions Answered" value={o.totalDrillCards + o.totalMCQQuestions + o.totalTestQuestions} />
+        <Card label="Questions Answered" value={o.totalAnswers} />
+        <Card label="Correct" value={o.totalAnswers > 0 ? pct(o.totalCorrect / o.totalAnswers) : '—'} sub={`${o.totalCorrect.toLocaleString()} of ${o.totalAnswers.toLocaleString()}`} />
+        <Card label="Sessions" value={o.totalDrillSessions + o.totalMCQSessions + o.totalTests} />
         <Card label="Total Time" value={fmt(t.totalMs)} />
       </div>
 
       {/* ── Mode Breakdown ── */}
       <SectionTitle>By Mode</SectionTitle>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px', marginBottom: '28px' }}>
-        <ModeCard title="Drills" sessions={o.totalDrillSessions} questions={o.totalDrillCards} time={fmt(t.drillMs)} avg={`${a.drillCardsPerSession.toFixed(0)} cards/session`} accuracy={pct(a.drillAccuracy)} />
-        <ModeCard title="Practice MCQs" sessions={o.totalMCQSessions} questions={o.totalMCQQuestions} time={fmt(t.mcqMs)} avg={`${a.mcqQuestionsPerSession.toFixed(0)} q/session`} accuracy={pct(a.mcqAccuracy)} />
-        <ModeCard title="Practice Tests" sessions={o.totalTests} questions={o.totalTestQuestions} time={fmt(t.testMs)} avg="" accuracy={pct(a.testAccuracy)} />
+        <ModeCard title="Drills" sessions={o.totalDrillSessions} questions={o.drillAnswers} time={fmt(t.drillMs)} avg={`${a.drillCardsPerSession.toFixed(0)} cards/session`} accuracy={pct(a.drillAccuracy)} />
+        <ModeCard title="Practice MCQs" sessions={o.totalMCQSessions} questions={o.mcqAnswers} time={fmt(t.mcqMs)} avg={`${a.mcqQuestionsPerSession.toFixed(0)} q/session`} accuracy={pct(a.mcqAccuracy)} />
+        <ModeCard title="Practice Tests" sessions={o.totalTests} questions={o.testAnswers} time={fmt(t.testMs)} avg="" accuracy={pct(a.testAccuracy)} />
         <ModeCard title="Study Guides" sessions={o.totalGuideViews} questions={0} time="—" avg="" accuracy="" />
       </div>
 
@@ -263,11 +269,12 @@ function Center({ children }: { children: React.ReactNode }) {
   return <div style={{ padding: '120px 24px', color: 'var(--text-secondary)', textAlign: 'center', fontSize: '0.875rem' }}>{children}</div>
 }
 
-function Card({ label, value }: { label: string; value: string | number }) {
+function Card({ label, value, sub }: { label: string; value: string | number; sub?: string }) {
   return (
     <div style={{ ...cardBg, padding: '16px', textAlign: 'center' }}>
       <div style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1.2 }}>{typeof value === 'number' ? value.toLocaleString() : value}</div>
       <div style={{ fontSize: '0.65rem', color: 'var(--text-secondary)', marginTop: '4px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{label}</div>
+      {sub && <div style={{ fontSize: '0.6rem', color: 'var(--text-muted, #64748b)', marginTop: '2px' }}>{sub}</div>}
     </div>
   )
 }
