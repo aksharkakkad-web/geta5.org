@@ -1,0 +1,73 @@
+{
+  "id": "precalc-sg-unit-1",
+  "unit": "unit-1",
+  "subject": "ap-precalculus",
+  "theme": "Polynomial and rational functions reveal how quantities change together through rates of change, end behavior, and the structure of zeros and asymptotes.",
+  "core_concepts": [
+    {
+      "title": "Functions, Domain, and Range",
+      "detail": "A function assigns exactly one output to each input; the domain is all valid inputs and the range is all possible outputs. Interval notation $[a, b]$ includes endpoints while $(a, b)$ excludes them."
+    },
+    {
+      "title": "Average Rate of Change",
+      "detail": "The average rate of change of $f$ over $[a, b]$ is $\\frac{f(b)-f(a)}{b-a}$, which equals the slope of the secant line through $(a, f(a))$ and $(b, f(b))$. A positive AROC means the function is increasing; negative means decreasing."
+    },
+    {
+      "title": "Polynomial End Behavior",
+      "detail": "A polynomial's end behavior is governed entirely by its leading term $a_n x^n$: if $n$ is even and $a_n > 0$, both ends rise; if $a_n < 0$, both ends fall. If $n$ is odd, the ends go in opposite directions."
+    },
+    {
+      "title": "Zeros and Multiplicity",
+      "detail": "A zero at $x = c$ with odd multiplicity means the graph crosses the $x$-axis; even multiplicity means the graph touches but does not cross (bounces). Higher multiplicity makes the graph flatter near the zero."
+    },
+    {
+      "title": "Vertical Asymptotes and Holes",
+      "detail": "A rational function $\\frac{p(x)}{q(x)}$ has a vertical asymptote at $x = c$ where $q(c) = 0$ and $p(c) \\neq 0$. If both $p(c) = 0$ and $q(c) = 0$, there is a removable discontinuity (hole) at $x = c$."
+    },
+    {
+      "title": "Horizontal Asymptotes",
+      "detail": "The horizontal asymptote of a rational function depends on the degrees: if $\\deg(p) < \\deg(q)$, then $y = 0$; if degrees are equal, $y = \\frac{a_n}{b_n}$; if $\\deg(p) > \\deg(q)$, there is no horizontal asymptote."
+    },
+    {
+      "title": "Transformations of Functions",
+      "detail": "Transformations of $f(x)$: $f(x - h) + k$ shifts right $h$ units and up $k$ units; $a \\cdot f(bx)$ stretches vertically by $|a|$ (reflects if $a < 0$) and compresses horizontally by factor $|b|$."
+    },
+    {
+      "title": "Even and Odd Functions",
+      "detail": "Even functions satisfy $f(-x) = f(x)$ (symmetric about the $y$-axis); odd functions satisfy $f(-x) = -f(x)$ (symmetric about the origin). A function is neither if neither condition holds everywhere."
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Average Rate of Change",
+      "katex_string": "\\text{AROC} = \\frac{f(b) - f(a)}{b - a}",
+      "description": "The average rate at which f changes over the interval [a, b] — equivalent to the slope of the secant line connecting the two points on the graph. Use it whenever a table or graph asks how fast a quantity is changing.",
+      "example": "If $f(x) = x^2$, the average rate of change from $x = 1$ to $x = 3$ is $\\frac{f(3) - f(1)}{3 - 1} = \\frac{9 - 1}{2} = 4$."
+    },
+    {
+      "name": "General Polynomial Form",
+      "katex_string": "f(x) = a_n x^n + a_{n-1} x^{n-1} + \\cdots + a_1 x + a_0",
+      "description": "A polynomial of degree n with leading coefficient a_n. The degree and sign of the leading term fully determine end behavior; all other terms are irrelevant at the extremes.",
+      "example": "$f(x) = -2x^4 + 3x^2 - 1$ has degree 4 and leading coefficient $-2$, so as $x \\to \\pm\\infty$, $f(x) \\to -\\infty$."
+    },
+    {
+      "name": "Vertex Form of a Quadratic",
+      "katex_string": "f(x) = a(x - h)^2 + k",
+      "description": "A parabola with vertex at (h, k). The sign of a determines whether the parabola opens up (a > 0) or down (a < 0), and |a| controls how wide or narrow it is.",
+      "example": "$f(x) = -3(x - 2)^2 + 5$ has vertex $(2, 5)$, opens downward, and is narrower than $y = x^2$."
+    },
+    {
+      "name": "Horizontal Asymptote (Equal Degrees)",
+      "katex_string": "y = \\frac{a_n}{b_n}",
+      "description": "When the numerator and denominator of a rational function have the same degree, the horizontal asymptote is the ratio of their leading coefficients. The function approaches this value as x grows without bound.",
+      "example": "$f(x) = \\frac{3x^2 - 1}{2x^2 + 5}$ has horizontal asymptote $y = \\frac{3}{2}$ because the leading coefficients are 3 and 2."
+    },
+    {
+      "name": "Even and Odd Function Tests",
+      "katex_string": "f(-x) = f(x) \\text{ (even)}; \\quad f(-x) = -f(x) \\text{ (odd)}",
+      "description": "Replace x with -x in the function rule. If the result equals the original, the function is even (y-axis symmetry). If the result equals the negative of the original, it is odd (origin symmetry).",
+      "example": "$f(x) = x^4 - 2x^2$: $f(-x) = (-x)^4 - 2(-x)^2 = x^4 - 2x^2 = f(x)$, so $f$ is even."
+    }
+  ],
+  "exam_tip": "The AP exam heavily tests average rate of change from tables and graphs — always use $\\frac{\\Delta f}{\\Delta x}$ and connect it to the slope of the secant line, and watch for questions asking you to compare ARoC across intervals to determine where a function is increasing fastest."
+}

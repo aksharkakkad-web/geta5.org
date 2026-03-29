@@ -1,0 +1,67 @@
+{
+  "id": "calc-sg-unit-7",
+  "unit": "unit-7",
+  "subject": "ap-calculus-ab",
+  "theme": "Differential equations describe how a quantity changes in relation to itself — the exponential model $\\frac{dy}{dt} = ky$ governs growth and decay, separation of variables turns a differential equation into two separate integrals, and slope fields visualize solution behavior without solving explicitly.",
+  "core_concepts": [
+    {
+      "title": "Differential Equations and Solutions",
+      "detail": "A differential equation is an equation involving a function and one or more of its derivatives; a solution is a function $y = f(x)$ that satisfies the equation."
+    },
+    {
+      "title": "General vs. Particular Solutions",
+      "detail": "A general solution to $\\frac{dy}{dx} = f(x)$ contains an arbitrary constant $C$; a particular solution fixes $C$ by applying an initial condition $y(x_0) = y_0$."
+    },
+    {
+      "title": "Separation of Variables",
+      "detail": "Separation of variables: if $\\frac{dy}{dx} = g(x)h(y)$, rewrite as $\\frac{dy}{h(y)} = g(x)\\,dx$, then integrate both sides separately."
+    },
+    {
+      "title": "Exponential Growth and Decay Model",
+      "detail": "The exponential model: $\\frac{dy}{dt} = ky$ has the general solution $y = Ce^{kt}$, where $k > 0$ models growth and $k < 0$ models decay."
+    },
+    {
+      "title": "Slope Fields",
+      "detail": "A slope field (direction field) is a graphical plot of short line segments with slope $f'(x,y)$ at each point — it shows the shape of solution curves without solving the differential equation."
+    },
+    {
+      "title": "Sketching Solutions on Slope Fields",
+      "detail": "To sketch a particular solution on a slope field, start at the initial condition point and follow the slope field arrows, staying tangent to the segments."
+    },
+    {
+      "title": "Doubling Time and Half-Life",
+      "detail": "Doubling time (growth) occurs when $e^{kt} = 2$, giving $t = \\frac{\\ln 2}{k}$. Half-life (decay) occurs when $e^{kt} = \\frac{1}{2}$, giving $t = \\frac{\\ln 2}{|k|}$."
+    },
+    {
+      "title": "AB vs. BC Scope Warning",
+      "detail": "AB-scope warning: integration by parts (6.11), partial fractions (6.12), Euler's method (7.5), and logistic models (7.9) are BC-only and will NOT appear on the AB exam."
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Separation of Variables",
+      "katex_string": "\\frac{dy}{dx} = g(x)h(y) \\implies \\int \\frac{dy}{h(y)} = \\int g(x)\\,dx",
+      "description": "Rearrange the differential equation so that all y terms (including dy) are on one side and all x terms (including dx) are on the other. Then integrate both sides. Don't forget the constant C — it goes on one side only.",
+      "example": "$\\frac{dy}{dx} = 3y$: separate to $\\frac{dy}{y} = 3\\,dx$. Integrate: $\\ln|y| = 3x + C$. Solve: $y = Ae^{3x}$ (where $A = e^C$)."
+    },
+    {
+      "name": "Exponential Growth/Decay Model",
+      "katex_string": "\\frac{dy}{dt} = ky \\implies y = Ce^{kt}",
+      "description": "Any quantity whose rate of change is proportional to the quantity itself grows or decays exponentially. The constant k is the growth rate (k > 0) or decay rate (k < 0). C is the initial value when t = 0.",
+      "example": "Bacteria double every 3 hours, so $k = \\frac{\\ln 2}{3}$. Starting with 500 bacteria: $y = 500e^{(\\ln 2/3)t}$. At $t = 9$: $y = 500 \\cdot 2^3 = 4000$."
+    },
+    {
+      "name": "Particular Solution (Initial Value Problem)",
+      "katex_string": "y = y_0 e^{k(t - t_0)} \\quad \\text{when } y(t_0) = y_0",
+      "description": "If you know the value of y at a specific time t₀, substitute into the general solution to solve for C. Alternatively, use this direct formula: the solution passing through (t₀, y₀). Used whenever a specific starting value is given.",
+      "example": "$\\frac{dy}{dt} = -0.2y$, $y(0) = 100$: $y = 100e^{-0.2t}$. At $t = 5$: $y = 100e^{-1} \\approx 36.8$."
+    },
+    {
+      "name": "Half-Life Formula",
+      "katex_string": "t_{1/2} = \\frac{\\ln 2}{|k|}",
+      "description": "The time required for an exponentially decaying quantity to reach half its current value. Derived by setting y = y₀/2 and solving e^(kt) = 1/2. The same formula (with k positive) gives doubling time for growth.",
+      "example": "Carbon-14 decays at $k = -0.000121$. Half-life $= \\frac{\\ln 2}{0.000121} \\approx 5730$ years."
+    }
+  ],
+  "exam_tip": "When solving an IVP on AP free-response, always show the full separation of variables step by step: separate, integrate both sides, solve for y, then substitute the initial condition to find C. Jumping straight to the answer loses justification points — College Board wants to see each algebraic step."
+}

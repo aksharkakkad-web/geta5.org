@@ -1,0 +1,75 @@
+{
+  "id": "precalc-sg-unit-2",
+  "unit": "unit-2",
+  "subject": "ap-precalculus",
+  "theme": "Exponential and logarithmic functions model multiplicative growth and decay, and their inverse relationship allows real-world quantities like population, money, and radioactive material to be analyzed and predicted.",
+  "core_concepts": [
+    {
+      "title": "Exponential Growth and Decay",
+      "detail": "An exponential function $f(x) = a \\cdot b^x$ has a constant ratio: each equal increase in $x$ multiplies the output by the base $b$. If $b > 1$, the function grows; if $0 < b < 1$, it decays. The initial value is $a = f(0)$."
+    },
+    {
+      "title": "The Natural Base $e$",
+      "detail": "The natural base $e \\approx 2.718$ arises naturally in continuous processes. Continuous exponential growth is modeled by $f(x) = ae^{rx}$, where $r > 0$ means growth and $r < 0$ means decay."
+    },
+    {
+      "title": "Logarithms as Inverses",
+      "detail": "Logarithms are the inverse of exponentials: $\\log_b(x) = y$ means $b^y = x$. The natural log $\\ln(x) = \\log_e(x)$ is the inverse of $e^x$. Key identities: $\\ln(e^x) = x$ and $e^{\\ln x} = x$."
+    },
+    {
+      "title": "Logarithm Properties",
+      "detail": "The three core log rules let you rewrite expressions: $\\log_b(MN) = \\log_b M + \\log_b N$ (product rule), $\\log_b\\!\\left(\\frac{M}{N}\\right) = \\log_b M - \\log_b N$ (quotient rule), and $\\log_b(M^p) = p\\log_b M$ (power rule)."
+    },
+    {
+      "title": "Change of Base Formula",
+      "detail": "The change of base formula $\\log_b a = \\frac{\\ln a}{\\ln b}$ converts any logarithm to base $e$ or base 10 for calculator evaluation. It is essential for solving exponential equations with bases other than $e$ or 10."
+    },
+    {
+      "title": "Transformations of Exponential Functions",
+      "detail": "Transformations of $f(x) = b^x$: adding $k$ shifts the horizontal asymptote from $y = 0$ to $y = k$; replacing $x$ with $-x$ converts growth to decay. The horizontal asymptote is a key feature distinguishing exponential from polynomial models."
+    },
+    {
+      "title": "Solving Exponential and Log Equations",
+      "detail": "To solve an exponential equation, isolate the exponential and take the natural log of both sides. To solve a logarithmic equation, isolate the log and exponentiate both sides — always check for extraneous solutions since $\\log_b(x)$ requires $x > 0$."
+    }
+  ],
+  "formulas": [
+    {
+      "name": "General Exponential Function",
+      "katex_string": "f(x) = a \\cdot b^x",
+      "description": "Models multiplicative growth or decay. The initial value a gives f(0), and the base b is the growth factor per unit of x. If b > 1, the function grows; if 0 < b < 1, it decays.",
+      "example": "A population of 500 growing by 8% per year: $P(t) = 500 \\cdot (1.08)^t$. After 10 years: $P(10) = 500 \\cdot (1.08)^{10} \\approx 1079$."
+    },
+    {
+      "name": "Compound Interest",
+      "katex_string": "A = P\\left(1 + \\frac{r}{n}\\right)^{nt}",
+      "description": "The amount A after t years when principal P is compounded n times per year at annual rate r. More frequent compounding (larger n) yields slightly more than annual compounding.",
+      "example": "$\\$1000$ at 6% compounded monthly for 5 years: $A = 1000\\left(1 + \\frac{0.06}{12}\\right)^{60} \\approx \\$1348.85$."
+    },
+    {
+      "name": "Continuous Compounding",
+      "katex_string": "A = Pe^{rt}",
+      "description": "The limit of compound interest as compounding frequency approaches infinity. Used for continuously growing quantities like bacterial growth or continuously compounded accounts.",
+      "example": "$\\$1000$ at 6% continuously compounded for 5 years: $A = 1000 \\cdot e^{0.06 \\cdot 5} = 1000e^{0.3} \\approx \\$1349.86$."
+    },
+    {
+      "name": "Change of Base Formula",
+      "katex_string": "\\log_b a = \\frac{\\ln a}{\\ln b} = \\frac{\\log a}{\\log b}",
+      "description": "Converts any logarithm to base e or base 10 for calculator evaluation. Also used to rewrite exponential equations in solvable form when the base is not e or 10.",
+      "example": "$\\log_5 20 = \\frac{\\ln 20}{\\ln 5} = \\frac{2.996}{1.609} \\approx 1.861$."
+    },
+    {
+      "name": "Half-Life Model",
+      "katex_string": "A(t) = A_0 \\cdot \\left(\\frac{1}{2}\\right)^{t/h}",
+      "description": "Models radioactive decay or any quantity that halves every h units of time. After each half-life period h, exactly half the original amount remains.",
+      "example": "Carbon-14 has half-life $h = 5730$ years. Starting with 100 grams: $A(5730) = 100 \\cdot \\left(\\frac{1}{2}\\right)^1 = 50$ grams."
+    },
+    {
+      "name": "Logarithm Properties",
+      "katex_string": "\\log_b(MN) = \\log_b M + \\log_b N; \\quad \\log_b\\!\\left(\\frac{M}{N}\\right) = \\log_b M - \\log_b N; \\quad \\log_b(M^p) = p\\log_b M",
+      "description": "The three core log rules: logs convert multiplication to addition, division to subtraction, and exponents to multiplication. Use these to expand or condense logarithmic expressions before solving.",
+      "example": "$\\ln(e^3 \\cdot x^2) = \\ln(e^3) + \\ln(x^2) = 3 + 2\\ln x$."
+    }
+  ],
+  "exam_tip": "The AP exam frequently presents exponential models in table form — identify the constant ratio (consecutive outputs divide to give the same factor) to confirm exponential behavior, then use $f(x) = ab^x$ with two data points to find $a$ and $b$ before answering the question."
+}

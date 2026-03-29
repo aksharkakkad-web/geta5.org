@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import { getSubject } from '@/utils/subjects'
-import { lsGet, LS_KEYS } from '@/utils/localStorage'
 
 interface StudyGuideUnitSelectorProps {
   subject: string
@@ -69,20 +68,12 @@ export function StudyGuideUnitSelector({ subject, onSelectUnit }: StudyGuideUnit
       <div className="sg-unit-selector-grid">
         {units.map((unit) => {
           const isAvailable = availability[unit.number] ?? false
-          const masteryData = lsGet(LS_KEYS.mastery(subject, `unit-${unit.number}`), {
-            drillAccuracy: 0,
-            mcqAccuracy: 0,
-            totalAttempts: 0,
-          })
-          const masteryPct = ((masteryData.drillAccuracy + masteryData.mcqAccuracy) / 2) * 100
-
           return (
             <UnitCard
               key={unit.number}
               unitNumber={unit.number}
               unitName={unit.name}
               isAvailable={isAvailable}
-              masteryPct={masteryPct}
               onSelectUnit={onSelectUnit}
             />
           )
@@ -102,11 +93,10 @@ interface UnitCardProps {
   unitNumber: number
   unitName: string
   isAvailable: boolean
-  masteryPct: number
   onSelectUnit: (unitNumber: number) => void
 }
 
-function UnitCard({ unitNumber, unitName, isAvailable, masteryPct, onSelectUnit }: UnitCardProps) {
+function UnitCard({ unitNumber, unitName, isAvailable, onSelectUnit }: UnitCardProps) {
   const [hovered, setHovered] = useState(false)
 
   return (
@@ -154,22 +144,6 @@ function UnitCard({ unitNumber, unitName, isAvailable, masteryPct, onSelectUnit 
         </div>
       )}
 
-      {/* Mastery bar */}
-      <div style={{
-        height: '3px',
-        background: 'var(--mastery-empty)',
-        borderRadius: '999px',
-        marginTop: '10px',
-        overflow: 'hidden',
-      }}>
-        <div style={{
-          height: '100%',
-          width: `${masteryPct}%`,
-          background: 'var(--mastery-fill)',
-          borderRadius: '999px',
-          transition: 'width 400ms ease',
-        }} />
-      </div>
     </div>
   )
 }

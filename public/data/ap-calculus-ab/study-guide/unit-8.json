@@ -1,0 +1,79 @@
+{
+  "id": "calc-sg-unit-8",
+  "unit": "unit-8",
+  "subject": "ap-calculus-ab",
+  "theme": "Definite integrals measure accumulated change in the real world — from average value and net displacement to areas between curves and volumes of solids — turning geometric and physical problems into integral setup-and-evaluate tasks.",
+  "core_concepts": [
+    {
+      "title": "Average Value of a Function",
+      "detail": "Average value of $f$ on $[a,b]$: $\\frac{1}{b-a}\\int_a^b f(x)\\,dx$ — divide the integral by the length of the interval."
+    },
+    {
+      "title": "Net Displacement of a Particle",
+      "detail": "Net displacement of a particle from $t = a$ to $t = b$: $\\int_a^b v(t)\\,dt$ — this can be positive, negative, or zero."
+    },
+    {
+      "title": "Total Distance Traveled",
+      "detail": "Total distance traveled: $\\int_a^b |v(t)|\\,dt$ — always non-negative; split the integral at sign changes of $v(t)$."
+    },
+    {
+      "title": "Net Change Theorem",
+      "detail": "Net Change Theorem: $\\int_a^b F'(x)\\,dx = F(b) - F(a)$ — the integral of a rate gives the total change in the quantity."
+    },
+    {
+      "title": "Area Between Two Curves",
+      "detail": "Area between two curves: integrate the top function minus the bottom function; identify intersection points to set correct limits."
+    },
+    {
+      "title": "Volume by the Disc Method",
+      "detail": "Volume by disc method (revolving around $x$-axis): $V = \\pi\\int_a^b [f(x)]^2\\,dx$ — each cross-section is a circle with radius $f(x)$."
+    },
+    {
+      "title": "Volume by the Washer Method",
+      "detail": "Volume by washer method: $V = \\pi\\int_a^b \\bigl([f(x)]^2 - [g(x)]^2\\bigr)\\,dx$ — subtract the inner disc (hole) from the outer disc."
+    },
+    {
+      "title": "Volume by Cross-Sections",
+      "detail": "Volume by cross-sections perpendicular to the $x$-axis: $V = \\int_a^b A(x)\\,dx$ where $A(x)$ is the area formula for each cross-sectional shape (square, semicircle, equilateral triangle, etc.)."
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Average Value of a Function",
+      "katex_string": "f_{\\text{avg}} = \\frac{1}{b-a}\\int_a^b f(x)\\,dx",
+      "description": "The average value is the area under the curve divided by the width of the interval. Think of it as the height of a rectangle that has the same area as the region under the curve.",
+      "example": "$f(x) = x^2$ on $[0,3]$: $f_{\\text{avg}} = \\frac{1}{3}\\int_0^3 x^2\\,dx = \\frac{1}{3}\\cdot\\frac{27}{3} = 3$."
+    },
+    {
+      "name": "Net Displacement and Total Distance",
+      "katex_string": "\\text{Net displacement} = \\int_a^b v(t)\\,dt \\qquad \\text{Total distance} = \\int_a^b |v(t)|\\,dt",
+      "description": "Net displacement can be negative (moved left more than right). Total distance is always positive — split the integral at every time t where v(t) = 0 and changes sign, take absolute values of each piece.",
+      "example": "$v(t) = t^2 - 4$ on $[0,3]$: $v = 0$ at $t=2$. Distance $= \\left|\\int_0^2(t^2-4)\\,dt\\right| + \\int_2^3(t^2-4)\\,dt = \\frac{16}{3} + \\frac{7}{3} = \\frac{23}{3}$."
+    },
+    {
+      "name": "Area Between Two Curves",
+      "katex_string": "A = \\int_a^b [f(x) - g(x)]\\,dx \\quad \\text{where } f(x) \\geq g(x) \\text{ on } [a,b]",
+      "description": "Always subtract the lower curve from the upper curve. Find intersection points first to set the correct limits of integration. If they switch which is on top, split the integral at the crossing point.",
+      "example": "Area between $y = x^2$ and $y = x$: they meet at $x=0$ and $x=1$, with $x \\geq x^2$. $A = \\int_0^1(x - x^2)\\,dx = \\frac{1}{2} - \\frac{1}{3} = \\frac{1}{6}$."
+    },
+    {
+      "name": "Volume — Disc Method (Rotation Around x-axis)",
+      "katex_string": "V = \\pi\\int_a^b [f(x)]^2\\,dx",
+      "description": "When a region is rotated around the x-axis and there is no hole, each cross-section is a disc (solid circle) with radius f(x). Square the radius and multiply by π.",
+      "example": "Rotate $y = \\sqrt{x}$ on $[0,4]$ around $x$-axis: $V = \\pi\\int_0^4 x\\,dx = \\pi \\cdot 8 = 8\\pi$."
+    },
+    {
+      "name": "Volume — Washer Method",
+      "katex_string": "V = \\pi\\int_a^b \\bigl([R(x)]^2 - [r(x)]^2\\bigr)\\,dx",
+      "description": "When a region between two curves is rotated, there is a hole. R(x) is the outer radius (farther from axis) and r(x) is the inner radius (closer to axis). Subtract the inner disc area from the outer disc area.",
+      "example": "Rotate region between $y = \\sqrt{x}$ and $y = x$ around $x$-axis on $[0,1]$: $V = \\pi\\int_0^1(x - x^2)\\,dx = \\pi\\left(\\frac{1}{2}-\\frac{1}{3}\\right) = \\frac{\\pi}{6}$."
+    },
+    {
+      "name": "Volume — Cross-Section Method",
+      "katex_string": "V = \\int_a^b A(x)\\,dx",
+      "description": "For a solid with known cross-sections perpendicular to the x-axis, integrate the cross-sectional area function. Common shapes: squares ($A = s^2$), semicircles ($A = \\frac{\\pi}{8}d^2$), equilateral triangles ($A = \\frac{\\sqrt{3}}{4}s^2$). The base of each shape is determined by the region.",
+      "example": "Solid with square cross-sections on base bounded by $y = \\sqrt{x}$ on $[0,4]$: each side $s = \\sqrt{x}$, so $A(x) = x$. $V = \\int_0^4 x\\,dx = 8$."
+    }
+  ],
+  "exam_tip": "Volume problems are the most common 9-point FRQ topic — practice setting up the integral before evaluating. Identify: (1) axis of rotation, (2) outer and inner radius (washer) or just radius (disc), (3) cross-sectional shape. Writing the setup earns most of the points even if your arithmetic has an error."
+}

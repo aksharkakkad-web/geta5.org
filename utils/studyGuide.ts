@@ -5,7 +5,7 @@ export interface StudyGuide {
   unit: string
   subject: string
   theme: string
-  core_concepts: string[]
+  core_concepts: { title: string; detail: string }[]
   key_terms?: { term: string; definition: string }[]
   formulas?: { name: string; katex_string: string }[]
   diagrams?: { type: 'table' | 'chart'; data: unknown }[]

@@ -26,7 +26,7 @@ export function Header() {
           letterSpacing: '-0.01em',
         }}
       >
-        Get a 5
+        geta5.org
       </Link>
     </header>
   )

@@ -21,7 +21,7 @@ export function UnitProgressGrid({ subject, units }: UnitProgressGridProps) {
     const map: Record<number, number> = {}
     units.forEach(unit => {
       try {
-        const raw = localStorage.getItem(`ascendly_mastery_${subject}_${unit.number}`)
+        const raw = localStorage.getItem(`ascendly_mastery_${subject}_unit-${unit.number}`)
         if (raw) {
           const data: MasteryData = JSON.parse(raw)
           const accuracy = data.totalAttempts > 0

@@ -3,7 +3,7 @@
   "title": "StudyGuide",
   "description": "One-page study guide for a single unit",
   "type": "object",
-  "required": ["id", "unit", "subject", "theme", "core_concepts", "key_terms", "exam_tip"],
+  "required": ["id", "unit", "subject", "theme", "core_concepts", "exam_tip"],
   "properties": {
     "id": { "type": "string" },
     "unit": { "type": "string" },
@@ -14,25 +14,18 @@
     },
     "core_concepts": {
       "type": "array",
-      "items": { "type": "string" },
-      "minItems": 5,
-      "maxItems": 8,
-      "description": "Sharp, precise bullet points. Inline math uses $...$ KaTeX delimiters."
-    },
-    "key_terms": {
-      "type": "array",
       "items": {
         "type": "object",
-        "required": ["term", "definition"],
+        "required": ["title", "detail"],
         "properties": {
-          "term": { "type": "string" },
-          "definition": {
-            "type": "string",
-            "description": "One line max. Inline math uses $...$ KaTeX delimiters (e.g. 'The limit $\\lim_{x \\to c} f(x)$')."
-          }
+          "title": { "type": "string", "description": "Short (3–6 word) label shown in the accordion header." },
+          "detail": { "type": "string", "description": "Full concept explanation. Inline math uses $...$ KaTeX delimiters." }
         },
         "additionalProperties": false
-      }
+      },
+      "minItems": 5,
+      "maxItems": 8,
+      "description": "Each concept has a short title and a full detail string."
     },
     "formulas": {
       "type": "array",
@@ -44,6 +37,14 @@
           "katex_string": {
             "type": "string",
             "description": "Valid KaTeX string — rendered in displayMode block. Verified by Checker before integration."
+          },
+          "description": {
+            "type": "string",
+            "description": "Plain English: what the formula does and when to use it. No jargon. Required for math subjects (phases 9, 10, 12)."
+          },
+          "example": {
+            "type": "string",
+            "description": "Worked example showing the formula in action. Supports $...$ inline KaTeX delimiters. Required for math subjects (phases 9, 10, 12)."
           }
         },
         "additionalProperties": false

@@ -49,6 +49,7 @@ export default function DrillsPage({ params }: DrillsPageProps) {
   }
 
   const handleStart = (newSession: SessionState) => {
+    setDraft(null)
     setSession(newSession)
     setView('session')
   }
@@ -64,6 +65,13 @@ export default function DrillsPage({ params }: DrillsPageProps) {
   }
 
   const handleUnitSelect = () => {
+    setSession(null)
+    setView('unit-select')
+  }
+
+  const handleSessionStartFresh = () => {
+    clearDrillDraft(subject)
+    setDraft(null)
     setSession(null)
     setView('unit-select')
   }
@@ -93,73 +101,19 @@ export default function DrillsPage({ params }: DrillsPageProps) {
         flexDirection: isSession ? 'column' : undefined,
       }}
     >
-      {view === 'unit-select' && draftChecked && draft && (
-        <div
-          style={{
-            maxWidth: '480px',
-            margin: '80px auto 0',
-            background: 'var(--bg-card)',
-            border: '1px solid var(--bg-border)',
-            borderRadius: 'var(--radius-lg)',
-            padding: '28px 24px',
-          }}
-        >
-          <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', marginBottom: '6px' }}>
-            Unfinished session
-          </p>
-          <p style={{ fontSize: '1.0625rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}>
-            {draft.unitSlug === 'all' ? 'All Units' : `Unit ${draft.unitSlug.replace('unit-', '')}`}
-            {draft.isRetry ? ' · Retry' : ''}
-          </p>
-          <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', marginBottom: '24px' }}>
-            {Object.keys(draft.answers).length} of {draft.cards.length} cards answered
-          </p>
-          <div style={{ display: 'flex', gap: '10px' }}>
-            <button
-              onClick={handleResumeDraft}
-              style={{
-                flex: 1,
-                padding: '11px 0',
-                borderRadius: 'var(--radius-md)',
-                border: 'none',
-                background: 'var(--accent)',
-                color: 'white',
-                fontSize: '0.9375rem',
-                fontWeight: 700,
-                cursor: 'pointer',
-              }}
-            >
-              Continue
-            </button>
-            <button
-              onClick={handleDismissDraft}
-              style={{
-                flex: 1,
-                padding: '11px 0',
-                borderRadius: 'var(--radius-md)',
-                border: '1px solid var(--bg-border)',
-                background: 'transparent',
-                color: 'var(--text-secondary)',
-                fontSize: '0.9375rem',
-                cursor: 'pointer',
-              }}
-            >
-              Start Fresh
-            </button>
-          </div>
-        </div>
-      )}
-      {view === 'unit-select' && draftChecked && !draft && (
+      {view === 'unit-select' && draftChecked && (
         <UnitSelector
           subject={subject}
           onStart={handleStart}
           browseMode={browseMode}
           onBrowseToggle={setBrowseMode}
           onBrowse={handleBrowse}
+          draft={draft}
+          onResume={handleResumeDraft}
         />
       )}
       {isSession && (
-        <DrillSession session={session!} subject={subject} onComplete={handleComplete} />
+        <DrillSession session={session!} subject={subject} onComplete={handleComplete} onStartFresh={handleSessionStartFresh} />
       )}
       {view === 'browse' && browseCards && browseUnitSlug && (
         <BrowseView

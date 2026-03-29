@@ -1,0 +1,79 @@
+{
+  "id": "calc-sg-unit-3",
+  "unit": "unit-3",
+  "subject": "ap-calculus-ab",
+  "theme": "The Chain Rule unlocks the derivative of any composite function, and when combined with implicit differentiation and inverse function rules, it covers virtually every differentiable expression you will encounter.",
+  "core_concepts": [
+    {
+      "title": "The Chain Rule",
+      "detail": "The Chain Rule: to differentiate $f(g(x))$, multiply the derivative of the outer function (evaluated at the inner function) by the derivative of the inner function: $f'(g(x)) \\cdot g'(x)$."
+    },
+    {
+      "title": "Chain Rule in Leibniz Notation",
+      "detail": "In Leibniz notation, the Chain Rule is $\\frac{dy}{dx} = \\frac{dy}{du} \\cdot \\frac{du}{dx}$ — treat derivatives like fractions where the $du$ terms cancel."
+    },
+    {
+      "title": "Implicit Differentiation",
+      "detail": "Implicit differentiation: when $y$ is not solved for $x$, differentiate both sides with respect to $x$, applying chain rule to every $y$-term (multiply by $\\frac{dy}{dx}$), then solve for $\\frac{dy}{dx}$."
+    },
+    {
+      "title": "Derivative of an Inverse Function",
+      "detail": "Derivative of an inverse: $(f^{-1})'(b) = \\frac{1}{f'(f^{-1}(b))}$ — the slope of the inverse at $b$ is the reciprocal of the slope of $f$ at the corresponding input."
+    },
+    {
+      "title": "Inverse Trigonometric Derivatives",
+      "detail": "Derivatives of inverse trig: $\\frac{d}{dx}[\\arcsin x] = \\frac{1}{\\sqrt{1-x^2}}$, $\\frac{d}{dx}[\\arctan x] = \\frac{1}{1+x^2}$ — both need Chain Rule when the argument is more than just $x$."
+    },
+    {
+      "title": "Higher-Order Derivatives",
+      "detail": "Higher-order derivatives: $f''(x)$ is the derivative of $f'(x)$; $f'''(x)$ is the derivative of $f''(x)$ — each is found by differentiating the previous derivative."
+    },
+    {
+      "title": "Common Chain Rule Error",
+      "detail": "Common chain rule error: forgetting to multiply by the derivative of the inner function (the 'inside derivative')."
+    },
+    {
+      "title": "Combining Rules in Mixed Problems",
+      "detail": "Mixed-rule problems: chain rule often combines with product rule or quotient rule — identify the outermost structure first, then work inward."
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Chain Rule",
+      "katex_string": "\\frac{d}{dx}[f(g(x))] = f'(g(x)) \\cdot g'(x)",
+      "description": "For a composite function, take the derivative of the outer function (leaving the inner function alone inside), then multiply by the derivative of the inner function. 'Outside then inside, times derivative of inside.'",
+      "example": "$\\frac{d}{dx}[\\sin(x^3)] = \\cos(x^3) \\cdot 3x^2$. Outer: $\\sin(u)$, inner: $u = x^3$."
+    },
+    {
+      "name": "Chain Rule — Leibniz Form",
+      "katex_string": "\\frac{dy}{dx} = \\frac{dy}{du} \\cdot \\frac{du}{dx}",
+      "description": "If y depends on u and u depends on x, you can find dy/dx by finding how fast y changes with u, then how fast u changes with x, and multiplying. Great for related rates and units analysis.",
+      "example": "If $y = u^3$ and $u = 2x+1$: $\\frac{dy}{dx} = 3u^2 \\cdot 2 = 6(2x+1)^2$"
+    },
+    {
+      "name": "Derivative of an Inverse Function",
+      "katex_string": "(f^{-1})'(x) = \\frac{1}{f'(f^{-1}(x))}",
+      "description": "At a point b on the inverse function, the slope is the reciprocal of the slope of the original function at the corresponding input f⁻¹(b). Use this when you know f and its derivative but need the inverse's derivative at a specific point.",
+      "example": "If $f(2) = 5$ and $f'(2) = 3$, then $(f^{-1})'(5) = \\frac{1}{f'(2)} = \\frac{1}{3}$."
+    },
+    {
+      "name": "Derivative of arcsin x",
+      "katex_string": "\\frac{d}{dx}[\\arcsin x] = \\frac{1}{\\sqrt{1-x^2}}",
+      "description": "The inverse sine function has this derivative. Domain restriction: $|x| < 1$. With chain rule, if the argument is $g(x)$, multiply by $g'(x)$ in the numerator.",
+      "example": "$\\frac{d}{dx}[\\arcsin(2x)] = \\frac{1}{\\sqrt{1-(2x)^2}} \\cdot 2 = \\frac{2}{\\sqrt{1-4x^2}}$"
+    },
+    {
+      "name": "Derivative of arctan x",
+      "katex_string": "\\frac{d}{dx}[\\arctan x] = \\frac{1}{1+x^2}",
+      "description": "The inverse tangent function has this derivative. No domain restriction since arctan is defined for all real x. This is one of the most common inverse trig derivatives on the AP exam.",
+      "example": "$\\frac{d}{dx}[\\arctan(x^2)] = \\frac{1}{1+(x^2)^2} \\cdot 2x = \\frac{2x}{1+x^4}$"
+    },
+    {
+      "name": "Chain Rule Applied to Exponential: e^(g(x))",
+      "katex_string": "\\frac{d}{dx}[e^{g(x)}] = e^{g(x)} \\cdot g'(x)",
+      "description": "The derivative of e raised to any function is e to that same function multiplied by the derivative of the exponent. The outer function (e^u) is its own derivative.",
+      "example": "$\\frac{d}{dx}[e^{3x^2}] = e^{3x^2} \\cdot 6x$"
+    }
+  ],
+  "exam_tip": "On AP free-response questions involving inverse functions, don't try to find the inverse function explicitly — use $(f^{-1})'(b) = 1/f'(f^{-1}(b))$ directly with the given table values or function values."
+}

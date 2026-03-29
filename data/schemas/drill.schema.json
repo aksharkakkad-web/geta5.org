@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Drill",
-  "description": "A single drill card for vocabulary/formula practice",
+  "description": "A single drill card for vocabulary, formula, or concept-application practice",
   "type": "object",
-  "required": ["id", "unit", "subject", "mode", "prompt", "answer", "difficulty"],
+  "required": ["id", "unit", "subject", "mode", "prompt", "answer", "difficulty", "is_key_term"],
   "properties": {
     "id": {
       "type": "string",
@@ -19,21 +19,27 @@
     },
     "mode": {
       "type": "string",
-      "enum": ["definition_to_term", "formula_to_type", "person_to_significance", "event_to_date", "concept_to_example", "term_to_definition"],
-      "description": "Drill interaction mode. All subjects use definition_to_term; math/chem use formula_to_type"
+      "enum": [
+        "definition_to_term",
+        "significance_to_person",
+        "significance_to_event",
+        "significance_to_case",
+        "name_to_formula",
+        "concept_mc"
+      ],
+      "description": "Drill interaction mode. Always prompts with the longer/descriptive side; student types the short exact answer. concept_mc is multiple choice. name_to_formula prompts with formula name; student types it using simple notation."
     },
     "prompt": {
       "type": "string",
-      "description": "What is shown to the student (definition, formula name, etc.)"
+      "description": "What is shown to the student (definition, significance, formula name, or MC question). For concept_mc: 1-3 sentence scenario or question. Never reveals the answer."
     },
     "answer": {
       "type": "string",
-      "description": "Canonical correct answer"
+      "description": "Canonical correct answer — one per card, no alternates. For concept_mc: omit (use choices[].is_correct). For name_to_formula: KaTeX string of the canonical formula."
     },
-    "alternate_answers": {
-      "type": "array",
-      "items": { "type": "string" },
-      "description": "Alternate accepted answers for fuzzy matching (optional)"
+    "is_key_term": {
+      "type": "boolean",
+      "description": "True if this card is a high-yield key term the study guide should display. Only applies to typed-recall modes (definition_to_term, significance_to_person, significance_to_event, significance_to_case, name_to_formula). Always false for concept_mc. Mark 8-15 cards per unit as true."
     },
     "difficulty": {
       "type": "string",
@@ -41,7 +47,36 @@
     },
     "katex_required": {
       "type": "boolean",
-      "description": "True if the answer must be rendered in KaTeX (formula drills)"
+      "description": "True if the answer must be rendered in KaTeX (name_to_formula cards)"
+    },
+    "format_hint": {
+      "type": "string",
+      "description": "Short hint shown above input for name_to_formula cards with unusual notation. e.g. 'Use Delta for Δ'. Optional."
+    },
+    "choices": {
+      "type": "array",
+      "description": "Required for concept_mc mode only. Array of 3-4 answer choices.",
+      "items": {
+        "type": "object",
+        "required": ["text", "is_correct", "explanation"],
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "Choice text"
+          },
+          "is_correct": {
+            "type": "boolean",
+            "description": "Exactly one choice must be true"
+          },
+          "explanation": {
+            "type": "string",
+            "description": "Why this choice is correct or incorrect — must name the specific misconception for distractors"
+          }
+        },
+        "additionalProperties": false
+      },
+      "minItems": 3,
+      "maxItems": 4
     }
   },
   "additionalProperties": false

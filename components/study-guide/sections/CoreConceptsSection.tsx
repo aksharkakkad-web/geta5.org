@@ -2,13 +2,13 @@
 import { useState } from 'react'
 import InlineKatex from '@/components/study-guide/InlineKatex'
 
-interface Props {
-  concepts: string[]
+interface Concept {
+  title: string
+  detail: string
 }
 
-function getPreview(text: string): string {
-  const match = text.match(/^[^.—–,]{1,60}/)
-  return match ? match[0].trimEnd() : text.slice(0, 60)
+interface Props {
+  concepts: Concept[]
 }
 
 export default function CoreConceptsSection({ concepts }: Props) {
@@ -91,12 +91,9 @@ export default function CoreConceptsSection({ concepts }: Props) {
                     fontSize: '13px',
                     fontWeight: 500,
                     color: isOpen ? 'var(--text-primary)' : 'var(--text-secondary)',
-                    whiteSpace: 'nowrap',
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis',
                   }}
                 >
-                  {getPreview(concept)}
+                  {concept.title}
                 </span>
                 {/* Chevron */}
                 <svg
@@ -127,7 +124,7 @@ export default function CoreConceptsSection({ concepts }: Props) {
                     lineHeight: '1.7',
                   }}
                 >
-                  <InlineKatex text={concept} />
+                  <InlineKatex text={concept.detail} />
                 </div>
               )}
             </div>

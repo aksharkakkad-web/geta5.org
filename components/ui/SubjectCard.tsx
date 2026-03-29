@@ -105,23 +105,6 @@ export function SubjectCard({ name, slug }: SubjectCardProps) {
             {theme.emoji}
           </div>
 
-          {/* Subject tag badge */}
-          <div
-            style={{
-              fontSize: '0.6875rem',
-              fontWeight: 600,
-              textTransform: 'uppercase',
-              letterSpacing: '0.07em',
-              color: 'var(--accent)',
-              background: 'color-mix(in srgb, var(--accent) 15%, transparent)',
-              border: '1px solid color-mix(in srgb, var(--accent) 30%, transparent)',
-              borderRadius: '6px',
-              padding: '3px 8px',
-              zIndex: 1,
-            }}
-          >
-            AP
-          </div>
         </div>
 
         {/* Card body */}

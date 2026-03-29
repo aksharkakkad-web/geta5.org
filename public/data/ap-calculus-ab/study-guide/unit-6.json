@@ -1,0 +1,85 @@
+{
+  "id": "calc-sg-unit-6",
+  "unit": "unit-6",
+  "subject": "ap-calculus-ab",
+  "theme": "Integration is the inverse of differentiation — the Fundamental Theorem of Calculus unifies antiderivatives and definite integrals, while Riemann sums, the substitution rule, and basic antiderivative formulas give you the tools to compute any integral you will see on the AP exam.",
+  "core_concepts": [
+    {
+      "title": "Definite Integrals as Signed Area",
+      "detail": "A definite integral $\\int_a^b f(x)\\,dx$ represents the net signed area between the curve $f(x)$ and the $x$-axis on $[a,b]$ — area above the axis is positive, area below is negative."
+    },
+    {
+      "title": "Fundamental Theorem of Calculus, Part 1",
+      "detail": "FTC Part 1: if $F(x) = \\int_a^x f(t)\\,dt$, then $F'(x) = f(x)$ — differentiation and integration are inverse operations."
+    },
+    {
+      "title": "Fundamental Theorem of Calculus, Part 2",
+      "detail": "FTC Part 2 (Evaluation Theorem): $\\int_a^b f(x)\\,dx = F(b) - F(a)$ where $F$ is any antiderivative of $f$."
+    },
+    {
+      "title": "Riemann Sums",
+      "detail": "A Riemann sum $\\sum_{i=1}^{n} f(x_i^*)\\,\\Delta x$ approximates the definite integral; left, right, and midpoint sums use the left endpoint, right endpoint, or midpoint of each subinterval."
+    },
+    {
+      "title": "The Trapezoidal Rule",
+      "detail": "The trapezoidal rule approximates $\\int_a^b f(x)\\,dx$ using trapezoids: $\\frac{\\Delta x}{2}[f(x_0) + 2f(x_1) + \\cdots + 2f(x_{n-1}) + f(x_n)]$."
+    },
+    {
+      "title": "Power Rule for Integration",
+      "detail": "Power rule for integration: $\\int x^n\\,dx = \\frac{x^{n+1}}{n+1} + C$ for $n \\neq -1$; note $\\int x^{-1}\\,dx = \\ln|x| + C$."
+    },
+    {
+      "title": "U-Substitution",
+      "detail": "$u$-substitution reverses the chain rule: choose $u = g(x)$, compute $du = g'(x)\\,dx$, rewrite the integral entirely in terms of $u$, integrate, then back-substitute."
+    },
+    {
+      "title": "Properties of Definite Integrals",
+      "detail": "Properties of definite integrals: $\\int_a^b f\\,dx = -\\int_b^a f\\,dx$; $\\int_a^a f\\,dx = 0$; $\\int_a^b cf\\,dx = c\\int_a^b f\\,dx$; $\\int_a^b (f+g)\\,dx = \\int_a^b f\\,dx + \\int_a^b g\\,dx$."
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Fundamental Theorem of Calculus — Part 1",
+      "katex_string": "\\frac{d}{dx}\\int_a^x f(t)\\,dt = f(x)",
+      "description": "If you define a function as a definite integral with a variable upper limit, its derivative is the integrand evaluated at that upper limit. This is the bridge between differentiation and integration.",
+      "example": "$\\frac{d}{dx}\\int_1^x \\sin(t^2)\\,dt = \\sin(x^2)$. No antiderivative of $\\sin(t^2)$ is needed — just replace $t$ with $x$."
+    },
+    {
+      "name": "FTC Part 1 — Chain Rule Form",
+      "katex_string": "\\frac{d}{dx}\\int_a^{g(x)} f(t)\\,dt = f(g(x)) \\cdot g'(x)",
+      "description": "When the upper limit is a function of x (not just x itself), apply the Chain Rule: evaluate the integrand at the upper limit, then multiply by the derivative of that upper limit.",
+      "example": "$\\frac{d}{dx}\\int_0^{x^3} e^t\\,dt = e^{x^3} \\cdot 3x^2$. Upper limit is $x^3$, so multiply by $3x^2$."
+    },
+    {
+      "name": "Fundamental Theorem of Calculus — Part 2",
+      "katex_string": "\\int_a^b f(x)\\,dx = F(b) - F(a) \\quad \\text{where } F'(x) = f(x)",
+      "description": "To evaluate a definite integral, find any antiderivative F, then compute F(b) − F(a). The constant C always cancels, so you can ignore it. This is the workhorse formula for computing exact integral values.",
+      "example": "$\\int_1^3 2x\\,dx$: antiderivative is $F(x) = x^2$. Answer: $F(3) - F(1) = 9 - 1 = 8$."
+    },
+    {
+      "name": "Power Rule for Antiderivatives",
+      "katex_string": "\\int x^n\\,dx = \\frac{x^{n+1}}{n+1} + C \\quad (n \\neq -1) \\qquad \\int \\frac{1}{x}\\,dx = \\ln|x| + C",
+      "description": "Raise the exponent by 1 and divide by the new exponent. Works for any real n except −1. The special case n = −1 gives the natural log. Always add the constant C for indefinite integrals.",
+      "example": "$\\int x^4\\,dx = \\frac{x^5}{5} + C$; $\\int x^{-3}\\,dx = \\frac{x^{-2}}{-2} + C = -\\frac{1}{2x^2} + C$; $\\int \\frac{1}{x}\\,dx = \\ln|x| + C$."
+    },
+    {
+      "name": "Antiderivatives of Exponential and Trig Functions",
+      "katex_string": "\\int e^x\\,dx = e^x + C \\qquad \\int \\sin x\\,dx = -\\cos x + C \\qquad \\int \\cos x\\,dx = \\sin x + C",
+      "description": "These three must be memorized. The exponential is its own antiderivative. The antiderivative of sine is negative cosine (note the sign flip). The antiderivative of cosine is sine.",
+      "example": "$\\int (3e^x - 2\\sin x)\\,dx = 3e^x + 2\\cos x + C$."
+    },
+    {
+      "name": "u-Substitution",
+      "katex_string": "\\int f(g(x))\\cdot g'(x)\\,dx = \\int f(u)\\,du \\quad \\text{where } u = g(x),\\; du = g'(x)\\,dx",
+      "description": "When the integrand contains a composite function and its derivative, substitute u for the inner function. The dx and the extra factor combine into du. Integrate in terms of u, then substitute back.",
+      "example": "$\\int 2x\\cos(x^2)\\,dx$: let $u = x^2$, $du = 2x\\,dx$. Integral becomes $\\int \\cos(u)\\,du = \\sin(u) + C = \\sin(x^2) + C$."
+    },
+    {
+      "name": "Trapezoidal Rule",
+      "katex_string": "\\int_a^b f(x)\\,dx \\approx \\frac{\\Delta x}{2}\\bigl[f(x_0) + 2f(x_1) + \\cdots + 2f(x_{n-1}) + f(x_n)\\bigr]",
+      "description": "Approximates the integral using trapezoids instead of rectangles. Each interior value is counted twice (it's shared by two adjacent trapezoids); only the endpoints are counted once. More accurate than left/right Riemann sums for smooth functions.",
+      "example": "Approximate $\\int_0^4 f(x)\\,dx$ with $n=2$: $\\Delta x = 2$. $\\approx \\frac{2}{2}[f(0) + 2f(2) + f(4)]$. If $f(0)=1, f(2)=3, f(4)=5$: answer $= 1(1+6+5) = 12$."
+    }
+  ],
+  "exam_tip": "On AP free-response, when applying FTC Part 1 with a chain rule upper limit, many students forget to multiply by the derivative of the upper limit — this loses points. Always write $f(g(x)) \\cdot g'(x)$, not just $f(g(x))$."
+}

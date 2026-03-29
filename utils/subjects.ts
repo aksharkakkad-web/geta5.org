@@ -14,22 +14,19 @@ const SUBJECTS: Subject[] = [
   {
     slug: 'ap-psychology',
     name: 'AP Psychology',
-    examDate: '2026-05-04',
+    examDate: '2026-05-12T12:00:00',
     units: [
       { number: 1, name: 'Biological Bases of Behavior' },
-      { number: 2, name: 'Sensation and Perception' },
-      { number: 3, name: 'Learning' },
-      { number: 4, name: 'Cognitive Psychology' },
-      { number: 5, name: 'Developmental Psychology' },
-      { number: 6, name: 'Motivation, Emotion, and Personality' },
-      { number: 7, name: 'Clinical Psychology' },
-      { number: 8, name: 'Social Psychology' },
+      { number: 2, name: 'Cognition' },
+      { number: 3, name: 'Development and Learning' },
+      { number: 4, name: 'Social Psychology and Personality' },
+      { number: 5, name: 'Mental and Physical Health' },
     ],
   },
   {
     slug: 'ap-world-history',
     name: 'AP World History',
-    examDate: '2026-05-14',
+    examDate: '2026-05-07T08:00:00',
     units: [
       { number: 1, name: 'The Global Tapestry' },
       { number: 2, name: 'Networks of Exchange' },
@@ -45,7 +42,7 @@ const SUBJECTS: Subject[] = [
   {
     slug: 'ap-government',
     name: 'AP Government',
-    examDate: '2026-05-05',
+    examDate: '2026-05-05T12:00:00',
     units: [
       { number: 1, name: 'Foundations of American Democracy' },
       { number: 2, name: 'Interactions Among Branches of Government' },
@@ -57,7 +54,7 @@ const SUBJECTS: Subject[] = [
   {
     slug: 'ap-calculus-ab',
     name: 'AP Calculus AB',
-    examDate: '2026-05-12',
+    examDate: '2026-05-11T08:00:00',
     units: [
       { number: 1, name: 'Limits and Continuity' },
       { number: 2, name: 'Differentiation: Definition and Fundamental Properties' },
@@ -72,7 +69,7 @@ const SUBJECTS: Subject[] = [
   {
     slug: 'ap-precalculus',
     name: 'AP Precalculus',
-    examDate: '2026-05-07',
+    examDate: '2026-05-12T08:00:00',
     units: [
       { number: 1, name: 'Polynomial and Rational Functions' },
       { number: 2, name: 'Exponential and Logarithmic Functions' },
@@ -83,7 +80,7 @@ const SUBJECTS: Subject[] = [
   {
     slug: 'ap-csp',
     name: 'AP Computer Science Principles',
-    examDate: '2026-05-06',
+    examDate: '2026-05-14T12:00:00',
     units: [
       { number: 1, name: 'Creative Development' },
       { number: 2, name: 'Data' },
@@ -95,7 +92,7 @@ const SUBJECTS: Subject[] = [
   {
     slug: 'ap-chemistry',
     name: 'AP Chemistry',
-    examDate: '2026-05-11',
+    examDate: '2026-05-05T08:00:00',
     units: [
       { number: 1, name: 'Atomic Structure and Properties' },
       { number: 2, name: 'Molecular and Ionic Compound Structure and Properties' },

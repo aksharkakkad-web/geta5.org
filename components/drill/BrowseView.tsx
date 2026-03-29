@@ -4,6 +4,7 @@ import React, { useState, useMemo } from 'react'
 import { ChevronLeft, Search, X } from 'lucide-react'
 import { DrillCard, NormalizedCard, normalizeCard } from '@/utils/drillSession'
 import { parseInlineMath } from '@/utils/parseInlineMath'
+import KatexRenderer from '@/components/KatexRenderer'
 import { getSubject } from '@/utils/subjects'
 
 interface BrowseViewProps {
@@ -36,8 +37,11 @@ export default function BrowseView({ cards, unitSlug, subject, onBack }: BrowseV
     unitLabel = unitData ? `Unit ${unitNumber} · ${unitData.name}` : `Unit ${unitNumber}`
   }
 
-  // Normalize once — term/definition direction is now consistent
-  const normalized = useMemo(() => cards.map(normalizeCard), [cards])
+  // Normalize once — exclude concept_mc (multiple-choice cards don't belong in a term/definition browse)
+  const normalized = useMemo(
+    () => cards.filter(c => c.mode !== 'concept_mc').map(normalizeCard),
+    [cards]
+  )
 
   // Apply filter chip then search
   const visible = useMemo(() => {
@@ -240,33 +244,17 @@ export default function BrowseView({ cards, unitSlug, subject, onBack }: BrowseV
               }}
             >
               {/* Term cell */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' as const }}>
+              <div>
                 <span style={{ fontSize: '0.9375rem', fontWeight: 600, color: 'var(--text-primary)', lineHeight: '1.4' }}>
-                  {card.term}
+                  {parseInlineMath(card.term)}
                 </span>
-                {card.mode === 'significance_to_person' && (
-                  <span
-                    style={{
-                      fontSize: '0.625rem',
-                      fontWeight: 700,
-                      textTransform: 'uppercase' as const,
-                      letterSpacing: '0.06em',
-                      color: 'var(--accent-success)',
-                      padding: '1px 6px',
-                      borderRadius: '4px',
-                      background: 'color-mix(in srgb, var(--accent-success) 12%, transparent)',
-                      border: '1px solid color-mix(in srgb, var(--accent-success) 25%, transparent)',
-                      flexShrink: 0,
-                    }}
-                  >
-                    person
-                  </span>
-                )}
               </div>
 
               {/* Definition cell */}
               <div style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: '1.55' }}>
-                {card.katex_required ? parseInlineMath(card.definition) : card.definition}
+                {card.mode === 'name_to_formula'
+                  ? <KatexRenderer formula={card.definition} displayMode={false} />
+                  : parseInlineMath(card.definition)}
               </div>
             </div>
           ))}

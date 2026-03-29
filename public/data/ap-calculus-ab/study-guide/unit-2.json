@@ -1,0 +1,85 @@
+{
+  "id": "calc-sg-unit-2",
+  "unit": "unit-2",
+  "subject": "ap-calculus-ab",
+  "theme": "The derivative measures instantaneous rate of change as the limit of average rates of change — and a powerful set of rules makes calculating derivatives of any algebraic, trig, exponential, or logarithmic function fast and systematic.",
+  "core_concepts": [
+    {
+      "title": "The Limit Definition of Derivative",
+      "detail": "The derivative $f'(a)$ is defined as $\\lim_{h \\to 0} \\frac{f(a+h) - f(a)}{h}$ — the slope of the tangent line at $x = a$."
+    },
+    {
+      "title": "Differentiability Implies Continuity",
+      "detail": "If $f$ is differentiable at $x = c$, then $f$ is continuous at $x = c$, but a continuous function can fail to be differentiable (e.g., corners, cusps, vertical tangents)."
+    },
+    {
+      "title": "The Power Rule",
+      "detail": "The Power Rule: $\\frac{d}{dx}[x^n] = nx^{n-1}$ — applies to all real powers including negatives and fractions."
+    },
+    {
+      "title": "The Product Rule",
+      "detail": "Product Rule: $\\frac{d}{dx}[fg] = f'g + fg'$ — 'first times derivative of second plus second times derivative of first.'"
+    },
+    {
+      "title": "The Quotient Rule",
+      "detail": "Quotient Rule: $\\frac{d}{dx}\\left[\\frac{f}{g}\\right] = \\frac{f'g - fg'}{g^2}$ — remembered as 'low d-high minus high d-low, over low squared.'"
+    },
+    {
+      "title": "Key Trigonometric Derivatives",
+      "detail": "Key trig derivatives: $\\frac{d}{dx}[\\sin x] = \\cos x$, $\\frac{d}{dx}[\\cos x] = -\\sin x$, $\\frac{d}{dx}[\\tan x] = \\sec^2 x$."
+    },
+    {
+      "title": "Exponential and Logarithm Derivatives",
+      "detail": "Exponential and log derivatives: $\\frac{d}{dx}[e^x] = e^x$, $\\frac{d}{dx}[\\ln x] = \\frac{1}{x}$ — the exponential function is its own derivative."
+    },
+    {
+      "title": "Derivative Notation",
+      "detail": "Three equivalent notations for derivative: $f'(x)$, $y'$, and $\\frac{dy}{dx}$ — all mean the same thing."
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Definition of the Derivative",
+      "katex_string": "f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}",
+      "description": "This is the formal definition. It says: take the average rate of change over a tiny interval h, then shrink that interval to zero. The result is the instantaneous rate of change at x. You'll need this to find derivatives from first principles and to recognize limits in disguise.",
+      "example": "For $f(x) = x^2$: $f'(x) = \\lim_{h \\to 0} \\frac{(x+h)^2 - x^2}{h} = \\lim_{h \\to 0} \\frac{2xh + h^2}{h} = 2x$"
+    },
+    {
+      "name": "Power Rule",
+      "katex_string": "\\frac{d}{dx}[x^n] = nx^{n-1}",
+      "description": "Multiply by the exponent and reduce the exponent by 1. Works for any real number n — positive, negative, or fractional. This is the most-used rule in calculus.",
+      "example": "$\\frac{d}{dx}[x^5] = 5x^4$, $\\frac{d}{dx}[x^{-2}] = -2x^{-3}$, $\\frac{d}{dx}[\\sqrt{x}] = \\frac{d}{dx}[x^{1/2}] = \\frac{1}{2}x^{-1/2}$"
+    },
+    {
+      "name": "Product Rule",
+      "katex_string": "\\frac{d}{dx}[f(x) \\cdot g(x)] = f'(x)g(x) + f(x)g'(x)",
+      "description": "When two functions are multiplied together, you can't just differentiate each separately and multiply. You need this rule: differentiate the first and keep the second, plus keep the first and differentiate the second.",
+      "example": "$(x^2 \\sin x)' = 2x \\sin x + x^2 \\cos x$"
+    },
+    {
+      "name": "Quotient Rule",
+      "katex_string": "\\frac{d}{dx}\\left[\\frac{f(x)}{g(x)}\\right] = \\frac{f'(x)g(x) - f(x)g'(x)}{[g(x)]^2}",
+      "description": "For a fraction of two functions: (derivative of top)(bottom) minus (top)(derivative of bottom), all over bottom squared. Don't forget the minus sign in the numerator.",
+      "example": "$\\frac{d}{dx}\\left[\\frac{x^2}{\\cos x}\\right] = \\frac{2x \\cos x - x^2(-\\sin x)}{\\cos^2 x} = \\frac{2x\\cos x + x^2 \\sin x}{\\cos^2 x}$"
+    },
+    {
+      "name": "Derivatives of Sine and Cosine",
+      "katex_string": "\\frac{d}{dx}[\\sin x] = \\cos x \\qquad \\frac{d}{dx}[\\cos x] = -\\sin x",
+      "description": "These two must be memorized cold. Notice the pattern cycles: sin → cos → -sin → -cos → sin. The negative sign appears when differentiating cosine.",
+      "example": "$\\frac{d}{dx}[3\\sin x - 2\\cos x] = 3\\cos x + 2\\sin x$"
+    },
+    {
+      "name": "Derivatives of e^x and ln x",
+      "katex_string": "\\frac{d}{dx}[e^x] = e^x \\qquad \\frac{d}{dx}[\\ln x] = \\frac{1}{x}",
+      "description": "The exponential function e^x is its own derivative — the most special function in calculus. The natural log's derivative is the reciprocal function 1/x.",
+      "example": "$\\frac{d}{dx}[5e^x + \\ln x] = 5e^x + \\frac{1}{x}$"
+    },
+    {
+      "name": "Equation of the Tangent Line",
+      "katex_string": "y - f(a) = f'(a)(x - a)",
+      "description": "The tangent line at x = a uses point-slope form. The slope is f'(a) and the point is (a, f(a)). This formula is used constantly on free-response questions.",
+      "example": "For $f(x) = x^2$ at $x = 3$: slope $= 2(3) = 6$, point $= (3, 9)$. Tangent: $y - 9 = 6(x - 3)$, or $y = 6x - 9$."
+    }
+  ],
+  "exam_tip": "On the AP exam, when a limit looks like $\\lim_{h \\to 0} \\frac{f(a+h) - f(a)}{h}$, recognize it as the definition of $f'(a)$ — identifying this pattern often unlocks the problem immediately without computing the limit directly."
+}
