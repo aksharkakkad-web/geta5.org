@@ -67,13 +67,13 @@ export async function GET() {
   }
 
 
-  // By subject
+  // By subject — use per-question _answer events for question counts
   const subjects = [...new Set(allEvents.map(e => e.subject))]
   const bySubject = subjects.map(s => ({
     subject: s,
-    drills: allEvents.filter(e => e.subject === s && e.event_type === 'drill_completed').length,
-    mcqs: allEvents.filter(e => e.subject === s && e.event_type === 'mcq_completed').length,
-    tests: allEvents.filter(e => e.subject === s && e.event_type === 'test_completed').length,
+    drills: allEvents.filter(e => e.subject === s && e.event_type === 'drill_answer').length,
+    mcqs: allEvents.filter(e => e.subject === s && e.event_type === 'mcq_answer').length,
+    tests: allEvents.filter(e => e.subject === s && e.event_type === 'test_answer').length,
     guides: allEvents.filter(e => e.subject === s && e.event_type === 'study_guide_view').length,
   })).sort((a, b) => (b.drills + b.mcqs + b.tests + b.guides) - (a.drills + a.mcqs + a.tests + a.guides))
 
@@ -85,9 +85,9 @@ export async function GET() {
     daily[day].events++
     const id = e.metadata?.anon_id
     if (typeof id === 'string') daily[day].users.add(id)
-    if (e.event_type === 'drill_completed') daily[day].drills++
-    if (e.event_type === 'mcq_completed') daily[day].mcqs++
-    if (e.event_type === 'test_completed') daily[day].tests++
+    if (e.event_type === 'drill_answer') daily[day].drills++
+    if (e.event_type === 'mcq_answer') daily[day].mcqs++
+    if (e.event_type === 'test_answer') daily[day].tests++
     if (e.event_type === 'study_guide_view') daily[day].guides++
   })
 
