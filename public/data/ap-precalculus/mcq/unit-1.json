@@ -704,7 +704,7 @@
       "stimulus": { "type": "none", "content": null },
       "question": "The graph of $f(x) = x^3$ is transformed to produce $g(x) = -\\frac{1}{2}(2x + 4)^3 + 1$. Which of the following correctly identifies all transformations?",
       "choices": [
-        { "id": "A", "text": "Horizontal compression by $\\frac{1}{2}$, shift left $2$, vertical compression by $\\frac{1}{2}$, reflection over $x$-axis, shift up $1$", "is_correct": true, "explanation": "Rewrite: $g(x)=-\\frac{1}{2}(2(x+2))^3+1=-\\frac{1}{2}\\cdot8(x+2)^3+1=-4(x+2)^3+1$. Alternatively, factor as $2(x+2)$: horizontal compression by $\\frac{1}{2}$ (multiply input by $2$), shift left $2$, then $-\\frac{1}{2}$ applies vertical compression by $\\frac{1}{2}$ and reflection over $x$-axis, $+1$ shifts up." },
+        { "id": "A", "text": "Horizontal compression by $\\frac{1}{2}$, shift left $2$, vertical compression by $\\frac{1}{2}$, reflection over $x$-axis, shift up $1$", "is_correct": true, "explanation": "Read transformations from the unsimplified form $g(x) = -\\frac{1}{2}(2x+4)^3+1$. Factor the input: $2x+4 = 2(x+2)$. The factor of $2$ multiplying the input gives horizontal compression by $\\frac{1}{2}$; the $+2$ inside shifts left $2$. Outside: $-\\frac{1}{2}$ gives vertical compression by $\\frac{1}{2}$ and reflection over the $x$-axis; $+1$ shifts up. Note: simplifying first gives $-4(x+2)^3+1$, where the $-4$ is a combined vertical stretch — but the question asks for the individual transformations applied to $f(x) = x^3$." },
         { "id": "B", "text": "Horizontal stretch by $2$, shift left $4$, reflection over $x$-axis, shift up $1$", "is_correct": false, "explanation": "Adding $4$ inside the argument as $2x+4=2(x+2)$ means a horizontal compression by $\\frac{1}{2}$ and a shift left $2$, not a stretch by $2$ or shift left $4$." },
         { "id": "C", "text": "Shift left $4$, reflection over $x$-axis, shift up $1$", "is_correct": false, "explanation": "This ignores the factor of $2$ inside and the factor of $\\frac{1}{2}$ outside, both of which produce dilations in addition to the shifts." },
         { "id": "D", "text": "Shift right $2$, vertical compression by $\\frac{1}{2}$, reflection over $x$-axis, shift up $1$", "is_correct": false, "explanation": "$(2x+4)=2(x+2)$ means the shift is $2$ units to the left (not right), because replacing $x$ with $x+2$ shifts left." }
@@ -879,7 +879,7 @@
       "question": "A researcher is modeling a town's population using the data in the table. Which type of function would best model the data, and why?",
       "choices": [
         { "id": "A", "text": "Linear, because the population increases each period", "is_correct": false, "explanation": "AROC: $\\frac{65-50}{5}=3$, $\\frac{84-65}{5}=3.8$, $\\frac{110-84}{5}=5.2$. The rate of change is increasing, not constant, so the model is not linear." },
-        { "id": "B", "text": "Exponential, because the population grows by a constant multiplicative factor", "is_correct": false, "explanation": "Check ratios over equal intervals: $65/50=1.30$, $84/65\\approx1.29$, $110/84\\approx1.31$. These are approximately constant, suggesting exponential growth. However, this choice focuses on constant factor without noting the increasing AROC." },
+        { "id": "B", "text": "Exponential, because the population increases by a constant amount each period", "is_correct": false, "explanation": "Constant additive change defines a linear model, not exponential. The differences are $15, 19, 26$ (thousands) — not constant. An exponential model is identified by constant multiplicative ratios or increasing average rate of change." },
         { "id": "C", "text": "Quadratic, because the average rate of change is increasing at a constant rate", "is_correct": false, "explanation": "Second differences in AROC: $3.8-3=0.8$ and $5.2-3.8=1.4$. These are NOT constant ($0.8\\neq1.4$), so a quadratic model is not supported." },
         { "id": "D", "text": "Exponential, because the average rate of change is increasing over equal intervals", "is_correct": true, "explanation": "Increasing AROC ($3, 3.8, 5.2$ per 5-year period) and near-constant multiplicative ratios ($\\approx1.30$ every 5 years) both suggest an exponential model, where growth compounds over time." }
       ],
@@ -921,12 +921,12 @@
       "subject": "ap-precalculus",
       "difficulty": "hard",
       "stimulus": { "type": "none", "content": null },
-      "question": "Which of the following gives the slant asymptote of $r(x) = \\frac{x^2 + 2x - 3}{x - 1}$?",
+      "question": "Which of the following gives the slant asymptote of $r(x) = \\frac{x^2 + 2x - 1}{x - 1}$?",
       "choices": [
-        { "id": "A", "text": "$y = x + 3$", "is_correct": true, "explanation": "Divide: $\\frac{x^2+2x-3}{x-1}$. Note $x^2+2x-3=(x+3)(x-1)$, so $r(x)=x+3$ with a hole at $x=1$ (no slant asymptote in this case — the function reduces exactly). For large $|x|$, $r(x)\\to x+3$." },
-        { "id": "B", "text": "$y = x + 1$", "is_correct": false, "explanation": "Performing polynomial long division: $x^2+2x-3 = (x-1)(x+3)+0$. The quotient is $x+3$, not $x+1$." },
-        { "id": "C", "text": "$y = x$", "is_correct": false, "explanation": "The quotient from dividing $x^2+2x-3$ by $(x-1)$ includes a nonzero linear term. Dividing yields $x+3$, not just $x$." },
-        { "id": "D", "text": "$y = x - 3$", "is_correct": false, "explanation": "The constant term in the quotient comes from the division: $(x+3)(x-1)=x^2+2x-3$, so the quotient is $x+3$, not $x-3$." }
+        { "id": "A", "text": "$y = x + 3$", "is_correct": true, "explanation": "Long division: $x^2+2x-1 = (x-1)(x+3)+2$. So $r(x) = x+3+\\frac{2}{x-1}$. As $|x|\\to\\infty$, the remainder vanishes and $r(x)\\to x+3$. The slant asymptote is $y=x+3$." },
+        { "id": "B", "text": "$y = x + 1$", "is_correct": false, "explanation": "Long division of $x^2+2x-1$ by $(x-1)$ gives quotient $x+3$ with remainder $2$, not $x+1$." },
+        { "id": "C", "text": "$y = x$", "is_correct": false, "explanation": "The quotient from dividing $x^2+2x-1$ by $(x-1)$ is $x+3$, not just $x$. The constant $+3$ arises from the division." },
+        { "id": "D", "text": "$y = x - 3$", "is_correct": false, "explanation": "The quotient is $x+3$ (positive), not $x-3$. Verify: $(x-1)(x+3)+2 = x^2+2x-3+2 = x^2+2x-1$ ✓." }
       ],
       "unit_objective": "PCF-1.C"
     },
