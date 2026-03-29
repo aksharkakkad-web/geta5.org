@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getSubject } from '@/utils/subjects'
 import { ModeCard } from '@/components/ui/ModeCard'
-import { UnitProgressGrid } from '@/components/ui/UnitProgressGrid'
 import { ProjectedScoreBadge } from '@/components/ui/ProjectedScoreBadge'
 import { SubjectAnalytics } from '@/components/ui/SubjectAnalytics'
 
@@ -18,7 +17,7 @@ export async function generateMetadata({ params }: SubjectPageProps): Promise<Me
   const subject = getSubject(slug)
   if (!subject) return {}
   return {
-    title: `${subject.name} Prep — Free Practice | Ascendly`,
+    title: `${subject.name} Prep — Free Practice | Get a 5`,
     description: `Free AP ${subject.name} practice questions, drills, and study guides. No signup.`,
   }
 }
@@ -133,8 +132,6 @@ export default async function SubjectPage({ params }: SubjectPageProps) {
         ))}
       </div>
 
-      {/* Unit progress — client island */}
-      <UnitProgressGrid subject={subject.slug} units={subject.units} />
     </div>
   )
 }

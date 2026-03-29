@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const subject = getSubject(slug)
   if (!subject) return {}
   return {
-    title: `${subject.name} Study Guide — Free Review | Ascendly`,
+    title: `${subject.name} Study Guide — Free Review | Get a 5`,
     description: `Free ${subject.name} study guide with core concepts, key terms, formulas, and exam tips. No signup required.`,
   }
 }

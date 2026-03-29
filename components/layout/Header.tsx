@@ -26,7 +26,7 @@ export function Header() {
           letterSpacing: '-0.01em',
         }}
       >
-        Ascendly
+        Get a 5
       </Link>
     </header>
   )

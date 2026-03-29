@@ -4,8 +4,8 @@ import { SubjectCard } from '@/components/ui/SubjectCard'
 import { StreakStrip } from '@/components/ui/StreakStrip'
 
 export const metadata: Metadata = {
-  title: 'Ascendly — Free AP Exam Prep. No Signup.',
-  description: 'Free AP practice questions, drills, and study guides for 7 AP subjects. No signup required.',
+  title: 'Get a 5 — 100% Free AP Exam Prep',
+  description: 'Free AP practice questions, drills, and study guides for 7 AP subjects. No signup, no paywall, completely free.',
 }
 
 export default function HomePage() {
@@ -27,13 +27,13 @@ export default function HomePage() {
           lineHeight: 1.2,
           marginBottom: '8px',
         }}>
-          Ace your AP exams. Free.
+          100% free AP exam prep.
         </h1>
         <p style={{
           fontSize: '0.875rem',
           color: 'var(--text-secondary)',
         }}>
-          No signup. No paywall. Just practice.
+          No signup. No paywall. No ads. Just practice.
         </p>
       </div>
 

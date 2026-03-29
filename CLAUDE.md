@@ -2,7 +2,7 @@
 
 ## Project
 Free AP exam prep web app. No signup, no accounts, localStorage only.
-URL: ascendly.vercel.app (planned)
+URL: geta5.org (domain pending) — deployed via Vercel
 
 ## Document Map — Where to Find What
 
