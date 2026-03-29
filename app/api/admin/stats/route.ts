@@ -12,81 +12,114 @@ async function isAuthed(): Promise<boolean> {
   return !!cookieStore.get('admin_token')?.value
 }
 
+interface RawEvent {
+  event_type: string
+  subject: string
+  unit: string | null
+  metadata: Record<string, unknown> | null
+  created_at: string
+}
+
 export async function GET() {
   if (!(await isAuthed())) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
-  // Total events
-  const { count: totalEvents } = await supabase
-    .from('events')
-    .select('*', { count: 'exact', head: true })
-
-  // All events with metadata for processing
   const { data: events } = await supabase
     .from('events')
     .select('event_type, subject, unit, metadata, created_at')
     .order('created_at', { ascending: false })
     .limit(10000)
 
-  if (!events) {
-    return NextResponse.json({
-      totalEvents: totalEvents ?? 0,
-      uniqueUsers: 0,
-      questionsAnswered: 0,
-      bySubject: {},
-      byDay: {},
-      recentEvents: [],
-    })
+  if (!events || events.length === 0) {
+    return NextResponse.json({ empty: true })
   }
 
-  // Unique users by anon_id in metadata
+  const allEvents = events as RawEvent[]
+
+  // Unique users
   const anonIds = new Set<string>()
-  events.forEach(e => {
-    const id = (e.metadata as Record<string, unknown>)?.anon_id
+  allEvents.forEach(e => {
+    const id = e.metadata?.anon_id
     if (typeof id === 'string') anonIds.add(id)
   })
 
-  // Questions answered (drill_complete, mcq_complete, test_complete events)
-  const questionEvents = events.filter(e =>
-    ['drill_complete', 'mcq_complete', 'test_complete'].includes(e.event_type)
-  )
+  // By mode
+  const drills = allEvents.filter(e => e.event_type === 'drill_completed')
+  const mcqs = allEvents.filter(e => e.event_type === 'mcq_completed')
+  const tests = allEvents.filter(e => e.event_type === 'test_completed')
+  const guides = allEvents.filter(e => e.event_type === 'study_guide_view')
+
+  function sumDuration(evts: RawEvent[]): number {
+    return evts.reduce((acc, e) => acc + (Number(e.metadata?.duration_ms) || 0), 0)
+  }
+
+  function avgAccuracy(evts: RawEvent[]): number {
+    const vals = evts.map(e => Number(e.metadata?.accuracy)).filter(v => !isNaN(v))
+    return vals.length > 0 ? vals.reduce((a, b) => a + b, 0) / vals.length : 0
+  }
+
+  function totalQuestions(evts: RawEvent[], field: string): number {
+    return evts.reduce((acc, e) => acc + (Number(e.metadata?.[field]) || 0), 0)
+  }
 
   // By subject
-  const bySubject: Record<string, number> = {}
-  events.forEach(e => {
-    bySubject[e.subject] = (bySubject[e.subject] || 0) + 1
-  })
+  const subjects = [...new Set(allEvents.map(e => e.subject))]
+  const bySubject = subjects.map(s => ({
+    subject: s,
+    drills: allEvents.filter(e => e.subject === s && e.event_type === 'drill_completed').length,
+    mcqs: allEvents.filter(e => e.subject === s && e.event_type === 'mcq_completed').length,
+    tests: allEvents.filter(e => e.subject === s && e.event_type === 'test_completed').length,
+    guides: allEvents.filter(e => e.subject === s && e.event_type === 'study_guide_view').length,
+  })).sort((a, b) => (b.drills + b.mcqs + b.tests + b.guides) - (a.drills + a.mcqs + a.tests + a.guides))
 
-  // By day (last 30 days)
-  const byDay: Record<string, { events: number; users: Set<string> }> = {}
-  events.forEach(e => {
+  // Daily (last 30 days)
+  const daily: Record<string, { events: number; users: Set<string>; drills: number; mcqs: number; tests: number; guides: number }> = {}
+  allEvents.forEach(e => {
     const day = e.created_at.slice(0, 10)
-    if (!byDay[day]) byDay[day] = { events: 0, users: new Set() }
-    byDay[day].events++
-    const id = (e.metadata as Record<string, unknown>)?.anon_id
-    if (typeof id === 'string') byDay[day].users.add(id)
+    if (!daily[day]) daily[day] = { events: 0, users: new Set(), drills: 0, mcqs: 0, tests: 0, guides: 0 }
+    daily[day].events++
+    const id = e.metadata?.anon_id
+    if (typeof id === 'string') daily[day].users.add(id)
+    if (e.event_type === 'drill_completed') daily[day].drills++
+    if (e.event_type === 'mcq_completed') daily[day].mcqs++
+    if (e.event_type === 'test_completed') daily[day].tests++
+    if (e.event_type === 'study_guide_view') daily[day].guides++
   })
 
-  const byDayClean: Record<string, { events: number; users: number }> = {}
-  Object.entries(byDay).forEach(([day, v]) => {
-    byDayClean[day] = { events: v.events, users: v.users.size }
-  })
-
-  // By event type
-  const byType: Record<string, number> = {}
-  events.forEach(e => {
-    byType[e.event_type] = (byType[e.event_type] || 0) + 1
-  })
+  const dailyClean = Object.entries(daily)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .slice(-30)
+    .map(([day, v]) => ({ day, events: v.events, users: v.users.size, drills: v.drills, mcqs: v.mcqs, tests: v.tests, guides: v.guides }))
 
   return NextResponse.json({
-    totalEvents: totalEvents ?? 0,
-    uniqueUsers: anonIds.size,
-    questionsAnswered: questionEvents.length,
+    overview: {
+      uniqueUsers: anonIds.size,
+      totalEvents: allEvents.length,
+      totalDrillSessions: drills.length,
+      totalMCQSessions: mcqs.length,
+      totalTests: tests.length,
+      totalGuideViews: guides.length,
+      totalDrillCards: totalQuestions(drills, 'cards_count'),
+      totalMCQQuestions: totalQuestions(mcqs, 'question_count'),
+      totalTestQuestions: totalQuestions(tests, 'total'),
+    },
+    averages: {
+      drillAccuracy: avgAccuracy(drills),
+      mcqAccuracy: avgAccuracy(mcqs),
+      testAccuracy: avgAccuracy(tests),
+      drillCardsPerSession: drills.length > 0 ? totalQuestions(drills, 'cards_count') / drills.length : 0,
+      mcqQuestionsPerSession: mcqs.length > 0 ? totalQuestions(mcqs, 'question_count') / mcqs.length : 0,
+    },
+    time: {
+      totalMs: sumDuration(drills) + sumDuration(mcqs) + sumDuration(tests),
+      drillMs: sumDuration(drills),
+      mcqMs: sumDuration(mcqs),
+      testMs: sumDuration(tests),
+    },
     bySubject,
-    byDay: byDayClean,
-    byType,
-    recentEvents: events.slice(0, 50).map(e => ({
+    daily: dailyClean,
+    recentEvents: allEvents.slice(0, 30).map(e => ({
       event_type: e.event_type,
       subject: e.subject,
       unit: e.unit,

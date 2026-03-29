@@ -120,6 +120,7 @@ export default function PracticeTestPage({ params }: PracticeTestPageProps) {
         showTimer,
         durationSeconds: config.durationMinutes * 60,
         subjectSlug: subject,
+        startedAt: Date.now(),
       }
 
       setSession(newSession)

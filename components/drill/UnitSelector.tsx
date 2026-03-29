@@ -1,11 +1,10 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Layers } from 'lucide-react'
 import { getSubject } from '@/utils/subjects'
 import { scramble } from '@/utils/scramble'
-import { lsGet, LS_KEYS } from '@/utils/localStorage'
-import type { DrillCard, SessionState } from '@/utils/drillSession'
+import type { DrillCard, SessionState, DrillDraft } from '@/utils/drillSession'
 
 interface UnitSelectorProps {
   subject: string
@@ -13,6 +12,8 @@ interface UnitSelectorProps {
   browseMode: boolean
   onBrowseToggle: (value: boolean) => void
   onBrowse: (cards: DrillCard[], unitSlug: string) => void
+  draft?: DrillDraft | null
+  onResume?: () => void
 }
 
 const UNIT_GRADIENTS: Record<number, string> = {
@@ -33,10 +34,9 @@ const UNIT_EMOJIS: Record<number, string> = {
   6: '💡', 7: '🏥', 8: '👥', 9: '🌍',
 }
 
-export default function UnitSelector({ subject, onStart, browseMode, onBrowseToggle, onBrowse }: UnitSelectorProps) {
+export default function UnitSelector({ subject, onStart, browseMode, onBrowseToggle, onBrowse, draft, onResume }: UnitSelectorProps) {
   const [unitData, setUnitData] = useState<Record<number, DrillCard[] | null>>({})
   const [loading, setLoading] = useState(true)
-
   useEffect(() => {
     const subjectInfo = getSubject(subject)
     if (!subjectInfo) {
@@ -86,29 +86,26 @@ export default function UnitSelector({ subject, onStart, browseMode, onBrowseTog
     if (studyAllDisabled) return
     if (browseMode) {
       onBrowse(allLoadedCards, 'all')
-    } else {
-      onStart({
-        cards: scramble(allLoadedCards),
-        index: 0,
-        answers: {},
-        isRetry: false,
-        unitSlug: 'all',
-      })
+      return
     }
+    if (draft && draft.unitSlug === 'all') {
+      onResume?.()
+      return
+    }
+    onStart({ cards: scramble(allLoadedCards), index: 0, answers: {}, isRetry: false, unitSlug: 'all', startedAt: Date.now() })
   }
 
   const handleUnitClick = (unitNumber: number, cards: DrillCard[]) => {
     if (browseMode) {
       onBrowse(cards, `unit-${unitNumber}`)
-    } else {
-      onStart({
-        cards: scramble(cards),
-        index: 0,
-        answers: {},
-        isRetry: false,
-        unitSlug: `unit-${unitNumber}`,
-      })
+      return
     }
+    const unitSlug = `unit-${unitNumber}`
+    if (draft && draft.unitSlug === unitSlug) {
+      onResume?.()
+      return
+    }
+    onStart({ cards: scramble(cards), index: 0, answers: {}, isRetry: false, unitSlug, startedAt: Date.now() })
   }
 
   if (loading) {
@@ -207,6 +204,19 @@ export default function UnitSelector({ subject, onStart, browseMode, onBrowseTog
             <span style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--text-primary)' }}>
               Study All
             </span>
+            {draft?.unitSlug === 'all' && (
+              <span style={{
+                fontSize: '0.75rem',
+                fontWeight: 500,
+                color: 'var(--accent)',
+                background: 'color-mix(in srgb, var(--accent) 12%, transparent)',
+                border: '1px solid color-mix(in srgb, var(--accent) 25%, transparent)',
+                borderRadius: '999px',
+                padding: '2px 8px',
+              }}>
+                In Progress
+              </span>
+            )}
           </div>
           <div style={{
             padding: '4px 10px',
@@ -228,12 +238,7 @@ export default function UnitSelector({ subject, onStart, browseMode, onBrowseTog
           const isLoaded = cards !== null && cards !== undefined
           const gradient = UNIT_GRADIENTS[unit.number] ?? DEFAULT_GRADIENT
           const emoji = UNIT_EMOJIS[unit.number] ?? '📖'
-          const masteryData = lsGet(LS_KEYS.mastery(subject, `unit-${unit.number}`), {
-            drillAccuracy: 0,
-            mcqAccuracy: 0,
-            totalAttempts: 0,
-          })
-          const masteryPct = masteryData.drillAccuracy * 100
+          const hasDraft = draft?.unitSlug === `unit-${unit.number}`
 
           return (
             <div
@@ -244,7 +249,7 @@ export default function UnitSelector({ subject, onStart, browseMode, onBrowseTog
                 border: `1px solid var(--bg-border)`,
                 borderRadius: 'var(--radius-lg)',
                 overflow: 'hidden',
-                cursor: isLoaded ? 'pointer' : 'not-allowed',
+                cursor: isLoaded ? 'pointer' : 'default',
                 opacity: isLoaded ? 1 : 0.6,
                 transition: 'transform 200ms ease, border-color 200ms ease',
               }}
@@ -276,17 +281,35 @@ export default function UnitSelector({ subject, onStart, browseMode, onBrowseTog
                 <span style={{ fontSize: '1.875rem' }}>{emoji}</span>
               </div>
 
-              {/* Card content */}
               <div style={{ padding: '16px' }}>
                 <div style={{
-                  fontSize: '0.75rem',
-                  fontWeight: 500,
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.08em',
-                  color: 'var(--text-muted)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px',
                   marginBottom: '6px',
                 }}>
-                  Unit {unit.number}
+                  <span style={{
+                    fontSize: '0.75rem',
+                    fontWeight: 500,
+                    textTransform: 'uppercase' as const,
+                    letterSpacing: '0.08em',
+                    color: 'var(--text-muted)',
+                  }}>
+                    Unit {unit.number}
+                  </span>
+                  {hasDraft && (
+                    <span style={{
+                      fontSize: '0.6875rem',
+                      fontWeight: 500,
+                      color: 'var(--accent)',
+                      background: 'color-mix(in srgb, var(--accent) 12%, transparent)',
+                      border: '1px solid color-mix(in srgb, var(--accent) 25%, transparent)',
+                      borderRadius: '999px',
+                      padding: '1px 7px',
+                    }}>
+                      In Progress
+                    </span>
+                  )}
                 </div>
                 <h3 style={{
                   fontSize: '1rem',
@@ -302,25 +325,8 @@ export default function UnitSelector({ subject, onStart, browseMode, onBrowseTog
                 <div style={{
                   fontSize: '0.8125rem',
                   color: isLoaded ? 'var(--text-secondary)' : 'var(--text-muted)',
-                  marginBottom: '12px',
                 }}>
                   {isLoaded ? `${cards!.length} cards` : 'Coming soon'}
-                </div>
-
-                {/* Mastery bar */}
-                <div style={{
-                  height: '4px',
-                  background: 'var(--mastery-empty)',
-                  borderRadius: '999px',
-                  overflow: 'hidden',
-                }}>
-                  <div style={{
-                    height: '100%',
-                    width: `${masteryPct}%`,
-                    background: 'var(--accent)',
-                    borderRadius: '999px',
-                    transition: 'width 400ms ease',
-                  }} />
                 </div>
               </div>
             </div>

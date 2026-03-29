@@ -38,6 +38,7 @@ export interface MCQSessionState {
   isRetry: boolean
   unitSlug: string | 'all'
   retryQuestionIds?: string[]
+  startedAt?: number                 // Date.now() when session began
 }
 
 export type MCQView = 'unit-select' | 'session' | 'results'
@@ -73,7 +74,7 @@ export function clearMCQDraft(subject: string): void {
  * Mirrors handleSessionComplete from drillSession.ts for MCQ-specific logic.
  *
  * - Always increments LS_KEYS.totalQuestions by session.questions.length
- * - Only writes mcqAccuracy for non-retry, non-Study-All sessions
+ * - Writes mcqAccuracy for non-retry sessions; Study All distributes per-unit
  * - Always fires logEvent fire-and-forget
  */
 export function handleMCQSessionComplete(session: MCQSessionState, subject: string): void {
@@ -84,19 +85,41 @@ export function handleMCQSessionComplete(session: MCQSessionState, subject: stri
   const prevTotal = lsGet<number>(LS_KEYS.totalQuestions, 0)
   lsSet(LS_KEYS.totalQuestions, prevTotal + totalQuestions)
 
-  // Only write mcqAccuracy for non-retry, non-Study-All sessions
-  if (!session.isRetry && session.unitSlug !== 'all') {
-    const mcqAccuracy = correctCount / totalQuestions
-    const existing = lsGet(LS_KEYS.mastery(subject, session.unitSlug), {
-      drillAccuracy: 0,
-      mcqAccuracy: 0,
-      totalAttempts: 0,
-    })
-    lsSet(LS_KEYS.mastery(subject, session.unitSlug), {
-      ...existing,
-      mcqAccuracy,
-      totalAttempts: existing.totalAttempts + totalQuestions,
-    })
+  // Write mcqAccuracy for non-retry sessions
+  if (!session.isRetry) {
+    if (session.unitSlug !== 'all') {
+      // Single unit session — save directly
+      const mcqAccuracy = correctCount / totalQuestions
+      const existing = lsGet(LS_KEYS.mastery(subject, session.unitSlug), {
+        drillAccuracy: 0, mcqAccuracy: 0, totalAttempts: 0,
+      })
+      lsSet(LS_KEYS.mastery(subject, session.unitSlug), {
+        ...existing,
+        mcqAccuracy,
+        totalAttempts: existing.totalAttempts + totalQuestions,
+      })
+    } else {
+      // Study All — distribute per-unit using each question's unit field
+      const unitStats: Record<string, { correct: number; total: number }> = {}
+      session.questions.forEach(q => {
+        if (!unitStats[q.unit]) unitStats[q.unit] = { correct: 0, total: 0 }
+        unitStats[q.unit].total++
+        if (session.answers[q.id]?.isCorrect) {
+          unitStats[q.unit].correct++
+        }
+      })
+      Object.entries(unitStats).forEach(([unitSlug, { correct, total }]) => {
+        const mcqAccuracy = correct / total
+        const existing = lsGet(LS_KEYS.mastery(subject, unitSlug), {
+          drillAccuracy: 0, mcqAccuracy: 0, totalAttempts: 0,
+        })
+        lsSet(LS_KEYS.mastery(subject, unitSlug), {
+          ...existing,
+          mcqAccuracy,
+          totalAttempts: existing.totalAttempts + total,
+        })
+      })
+    }
   }
 
   // Fire analytics (always, never await — per Critical Rule #6)
@@ -108,6 +131,7 @@ export function handleMCQSessionComplete(session: MCQSessionState, subject: stri
       accuracy: correctCount / totalQuestions,
       question_count: totalQuestions,
       is_retry: session.isRetry,
+      duration_ms: session.startedAt ? Date.now() - session.startedAt : undefined,
     },
   })
 }

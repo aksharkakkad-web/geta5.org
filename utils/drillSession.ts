@@ -36,6 +36,7 @@ export interface SessionState {
   answers: Record<string, { verdict: 'correct' | 'wrong'; userInput: string }>
   isRetry: boolean
   unitSlug: string | 'all'
+  startedAt?: number          // Date.now() when session began
 }
 
 export type DrillView = 'unit-select' | 'session' | 'results' | 'browse'
@@ -84,7 +85,14 @@ export interface NormalizedCard {
  * all other modes store the word/name in `prompt` and the explanation in `answer`.
  */
 export function normalizeCard(card: DrillCard): NormalizedCard {
-  if (card.mode === 'definition_to_term') {
+  // For all typed-recall modes the answer is the short term/name and the prompt is the longer context.
+  // concept_mc is excluded from browse entirely, so it never reaches normalizeCard from BrowseView.
+  const answerIsTheTerm =
+    card.mode === 'definition_to_term' ||
+    card.mode === 'significance_to_person' ||
+    card.mode === 'significance_to_event' ||
+    card.mode === 'significance_to_case'
+  if (answerIsTheTerm) {
     return {
       id: card.id,
       term: card.answer ?? '',
@@ -110,19 +118,41 @@ export function handleSessionComplete(session: SessionState, subject: string): v
   const prevTotal = lsGet<number>(LS_KEYS.totalQuestions, 0)
   lsSet(LS_KEYS.totalQuestions, prevTotal + totalCards)
 
-  // Only write drillAccuracy for non-retry, non-Study-All sessions
-  if (!session.isRetry && session.unitSlug !== 'all') {
-    const drillAccuracy = correctCount / totalCards
-    const existing = lsGet(LS_KEYS.mastery(subject, session.unitSlug), {
-      drillAccuracy: 0,
-      mcqAccuracy: 0,
-      totalAttempts: 0,
-    })
-    lsSet(LS_KEYS.mastery(subject, session.unitSlug), {
-      ...existing,
-      drillAccuracy,
-      totalAttempts: existing.totalAttempts + totalCards,
-    })
+  // Write drillAccuracy for non-retry sessions
+  if (!session.isRetry) {
+    if (session.unitSlug !== 'all') {
+      // Single unit session — save directly
+      const drillAccuracy = correctCount / totalCards
+      const existing = lsGet(LS_KEYS.mastery(subject, session.unitSlug), {
+        drillAccuracy: 0, mcqAccuracy: 0, totalAttempts: 0,
+      })
+      lsSet(LS_KEYS.mastery(subject, session.unitSlug), {
+        ...existing,
+        drillAccuracy,
+        totalAttempts: existing.totalAttempts + totalCards,
+      })
+    } else {
+      // Study All — distribute per-unit using each card's unit field
+      const unitStats: Record<string, { correct: number; total: number }> = {}
+      session.cards.forEach(card => {
+        if (!unitStats[card.unit]) unitStats[card.unit] = { correct: 0, total: 0 }
+        unitStats[card.unit].total++
+        if (session.answers[card.id]?.verdict === 'correct') {
+          unitStats[card.unit].correct++
+        }
+      })
+      Object.entries(unitStats).forEach(([unitSlug, { correct, total }]) => {
+        const drillAccuracy = correct / total
+        const existing = lsGet(LS_KEYS.mastery(subject, unitSlug), {
+          drillAccuracy: 0, mcqAccuracy: 0, totalAttempts: 0,
+        })
+        lsSet(LS_KEYS.mastery(subject, unitSlug), {
+          ...existing,
+          drillAccuracy,
+          totalAttempts: existing.totalAttempts + total,
+        })
+      })
+    }
   }
 
   // Fire analytics (always, never await)
@@ -134,6 +164,7 @@ export function handleSessionComplete(session: SessionState, subject: string): v
       accuracy: correctCount / totalCards,
       cards_count: totalCards,
       is_retry: session.isRetry,
+      duration_ms: session.startedAt ? Date.now() - session.startedAt : undefined,
     },
   })
 }

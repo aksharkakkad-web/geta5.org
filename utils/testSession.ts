@@ -23,6 +23,7 @@ export interface TestSessionState {
   showTimer: boolean
   durationSeconds: number
   subjectSlug: string
+  startedAt?: number                     // Date.now() when test began
 }
 
 export interface PerUnitResult {
@@ -189,6 +190,7 @@ export function handleTestComplete(
       correct: correctCount,
       timed: session.timed,
       projected_score: projectedScore,
+      duration_ms: session.startedAt ? Date.now() - session.startedAt : undefined,
     },
   })
 

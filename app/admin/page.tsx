@@ -1,16 +1,44 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import { Chart, registerables } from 'chart.js'
+
+Chart.register(...registerables)
 
 interface Stats {
-  totalEvents: number
-  uniqueUsers: number
-  questionsAnswered: number
-  bySubject: Record<string, number>
-  byDay: Record<string, { events: number; users: number }>
-  byType: Record<string, number>
+  overview: {
+    uniqueUsers: number
+    totalEvents: number
+    totalDrillSessions: number
+    totalMCQSessions: number
+    totalTests: number
+    totalGuideViews: number
+    totalDrillCards: number
+    totalMCQQuestions: number
+    totalTestQuestions: number
+  }
+  averages: {
+    drillAccuracy: number
+    mcqAccuracy: number
+    testAccuracy: number
+    drillCardsPerSession: number
+    mcqQuestionsPerSession: number
+  }
+  time: { totalMs: number; drillMs: number; mcqMs: number; testMs: number }
+  bySubject: { subject: string; drills: number; mcqs: number; tests: number; guides: number }[]
+  daily: { day: string; events: number; users: number; drills: number; mcqs: number; tests: number; guides: number }[]
   recentEvents: { event_type: string; subject: string; unit: string; created_at: string }[]
 }
+
+function fmt(ms: number): string {
+  if (ms === 0) return '0m'
+  const mins = Math.floor(ms / 60000)
+  const hrs = Math.floor(mins / 60)
+  if (hrs > 0) return `${hrs}h ${mins % 60}m`
+  return `${mins}m`
+}
+
+function pct(n: number): string { return `${(n * 100).toFixed(1)}%` }
 
 export default function AdminPage() {
   const [authed, setAuthed] = useState(false)
@@ -19,6 +47,7 @@ export default function AdminPage() {
   const [error, setError] = useState('')
   const [stats, setStats] = useState<Stats | null>(null)
   const [loading, setLoading] = useState(false)
+  const [empty, setEmpty] = useState(false)
 
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault()
@@ -28,11 +57,8 @@ export default function AdminPage() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password }),
     })
-    if (res.ok) {
-      setAuthed(true)
-    } else {
-      setError('Invalid credentials')
-    }
+    if (res.ok) setAuthed(true)
+    else setError('Invalid credentials')
   }
 
   useEffect(() => {
@@ -40,196 +66,251 @@ export default function AdminPage() {
     setLoading(true)
     fetch('/api/admin/stats')
       .then(r => r.ok ? r.json() : Promise.reject())
-      .then(setStats)
+      .then(data => {
+        if (data.empty) setEmpty(true)
+        else setStats(data)
+      })
       .catch(() => setAuthed(false))
       .finally(() => setLoading(false))
   }, [authed])
 
+  // ─── Login ──────────────────────────────────────────────
   if (!authed) {
     return (
-      <div style={{ maxWidth: '360px', margin: '120px auto', padding: '24px' }}>
-        <h1 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '24px' }}>
-          Admin
-        </h1>
-        <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-          <input
-            type="text"
-            placeholder="Username"
-            value={username}
-            onChange={e => setUsername(e.target.value)}
-            style={{
-              padding: '10px 12px',
-              backgroundColor: 'var(--bg-secondary)',
-              border: '1px solid var(--bg-border)',
-              borderRadius: '8px',
-              color: 'var(--text-primary)',
-              fontSize: '0.875rem',
-            }}
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-            style={{
-              padding: '10px 12px',
-              backgroundColor: 'var(--bg-secondary)',
-              border: '1px solid var(--bg-border)',
-              borderRadius: '8px',
-              color: 'var(--text-primary)',
-              fontSize: '0.875rem',
-            }}
-          />
-          {error && <p style={{ color: '#ef4444', fontSize: '0.8rem' }}>{error}</p>}
-          <button
-            type="submit"
-            style={{
-              padding: '10px',
-              backgroundColor: 'var(--accent)',
-              color: '#fff',
-              border: 'none',
-              borderRadius: '8px',
-              fontWeight: 600,
-              cursor: 'pointer',
-              fontSize: '0.875rem',
-            }}
-          >
-            Log in
-          </button>
+      <div style={{ maxWidth: '340px', margin: '140px auto', padding: '0 24px' }}>
+        <h1 style={{ fontSize: '1.125rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '20px' }}>Admin</h1>
+        <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+          <input type="text" placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} style={inputStyle} />
+          <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} style={inputStyle} />
+          {error && <p style={{ color: '#ef4444', fontSize: '0.75rem', margin: 0 }}>{error}</p>}
+          <button type="submit" style={{ ...btnStyle, marginTop: '4px' }}>Log in</button>
         </form>
       </div>
     )
   }
 
-  if (loading || !stats) {
-    return (
-      <div style={{ padding: '48px 24px', color: 'var(--text-secondary)', textAlign: 'center' }}>
-        Loading stats...
-      </div>
-    )
-  }
+  if (loading) return <Center>Loading...</Center>
+  if (empty) return <Center>No events yet. Start using the app to generate data.</Center>
+  if (!stats) return <Center>Error loading stats.</Center>
 
-  const sortedDays = Object.entries(stats.byDay).sort(([a], [b]) => b.localeCompare(a)).slice(0, 14)
-  const sortedSubjects = Object.entries(stats.bySubject).sort(([, a], [, b]) => b - a)
-  const sortedTypes = Object.entries(stats.byType).sort(([, a], [, b]) => b - a)
+  const { overview: o, averages: a, time: t } = stats
 
   return (
-    <div style={{ maxWidth: '900px', margin: '0 auto', padding: '32px 24px' }}>
-      <h1 style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '32px' }}>
-        Dashboard
-      </h1>
+    <div style={{ maxWidth: '960px', margin: '0 auto', padding: '28px 24px 64px' }}>
+      <h1 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '28px' }}>Dashboard</h1>
 
-      {/* Top-level stats */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px', marginBottom: '32px' }}>
-        <StatCard label="Unique Users" value={stats.uniqueUsers} />
-        <StatCard label="Questions Answered" value={stats.questionsAnswered} />
-        <StatCard label="Total Events" value={stats.totalEvents} />
+      {/* ── Top Cards ── */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px', marginBottom: '28px' }}>
+        <Card label="Unique Users" value={o.uniqueUsers} />
+        <Card label="Total Sessions" value={o.totalDrillSessions + o.totalMCQSessions + o.totalTests} />
+        <Card label="Questions Answered" value={o.totalDrillCards + o.totalMCQQuestions + o.totalTestQuestions} />
+        <Card label="Total Time" value={fmt(t.totalMs)} />
       </div>
 
-      {/* Daily breakdown */}
-      <Section title="Last 14 Days">
-        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem' }}>
+      {/* ── Mode Breakdown ── */}
+      <SectionTitle>By Mode</SectionTitle>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px', marginBottom: '28px' }}>
+        <ModeCard title="Drills" sessions={o.totalDrillSessions} questions={o.totalDrillCards} time={fmt(t.drillMs)} avg={`${a.drillCardsPerSession.toFixed(0)} cards/session`} accuracy={pct(a.drillAccuracy)} />
+        <ModeCard title="Practice MCQs" sessions={o.totalMCQSessions} questions={o.totalMCQQuestions} time={fmt(t.mcqMs)} avg={`${a.mcqQuestionsPerSession.toFixed(0)} q/session`} accuracy={pct(a.mcqAccuracy)} />
+        <ModeCard title="Practice Tests" sessions={o.totalTests} questions={o.totalTestQuestions} time={fmt(t.testMs)} avg="" accuracy={pct(a.testAccuracy)} />
+        <ModeCard title="Study Guides" sessions={o.totalGuideViews} questions={0} time="—" avg="" accuracy="" />
+      </div>
+
+      {/* ── Charts ── */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '28px' }}>
+        <ChartBox title="Daily Activity (30d)">
+          <DailyChart data={stats.daily} />
+        </ChartBox>
+        <ChartBox title="Sessions by Subject">
+          <SubjectChart data={stats.bySubject} />
+        </ChartBox>
+      </div>
+
+      {/* ── By Subject Table ── */}
+      <SectionTitle>Subject Breakdown</SectionTitle>
+      <div style={{ ...cardBg, padding: '0', overflow: 'hidden', marginBottom: '28px' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.75rem' }}>
           <thead>
-            <tr style={{ borderBottom: '1px solid var(--bg-border)' }}>
-              <Th>Date</Th><Th>Users</Th><Th>Events</Th>
+            <tr style={{ borderBottom: '1px solid var(--bg-border)', backgroundColor: 'rgba(255,255,255,0.02)' }}>
+              <Th left>Subject</Th><Th>Drills</Th><Th>MCQs</Th><Th>Tests</Th><Th>Guides</Th><Th>Total</Th>
             </tr>
           </thead>
           <tbody>
-            {sortedDays.map(([day, v]) => (
-              <tr key={day} style={{ borderBottom: '1px solid var(--bg-border)' }}>
-                <Td>{day}</Td><Td>{v.users}</Td><Td>{v.events}</Td>
+            {stats.bySubject.map(s => (
+              <tr key={s.subject} style={{ borderBottom: '1px solid var(--bg-border)' }}>
+                <Td left>{s.subject.replace('ap-', 'AP ').replace(/-/g, ' ')}</Td>
+                <Td>{s.drills}</Td><Td>{s.mcqs}</Td><Td>{s.tests}</Td><Td>{s.guides}</Td>
+                <Td bold>{s.drills + s.mcqs + s.tests + s.guides}</Td>
               </tr>
             ))}
           </tbody>
         </table>
-      </Section>
+      </div>
 
-      {/* By subject */}
-      <Section title="Events by Subject">
-        {sortedSubjects.map(([subject, count]) => (
-          <div key={subject} style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 0', borderBottom: '1px solid var(--bg-border)', fontSize: '0.8rem' }}>
-            <span style={{ color: 'var(--text-primary)' }}>{subject}</span>
-            <span style={{ color: 'var(--text-secondary)' }}>{count}</span>
-          </div>
-        ))}
-      </Section>
-
-      {/* By event type */}
-      <Section title="Events by Type">
-        {sortedTypes.map(([type, count]) => (
-          <div key={type} style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 0', borderBottom: '1px solid var(--bg-border)', fontSize: '0.8rem' }}>
-            <span style={{ color: 'var(--text-primary)', fontFamily: 'monospace' }}>{type}</span>
-            <span style={{ color: 'var(--text-secondary)' }}>{count}</span>
-          </div>
-        ))}
-      </Section>
-
-      {/* Recent events */}
-      <Section title="Recent Activity">
-        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.75rem' }}>
+      {/* ── Recent Activity ── */}
+      <SectionTitle>Recent Activity</SectionTitle>
+      <div style={{ ...cardBg, padding: '0', overflow: 'hidden' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.7rem' }}>
           <thead>
-            <tr style={{ borderBottom: '1px solid var(--bg-border)' }}>
-              <Th>Time</Th><Th>Type</Th><Th>Subject</Th><Th>Unit</Th>
+            <tr style={{ borderBottom: '1px solid var(--bg-border)', backgroundColor: 'rgba(255,255,255,0.02)' }}>
+              <Th left>Time</Th><Th left>Event</Th><Th left>Subject</Th><Th left>Unit</Th>
             </tr>
           </thead>
           <tbody>
             {stats.recentEvents.map((e, i) => (
               <tr key={i} style={{ borderBottom: '1px solid var(--bg-border)' }}>
-                <Td>{new Date(e.created_at).toLocaleString()}</Td>
-                <Td><code>{e.event_type}</code></Td>
-                <Td>{e.subject}</Td>
-                <Td>{e.unit || '—'}</Td>
+                <Td left>{new Date(e.created_at).toLocaleString()}</Td>
+                <Td left><code style={{ color: 'var(--accent)', fontSize: '0.7rem' }}>{e.event_type}</code></Td>
+                <Td left>{e.subject}</Td>
+                <Td left>{e.unit || '—'}</Td>
               </tr>
             ))}
           </tbody>
         </table>
-      </Section>
-    </div>
-  )
-}
-
-function StatCard({ label, value }: { label: string; value: number }) {
-  return (
-    <div style={{
-      backgroundColor: 'var(--bg-secondary)',
-      border: '1px solid var(--bg-border)',
-      borderRadius: '12px',
-      padding: '20px',
-      textAlign: 'center',
-    }}>
-      <div style={{ fontSize: '2rem', fontWeight: 700, color: 'var(--text-primary)' }}>
-        {value.toLocaleString()}
-      </div>
-      <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginTop: '4px' }}>
-        {label}
       </div>
     </div>
   )
 }
 
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
+// ─── Charts ────────────────────────────────────────────────
+
+function DailyChart({ data }: { data: Stats['daily'] }) {
+  const ref = useRef<HTMLCanvasElement>(null)
+  useEffect(() => {
+    if (!ref.current || data.length === 0) return
+    const ctx = ref.current.getContext('2d')!
+    const chart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: data.map(d => d.day.slice(5)),
+        datasets: [
+          { label: 'Users', data: data.map(d => d.users), backgroundColor: '#06b6d4', borderRadius: 3, barPercentage: 0.6 },
+          { label: 'Drills', data: data.map(d => d.drills), backgroundColor: '#8b5cf6', borderRadius: 3, barPercentage: 0.6 },
+          { label: 'MCQs', data: data.map(d => d.mcqs), backgroundColor: '#10b981', borderRadius: 3, barPercentage: 0.6 },
+          { label: 'Tests', data: data.map(d => d.tests), backgroundColor: '#f59e0b', borderRadius: 3, barPercentage: 0.6 },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { labels: { color: '#94a3b8', font: { size: 10 } } } },
+        scales: {
+          x: { ticks: { color: '#64748b', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.04)' } },
+          y: { ticks: { color: '#64748b', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.04)' }, beginAtZero: true },
+        },
+      },
+    })
+    return () => chart.destroy()
+  }, [data])
+  return <canvas ref={ref} style={{ width: '100%', height: '220px' }} />
+}
+
+function SubjectChart({ data }: { data: Stats['bySubject'] }) {
+  const ref = useRef<HTMLCanvasElement>(null)
+  useEffect(() => {
+    if (!ref.current || data.length === 0) return
+    const ctx = ref.current.getContext('2d')!
+    const labels = data.map(s => s.subject.replace('ap-', '').replace(/-/g, ' '))
+    const totals = data.map(s => s.drills + s.mcqs + s.tests + s.guides)
+    const colors = ['#06b6d4', '#8b5cf6', '#10b981', '#f59e0b', '#ef4444', '#ec4899', '#6366f1']
+    const chart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels,
+        datasets: [{ data: totals, backgroundColor: colors.slice(0, data.length), borderWidth: 0 }],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { position: 'right', labels: { color: '#94a3b8', font: { size: 10 }, padding: 8 } } },
+      },
+    })
+    return () => chart.destroy()
+  }, [data])
+  return <canvas ref={ref} style={{ width: '100%', height: '220px' }} />
+}
+
+// ─── UI Components ──────────────────────────────────────────
+
+const cardBg: React.CSSProperties = {
+  backgroundColor: 'var(--bg-secondary)',
+  border: '1px solid var(--bg-border)',
+  borderRadius: '10px',
+}
+
+const inputStyle: React.CSSProperties = {
+  padding: '9px 12px',
+  backgroundColor: 'var(--bg-secondary)',
+  border: '1px solid var(--bg-border)',
+  borderRadius: '8px',
+  color: 'var(--text-primary)',
+  fontSize: '0.8rem',
+  outline: 'none',
+}
+
+const btnStyle: React.CSSProperties = {
+  padding: '9px',
+  backgroundColor: 'var(--accent)',
+  color: '#fff',
+  border: 'none',
+  borderRadius: '8px',
+  fontWeight: 600,
+  cursor: 'pointer',
+  fontSize: '0.8rem',
+}
+
+function Center({ children }: { children: React.ReactNode }) {
+  return <div style={{ padding: '120px 24px', color: 'var(--text-secondary)', textAlign: 'center', fontSize: '0.875rem' }}>{children}</div>
+}
+
+function Card({ label, value }: { label: string; value: string | number }) {
   return (
-    <div style={{ marginBottom: '32px' }}>
-      <h2 style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '12px' }}>
-        {title}
-      </h2>
-      {children}
+    <div style={{ ...cardBg, padding: '16px', textAlign: 'center' }}>
+      <div style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1.2 }}>{typeof value === 'number' ? value.toLocaleString() : value}</div>
+      <div style={{ fontSize: '0.65rem', color: 'var(--text-secondary)', marginTop: '4px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{label}</div>
     </div>
   )
 }
 
-function Th({ children }: { children: React.ReactNode }) {
+function ModeCard({ title, sessions, questions, time, avg, accuracy }: { title: string; sessions: number; questions: number; time: string; avg: string; accuracy: string }) {
   return (
-    <th style={{ textAlign: 'left', padding: '8px 4px', color: 'var(--text-secondary)', fontWeight: 500 }}>
-      {children}
-    </th>
+    <div style={{ ...cardBg, padding: '14px' }}>
+      <div style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '10px' }}>{title}</div>
+      <Row label="Sessions" value={sessions} />
+      {questions > 0 && <Row label="Questions" value={questions} />}
+      <Row label="Time" value={time} />
+      {avg && <Row label="Avg" value={avg} />}
+      {accuracy && <Row label="Accuracy" value={accuracy} />}
+    </div>
   )
 }
 
-function Td({ children }: { children: React.ReactNode }) {
+function Row({ label, value }: { label: string; value: string | number }) {
   return (
-    <td style={{ padding: '8px 4px', color: 'var(--text-primary)' }}>
-      {children}
-    </td>
+    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', padding: '3px 0' }}>
+      <span style={{ color: 'var(--text-secondary)' }}>{label}</span>
+      <span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>{typeof value === 'number' ? value.toLocaleString() : value}</span>
+    </div>
   )
+}
+
+function SectionTitle({ children }: { children: React.ReactNode }) {
+  return <h2 style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '12px' }}>{children}</h2>
+}
+
+function ChartBox({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div style={{ ...cardBg, padding: '16px' }}>
+      <div style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>{title}</div>
+      <div style={{ height: '220px' }}>{children}</div>
+    </div>
+  )
+}
+
+function Th({ children, left }: { children: React.ReactNode; left?: boolean }) {
+  return <th style={{ textAlign: left ? 'left' : 'right', padding: '10px 12px', color: 'var(--text-secondary)', fontWeight: 500, fontSize: '0.7rem' }}>{children}</th>
+}
+
+function Td({ children, left, bold }: { children: React.ReactNode; left?: boolean; bold?: boolean }) {
+  return <td style={{ textAlign: left ? 'left' : 'right', padding: '8px 12px', color: 'var(--text-primary)', fontWeight: bold ? 600 : 400 }}>{children}</td>
 }
