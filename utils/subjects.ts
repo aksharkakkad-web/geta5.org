@@ -74,7 +74,6 @@ const SUBJECTS: Subject[] = [
       { number: 1, name: 'Polynomial and Rational Functions' },
       { number: 2, name: 'Exponential and Logarithmic Functions' },
       { number: 3, name: 'Trigonometric and Polar Functions' },
-      { number: 4, name: 'Functions Involving Parameters, Vectors, and Matrices' },
     ],
   },
   {
