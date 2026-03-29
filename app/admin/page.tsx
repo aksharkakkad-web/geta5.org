@@ -13,9 +13,6 @@ interface Stats {
     totalMCQSessions: number
     totalTests: number
     totalGuideViews: number
-    totalDrillCards: number
-    totalMCQQuestions: number
-    totalTestQuestions: number
     drillAnswers: number
     mcqAnswers: number
     testAnswers: number

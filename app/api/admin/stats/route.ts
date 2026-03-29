@@ -66,14 +66,6 @@ export async function GET() {
     return evts.reduce((acc, e) => acc + (Number(e.metadata?.duration_ms) || 0), 0)
   }
 
-  function avgAccuracy(evts: RawEvent[]): number {
-    const vals = evts.map(e => Number(e.metadata?.accuracy)).filter(v => !isNaN(v))
-    return vals.length > 0 ? vals.reduce((a, b) => a + b, 0) / vals.length : 0
-  }
-
-  function totalQuestions(evts: RawEvent[], field: string): number {
-    return evts.reduce((acc, e) => acc + (Number(e.metadata?.[field]) || 0), 0)
-  }
 
   // By subject
   const subjects = [...new Set(allEvents.map(e => e.subject))]
@@ -112,10 +104,6 @@ export async function GET() {
       totalMCQSessions: mcqs.length,
       totalTests: tests.length,
       totalGuideViews: guides.length,
-      totalDrillCards: totalQuestions(drills, 'cards_count'),
-      totalMCQQuestions: totalQuestions(mcqs, 'question_count'),
-      totalTestQuestions: totalQuestions(tests, 'total'),
-      // Per-question counts
       drillAnswers: drillAnswers.length,
       mcqAnswers: mcqAnswers.length,
       testAnswers: testAnswers.length,
@@ -123,11 +111,11 @@ export async function GET() {
       totalCorrect: correctAnswers.length,
     },
     averages: {
-      drillAccuracy: avgAccuracy(drills),
-      mcqAccuracy: avgAccuracy(mcqs),
-      testAccuracy: avgAccuracy(tests),
-      drillCardsPerSession: drills.length > 0 ? totalQuestions(drills, 'cards_count') / drills.length : 0,
-      mcqQuestionsPerSession: mcqs.length > 0 ? totalQuestions(mcqs, 'question_count') / mcqs.length : 0,
+      drillAccuracy: drillAnswers.length > 0 ? drillAnswers.filter(e => e.metadata?.correct === true).length / drillAnswers.length : 0,
+      mcqAccuracy: mcqAnswers.length > 0 ? mcqAnswers.filter(e => e.metadata?.correct === true).length / mcqAnswers.length : 0,
+      testAccuracy: testAnswers.length > 0 ? testAnswers.filter(e => e.metadata?.correct === true).length / testAnswers.length : 0,
+      drillCardsPerSession: drills.length > 0 ? drillAnswers.length / drills.length : 0,
+      mcqQuestionsPerSession: mcqs.length > 0 ? mcqAnswers.length / mcqs.length : 0,
     },
     time: {
       totalMs: sumDuration(drills) + sumDuration(mcqs) + sumDuration(tests),
