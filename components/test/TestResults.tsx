@@ -6,6 +6,9 @@ import { RotateCcw, BookOpen, ArrowLeft } from 'lucide-react'
 import { getSubject } from '@/utils/subjects'
 import { projectScore } from '@/utils/scoring'
 import { handleTestComplete, computePerUnitAccuracy } from '@/utils/testSession'
+import { useCountUp } from '@/hooks/useCountUp'
+import { useInView } from '@/hooks/useInView'
+import confetti from 'canvas-confetti'
 import type { TestSessionState } from '@/utils/testSession'
 
 interface TestResultsProps {
@@ -62,10 +65,28 @@ export default function TestResults({ session, subject, onRetake }: TestResultsP
   const perUnitResults = computePerUnitAccuracy(session.questions, session.answers)
   const missedQuestions = session.questions.filter(q => !session.answers[q.id]?.isCorrect)
 
+  const { ref: scoreRef, inView: scoreInView } = useInView()
+  const displayPct = useCountUp(pct, 1500, scoreInView)
+  const displayDeg = Math.min(Math.max((displayPct / 100) * 360, 0), 360)
+
+  // Confetti on good scores
+  const confettiFired = useRef(false)
+  useEffect(() => {
+    if (pct >= 70 && !confettiFired.current) {
+      confettiFired.current = true
+      confetti({
+        particleCount: 50,
+        spread: 80,
+        origin: { y: 0.3 },
+        colors: ['#6366f1', '#a78bfa', '#22c55e', '#f59e0b'],
+      })
+    }
+  }, [pct])
+
   const subjectData = getSubject(subject)
   const subjectName = subjectData?.name ?? subject
 
-  const scoreDeg = Math.min(Math.max((pct / 100) * 360, 0), 360)
+  const scoreDeg = Math.min(Math.max((pct / 100) * 360, 0), 360) // kept for reference
 
   const visibleMissed = missedQuestions.slice(0, 5)
   const extraMissed = missedQuestions.length > 5 ? missedQuestions.length - 5 : 0
@@ -99,14 +120,14 @@ export default function TestResults({ session, subject, onRetake }: TestResultsP
       </div>
 
       {/* Score ring */}
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
+      <div ref={scoreRef} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
         <div
           className="score-ring"
-          style={{ '--score-deg': scoreDeg } as React.CSSProperties}
+          style={{ '--score-deg': displayDeg } as React.CSSProperties}
         >
           <div className="score-ring-inner">
             <span style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1 }}>
-              {pct}%
+              {displayPct}%
             </span>
             <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '2px' }}>score</span>
           </div>

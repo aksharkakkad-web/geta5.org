@@ -51,9 +51,16 @@ export default function TestTimer({ initialSeconds, timed, visible = true, inlin
   if (!timed) return null
 
   const isWarning = secondsLeft <= 300
+  const isCritical = secondsLeft <= 60
   const minutes = Math.floor(secondsLeft / 60)
   const seconds = secondsLeft % 60
   const display = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
+
+  const glowStyle = isCritical
+    ? '0 0 20px rgba(239,68,68,0.4), 0 0 40px rgba(239,68,68,0.15)'
+    : isWarning
+    ? '0 0 12px rgba(239,68,68,0.25)'
+    : '0 0 10px rgba(99,102,241,0.15)'
 
   if (inline) {
     return (
@@ -90,8 +97,9 @@ export default function TestTimer({ initialSeconds, timed, visible = true, inlin
         fontWeight: 700,
         fontVariantNumeric: 'tabular-nums',
         color: isWarning ? 'var(--accent-danger)' : 'var(--text-primary)',
-        transition: 'color 300ms ease',
-        animation: isWarning ? 'timer-pulse 1200ms ease infinite' : 'none',
+        textShadow: glowStyle,
+        transition: 'color 300ms ease, text-shadow 300ms ease',
+        animation: isCritical ? 'timer-pulse 800ms ease infinite' : isWarning ? 'timer-pulse 1200ms ease infinite' : 'none',
       }}
     >
       <style>{`
