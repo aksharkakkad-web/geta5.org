@@ -6,6 +6,9 @@ import { RotateCcw, ArrowLeft } from 'lucide-react'
 import { getSubject } from '@/utils/subjects'
 import { scramble } from '@/utils/scramble'
 import { handleSessionComplete } from '@/utils/drillSession'
+import { useCountUp } from '@/hooks/useCountUp'
+import { useInView } from '@/hooks/useInView'
+import confetti from 'canvas-confetti'
 import type { SessionState } from '@/utils/drillSession'
 
 interface DrillResultsProps {
@@ -31,6 +34,24 @@ export default function DrillResults({ session, subject, onRetry, onUnitSelect }
   const pct = Math.round((correctCount / totalCards) * 100)
   const missedCards = session.cards.filter(c => session.answers[c.id]?.verdict === 'wrong')
 
+  const { ref: scoreRef, inView: scoreInView } = useInView()
+  const displayPct = useCountUp(pct, 1500, scoreInView)
+  const displayDeg = Math.min(Math.max(displayPct * 3.6, 0), 360)
+
+  // Confetti on good scores
+  const confettiFired = useRef(false)
+  useEffect(() => {
+    if (pct >= 70 && !confettiFired.current) {
+      confettiFired.current = true
+      confetti({
+        particleCount: 40,
+        spread: 70,
+        origin: { y: 0.3 },
+        colors: ['#6366f1', '#a78bfa', '#22c55e', '#f59e0b'],
+      })
+    }
+  }, [pct])
+
   const subjectData = getSubject(subject)
   const subjectDisplayName = subjectData?.name ?? subject
   const unitLabel =
@@ -44,7 +65,7 @@ export default function DrillResults({ session, subject, onRetry, onUnitSelect }
     pct >= 50 ? 'Keep at it!' :
     'Room to grow!'
 
-  const scoreDeg = Math.min(Math.max(pct * 3.6, 0), 360)
+  const scoreDeg = Math.min(Math.max(pct * 3.6, 0), 360) // kept for reference
 
   const handleRetryClick = () => {
     onRetry({
@@ -70,14 +91,14 @@ export default function DrillResults({ session, subject, onRetry, onUnitSelect }
       </div>
 
       {/* Score ring + heading */}
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
+      <div ref={scoreRef} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
         <div
           className="score-ring"
-          style={{ '--score-deg': scoreDeg } as React.CSSProperties}
+          style={{ '--score-deg': displayDeg } as React.CSSProperties}
         >
           <div className="score-ring-inner">
             <span style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1 }}>
-              {pct}%
+              {displayPct}%
             </span>
             <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '2px' }}>score</span>
           </div>

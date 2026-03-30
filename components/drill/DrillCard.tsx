@@ -123,6 +123,12 @@ function ConceptMcCard({ card, onAnswer, onNext, isRetry }: DrillCardProps) {
     return { background: 'var(--bg-secondary)', border: '1px solid var(--bg-border)', opacity: 0.45, cursor: 'default' }
   }
 
+  const mcFeedbackAnimation = verdict === 'correct'
+    ? 'correctPulse 0.6s ease'
+    : verdict === 'wrong'
+    ? 'shakeX 0.4s ease'
+    : 'none'
+
   return (
     <div
       className="mx-auto w-full"
@@ -133,6 +139,7 @@ function ConceptMcCard({ card, onAnswer, onNext, isRetry }: DrillCardProps) {
         border: `1px solid ${verdict === 'correct' ? 'var(--accent-success)' : verdict === 'wrong' ? 'var(--accent-danger)' : isRetry ? 'var(--accent-warning)' : 'var(--bg-border)'}`,
         padding: '52px 64px',
         transition: 'border-color 200ms ease',
+        animation: mcFeedbackAnimation,
       }}
     >
       {/* Mode tag + retry badge */}
@@ -465,6 +472,12 @@ function DefaultCard({ card, onAnswer, onNext, isRetry }: DrillCardProps) {
   const inputBorder = getInputBorderColor(cardState)
   const isSubmitDisabled = inputValue.trim().length === 0 || verdict !== null
 
+  const feedbackAnimation = verdict === 'correct'
+    ? 'correctPulse 0.6s ease'
+    : verdict === 'wrong'
+    ? 'shakeX 0.4s ease'
+    : 'none'
+
   return (
     <div
       className="mx-auto w-full"
@@ -475,6 +488,7 @@ function DefaultCard({ card, onAnswer, onNext, isRetry }: DrillCardProps) {
         border: `1px solid ${cardBorder}`,
         padding: '52px 64px',
         transition: 'border-color 200ms ease',
+        animation: feedbackAnimation,
       }}
     >
       {/* Mode tag + retry badge */}
