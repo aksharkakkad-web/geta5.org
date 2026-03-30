@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useCallback, useRef } from 'react'
+import { useParallax } from '@/hooks/useParallax'
 
 interface SubjectCardProps {
   name: string
@@ -50,6 +51,7 @@ const DEFAULT_THEME = {
 export function SubjectCard({ name, slug, index = 0 }: SubjectCardProps) {
   const theme = SUBJECT_THEMES[slug] ?? DEFAULT_THEME
   const glowRef = useRef<HTMLDivElement>(null)
+  const parallaxOffset = useParallax(0.15)
 
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     if (!glowRef.current) return
@@ -101,16 +103,18 @@ export function SubjectCard({ name, slug, index = 0 }: SubjectCardProps) {
           }}
         />
 
-        {/* Art header */}
+        {/* Art header with parallax */}
+        <div style={{ height: '100px', overflow: 'hidden', position: 'relative' }}>
         <div
           style={{
-            height: '100px',
+            height: '120px',
             background: theme.gradient,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
             padding: '0 20px',
             position: 'relative',
+            transform: `translateY(${-parallaxOffset}px)`,
           }}
         >
           {/* Large background emoji (decorative, faded) */}
@@ -145,6 +149,7 @@ export function SubjectCard({ name, slug, index = 0 }: SubjectCardProps) {
           >
             {theme.emoji}
           </div>
+        </div>
         </div>
 
         {/* Card body */}
