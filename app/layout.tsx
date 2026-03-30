@@ -1,6 +1,14 @@
 import type { Metadata } from 'next'
+import { Outfit } from 'next/font/google'
 import './globals.css'
 import { Header } from '@/components/layout/Header'
+
+const outfit = Outfit({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-outfit',
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://geta5.app'),
@@ -15,8 +23,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body style={{ backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)', minHeight: '100dvh' }}>
+    <html lang="en" className={outfit.variable}>
+      <body style={{ backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)', minHeight: '100dvh', fontFamily: 'var(--font-outfit), -apple-system, BlinkMacSystemFont, sans-serif' }}>
         <Header />
         <main style={{ paddingTop: '56px' }}>
           {children}
