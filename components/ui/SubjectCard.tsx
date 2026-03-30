@@ -1,4 +1,6 @@
+'use client'
 import Link from 'next/link'
+import { useCallback, useRef } from 'react'
 
 interface SubjectCardProps {
   name: string
@@ -45,22 +47,60 @@ const DEFAULT_THEME = {
   emoji: '📚',
 }
 
-export function SubjectCard({ name, slug }: SubjectCardProps) {
+export function SubjectCard({ name, slug, index = 0 }: SubjectCardProps) {
   const theme = SUBJECT_THEMES[slug] ?? DEFAULT_THEME
+  const glowRef = useRef<HTMLDivElement>(null)
+
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    if (!glowRef.current) return
+    const rect = e.currentTarget.getBoundingClientRect()
+    glowRef.current.style.top = `${e.clientY - rect.top}px`
+    glowRef.current.style.left = `${e.clientX - rect.left}px`
+    glowRef.current.style.opacity = '1'
+  }, [])
+
+  const handleMouseLeave = useCallback(() => {
+    if (glowRef.current) glowRef.current.style.opacity = '0'
+  }, [])
 
   return (
     <Link href={`/${slug}`} style={{ textDecoration: 'none', display: 'block' }}>
       <div
         className="subject-card"
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
         style={{
-          backgroundColor: 'var(--bg-card)',
-          border: '1px solid var(--bg-border)',
+          background: 'rgba(255, 255, 255, 0.03)',
+          backdropFilter: 'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)',
+          border: '1px solid rgba(255, 255, 255, 0.06)',
           borderRadius: 'var(--radius-lg)',
           overflow: 'hidden',
           cursor: 'pointer',
-          transition: 'border-color 180ms ease, transform 180ms ease',
+          transition: 'border-color 0.3s ease, transform 0.25s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease',
+          opacity: 0,
+          animation: `fadeInUp 0.5s cubic-bezier(0.16,1,0.3,1) ${2.0 + index * 0.1}s forwards`,
+          position: 'relative',
         }}
       >
+        {/* Cursor glow */}
+        <div
+          ref={glowRef}
+          aria-hidden
+          style={{
+            position: 'absolute',
+            width: '200px',
+            height: '200px',
+            background: 'radial-gradient(circle, rgba(99,102,241,0.08), transparent 70%)',
+            borderRadius: '50%',
+            pointerEvents: 'none',
+            opacity: 0,
+            transform: 'translate(-50%, -50%)',
+            transition: 'opacity 0.3s',
+            zIndex: 5,
+          }}
+        />
+
         {/* Art header */}
         <div
           style={{
@@ -105,7 +145,6 @@ export function SubjectCard({ name, slug }: SubjectCardProps) {
           >
             {theme.emoji}
           </div>
-
         </div>
 
         {/* Card body */}
