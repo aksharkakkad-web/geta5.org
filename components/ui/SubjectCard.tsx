@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import { useCallback, useRef } from 'react'
 import { useParallax } from '@/hooks/useParallax'
+import { SubjectIcon } from '@/components/3d/SubjectIcon'
 
 interface SubjectCardProps {
   name: string
@@ -117,38 +118,8 @@ export function SubjectCard({ name, slug, index = 0 }: SubjectCardProps) {
             transform: `translateY(${-parallaxOffset}px)`,
           }}
         >
-          {/* Large background emoji (decorative, faded) */}
-          <div
-            aria-hidden="true"
-            style={{
-              position: 'absolute',
-              right: '-4px',
-              bottom: '-8px',
-              fontSize: '72px',
-              opacity: 0.18,
-              lineHeight: 1,
-              userSelect: 'none',
-            }}
-          >
-            {theme.emoji}
-          </div>
-
-          {/* Foreground emoji pill */}
-          <div
-            style={{
-              width: '48px',
-              height: '48px',
-              borderRadius: '14px',
-              background: 'rgba(255,255,255,0.1)',
-              border: '1px solid rgba(255,255,255,0.15)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '24px',
-            }}
-          >
-            {theme.emoji}
-          </div>
+          {/* 3D subject icon */}
+          <SubjectIcon subject={slug} size={48} />
         </div>
         </div>
 

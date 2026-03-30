@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { BookOpen, ClipboardList, BookMarked, Trophy } from 'lucide-react'
+import { ModeIcon } from '@/components/3d/ModeIcon'
 
 const colorMap = {
   indigo: {
@@ -118,15 +119,9 @@ export function ModeCard({ title, description, iconName, href, colorKey }: ModeC
             height: '100%',
           }}
         >
-          <Icon
-            size={28}
-            color={c.iconColor}
-            style={{
-              marginBottom: '12px',
-              filter: hovered ? `drop-shadow(0 0 6px rgba(${c.rgb}, 0.5))` : 'none',
-              transition: 'filter 0.3s ease',
-            }}
-          />
+          <div style={{ marginBottom: '12px' }}>
+            <ModeIcon iconName={iconName} color={c.hex} size={36} />
+          </div>
           <h3 style={{
             fontSize: '1rem',
             fontWeight: 600,
