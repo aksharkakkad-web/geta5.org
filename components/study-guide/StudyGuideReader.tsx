@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { ScrollReveal } from '@/components/ui/ScrollReveal'
 import { StudyGuide, ViewSection, getViewSections } from '@/utils/studyGuide'
 import SidebarNav from '@/components/study-guide/SidebarNav'
 import ThemeSection from '@/components/study-guide/sections/ThemeSection'
@@ -34,18 +35,24 @@ export default function StudyGuideReader({ guide, subject, onBack, keyTerms }: P
       case 'overview':
         return (
           <>
-            <ThemeSection
-              theme={guide.theme}
-              conceptCount={guide.core_concepts.length}
-            />
-            <CoreConceptsSection concepts={guide.core_concepts} />
-            <ExamTipSection tip={guide.exam_tip} />
+            <ScrollReveal>
+              <ThemeSection
+                theme={guide.theme}
+                conceptCount={guide.core_concepts.length}
+              />
+            </ScrollReveal>
+            <ScrollReveal delay={0.1}>
+              <CoreConceptsSection concepts={guide.core_concepts} />
+            </ScrollReveal>
+            <ScrollReveal delay={0.2}>
+              <ExamTipSection tip={guide.exam_tip} />
+            </ScrollReveal>
           </>
         )
       case 'key_terms':
-        return <KeyTermsSection terms={keyTerms} />
+        return <ScrollReveal><KeyTermsSection terms={keyTerms} /></ScrollReveal>
       case 'formulas':
-        return <FormulasSection formulas={guide.formulas ?? []} />
+        return <ScrollReveal><FormulasSection formulas={guide.formulas ?? []} /></ScrollReveal>
       default:
         return null
     }

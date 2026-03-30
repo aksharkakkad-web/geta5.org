@@ -35,6 +35,8 @@ export default function KeyTermsSection({ terms }: Props) {
                 fontWeight: 600,
                 color: 'var(--text-primary)',
                 marginBottom: '6px',
+                boxShadow: 'inset 0 -2px 0 rgba(99,102,241,0.3)',
+                display: 'inline',
               }}
             >
               {item.term}

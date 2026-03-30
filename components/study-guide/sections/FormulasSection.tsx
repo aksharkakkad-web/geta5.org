@@ -162,6 +162,7 @@ export default function FormulasSection({ formulas }: Props) {
               padding: '24px',
               cursor: 'pointer',
               textAlign: 'center',
+              boxShadow: '0 4px 8px rgba(0,0,0,0.3), 0 12px 40px rgba(0,0,0,0.5)',
             }}
           >
             <div style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
