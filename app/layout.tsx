@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Outfit } from 'next/font/google'
 import './globals.css'
 import { Header } from '@/components/layout/Header'
+import { PageTransition } from '@/components/ui/PageTransition'
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -27,7 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body style={{ backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)', minHeight: '100dvh', fontFamily: 'var(--font-outfit), -apple-system, BlinkMacSystemFont, sans-serif' }}>
         <Header />
         <main style={{ paddingTop: '56px' }}>
-          {children}
+          <PageTransition>{children}</PageTransition>
         </main>
       </body>
     </html>
