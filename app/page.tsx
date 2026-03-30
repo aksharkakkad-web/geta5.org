@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { getAllSubjects } from '@/utils/subjects'
 import { SubjectCard } from '@/components/ui/SubjectCard'
 import { StreakStrip } from '@/components/ui/StreakStrip'
+import { HeroSection } from '@/components/landing/HeroSection'
 
 export const metadata: Metadata = {
   title: 'geta5.app — 100% Free AP Exam Prep',
@@ -18,24 +19,7 @@ export default function HomePage() {
       paddingLeft: '24px',
       paddingRight: '24px',
     }}>
-      {/* Hero — compact */}
-      <div style={{ paddingTop: '48px', paddingBottom: '16px' }}>
-        <h1 style={{
-          fontSize: '1.875rem',
-          fontWeight: 700,
-          color: 'var(--text-primary)',
-          lineHeight: 1.2,
-          marginBottom: '8px',
-        }}>
-          100% free AP exam prep.
-        </h1>
-        <p style={{
-          fontSize: '0.875rem',
-          color: 'var(--text-secondary)',
-        }}>
-          No signup. No paywall. No ads. Just practice.
-        </p>
-      </div>
+      <HeroSection />
 
       {/* Subject Grid */}
       <div
@@ -47,12 +31,12 @@ export default function HomePage() {
           marginTop: '24px',
         }}
       >
-        {subjects.map(subject => (
-          <SubjectCard key={subject.slug} name={subject.name} slug={subject.slug} />
+        {subjects.map((subject, i) => (
+          <SubjectCard key={subject.slug} name={subject.name} slug={subject.slug} index={i} />
         ))}
       </div>
 
-      {/* Streak strip — client-only, renders after mount */}
+      {/* Streak strip */}
       <div style={{ marginTop: '32px', paddingBottom: '48px' }}>
         <StreakStrip />
       </div>

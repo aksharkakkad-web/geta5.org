@@ -3,6 +3,7 @@ import Link from 'next/link'
 interface SubjectCardProps {
   name: string
   slug: string
+  index?: number
 }
 
 const SUBJECT_THEMES: Record<string, {
