@@ -27,49 +27,51 @@ function useFloatAndScroll() {
   return { ref, hovered, setHovered }
 }
 
-// ═══ Brain — two hemispheres with central fissure ═══
+// ═══ Brain — two hemispheres with visible gap + defined stem ═══
 function BrainModel() {
   const { ref, setHovered } = useFloatAndScroll()
 
-  const makeHemisphere = useMemo(() => (side: number) => {
-    const geo = new THREE.SphereGeometry(0.55, 40, 40, 0, Math.PI)
+  const makeHemi = useMemo(() => (side: number) => {
+    const geo = new THREE.SphereGeometry(0.5, 40, 40)
     const pos = geo.attributes.position
     const v = new THREE.Vector3()
     for (let i = 0; i < pos.count; i++) {
       v.fromBufferAttribute(pos, i)
-      // Wrinkle displacement — layered sine for sulci/gyri
       const wrinkle =
         Math.sin(v.x * 10 + v.y * 6) * 0.04 +
         Math.sin(v.y * 14 + v.z * 8) * 0.035 +
         Math.sin(v.z * 9 + v.x * 12) * 0.025 +
         Math.cos(v.x * 18 - v.y * 7) * 0.02
-      const r = 0.55 + wrinkle
-      v.normalize().multiplyScalar(r)
-      // Shift hemisphere to the side
-      v.x += side * 0.08
+      v.normalize().multiplyScalar(0.5 + wrinkle)
       pos.setXYZ(i, v.x, v.y, v.z)
     }
     geo.computeVertexNormals()
+    // Squash to be wider than tall, offset to side
+    geo.scale(0.55, 0.65, 0.6)
+    geo.translate(side * 0.22, 0.05, 0)
     return geo
   }, [])
 
-  const leftGeo = useMemo(() => makeHemisphere(-1), [makeHemisphere])
-  const rightGeo = useMemo(() => makeHemisphere(1), [makeHemisphere])
+  const leftGeo = useMemo(() => makeHemi(-1), [makeHemi])
+  const rightGeo = useMemo(() => makeHemi(1), [makeHemi])
 
   return (
-    <group ref={ref} onPointerOver={() => setHovered(true)} onPointerOut={() => setHovered(false)} rotation={[0.2, 0, 0]}>
-      {/* Left hemisphere */}
-      <mesh geometry={leftGeo} rotation={[0, -Math.PI / 2, 0]}>
-        <meshStandardMaterial color="#f0abfc" emissive="#c026d3" emissiveIntensity={0.25} roughness={0.65} metalness={0.05} />
+    <group ref={ref} onPointerOver={() => setHovered(true)} onPointerOut={() => setHovered(false)} rotation={[0.15, 0, 0]}>
+      <mesh geometry={leftGeo}>
+        <meshStandardMaterial color="#f0abfc" emissive="#d946ef" emissiveIntensity={0.3} roughness={0.6} metalness={0.05} />
       </mesh>
-      {/* Right hemisphere */}
-      <mesh geometry={rightGeo} rotation={[0, Math.PI / 2, 0]}>
-        <meshStandardMaterial color="#e879f9" emissive="#a21caf" emissiveIntensity={0.25} roughness={0.65} metalness={0.05} />
+      <mesh geometry={rightGeo}>
+        <meshStandardMaterial color="#e879f9" emissive="#c026d3" emissiveIntensity={0.3} roughness={0.6} metalness={0.05} />
       </mesh>
-      {/* Brain stem hint */}
-      <mesh position={[0, -0.45, -0.1]} rotation={[0.3, 0, 0]}>
-        <cylinderGeometry args={[0.08, 0.12, 0.2, 12]} />
-        <meshStandardMaterial color="#d946ef" emissive="#a21caf" emissiveIntensity={0.15} roughness={0.6} />
+      {/* Brain stem — darker, clearly separate */}
+      <mesh position={[0, -0.38, -0.05]}>
+        <cylinderGeometry args={[0.06, 0.1, 0.28, 12]} />
+        <meshStandardMaterial color="#a855f7" emissive="#7e22ce" emissiveIntensity={0.2} roughness={0.5} />
+      </mesh>
+      {/* Cerebellum bump at back-bottom */}
+      <mesh position={[0, -0.2, -0.18]}>
+        <sphereGeometry args={[0.15, 16, 16]} />
+        <meshStandardMaterial color="#d8b4fe" emissive="#a855f7" emissiveIntensity={0.2} roughness={0.6} />
       </mesh>
     </group>
   )
@@ -86,7 +88,6 @@ function GlobeModel() {
     const v = new THREE.Vector3()
     const ocean = new THREE.Color('#3b82f6')
     const land = new THREE.Color('#eab308')
-
     for (let i = 0; i < pos.count; i++) {
       v.fromBufferAttribute(pos, i)
       const lat = Math.asin(v.y / 0.65)
@@ -113,58 +114,60 @@ function GlobeModel() {
         <torusGeometry args={[0.66, 0.008, 8, 64]} />
         <meshBasicMaterial color="#fde68a" transparent opacity={0.5} />
       </mesh>
-      <mesh scale={1.05}>
-        <sphereGeometry args={[0.65, 24, 24]} />
-        <meshBasicMaterial color="#93c5fd" transparent opacity={0.06} side={THREE.BackSide} />
-      </mesh>
     </group>
   )
 }
 
-// ═══ Capitol ═══
+// ═══ Capitol — no triangle, proper pediment ═══
 function CapitolModel() {
   const { ref, setHovered } = useFloatAndScroll()
   return (
     <group ref={ref} onPointerOver={() => setHovered(true)} onPointerOut={() => setHovered(false)} scale={0.85}>
+      {/* Base */}
       <mesh position={[0, -0.3, 0]}>
         <boxGeometry args={[1.2, 0.1, 0.6]} />
         <meshStandardMaterial color="#93c5fd" emissive="#3b82f6" emissiveIntensity={0.2} roughness={0.3} metalness={0.3} />
       </mesh>
+      {/* Steps */}
       <mesh position={[0, -0.2, 0]}>
         <boxGeometry args={[1.0, 0.08, 0.5]} />
         <meshStandardMaterial color="#bfdbfe" emissive="#3b82f6" emissiveIntensity={0.15} roughness={0.3} metalness={0.3} />
       </mesh>
+      {/* Columns */}
       {[-0.35, -0.12, 0.12, 0.35].map((x, i) => (
         <mesh key={i} position={[x, 0.1, 0]}>
           <cylinderGeometry args={[0.04, 0.05, 0.5, 12]} />
           <meshStandardMaterial color="#dbeafe" emissive="#60a5fa" emissiveIntensity={0.25} roughness={0.2} metalness={0.4} />
         </mesh>
       ))}
+      {/* Roof beam */}
       <mesh position={[0, 0.37, 0]}>
         <boxGeometry args={[1.0, 0.06, 0.5]} />
         <meshStandardMaterial color="#bfdbfe" emissive="#3b82f6" emissiveIntensity={0.15} roughness={0.3} metalness={0.3} />
       </mesh>
-      <mesh position={[0, 0.52, 0]} rotation={[Math.PI / 2, 0, 0]}>
-        <coneGeometry args={[0.5, 0.25, 3]} />
-        <meshStandardMaterial color="#bfdbfe" emissive="#3b82f6" emissiveIntensity={0.2} roughness={0.3} metalness={0.3} />
+      {/* Pediment — flat wedge instead of cone/triangle */}
+      <mesh position={[0, 0.47, 0]}>
+        <boxGeometry args={[0.9, 0.14, 0.45]} />
+        <meshStandardMaterial color="#93c5fd" emissive="#3b82f6" emissiveIntensity={0.2} roughness={0.3} metalness={0.3} />
       </mesh>
-      <mesh position={[0, 0.58, 0]}>
-        <sphereGeometry args={[0.13, 16, 16, 0, Math.PI * 2, 0, Math.PI / 2]} />
-        <meshStandardMaterial color="#dbeafe" emissive="#60a5fa" emissiveIntensity={0.3} roughness={0.2} metalness={0.4} />
+      {/* Dome */}
+      <mesh position={[0, 0.6, 0]}>
+        <sphereGeometry args={[0.15, 16, 16, 0, Math.PI * 2, 0, Math.PI / 2]} />
+        <meshStandardMaterial color="#dbeafe" emissive="#60a5fa" emissiveIntensity={0.35} roughness={0.2} metalness={0.4} />
       </mesh>
     </group>
   )
 }
 
-// ═══ Flask — FULL liquid, working bubbles ═══
+// ═══ Flask — simple cylinders, guaranteed visible liquid ═══
 function FlaskModel() {
   const { ref, hovered, setHovered } = useFloatAndScroll()
   const bubbleRefs = useRef<THREE.Mesh[]>([])
   const bubbleData = useRef(
     Array.from({ length: 8 }, (_, i) => ({
-      x: (Math.random() - 0.5) * 0.2,
-      y: -0.4 + (i / 8) * 0.5,
-      z: (Math.random() - 0.5) * 0.2,
+      x: (Math.random() - 0.5) * 0.15,
+      y: -0.15 + (i / 8) * 0.35,
+      z: (Math.random() - 0.5) * 0.15,
       speed: 0.003 + Math.random() * 0.003,
     }))
   )
@@ -174,64 +177,54 @@ function FlaskModel() {
       const mesh = bubbleRefs.current[i]
       if (!mesh) return
       b.y += hovered ? b.speed * 4 : b.speed
-      if (b.y > 0.25) {
-        b.y = -0.4
-        b.x = (Math.random() - 0.5) * 0.2
-        b.z = (Math.random() - 0.5) * 0.2
+      if (b.y > 0.35) {
+        b.y = -0.15
+        b.x = (Math.random() - 0.5) * 0.15
+        b.z = (Math.random() - 0.5) * 0.15
       }
       mesh.position.set(b.x, b.y, b.z)
     })
   })
 
-  const flaskGeo = useMemo(() => {
-    const pts = [
-      new THREE.Vector2(0, -0.5),
-      new THREE.Vector2(0.38, -0.5),
-      new THREE.Vector2(0.38, -0.44),
-      new THREE.Vector2(0.36, -0.28),
-      new THREE.Vector2(0.14, 0.22),
-      new THREE.Vector2(0.11, 0.38),
-      new THREE.Vector2(0.11, 0.5),
-      new THREE.Vector2(0.13, 0.52),
-    ]
-    return new THREE.LatheGeometry(pts, 32)
-  }, [])
-
-  // Liquid shape matches flask interior but filled high
-  const liquidGeo = useMemo(() => {
-    const pts = [
-      new THREE.Vector2(0, -0.48),
-      new THREE.Vector2(0.35, -0.48),
-      new THREE.Vector2(0.35, -0.44),
-      new THREE.Vector2(0.33, -0.28),
-      new THREE.Vector2(0.12, 0.18),
-      new THREE.Vector2(0.09, 0.28),
-      new THREE.Vector2(0.09, 0.3),
-      new THREE.Vector2(0, 0.3),
-    ]
-    return new THREE.LatheGeometry(pts, 32)
-  }, [])
-
   return (
     <group ref={ref} onPointerOver={() => setHovered(true)} onPointerOut={() => setHovered(false)}>
-      {/* Glass body */}
-      <mesh geometry={flaskGeo}>
-        <meshStandardMaterial color="#ffffff" transparent opacity={0.15} roughness={0.05} metalness={0.1} side={THREE.DoubleSide} />
+      {/* Flask body — wide bottom cylinder */}
+      <mesh position={[0, -0.15, 0]}>
+        <cylinderGeometry args={[0.22, 0.38, 0.55, 24]} />
+        <meshStandardMaterial color="#94a3b8" transparent opacity={0.2} roughness={0.05} metalness={0.1} side={THREE.DoubleSide} />
       </mesh>
-      {/* Liquid — fills most of flask */}
-      <mesh geometry={liquidGeo}>
-        <meshStandardMaterial color="#fb923c" emissive="#ea580c" emissiveIntensity={0.5} transparent opacity={0.8} roughness={0.3} />
+      {/* Flask neck — narrow top cylinder */}
+      <mesh position={[0, 0.3, 0]}>
+        <cylinderGeometry args={[0.1, 0.22, 0.35, 16]} />
+        <meshStandardMaterial color="#94a3b8" transparent opacity={0.2} roughness={0.05} metalness={0.1} side={THREE.DoubleSide} />
       </mesh>
-      {/* Liquid surface glow */}
-      <mesh position={[0, 0.3, 0]} rotation={[Math.PI / 2, 0, 0]}>
-        <circleGeometry args={[0.09, 24]} />
-        <meshBasicMaterial color="#fdba74" transparent opacity={0.6} />
+      {/* Flask rim */}
+      <mesh position={[0, 0.48, 0]}>
+        <cylinderGeometry args={[0.12, 0.1, 0.04, 16]} />
+        <meshStandardMaterial color="#cbd5e1" roughness={0.2} metalness={0.3} />
       </mesh>
+
+      {/* LIQUID — bright orange, NOT transparent, guaranteed visible */}
+      <mesh position={[0, -0.1, 0]}>
+        <cylinderGeometry args={[0.19, 0.35, 0.45, 24]} />
+        <meshStandardMaterial color="#fb923c" emissive="#ea580c" emissiveIntensity={0.5} roughness={0.4} />
+      </mesh>
+      {/* Liquid in neck */}
+      <mesh position={[0, 0.22, 0]}>
+        <cylinderGeometry args={[0.08, 0.19, 0.2, 16]} />
+        <meshStandardMaterial color="#fb923c" emissive="#ea580c" emissiveIntensity={0.5} roughness={0.4} />
+      </mesh>
+      {/* Liquid surface */}
+      <mesh position={[0, 0.32, 0]} rotation={[Math.PI / 2, 0, 0]}>
+        <circleGeometry args={[0.08, 24]} />
+        <meshStandardMaterial color="#fdba74" emissive="#f97316" emissiveIntensity={0.4} />
+      </mesh>
+
       {/* Bubbles */}
       {bubbleData.current.map((b, i) => (
         <mesh key={i} ref={(el) => { if (el) bubbleRefs.current[i] = el }} position={[b.x, b.y, b.z]}>
-          <sphereGeometry args={[0.015 + (i % 3) * 0.006, 8, 8]} />
-          <meshBasicMaterial color="#fef3c7" transparent opacity={0.8} />
+          <sphereGeometry args={[0.012 + (i % 3) * 0.005, 8, 8]} />
+          <meshBasicMaterial color="#fef3c7" transparent opacity={0.9} />
         </mesh>
       ))}
     </group>
@@ -293,7 +286,7 @@ function GraphModel() {
   )
 }
 
-// ═══ Terminal — centered on screen, no stand clutter ═══
+// ═══ Terminal — simple, bold, can't miss it ═══
 function TerminalModel() {
   const { ref, hovered, setHovered } = useFloatAndScroll()
   const cursorRef = useRef<THREE.Mesh>(null)
@@ -305,37 +298,37 @@ function TerminalModel() {
 
   return (
     <group ref={ref} onPointerOver={() => setHovered(true)} onPointerOut={() => setHovered(false)}>
-      {/* Rounded bezel */}
+      {/* Bezel — light gray so it's visible against dark bg */}
       <mesh>
-        <boxGeometry args={[1.1, 0.8, 0.08]} />
-        <meshStandardMaterial color="#4b5563" emissive="#374151" emissiveIntensity={0.15} roughness={0.4} metalness={0.5} />
+        <boxGeometry args={[1.1, 0.85, 0.1]} />
+        <meshStandardMaterial color="#6b7280" emissive="#4b5563" emissiveIntensity={0.2} roughness={0.4} metalness={0.4} />
       </mesh>
-      {/* Screen — bright green */}
-      <mesh position={[0, 0, 0.045]}>
-        <planeGeometry args={[0.95, 0.65]} />
+      {/* Screen — very bright green, high emissive */}
+      <mesh position={[0, 0.02, 0.06]}>
+        <planeGeometry args={[0.92, 0.68]} />
         <meshStandardMaterial
-          color="#052e16"
-          emissive={hovered ? '#22c55e' : '#16a34a'}
-          emissiveIntensity={hovered ? 1.0 : 0.6}
+          color="#064e3b"
+          emissive="#22c55e"
+          emissiveIntensity={hovered ? 1.2 : 0.8}
           roughness={0.9}
         />
       </mesh>
-      {/* Code lines */}
-      {[0.2, 0.1, 0.0, -0.1, -0.2].map((y, i) => (
-        <mesh key={i} position={[-0.18 + (i % 3) * 0.04, y, 0.05]}>
-          <boxGeometry args={[0.3 + (i % 2) * 0.18, 0.03, 0.001]} />
-          <meshBasicMaterial color="#4ade80" transparent opacity={0.75 - i * 0.06} />
+      {/* Code lines — bright */}
+      {[0.22, 0.12, 0.02, -0.08, -0.18].map((y, i) => (
+        <mesh key={i} position={[-0.15 + (i % 3) * 0.03, y, 0.065]}>
+          <boxGeometry args={[0.28 + (i % 2) * 0.2, 0.032, 0.001]} />
+          <meshBasicMaterial color="#86efac" transparent opacity={0.8} />
         </mesh>
       ))}
-      {/* Cursor */}
-      <mesh ref={cursorRef} position={[-0.05, -0.2, 0.05]}>
-        <boxGeometry args={[0.025, 0.04, 0.001]} />
+      {/* Prompt > */}
+      <mesh position={[-0.38, -0.22, 0.065]}>
+        <boxGeometry args={[0.05, 0.03, 0.001]} />
         <meshBasicMaterial color="#86efac" />
       </mesh>
-      {/* Screen glow halo */}
-      <mesh position={[0, 0, 0.02]}>
-        <planeGeometry args={[1.2, 0.9]} />
-        <meshBasicMaterial color="#22c55e" transparent opacity={hovered ? 0.06 : 0.03} />
+      {/* Blinking cursor */}
+      <mesh ref={cursorRef} position={[-0.1, -0.22, 0.065]}>
+        <boxGeometry args={[0.025, 0.04, 0.001]} />
+        <meshBasicMaterial color="#4ade80" />
       </mesh>
     </group>
   )
@@ -370,10 +363,10 @@ export default function SubjectScene({ subject, size }: { subject: string; size:
           requestAnimationFrame(tick)
         }}
       >
-        <ambientLight intensity={1.8} />
+        <ambientLight intensity={2.0} />
         <directionalLight position={[3, 4, 5]} intensity={2.0} />
-        <pointLight position={[-4, 2, 3]} intensity={0.8} color="#c4b5fd" />
-        <pointLight position={[0, -3, 4]} intensity={0.5} color="#fde68a" />
+        <pointLight position={[-4, 2, 3]} intensity={1.0} color="#c4b5fd" />
+        <pointLight position={[0, -3, 4]} intensity={0.6} color="#fde68a" />
         <ModelComponent />
       </Canvas>
     </div>
