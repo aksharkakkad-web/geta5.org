@@ -4,6 +4,7 @@ import { getSubject } from '@/utils/subjects'
 import { ModeCard } from '@/components/ui/ModeCard'
 import { ProjectedScoreBadge } from '@/components/ui/ProjectedScoreBadge'
 import { SubjectAnalytics } from '@/components/ui/SubjectAnalytics'
+import { SubjectHubClient } from '@/components/ui/SubjectHubClient'
 
 // Force dynamic rendering so "days to go" is always current, never frozen at build time
 export const dynamic = 'force-dynamic'
@@ -79,59 +80,63 @@ export default async function SubjectPage({ params }: SubjectPageProps) {
   ]
 
   return (
-    <div style={{
-      maxWidth: '90rem',
-      margin: '0 auto',
-      paddingLeft: '24px',
-      paddingRight: '24px',
-      paddingTop: '40px',
-      paddingBottom: '64px',
-    }}>
-      {/* Analytics — client island, renders null, fires page_view on mount */}
-      <SubjectAnalytics subject={subject.slug} />
-
-      {/* Subject header */}
-      <div style={{ marginBottom: '8px' }}>
-        <h1 style={{
-          fontSize: '1.875rem',
-          fontWeight: 700,
-          color: 'var(--text-primary)',
-          lineHeight: 1.2,
-          marginBottom: '6px',
-        }}>
-          {subject.name}
-        </h1>
-        <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>
-          AP Exam: {examDateFormatted}
-          {daysUntil > 0 && ` · ${daysUntil} days to go`}
-          {daysUntil <= 0 && ' · Exam has passed'}
-        </p>
-      </div>
-
-      {/* Projected score badge — client island */}
-      <div style={{ marginTop: '12px', marginBottom: '32px' }}>
-        <ProjectedScoreBadge subject={subject.slug} />
-      </div>
-
-      {/* Mode cards grid */}
+    <SubjectHubClient>
       <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(2, 1fr)',
-        gap: '16px',
-        marginBottom: '48px',
+        maxWidth: '90rem',
+        margin: '0 auto',
+        paddingLeft: '24px',
+        paddingRight: '24px',
+        paddingTop: '40px',
+        paddingBottom: '64px',
+        position: 'relative',
       }}>
-        {modes.map(mode => (
-          <ModeCard
-            key={mode.title}
-            title={mode.title}
-            description={mode.description}
-            iconName={mode.iconName}
-            href={mode.href}
-            colorKey={mode.colorKey}
-          />
-        ))}
-      </div>
+        {/* Analytics — client island */}
+        <SubjectAnalytics subject={subject.slug} />
 
-    </div>
+        {/* Subject header */}
+        <div style={{ marginBottom: '8px', position: 'relative', zIndex: 2 }}>
+          <h1 style={{
+            fontSize: '1.875rem',
+            fontWeight: 700,
+            color: 'var(--text-primary)',
+            lineHeight: 1.2,
+            marginBottom: '6px',
+          }}>
+            {subject.name}
+          </h1>
+          <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>
+            AP Exam: {examDateFormatted}
+            {daysUntil > 0 && ` · ${daysUntil} days to go`}
+            {daysUntil <= 0 && ' · Exam has passed'}
+          </p>
+        </div>
+
+        {/* Projected score badge */}
+        <div style={{ marginTop: '12px', marginBottom: '32px', position: 'relative', zIndex: 2 }}>
+          <ProjectedScoreBadge subject={subject.slug} />
+        </div>
+
+        {/* Mode cards grid */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(2, 1fr)',
+          gap: '16px',
+          marginBottom: '48px',
+          position: 'relative',
+          zIndex: 2,
+        }}>
+          {modes.map(mode => (
+            <ModeCard
+              key={mode.title}
+              title={mode.title}
+              description={mode.description}
+              iconName={mode.iconName}
+              href={mode.href}
+              colorKey={mode.colorKey}
+            />
+          ))}
+        </div>
+      </div>
+    </SubjectHubClient>
   )
 }
