@@ -36,14 +36,17 @@
 Each agent runs the **full Content Pipeline** autonomously within its worktree:
 
 ```
-1. RESEARCH  [Sonnet] — WebSearch/WebFetch College Board CED; produce RESEARCH.md + draft meta.json
+1. RESEARCH  [Sonnet] — Read local CED PDF (see phase XX-CONTEXT.md for exact path) using the Read tool;
+                        DO NOT use WebSearch/WebFetch for topic selection — web is FORBIDDEN as a content source;
+                        produce RESEARCH.md + draft meta.json from PDF content only
 2. PLAN      [Sonnet] — Read RESEARCH.md; produce PLAN.md (per-unit topics, stimulus types, difficulty targets, drill coverage list)
 3. WRITE     [Sonnet] — Read PLAN.md; generate meta.json + all unit JSON files (drills, MCQs, study guides)
-4. REVIEW    [Opus]   — Validate schema, curriculum accuracy, KaTeX, all 10 quality gates (G1–G10) — final gate before commit
+4. REVIEW    [Sonnet] — Validate schema, curriculum accuracy, KaTeX, all 10 quality gates (G1–G10) — final gate before commit
+                        **Exception:** AP Calculus AB (Phase 9) and AP Chemistry (Phase 12) use [Opus] for the Reviewer
 5. COMMIT              — Atomic commit per subject in worktree branch
 ```
 
-**Model rationale:** Researcher/Planner/Writer are structured, high-volume, schema-driven — Sonnet handles these well and avoids Opus rate limit pressure during parallel wave execution. Reviewer is the single quality gate before content ships — Opus's judgment is reserved for this critical step.
+**Model rationale:** All agents (Researcher/Planner/Writer/Reviewer) use Sonnet. Opus is reserved only for AP Calculus AB and AP Chemistry Reviewers — subjects with heavy KaTeX and equation verification where formula correctness is highest risk.
 
 ### Agent Dispatch Template
 
@@ -54,7 +57,9 @@ Each content agent receives:
 4. `docs/PRD.md` → `data_schemas` + `content_agent_team` sections
 5. `data/schemas/*.schema.json` — canonical JSON schemas
 6. `public/data/ap-psychology/` — reference fixture files (calibration — format only; content will be regenerated)
-7. Phase-specific `XX-CONTEXT.md` — subject details, unit list, updated drill modes
+7. **Phase-specific `XX-CONTEXT.md` — subject details, unit list, drill modes, and MANDATORY CED PDF path**
+   - The CONTEXT.md specifies the local CED PDF under `.planning/phases/[NN]-*/reference/`
+   - Researcher MUST read that PDF first — it overrides all other sources for topic/content selection
 
 ### Quality Gates (Non-Negotiable)
 
@@ -71,8 +76,9 @@ Every agent must pass ALL gates before its commit is accepted:
 | G7: Correct Answers | Exactly 1 `is_correct: true` per question / per concept_mc; no `alternate_answers` field present | Fix |
 | G8: ID Uniqueness | No duplicate IDs within a subject | Renumber |
 | G8b: Key Terms | 8–15 cards per unit have `is_key_term: true`; none are `concept_mc` mode | Fix |
-| G8c: Drill Modes | Only approved modes per subject profile; no `term_to_definition`, `formula_to_type`, `event_to_date`, `concept_to_example` | Fix |
+| G8c: Drill Modes | Only approved modes per subject profile; no `term_to_definition`, `formula_to_type`, `event_to_date`, `concept_to_example`; math subjects (Calc, Precalc) must not use `concept_mc`; Chemistry must not use `name_to_formula` | Fix |
 | G8d: MCQ Stimulus Rate | Stimulus % meets target for subject (see redesign spec Section 3.1) | Add stimulus questions |
+| G8e: Math Formulas | Study guide formula objects for phases 9/10/12 must include `description` (plain English) and `example` (worked example with KaTeX); `core_concepts` must use `$...$` for all math expressions | Add missing fields |
 | G9: Pseudocode (CSP) | College Board syntax only — no Python/Java | Rewrite |
 | G10: Chemistry | All equations balanced, KaTeX verified by Chemistry Checker | Fix equations |
 

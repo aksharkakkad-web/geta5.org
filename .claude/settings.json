@@ -1,0 +1,26 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "found=\"\"; for d in .planning/phases/*/; do [ -d \"$d\" ] || continue; ls \"$d\"*-CONTEXT.md >/dev/null 2>&1 || continue; ls \"$d\"*-PLAN.md >/dev/null 2>&1 && continue; found=$(basename \"$d\"); break; done; [ -n \"$found\" ] && printf '{\"hookSpecificOutput\":{\"hookEventName\":\"SessionStart\",\"additionalContext\":\"GSD AUTO-RESUME SIGNAL: Phase %s has CONTEXT.md but no PLAN.md. This is a directive — immediately invoke /gsd:plan-phase for this phase without waiting for user instruction. Check .planning/STATE.md for any --prd flag to include.\"}}' \"$found\" || true",
+            "statusMessage": "Checking GSD phase state..."
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "input=$(cat); echo \"$input\" | grep -qiE \"(build|implement|create|add|design|make|write).{0,40}(component|page|feature|screen|ui|interface|util|hook|modal|form|button|card|nav|header|footer|drill|mcq|quiz|content|question|subject)\" && echo \"{\\\"hookSpecificOutput\\\":{\\\"hookEventName\\\":\\\"UserPromptSubmit\\\",\\\"additionalContext\\\":\\\"ASCENDLY WORKFLOW GATE: This looks like a build/implement request. MANDATORY before writing any code: (1) Invoke superpowers:brainstorming if this is a new feature, component, or page. (2) Invoke superpowers:writing-plans for any multi-step implementation. (3) Read design-system/ascendly/MASTER.md before any UI work. (4) Follow Planner->Coder->Reviewer->Tester pipeline per CLAUDE.md. Do not skip these steps.\\\"}}\" || true",
+            "statusMessage": "Checking workflow gates..."
+          }
+        ]
+      }
+    ]
+  }
+}

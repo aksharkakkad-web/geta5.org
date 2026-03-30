@@ -54,7 +54,8 @@ Phases 6–12 execute as parallel content generation in 2 waves (see `.planning/
 - **Wave 1:** Phases 6, 7, 8, 11 (text-heavy subjects) — 4 parallel worktree agents
 - **Wave 2:** Phases 9, 10, 12 (math/formula-heavy) — 3 parallel worktree agents
 - Gate check between waves: spot-check 1 subject before launching Wave 2
-- Each agent runs: Researcher [Sonnet] → Planner [Sonnet] → Writer [Sonnet] → Reviewer [Opus] → Commit
+- Each agent runs: Researcher [Sonnet] → Planner [Sonnet] → Writer [Sonnet] → Reviewer [Sonnet] → Commit
+- Exception: Phase 9 (Calculus AB) and Phase 12 (Chemistry) use Reviewer [Opus]
 
 **Pre-wave blockers:**
 1. `feat/session-persistence` branch merged to main

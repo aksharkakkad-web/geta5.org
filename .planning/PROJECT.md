@@ -20,27 +20,45 @@
 - ✓ MCQ interface with stimulus support (text, table, graph, pseudocode) — Phase 3
 - ✓ Per-choice explanations on submit (correct + distractors) — Phase 3
 - ✓ MCQ mastery tracking to localStorage — Phase 3
+- ✓ Study guide renders theme → core concepts → formulas → exam tip structure — Phase 4
+- ✓ KaTeX formula rendering in study guide content — Phase 4
+- ✓ Unit-by-unit navigation — Phase 4
+- ✓ Full-length timed practice test per subject — Phase 5
+- ✓ Timed mode with auto-submit — Phase 5
+- ✓ Score report with per-unit breakdown — Phase 5
+- ✓ Session auto-save to localStorage draft keys (drill, MCQ, test) — feat/session-persistence
+- ✓ Resume prompt shown when draft exists — feat/session-persistence
 
 ### Active
 
-**Study Guide (Phase 4)**
-- [ ] Theme → core concepts → key terms → formulas → exam tip structure
-- [ ] KaTeX formula rendering in study guide content
-- [ ] Unit-by-unit navigation
+**Drill/MCQ Schema + Component Updates (pre-content blocker)**
+- [ ] DrillCard: `name_to_formula` mode — simple notation input, live KaTeX preview, formatting help modal
+- [ ] DrillCard: `concept_mc` mode — multiple choice UI within drill session
+- [ ] Formula notation parser utility (^ exponents, sqrt(), +-, int(), Delta, etc. → KaTeX)
+- [ ] Study guide: key terms section reads from `is_key_term: true` drill cards (remove key_terms array rendering)
+- [ ] data/schemas/drill.schema.json updated (done 2026-03-26)
+- [ ] data/schemas/study-guide.schema.json updated (done 2026-03-26)
+- [ ] Existing public/data/ content discarded (all content regenerated per new spec)
 
-**Practice Test (Phase 5)**
-- [ ] Full-length timed test per subject
-- [ ] Timed mode with auto-submit
-- [ ] Score report with per-unit breakdown
+**Content — Wave 1 (Phases 6, 7, 8, 11 — parallel) — blocked until above complete**
+- [ ] AP Psychology: meta.json + drills + MCQs + study guide per unit (8 units)
+- [ ] AP World History: meta.json + drills + MCQs + study guide per unit (9 units)
+- [ ] AP Government: meta.json + drills + MCQs + study guide per unit (5 units) — RESEARCH.md exists
+- [ ] AP CSP: meta.json + drills + MCQs + study guide per unit (5 units) — CB pseudocode only; RESEARCH.md exists
 
-**Content (Phases 6–12)**
-- [ ] AP Psychology: drills + MCQs + study guide per unit (8 units)
-- [ ] AP World History: drills + MCQs + study guide per unit (9 units)
-- [ ] AP Government: drills + MCQs + study guide per unit (5 units)
-- [ ] AP Calculus AB: drills + MCQs + study guide per unit (8 units)
-- [ ] AP Precalculus: drills + MCQs + study guide per unit (4 units)
-- [ ] AP CSP: drills + MCQs + study guide per unit (5 units)
-- [ ] AP Chemistry: drills + MCQs + study guide per unit (9 units)
+**Content — Wave 2 (Phases 9, 10, 12 — parallel after Wave 1 gate)**
+- [ ] AP Calculus AB: meta.json + drills + MCQs + study guide per unit (8 units) — KaTeX-heavy
+- [ ] AP Precalculus: meta.json + drills + MCQs + study guide per unit (4 units) — KaTeX-heavy
+- [ ] AP Chemistry: meta.json + drills + MCQs + study guide per unit (9 units) — Chemistry Checker required
+
+**Content quality gates (all subjects):**
+- [ ] Every JSON file validates against `data/schemas/*.schema.json`
+- [ ] Difficulty distribution: 20% easy / 45% medium / 35% hard (±5%)
+- [ ] 50–100 MCQs per unit, drill modes per subject profile, is_key_term 8–15 per unit
+- [ ] Per-choice explanations on all MCQs and concept_mc drills (no vague)
+- [ ] All math in KaTeX — zero plain text formulas
+- [ ] MCQ stimulus rates meet targets (see redesign spec)
+- [ ] Content Reviewer subagent signed off per subject
 
 **Polish (Phase 13)**
 - [ ] Score calibration with real AP thresholds
@@ -59,4 +77,4 @@
 - **Content editing UI** — content managed via JSON files + agent pipeline
 
 ---
-*Last updated: 2026-03-24 — Phase 2 & 3 requirements validated*
+*Last updated: 2026-03-26 — Post-redesign spec, pre-component implementation*
