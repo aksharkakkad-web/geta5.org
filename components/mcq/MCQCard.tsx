@@ -121,6 +121,7 @@ export default function MCQCard({ question, onAnswer, onNext, testMode = false, 
           ...base,
           border: '2px solid var(--accent)',
           background: 'color-mix(in srgb, var(--accent) 10%, var(--bg-card))',
+          boxShadow: '0 0 15px rgba(99, 102, 241, 0.2)',
         }
       }
       return {
@@ -136,6 +137,8 @@ export default function MCQCard({ question, onAnswer, onNext, testMode = false, 
         ...base,
         border: '2px solid var(--accent-success)',
         background: 'color-mix(in srgb, var(--accent-success) 10%, transparent)',
+        boxShadow: '0 0 20px rgba(34, 197, 94, 0.15)',
+        animation: 'correctPulse 0.6s ease',
       }
     }
     if (isSelected) {
@@ -143,6 +146,7 @@ export default function MCQCard({ question, onAnswer, onNext, testMode = false, 
         ...base,
         border: '2px solid var(--accent-danger)',
         background: 'color-mix(in srgb, var(--accent-danger) 10%, transparent)',
+        animation: 'shakeX 0.4s ease',
       }
     }
     return {
