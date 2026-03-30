@@ -119,7 +119,7 @@ export function SubjectCard({ name, slug, index = 0 }: SubjectCardProps) {
           }}
         >
           {/* 3D subject icon */}
-          <SubjectIcon subject={slug} size={48} />
+          <SubjectIcon subject={slug} size={80} />
         </div>
         </div>
 
