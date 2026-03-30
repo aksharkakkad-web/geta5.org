@@ -31,7 +31,13 @@ export function StreakStrip() {
     }}>
       {streak > 0 && (
         <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-          <Flame size={14} color="var(--accent-warning)" />
+          <span style={{
+              display: 'inline-flex',
+              animation: 'flameFlicker 0.8s ease-in-out infinite alternate',
+              filter: 'drop-shadow(0 0 4px rgba(245, 158, 11, 0.4))',
+            }}>
+              <Flame size={14} color="var(--accent-warning)" />
+            </span>
           {streak} day streak
         </span>
       )}
