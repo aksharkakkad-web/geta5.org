@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { getAllSubjects } from '@/utils/subjects'
-import { SubjectCard } from '@/components/ui/SubjectCard'
+import { SubjectGrid } from '@/components/ui/SubjectGrid'
 import { StreakStrip } from '@/components/ui/StreakStrip'
 import { HeroSection } from '@/components/landing/HeroSection'
 
@@ -21,20 +21,7 @@ export default function HomePage() {
     }}>
       <HeroSection />
 
-      {/* Subject Grid */}
-      <div
-        className="subject-grid"
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(2, 1fr)',
-          gap: '16px',
-          marginTop: '24px',
-        }}
-      >
-        {subjects.map((subject, i) => (
-          <SubjectCard key={subject.slug} name={subject.name} slug={subject.slug} index={i} />
-        ))}
-      </div>
+      <SubjectGrid subjects={subjects} />
 
       {/* Streak strip */}
       <div style={{ marginTop: '32px', paddingBottom: '48px' }}>
