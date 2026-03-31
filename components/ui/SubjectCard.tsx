@@ -1,7 +1,6 @@
 'use client'
 import Link from 'next/link'
 import { useCallback, useRef } from 'react'
-import { useParallax } from '@/hooks/useParallax'
 import { SubjectIcon } from '@/components/3d/SubjectIcon'
 
 interface SubjectCardProps {
@@ -52,7 +51,6 @@ const DEFAULT_THEME = {
 export function SubjectCard({ name, slug, index = 0 }: SubjectCardProps) {
   const theme = SUBJECT_THEMES[slug] ?? DEFAULT_THEME
   const glowRef = useRef<HTMLDivElement>(null)
-  const parallaxOffset = useParallax(0.15)
 
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     if (!glowRef.current) return
@@ -104,23 +102,18 @@ export function SubjectCard({ name, slug, index = 0 }: SubjectCardProps) {
           }}
         />
 
-        {/* Art header with parallax */}
-        <div style={{ height: '100px', overflow: 'hidden', position: 'relative' }}>
+        {/* Art header */}
         <div
           style={{
-            height: '120px',
+            height: '100px',
             background: theme.gradient,
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'space-between',
             padding: '0 20px',
             position: 'relative',
-            transform: `translateY(${-parallaxOffset}px)`,
           }}
         >
-          {/* 3D subject icon */}
           <SubjectIcon subject={slug} size={80} />
-        </div>
         </div>
 
         {/* Card body */}
