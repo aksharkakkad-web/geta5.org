@@ -54,7 +54,7 @@ function BrainModel() {
   const rightGeo = useMemo(() => makeHemi(1), [makeHemi])
 
   return (
-    <group ref={ref} onPointerOver={() => setHovered(true)} onPointerOut={() => setHovered(false)} rotation={[0.2, 0, 0]}>
+    <group ref={ref} onPointerOver={() => setHovered(true)} onPointerOut={() => setHovered(false)} rotation={[0.2, 0, 0]} scale={1.25}>
       <mesh geometry={leftGeo}>
         <meshStandardMaterial color="#f0abfc" emissive="#d946ef" emissiveIntensity={0.3} roughness={0.6} metalness={0.05} />
       </mesh>
