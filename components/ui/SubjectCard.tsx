@@ -33,7 +33,7 @@ const SUBJECT_THEMES: Record<string, {
     gradient: 'linear-gradient(135deg, #0d1a2d 0%, #162844 50%, #080f1a 100%)',
     emoji: '📐',
   },
-  'ap-computer-science-principles': {
+  'ap-csp': {
     gradient: 'linear-gradient(135deg, #001a0d 0%, #003320 50%, #000f08 100%)',
     emoji: '💻',
   },

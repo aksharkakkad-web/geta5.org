@@ -1,31 +1,31 @@
 'use client'
 import { View, PerspectiveCamera } from '@react-three/drei'
-import { useFrame } from '@react-three/fiber'
-import React, { useRef, useMemo } from 'react'
+import { useThree } from '@react-three/fiber'
+import React, { useRef, useMemo, useEffect } from 'react'
 import * as THREE from 'three'
 
-let globalScrollY = 0
-if (typeof window !== 'undefined') {
-  window.addEventListener('scroll', () => { globalScrollY = window.scrollY }, { passive: true })
-}
-
-function useFloat() {
+function useScrollRotate() {
   const ref = useRef<THREE.Group>(null)
-  const prevScroll = useRef(0)
-  useFrame(() => {
-    if (!ref.current) return
-    ref.current.position.y = Math.sin(Date.now() * 0.0008) * 0.06
-    const scrollDelta = globalScrollY - prevScroll.current
-    ref.current.rotation.y += scrollDelta * 0.003
-    prevScroll.current += (globalScrollY - prevScroll.current) * 0.1
-  })
+  const { invalidate } = useThree()
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const onScroll = () => {
+      if (ref.current) {
+        ref.current.rotation.y = window.scrollY * 0.002
+        invalidate()
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [invalidate])
+
   return ref
 }
 
 // ═══ Brain — flat top, no concavity, defined stem ═══
 function BrainModel() {
-  const ref = useFloat()
-
+  const ref = useScrollRotate()
   const makeHemi = useMemo(() => (side: number) => {
     const geo = new THREE.SphereGeometry(0.5, 40, 40)
     const pos = geo.attributes.position
@@ -71,7 +71,7 @@ function BrainModel() {
 
 // ═══ Globe ═══
 function GlobeModel() {
-  const ref = useFloat()
+  const ref = useScrollRotate()
   const globeGeo = useMemo(() => {
     const geo = new THREE.SphereGeometry(0.65, 48, 48)
     const pos = geo.attributes.position
@@ -107,7 +107,7 @@ function GlobeModel() {
 
 // ═══ Capitol ═══
 function CapitolModel() {
-  const ref = useFloat()
+  const ref = useScrollRotate()
   return (
     <group ref={ref} scale={0.85}>
       <mesh position={[0, -0.3, 0]}>
@@ -142,30 +142,14 @@ function CapitolModel() {
 
 // ═══ Flask — longer neck, opaque liquid, bubbles ═══
 function FlaskModel() {
-  const ref = useFloat()
-  const bubbleRefs = useRef<THREE.Mesh[]>([])
-  const bubbleData = useRef(
-    Array.from({ length: 10 }, (_, i) => ({
-      x: (Math.random() - 0.5) * 0.18,
-      y: -0.2 + (i / 10) * 0.4,
-      z: (Math.random() - 0.5) * 0.18,
-      speed: 0.002 + Math.random() * 0.003,
-    }))
-  )
-
-  useFrame(() => {
-    bubbleData.current.forEach((b, i) => {
-      const mesh = bubbleRefs.current[i]
-      if (!mesh) return
-      b.y += b.speed
-      if (b.y > 0.45) {
-        b.y = -0.2
-        b.x = (Math.random() - 0.5) * 0.18
-        b.z = (Math.random() - 0.5) * 0.18
-      }
-      mesh.position.set(b.x, b.y, b.z)
-    })
-  })
+  const ref = useScrollRotate()
+  const bubbles = useMemo(() =>
+    Array.from({ length: 6 }, (_, i) => ({
+      x: (Math.sin(i * 1.3) * 0.5 - 0.25) * 0.18,
+      y: -0.15 + (i / 6) * 0.35,
+      z: (Math.cos(i * 2.1) * 0.5 - 0.25) * 0.18,
+      size: 0.01 + (i % 3) * 0.005,
+    })), [])
 
   return (
     <group ref={ref}>
@@ -197,9 +181,9 @@ function FlaskModel() {
         <circleGeometry args={[0.06, 24]} />
         <meshStandardMaterial color="#fdba74" emissive="#f97316" emissiveIntensity={0.4} />
       </mesh>
-      {bubbleData.current.map((b, i) => (
-        <mesh key={i} ref={(el) => { if (el) bubbleRefs.current[i] = el }} position={[b.x, b.y, b.z]}>
-          <sphereGeometry args={[0.01 + (i % 3) * 0.005, 6, 6]} />
+      {bubbles.map((b, i) => (
+        <mesh key={i} position={[b.x, b.y, b.z]}>
+          <sphereGeometry args={[b.size, 6, 6]} />
           <meshBasicMaterial color="#fef3c7" transparent opacity={0.9} />
         </mesh>
       ))}
@@ -209,8 +193,7 @@ function FlaskModel() {
 
 // ═══ Integral with equation: ∫ x² dx ═══
 function IntegralModel() {
-  const ref = useFloat()
-
+  const ref = useScrollRotate()
   const integralGeo = useMemo(() => {
     const shape = new THREE.Shape()
     shape.moveTo(0.1, 0.5)
@@ -262,7 +245,7 @@ function IntegralModel() {
 
 // ═══ Graph ═══
 function GraphModel() {
-  const ref = useFloat()
+  const ref = useScrollRotate()
   const curveGeo = useMemo(() => {
     const pts: THREE.Vector3[] = []
     for (let i = -20; i <= 20; i++) {
@@ -288,12 +271,7 @@ function GraphModel() {
 
 // ═══ Terminal ═══
 function TerminalModel() {
-  const ref = useFloat()
-  const cursorRef = useRef<THREE.Mesh>(null)
-  useFrame((state) => {
-    if (!cursorRef.current) return
-    cursorRef.current.visible = Math.sin(state.clock.elapsedTime * 4) > 0
-  })
+  const ref = useScrollRotate()
   return (
     <group ref={ref}>
       <mesh>
@@ -314,7 +292,7 @@ function TerminalModel() {
         <boxGeometry args={[0.05, 0.03, 0.001]} />
         <meshBasicMaterial color="#86efac" />
       </mesh>
-      <mesh ref={cursorRef} position={[-0.1, -0.22, 0.065]}>
+      <mesh position={[-0.1, -0.22, 0.065]}>
         <boxGeometry args={[0.025, 0.04, 0.001]} />
         <meshBasicMaterial color="#4ade80" />
       </mesh>
