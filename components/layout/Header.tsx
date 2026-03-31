@@ -32,16 +32,17 @@ export function Header() {
       alignItems: 'center',
       paddingLeft: '24px',
       paddingRight: '24px',
+      justifyContent: 'space-between',
       zIndex: 50,
       transform: visible ? 'translateY(0)' : 'translateY(-100%)',
       transition: 'transform 0.3s ease',
     }}>
-      <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'baseline' }}>
+      <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'baseline', gap: '1px' }}>
         <span style={{
           fontWeight: 700,
           fontSize: '1.125rem',
           color: '#d4d4d4',
-          letterSpacing: '-0.02em',
+          letterSpacing: '-0.01em',
         }}>
           geta
         </span>
@@ -51,7 +52,7 @@ export function Header() {
           background: 'linear-gradient(135deg, #6366f1, #a78bfa)',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
-          letterSpacing: '-0.02em',
+          letterSpacing: '-0.01em',
         }}>
           5
         </span>
@@ -59,7 +60,7 @@ export function Header() {
           fontWeight: 700,
           fontSize: '1.125rem',
           color: '#d4d4d4',
-          letterSpacing: '-0.02em',
+          letterSpacing: '-0.01em',
         }}>
           .app
         </span>

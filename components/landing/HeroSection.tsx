@@ -21,7 +21,7 @@ export function HeroSection() {
   }))
 
   return (
-    <div style={{ paddingTop: '48px', paddingBottom: '16px', position: 'relative', overflow: 'hidden' }}>
+    <div style={{ paddingTop: '80px', paddingBottom: '16px', position: 'relative', overflow: 'hidden' }}>
       <AmbientBlobs />
 
       {/* Hero text — staggered word reveal */}
@@ -40,21 +40,22 @@ export function HeroSection() {
             key={word}
             style={{
               display: 'inline-block',
+              marginRight: '0.35em',
               opacity: 0,
               animation: `revealUp 0.7s cubic-bezier(0.16,1,0.3,1) ${0.3 + i * 0.15}s forwards`,
               color: 'var(--text-primary)',
             }}
           >
-            {word}{' '}
+            {word}
           </span>
         ))}
-        {'  '}
         {/* "100% free." — lands with punch after pause */}
         {['100%', 'free.'].map((word, i) => (
           <span
             key={word}
             style={{
               display: 'inline-block',
+              marginRight: i === 0 ? '0.35em' : undefined,
               opacity: 0,
               animation: `revealPunch 0.65s cubic-bezier(0.16,1,0.3,1) ${1.1 + i * 0.15}s forwards`,
               background: 'linear-gradient(135deg, #818cf8, #6366f1, #a78bfa)',
@@ -62,7 +63,7 @@ export function HeroSection() {
               WebkitTextFillColor: 'transparent',
             }}
           >
-            {word}{i === 0 ? ' ' : ''}
+            {word}
           </span>
         ))}
       </h1>
