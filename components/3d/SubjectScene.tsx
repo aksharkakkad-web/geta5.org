@@ -61,14 +61,14 @@ function BrainModel() {
       <mesh geometry={rightGeo}>
         <meshStandardMaterial color="#e879f9" emissive="#c026d3" emissiveIntensity={0.3} roughness={0.6} metalness={0.05} />
       </mesh>
-      {/* Brain stem — long, narrow, clearly separate color */}
-      <mesh position={[0, -0.32, -0.06]}>
-        <cylinderGeometry args={[0.05, 0.09, 0.35, 12]} />
+      {/* Brain stem — short, wide, tucked behind */}
+      <mesh position={[0, -0.22, -0.12]} rotation={[0.3, 0, 0]}>
+        <cylinderGeometry args={[0.08, 0.06, 0.12, 12]} />
         <meshStandardMaterial color="#7e22ce" emissive="#581c87" emissiveIntensity={0.25} roughness={0.5} />
       </mesh>
-      {/* Cerebellum */}
-      <mesh position={[0, -0.12, -0.2]}>
-        <sphereGeometry args={[0.14, 16, 16]} />
+      {/* Cerebellum — wider, sits under brain at back */}
+      <mesh position={[0, -0.15, -0.16]} scale={[1.2, 0.7, 1]}>
+        <sphereGeometry args={[0.18, 16, 16]} />
         <meshStandardMaterial color="#c084fc" emissive="#7e22ce" emissiveIntensity={0.2} roughness={0.6} />
       </mesh>
     </group>
