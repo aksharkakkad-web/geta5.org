@@ -2,6 +2,8 @@
 
 import { createContext, useContext, useEffect, useState } from 'react'
 import { createClient } from '@/lib/supabase-browser'
+import { setAuthState, syncFromSupabase } from '@/utils/persistence'
+import { migrateLocalStorageToSupabase } from '@/utils/dataMigration'
 import type { User, Session } from '@supabase/supabase-js'
 
 interface AuthContextValue {
@@ -36,15 +38,29 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     supabase.auth.getSession().then(({ data: { session: s } }) => {
       setSession(s)
       setUser(s?.user ?? null)
+      setAuthState(!!s?.user)
       setIsLoading(false)
+
+      if (s?.user) {
+        migrateLocalStorageToSupabase().then(() => syncFromSupabase())
+      }
     })
 
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      (_event, s) => {
+      (event, s) => {
         setSession(s)
         setUser(s?.user ?? null)
+        setAuthState(!!s?.user)
         setIsLoading(false)
+
+        if (event === 'SIGNED_IN' && s?.user) {
+          migrateLocalStorageToSupabase().then(() => syncFromSupabase())
+        }
+
+        if (event === 'SIGNED_OUT') {
+          setAuthState(false)
+        }
       }
     )
 
