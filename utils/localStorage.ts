@@ -38,4 +38,5 @@ export const LS_KEYS = {
   drillDraft: (subject: string) => `ascendly_draft_drill_${subject}`,
   mcqDraft: (subject: string) => `ascendly_draft_mcq_${subject}`,
   testDraft: (subject: string) => `ascendly_draft_test_${subject}`,
+  migrated: 'ascendly_migrated',
 } as const
