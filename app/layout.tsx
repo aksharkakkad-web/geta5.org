@@ -3,6 +3,7 @@ import { Outfit } from 'next/font/google'
 import './globals.css'
 import { Header } from '@/components/layout/Header'
 import { PageTransition } from '@/components/ui/PageTransition'
+import { AuthProvider } from '@/contexts/AuthContext'
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -26,10 +27,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={outfit.variable}>
       <body style={{ backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)', minHeight: '100dvh', fontFamily: 'var(--font-outfit), -apple-system, BlinkMacSystemFont, sans-serif' }}>
-        <Header />
-        <main style={{ paddingTop: '56px' }}>
-          <PageTransition>{children}</PageTransition>
-        </main>
+        <AuthProvider>
+          <Header />
+          <main style={{ paddingTop: '56px' }}>
+            <PageTransition>{children}</PageTransition>
+          </main>
+        </AuthProvider>
       </body>
     </html>
   )
