@@ -11,7 +11,7 @@ export function AdiChatPanel() {
   const {
     isOpen, close,
     messages, input, setInput, handleSubmit, isLoading,
-    context,
+    context, errorMessage, clearError,
   } = useAdi()
 
   const messagesEndRef = useRef<HTMLDivElement>(null)
@@ -74,6 +74,13 @@ export function AdiChatPanel() {
 
           <div ref={messagesEndRef} />
         </div>
+
+        {errorMessage && (
+          <div className="adi-error-banner">
+            <span>{errorMessage}</span>
+            <button className="adi-error-dismiss" onClick={clearError} aria-label="Dismiss error">✕</button>
+          </div>
+        )}
 
         <AdiQuickChips />
 
