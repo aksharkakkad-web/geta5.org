@@ -1,0 +1,268 @@
+{
+  "subject": "ap-csp",
+  "exam_overview": {
+    "exam_name": "AP Computer Science Principles",
+    "exam_date": "2026-05-13",
+    "total_time_minutes": 180,
+    "sections": [
+      {
+        "name": "Section I: Multiple Choice",
+        "questions": 70,
+        "time_minutes": 120,
+        "weight": "70%",
+        "breakdown": {
+          "single_select": 57,
+          "single_select_with_passage": 5,
+          "multi_select": 8
+        }
+      },
+      {
+        "name": "Section II: Create Performance Task — Written Response",
+        "questions": "2 written responses (4 prompts: WR1, WR2a, WR2b, WR2c)",
+        "time_minutes": 60,
+        "weight": "30%",
+        "notes": "Program code, video, and Personalized Project Reference submitted via portfolio; at least 9 hours of in-class time"
+      }
+    ],
+    "score_range": "1-5",
+    "pseudocode_language": "College Board pseudocode (not Python or Java)",
+    "tips": [
+      "All code on the AP CSP exam uses College Board pseudocode — never Python, Java, or any other real language",
+      "5 of the 70 MCQs reference a provided reading passage about a computing innovation",
+      "8 of the 70 MCQs are multi-select — you must choose exactly 2 correct answers",
+      "Big Idea 3 (Algorithms and Programming) is the heaviest unit at ~30–35% of the exam — prioritize pseudocode tracing practice",
+      "The Create Performance Task accounts for 30% of your score — start early and save your program code and video"
+    ],
+    "mcq_practice_weights": {
+      "Practice 1 (Computational Solution Design)": "18–25%",
+      "Practice 2 (Algorithms and Program Development)": "20–28%",
+      "Practice 3 (Abstraction in Program Development)": "7–12%",
+      "Practice 4 (Code Analysis)": "12–19%",
+      "Practice 5 (Computing Innovations)": "28–33%",
+      "Practice 6 (Responsible Computing)": "NOT assessed in MCQ section"
+    }
+  },
+  "pseudocode_reference": {
+    "assignment": "a ← expression",
+    "display": "DISPLAY(expression)",
+    "input": "INPUT()",
+    "arithmetic": ["a + b", "a - b", "a * b", "a / b", "a MOD b", "RANDOM(a, b)"],
+    "relational": ["a = b", "a ≠ b", "a > b", "a < b", "a ≥ b", "a ≤ b"],
+    "boolean": ["NOT condition", "condition1 AND condition2", "condition1 OR condition2"],
+    "selection": "IF(condition) { ... } ELSE { ... }",
+    "iteration": ["REPEAT n TIMES { ... }", "REPEAT UNTIL(condition) { ... }", "FOR EACH item IN aList { ... }"],
+    "list_operations": {
+      "create": "aList ← [value1, value2, ...]",
+      "create_empty": "aList ← []",
+      "access": "aList[i]  (1-based — first element is index 1)",
+      "assign": "aList[i] ← x",
+      "insert": "INSERT(aList, i, value)",
+      "append": "APPEND(aList, value)",
+      "remove": "REMOVE(aList, i)",
+      "length": "LENGTH(aList)"
+    },
+    "procedures": {
+      "define": "PROCEDURE procName(param1, param2) { ... }",
+      "with_return": "PROCEDURE procName(param1) { ... RETURN(expression) }",
+      "call": "procName(arg1, arg2)",
+      "call_with_result": "result ← procName(arg1, arg2)"
+    },
+    "robot_commands": ["MOVE_FORWARD()", "ROTATE_LEFT()", "ROTATE_RIGHT()", "CAN_MOVE(direction)"],
+    "key_notes": [
+      "Assignment uses ← not =",
+      "Lists are 1-based — aList[1] is the first element, not aList[0]",
+      "REPEAT UNTIL runs until the condition is TRUE (loop stops when condition is met)",
+      "MOD returns the remainder: 17 MOD 5 = 2",
+      "RANDOM(a, b) returns a random integer from a to b inclusive"
+    ]
+  },
+  "units": [
+    {
+      "unit_id": "unit-1",
+      "unit_name": "Creative Development",
+      "big_idea": "CRD",
+      "exam_weight": "10–13%",
+      "college_board_percentage": 12,
+      "code_intensity": "low — mostly conceptual",
+      "key_topics": [
+        "Types of computing innovations (physical, nonphysical software, nonphysical concept)",
+        "Iterative and incremental development process (investigate → design → prototype → test)",
+        "Collaboration: diverse perspectives reduce bias; pair programming model",
+        "Program inputs and outputs (tactile, audio, visual, text; user or other programs)",
+        "Event-driven vs. sequential programming",
+        "Three types of errors: syntax, logic, run-time",
+        "Debugging strategies: test cases, hand tracing, display statements",
+        "Documentation: code comments, intellectual property, Creative Commons licensing"
+      ],
+      "learning_objectives": [
+        "CRD-2.A: Describe the purpose of a computing innovation",
+        "CRD-2.B/C/D: Explain how a program functions and identify its inputs and outputs",
+        "CRD-2.E/F: Develop a program using an iterative design process",
+        "CRD-2.I: Identify and correct errors in algorithms and programs",
+        "CRD-1.A/B: Explain how collaboration improves computing innovations"
+      ],
+      "common_question_types": [
+        "Classify a given innovation as physical, nonphysical software, or nonphysical concept",
+        "Identify the type of error (syntax vs. logic vs. run-time) in a described scenario",
+        "Determine which development step (investigate, design, prototype, test) is being performed",
+        "Explain how collaboration or diverse perspectives would improve a specific program"
+      ],
+      "exam_tips": [
+        "Know the three error types cold: syntax = won't run; logic = runs but wrong result; run-time = crashes during execution",
+        "Event-driven programming responds to triggers (clicks, key presses); sequential runs top-to-bottom in fixed order",
+        "Iterative development means repeating cycles of design-prototype-test, not doing them once in order"
+      ]
+    },
+    {
+      "unit_id": "unit-2",
+      "unit_name": "Data",
+      "big_idea": "DAT",
+      "exam_weight": "17–22%",
+      "college_board_percentage": 20,
+      "code_intensity": "moderate — data manipulation code segments",
+      "key_topics": [
+        "Binary number system: 1 bit = 2 values; N bits = 2^N values",
+        "Overflow error (exceeds storage capacity) and round-off error (loss of precision)",
+        "Analog vs. digital data; sampling to convert analog → digital",
+        "Lossless compression (exact reconstruction, e.g., run-length encoding) vs. lossy (approximate, e.g., JPEG, MP3)",
+        "Metadata: data about data (file size, date, location)",
+        "Data collection, cleaning, and bias (systematic errors in data)",
+        "Correlation vs. causation in data analysis",
+        "Big data, citizen science, crowdsourcing, open data"
+      ],
+      "learning_objectives": [
+        "DAT-1.A/B/C: Explain how data is represented in bits and the effects of encoding/abstraction",
+        "DAT-2.A/B: Describe what information can be extracted from data and metadata",
+        "DAT-2.C/D/E: Explain and demonstrate how programs extract insight from data"
+      ],
+      "common_question_types": [
+        "Calculate how many values N bits can represent (answer: 2^N)",
+        "Distinguish lossless from lossy compression and identify use cases for each",
+        "Identify what metadata reveals about a person or file",
+        "Explain why a dataset has bias or why correlation does not imply causation"
+      ],
+      "exam_tips": [
+        "2^N is the formula for number of values representable with N bits — memorize it",
+        "Lossless = exact reconstruction (text files, program code); lossy = smaller file but data lost (images, audio, video)",
+        "Metadata can reveal location, time, and behavior even when the content itself is private — a common privacy exam angle"
+      ]
+    },
+    {
+      "unit_id": "unit-3",
+      "unit_name": "Algorithms and Programming",
+      "big_idea": "AAP",
+      "exam_weight": "30–35%",
+      "college_board_percentage": 32,
+      "code_intensity": "very high — almost entirely pseudocode tracing",
+      "key_topics": [
+        "Variables and assignment: a ← expression (copies value; does NOT create a link)",
+        "Sequencing, selection (IF/ELSE), iteration (REPEAT n TIMES, REPEAT UNTIL, FOR EACH)",
+        "Lists: 1-based indexing; APPEND, INSERT, REMOVE, LENGTH operations",
+        "Boolean expressions: AND, OR, NOT; relational operators",
+        "Procedures: parameters, arguments, RETURN; procedural abstraction hides complexity",
+        "Data abstraction: using lists to manage groups of related values",
+        "Linear search (any list, O(n)) vs. binary search (sorted list required, O(log n))",
+        "Algorithm efficiency: polynomial time = reasonable; exponential/factorial = unreasonable",
+        "Heuristic solutions for hard problems; undecidable problems (e.g., Halting Problem)",
+        "Simulations: model real-world processes; use RANDOM for probabilistic behavior"
+      ],
+      "learning_objectives": [
+        "AAP-1.A/B/C/D: Represent, assign, and abstract values in variables and lists",
+        "AAP-2.A–P: Trace sequencing, selection, iteration, and list operations in pseudocode",
+        "AAP-3.A–G: Call and develop procedures; use libraries, random values, and simulations",
+        "AAP-4.A/B: Distinguish reasonable from unreasonable time; explain undecidable problems"
+      ],
+      "common_question_types": [
+        "Trace a CB pseudocode segment and determine the final value of a variable or output",
+        "Identify which code segment produces the same result as a given segment (code equivalence)",
+        "Determine the minimum number of comparisons binary search needs for a list of size n",
+        "Classify an algorithm as reasonable (polynomial) or unreasonable (exponential) time"
+      ],
+      "exam_tips": [
+        "Lists are 1-based in CB pseudocode — aList[1] is the first element, not aList[0]",
+        "REPEAT UNTIL(condition) stops when the condition becomes TRUE — don't confuse this with REPEAT WHILE",
+        "Binary search requires a sorted list and takes at most log₂(n) comparisons; the Halting Problem is the canonical undecidable problem",
+        "Two code segments are equivalent only if they produce identical output for ALL possible inputs, not just one test case"
+      ],
+      "pseudocode_tracing_reminders": [
+        "Assignment: a ← 5 stores 5 in a; a ← a + 1 increments a by 1",
+        "IF(condition) { ... } ELSE { ... } — only the matching branch executes",
+        "REPEAT n TIMES executes the block exactly n times regardless of what happens inside",
+        "REPEAT UNTIL(condition) checks condition AFTER each iteration (like a do-while)",
+        "FOR EACH item IN aList iterates through every element left-to-right",
+        "APPEND(aList, value) adds to the END; INSERT(aList, i, value) inserts at position i"
+      ]
+    },
+    {
+      "unit_id": "unit-4",
+      "unit_name": "Computer Systems and Networks",
+      "big_idea": "CSN",
+      "exam_weight": "11–15%",
+      "college_board_percentage": 13,
+      "code_intensity": "low — mostly conceptual",
+      "key_topics": [
+        "Network basics: IP address, router, protocol, bandwidth",
+        "Packet switching: data split into packets, sent independently, reassembled at destination",
+        "Key protocols: TCP (reliable delivery), HTTP/HTTPS (web), DNS (URL → IP translation)",
+        "Internet vs. World Wide Web (Internet is the infrastructure; WWW is web pages over HTTP)",
+        "Fault tolerance and redundancy: multiple paths ensure delivery even when components fail",
+        "Parallel computing: simultaneous processing on multiple processors; reduces total time",
+        "Distributed computing: tasks spread across multiple computers; enables larger problems",
+        "Speedup limits: maximum speedup cannot exceed number of processors; some tasks cannot be parallelized due to dependencies"
+      ],
+      "learning_objectives": [
+        "CSN-1.A/B/C/D: Explain how the Internet works, including protocols and communication",
+        "CSN-1.E: Explain how redundancy makes the Internet fault tolerant",
+        "CSN-2.A/B: Describe benefits and limitations of parallel and distributed computing"
+      ],
+      "common_question_types": [
+        "Explain why the Internet is fault tolerant (packet switching + multiple paths)",
+        "Identify which protocol handles a specific function (DNS, TCP, HTTP, HTTPS)",
+        "Determine whether a parallel computing scenario will improve performance and by how much",
+        "Distinguish between parallel computing (same machine, multiple processors) and distributed computing (multiple machines)"
+      ],
+      "exam_tips": [
+        "The Internet is fault tolerant because packets can take different routes — removing one node does not break the whole network",
+        "DNS translates domain names (like google.com) to IP addresses — think of it as the Internet's phone book",
+        "Parallel speedup is limited: if 10% of a program must run sequentially, you can never achieve more than 10x speedup no matter how many processors you add"
+      ]
+    },
+    {
+      "unit_id": "unit-5",
+      "unit_name": "Impact of Computing",
+      "big_idea": "IOC",
+      "exam_weight": "21–26%",
+      "college_board_percentage": 23,
+      "code_intensity": "none — entirely conceptual",
+      "key_topics": [
+        "Beneficial and harmful effects of computing innovations; unintended consequences",
+        "Digital divide: unequal access based on socioeconomic status, geography, disability",
+        "Computing bias: reflected in training data, algorithms, and design choices",
+        "Crowdsourcing and citizen science: using many people to solve large problems",
+        "Intellectual property: copyright, open-source, Creative Commons licensing",
+        "PII (Personally Identifiable Information) and privacy risks from data collection",
+        "Security threats: phishing, keylogging, malware, rogue access points",
+        "Encryption: symmetric (same key) vs. public-key/asymmetric (public encrypts, private decrypts)",
+        "Multi-factor authentication (MFA); HTTPS and SSL/TLS for secure web communication",
+        "Ethical concerns: automation and job displacement, algorithmic fairness, surveillance"
+      ],
+      "learning_objectives": [
+        "IOC-1.A/B: Explain beneficial and harmful effects including unintended consequences",
+        "IOC-1.C/D: Describe the digital divide and computing bias",
+        "IOC-1.E/F: Explain crowdsourcing and legal/ethical concerns",
+        "IOC-2.A/C/D: Describe privacy risks, malicious actors, and secure transmission elements"
+      ],
+      "common_question_types": [
+        "Identify an unintended consequence or harmful effect of a described computing innovation",
+        "Explain how a specific attack (phishing, keylogging, malware) compromises security",
+        "Distinguish symmetric from public-key encryption and explain when each is used",
+        "Explain why a specific dataset or algorithm might be biased"
+      ],
+      "exam_tips": [
+        "Almost every computing innovation has BOTH beneficial and harmful effects — exam questions often ask for both sides",
+        "PII questions are common: combining non-PII data points can create PII (e.g., ZIP code + birth date + gender can identify an individual)",
+        "Public key encryption: the sender uses the recipient's PUBLIC key to encrypt; the recipient uses their own PRIVATE key to decrypt — never share your private key"
+      ]
+    }
+  ]
+}
