@@ -125,8 +125,18 @@ export function AdiProvider({ children }: { children: ReactNode }) {
 
   const setQuestion = useCallback((info: QuestionInfo | null) => {
     setQuestionInfo(info)
-    setMessages([])
-  }, [setMessages])
+    // Immediately update the ref so the transport has fresh context
+    // before React re-renders (fixes one-question-behind bug)
+    if (info) {
+      contextRef.current = {
+        ...contextRef.current,
+        unit: info.unit,
+        questionId: info.questionId,
+        userAnswer: info.userAnswer,
+        isCorrect: info.isCorrect,
+      }
+    }
+  }, [])
 
   const showNudge = useCallback((text: string) => {
     if (nudgeDismissCountRef.current >= 3) return
