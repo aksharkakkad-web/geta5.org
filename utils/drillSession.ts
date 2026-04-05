@@ -1,5 +1,6 @@
 import { lsGet, lsSet, lsClear, LS_KEYS } from '@/utils/localStorage'
 import { logEvent } from '@/utils/analytics'
+import { saveProgress, saveStats } from '@/utils/persistence'
 
 export interface DrillChoice {
   text: string
@@ -118,6 +119,10 @@ export function handleSessionComplete(session: SessionState, subject: string): v
   const prevTotal = lsGet<number>(LS_KEYS.totalQuestions, 0)
   lsSet(LS_KEYS.totalQuestions, prevTotal + totalCards)
 
+  // Sync stats to Supabase
+  const streak = lsGet<{ count: number; lastPracticeDate: string } | null>(LS_KEYS.streak, null)
+  saveStats(prevTotal + totalCards, streak?.count ?? 0, streak?.lastPracticeDate ?? null)
+
   // Write drillAccuracy for non-retry sessions
   if (!session.isRetry) {
     if (session.unitSlug !== 'all') {
@@ -131,6 +136,7 @@ export function handleSessionComplete(session: SessionState, subject: string): v
         drillAccuracy,
         totalAttempts: existing.totalAttempts + totalCards,
       })
+      saveProgress(subject, session.unitSlug, { ...existing, drillAccuracy, totalAttempts: existing.totalAttempts + totalCards })
     } else {
       // Study All — distribute per-unit using each card's unit field
       const unitStats: Record<string, { correct: number; total: number }> = {}
@@ -151,6 +157,7 @@ export function handleSessionComplete(session: SessionState, subject: string): v
           drillAccuracy,
           totalAttempts: existing.totalAttempts + total,
         })
+        saveProgress(subject, unitSlug, { ...existing, drillAccuracy, totalAttempts: existing.totalAttempts + total })
       })
     }
   }
