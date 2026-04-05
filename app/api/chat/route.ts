@@ -29,11 +29,19 @@ export async function POST(req: Request) {
   }
 
   const { messages, context } = (await req.json()) as {
-    messages: Array<{ role: 'user' | 'assistant'; content: string }>
+    messages: Array<{
+      role: 'user' | 'assistant'
+      content?: string
+      parts?: Array<{ type: string; text?: string }>
+    }>
     context: AdiContext
   }
 
-  const recentMessages = messages.slice(-10)
+  // Convert v6 parts format to content strings for the AI model
+  const recentMessages = messages.slice(-10).map((msg) => ({
+    role: msg.role,
+    content: msg.content ?? msg.parts?.filter((p) => p.type === 'text').map((p) => p.text).join('') ?? '',
+  }))
 
   const systemPrompt = await buildSystemPrompt(context)
 
