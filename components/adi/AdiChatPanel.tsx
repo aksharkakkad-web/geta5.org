@@ -10,7 +10,7 @@ import { AdiQuickChips } from './AdiQuickChips'
 export function AdiChatPanel() {
   const {
     isOpen, close,
-    messages, input, handleInputChange, handleSubmit, isLoading,
+    messages, input, setInput, handleSubmit, isLoading,
     context,
   } = useAdi()
 
@@ -73,11 +73,11 @@ export function AdiChatPanel() {
 
         <AdiQuickChips />
 
-        <form className="adi-input-bar" onSubmit={handleSubmit}>
+        <form className="adi-input-bar" onSubmit={(e) => { e.preventDefault(); handleSubmit() }}>
           <input
             className="adi-input"
             value={input}
-            onChange={handleInputChange}
+            onChange={(e) => setInput(e.target.value)}
             placeholder="Ask Adi anything..."
             disabled={isLoading}
           />

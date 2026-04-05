@@ -1,7 +1,8 @@
 'use client'
 
 import { createContext, useContext, useState, useCallback, useRef, type ReactNode } from 'react'
-import { useChat, type Message } from 'ai/react'
+import { useChat, type UIMessage } from '@ai-sdk/react'
+import { TextStreamChatTransport } from 'ai'
 import { useAdiContext } from '@/hooks/useAdiContext'
 import { lsGet, lsSet, LS_KEYS } from '@/utils/localStorage'
 import type { AdiContext } from '@/utils/adiPrompt'
@@ -18,10 +19,10 @@ interface AdiState {
   open: () => void
   close: () => void
   toggle: () => void
-  messages: Message[]
+  messages: UIMessage[]
   input: string
-  handleInputChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
-  handleSubmit: (e?: React.FormEvent) => void
+  setInput: (value: string) => void
+  handleSubmit: () => void
   isLoading: boolean
   sendMessage: (text: string) => void
   context: AdiContext
@@ -44,6 +45,7 @@ export function AdiProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false)
   const [nudgeText, setNudgeText] = useState<string | null>(null)
   const [questionInfo, setQuestionInfo] = useState<QuestionInfo | null>(null)
+  const [input, setInput] = useState('')
   const nudgeDismissCountRef = useRef(lsGet(LS_KEYS.adiDismissCount, 0))
 
   const baseContext = useAdiContext()
@@ -58,14 +60,18 @@ export function AdiProvider({ children }: { children: ReactNode }) {
     }),
   }
 
-  const { messages, input, handleInputChange, handleSubmit: chatSubmit, isLoading, append, setMessages } = useChat({
-    api: '/api/chat',
-    body: { context },
+  const { messages, sendMessage: chatSendMessage, status, setMessages } = useChat({
+    transport: new TextStreamChatTransport({
+      api: '/api/chat',
+      body: { context },
+    }),
     onFinish: () => {
       const count = lsGet(LS_KEYS.adiMessages, 0)
       lsSet(LS_KEYS.adiMessages, count + 1)
     },
   })
+
+  const isLoading = status === 'submitted' || status === 'streaming'
 
   const open = useCallback(() => {
     setIsOpen(true)
@@ -81,8 +87,14 @@ export function AdiProvider({ children }: { children: ReactNode }) {
   }, [])
 
   const sendMessage = useCallback((text: string) => {
-    append({ role: 'user', content: text })
-  }, [append])
+    chatSendMessage({ parts: [{ type: 'text' as const, text }] })
+    setInput('')
+  }, [chatSendMessage])
+
+  const handleSubmit = useCallback(() => {
+    if (!input.trim()) return
+    sendMessage(input.trim())
+  }, [input, sendMessage])
 
   const setQuestion = useCallback((info: QuestionInfo | null) => {
     setQuestionInfo(info)
@@ -100,16 +112,11 @@ export function AdiProvider({ children }: { children: ReactNode }) {
     lsSet(LS_KEYS.adiDismissCount, nudgeDismissCountRef.current)
   }, [])
 
-  const handleSubmit = useCallback((e?: React.FormEvent) => {
-    if (e) e.preventDefault()
-    chatSubmit(e)
-  }, [chatSubmit])
-
   return (
     <AdiContext_.Provider
       value={{
         isOpen, open, close, toggle,
-        messages, input, handleInputChange, handleSubmit, isLoading, sendMessage,
+        messages, input, setInput, handleSubmit, isLoading, sendMessage,
         context, setQuestion,
         nudgeText, showNudge, dismissNudge, nudgeDismissCount: nudgeDismissCountRef.current,
       }}
