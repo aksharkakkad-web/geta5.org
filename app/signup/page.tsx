@@ -128,7 +128,11 @@ function SignupForm() {
     const redirectTo = `${window.location.origin}/auth/callback?redirect=${encodeURIComponent(redirect)}`
     const { error: oauthError } = await supabase.auth.signInWithOAuth({
       provider: 'google',
-      options: { redirectTo },
+      options: {
+        redirectTo,
+        skipBrowserRedirect: false,
+        queryParams: { access_type: 'offline', prompt: 'consent' },
+      },
     })
     if (oauthError) setError(oauthError.message)
   }
