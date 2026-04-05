@@ -15,10 +15,10 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   metadataBase: new URL('https://geta5.app'),
   title: 'geta5.app — Free AP Exam Prep',
-  description: 'Free AP practice questions, drills, and study guides. No signup, no paywall, completely free.',
+  description: 'Free AP practice questions, drills, and study guides. Free to try, sign up to unlock unlimited practice.',
   openGraph: {
     title: 'geta5.app — Free AP Exam Prep',
-    description: 'Free AP practice questions, drills, and study guides for AP Psychology, AP World History, AP Calculus, AP Chemistry, and more. No signup, completely free.',
+    description: 'Free AP practice questions, drills, and study guides for AP Psychology, AP World History, AP Calculus, AP Chemistry, and more. Free to try, sign up for unlimited access.',
     images: ['/og-image.png'],
   },
 }
