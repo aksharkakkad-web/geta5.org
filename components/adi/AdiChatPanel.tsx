@@ -22,13 +22,17 @@ export function AdiChatPanel() {
 
   if (!isOpen) return null
 
-  const ctxLabel = context.questionId
-    ? `📍 Viewing ${context.questionId} · ${context.unit}`
-    : context.unit
-      ? `📍 ${context.subject} · ${context.unit}`
-      : context.subject
-        ? `📍 ${context.subject}`
-        : null
+  // Build a human-readable context label
+  const prettySubject = context.subject?.replace(/^ap-/, 'AP ').replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()) || ''
+  const prettyUnit = context.unit?.replace('unit-', 'Unit ') || ''
+  const pageLabel: Record<string, string> = { drill: 'Drills', mcq: 'Practice', 'practice-test': 'Practice Test', 'study-guide': 'Study Guide' }
+  const prettyPage = pageLabel[context.page] || ''
+
+  const ctxLabel = prettyUnit && prettyPage
+    ? `📍 ${prettySubject} · ${prettyUnit} · ${prettyPage}`
+    : prettySubject
+      ? `📍 ${prettySubject}`
+      : null
 
   return (
     <>
