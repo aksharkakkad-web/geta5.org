@@ -8,6 +8,7 @@ import { scramble } from '@/utils/scramble'
 import { handleMCQSessionComplete } from '@/utils/mcqSession'
 import { useCountUp } from '@/hooks/useCountUp'
 import { useInView } from '@/hooks/useInView'
+import { useAdiResults } from '@/hooks/useAdiResults'
 import confetti from 'canvas-confetti'
 import type { MCQSessionState } from '@/utils/mcqSession'
 
@@ -33,6 +34,15 @@ export default function MCQResults({ session, subject, onRetry, onUnitSelect }: 
   const totalQuestions = session.questions.length
   const pct = Math.round((correctCount / totalQuestions) * 100)
   const missedQuestions = session.questions.filter(q => !session.answers[q.id]?.isCorrect)
+
+  useAdiResults({
+    subject,
+    unit: session.unitSlug,
+    totalAnswered: totalQuestions,
+    correct: correctCount,
+    accuracy: totalQuestions > 0 ? correctCount / totalQuestions : 0,
+    mode: 'mcq',
+  })
 
   const { ref: scoreRef, inView: scoreInView } = useInView()
   const displayPct = useCountUp(pct, 1500, scoreInView)
