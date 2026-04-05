@@ -1,0 +1,120 @@
+'use client'
+
+import { createContext, useContext, useState, useCallback, useRef, type ReactNode } from 'react'
+import { useChat, type Message } from 'ai/react'
+import { useAdiContext } from '@/hooks/useAdiContext'
+import { lsGet, lsSet, LS_KEYS } from '@/utils/localStorage'
+import type { AdiContext } from '@/utils/adiPrompt'
+
+interface QuestionInfo {
+  questionId: string
+  unit: string
+  userAnswer?: string
+  isCorrect?: boolean
+}
+
+interface AdiState {
+  isOpen: boolean
+  open: () => void
+  close: () => void
+  toggle: () => void
+  messages: Message[]
+  input: string
+  handleInputChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
+  handleSubmit: (e?: React.FormEvent) => void
+  isLoading: boolean
+  sendMessage: (text: string) => void
+  context: AdiContext
+  setQuestion: (info: QuestionInfo | null) => void
+  nudgeText: string | null
+  showNudge: (text: string) => void
+  dismissNudge: () => void
+  nudgeDismissCount: number
+}
+
+const AdiContext_ = createContext<AdiState | null>(null)
+
+export function useAdi(): AdiState {
+  const ctx = useContext(AdiContext_)
+  if (!ctx) throw new Error('useAdi must be used within AdiProvider')
+  return ctx
+}
+
+export function AdiProvider({ children }: { children: ReactNode }) {
+  const [isOpen, setIsOpen] = useState(false)
+  const [nudgeText, setNudgeText] = useState<string | null>(null)
+  const [questionInfo, setQuestionInfo] = useState<QuestionInfo | null>(null)
+  const nudgeDismissCountRef = useRef(lsGet(LS_KEYS.adiDismissCount, 0))
+
+  const baseContext = useAdiContext()
+
+  const context: AdiContext = {
+    ...baseContext,
+    ...(questionInfo && {
+      unit: questionInfo.unit,
+      questionId: questionInfo.questionId,
+      userAnswer: questionInfo.userAnswer,
+      isCorrect: questionInfo.isCorrect,
+    }),
+  }
+
+  const { messages, input, handleInputChange, handleSubmit: chatSubmit, isLoading, append, setMessages } = useChat({
+    api: '/api/chat',
+    body: { context },
+    onFinish: () => {
+      const count = lsGet(LS_KEYS.adiMessages, 0)
+      lsSet(LS_KEYS.adiMessages, count + 1)
+    },
+  })
+
+  const open = useCallback(() => {
+    setIsOpen(true)
+    setNudgeText(null)
+  }, [])
+
+  const close = useCallback(() => setIsOpen(false), [])
+  const toggle = useCallback(() => {
+    setIsOpen((prev) => {
+      if (!prev) setNudgeText(null)
+      return !prev
+    })
+  }, [])
+
+  const sendMessage = useCallback((text: string) => {
+    append({ role: 'user', content: text })
+  }, [append])
+
+  const setQuestion = useCallback((info: QuestionInfo | null) => {
+    setQuestionInfo(info)
+    setMessages([])
+  }, [setMessages])
+
+  const showNudge = useCallback((text: string) => {
+    if (nudgeDismissCountRef.current >= 3) return
+    setNudgeText(text)
+  }, [])
+
+  const dismissNudge = useCallback(() => {
+    setNudgeText(null)
+    nudgeDismissCountRef.current++
+    lsSet(LS_KEYS.adiDismissCount, nudgeDismissCountRef.current)
+  }, [])
+
+  const handleSubmit = useCallback((e?: React.FormEvent) => {
+    if (e) e.preventDefault()
+    chatSubmit(e)
+  }, [chatSubmit])
+
+  return (
+    <AdiContext_.Provider
+      value={{
+        isOpen, open, close, toggle,
+        messages, input, handleInputChange, handleSubmit, isLoading, sendMessage,
+        context, setQuestion,
+        nudgeText, showNudge, dismissNudge, nudgeDismissCount: nudgeDismissCountRef.current,
+      }}
+    >
+      {children}
+    </AdiContext_.Provider>
+  )
+}
