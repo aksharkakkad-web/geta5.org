@@ -97,7 +97,9 @@ function ConceptMcCard({ card, onAnswer, onNext, isRetry }: DrillCardProps) {
     if (verdict === null) return
     let ready = false
     const id = setTimeout(() => { ready = true }, 0)
-    const handler = (e: KeyboardEvent) => { if (e.key === 'Enter' && ready) onNext() }
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'Enter' && ready && !(document.activeElement?.classList.contains('adi-input'))) onNext()
+    }
     window.addEventListener('keydown', handler)
     return () => { clearTimeout(id); window.removeEventListener('keydown', handler) }
   }, [verdict, onNext])
@@ -233,7 +235,9 @@ function FormulaCard({ card, onAnswer, onNext, isRetry }: DrillCardProps) {
     if (verdict === null) return
     let ready = false
     const id = setTimeout(() => { ready = true }, 0)
-    const handler = (e: KeyboardEvent) => { if (e.key === 'Enter' && ready) onNext() }
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'Enter' && ready && !(document.activeElement?.classList.contains('adi-input'))) onNext()
+    }
     window.addEventListener('keydown', handler)
     return () => { clearTimeout(id); window.removeEventListener('keydown', handler) }
   }, [verdict, onNext])
@@ -452,7 +456,7 @@ function DefaultCard({ card, onAnswer, onNext, isRetry }: DrillCardProps) {
     let ready = false
     const id = setTimeout(() => { ready = true }, 0)
     const handler = (e: KeyboardEvent) => {
-      if (e.key === 'Enter' && ready) onNext()
+      if (e.key === 'Enter' && ready && !(document.activeElement?.classList.contains('adi-input'))) onNext()
     }
     window.addEventListener('keydown', handler)
     return () => {
