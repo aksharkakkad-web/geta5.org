@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useRef } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 import { useAdi } from '@/components/adi/AdiProvider'
 
 const LONG_SESSION_INTERVAL = 10
@@ -9,10 +9,23 @@ const LONG_SESSION_NUDGES = [
   'Want to review what we\'ve covered? — tap me!',
 ]
 
-export function useAdiNudge() {
+/**
+ * Hook for components that display questions/cards.
+ *
+ * @param currentCard — pass the card/question currently being displayed.
+ *   Adi's context syncs immediately so the user can ask about it before answering.
+ */
+export function useAdiNudge(currentCard?: { id: string; unit: string } | null) {
   const { showNudge, setQuestion, isOpen } = useAdi()
   const hasNudgedRef = useRef(false)
   const questionCountRef = useRef(0)
+
+  // Sync context whenever the displayed card changes (before any answer)
+  useEffect(() => {
+    if (currentCard) {
+      setQuestion({ questionId: currentCard.id, unit: currentCard.unit })
+    }
+  }, [currentCard?.id, currentCard?.unit, setQuestion])
 
   const triggerWrongAnswer = useCallback((opts: {
     unit: string

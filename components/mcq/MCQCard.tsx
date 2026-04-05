@@ -59,7 +59,7 @@ export default function MCQCard({ question, onAnswer, onNext, testMode = false, 
   )
   const [selectedId, setSelectedId] = useState<string | null>(initialSelectedId)
   const [submitted, setSubmitted] = useState<boolean>(false)
-  const { triggerWrongAnswer } = useAdiNudge()
+  const { triggerWrongAnswer } = useAdiNudge(question)
 
   // Reset state when question changes (next question)
   useEffect(() => {

@@ -72,7 +72,7 @@ function ConceptMcCard({ card, onAnswer, onNext, isRetry }: DrillCardProps) {
   const [shuffledChoices, setShuffledChoices] = useState<typeof card.choices>(() =>
     shuffleArray(card.choices ?? [])
   )
-  const { triggerWrongAnswer } = useAdiNudge()
+  const { triggerWrongAnswer } = useAdiNudge(card)
 
   useEffect(() => {
     setSelectedIdx(null)
@@ -222,7 +222,7 @@ function ConceptMcCard({ card, onAnswer, onNext, isRetry }: DrillCardProps) {
 function FormulaCard({ card, onAnswer, onNext, isRetry }: DrillCardProps) {
   const [revealed, setRevealed] = useState(false)
   const [verdict, setVerdict] = useState<'correct' | 'wrong' | null>(null)
-  const { triggerWrongAnswer } = useAdiNudge()
+  const { triggerWrongAnswer } = useAdiNudge(card)
 
   useEffect(() => {
     setRevealed(false)
@@ -400,7 +400,7 @@ function FormulaCard({ card, onAnswer, onNext, isRetry }: DrillCardProps) {
 function DefaultCard({ card, onAnswer, onNext, isRetry }: DrillCardProps) {
   const [inputValue, setInputValue] = useState('')
   const [verdict, setVerdict] = useState<'correct' | 'wrong' | null>(null)
-  const { triggerWrongAnswer } = useAdiNudge()
+  const { triggerWrongAnswer } = useAdiNudge(card)
 
   // Reset state when card changes
   useEffect(() => {
