@@ -4,6 +4,7 @@
 import { MCQ } from '@/utils/mcqSession'
 import { lsGet, lsSet, lsClear, LS_KEYS } from '@/utils/localStorage'
 import { logEvent } from '@/utils/analytics'
+import { saveStats } from '@/utils/persistence'
 import { projectScore } from '@/utils/scoring'
 import { scramble } from '@/utils/scramble'
 
@@ -180,6 +181,10 @@ export function handleTestComplete(
   // D-25: Increment total questions counter
   const prevTotal = lsGet<number>(LS_KEYS.totalQuestions, 0)
   lsSet(LS_KEYS.totalQuestions, prevTotal + totalQuestions)
+
+  // Sync stats to Supabase
+  const streak = lsGet<{ count: number; lastPracticeDate: string } | null>(LS_KEYS.streak, null)
+  saveStats(prevTotal + totalQuestions, streak?.count ?? 0, streak?.lastPracticeDate ?? null)
 
   // D-26: Fire analytics (fire-and-forget, never awaited — Critical Rule #6)
   logEvent({

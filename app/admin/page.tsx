@@ -51,6 +51,31 @@ export default function AdminPage() {
   const [loading, setLoading] = useState(false)
   const [empty, setEmpty] = useState(false)
   const [dbError, setDbError] = useState('')
+  const [tab, setTab] = useState<'analytics' | 'users'>('analytics')
+  const [users, setUsers] = useState<any[]>([])
+  const [selectedUser, setSelectedUser] = useState<any>(null)
+  const [usersLoading, setUsersLoading] = useState(false)
+
+  const fetchUsers = async () => {
+    setUsersLoading(true)
+    try {
+      const res = await fetch('/api/admin/users', {
+        headers: { 'x-admin-password': password },
+      })
+      const data = await res.json()
+      setUsers(data.users ?? [])
+    } catch {} finally { setUsersLoading(false) }
+  }
+
+  const fetchUserDetail = async (id: string) => {
+    try {
+      const res = await fetch(`/api/admin/user/${id}`, {
+        headers: { 'x-admin-password': password },
+      })
+      const data = await res.json()
+      setSelectedUser(data)
+    } catch {}
+  }
 
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault()
@@ -101,7 +126,133 @@ export default function AdminPage() {
 
   return (
     <div style={{ maxWidth: '960px', margin: '0 auto', padding: '28px 24px 64px' }}>
-      <h1 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '28px' }}>Dashboard</h1>
+      <h1 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '20px' }}>Dashboard</h1>
+
+      {/* ── Tab Bar ── */}
+      <div style={{ display: 'flex', gap: '8px', marginBottom: '24px' }}>
+        <button onClick={() => setTab('analytics')} style={{
+          padding: '8px 20px',
+          borderRadius: '8px',
+          border: 'none',
+          background: tab === 'analytics' ? 'rgba(99, 102, 241, 0.2)' : 'rgba(255, 255, 255, 0.05)',
+          color: tab === 'analytics' ? '#a78bfa' : 'var(--text-secondary)',
+          cursor: 'pointer',
+          fontSize: '0.85rem',
+          fontWeight: 600,
+        }}>Analytics</button>
+        <button onClick={() => { setTab('users'); if (users.length === 0) fetchUsers() }} style={{
+          padding: '8px 20px',
+          borderRadius: '8px',
+          border: 'none',
+          background: tab === 'users' ? 'rgba(99, 102, 241, 0.2)' : 'rgba(255, 255, 255, 0.05)',
+          color: tab === 'users' ? '#a78bfa' : 'var(--text-secondary)',
+          cursor: 'pointer',
+          fontSize: '0.85rem',
+          fontWeight: 600,
+        }}>Users</button>
+      </div>
+
+      {/* ── Users Tab ── */}
+      {tab === 'users' && (
+        <div>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
+            <SectionTitle>All Users ({users.length})</SectionTitle>
+            <button onClick={fetchUsers} style={{ padding: '6px 14px', borderRadius: '6px', border: 'none', background: 'rgba(255,255,255,0.06)', color: 'var(--text-secondary)', cursor: 'pointer', fontSize: '0.75rem' }}>
+              Refresh
+            </button>
+          </div>
+          {usersLoading ? (
+            <div style={{ color: 'var(--text-secondary)', fontSize: '0.8rem', padding: '24px 0' }}>Loading users...</div>
+          ) : (
+            <div style={{ ...cardBg, padding: '0', overflow: 'hidden', marginBottom: '24px' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.75rem' }}>
+                <thead>
+                  <tr style={{ borderBottom: '1px solid var(--bg-border)', backgroundColor: 'rgba(255,255,255,0.02)' }}>
+                    <Th left>Email</Th><Th left>Display Name</Th><Th>Questions</Th><Th>Streak</Th><Th>Last Active</Th><Th>Signed Up</Th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {users.length === 0 ? (
+                    <tr><td colSpan={6} style={{ textAlign: 'center', padding: '24px', color: 'var(--text-secondary)', fontSize: '0.75rem' }}>No users found.</td></tr>
+                  ) : users.map(u => (
+                    <tr
+                      key={u.id}
+                      onClick={() => { setSelectedUser(null); fetchUserDetail(u.id) }}
+                      style={{ borderBottom: '1px solid var(--bg-border)', cursor: 'pointer', transition: 'background 0.15s' }}
+                      onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.03)')}
+                      onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
+                    >
+                      <Td left>{u.email}</Td>
+                      <Td left>{u.displayName || '—'}</Td>
+                      <Td>{u.totalQuestions.toLocaleString()}</Td>
+                      <Td>{u.streakCount}</Td>
+                      <Td>{new Date(u.lastActive).toLocaleDateString()}</Td>
+                      <Td>{new Date(u.createdAt).toLocaleDateString()}</Td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+
+          {/* ── User Detail Panel ── */}
+          {selectedUser && (
+            <div style={{ ...cardBg, padding: '20px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
+                <div>
+                  <div style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-primary)' }}>{selectedUser.profile?.email}</div>
+                  {selectedUser.profile?.display_name && (
+                    <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginTop: '2px' }}>{selectedUser.profile.display_name}</div>
+                  )}
+                </div>
+                <button onClick={() => setSelectedUser(null)} style={{ padding: '4px 10px', borderRadius: '6px', border: 'none', background: 'rgba(255,255,255,0.06)', color: 'var(--text-secondary)', cursor: 'pointer', fontSize: '0.75rem' }}>
+                  Close
+                </button>
+              </div>
+              <div style={{ display: 'flex', gap: '20px', marginBottom: '16px' }}>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
+                  Questions: <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>{(selectedUser.stats?.total_questions ?? 0).toLocaleString()}</span>
+                </div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
+                  Streak: <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>{selectedUser.stats?.streak_count ?? 0}</span>
+                </div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
+                  Joined: <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>{new Date(selectedUser.profile?.created_at).toLocaleDateString()}</span>
+                </div>
+              </div>
+              {selectedUser.progress && selectedUser.progress.length > 0 && (
+                <>
+                  <div style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '10px' }}>Subject Progress</div>
+                  <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.72rem' }}>
+                    <thead>
+                      <tr style={{ borderBottom: '1px solid var(--bg-border)' }}>
+                        <Th left>Subject</Th><Th left>Unit</Th><Th>Drill Acc.</Th><Th>MCQ Acc.</Th><Th>Attempts</Th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {selectedUser.progress.map((p: any, i: number) => (
+                        <tr key={i} style={{ borderBottom: '1px solid var(--bg-border)' }}>
+                          <Td left>{p.subject}</Td>
+                          <Td left>{p.unit}</Td>
+                          <Td>{p.drill_accuracy != null ? pct(p.drill_accuracy) : '—'}</Td>
+                          <Td>{p.mcq_accuracy != null ? pct(p.mcq_accuracy) : '—'}</Td>
+                          <Td>{p.total_attempts ?? 0}</Td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </>
+              )}
+              {(!selectedUser.progress || selectedUser.progress.length === 0) && (
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>No progress data yet.</div>
+              )}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* ── Analytics Tab ── */}
+      {tab === 'analytics' && <>
 
       {/* ── Top Cards ── */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '12px', marginBottom: '28px' }}>
@@ -173,6 +324,8 @@ export default function AdminPage() {
           </tbody>
         </table>
       </div>
+
+      </>}
     </div>
   )
 }

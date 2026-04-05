@@ -1,5 +1,6 @@
 import { lsGet, lsSet, lsClear, LS_KEYS } from '@/utils/localStorage'
 import { logEvent } from '@/utils/analytics'
+import { saveProgress, saveStats } from '@/utils/persistence'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -85,6 +86,10 @@ export function handleMCQSessionComplete(session: MCQSessionState, subject: stri
   const prevTotal = lsGet<number>(LS_KEYS.totalQuestions, 0)
   lsSet(LS_KEYS.totalQuestions, prevTotal + totalQuestions)
 
+  // Sync stats to Supabase
+  const streak = lsGet<{ count: number; lastPracticeDate: string } | null>(LS_KEYS.streak, null)
+  saveStats(prevTotal + totalQuestions, streak?.count ?? 0, streak?.lastPracticeDate ?? null)
+
   // Write mcqAccuracy for non-retry sessions
   if (!session.isRetry) {
     if (session.unitSlug !== 'all') {
@@ -98,6 +103,7 @@ export function handleMCQSessionComplete(session: MCQSessionState, subject: stri
         mcqAccuracy,
         totalAttempts: existing.totalAttempts + totalQuestions,
       })
+      saveProgress(subject, session.unitSlug, { ...existing, mcqAccuracy, totalAttempts: existing.totalAttempts + totalQuestions })
     } else {
       // Study All — distribute per-unit using each question's unit field
       const unitStats: Record<string, { correct: number; total: number }> = {}
@@ -118,6 +124,7 @@ export function handleMCQSessionComplete(session: MCQSessionState, subject: stri
           mcqAccuracy,
           totalAttempts: existing.totalAttempts + total,
         })
+        saveProgress(subject, unitSlug, { ...existing, mcqAccuracy, totalAttempts: existing.totalAttempts + total })
       })
     }
   }

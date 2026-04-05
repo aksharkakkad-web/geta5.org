@@ -2,10 +2,12 @@
 import Link from 'next/link'
 import { useState, useEffect, useCallback } from 'react'
 import { useScrollDirection } from '@/hooks/useScrollDirection'
+import { useAuth } from '@/contexts/AuthContext'
 
 export function Header() {
   const { direction, isAtTop } = useScrollDirection(50)
   const [hovered, setHovered] = useState(false)
+  const { user, isAuthenticated, isLoading, signOut } = useAuth()
   const visible = isAtTop || direction === 'up' || hovered
 
   const handleMouseMove = useCallback((e: MouseEvent) => {
@@ -16,6 +18,10 @@ export function Header() {
     window.addEventListener('mousemove', handleMouseMove, { passive: true })
     return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [handleMouseMove])
+
+  const displayName = user?.user_metadata?.full_name
+    || user?.email?.split('@')[0]
+    || ''
 
   return (
     <header style={{
@@ -38,12 +44,7 @@ export function Header() {
       transition: 'transform 0.3s ease',
     }}>
       <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'baseline', gap: '1px' }}>
-        <span style={{
-          fontWeight: 700,
-          fontSize: '1.125rem',
-          color: '#d4d4d4',
-          letterSpacing: '-0.01em',
-        }}>
+        <span style={{ fontWeight: 700, fontSize: '1.125rem', color: '#d4d4d4', letterSpacing: '-0.01em' }}>
           geta
         </span>
         <span style={{
@@ -56,15 +57,50 @@ export function Header() {
         }}>
           5
         </span>
-        <span style={{
-          fontWeight: 700,
-          fontSize: '1.125rem',
-          color: '#d4d4d4',
-          letterSpacing: '-0.01em',
-        }}>
+        <span style={{ fontWeight: 700, fontSize: '1.125rem', color: '#d4d4d4', letterSpacing: '-0.01em' }}>
           .app
         </span>
       </Link>
+
+      {!isLoading && (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          {isAuthenticated ? (
+            <>
+              <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', maxWidth: '120px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                {displayName}
+              </span>
+              <button
+                onClick={signOut}
+                style={{
+                  background: 'none',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  borderRadius: '8px',
+                  padding: '6px 12px',
+                  color: 'var(--text-secondary)',
+                  fontSize: '0.75rem',
+                  cursor: 'pointer',
+                  transition: 'border-color 0.15s ease',
+                }}
+                onMouseEnter={e => (e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)')}
+                onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)')}
+              >
+                Sign out
+              </button>
+            </>
+          ) : (
+            <Link
+              href="/signup"
+              style={{
+                fontSize: '0.8rem',
+                color: '#a78bfa',
+                textDecoration: 'none',
+              }}
+            >
+              Sign in
+            </Link>
+          )}
+        </div>
+      )}
     </header>
   )
 }

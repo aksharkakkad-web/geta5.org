@@ -8,6 +8,12 @@ interface EventPayload {
   metadata?: Record<string, unknown>
 }
 
+let _userId: string | null = null
+
+export function setAnalyticsUserId(userId: string | null): void {
+  _userId = userId
+}
+
 function getAnonId(): string {
   const key = 'ascendly_anon_id'
   let id = localStorage.getItem(key)
@@ -26,7 +32,7 @@ export function logEvent(payload: EventPayload): void {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       ...payload,
-      metadata: { ...payload.metadata, anon_id },
+      metadata: { ...payload.metadata, anon_id, ...(_userId ? { user_id: _userId } : {}) },
     }),
   }).catch(() => {
     // Silently ignore all failures — never block UI

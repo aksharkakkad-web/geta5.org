@@ -7,6 +7,7 @@ import { fuzzyMatch } from '@/utils/fuzzyMatch'
 import { parseInlineMath } from '@/utils/parseInlineMath'
 import { DrillCard as DrillCardType, MODE_LABELS } from '@/utils/drillSession'
 import { playCorrect, playWrong } from '@/utils/sounds'
+import { useAdiNudge } from '@/hooks/useAdiNudge'
 
 interface DrillCardProps {
   card: DrillCardType
@@ -71,6 +72,7 @@ function ConceptMcCard({ card, onAnswer, onNext, isRetry }: DrillCardProps) {
   const [shuffledChoices, setShuffledChoices] = useState<typeof card.choices>(() =>
     shuffleArray(card.choices ?? [])
   )
+  const { triggerWrongAnswer } = useAdiNudge(card)
 
   useEffect(() => {
     setSelectedIdx(null)
@@ -88,13 +90,16 @@ function ConceptMcCard({ card, onAnswer, onNext, isRetry }: DrillCardProps) {
     setSelectedIdx(idx)
     setVerdict(v)
     onAnswer(card.id, v, choice.text)
+    triggerWrongAnswer({ unit: card.unit, questionId: card.id, userAnswer: choice.text, isCorrect: v === 'correct' })
   }
 
   useEffect(() => {
     if (verdict === null) return
     let ready = false
     const id = setTimeout(() => { ready = true }, 0)
-    const handler = (e: KeyboardEvent) => { if (e.key === 'Enter' && ready) onNext() }
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'Enter' && ready && !(document.activeElement?.classList.contains('adi-input'))) onNext()
+    }
     window.addEventListener('keydown', handler)
     return () => { clearTimeout(id); window.removeEventListener('keydown', handler) }
   }, [verdict, onNext])
@@ -219,6 +224,7 @@ function ConceptMcCard({ card, onAnswer, onNext, isRetry }: DrillCardProps) {
 function FormulaCard({ card, onAnswer, onNext, isRetry }: DrillCardProps) {
   const [revealed, setRevealed] = useState(false)
   const [verdict, setVerdict] = useState<'correct' | 'wrong' | null>(null)
+  const { triggerWrongAnswer } = useAdiNudge(card)
 
   useEffect(() => {
     setRevealed(false)
@@ -229,7 +235,9 @@ function FormulaCard({ card, onAnswer, onNext, isRetry }: DrillCardProps) {
     if (verdict === null) return
     let ready = false
     const id = setTimeout(() => { ready = true }, 0)
-    const handler = (e: KeyboardEvent) => { if (e.key === 'Enter' && ready) onNext() }
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'Enter' && ready && !(document.activeElement?.classList.contains('adi-input'))) onNext()
+    }
     window.addEventListener('keydown', handler)
     return () => { clearTimeout(id); window.removeEventListener('keydown', handler) }
   }, [verdict, onNext])
@@ -244,12 +252,14 @@ function FormulaCard({ card, onAnswer, onNext, isRetry }: DrillCardProps) {
     playCorrect()
     setVerdict('correct')
     onAnswer(card.id, 'correct', '')
+    triggerWrongAnswer({ unit: card.unit, questionId: card.id, userAnswer: '', isCorrect: true })
   }
 
   function handleDidntKnow() {
     playWrong()
     setVerdict('wrong')
     onAnswer(card.id, 'wrong', '')
+    triggerWrongAnswer({ unit: card.unit, questionId: card.id, userAnswer: '', isCorrect: false })
   }
 
   return (
@@ -394,6 +404,7 @@ function FormulaCard({ card, onAnswer, onNext, isRetry }: DrillCardProps) {
 function DefaultCard({ card, onAnswer, onNext, isRetry }: DrillCardProps) {
   const [inputValue, setInputValue] = useState('')
   const [verdict, setVerdict] = useState<'correct' | 'wrong' | null>(null)
+  const { triggerWrongAnswer } = useAdiNudge(card)
 
   // Reset state when card changes
   useEffect(() => {
@@ -435,7 +446,8 @@ function DefaultCard({ card, onAnswer, onNext, isRetry }: DrillCardProps) {
     if (isCorrect) playCorrect(); else playWrong()
     setVerdict(v)
     onAnswer(card.id, v, inputValue.trim())
-  }, [inputValue, verdict, card, onAnswer])
+    triggerWrongAnswer({ unit: card.unit, questionId: card.id, userAnswer: inputValue.trim(), isCorrect: v === 'correct' })
+  }, [inputValue, verdict, card, onAnswer, triggerWrongAnswer])
 
   // After verdict is shown, next Enter advances — but only after a setTimeout(0)
   // so the same keydown that submitted the answer doesn't immediately fire onNext.
@@ -444,7 +456,7 @@ function DefaultCard({ card, onAnswer, onNext, isRetry }: DrillCardProps) {
     let ready = false
     const id = setTimeout(() => { ready = true }, 0)
     const handler = (e: KeyboardEvent) => {
-      if (e.key === 'Enter' && ready) onNext()
+      if (e.key === 'Enter' && ready && !(document.activeElement?.classList.contains('adi-input'))) onNext()
     }
     window.addEventListener('keydown', handler)
     return () => {

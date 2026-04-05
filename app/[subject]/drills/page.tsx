@@ -7,6 +7,7 @@ import DrillResults from '@/components/drill/DrillResults'
 import { loadDrillDraft, clearDrillDraft } from '@/utils/drillSession'
 import type { DrillView, SessionState, DrillCard, DrillDraft } from '@/utils/drillSession'
 import BrowseView from '@/components/drill/BrowseView'
+import { AuthGuard } from '@/components/auth/AuthGuard'
 
 interface DrillsPageProps {
   params: Promise<{ subject: string }>
@@ -91,46 +92,48 @@ export default function DrillsPage({ params }: DrillsPageProps) {
   const isSession = view === 'session' && session
 
   return (
-    <main
-      style={{
-        padding: '24px',
-        maxWidth: isSession ? '100%' : '960px',
-        margin: '0 auto',
-        minHeight: isSession ? 'calc(100dvh - 64px)' : undefined,
-        display: isSession ? 'flex' : undefined,
-        flexDirection: isSession ? 'column' : undefined,
-      }}
-    >
-      {view === 'unit-select' && draftChecked && (
-        <UnitSelector
-          subject={subject}
-          onStart={handleStart}
-          browseMode={browseMode}
-          onBrowseToggle={setBrowseMode}
-          onBrowse={handleBrowse}
-          draft={draft}
-          onResume={handleResumeDraft}
-        />
-      )}
-      {isSession && (
-        <DrillSession session={session!} subject={subject} onComplete={handleComplete} onStartFresh={handleSessionStartFresh} />
-      )}
-      {view === 'browse' && browseCards && browseUnitSlug && (
-        <BrowseView
-          cards={browseCards}
-          unitSlug={browseUnitSlug}
-          subject={subject}
-          onBack={handleBrowseBack}
-        />
-      )}
-      {view === 'results' && session && (
-        <DrillResults
-          session={session}
-          subject={subject}
-          onRetry={handleRetry}
-          onUnitSelect={handleUnitSelect}
-        />
-      )}
-    </main>
+    <AuthGuard>
+      <main
+        style={{
+          padding: '24px',
+          maxWidth: isSession ? '100%' : '960px',
+          margin: '0 auto',
+          minHeight: isSession ? 'calc(100dvh - 64px)' : undefined,
+          display: isSession ? 'flex' : undefined,
+          flexDirection: isSession ? 'column' : undefined,
+        }}
+      >
+        {view === 'unit-select' && draftChecked && (
+          <UnitSelector
+            subject={subject}
+            onStart={handleStart}
+            browseMode={browseMode}
+            onBrowseToggle={setBrowseMode}
+            onBrowse={handleBrowse}
+            draft={draft}
+            onResume={handleResumeDraft}
+          />
+        )}
+        {isSession && (
+          <DrillSession session={session!} subject={subject} onComplete={handleComplete} onStartFresh={handleSessionStartFresh} />
+        )}
+        {view === 'browse' && browseCards && browseUnitSlug && (
+          <BrowseView
+            cards={browseCards}
+            unitSlug={browseUnitSlug}
+            subject={subject}
+            onBack={handleBrowseBack}
+          />
+        )}
+        {view === 'results' && session && (
+          <DrillResults
+            session={session}
+            subject={subject}
+            onRetry={handleRetry}
+            onUnitSelect={handleUnitSelect}
+          />
+        )}
+      </main>
+    </AuthGuard>
   )
 }

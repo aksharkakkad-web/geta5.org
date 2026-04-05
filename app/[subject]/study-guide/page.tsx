@@ -6,6 +6,7 @@ import { StudyGuideUnitSelector } from '@/components/study-guide/StudyGuideUnitS
 import StudyGuideReader from '@/components/study-guide/StudyGuideReader'
 import { fetchStudyGuide, fetchDrillKeyTerms, type StudyGuide } from '@/utils/studyGuide'
 import { logEvent } from '@/utils/analytics'
+import { AdiIdleNudge } from '@/components/adi/AdiIdleNudge'
 
 interface StudyGuidePageProps {
   params: Promise<{ subject: string }>
@@ -58,7 +59,10 @@ export default function StudyGuidePage({ params }: StudyGuidePageProps) {
         </div>
       )}
       {view === 'reading' && guide && (
-        <StudyGuideReader guide={guide} subject={subject} onBack={handleBack} keyTerms={keyTerms} />
+        <>
+          <StudyGuideReader guide={guide} subject={subject} onBack={handleBack} keyTerms={keyTerms} />
+          <AdiIdleNudge />
+        </>
       )}
     </main>
   )
