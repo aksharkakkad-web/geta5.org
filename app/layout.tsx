@@ -4,6 +4,9 @@ import './globals.css'
 import { Header } from '@/components/layout/Header'
 import { PageTransition } from '@/components/ui/PageTransition'
 import { AuthProvider } from '@/contexts/AuthContext'
+import { AdiProvider } from '@/components/adi/AdiProvider'
+import { AdiBubble } from '@/components/adi/AdiBubble'
+import { AdiChatPanel } from '@/components/adi/AdiChatPanel'
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -28,10 +31,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={outfit.variable}>
       <body style={{ backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)', minHeight: '100dvh', fontFamily: 'var(--font-outfit), -apple-system, BlinkMacSystemFont, sans-serif' }}>
         <AuthProvider>
-          <Header />
-          <main style={{ paddingTop: '56px' }}>
-            <PageTransition>{children}</PageTransition>
-          </main>
+          <AdiProvider>
+            <Header />
+            <main style={{ paddingTop: '56px' }}>
+              <PageTransition>{children}</PageTransition>
+            </main>
+            <AdiBubble />
+            <AdiChatPanel />
+          </AdiProvider>
         </AuthProvider>
       </body>
     </html>
