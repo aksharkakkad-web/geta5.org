@@ -1,13 +1,17 @@
 'use client'
 
+import { usePathname } from 'next/navigation'
 import { useAdi } from './AdiProvider'
 import { AdiMascot } from './AdiMascot'
 import { AdiNudge } from './AdiNudge'
 
+const HIDDEN_PATHS = ['/signup', '/auth/reset-password', '/auth/update-password', '/auth/callback']
+
 export function AdiBubble() {
   const { toggle, isOpen, nudgeText, dismissNudge } = useAdi()
+  const pathname = usePathname()
 
-  if (isOpen) return null
+  if (isOpen || HIDDEN_PATHS.some((p) => pathname.startsWith(p))) return null
 
   return (
     <>
