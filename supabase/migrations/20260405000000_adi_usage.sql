@@ -16,8 +16,9 @@ create policy "Users can read own usage" on public.adi_usage
   for select using (auth.uid()::text = user_id);
 
 -- Service role can do anything (for server-side increments)
+-- Restricted to service_role — anon key cannot bypass RLS
 create policy "Service role full access" on public.adi_usage
-  for all using (true) with check (true);
+  for all using (auth.role() = 'service_role') with check (auth.role() = 'service_role');
 
 -- Atomic increment for global usage row
 create or replace function increment_global_adi_usage(p_date date, p_cost_cents numeric)

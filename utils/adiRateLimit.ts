@@ -69,21 +69,28 @@ export async function checkAndIncrementUsage(userId: string): Promise<{
     }
   }
 
-  // --- Allowed — increment async (fire-and-forget) ---
+  // --- Allowed — increment and persist (fail closed) ---
   const newCount = currentCount + 1
   cache.set(userId, { count: newCount, date: today })
 
-  // Upsert user row
-  supabase.from('adi_usage').upsert(
+  // Upsert user row — await to ensure persistence
+  const { error: upsertError } = await supabase.from('adi_usage').upsert(
     { user_id: userId, date: today, call_count: newCount, estimated_cost_cents: newCount * COST_PER_CALL_CENTS, updated_at: new Date().toISOString() },
     { onConflict: 'user_id,date' }
-  ).then() // fire-and-forget
+  )
 
-  // Upsert global row
+  if (upsertError) {
+    // Fail closed — if we can't record usage, deny the request
+    console.error('adi_usage upsert failed:', upsertError)
+    cache.delete(userId) // clear stale cache entry
+    return { allowed: false, reason: 'user_limit' as const, current: currentCount, limit: DAILY_USER_LIMIT, resetAtEST: getResetTimeEST() }
+  }
+
+  // Increment global row — best-effort (user row is the primary control)
   supabase.rpc('increment_global_adi_usage', {
     p_date: today,
     p_cost_cents: COST_PER_CALL_CENTS,
-  }).then() // fire-and-forget
+  }).then(({ error }) => { if (error) console.error('global adi_usage increment failed:', error) })
 
   return {
     allowed: true,
