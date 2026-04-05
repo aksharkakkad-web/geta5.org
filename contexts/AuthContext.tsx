@@ -4,6 +4,7 @@ import { createContext, useContext, useEffect, useState } from 'react'
 import { createClient } from '@/lib/supabase-browser'
 import { setAuthState, syncFromSupabase } from '@/utils/persistence'
 import { migrateLocalStorageToSupabase } from '@/utils/dataMigration'
+import { setAnalyticsUserId } from '@/utils/analytics'
 import type { User, Session } from '@supabase/supabase-js'
 
 interface AuthContextValue {
@@ -39,6 +40,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       setSession(s)
       setUser(s?.user ?? null)
       setAuthState(!!s?.user)
+      setAnalyticsUserId(s?.user?.id ?? null)
       setIsLoading(false)
 
       if (s?.user) {
@@ -52,6 +54,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         setSession(s)
         setUser(s?.user ?? null)
         setAuthState(!!s?.user)
+        setAnalyticsUserId(s?.user?.id ?? null)
         setIsLoading(false)
 
         if (event === 'SIGNED_IN' && s?.user) {
