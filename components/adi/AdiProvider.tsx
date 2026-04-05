@@ -31,6 +31,8 @@ interface AdiState {
   showNudge: (text: string) => void
   dismissNudge: () => void
   nudgeDismissCount: number
+  errorMessage: string | null
+  clearError: () => void
 }
 
 const AdiContext_ = createContext<AdiState | null>(null)
@@ -50,6 +52,7 @@ export function AdiProvider({ children }: { children: ReactNode }) {
   const [nudgeText, setNudgeText] = useState<string | null>(null)
   const [questionInfo, setQuestionInfo] = useState<QuestionInfo | null>(null)
   const [input, setInput] = useState('')
+  const [errorMessage, setErrorMessage] = useState<string | null>(null)
   const nudgeDismissCountRef = useRef(lsGet(LS_KEYS.adiDismissCount, 0))
 
   // Derive page context from URL
@@ -95,6 +98,25 @@ export function AdiProvider({ children }: { children: ReactNode }) {
     onFinish: () => {
       const count = lsGet(LS_KEYS.adiMessages, 0)
       lsSet(LS_KEYS.adiMessages, count + 1)
+    },
+    onError: (error) => {
+      try {
+        const parsed = JSON.parse(error.message)
+        if (parsed?.message) {
+          setErrorMessage(parsed.message)
+        } else {
+          setErrorMessage('Something went wrong. Please try again.')
+        }
+      } catch {
+        const msg = error.message?.toLowerCase() ?? ''
+        if (msg.includes('429') || msg.includes('rate')) {
+          setErrorMessage("You've reached the message limit. Please try again later.")
+        } else if (msg.includes('401') || msg.includes('unauthorized')) {
+          setErrorMessage('Your session expired. Please sign in again.')
+        } else {
+          setErrorMessage('Something went wrong. Please try again.')
+        }
+      }
     },
   })
 
@@ -149,6 +171,8 @@ export function AdiProvider({ children }: { children: ReactNode }) {
     lsSet(LS_KEYS.adiDismissCount, nudgeDismissCountRef.current)
   }, [])
 
+  const clearError = useCallback(() => setErrorMessage(null), [])
+
   // Check if Adi should be hidden on this page
   const isHidden = HIDDEN_PATHS.some((p) => pathname.startsWith(p))
 
@@ -161,6 +185,7 @@ export function AdiProvider({ children }: { children: ReactNode }) {
         context, setQuestion,
         nudgeText: isHidden ? null : nudgeText,
         showNudge, dismissNudge, nudgeDismissCount: nudgeDismissCountRef.current,
+        errorMessage, clearError,
       }}
     >
       {children}
