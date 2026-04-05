@@ -82,14 +82,38 @@ async function loadMeta(ctx: AdiContext): Promise<string> {
   return `\nSUBJECT: ${meta.display_name || ctx.subject}\nUNIT: ${ctx.unit}`
 }
 
+async function loadAdiContext(ctx: AdiContext): Promise<string> {
+  const file = `data/${ctx.subject}/adi-context.json`
+  const data = await loadJson(file) as Record<string, unknown> | null
+  if (!data) return ''
+
+  // Always include exam overview
+  const parts: string[] = []
+  if (data.exam_overview) {
+    parts.push(`EXAM OVERVIEW:\n${JSON.stringify(data.exam_overview, null, 2)}`)
+  }
+
+  // Include only the current unit's context to save tokens
+  const units = data.units as Array<Record<string, unknown>> | undefined
+  if (Array.isArray(units) && ctx.unit) {
+    const unit = units.find((u) => u.unit === ctx.unit)
+    if (unit) {
+      parts.push(`CURRENT UNIT DETAIL:\n${JSON.stringify(unit, null, 2)}`)
+    }
+  }
+
+  return parts.length ? '\n' + parts.join('\n\n') : ''
+}
+
 export async function buildSystemPrompt(ctx: AdiContext): Promise<string> {
-  const [questionCtx, guideCtx, metaCtx] = await Promise.all([
+  const [questionCtx, guideCtx, metaCtx, adiCtx] = await Promise.all([
     loadQuestionContext(ctx),
     loadStudyGuideContext(ctx),
     loadMeta(ctx),
+    loadAdiContext(ctx),
   ])
 
-  return [ROLE, GROUNDING, FORMATTING, metaCtx, guideCtx, questionCtx]
+  return [ROLE, GROUNDING, FORMATTING, metaCtx, adiCtx, guideCtx, questionCtx]
     .filter(Boolean)
     .join('\n\n')
 }
