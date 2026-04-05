@@ -6,6 +6,7 @@ import MCQSession from '@/components/mcq/MCQSession'
 import MCQResults from '@/components/mcq/MCQResults'
 import { loadMCQDraft, clearMCQDraft } from '@/utils/mcqSession'
 import type { MCQView, MCQSessionState, MCQDraft } from '@/utils/mcqSession'
+import { AuthGuard } from '@/components/auth/AuthGuard'
 
 interface PracticePageProps {
   params: Promise<{ subject: string }>
@@ -74,33 +75,35 @@ export default function PracticePage({ params }: PracticePageProps) {
   const isSession = view === 'session' && session
 
   return (
-    <main style={{
-      padding: '24px',
-      maxWidth: isSession ? '100%' : '960px',
-      margin: '0 auto',
-      minHeight: isSession ? 'calc(100dvh - 64px)' : undefined,
-      display: isSession ? 'flex' : undefined,
-      flexDirection: isSession ? 'column' : undefined,
-    }}>
-      {view === 'unit-select' && draftChecked && (
-        <UnitSelector
-          subject={subject}
-          onStart={handleStart}
-          draft={draft}
-          onResume={handleResumeDraft}
-        />
-      )}
-      {isSession && (
-        <MCQSession session={session!} subject={subject} onComplete={handleComplete} onStartFresh={handleSessionStartFresh} />
-      )}
-      {view === 'results' && session && (
-        <MCQResults
-          session={session}
-          subject={subject}
-          onRetry={handleRetry}
-          onUnitSelect={handleUnitSelect}
-        />
-      )}
-    </main>
+    <AuthGuard>
+      <main style={{
+        padding: '24px',
+        maxWidth: isSession ? '100%' : '960px',
+        margin: '0 auto',
+        minHeight: isSession ? 'calc(100dvh - 64px)' : undefined,
+        display: isSession ? 'flex' : undefined,
+        flexDirection: isSession ? 'column' : undefined,
+      }}>
+        {view === 'unit-select' && draftChecked && (
+          <UnitSelector
+            subject={subject}
+            onStart={handleStart}
+            draft={draft}
+            onResume={handleResumeDraft}
+          />
+        )}
+        {isSession && (
+          <MCQSession session={session!} subject={subject} onComplete={handleComplete} onStartFresh={handleSessionStartFresh} />
+        )}
+        {view === 'results' && session && (
+          <MCQResults
+            session={session}
+            subject={subject}
+            onRetry={handleRetry}
+            onUnitSelect={handleUnitSelect}
+          />
+        )}
+      </main>
+    </AuthGuard>
   )
 }

@@ -9,6 +9,7 @@ import TestSession from '@/components/test/TestSession'
 import TestResults from '@/components/test/TestResults'
 import type { TestSessionState, TestDraft } from '@/utils/testSession'
 import type { MCQ } from '@/utils/mcqSession'
+import { AuthGuard } from '@/components/auth/AuthGuard'
 
 type TestView = 'setup' | 'session' | 'results'
 
@@ -143,6 +144,7 @@ export default function PracticeTestPage({ params }: PracticeTestPageProps) {
   const isSession = view === 'session' && session
 
   return (
+    <AuthGuard>
     <main
       style={{
         maxWidth: isSession ? undefined : '960px',
@@ -260,5 +262,6 @@ export default function PracticeTestPage({ params }: PracticeTestPageProps) {
         />
       )}
     </main>
+    </AuthGuard>
   )
 }
