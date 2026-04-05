@@ -7,6 +7,7 @@ import StimulusRenderer from '@/components/mcq/StimulusRenderer'
 import { scramble } from '@/utils/scramble'
 import type { MCQ, MCQChoice } from '@/utils/mcqSession'
 import { playCorrect, playWrong } from '@/utils/sounds'
+import { useAdiNudge } from '@/hooks/useAdiNudge'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -58,6 +59,7 @@ export default function MCQCard({ question, onAnswer, onNext, testMode = false, 
   )
   const [selectedId, setSelectedId] = useState<string | null>(initialSelectedId)
   const [submitted, setSubmitted] = useState<boolean>(false)
+  const { triggerWrongAnswer } = useAdiNudge()
 
   // Reset state when question changes (next question)
   useEffect(() => {
@@ -79,6 +81,12 @@ export default function MCQCard({ question, onAnswer, onNext, testMode = false, 
     const selected = scrambledChoices.find(c => c.id === selectedId)!
     if (selected.is_correct) playCorrect(); else playWrong()
     onAnswer(question.id, selectedId, selected.is_correct)
+    triggerWrongAnswer({
+      unit: question.unit,
+      questionId: question.id,
+      userAnswer: selectedId,
+      isCorrect: selected.is_correct,
+    })
   }
 
   function handleTestSelect(choice: MCQChoice) {
