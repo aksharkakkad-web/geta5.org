@@ -93,7 +93,7 @@ export default function CoreConceptsSection({ concepts }: Props) {
                     color: isOpen ? 'var(--text-primary)' : 'var(--text-secondary)',
                   }}
                 >
-                  {concept.title}
+                  <InlineKatex text={concept.title} />
                 </span>
                 {/* Chevron */}
                 <svg

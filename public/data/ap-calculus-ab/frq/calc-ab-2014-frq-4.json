@@ -1,0 +1,65 @@
+{
+  "id": "calc-ab-2014-frq-4",
+  "subject": "ap-calculus-ab",
+  "year": 2014,
+  "source": "released",
+  "title": "Two Trains Table — Avg Acceleration, IVT, Trapezoidal Position & Related Rates Distance",
+  "frq_type": "multi_part_math",
+  "related_units": [4, 6, 8],
+  "calculator_allowed": false,
+  "total_points": 9,
+  "stimulus": "Train $A$ runs back and forth on an east-west section of railroad track. Train $A$'s velocity, measured in meters per minute, is given by a differentiable function $v_A(t)$, where time $t$ is measured in minutes. Selected values for $v_A(t)$ are given in the table.\n\n| $t$ (minutes) | 0 | 2 | 5 | 8 | 12 |\n|---|---|---|---|---|---|\n| $v_A(t)$ (meters per minute) | 0 | 100 | 40 | $-120$ | $-150$ |",
+  "stimulus_image": null,
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "Find the average acceleration of train $A$ over the interval $2 \\le t \\le 8$.",
+      "point_value": 1,
+      "rubric_criteria": [
+        "1 pt: Correct answer: $\\frac{v_A(8) - v_A(2)}{8 - 2} = \\frac{-120 - 100}{6} = \\frac{-220}{6} = -\\frac{110}{3}$ meters per minute per minute"
+      ],
+      "scoring_notes": "From scoring key: Average acceleration $= \\frac{-120 - 100}{6} = -\\frac{110}{3}$ m/min$^2$.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "Do the data in the table support the conclusion that train $A$'s velocity is $-100$ meters per minute at some time $t$ with $5 < t < 8$? Give a reason for your answer.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Notes $v_A(8) = -120 < -100 < 40 = v_A(5)$ (i.e., $-100$ is between $v_A(8)$ and $v_A(5)$)",
+        "1 pt: Applies IVT with conclusion: since $v_A$ is differentiable (hence continuous) on $[5, 8]$, by IVT there exists $t \\in (5, 8)$ such that $v_A(t) = -100$"
+      ],
+      "scoring_notes": "From scoring key: $v_A(8) = -120 < -100 < 40 = v_A(5)$. $v_A$ is continuous (differentiable), so by IVT there exists $t \\in (5,8)$ with $v_A(t) = -100$.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "At time $t = 2$, train $A$'s position is 300 meters east of the Origin Station, and the train is moving to the east. Write an expression involving an integral that gives the position of train $A$, in meters from the Origin Station, at time $t = 12$. Use a trapezoidal sum with three subintervals indicated by the table to approximate the position of the train at time $t = 12$.",
+      "point_value": 3,
+      "rubric_criteria": [
+        "1 pt: Correct position expression: $s_A(12) = 300 + \\int_2^{12} v_A(t)\\, dt$ (east positive)",
+        "1 pt: Correct trapezoidal sum: $3 \\cdot \\frac{100+40}{2} + 3 \\cdot \\frac{40+(-120)}{2} + 4 \\cdot \\frac{(-120)+(-150)}{2} = 210 - 120 - 540 = -450$",
+        "1 pt: Correct position: $s_A(12) \\approx 300 + (-450) = -150$ meters from Origin Station (approximately 150 meters west)"
+      ],
+      "scoring_notes": "From scoring key: $\\int_2^{12} v_A(t)\\, dt \\approx 3 \\cdot \\frac{100+40}{2} + 3 \\cdot \\frac{40-120}{2} + 4 \\cdot \\frac{-120-150}{2} = 210 - 120 - 540 = -450$. Position $\\approx 300 - 450 = -150$, or 150 meters west.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "d",
+      "prompt": "A second train, train $B$, travels north from the Origin Station. At time $t$ the velocity of train $B$ is given by $v_B(t) = -5t^2 + 60t + 25$, and at time $t = 2$ the train is 400 meters north of the station. Find the rate, in meters per minute, at which the distance between train $A$ and train $B$ is changing at time $t = 2$.",
+      "point_value": 3,
+      "rubric_criteria": [
+        "1 pt: Sets up distance relationship: let $x$ = train $A$'s position east, $y$ = train $B$'s position north, $z = \\sqrt{x^2 + y^2}$; differentiates: $z\\frac{dz}{dt} = x\\frac{dx}{dt} + y\\frac{dy}{dt}$",
+        "1 pt: Substitutes values at $t=2$: $x=300$, $y=400$, $z=500$; $\\frac{dx}{dt} = v_A(2) = 100$; $\\frac{dy}{dt} = v_B(2) = -5(4)+60(2)+25 = 125$",
+        "1 pt: Correct answer: $500 \\cdot \\frac{dz}{dt} = 300(100) + 400(125) = 30000 + 50000 = 80000$; $\\frac{dz}{dt} = 160$ meters per minute"
+      ],
+      "scoring_notes": "From scoring key: $z = 500$, $\\frac{dx}{dt} = 100$, $\\frac{dy}{dt} = 125$. $\\frac{dz}{dt} = \\frac{300(100) + 400(125)}{500} = \\frac{80000}{500} = 160$ meters per minute.",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

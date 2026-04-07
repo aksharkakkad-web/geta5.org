@@ -1,0 +1,45 @@
+{
+  "id": "calc-ab-2013-frq-6",
+  "subject": "ap-calculus-ab",
+  "year": 2013,
+  "source": "released",
+  "title": "dy/dx = e^y(3x²-6x) — Tangent Line Approx & Separation of Variables",
+  "frq_type": "multi_part_math",
+  "related_units": [3, 7],
+  "calculator_allowed": false,
+  "total_points": 9,
+  "stimulus": "Consider the differential equation $\\frac{dy}{dx} = e^y(3x^2 - 6x)$. Let $y = f(x)$ be the particular solution to the differential equation that passes through $(1, 0)$.",
+  "stimulus_image": null,
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "Write an equation for the line tangent to the graph of $f$ at the point $(1, 0)$. Use the tangent line to approximate $f(1.2)$.",
+      "point_value": 3,
+      "rubric_criteria": [
+        "1 pt: Evaluates slope: $\\frac{dy}{dx}\\big|_{(1,0)} = e^0(3(1)^2 - 6(1)) = 1 \\cdot (-3) = -3$",
+        "1 pt: Tangent line equation: $y = -3(x - 1)$",
+        "1 pt: Correct approximation: $f(1.2) \\approx -3(1.2 - 1) = -0.6$"
+      ],
+      "scoring_notes": "From scoring key: Slope at $(1,0)$: $e^0(3-6) = -3$. Tangent line: $y = -3(x-1)$. $f(1.2) \\approx -0.6$.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "Find $y = f(x)$, the particular solution to the differential equation that passes through $(1, 0)$.",
+      "point_value": 6,
+      "rubric_criteria": [
+        "1 pt: Separates variables: $e^{-y}\\, dy = (3x^2 - 6x)\\, dx$",
+        "1 pt: Correct antiderivative (left side): $-e^{-y}$",
+        "1 pt: Correct antiderivative (right side): $x^3 - 3x^2 + C$",
+        "1 pt: Includes constant of integration and uses initial condition $(1, 0)$: $-e^0 = 1 - 3 + C \\Rightarrow -1 = -2 + C \\Rightarrow C = 1$",
+        "1 pt: Solves for $y$: $-e^{-y} = x^3 - 3x^2 + 1$; $e^{-y} = -x^3 + 3x^2 - 1$; $-y = \\ln(-x^3 + 3x^2 - 1)$",
+        "1 pt: Final answer: $y = f(x) = -\\ln(-x^3 + 3x^2 - 1)$"
+      ],
+      "scoring_notes": "From scoring key: $\\int e^{-y}\\, dy = \\int(3x^2-6x)\\, dx \\Rightarrow -e^{-y} = x^3-3x^2+C$. Using $(1,0)$: $C=1$. Solving: $y = -\\ln(-x^3+3x^2-1)$. Valid on interval containing $x=1$ where $-x^3+3x^2-1>0$. 0/6 if no separation; max 3/6 if no constant.",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

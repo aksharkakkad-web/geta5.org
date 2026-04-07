@@ -1,0 +1,69 @@
+{
+  "id": "calc-ab-2009-frq-5",
+  "subject": "ap-calculus-ab",
+  "year": 2009,
+  "source": "released",
+  "title": "Table of Twice-Differentiable f on [2,13] — Estimate f'(4), FTC Integral, Left Riemann Sum & Tangent/Secant Inequalities",
+  "frq_type": "multi_part_math",
+  "related_units": [
+    2,
+    4,
+    6
+  ],
+  "calculator_allowed": false,
+  "total_points": 9,
+  "stimulus": "Let $f$ be a function that is twice differentiable for all real numbers. The table below gives values of $f$ for selected points in the closed interval $2 \\le x \\le 13$.\n\n| $x$ | 2 | 3 | 5 | 8 | 13 |\n|---|---|---|---|---|---|\n| $f(x)$ | 1 | 4 | $-2$ | 3 | 6 |",
+  "stimulus_image": "/data/ap-calculus-ab/frq/images/calc-ab-2009-frq-5-stimulus.png",
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "Estimate $f'(4)$. Show the work that leads to your answer.",
+      "point_value": 1,
+      "rubric_criteria": [
+        "1 pt: Correct symmetric difference quotient: $f'(4) \\approx \\frac{f(5) - f(3)}{5 - 3} = \\frac{-2 - 4}{2} = -3$"
+      ],
+      "scoring_notes": "From scoring key: $f'(4) \\approx \\frac{f(5)-f(3)}{5-3} = \\frac{-2-4}{2} = -3$.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "Evaluate $\\int_2^{13}(3 - 5f'(x))\\, dx$. Show the work that leads to your answer.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Uses the Fundamental Theorem of Calculus: $\\int_2^{13}(3 - 5f'(x))\\, dx = \\int_2^{13} 3\\, dx - 5\\int_2^{13} f'(x)\\, dx = 3(11) - 5(f(13) - f(2))$",
+        "1 pt: Correct answer: $33 - 5(6 - 1) = 33 - 25 = 8$"
+      ],
+      "scoring_notes": "From scoring key: $\\int_2^{13}(3-5f'(x))\\, dx = 3(11) - 5(f(13)-f(2)) = 33 - 25 = 8$.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "Use a left Riemann sum with subintervals indicated by the data in the table to approximate $\\int_2^{13} f(x)\\, dx$. Show the work that leads to your answer.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Sets up correct left Riemann sum: $f(2)(3-2) + f(3)(5-3) + f(5)(8-5) + f(8)(13-8)$",
+        "1 pt: Correct answer: $1(1) + 4(2) + (-2)(3) + 3(5) = 1 + 8 - 6 + 15 = 18$"
+      ],
+      "scoring_notes": "From scoring key: Left Riemann sum $= f(2)(1) + f(3)(2) + f(5)(3) + f(8)(5) = 1 + 8 - 6 + 15 = 18$.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "d",
+      "prompt": "Suppose $f'(5) = 3$ and $f''(x) < 0$ for all $x$ in the closed interval $5 \\le x \\le 8$. Use the line tangent to the graph of $f$ at $x = 5$ to show that $f(7) \\le 4$. Use the secant line for the graph of $f$ on $5 \\le x \\le 8$ to show that $f(7) \\ge \\frac{4}{3}$.",
+      "point_value": 4,
+      "rubric_criteria": [
+        "1 pt: Writes tangent line at $x = 5$: $y = f(5) + f'(5)(x - 5) = -2 + 3(x - 5)$",
+        "1 pt: Shows $f(7) \\le 4$: since $f''(x) < 0$ on $[5,8]$, the graph is concave down, so tangent line lies above the curve; $f(7) \\le -2 + 3(2) = 4$",
+        "1 pt: Writes secant line through $(5, f(5))$ and $(8, f(8))$: slope $= \\frac{3-(-2)}{8-5} = \\frac{5}{3}$; $y = -2 + \\frac{5}{3}(x-5)$",
+        "1 pt: Shows $f(7) \\ge \\frac{4}{3}$: since $f''(x) < 0$ on $[5,8]$, the graph is concave down, so secant line lies below the curve; $f(7) \\ge -2 + \\frac{5}{3}(2) = -2 + \\frac{10}{3} = \\frac{4}{3}$"
+      ],
+      "scoring_notes": "From scoring key: Tangent line $y = -2 + 3(x-5)$; $f(7) \\le -2 + 3(2) = 4$. Secant line slope $= 5/3$; $f(7) \\ge -2 + \\frac{5}{3}(2) = \\frac{4}{3}$. Both inequalities follow from concavity.",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

@@ -4,7 +4,7 @@ import { createClient } from '@supabase/supabase-js'
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_ANON_KEY!
+  process.env.SUPABASE_SERVICE_ROLE_KEY!
 )
 
 async function isAuthed(): Promise<boolean> {
@@ -42,42 +42,57 @@ export async function GET() {
 
   const allEvents = events as RawEvent[]
 
-  // Unique users
+  // Unique users — anon_id appears in metadata of any event
   const anonIds = new Set<string>()
   allEvents.forEach(e => {
     const id = e.metadata?.anon_id
     if (typeof id === 'string') anonIds.add(id)
   })
 
-  // By mode — sessions
+  // Session-level events (what the app actually logs)
   const drills = allEvents.filter(e => e.event_type === 'drill_completed')
   const mcqs = allEvents.filter(e => e.event_type === 'mcq_completed')
   const tests = allEvents.filter(e => e.event_type === 'test_completed')
   const guides = allEvents.filter(e => e.event_type === 'study_guide_view')
 
-  // Per-question events
-  const drillAnswers = allEvents.filter(e => e.event_type === 'drill_answer')
-  const mcqAnswers = allEvents.filter(e => e.event_type === 'mcq_answer')
-  const testAnswers = allEvents.filter(e => e.event_type === 'test_answer')
-  const allAnswers = [...drillAnswers, ...mcqAnswers, ...testAnswers]
-  const correctAnswers = allAnswers.filter(e => e.metadata?.correct === true)
+  // Question counts derived from session metadata
+  // drills: metadata.cards_count, accuracy
+  // mcqs:   metadata.question_count, accuracy
+  // tests:  metadata.total, metadata.correct (already exact)
+  const drillAnswersCount = drills.reduce((acc, e) => acc + (Number(e.metadata?.cards_count) || 0), 0)
+  const mcqAnswersCount = mcqs.reduce((acc, e) => acc + (Number(e.metadata?.question_count) || 0), 0)
+  const testAnswersCount = tests.reduce((acc, e) => acc + (Number(e.metadata?.total) || 0), 0)
+
+  const drillCorrectCount = drills.reduce((acc, e) => {
+    const count = Number(e.metadata?.cards_count) || 0
+    const accuracy = Number(e.metadata?.accuracy) || 0
+    return acc + Math.round(accuracy * count)
+  }, 0)
+  const mcqCorrectCount = mcqs.reduce((acc, e) => {
+    const count = Number(e.metadata?.question_count) || 0
+    const accuracy = Number(e.metadata?.accuracy) || 0
+    return acc + Math.round(accuracy * count)
+  }, 0)
+  const testCorrectCount = tests.reduce((acc, e) => acc + (Number(e.metadata?.correct) || 0), 0)
+
+  const totalAnswers = drillAnswersCount + mcqAnswersCount + testAnswersCount
+  const totalCorrect = drillCorrectCount + mcqCorrectCount + testCorrectCount
 
   function sumDuration(evts: RawEvent[]): number {
     return evts.reduce((acc, e) => acc + (Number(e.metadata?.duration_ms) || 0), 0)
   }
 
-
-  // By subject — drills/mcqs = questions answered, tests = sessions taken
-  const subjects = [...new Set(allEvents.map(e => e.subject))]
+  // By subject — question counts from metadata
+  const subjects = [...new Set(allEvents.map(e => e.subject).filter(Boolean))]
   const bySubject = subjects.map(s => ({
     subject: s,
-    drills: allEvents.filter(e => e.subject === s && e.event_type === 'drill_answer').length,
-    mcqs: allEvents.filter(e => e.subject === s && e.event_type === 'mcq_answer').length,
-    tests: allEvents.filter(e => e.subject === s && e.event_type === 'test_completed').length,
-    guides: allEvents.filter(e => e.subject === s && e.event_type === 'study_guide_view').length,
+    drills: drills.filter(e => e.subject === s).reduce((acc, e) => acc + (Number(e.metadata?.cards_count) || 0), 0),
+    mcqs: mcqs.filter(e => e.subject === s).reduce((acc, e) => acc + (Number(e.metadata?.question_count) || 0), 0),
+    tests: tests.filter(e => e.subject === s).length,
+    guides: guides.filter(e => e.subject === s).length,
   })).sort((a, b) => (b.drills + b.mcqs + b.tests + b.guides) - (a.drills + a.mcqs + a.tests + a.guides))
 
-  // Daily (last 30 days)
+  // Daily (last 30 days) — session counts for chart
   const daily: Record<string, { events: number; users: Set<string>; drills: number; mcqs: number; tests: number; guides: number }> = {}
   allEvents.forEach(e => {
     const day = e.created_at.slice(0, 10)
@@ -85,8 +100,8 @@ export async function GET() {
     daily[day].events++
     const id = e.metadata?.anon_id
     if (typeof id === 'string') daily[day].users.add(id)
-    if (e.event_type === 'drill_answer') daily[day].drills++
-    if (e.event_type === 'mcq_answer') daily[day].mcqs++
+    if (e.event_type === 'drill_completed') daily[day].drills++
+    if (e.event_type === 'mcq_completed') daily[day].mcqs++
     if (e.event_type === 'test_completed') daily[day].tests++
     if (e.event_type === 'study_guide_view') daily[day].guides++
   })
@@ -104,18 +119,18 @@ export async function GET() {
       totalMCQSessions: mcqs.length,
       totalTests: tests.length,
       totalGuideViews: guides.length,
-      drillAnswers: drillAnswers.length,
-      mcqAnswers: mcqAnswers.length,
-      testAnswers: testAnswers.length,
-      totalAnswers: allAnswers.length,
-      totalCorrect: correctAnswers.length,
+      drillAnswers: drillAnswersCount,
+      mcqAnswers: mcqAnswersCount,
+      testAnswers: testAnswersCount,
+      totalAnswers,
+      totalCorrect,
     },
     averages: {
-      drillAccuracy: drillAnswers.length > 0 ? drillAnswers.filter(e => e.metadata?.correct === true).length / drillAnswers.length : 0,
-      mcqAccuracy: mcqAnswers.length > 0 ? mcqAnswers.filter(e => e.metadata?.correct === true).length / mcqAnswers.length : 0,
-      testAccuracy: testAnswers.length > 0 ? testAnswers.filter(e => e.metadata?.correct === true).length / testAnswers.length : 0,
-      drillCardsPerSession: drills.length > 0 ? drillAnswers.length / drills.length : 0,
-      mcqQuestionsPerSession: mcqs.length > 0 ? mcqAnswers.length / mcqs.length : 0,
+      drillAccuracy: drillAnswersCount > 0 ? drillCorrectCount / drillAnswersCount : 0,
+      mcqAccuracy: mcqAnswersCount > 0 ? mcqCorrectCount / mcqAnswersCount : 0,
+      testAccuracy: testAnswersCount > 0 ? testCorrectCount / testAnswersCount : 0,
+      drillCardsPerSession: drills.length > 0 ? drillAnswersCount / drills.length : 0,
+      mcqQuestionsPerSession: mcqs.length > 0 ? mcqAnswersCount / mcqs.length : 0,
     },
     time: {
       totalMs: sumDuration(drills) + sumDuration(mcqs) + sumDuration(tests),

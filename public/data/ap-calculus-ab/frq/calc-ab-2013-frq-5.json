@@ -1,0 +1,55 @@
+{
+  "id": "calc-ab-2013-frq-5",
+  "subject": "ap-calculus-ab",
+  "year": 2013,
+  "source": "released",
+  "title": "Region R — Area, Rotation about y=4 & Square Cross-Section Volume (Write Only)",
+  "frq_type": "multi_part_math",
+  "related_units": [6, 8],
+  "calculator_allowed": false,
+  "total_points": 9,
+  "stimulus": "Let $f(x) = 2x^2 - 6x + 4$ and $g(x) = 4\\cos\\left(\\frac{\\pi x}{4}\\right)$. Let $R$ be the region bounded by the graphs of $f$ and $g$, as shown in the figure.",
+  "stimulus_image": null,
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "Find the area of $R$.",
+      "point_value": 4,
+      "rubric_criteria": [
+        "1 pt: Correct limits: $x = 0$ and $x = 2$ (intersection points of $f$ and $g$)",
+        "1 pt: Correct integrand: $g(x) - f(x) = 4\\cos\\left(\\frac{\\pi x}{4}\\right) - (2x^2 - 6x + 4)$",
+        "1 pt: Correct antiderivative: $\\frac{16}{\\pi}\\sin\\left(\\frac{\\pi x}{4}\\right) - \\frac{2x^3}{3} + 3x^2 - 4x$",
+        "1 pt: Correct answer: $\\frac{16}{\\pi} - \\frac{4}{3}$"
+      ],
+      "scoring_notes": "From scoring key: Area $= \\int_0^2 \\left[4\\cos\\left(\\frac{\\pi x}{4}\\right) - (2x^2-6x+4)\\right]\\, dx = \\left[\\frac{16}{\\pi}\\sin\\frac{\\pi x}{4} - \\frac{2x^3}{3}+3x^2-4x\\right]_0^2 = \\frac{16}{\\pi} - \\frac{4}{3}$.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "Write, but do not evaluate, an integral expression that gives the volume of the solid generated when $R$ is rotated about the horizontal line $y = 4$.",
+      "point_value": 3,
+      "rubric_criteria": [
+        "1 pt: Uses washer method with correct limits ($0$ to $2$) and constant $\\pi$",
+        "1 pt: Correct outer radius: $4 - f(x) = 4 - (2x^2-6x+4) = -2x^2+6x$; correct inner radius: $4 - g(x) = 4 - 4\\cos(\\frac{\\pi x}{4})$",
+        "1 pt: Correct expression: $\\pi\\int_0^2 \\left[(4-f(x))^2 - (4-g(x))^2\\right]\\, dx$"
+      ],
+      "scoring_notes": "From scoring key: Volume $= \\pi\\int_0^2 \\left[(4-f(x))^2 - (4-g(x))^2\\right]\\, dx$ (do not evaluate).",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "The region $R$ is the base of a solid. For this solid, each cross section perpendicular to the $x$-axis is a square. Write, but do not evaluate, an integral expression that gives the volume of the solid.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct integrand: $[g(x) - f(x)]^2$",
+        "1 pt: Correct expression with limits: $\\int_0^2 \\left[g(x) - f(x)\\right]^2\\, dx$"
+      ],
+      "scoring_notes": "From scoring key: Volume $= \\int_0^2 \\left[4\\cos\\left(\\frac{\\pi x}{4}\\right) - (2x^2-6x+4)\\right]^2\\, dx$ (do not evaluate).",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

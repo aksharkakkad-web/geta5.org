@@ -169,7 +169,7 @@ export default function FormulasSection({ formulas }: Props) {
               Formula
             </div>
             <div style={{ fontSize: '20px', fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1.3 }}>
-              {formula.name}
+              <InlineKatex text={formula.name} />
             </div>
             <div style={{ fontSize: '12px', color: 'var(--text-muted)', marginTop: '4px' }}>
               Tap to reveal
@@ -197,7 +197,7 @@ export default function FormulasSection({ formulas }: Props) {
             }}
           >
             <div style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-              {formula.name}
+              <InlineKatex text={formula.name} />
             </div>
 
             {/* Formula */}
@@ -208,7 +208,7 @@ export default function FormulasSection({ formulas }: Props) {
             {/* Description */}
             {formula.description && (
               <div style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
-                {formula.description}
+                <InlineKatex text={formula.description} />
               </div>
             )}
 

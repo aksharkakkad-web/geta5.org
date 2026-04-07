@@ -1,0 +1,65 @@
+{
+  "id": "calc-ab-2021-frq-2",
+  "subject": "ap-calculus-ab",
+  "year": 2021,
+  "source": "released",
+  "title": "Two Particles on x-axis — Position, Direction & Total Distance",
+  "frq_type": "multi_part_math",
+  "related_units": [4, 6, 8],
+  "calculator_allowed": true,
+  "total_points": 9,
+  "stimulus": "A particle $P$ is moving along the $x$-axis. The velocity of particle $P$ at time $t$ is given by $v_P(t) = \\sin(t^{1.5})$ for $0 \\le t \\le \\pi$. At time $t = 0$, particle $P$ is at position $x = 5$. A second particle, $Q$, also moves along the $x$-axis. The velocity of particle $Q$ at time $t$ is given by $v_Q(t) = (t - 1.8) \\cdot 1.25^t$ for $0 \\le t \\le \\pi$. At time $t = 0$, particle $Q$ is at position $x = 10$.",
+  "stimulus_image": null,
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "Find the positions of particles $P$ and $Q$ at time $t = 1$.",
+      "point_value": 3,
+      "rubric_criteria": [
+        "1 pt: Presents at least one definite integral: $x_P(1) = 5 + \\int_0^1 v_P(t)\\, dt$ or $x_Q(1) = 10 + \\int_0^1 v_Q(t)\\, dt$",
+        "1 pt: $x_P(1) = 5 + \\int_0^1 \\sin(t^{1.5})\\, dt \\approx 5.371$ (or $5.370$)",
+        "1 pt: $x_Q(1) = 10 + \\int_0^1 (t-1.8)(1.25^t)\\, dt \\approx 8.564$"
+      ],
+      "scoring_notes": "First point for explicit definite integral. Must earn first point to be eligible for second and third. Adding initial condition to at least one integral earns second point for that particle. Read unlabeled answers left-to-right as $x_P(1)$ then $x_Q(1)$.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "Are particles $P$ and $Q$ moving toward each other or away from each other at time $t = 1$? Explain your reasoning.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Uses sign of $v_P(1)$ or $v_Q(1)$ to determine direction: $v_P(1) = \\sin(1) \\approx 0.841 > 0$ (P moving right); $v_Q(1) = (1-1.8)(1.25^1) = (-0.8)(1.25) = -1 < 0$ (Q moving left)",
+        "1 pt: Moving toward each other; at $t = 1$, $x_P(1) \\approx 5.371 < x_Q(1) \\approx 8.564$, so P is to the left of Q; P moves right and Q moves left, so they move toward each other"
+      ],
+      "scoring_notes": "First point requires reference to sign of velocity for at least one particle. Must not present incorrect value for velocity. Second point requires signs of both velocities and relative positions at $t = 1$; references to $t = 0$ positions alone are not sufficient.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "Find the acceleration of particle $Q$ at time $t = 1$. Is the speed of particle $Q$ increasing or decreasing at time $t = 1$? Explain your reasoning.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct acceleration with setup: $a_Q(1) = v_Q'(1) \\approx 1.027$ (or $1.026$); must show $v_Q'(1) = a_Q(1)$",
+        "1 pt: Speed is decreasing at $t = 1$ because $v_Q(1) < 0$ and $a_Q(1) > 0$ have opposite signs"
+      ],
+      "scoring_notes": "Must explicitly connect $v_Q'(t) = a_Q(t)$. An unsupported value does not earn first point. Second point compares signs of $v_Q(1)$ and $a_Q(1)$; sign of $v_Q(1)$ need not be re-shown if established in part (b).",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "d",
+      "prompt": "Find the total distance traveled by particle $P$ over the time interval $0 \\le t \\le \\pi$.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct integral setup: $\\int_0^{\\pi} |v_P(t)|\\, dt$",
+        "1 pt: Correct answer: $\\approx 1.931$"
+      ],
+      "scoring_notes": "First point for $\\int_0^{\\pi} |v_P(t)|\\, dt$ or equivalent split at zero $t \\approx 2.145$. Second point only for correct answer $1.931$; unsupported answer earns no points. A response using $\\int_0^{\\pi} |v_Q(t)|\\, dt$ earns first point but not second.",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

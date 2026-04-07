@@ -1,0 +1,59 @@
+{
+  "id": "calc-ab-2019-frq-4",
+  "subject": "ap-calculus-ab",
+  "year": 2019,
+  "source": "released",
+  "title": "Cylindrical Barrel — Rate of Volume, Separation of Variables",
+  "frq_type": "multi_part_math",
+  "related_units": [
+    4,
+    7,
+    8
+  ],
+  "calculator_allowed": false,
+  "total_points": 9,
+  "stimulus": "A cylindrical barrel with a diameter of 2 feet contains collected rainwater, as shown in the figure. The water drains out through a valve (not shown) at the bottom of the barrel. The rate of change of the height $h$ of the water in the barrel with respect to time $t$ is modeled by $\\frac{dh}{dt} = -\\frac{1}{10}\\sqrt{h}$, where $h$ is measured in feet and $t$ is measured in seconds.",
+  "stimulus_image": "/data/ap-calculus-ab/frq/images/calc-ab-2019-frq-4-stimulus.png",
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "Find the rate of change of the volume of water in the barrel with respect to time when the height of the water is 4 feet. Indicate units of measure.",
+      "point_value": 3,
+      "rubric_criteria": [
+        "1 pt: Volume of cylinder: $V = \\pi r^2 h = \\pi (1)^2 h = \\pi h$, so $\\frac{dV}{dt} = \\pi \\frac{dh}{dt}$",
+        "1 pt: Substitutes $h = 4$: $\\frac{dh}{dt}\\big|_{h=4} = -\\frac{1}{10}\\sqrt{4} = -\\frac{2}{10} = -\\frac{1}{5}$",
+        "1 pt: Correct answer with units: $\\frac{dV}{dt} = \\pi \\cdot \\left(-\\frac{1}{5}\\right) = -\\frac{\\pi}{5}$ cubic feet per second"
+      ],
+      "scoring_notes": "Radius = 1 foot (diameter = 2 feet). $V = \\pi h$, so $\\frac{dV}{dt} = \\pi \\frac{dh}{dt} = \\pi \\cdot \\left(-\\frac{1}{10}\\sqrt{4}\\right) = -\\frac{\\pi}{5}$ cubic feet per second. Units must be stated.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "When the height of the water is 3 feet, is the rate of change of the height of the water with respect to time increasing or decreasing? Explain your reasoning.",
+      "point_value": 3,
+      "rubric_criteria": [
+        "1 pt: Computes $\\frac{d^2h}{dt^2}$: differentiates $\\frac{dh}{dt} = -\\frac{1}{10}h^{1/2}$ to get $\\frac{d^2h}{dt^2} = -\\frac{1}{10} \\cdot \\frac{1}{2}h^{-1/2} \\cdot \\frac{dh}{dt} = -\\frac{1}{20\\sqrt{h}} \\cdot \\left(-\\frac{\\sqrt{h}}{10}\\right) = \\frac{1}{200}$",
+        "1 pt: At $h = 3$: $\\frac{d^2h}{dt^2} = \\frac{1}{200} > 0$ (or equivalent correct positive value)",
+        "1 pt: The rate of change of the height is increasing because $\\frac{d^2h}{dt^2} > 0$ at $h = 3$"
+      ],
+      "scoring_notes": "From scoring key: $\\frac{d^2h}{dt^2} = -\\frac{1}{10} \\cdot \\frac{1}{2\\sqrt{h}} \\cdot \\frac{dh}{dt} = -\\frac{1}{20\\sqrt{h}} \\cdot \\left(-\\frac{\\sqrt{h}}{10}\\right) = \\frac{1}{200}$. Since $\\frac{d^2h}{dt^2} = \\frac{1}{200} > 0$ at $h = 3$, the rate of change is increasing (becoming less negative, i.e., the water drains more slowly as height decreases).",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "At time $t = 0$ seconds, the height of the water is 5 feet. Use separation of variables to find an expression for $h$ in terms of $t$.",
+      "point_value": 3,
+      "rubric_criteria": [
+        "1 pt: Correctly separates variables: $h^{-1/2}\\, dh = -\\frac{1}{10}\\, dt$",
+        "1 pt: Correct antiderivatives and applies initial condition $h(0) = 5$: $2\\sqrt{h} = -\\frac{t}{10} + C$; $C = 2\\sqrt{5}$; so $2\\sqrt{h} = 2\\sqrt{5} - \\frac{t}{10}$",
+        "1 pt: Solves for $h$: $h = \\left(\\sqrt{5} - \\frac{t}{20}\\right)^2$"
+      ],
+      "scoring_notes": "Separation: $\\frac{dh}{\\sqrt{h}} = -\\frac{dt}{10}$. Integrate: $2\\sqrt{h} = -\\frac{t}{10} + C$. Initial condition: $2\\sqrt{5} = 0 + C$, so $C = 2\\sqrt{5}$. Thus $\\sqrt{h} = \\sqrt{5} - \\frac{t}{20}$, so $h(t) = \\left(\\sqrt{5} - \\frac{t}{20}\\right)^2$. Valid for $0 \\le t \\le 20\\sqrt{5}$.",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

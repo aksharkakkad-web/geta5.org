@@ -1,0 +1,69 @@
+{
+  "id": "calc-ab-2009-frq-1",
+  "subject": "ap-calculus-ab",
+  "year": 2009,
+  "source": "released",
+  "title": "Caren's Bicycle Piecewise-Linear v(t) Graph — Acceleration, Total Distance, Turn-Around & Comparison with Larry",
+  "frq_type": "multi_part_math",
+  "related_units": [
+    4,
+    6,
+    8
+  ],
+  "calculator_allowed": true,
+  "total_points": 9,
+  "stimulus": "Caren rides her bicycle along a straight road from home to school, starting at home at time $t = 0$ minutes and arriving at school at time $t = 12$ minutes. During the time interval $0 \\le t \\le 12$ minutes, her velocity $v(t)$, in miles per minute, is modeled by the piecewise-linear function whose graph is shown above. From the graph: $v(0) = 0$, $v(2) = 0.2$, $v(4) = -0.1$ (she turns around), rising back to $v(12) = ?$.",
+  "stimulus_image": "/data/ap-calculus-ab/frq/images/calc-ab-2009-frq-1-stimulus.png",
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "Find the acceleration of Caren's bicycle at time $t = 7.5$ minutes. Indicate units of measure.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct computation using slope of $v$: $a(7.5) = v'(7.5) = \\frac{v(8) - v(7)}{8 - 7} = -0.1$ miles per minute$^2$",
+        "1 pt: Correct units: miles per minute$^2$ (or equivalent)"
+      ],
+      "scoring_notes": "From scoring key: $a(7.5) = \\frac{v(8)-v(7)}{8-7} = -0.1$ miles/minute$^2$.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "Using correct units, explain the meaning of $\\int_0^{12} v(t)\\, dt$ in terms of Caren's trip. Find the value of $\\int_0^{12} v(t)\\, dt$.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct meaning with units: $\\int_0^{12} v(t)\\, dt$ is the total distance, in miles, that Caren rode during the 12 minutes from $t = 0$ to $t = 12$",
+        "1 pt: Correct value: $\\int_0^{12} v(t)\\, dt = \\int_0^2 v(t)\\, dt + \\left|\\int_2^4 v(t)\\, dt\\right| + \\int_4^{12} v(t)\\, dt = 0.2 + 0.2 + 1.4 = 1.8$ miles"
+      ],
+      "scoring_notes": "From scoring key: Total distance $= \\int_0^{12} |v(t)|\\, dt = 0.2 + 0.2 + 1.4 = 1.8$ miles.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "Shortly after leaving home, Caren realizes she left her calculus homework at home, and she returns to get it. At what time does she turn around to go back home? Give a reason for your answer.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct answer: Caren turns around at time $t = 2$ minutes",
+        "1 pt: Correct reason: this is the time at which her velocity changes from positive to negative"
+      ],
+      "scoring_notes": "From scoring key: Turn around at $t = 2$ minutes because $v$ changes from positive to negative at $t = 2$.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "d",
+      "prompt": "Larry also rides his bicycle along a straight road from home to school in 12 minutes. His velocity is modeled by the function $w$ given by $w(t) = \\frac{\\pi}{15}\\sin\\left(\\frac{\\pi t}{12}\\right)$, where $w(t)$ is in miles per minute for $0 \\le t \\le 12$ minutes. Who lives closer to school: Caren or Larry? Show the work that leads to your answer.",
+      "point_value": 3,
+      "rubric_criteria": [
+        "1 pt: Sets up and evaluates Larry's distance: $\\int_0^{12} w(t)\\, dt$",
+        "1 pt: Correct value: $\\int_0^{12} \\frac{\\pi}{15}\\sin\\left(\\frac{\\pi t}{12}\\right)\\, dt = 1.6$ miles (Larry's distance from school)",
+        "1 pt: Correct comparison and conclusion: Caren's distance from school $= \\int_4^{12} v(t)\\, dt = 1.4$ miles; Caren lives closer to school"
+      ],
+      "scoring_notes": "From scoring key: $\\int_0^{12} w(t)\\, dt = 1.6$ miles (Larry). $\\int_0^{12} v(t)\\, dt$ net displacement toward school $= 1.4$ miles (Caren). Caren lives closer.",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

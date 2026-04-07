@@ -7,8 +7,12 @@ interface Props {
 }
 
 export default function InlineKatex({ text }: Props) {
-  // Fast path: no $ means no KaTeX
+  // Fast path: no $ and no LaTeX commands means plain text
   if (!text.includes('$')) {
+    // Raw LaTeX without delimiters (e.g. drill card answers like \lim_{x \to c} f(x) = L)
+    if (/\\[a-zA-Z]/.test(text)) {
+      return <KatexRenderer formula={text} displayMode={false} />
+    }
     return <span>{text}</span>
   }
 

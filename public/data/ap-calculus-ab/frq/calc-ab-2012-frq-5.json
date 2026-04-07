@@ -1,0 +1,58 @@
+{
+  "id": "calc-ab-2012-frq-5",
+  "subject": "ap-calculus-ab",
+  "year": 2012,
+  "source": "released",
+  "title": "Baby Bird dB/dt = (1/5)(100-B) — Weight Faster, Second Derivative Concavity & Separation of Variables",
+  "frq_type": "multi_part_math",
+  "related_units": [
+    5,
+    7
+  ],
+  "calculator_allowed": false,
+  "total_points": 9,
+  "stimulus": "The rate at which a baby bird gains weight is proportional to the difference between its adult weight and its current weight. At time $t = 0$, when the bird is first weighed, its weight is 20 grams. If $B(t)$ is the weight of the bird, in grams, at time $t$ days after it is first weighed, then $\\frac{dB}{dt} = \\frac{1}{5}(100 - B)$. Let $y = B(t)$ be the solution to the differential equation above with initial condition $B(0) = 20$.",
+  "stimulus_image": "/data/ap-calculus-ab/frq/images/calc-ab-2012-frq-5-stimulus.png",
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "Is the bird gaining weight faster when it weighs 40 grams or when it weighs 70 grams? Explain your reasoning.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Evaluates $\\frac{dB}{dt}$ at $B = 40$ and $B = 70$: $\\frac{dB}{dt}\\big|_{B=40} = \\frac{1}{5}(60) = 12$ g/day and $\\frac{dB}{dt}\\big|_{B=70} = \\frac{1}{5}(30) = 6$ g/day",
+        "1 pt: Correct answer with reason: the bird is gaining weight faster at 40 grams because $12 > 6$"
+      ],
+      "scoring_notes": "From scoring key: $\\frac{dB}{dt}|_{40} = 12 > 6 = \\frac{dB}{dt}|_{70}$. Bird gains weight faster at $B = 40$.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "Find $\\frac{d^2B}{dt^2}$ in terms of $B$. Use $\\frac{d^2B}{dt^2}$ to explain why the graph of $B$ cannot resemble a graph with an inflection point (cannot be first concave up then concave down).",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Finds $\\frac{d^2B}{dt^2} = -\\frac{1}{5}\\frac{dB}{dt} = -\\frac{1}{5} \\cdot \\frac{1}{5}(100-B) = -\\frac{1}{25}(100-B)$",
+        "1 pt: Explanation: since $B < 100$ for all $t \\ge 0$, we have $100 - B > 0$, so $\\frac{d^2B}{dt^2} = -\\frac{1}{25}(100-B) < 0$; the graph of $B$ is always concave down, so it cannot have a portion that is concave up (ruling out the given graph shape)"
+      ],
+      "scoring_notes": "From scoring key: $\\frac{d^2B}{dt^2} = -\\frac{1}{25}(100-B) < 0$ for $20 \\le B < 100$. Graph is always concave down; cannot have a concave-up portion.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "Use separation of variables to find $y = B(t)$, the particular solution to the differential equation with initial condition $B(0) = 20$.",
+      "point_value": 5,
+      "rubric_criteria": [
+        "1 pt: Separates variables: $\\frac{dB}{100-B} = \\frac{dt}{5}$",
+        "1 pt: Correct antiderivatives: $-\\ln|100-B| = \\frac{t}{5} + C$",
+        "1 pt: Includes constant of integration",
+        "1 pt: Uses initial condition $B(0) = 20$: $-\\ln(80) = 0 + C \\Rightarrow C = -\\ln 80$; so $100 - B = 80e^{-t/5}$",
+        "1 pt: Solves for $B$: $B(t) = 100 - 80e^{-t/5}$, $t \\ge 0$"
+      ],
+      "scoring_notes": "From scoring key: $\\int \\frac{dB}{100-B} = \\int \\frac{dt}{5} \\Rightarrow -\\ln(100-B) = \\frac{t}{5} + C$. Using $B(0)=20$: $C = -\\ln 80$. $B(t) = 100 - 80e^{-t/5}$. 0/5 if no separation; max 2/5 if no constant.",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

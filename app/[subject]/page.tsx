@@ -5,6 +5,7 @@ import { ModeCard } from '@/components/ui/ModeCard'
 import { ProjectedScoreBadge } from '@/components/ui/ProjectedScoreBadge'
 import { SubjectAnalytics } from '@/components/ui/SubjectAnalytics'
 import { SubjectHubClient } from '@/components/ui/SubjectHubClient'
+import { hasFRQs } from '@/utils/frqSession'
 
 // Force dynamic rendering so "days to go" is always current, never frozen at build time
 export const dynamic = 'force-dynamic'
@@ -77,7 +78,16 @@ export default async function SubjectPage({ params }: SubjectPageProps) {
       href: `/${subject.slug}/practice-test`,
       colorKey: 'amber' as const,
     },
+    {
+      title: 'FRQ Practice',
+      description: 'Free response with AI grading',
+      iconName: 'frq' as const,
+      href: `/${subject.slug}/frq`,
+      colorKey: 'rose' as const,
+    },
   ]
+
+  const filteredModes = modes.filter(m => m.title !== 'FRQ Practice' || hasFRQs(subject.slug))
 
   return (
     <SubjectHubClient>
@@ -125,7 +135,7 @@ export default async function SubjectPage({ params }: SubjectPageProps) {
           position: 'relative',
           zIndex: 2,
         }}>
-          {modes.map(mode => (
+          {filteredModes.map(mode => (
             <ModeCard
               key={mode.title}
               title={mode.title}

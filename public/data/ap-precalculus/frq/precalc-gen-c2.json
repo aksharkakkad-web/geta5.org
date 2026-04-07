@@ -1,0 +1,52 @@
+{
+  "id": "precalc-gen-c2",
+  "subject": "ap-precalculus",
+  "year": null,
+  "source": "generated",
+  "title": "Logarithmic Regression: Soil Temperature & Depth",
+  "frq_type": "multi_part_math",
+  "related_units": [2],
+  "calculator_allowed": true,
+  "total_points": 6,
+  "stimulus": "A geologist measures soil temperature (in degrees Celsius) at various depths below the surface and records the following data:\n\n| Depth $d$ (meters) | Temperature $T$ ($^\\circ$C) |\n|---|---|\n| 1 | 12.0 |\n| 4 | 18.4 |\n| 9 | 22.6 |\n| 16 | 26.0 |\n| 25 | 28.7 |\n\nThe geologist proposes the model $T(d) = a + b\\ln(d)$ to represent soil temperature as a function of depth.",
+  "stimulus_image": null,
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "(i) Use the data at $d = 1$ and $d = 25$ to write two equations that can be used to find the values of constants $a$ and $b$.\n\n(ii) Find the values of $a$ and $b$ as decimal approximations. Show the computations that lead to your answer.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Two correct equations — $a + b\\ln(1) = 12.0$, which simplifies to $a = 12.0$; and $a + b\\ln(25) = 28.7$; equivalently, $12 + b\\ln(25) = 28.7$",
+        "1 pt: Correct values $a = 12.0$ and $b = \\frac{28.7 - 12.0}{\\ln(25)} = \\frac{16.7}{3.2189} \\approx 5.189$ (accept values in $[5.18, 5.20]$); supporting work must show the substitution and division step"
+      ],
+      "scoring_notes": "The first equation immediately gives $a = 12$ since $\\ln(1) = 0$. The second equation then gives $b = 16.7 / \\ln(25) \\approx 5.189$. Decimal must be correct to three decimal places. Full credit for both values if shown correctly. Accept $T(d) = 12 + 5.189\\ln(d)$ as a complete response.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "(i) Use the model $T(d) = 12 + 5.189\\ln(d)$ to predict the soil temperature at a depth of $d = 50$ meters. Express your answer as a decimal approximation.\n\n(ii) A geologist at another site obtains data that, on a semi-log plot of $T$ versus $\\ln(d)$, appears approximately linear with a positive slope. What does this indicate about the relationship between temperature and depth at that site? Explain your reasoning.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct prediction — $T(50) = 12 + 5.189\\ln(50) = 12 + 5.189 \\cdot 3.912 = 12 + 20.299 \\approx 32.299$ degrees Celsius (accept values in $[32.2, 32.4]$); supporting work must show substitution",
+        "1 pt: Correct reasoning — a linear semi-log plot of $T$ vs. $\\ln(d)$ indicates a logarithmic relationship $T = a + b\\ln(d)$; a positive slope means $b > 0$, so temperature increases as depth increases; the plot being linear confirms the logarithmic model fits well"
+      ],
+      "scoring_notes": "For part (i), $\\ln(50) \\approx 3.9120$, so $5.189 \\times 3.9120 \\approx 20.30$, giving $T \\approx 32.30$°C. For part (ii), the key insight is that linearity on the semi-log ($T$ vs. $\\ln d$) plot means the logarithmic model is appropriate, and positive slope means temperature increases with depth. A response that only says 'temperature increases with depth' without explaining the semi-log relationship earns only partial credit.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "(i) Determine the depth $d$ at which the model predicts a soil temperature of $30$ degrees Celsius. Express your answer as a decimal approximation. Show the computations that lead to your answer.\n\n(ii) The geologist observes that the actual temperature at $d = 36$ meters is $27.5^\\circ$C, while the model predicts $T(36) = 12 + 5.189\\ln(36) \\approx 30.7^\\circ$C. Explain what this residual indicates about the model's fit.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct depth — $12 + 5.189\\ln(d) = 30 \\Rightarrow 5.189\\ln(d) = 18 \\Rightarrow \\ln(d) = \\frac{18}{5.189} \\approx 3.469 \\Rightarrow d = e^{3.469} \\approx 32.1$ meters (accept values in $[31.8, 32.4]$); supporting work must show the logarithmic solving step",
+        "1 pt: Correct interpretation — the residual is $27.5 - 30.7 = -3.2^\\circ$C (actual minus predicted); the negative residual means the model overestimates the temperature at $d = 36$ m; this suggests the model may not fit perfectly at all depths, or the temperature-depth relationship changes at greater depths"
+      ],
+      "scoring_notes": "For part (i), $18 / 5.189 \\approx 3.469$, then $e^{3.469} \\approx 32.1$ m. For part (ii), the residual = actual $-$ predicted $= 27.5 - 30.7 = -3.2$. The interpretation must include: (a) the direction (model overestimates), and (b) what this means for the model's fit. A response that only computes the residual without interpretation does not earn the point.",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

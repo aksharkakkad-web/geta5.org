@@ -7,6 +7,7 @@ import StudyGuideReader from '@/components/study-guide/StudyGuideReader'
 import { fetchStudyGuide, fetchDrillKeyTerms, type StudyGuide } from '@/utils/studyGuide'
 import { logEvent } from '@/utils/analytics'
 import { AdiIdleNudge } from '@/components/adi/AdiIdleNudge'
+import { AuthGuard } from '@/components/auth/AuthGuard'
 
 interface StudyGuidePageProps {
   params: Promise<{ subject: string }>
@@ -45,25 +46,27 @@ export default function StudyGuidePage({ params }: StudyGuidePageProps) {
   }
 
   return (
-    <main style={{
-      padding: '24px',
-      maxWidth: view === 'reading' ? '1100px' : '960px',
-      margin: '0 auto',
-    }}>
-      {view === 'unit-select' && !loading && (
-        <StudyGuideUnitSelector subject={subject} onSelectUnit={handleSelectUnit} />
-      )}
-      {loading && (
-        <div style={{ display: 'flex', justifyContent: 'center', padding: '48px 0' }}>
-          <span style={{ color: 'var(--text-muted)', fontSize: '1rem' }}>Loading study guide...</span>
-        </div>
-      )}
-      {view === 'reading' && guide && (
-        <>
-          <StudyGuideReader guide={guide} subject={subject} onBack={handleBack} keyTerms={keyTerms} />
-          <AdiIdleNudge />
-        </>
-      )}
-    </main>
+    <AuthGuard>
+      <main style={{
+        padding: '24px',
+        maxWidth: view === 'reading' ? '1100px' : '960px',
+        margin: '0 auto',
+      }}>
+        {view === 'unit-select' && !loading && (
+          <StudyGuideUnitSelector subject={subject} onSelectUnit={handleSelectUnit} />
+        )}
+        {loading && (
+          <div style={{ display: 'flex', justifyContent: 'center', padding: '48px 0' }}>
+            <span style={{ color: 'var(--text-muted)', fontSize: '1rem' }}>Loading study guide...</span>
+          </div>
+        )}
+        {view === 'reading' && guide && (
+          <>
+            <StudyGuideReader guide={guide} subject={subject} onBack={handleBack} keyTerms={keyTerms} />
+            <AdiIdleNudge />
+          </>
+        )}
+      </main>
+    </AuthGuard>
   )
 }

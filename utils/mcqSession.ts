@@ -25,6 +25,7 @@ export interface MCQ {
   question: string
   choices: MCQChoice[]
   unit_objective: string
+  calculator_allowed?: boolean
 }
 
 export interface MCQAnswer {
@@ -82,13 +83,13 @@ export function handleMCQSessionComplete(session: MCQSessionState, subject: stri
   const correctCount = Object.values(session.answers).filter(a => a.isCorrect).length
   const totalQuestions = session.questions.length
 
-  // Always increment total questions (retry + Study All included)
-  const prevTotal = lsGet<number>(LS_KEYS.totalQuestions, 0)
-  lsSet(LS_KEYS.totalQuestions, prevTotal + totalQuestions)
+  // NOTE: totalQuestions is now incremented per-card in MCQSession.tsx to enable
+  // mid-session freemium gating. We do NOT increment it here to avoid double-counting.
 
   // Sync stats to Supabase
+  const prevTotal = lsGet<number>(LS_KEYS.totalQuestions, 0)
   const streak = lsGet<{ count: number; lastPracticeDate: string } | null>(LS_KEYS.streak, null)
-  saveStats(prevTotal + totalQuestions, streak?.count ?? 0, streak?.lastPracticeDate ?? null)
+  saveStats(prevTotal, streak?.count ?? 0, streak?.lastPracticeDate ?? null)
 
   // Write mcqAccuracy for non-retry sessions
   if (!session.isRetry) {

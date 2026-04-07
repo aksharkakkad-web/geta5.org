@@ -1,0 +1,65 @@
+{
+  "id": "calc-ab-2025-frq-3",
+  "subject": "ap-calculus-ab",
+  "year": 2025,
+  "source": "released",
+  "title": "Reading Rate — Rate of Change Approximation, IVT, Riemann & Definite Integrals (Table)",
+  "frq_type": "multi_part_math",
+  "related_units": [1, 5, 6],
+  "calculator_allowed": false,
+  "total_points": 9,
+  "stimulus": "A student starts reading a book at time $t = 0$ minutes and continues reading for the next 10 minutes. The rate at which the student reads is modeled by the differentiable function $R$, where $R(t)$ is measured in words per minute. Selected values of $R(t)$ are given in the table:\n\n| $t$ (minutes) | 0 | 2 | 8 | 10 |\n|---|---|---|---|---|\n| $R(t)$ (words per minute) | 90 | 100 | 150 | 162 |",
+  "stimulus_image": null,
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "Approximate $R'(1)$ using the average rate of change of $R$ over the interval $0 \\le t \\le 2$. Show the work that leads to your answer. Indicate units of measure.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct answer with supporting work: $R'(1) \\approx \\frac{R(2)-R(0)}{2-0} = \\frac{100-90}{2} = 5$ words per minute per minute",
+        "1 pt: Correct units: words per minute per minute (or words/minute$^2$)"
+      ],
+      "scoring_notes": "Must show the difference quotient with values from the table. A response of just $\\frac{R(2)-R(0)}{2-0}$ without numerical values does not earn P1. Units must be words per minute per minute or equivalent.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "Must there be a value $c$, for $0 < c < 10$, such that $R(c) = 155$? Justify your answer.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: States that $R$ is continuous because $R$ is differentiable (differentiable implies continuous)",
+        "1 pt: Yes, by the Intermediate Value Theorem: $R(0) = 90 < 155 < R(10) = 162$ (or $R(8) = 150 < 155 < R(10) = 162$), and $R$ is continuous, so there exists $c$ with $0 < c < 10$ such that $R(c) = 155$"
+      ],
+      "scoring_notes": "P3 requires justifying continuity from differentiability — simply stating 'R is continuous' without reason does not earn P3. P4 requires: stating R is continuous, showing $R$ at some point $< 155$ and at $t = 10 > 155$, and citing IVT (or equivalent). A correct response need not name IVT explicitly, but if a theorem is named it must be correct.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "Use a trapezoidal sum with the three subintervals indicated by the data in the table to approximate the value of $\\int_0^{10} R(t)\\, dt$. Show the work that leads to your answer.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct form of trapezoidal sum: $\\frac{R(0)+R(2)}{2}(2-0) + \\frac{R(2)+R(8)}{2}(8-2) + \\frac{R(8)+R(10)}{2}(10-8)$",
+        "1 pt: Correct answer with supporting work: $\\frac{190}{2}(2) + \\frac{250}{2}(6) + \\frac{312}{2}(2) = 190 + 750 + 312 = 1252$"
+      ],
+      "scoring_notes": "At least five of the six factors in the three trapezoid terms must be correct for the form point. If any factor is wrong, the answer point cannot be earned. Special case: $(90+100) + (100+150) \\cdot 3 + (150+162) = 1252$ earns both points.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "d",
+      "prompt": "A teacher also starts reading at time $t = 0$ minutes and continues reading for the next 10 minutes. The rate at which the teacher reads is modeled by the function $W$ defined by $W(t) = -\\frac{3}{10}t^2 + 8t + 100$, where $W(t)$ is measured in words per minute. Based on the model, how many words has the teacher read by the end of the 10 minutes? Show the work that leads to your answer.",
+      "point_value": 3,
+      "rubric_criteria": [
+        "1 pt: Correct integrand: $\\int_0^{10} W(t)\\, dt = \\int_0^{10} \\left(-\\frac{3}{10}t^2 + 8t + 100\\right)\\, dt$",
+        "1 pt: Correct antiderivative: $\\left[-\\frac{1}{10}t^3 + 4t^2 + 100t\\right]_0^{10}$",
+        "1 pt: Correct answer: $-\\frac{1000}{10} + 400 + 1000 - 0 = -100 + 400 + 1000 = 1300$ words"
+      ],
+      "scoring_notes": "Total words $= \\int_0^{10} W(t)\\, dt$. Antiderivative: $-\\frac{t^3}{10} + 4t^2 + 100t$. Evaluated from 0 to 10: $\\left(-100 + 400 + 1000\\right) - 0 = 1300$ words. P9 requires P8 (correct antiderivative) as prerequisite.",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "id": "calc-ab-2019-frq-1",
+  "subject": "ap-calculus-ab",
+  "year": 2019,
+  "source": "released",
+  "title": "Fish Population — Integrals, Average Value & Rate Analysis",
+  "frq_type": "multi_part_math",
+  "related_units": [4, 5, 6],
+  "calculator_allowed": true,
+  "total_points": 9,
+  "stimulus": "Fish enter a lake at a rate modeled by the function $E$ given by $E(t) = 20 + 15\\sin\\left(\\frac{\\pi t}{6}\\right)$. Fish leave the lake at a rate modeled by the function $L$ given by $L(t) = 4 + 20e^{0.1t^2}$. Both $E(t)$ and $L(t)$ are measured in fish per hour, and $t$ is measured in hours since midnight ($t = 0$).",
+  "stimulus_image": null,
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "How many fish enter the lake over the 5-hour period from midnight ($t = 0$) to 5 A.M. ($t = 5$)? Give your answer to the nearest whole number.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct integral setup: $\\int_0^5 E(t)\\, dt$",
+        "1 pt: Correct answer: $\\int_0^5 E(t)\\, dt \\approx 153.458$, so $153$ fish to the nearest whole number"
+      ],
+      "scoring_notes": "Must present the integral $\\int_0^5 E(t)\\, dt$. Answer must be rounded to nearest whole number: $153$.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "What is the average number of fish that leave the lake per hour over the 5-hour period from midnight ($t = 0$) to 5 A.M. ($t = 5$)?",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct average value formula: $\\frac{1}{5}\\int_0^5 L(t)\\, dt$",
+        "1 pt: Correct answer: $\\frac{1}{5}\\int_0^5 L(t)\\, dt \\approx 6.059$ fish per hour"
+      ],
+      "scoring_notes": "Must show average value formula with integration of $L(t)$. Answer $\\approx 6.059$ fish per hour.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "At what time $t$, for $0 \\le t \\le 8$, is the greatest number of fish in the lake? Justify your answer.",
+      "point_value": 3,
+      "rubric_criteria": [
+        "1 pt: Sets $E(t) - L(t) = 0$ to find when the number of fish is at a maximum",
+        "1 pt: Correct answer: $t \\approx 6.204$ (or $6.203$) hours",
+        "1 pt: Correct justification: $E(t) - L(t) > 0$ for $0 < t < 6.204$ and $E(t) - L(t) < 0$ for $6.204 < t < 8$, so the number of fish is increasing then decreasing, with maximum at $t \\approx 6.204$"
+      ],
+      "scoring_notes": "Must set $E(t) = L(t)$ for critical point. Candidates test also acceptable: evaluate net change at $t = 0$, $t \\approx 6.204$, $t = 8$. Maximum at $t \\approx 6.204$.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "d",
+      "prompt": "Is the rate of change in the number of fish in the lake increasing or decreasing at 5 A.M. ($t = 5$)? Explain your reasoning.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Considers $E'(5)$ and $L'(5)$: $E'(5) - L'(5) < 0$ (the derivative of the net rate is negative)",
+        "1 pt: The rate of change is decreasing at $t = 5$ because $E'(5) - L'(5) < 0$"
+      ],
+      "scoring_notes": "Rate of change in fish count is $E(t) - L(t)$; its derivative is $E'(t) - L'(t)$. At $t = 5$: $E'(5) \\approx -7.228 < 0$ and the difference $E'(5) - L'(5) < 0$. Must reference both $E'$ and $L'$ at $t = 5$.",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

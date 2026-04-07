@@ -1,0 +1,142 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FRQ",
+  "description": "A free response question with type-specific structure and rubric criteria for AI grading",
+  "type": "object",
+  "required": ["id", "subject", "source", "title", "frq_type", "related_units", "total_points", "parts"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique ID, e.g. calc-ab-2024-frq-1"
+    },
+    "subject": {
+      "type": "string",
+      "description": "URL slug, e.g. ap-calculus-ab"
+    },
+    "year": {
+      "type": ["integer", "null"],
+      "description": "Release year (null for generated questions)"
+    },
+    "source": {
+      "type": "string",
+      "enum": ["released", "generated"],
+      "description": "Whether from official College Board released exam or AI-generated"
+    },
+    "title": {
+      "type": "string",
+      "description": "Descriptive title, e.g. Rate of Change & Accumulation"
+    },
+    "frq_type": {
+      "type": "string",
+      "enum": [
+        "multi_part_math",
+        "multi_part_text",
+        "dbq",
+        "saq",
+        "leq",
+        "essay",
+        "argument_essay",
+        "concept_application",
+        "scotus_comparison",
+        "quantitative_analysis"
+      ],
+      "description": "Determines the frontend layout. multi_part_math: math input + KaTeX (Calc/Precalc/Chem). multi_part_text: text input per part. dbq: split-screen docs + essay. saq: short answer boxes. leq/essay/argument_essay: single continuous essay. concept_application/scotus_comparison/quantitative_analysis: Gov-specific multi-part text."
+    },
+    "related_units": {
+      "type": "array",
+      "items": { "type": "integer" },
+      "minItems": 1,
+      "description": "Unit numbers this FRQ covers"
+    },
+    "calculator_allowed": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether calculator is permitted (math subjects only)"
+    },
+    "total_points": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Maximum points for the entire FRQ"
+    },
+    "stimulus": {
+      "type": ["string", "null"],
+      "description": "Introductory text, scenario, or data table (KaTeX via $...$). Null if no stimulus."
+    },
+    "stimulus_image": {
+      "type": ["string", "null"],
+      "description": "Path to stimulus image extracted from PDF, e.g. /data/ap-calculus-ab/frq/stimuli/calc-ab-2024-frq-1.png"
+    },
+    "documents": {
+      "type": ["array", "null"],
+      "description": "DBQ documents array. Only present when frq_type is 'dbq'.",
+      "items": {
+        "type": "object",
+        "required": ["doc_number", "source", "content"],
+        "properties": {
+          "doc_number": {
+            "type": "integer",
+            "description": "Document number (1-7 typically)"
+          },
+          "source": {
+            "type": "string",
+            "description": "Attribution — author, title, date"
+          },
+          "content": {
+            "type": "string",
+            "description": "Document text content"
+          },
+          "image": {
+            "type": ["string", "null"],
+            "description": "Path to document image (for maps, political cartoons, etc.)"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "parts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["letter", "prompt", "point_value", "rubric_criteria"],
+        "properties": {
+          "letter": {
+            "type": "string",
+            "pattern": "^[a-z]$",
+            "description": "Part label: a, b, c, d, etc."
+          },
+          "prompt": {
+            "type": "string",
+            "description": "The part's question text (KaTeX via $...$)"
+          },
+          "point_value": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Maximum points for this part"
+          },
+          "rubric_criteria": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string" },
+            "description": "One string per point — includes the correct answer/approach, e.g. '1 pt: Correct integrand: int(0,3) 2t*sin(t^2) dt'"
+          },
+          "scoring_notes": {
+            "type": ["string", "null"],
+            "description": "Qualitative guidance from scoring guidelines — what to accept/reject, alternate valid methods, common errors. Anti-hallucination anchor."
+          },
+          "requires_drawing": {
+            "type": "boolean",
+            "default": false,
+            "description": "True if this part requires sketching/drawing (slope fields, graphs, shading). Renders a canvas instead of text input."
+          },
+          "reference_image": {
+            "type": ["string", "null"],
+            "description": "Path to the correct answer image for drawing parts, e.g. /data/ap-calculus-ab/frq/stimuli/calc-ab-2024-frq-5a-answer.png"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

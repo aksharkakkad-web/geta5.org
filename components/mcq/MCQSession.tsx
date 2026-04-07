@@ -1,13 +1,17 @@
 'use client'
 
 import React, { useState, useRef, useEffect } from 'react'
-import { Check, X } from 'lucide-react'
+import { usePathname } from 'next/navigation'
+import { Check, X, Calculator } from 'lucide-react'
 import MCQCard from '@/components/mcq/MCQCard'
+import DesmosPanel from '@/components/tools/DesmosPanel'
 import { getSubject } from '@/utils/subjects'
 import { saveMCQDraft, clearMCQDraft } from '@/utils/mcqSession'
 import type { MCQSessionState, MCQAnswer } from '@/utils/mcqSession'
 import { lsGet, lsSet, LS_KEYS } from '@/utils/localStorage'
 import { logEvent } from '@/utils/analytics'
+import { shouldBlockAccess } from '@/utils/freeTrialGate'
+import { useAuth } from '@/contexts/AuthContext'
 
 interface MCQSessionProps {
   session: MCQSessionState
@@ -17,8 +21,14 @@ interface MCQSessionProps {
 }
 
 export default function MCQSession({ session, subject, onComplete, onStartFresh }: MCQSessionProps) {
+  const { isAuthenticated } = useAuth()
+  const pathname = usePathname()
   const [currentIndex, setCurrentIndex] = useState(session.currentIndex ?? 0)
   const [answers, setAnswers] = useState<Record<string, MCQAnswer>>(session.answers ?? {})
+  const [desmosOpen, setDesmosOpen] = useState(false)
+  const [gateBlocked, setGateBlocked] = useState(false)
+
+  const isCalcSubject = subject === 'ap-calculus-ab' || subject === 'ap-precalculus'
 
   // Keep a ref so handleNext always sees latest answers without stale closure
   const answersRef = useRef(answers)
@@ -46,6 +56,12 @@ export default function MCQSession({ session, subject, onComplete, onStartFresh 
           lsSet(LS_KEYS.mastery(subject, session.unitSlug), { ...existing, mcqAccuracy: correct / answered })
         }
       }
+    }
+  }, [currentIndex]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => {
+    if (isCalcSubject && !session.questions[currentIndex]?.calculator_allowed) {
+      setDesmosOpen(false)
     }
   }, [currentIndex]) // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -81,6 +97,17 @@ export default function MCQSession({ session, subject, onComplete, onStartFresh 
   }
 
   const handleNext = () => {
+    // Increment totalQuestions per card answered (enables mid-session gate check)
+    if (!isAuthenticated) {
+      const prev = lsGet<number>(LS_KEYS.totalQuestions, 0)
+      lsSet(LS_KEYS.totalQuestions, prev + 1)
+      // Check gate after incrementing
+      if (shouldBlockAccess()) {
+        setGateBlocked(true)
+        return
+      }
+    }
+
     if (currentIndex + 1 >= totalQuestions) {
       clearMCQDraft(subject)
       const finalSession: MCQSessionState = {
@@ -94,7 +121,109 @@ export default function MCQSession({ session, subject, onComplete, onStartFresh 
   }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: 'calc(100dvh - 120px)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: 'calc(100dvh - 120px)', position: 'relative' }}>
+
+      {/* Freemium gate overlay — blocks interaction when limit is reached */}
+      {gateBlocked && (
+        <div
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 9999,
+            background: 'rgba(5, 5, 8, 0.92)',
+            backdropFilter: 'blur(8px)',
+            WebkitBackdropFilter: 'blur(8px)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '24px',
+          }}
+        >
+          <div
+            style={{
+              background: 'var(--bg-card)',
+              border: '1px solid var(--bg-border)',
+              borderRadius: 'var(--radius-lg)',
+              padding: '40px 32px',
+              maxWidth: '420px',
+              width: '100%',
+              textAlign: 'center',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '16px',
+            }}
+          >
+            {/* Adi diamond icon */}
+            <div
+              aria-hidden="true"
+              style={{
+                width: '52px',
+                height: '52px',
+                borderRadius: '10px',
+                transform: 'rotate(45deg)',
+                background: 'linear-gradient(135deg, var(--accent), #a78bfa)',
+                boxShadow: '0 0 24px color-mix(in srgb, var(--accent) 40%, transparent)',
+                flexShrink: 0,
+              }}
+            />
+            <div>
+              <h2
+                style={{
+                  fontSize: '1.25rem',
+                  fontWeight: 700,
+                  color: 'var(--text-primary)',
+                  margin: 0,
+                  marginBottom: '10px',
+                  fontFamily: 'var(--font-outfit)',
+                  lineHeight: 1.3,
+                }}
+              >
+                You&apos;ve used your 3 free questions
+              </h2>
+              <p
+                style={{
+                  fontSize: '0.9375rem',
+                  color: 'var(--text-secondary)',
+                  margin: 0,
+                  lineHeight: 1.6,
+                }}
+              >
+                Sign up for free to keep practicing — unlimited drills, practice questions, and more.
+              </p>
+            </div>
+            <a
+              href={`/signup?redirect=${encodeURIComponent(pathname)}`}
+              style={{
+                marginTop: '8px',
+                display: 'block',
+                width: '100%',
+                padding: '13px 0',
+                borderRadius: 'var(--radius-md)',
+                background: 'var(--accent)',
+                color: 'white',
+                fontSize: '1rem',
+                fontWeight: 700,
+                textDecoration: 'none',
+                textAlign: 'center',
+                fontFamily: 'var(--font-outfit)',
+                transition: 'background 150ms ease, transform 150ms ease',
+              }}
+              onMouseEnter={e => {
+                ;(e.currentTarget as HTMLAnchorElement).style.background = 'var(--accent-hover)'
+                ;(e.currentTarget as HTMLAnchorElement).style.transform = 'translateY(-1px)'
+              }}
+              onMouseLeave={e => {
+                ;(e.currentTarget as HTMLAnchorElement).style.background = 'var(--accent)'
+                ;(e.currentTarget as HTMLAnchorElement).style.transform = 'translateY(0)'
+              }}
+            >
+              Sign Up Free
+            </a>
+          </div>
+        </div>
+      )}
+
       {/* Session header */}
       <div
         style={{
@@ -187,6 +316,30 @@ export default function MCQSession({ session, subject, onComplete, onStartFresh 
               Start fresh
             </button>
           )}
+
+          {/* Calculator button — only for calc subjects on calculator-allowed questions */}
+          {isCalcSubject && currentQuestion?.calculator_allowed === true && (
+            <button
+              onClick={() => setDesmosOpen(o => !o)}
+              style={{
+                flexShrink: 0,
+                display: 'flex',
+                alignItems: 'center',
+                gap: '4px',
+                padding: '3px 10px',
+                borderRadius: '999px',
+                background: 'color-mix(in srgb, var(--accent) 15%, transparent)',
+                border: '1px solid color-mix(in srgb, var(--accent) 30%, transparent)',
+                color: 'var(--accent)',
+                fontSize: '0.8125rem',
+                fontWeight: 600,
+                cursor: 'pointer',
+              }}
+            >
+              <Calculator size={14} />
+              Calculator
+            </button>
+          )}
         </div>
       </div>
 
@@ -207,6 +360,8 @@ export default function MCQSession({ session, subject, onComplete, onStartFresh 
           />
         </div>
       </div>
+
+      {desmosOpen && <DesmosPanel onClose={() => setDesmosOpen(false)} />}
     </div>
   )
 }

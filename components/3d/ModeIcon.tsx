@@ -1,7 +1,7 @@
 'use client'
 
 interface ModeIconProps {
-  iconName: 'drills' | 'practice' | 'study-guide' | 'test'
+  iconName: 'drills' | 'practice' | 'study-guide' | 'test' | 'frq'
   color: string
   size?: number
 }
@@ -53,6 +53,11 @@ export function ModeIcon({ iconName, color, size = 36 }: ModeIconProps) {
             <circle cx="12" cy="12" r="10" />
             <circle cx="12" cy="12" r="6" />
             <circle cx="12" cy="12" r="2" />
+          </>
+        )}
+        {iconName === 'frq' && (
+          <>
+            <path d="M17 3a2.83 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z" />
           </>
         )}
       </svg>

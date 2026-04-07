@@ -1,12 +1,15 @@
 'use client'
 
 import React, { useState, useRef, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import { Check, X } from 'lucide-react'
 import DrillCard from '@/components/drill/DrillCard'
 import { SessionState, saveDrillDraft, clearDrillDraft, insertRetryCard } from '@/utils/drillSession'
 import { getSubject } from '@/utils/subjects'
 import { lsGet, lsSet, LS_KEYS } from '@/utils/localStorage'
 import { logEvent } from '@/utils/analytics'
+import { shouldBlockAccess } from '@/utils/freeTrialGate'
+import { useAuth } from '@/contexts/AuthContext'
 
 interface DrillSessionProps {
   session: SessionState
@@ -16,10 +19,13 @@ interface DrillSessionProps {
 }
 
 export default function DrillSession({ session, subject, onComplete, onStartFresh }: DrillSessionProps) {
+  const { isAuthenticated } = useAuth()
+  const pathname = usePathname()
   const [currentIndex, setCurrentIndex] = useState(session.index ?? 0)
   const [answers, setAnswers] = useState<
     Record<string, { verdict: 'correct' | 'wrong'; userInput: string }>
   >(session.answers ?? {})
+  const [gateBlocked, setGateBlocked] = useState(false)
 
   // Keep a ref so handleNext always sees latest answers without stale closure
   const answersRef = useRef(answers)
@@ -95,6 +101,17 @@ export default function DrillSession({ session, subject, onComplete, onStartFres
     const cardBeingAnswered = workingDeckRef.current[currentIndex]
     const finalVerdict = answersRef.current[cardBeingAnswered.id]?.verdict
 
+    // Increment totalQuestions per card answered (enables mid-session gate check)
+    if (!isAuthenticated) {
+      const prev = lsGet<number>(LS_KEYS.totalQuestions, 0)
+      lsSet(LS_KEYS.totalQuestions, prev + 1)
+      // Check gate after incrementing
+      if (shouldBlockAccess()) {
+        setGateBlocked(true)
+        return
+      }
+    }
+
     // If wrong, splice card back into deck RETRY_INTERVAL positions ahead
     let nextDeck = workingDeckRef.current
     if (finalVerdict === 'wrong') {
@@ -116,7 +133,108 @@ export default function DrillSession({ session, subject, onComplete, onStartFres
   }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: 'calc(100dvh - 120px)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: 'calc(100dvh - 120px)', position: 'relative' }}>
+
+      {/* Freemium gate overlay — blocks interaction when limit is reached */}
+      {gateBlocked && (
+        <div
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 9999,
+            background: 'rgba(5, 5, 8, 0.92)',
+            backdropFilter: 'blur(8px)',
+            WebkitBackdropFilter: 'blur(8px)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '24px',
+          }}
+        >
+          <div
+            style={{
+              background: 'var(--bg-card)',
+              border: '1px solid var(--bg-border)',
+              borderRadius: 'var(--radius-lg)',
+              padding: '40px 32px',
+              maxWidth: '420px',
+              width: '100%',
+              textAlign: 'center',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '16px',
+            }}
+          >
+            {/* Adi diamond icon */}
+            <div
+              aria-hidden="true"
+              style={{
+                width: '52px',
+                height: '52px',
+                borderRadius: '10px',
+                transform: 'rotate(45deg)',
+                background: 'linear-gradient(135deg, var(--accent), #a78bfa)',
+                boxShadow: '0 0 24px color-mix(in srgb, var(--accent) 40%, transparent)',
+                flexShrink: 0,
+              }}
+            />
+            <div>
+              <h2
+                style={{
+                  fontSize: '1.25rem',
+                  fontWeight: 700,
+                  color: 'var(--text-primary)',
+                  margin: 0,
+                  marginBottom: '10px',
+                  fontFamily: 'var(--font-outfit)',
+                  lineHeight: 1.3,
+                }}
+              >
+                You&apos;ve used your 3 free questions
+              </h2>
+              <p
+                style={{
+                  fontSize: '0.9375rem',
+                  color: 'var(--text-secondary)',
+                  margin: 0,
+                  lineHeight: 1.6,
+                }}
+              >
+                Sign up for free to keep practicing — unlimited drills, practice questions, and more.
+              </p>
+            </div>
+            <a
+              href={`/signup?redirect=${encodeURIComponent(pathname)}`}
+              style={{
+                marginTop: '8px',
+                display: 'block',
+                width: '100%',
+                padding: '13px 0',
+                borderRadius: 'var(--radius-md)',
+                background: 'var(--accent)',
+                color: 'white',
+                fontSize: '1rem',
+                fontWeight: 700,
+                textDecoration: 'none',
+                textAlign: 'center',
+                fontFamily: 'var(--font-outfit)',
+                transition: 'background 150ms ease, transform 150ms ease',
+              }}
+              onMouseEnter={e => {
+                ;(e.currentTarget as HTMLAnchorElement).style.background = 'var(--accent-hover)'
+                ;(e.currentTarget as HTMLAnchorElement).style.transform = 'translateY(-1px)'
+              }}
+              onMouseLeave={e => {
+                ;(e.currentTarget as HTMLAnchorElement).style.background = 'var(--accent)'
+                ;(e.currentTarget as HTMLAnchorElement).style.transform = 'translateY(0)'
+              }}
+            >
+              Sign Up Free
+            </a>
+          </div>
+        </div>
+      )}
       {/* Session header */}
       <div
         style={{

@@ -1,0 +1,52 @@
+{
+  "id": "precalc-gen-b2",
+  "subject": "ap-precalculus",
+  "year": null,
+  "source": "generated",
+  "title": "Exponential Growth Modeling: Bacterial Population & Doubling Time",
+  "frq_type": "multi_part_math",
+  "related_units": [2],
+  "calculator_allowed": true,
+  "total_points": 6,
+  "stimulus": "A biologist is studying a colony of bacteria. At time $t = 0$ hours, the colony has $200$ bacteria. The biologist observes that the population triples every $5$ hours. The number of bacteria in the colony at time $t$ hours can be modeled by the function $P$ given by $P(t) = 200 \\cdot 3^{t/5}$.",
+  "stimulus_image": null,
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "(i) Find the number of bacteria in the colony at $t = 8$ hours. Express your answer as a decimal approximation rounded to the nearest whole number. Show the computations that lead to your answer.\n\n(ii) Find the average rate of change of $P$, in bacteria per hour, from $t = 0$ to $t = 5$ hours. Express your answer as a decimal approximation. Show the computations that lead to your answer.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct value $P(8) = 200 \\cdot 3^{8/5} = 200 \\cdot 3^{1.6} \\approx 200 \\cdot 4.6555 \\approx 931$ bacteria (accept integer values in $[929, 933]$); supporting work must show substitution into the formula",
+        "1 pt: Correct average rate of change $\\frac{P(5) - P(0)}{5 - 0} = \\frac{600 - 200}{5} = \\frac{400}{5} = 80$ bacteria per hour (exact); supporting work must show a difference quotient using $P(5) = 600$ and $P(0) = 200$"
+      ],
+      "scoring_notes": "For part (i), $3^{1.6} \\approx 4.6555$ so $P(8) \\approx 931$. Accept any correct rounding. For part (ii), the answer is exact: $80$ bacteria per hour. Accept $80.0$ or equivalent. Units not required for (ii) but context explanation is not needed here.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "(i) Find the time $t$ at which the bacterial population first reaches $1000$ bacteria. Express your answer as a decimal approximation. Show the computations that lead to your answer.\n\n(ii) The model $P(t) = 200 \\cdot 3^{t/5}$ can be rewritten in the form $P(t) = 200 \\cdot e^{kt}$ for some constant $k$. Find the value of $k$ as a decimal approximation.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct time $t = \\frac{5\\ln(5)}{\\ln(3)} = \\frac{5 \\cdot 1.6094}{1.0986} \\approx 7.324$ hours (from $200 \\cdot 3^{t/5} = 1000 \\Rightarrow 3^{t/5} = 5 \\Rightarrow \\frac{t}{5} = \\frac{\\ln 5}{\\ln 3} \\Rightarrow t = \\frac{5\\ln 5}{\\ln 3}$; accept values in $[7.320, 7.328]$)",
+        "1 pt: Correct value $k = \\frac{\\ln 3}{5} \\approx 0.2197$ (from $e^{kt} = 3^{t/5} \\Rightarrow kt = \\frac{t}{5}\\ln 3 \\Rightarrow k = \\frac{\\ln 3}{5}$; accept values in $[0.219, 0.220]$)"
+      ],
+      "scoring_notes": "For part (i), supporting work must show the logarithmic step. Accept $\\log_3(5) \\cdot 5$ as an intermediate step. For part (ii), matching exponents gives $k = \\frac{\\ln 3}{5} \\approx 0.2197$. Accept any equivalent exact form. Common error: writing $k = \\frac{3}{5}$ (forgetting the logarithm).",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "The biologist notes that after a long time, the colony stops growing due to resource limitations and the population stabilizes at $10{,}000$ bacteria. Explain why the model $P(t) = 200 \\cdot 3^{t/5}$ is no longer appropriate for large values of $t$, using the end behavior of $P$.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct end behavior stated — $\\lim_{t \\to \\infty} P(t) = \\infty$; the model $P$ increases without bound as $t$ increases without bound",
+        "1 pt: Valid explanation connecting end behavior to the problem context — since the actual population stabilizes at $10{,}000$ but the model predicts unlimited growth ($P(t) \\to \\infty$), the model overestimates the population for large values of $t$ and is therefore not appropriate"
+      ],
+      "scoring_notes": "Both components are required: (a) correct statement about end behavior (P goes to infinity) and (b) connection to the biological reality (population levels off). A response that only states 'exponential functions grow without bound' without connecting to the 10,000 cap does not earn the second point. A response that says 'the model grows too fast' without stating $P \\to \\infty$ does not earn the first point.",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

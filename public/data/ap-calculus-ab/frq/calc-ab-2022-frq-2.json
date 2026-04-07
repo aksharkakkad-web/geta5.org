@@ -1,0 +1,69 @@
+{
+  "id": "calc-ab-2022-frq-2",
+  "subject": "ap-calculus-ab",
+  "year": 2022,
+  "source": "released",
+  "title": "Area Between Curves, Volume of Solid & Related Rates of Cross-Section",
+  "frq_type": "multi_part_math",
+  "related_units": [
+    4,
+    6,
+    8
+  ],
+  "calculator_allowed": true,
+  "total_points": 9,
+  "stimulus": "Let $f$ and $g$ be the functions defined by $f(x) = \\ln(x+3)$ and $g(x) = x^4 + 2x^3$. The graphs of $f$ and $g$ intersect at $x = -2$ and $x = B$, where $B > 0$.",
+  "stimulus_image": "/data/ap-calculus-ab/frq/images/calc-ab-2022-frq-2-stimulus.png",
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "Find the area of the region enclosed by the graphs of $f$ and $g$.",
+      "point_value": 3,
+      "rubric_criteria": [
+        "1 pt: Correct integrand form: $f(x) - g(x) = \\ln(x+3) - (x^4 + 2x^3)$",
+        "1 pt: Correct limits: lower limit $-2$, upper limit $B \\approx 0.782$",
+        "1 pt: Correct answer: $\\int_{-2}^{B} (f(x) - g(x))\\, dx \\approx 3.604$ (or $3.603$)"
+      ],
+      "scoring_notes": "Second point requires lower limit $-2$ and upper limit as letter $B$ or a value accurate to at least one decimal between $0$ and $1$. If $g(x) - f(x)$ used, must resolve the negative sign to earn third point. Must earn first point to be eligible for third.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "For $-2 \\le x \\le B$, let $h(x)$ be the vertical distance between the graphs of $f$ and $g$. Is $h$ increasing or decreasing at $x = -0.5$? Give a reason for your answer.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Considers $h'(x) = f'(x) - g'(x)$ or computes $h'(-0.5) = f'(-0.5) - g'(-0.5) \\approx -0.600$",
+        "1 pt: $h$ is decreasing at $x = -0.5$ because $h'(-0.5) < 0$"
+      ],
+      "scoring_notes": "If a value of $h'(-0.5)$ is given, it must be correct for digits reported. The last line alone ('$h'(-0.5) < 0$ so decreasing') earns both points. Presenting only $h'(x)$ without evaluation does not earn either point.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "The region enclosed by the graphs of $f$ and $g$ is the base of a solid. Cross sections of the solid taken perpendicular to the $x$-axis are squares. Find the volume of the solid.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct integrand form: $(f(x) - g(x))^2$",
+        "1 pt: Correct answer: $\\int_{-2}^{B} (f(x) - g(x))^2\\, dx \\approx 5.340$"
+      ],
+      "scoring_notes": "First point earned for integrand $k(f(x)-g(x))^2$ with $k \\ne 0$; if $k \\ne 1$, ineligible for second point. Presentation error (mismatched parentheses, misplaced exponent) does not earn first point but earns second for correct answer.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "d",
+      "prompt": "A vertical line in the $xy$-plane travels from left to right along the base of the solid described in part (c). The vertical line is moving at a constant rate of $7$ units per second. Find the rate of change of the area of the cross section above the vertical line with respect to time when the vertical line is at position $x = -0.5$.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Applies chain rule: $\\frac{dA}{dt} = \\frac{dA}{dx} \\cdot \\frac{dx}{dt} = A'(x) \\cdot 7$",
+        "1 pt: Correct answer: $A'(-0.5) \\cdot 7 \\approx -9.272$ (or $-9.271$) square units per second"
+      ],
+      "scoring_notes": "Cross-section area $A(x) = (f(x)-g(x))^2$. $A'(x) = 2(f(x)-g(x))(f'(x)-g'(x))$. First point earned for presenting $\\frac{dA}{dx}\\cdot\\frac{dx}{dt}$, $A'(x)\\cdot 7$, or equivalent. Second point: correct answer $-9.272$ or $-9.271$.",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

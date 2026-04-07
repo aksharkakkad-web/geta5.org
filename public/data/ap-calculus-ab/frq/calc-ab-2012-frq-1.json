@@ -1,0 +1,65 @@
+{
+  "id": "calc-ab-2012-frq-1",
+  "subject": "ap-calculus-ab",
+  "year": 2012,
+  "source": "released",
+  "title": "Water Temperature Table W(t) — Rate Approx, FTC Integral, Left Riemann Avg & Model Value",
+  "frq_type": "multi_part_math",
+  "related_units": [4, 6],
+  "calculator_allowed": true,
+  "total_points": 9,
+  "stimulus": "The temperature of water in a tub at time $t$ is modeled by a strictly increasing, twice-differentiable function $W$, where $W(t)$ is measured in degrees Fahrenheit and $t$ is measured in minutes. At time $t = 0$, the temperature of the water is 55°F. The water is heated for 30 minutes, beginning at time $t = 0$. Values of $W(t)$ at selected times $t$ for the first 20 minutes are given in the table.\n\n| $t$ (minutes) | 0 | 4 | 9 | 15 | 20 |\n|---|---|---|---|---|---|\n| $W(t)$ (°F) | 55.0 | 57.1 | 61.8 | 67.9 | 71.0 |",
+  "stimulus_image": null,
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "Use the data in the table to estimate $W'(12)$. Show the computations that lead to your answer. Using correct units, interpret the meaning of your answer in the context of this problem.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct estimate: $W'(12) \\approx \\frac{W(15) - W(9)}{15 - 9} = \\frac{67.9 - 61.8}{6} \\approx 1.017$ (or $1.016$) degrees Fahrenheit per minute",
+        "1 pt: Interpretation with units: the water temperature is increasing at a rate of approximately $1.017$ °F per minute at time $t = 12$ minutes"
+      ],
+      "scoring_notes": "From scoring key: $W'(12) \\approx \\frac{67.9-61.8}{6} \\approx 1.017$ °F/min. Interpretation must include rate, direction, units, and context.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "Use the data in the table to evaluate $\\int_0^{20} W'(t)\\, dt$. Using correct units, interpret the meaning of $\\int_0^{20} W'(t)\\, dt$ in the context of this problem.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct value: $\\int_0^{20} W'(t)\\, dt = W(20) - W(0) = 71.0 - 55.0 = 16$ degrees Fahrenheit",
+        "1 pt: Interpretation with units: the water has warmed by 16°F over the interval from $t = 0$ to $t = 20$ minutes"
+      ],
+      "scoring_notes": "From scoring key: By FTC, $\\int_0^{20} W'(t)\\, dt = W(20) - W(0) = 16$ °F. Interpretation: water warmed 16°F over 20 minutes.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "For $0 \\le t \\le 20$, the average temperature of the water in the tub is $\\frac{1}{20}\\int_0^{20} W(t)\\, dt$. Use a left Riemann sum with the four subintervals indicated by the data in the table to approximate $\\frac{1}{20}\\int_0^{20} W(t)\\, dt$. Does this approximation overestimate or underestimate the average temperature of the water over these 20 minutes? Explain your reasoning.",
+      "point_value": 3,
+      "rubric_criteria": [
+        "1 pt: Correct left Riemann sum: $\\frac{1}{20}[4 \\cdot W(0) + 5 \\cdot W(4) + 6 \\cdot W(9) + 5 \\cdot W(15)]$",
+        "1 pt: Correct approximation: $\\frac{1}{20}[4(55.0) + 5(57.1) + 6(61.8) + 5(67.9)] = \\frac{1215.8}{20} = 60.79$ °F",
+        "1 pt: Underestimate with reason: a left Riemann sum is used and $W$ is strictly increasing, so left endpoints give values below the function over each subinterval"
+      ],
+      "scoring_notes": "From scoring key: Left Riemann sum $= \\frac{1}{20}(220 + 285.5 + 370.8 + 339.5) = \\frac{1215.8}{20} = 60.79$ °F. Underestimate because $W$ is strictly increasing.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "d",
+      "prompt": "For $20 \\le t \\le 25$, the function $W$ that models the water temperature has first derivative given by $W'(t) = 0.4\\sqrt{t}\\cos(0.06t)$. Based on the model, what is the temperature of the water at time $t = 25$?",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Sets up integral: $W(25) = W(20) + \\int_{20}^{25} W'(t)\\, dt$",
+        "1 pt: Correct answer: $W(25) = 71.0 + \\int_{20}^{25} 0.4\\sqrt{t}\\cos(0.06t)\\, dt \\approx 71.0 + 2.043 \\approx 73.043$ °F"
+      ],
+      "scoring_notes": "From scoring key: $W(25) = 71.0 + \\int_{20}^{25} W'(t)\\, dt \\approx 71.0 + 2.043 \\approx 73.043$ °F.",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

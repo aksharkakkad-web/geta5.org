@@ -39,7 +39,7 @@ export default function KeyTermsSection({ terms }: Props) {
                 display: 'inline',
               }}
             >
-              {item.term}
+              <InlineKatex text={item.term} />
             </div>
             <div
               style={{

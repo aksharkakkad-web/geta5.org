@@ -1,0 +1,65 @@
+{
+  "id": "calc-ab-2013-frq-1",
+  "subject": "ap-calculus-ab",
+  "year": 2013,
+  "source": "released",
+  "title": "Gravel Processing Plant G(t) — Rate Interpretation, Total Arrival, Increasing/Decreasing & Max",
+  "frq_type": "multi_part_math",
+  "related_units": [4, 6, 8],
+  "calculator_allowed": true,
+  "total_points": 9,
+  "stimulus": "On a certain workday, the rate, in tons per hour, at which unprocessed gravel arrives at a gravel processing plant is modeled by $G(t) = 90 + 45\\cos\\left(\\frac{t^2}{18}\\right)$, where $t$ is measured in hours and $0 \\le t \\le 8$. At the beginning of the workday ($t = 0$), the plant has 500 tons of unprocessed gravel. During the hours of operation, $0 \\le t \\le 8$, the plant processes gravel at a constant rate of 100 tons per hour.",
+  "stimulus_image": null,
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "Find $G'(5)$. Using correct units, interpret your answer in the context of the problem.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct value: $G'(5) \\approx -24.588$ (or $-24.587$) tons per hour per hour",
+        "1 pt: Correct interpretation with units: the rate at which gravel is arriving is decreasing by approximately 24.588 tons per hour per hour at time $t = 5$ hours"
+      ],
+      "scoring_notes": "From scoring key: $G'(5) \\approx -24.588$ tons/hr$^2$. Interpretation must reference rate of change of arrival rate, direction (decreasing), units, and context.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "Find the total amount of unprocessed gravel that arrives at the plant during the hours of operation on this workday.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct integral: $\\int_0^8 G(t)\\, dt$",
+        "1 pt: Correct answer: $\\int_0^8 G(t)\\, dt \\approx 825.551$ tons"
+      ],
+      "scoring_notes": "From scoring key: $\\int_0^8 G(t)\\, dt \\approx 825.551$ tons of unprocessed gravel arrive.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "Is the amount of unprocessed gravel at the plant increasing or decreasing at time $t = 5$ hours? Show the work that leads to your answer.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Computes and compares $G(5)$ to 100: $G(5) \\approx 98.141 < 100$",
+        "1 pt: Correct conclusion: at $t = 5$, the rate of arrival ($G(5) \\approx 98.141$) is less than the rate of processing (100 tons/hr), so the amount is decreasing"
+      ],
+      "scoring_notes": "From scoring key: $G(5) \\approx 98.141 < 100$. Since arrival rate $<$ processing rate, amount is decreasing at $t = 5$.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "d",
+      "prompt": "What is the maximum amount of unprocessed gravel at the plant during the hours of operation on this workday? Justify your answer.",
+      "point_value": 3,
+      "rubric_criteria": [
+        "1 pt: Sets $A'(t) = G(t) - 100 = 0$ to find critical points: $t \\approx 4.923$",
+        "1 pt: Correct maximum value: evaluates $A(t) = 500 + \\int_0^t (G(s)-100)\\, ds$ at candidates; $A(0)=500$, $A(4.923)\\approx 635.376$, $A(8)\\approx 525.551$; maximum is $\\approx 635.376$ tons",
+        "1 pt: Justification: compares values at critical point and endpoints"
+      ],
+      "scoring_notes": "From scoring key: $A'(t) = G(t) - 100 = 0 \\Rightarrow t \\approx 4.923$. $A(4.923) \\approx 635.376$ tons is the maximum (checked against $A(0) = 500$ and $A(8) \\approx 525.551$).",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

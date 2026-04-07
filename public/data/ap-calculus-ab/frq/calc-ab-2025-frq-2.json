@@ -1,0 +1,68 @@
+{
+  "id": "calc-ab-2025-frq-2",
+  "subject": "ap-calculus-ab",
+  "year": 2025,
+  "source": "released",
+  "title": "Area & Volume from Region Bounded by Two Curves",
+  "frq_type": "multi_part_math",
+  "related_units": [
+    6,
+    8
+  ],
+  "calculator_allowed": true,
+  "total_points": 9,
+  "stimulus": "The shaded region $R$ is bounded by the graphs of the functions $f$ and $g$, where $f(x) = x^2 - 2x$ and $g(x) = x + \\sin(\\pi x)$, as shown in the figure. The region $R$ is bounded between $x = 0$ and $x = 3$.",
+  "stimulus_image": "/data/ap-calculus-ab/frq/images/calc-ab-2025-frq-2-stimulus.png",
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "Find the area of $R$. Show the setup for your calculations.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct integrand form: $\\int_0^3 (g(x) - f(x))\\, dx$ or equivalent",
+        "1 pt: Correct answer: $\\approx 5.137$ (or $5.136$)"
+      ],
+      "scoring_notes": "Area $= \\int_0^3 (g(x) - f(x))\\, dx \\approx 5.137$. Exact answer $= \\frac{4+9\\pi}{2\\pi}$. Accept $\\int_0^3 |g(x)-f(x)|\\, dx$ or the correct numerical answer. The integrand $f(x) - g(x)$ with negative sign resolved earns both points.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "Region $R$ is the base of a solid. For this solid, at each $x$ the cross section perpendicular to the $x$-axis is a rectangle with height $x$ and base in region $R$. Find the volume of the solid. Show the setup for your calculations.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct integrand as product of two factors, one being $x$: $\\int_0^3 x(g(x)-f(x))\\, dx$",
+        "1 pt: Correct answer: $\\approx 7.705$ (or $7.704$)"
+      ],
+      "scoring_notes": "Volume $= \\int_0^3 x(g(x)-f(x))\\, dx \\approx 7.705$. Exact answer $= \\frac{12+27\\pi}{4\\pi}$. The integrand must be a product with one factor $= x$ and one factor $= g(x)-f(x)$ or equivalent.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "Write, but do not evaluate, an integral expression for the volume of the solid generated when the region $R$ is rotated about the horizontal line $y = -2$.",
+      "point_value": 3,
+      "rubric_criteria": [
+        "1 pt: Correct form of integrand using washer method: outer and inner radii as differences from $y = -2$; $R^2 - r^2$ where $R = g(x) - (-2) = g(x) + 2$ and $r = f(x) - (-2) = f(x) + 2$",
+        "1 pt: Correct integrand: $\\pi\\int_0^3\\left[(g(x)+2)^2 - (f(x)+2)^2\\right]\\, dx$",
+        "1 pt: Correct constant $\\pi$, limits $0$ to $3$, and differential $dx$"
+      ],
+      "scoring_notes": "Washer method: $V = \\pi\\int_0^3\\left[(g(x)+2)^2 - (f(x)+2)^2\\right]\\, dx$. P5 earned for $R^2 - r^2$ form where one of $\\{R, r\\}$ involves $g(x)$ or $f(x)$ with a nonzero constant. P6 earned for the correct expression. P7 requires $\\pi$, correct limits, and $dx$. Reversing the difference with negative sign or reversed limits can still earn P7 if consistent.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "d",
+      "prompt": "It can be shown that $g'(x) = 1 + \\pi\\cos(\\pi x)$. Find the value of $x$, for $0 < x < 1$, at which the line tangent to the graph of $f$ is parallel to the line tangent to the graph of $g$.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Sets $f'(x) = g'(x)$: $2x - 2 = 1 + \\pi\\cos(\\pi x)$",
+        "1 pt: Correct answer: $x \\approx 0.676$ (or $0.675$)"
+      ],
+      "scoring_notes": "P8 requires presenting $f'(x) = g'(x)$, or substituting $2x-2$ for $f'(x)$ and/or $1+\\pi\\cos(\\pi x)$ for $g'(x)$. Solve numerically: $x \\approx 0.676$. Note $f'(x) = 2x - 2$.",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

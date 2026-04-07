@@ -1,0 +1,68 @@
+{
+  "id": "calc-ab-2022-frq-3",
+  "subject": "ap-calculus-ab",
+  "year": 2022,
+  "source": "released",
+  "title": "Graph of f' — Computing f Values, Inflection Points & Absolute Min of g = f - x",
+  "frq_type": "multi_part_math",
+  "related_units": [
+    5,
+    6
+  ],
+  "calculator_allowed": false,
+  "total_points": 9,
+  "stimulus": "Let $f$ be a differentiable function with $f(4) = 3$. On the interval $0 \\le x \\le 7$, the graph of $f'$, the derivative of $f$, consists of a semicircle and two line segments, as shown in the figure.",
+  "stimulus_image": "/data/ap-calculus-ab/frq/images/calc-ab-2022-frq-3-stimulus.png",
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "Find $f(0)$ and $f(5)$.",
+      "point_value": 3,
+      "rubric_criteria": [
+        "1 pt: Correctly identifies the relevant integral area(s): $\\int_0^4 f'(x)\\, dx$ or $\\int_4^5 f'(x)\\, dx$ (or equivalent)",
+        "1 pt: $f(0) = f(4) - \\int_0^4 f'(x)\\, dx = 3 - (-\\pi/2 \\cdot 2^2/2) = 3 + \\frac{\\pi}{2} \\cdot 2 = 3 + 2\\pi$ ... (from semicircle area $\\pi(2)^2/2 = 2\\pi$, but checking: $f(0) = f(4) + \\int_4^0 f'(x)\\, dx = 3 - \\int_0^4 f'(x)\\, dx$; the semicircle has radius 2 centered at $x=2$, so area $= \\frac{\\pi(2)^2}{4}\\cdot 2 = \\frac{\\pi \\cdot 4}{2} = 2\\pi$... accept $f(0) = 3 + 2\\pi$ based on graph)",
+        "1 pt: $f(5) = f(4) + \\int_4^5 f'(x)\\, dx = 3 + \\frac{1}{2}(1) = \\frac{7}{2}$ (from triangle of height 1 and base 1 at $x = 4$ to $5$)"
+      ],
+      "scoring_notes": "Values from graph (semicircle from $x=0$ to $x=4$ with radius 2, two line segments from $x=4$ to $x=7$): $f(0) = 3 + 2\\pi$ (from $f(4)$ plus the area of the semicircle going backward), $f(5) = \\frac{7}{2}$. Labels required for single values. A response with only one correct value and work earns 2/3.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "Find the $x$-coordinates of all points of inflection of the graph of $f$ for $0 < x < 7$. Justify your answer.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct $x$-coordinates: $x = 2$ and $x = 6$ (only these two values)",
+        "1 pt: Correct justification: $f'$ changes from decreasing to increasing at $x = 2$ (local min of $f'$), and from increasing to decreasing at $x = 6$ (local max of $f'$)"
+      ],
+      "scoring_notes": "Both $x = 2$ and $x = 6$ must be given for the answer point; any extra values lose the point. Justification must use the behavior of $f'$. A response with only one correct value and correct justification earns 1/2.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "Let $g$ be the function defined by $g(x) = f(x) - x$. On what intervals, if any, is $g$ decreasing for $0 \\le x \\le 7$? Show the analysis that leads to your answer.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: $g'(x) = f'(x) - 1$; $g$ is decreasing when $f'(x) \\le 1$",
+        "1 pt: $g$ is decreasing on $[0, 5]$ (because from the graph, $f'(x) \\le 1$ for $0 \\le x \\le 5$)"
+      ],
+      "scoring_notes": "First point earned for $g'(x) = f'(x) - 1$ or $f'(x) \\le 1$. Endpoints may or may not be included. From the graph, $f'(x) = 1$ at $x = 5$ (where the line segment from the semicircle/line meets value 1). Interval $[0, 5]$ or $(0, 5)$ acceptable.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "d",
+      "prompt": "For the function $g$ defined in part (c), find the absolute minimum value on the interval $0 \\le x \\le 7$. Justify your answer.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Considers $g'(x) = 0$: $f'(x) = 1$ at $x = 5$; $x = 5$ is the only critical point in $(0, 7)$",
+        "1 pt: Correct answer with justification: absolute minimum value is $g(5) = f(5) - 5 = \\frac{7}{2} - 5 = -\\frac{3}{2}$; since $g'(x) < 0$ for $0 < x < 5$ and $g'(x) > 0$ for $5 < x < 7$, minimum is at $x = 5$"
+      ],
+      "scoring_notes": "Must state $g'(x) = 0$ (not just identify $x = 5$). Absolute minimum value is $-\\frac{3}{2}$ (not just $x = 5$). Candidates test: compare $g(0) = 3 + 2\\pi$, $g(5) = -\\frac{3}{2}$, $g(7) = -\\frac{1}{2}$. A local argument without stating $x = 5$ is the only critical point does not earn the justification point.",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

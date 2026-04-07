@@ -1,0 +1,54 @@
+{
+  "id": "calc-ab-2008-frq-5",
+  "subject": "ap-calculus-ab",
+  "year": 2008,
+  "source": "released",
+  "title": "Differential Equation dy/dx = (y-1)/x² — Slope Field, Particular Solution with f(2)=0, Limit at Infinity",
+  "frq_type": "multi_part_math",
+  "related_units": [7],
+  "calculator_allowed": false,
+  "total_points": 9,
+  "stimulus": "Consider the differential equation $\\dfrac{dy}{dx} = \\dfrac{y - 1}{x^2}$, where $x \\ne 0$.",
+  "stimulus_image": null,
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "On the axes provided, sketch a slope field for the given differential equation at the nine points indicated. (Note: Use the axes provided in the exam booklet.)",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Zero slopes drawn correctly — at $y = 1$ (any $x \\ne 0$), slope is $0$; the three points with $y = 1$ have horizontal segments",
+        "1 pt: All other slopes drawn with correct sign and relative steepness — slopes are positive where $y > 1$ and negative where $y < 1$; steeper when $|x|$ is small"
+      ],
+      "scoring_notes": "From scoring key: $dy/dx = (y-1)/x^2$. At $y=1$ the slope is 0. For $y > 1$ slopes are positive; for $y < 1$ slopes are negative. Slopes are larger in magnitude near $x = 0$ than near $x = \\pm 2$.",
+      "requires_drawing": true,
+      "reference_image": "/data/ap-calculus-ab/frq/images/calc-08-frq-p6-img1.png"
+    },
+    {
+      "letter": "b",
+      "prompt": "Find the particular solution $y = f(x)$ to the differential equation with the initial condition $f(2) = 0$.",
+      "point_value": 6,
+      "rubric_criteria": [
+        "1 pt: Separates variables correctly: $\\dfrac{1}{y-1}\\, dy = \\dfrac{1}{x^2}\\, dx$",
+        "2 pts: Antidifferentiates both sides correctly: $\\ln|y - 1| = -\\dfrac{1}{x} + C$",
+        "1 pt: Includes constant of integration",
+        "1 pt: Uses initial condition $f(2) = 0$: $\\ln|0-1| = -\\dfrac{1}{2} + C \\Rightarrow C = \\dfrac{1}{2}$, giving $k = -e^{1/2}$",
+        "1 pt: Solves for $y$: $f(x) = 1 - e^{\\left(\\frac{1}{2} - \\frac{1}{x}\\right)}$, $x > 0$"
+      ],
+      "scoring_notes": "From scoring key: Separation gives $\\ln|y-1| = -1/x + C$. Using $f(2) = 0$: $\\ln 1 = -1/2 + C \\Rightarrow C = 1/2$. Then $y - 1 = ke^{-1/x}$ with $k = -e^{1/2}$, so $f(x) = 1 - e^{(1/2 - 1/x)}$, $x > 0$. Max 3/6 [1-2-0-0-0] if no constant of integration. 0/6 if no separation of variables.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "For the particular solution $y = f(x)$ described in part (b), find $\\displaystyle\\lim_{x \\to \\infty} f(x)$.",
+      "point_value": 1,
+      "rubric_criteria": [
+        "1 pt: Correct limit: $\\displaystyle\\lim_{x \\to \\infty} \\left(1 - e^{\\left(\\frac{1}{2} - \\frac{1}{x}\\right)}\\right) = 1 - e^{1/2} = 1 - \\sqrt{e}$"
+      ],
+      "scoring_notes": "From scoring key: As $x \\to \\infty$, $1/x \\to 0$, so the exponent approaches $1/2$. $\\lim_{x\\to\\infty} f(x) = 1 - e^{1/2} = 1 - \\sqrt{e}$.",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

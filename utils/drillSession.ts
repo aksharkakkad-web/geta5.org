@@ -115,13 +115,13 @@ export function handleSessionComplete(session: SessionState, subject: string): v
   const correctCount = Object.values(session.answers).filter(a => a.verdict === 'correct').length
   const totalCards = session.cards.length
 
-  // Always increment total questions (retry + Study All included)
-  const prevTotal = lsGet<number>(LS_KEYS.totalQuestions, 0)
-  lsSet(LS_KEYS.totalQuestions, prevTotal + totalCards)
+  // NOTE: totalQuestions is now incremented per-card in DrillSession.tsx to enable
+  // mid-session freemium gating. We do NOT increment it here to avoid double-counting.
 
   // Sync stats to Supabase
+  const prevTotal = lsGet<number>(LS_KEYS.totalQuestions, 0)
   const streak = lsGet<{ count: number; lastPracticeDate: string } | null>(LS_KEYS.streak, null)
-  saveStats(prevTotal + totalCards, streak?.count ?? 0, streak?.lastPracticeDate ?? null)
+  saveStats(prevTotal, streak?.count ?? 0, streak?.lastPracticeDate ?? null)
 
   // Write drillAccuracy for non-retry sessions
   if (!session.isRetry) {

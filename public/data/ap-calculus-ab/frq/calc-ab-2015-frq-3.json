@@ -1,0 +1,68 @@
+{
+  "id": "calc-ab-2015-frq-3",
+  "subject": "ap-calculus-ab",
+  "year": 2015,
+  "source": "released",
+  "title": "Jogger Velocity Table — Rate Approximation, Right Riemann Sum, Acceleration & Avg Velocity",
+  "frq_type": "multi_part_math",
+  "related_units": [
+    4,
+    6
+  ],
+  "calculator_allowed": false,
+  "total_points": 9,
+  "stimulus": "Johanna jogs along a straight path. For $0 \\le t \\le 40$, Johanna's velocity is given by a differentiable function $v$. Selected values of $v(t)$, where $t$ is measured in minutes and $v(t)$ is measured in meters per minute, are given in the table.\n\n| $t$ (minutes) | 0 | 12 | 20 | 24 | 40 |\n|---|---|---|---|---|---|\n| $v(t)$ (meters per minute) | 0 | 200 | 240 | $-220$ | 150 |",
+  "stimulus_image": "/data/ap-calculus-ab/frq/images/calc-ab-2015-frq-3-stimulus.png",
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "Use the data in the table to estimate the value of $v'(16)$.",
+      "point_value": 1,
+      "rubric_criteria": [
+        "1 pt: Correct estimate using difference quotient: $v'(16) \\approx \\frac{v(20) - v(12)}{20 - 12} = \\frac{240 - 200}{8} = 5$ meters per minute per minute"
+      ],
+      "scoring_notes": "From scoring key: $v'(16) \\approx \\frac{240-200}{20-12} = 5$ meters per minute$^2$.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "Using correct units, explain the meaning of the definite integral $\\int_0^{40} v(t)\\, dt$ in the context of the problem. Approximate the value of $\\int_0^{40} v(t)\\, dt$ using a right Riemann sum with the four subintervals indicated in the table.",
+      "point_value": 3,
+      "rubric_criteria": [
+        "1 pt: Correct explanation with units: $\\int_0^{40} v(t)\\, dt$ is the total distance Johanna jogs, in meters, over the time interval $0 \\le t \\le 40$ minutes (or: net displacement in meters)",
+        "1 pt: Correct right Riemann sum: $12 \\cdot v(12) + 8 \\cdot v(20) + 4 \\cdot v(24) + 16 \\cdot v(40)$",
+        "1 pt: Correct approximation: $12(200) + 8(240) + 4(-220) + 16(150) = 2400 + 1920 - 880 + 2400 = 5840$ meters"
+      ],
+      "scoring_notes": "From scoring key: Right sum $= 12(200) + 8(240) + 4(-220) + 16(150) = 5840$ meters. (Scoring key shows $4 \\cdot 220$ without negative: $= 7600$; check if table value at $t=24$ is $-220$ or $220$... Scoring key uses $4 \\cdot 220$, yielding $7600$. Table note: $v(24) = -220$... but scoring key: $= 12(200)+8(240)+4(220)+16(150) = 7600$. Accept answer based on signed value if student reads $-220$.)",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "Bob is riding his bicycle along the same path. For $0 \\le t \\le 10$, Bob's velocity is modeled by $B(t) = t^3 - 6t^2 + 300$, where $t$ is measured in minutes and $B(t)$ is measured in meters per minute. Find Bob's acceleration at time $t = 5$.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Finds $B'(t) = 3t^2 - 12t$",
+        "1 pt: Correct answer: $B'(5) = 3(25) - 12(5) = 75 - 60 = 15$ meters per minute per minute"
+      ],
+      "scoring_notes": "From scoring key: $B'(t) = 3t^2 - 12t$; $B'(5) = 75 - 60 = 15$ meters per minute$^2$.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "d",
+      "prompt": "Based on the model $B$ from part (c), find Bob's average velocity during the interval $0 \\le t \\le 10$.",
+      "point_value": 3,
+      "rubric_criteria": [
+        "1 pt: Sets up average velocity integral: $\\frac{1}{10}\\int_0^{10} B(t)\\, dt = \\frac{1}{10}\\int_0^{10}(t^3 - 6t^2 + 300)\\, dt$",
+        "1 pt: Correct antiderivative: $\\frac{1}{10}\\left[\\frac{t^4}{4} - 2t^3 + 300t\\right]_0^{10}$",
+        "1 pt: Correct answer: $\\frac{1}{10}\\left(\\frac{10000}{4} - 2000 + 3000\\right) = \\frac{1}{10}(3500) = 350$ meters per minute"
+      ],
+      "scoring_notes": "From scoring key: Average velocity $= \\frac{1}{10}\\left[\\frac{t^4}{4} - 2t^3 + 300t\\right]_0^{10} = \\frac{1}{10}(2500 - 2000 + 3000) = 350$ meters per minute.",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "id": "calc-ab-2010-frq-1",
+  "subject": "ap-calculus-ab",
+  "year": 2010,
+  "source": "released",
+  "title": "Janet's Driveway Snow f(t)=7te^(cos t) and Piecewise g(t) — Accumulation, Rate & Piecewise h(t)",
+  "frq_type": "multi_part_math",
+  "related_units": [4, 6, 8],
+  "calculator_allowed": true,
+  "total_points": 9,
+  "stimulus": "There is no snow on Janet's driveway when snow begins to fall at midnight. From midnight to 9 A.M., snow accumulates on the driveway at a rate modeled by $f(t) = 7te^{\\cos t}$ cubic feet per hour, where $t$ is measured in hours since midnight. Janet starts removing snow at 6 A.M. ($t = 6$). The rate $g(t)$, in cubic feet per hour, at which Janet removes snow from the driveway at time $t$ hours after midnight is modeled by\n$$g(t) = \\begin{cases} 0 & 0 \\le t < 6 \\\\ 125 & 6 \\le t < 7 \\\\ 108 & 7 \\le t \\le 9 \\end{cases}$$",
+  "stimulus_image": null,
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "How many cubic feet of snow have accumulated on the driveway by 6 A.M.?",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Sets up the correct integral: $\\int_0^6 f(t)\\, dt$",
+        "1 pt: Correct answer: $\\int_0^6 7te^{\\cos t}\\, dt \\approx 142.274$ cubic feet"
+      ],
+      "scoring_notes": "From scoring key: $\\int_0^6 f(t)\\, dt = 142.274$ or $142.275$ cubic feet.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "Find the rate of change of the volume of snow on the driveway at 8 A.M.",
+      "point_value": 1,
+      "rubric_criteria": [
+        "1 pt: Correct answer with setup: rate of change $= f(8) - g(8) = f(8) - 108 \\approx -59.582$ cubic feet per hour"
+      ],
+      "scoring_notes": "From scoring key: Rate of change is $f(8) - g(8) \\approx -59.582$ or $-59.583$ cubic feet per hour.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "Let $h(t)$ represent the total amount of snow, in cubic feet, that Janet has removed from the driveway at time $t$ hours after midnight. Express $h$ as a piecewise-defined function with domain $0 \\le t \\le 9$.",
+      "point_value": 3,
+      "rubric_criteria": [
+        "1 pt: Correct $h(t)$ for $0 \\le t \\le 6$: $h(t) = 0$",
+        "1 pt: Correct $h(t)$ for $6 < t \\le 7$: $h(t) = 125(t - 6)$",
+        "1 pt: Correct $h(t)$ for $7 < t \\le 9$: $h(t) = 125 + 108(t - 7)$"
+      ],
+      "scoring_notes": "From scoring key: $h(t) = \\begin{cases} 0 & 0 \\le t \\le 6 \\\\ 125(t-6) & 6 < t \\le 7 \\\\ 125 + 108(t-7) & 7 < t \\le 9 \\end{cases}$",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "d",
+      "prompt": "How many cubic feet of snow are on the driveway at 9 A.M.?",
+      "point_value": 3,
+      "rubric_criteria": [
+        "1 pt: Sets up correct expression: $\\int_0^9 f(t)\\, dt - h(9)$",
+        "1 pt: Correct value of $h(9)$: $h(9) = 125 + 108(9-7) = 125 + 216 = 341$",
+        "1 pt: Correct answer: $\\int_0^9 f(t)\\, dt - 341 \\approx 26.334$ cubic feet"
+      ],
+      "scoring_notes": "From scoring key: Amount of snow $= \\int_0^9 f(t)\\, dt - h(9) \\approx 26.334$ or $26.335$ cubic feet.",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

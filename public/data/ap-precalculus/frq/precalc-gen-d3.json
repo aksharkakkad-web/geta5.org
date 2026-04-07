@@ -1,0 +1,52 @@
+{
+  "id": "precalc-gen-d3",
+  "subject": "ap-precalculus",
+  "year": null,
+  "source": "generated",
+  "title": "Sinusoidal Modeling: Tidal Depth & Polar Curve Analysis",
+  "frq_type": "multi_part_math",
+  "related_units": [3],
+  "calculator_allowed": false,
+  "total_points": 6,
+  "stimulus": "The depth of water at the entrance to a harbor changes sinusoidally with time due to tides. At time $t = 0$ hours, the depth is at the midline value of $8$ meters and decreasing. The amplitude of the tidal variation is $3$ meters, and the period is $12.4$ hours.",
+  "stimulus_image": null,
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "The depth $D$ of the water in meters at time $t$ hours can be written as $D(t) = a\\sin(b(t - c)) + d$.\n\n(i) Find values of $a$, $b$, $c$, and $d$.\n\n(ii) The graph of $D$ and its dashed midline for one full cycle is shown, with five labeled points $A$, $B$, $C$, $E$, $F$ starting at the midline (decreasing) and going through one complete cycle. No scale is indicated. Determine possible coordinates $(t, D(t))$ for these five points.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct parameter values — $a = -3$ (amplitude $= 3$, negative because function is decreasing at $t = 0$), $d = 8$ (midline), $b = \\frac{2\\pi}{12.4} = \\frac{\\pi}{6.2}$, $c = 0$ (starts at midline with downward motion, consistent with $-3\\sin(bt)$); accept $a = 3$ with $c = 6.2$ (quarter-period phase shift from minimum); so $D(t) = -3\\sin\\left(\\frac{\\pi}{6.2}t\\right) + 8$",
+        "1 pt: Correct coordinates — $A = (0, 8)$, $B = (3.1, 5)$, $C = (6.2, 8)$, $E = (9.3, 11)$, $F = (12.4, 8)$; $t$-coordinates spaced $3.1$ hours apart (quarter period $= 12.4/4 = 3.1$); $D$-coordinates: midline ($8$), minimum ($5$), midline ($8$), maximum ($11$), midline ($8$); all five coordinates required"
+      ],
+      "scoring_notes": "Multiple valid parameterizations exist. With $D(t) = -3\\sin(\\pi t/6.2) + 8$: at $t=0$, $D = 8$ (midline); at $t = 3.1$, $D = 5$ (minimum); at $t = 6.2$, $D = 8$ (midline); at $t = 9.3$, $D = 11$ (maximum); at $t = 12.4$, $D = 8$ (midline). For part (ii), fractions are acceptable: quarter period $= 31/10 = 3.1$. Negative $t$-values acceptable. Partial credit if all $D$-coordinates are correct but $t$-spacing is wrong, or vice versa.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "(i) Find all values of $t$ in $0 \\leq t < 12.4$ at which the water depth is exactly $6.5$ meters. Express your answers as exact values.\n\n(ii) On the interval $0 < t < 3.1$ (from midline-descending to minimum), describe the sign of $D(t) - 8$ and describe the concavity of the graph of $D$.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct solutions — $-3\\sin\\left(\\frac{\\pi}{6.2}t\\right) + 8 = 6.5 \\Rightarrow \\sin\\left(\\frac{\\pi}{6.2}t\\right) = \\frac{1}{2} \\Rightarrow \\frac{\\pi}{6.2}t = \\frac{\\pi}{6}$ or $\\frac{5\\pi}{6}$; so $t = \\frac{6.2}{6} = \\frac{31}{30}$ and $t = \\frac{6.2 \\cdot 5}{6} = \\frac{31}{6}$; exact values $t = \\frac{31}{30}$ and $t = \\frac{31}{6}$; both required with no incorrect values",
+        "1 pt: Both descriptions correct — $D(t) - 8 < 0$ on $(0, 3.1)$ because $D < 8$ (depth is below midline, as the function is decreasing from 8 to 5) AND the graph of $D$ is concave up on $(0, 3.1)$ (the sinusoidal function $-3\\sin(bt)$ on this interval is in the downward half but is concave up, meaning the rate of decrease is slowing as it approaches the minimum)"
+      ],
+      "scoring_notes": "For part (i), exact fractions $31/30 \\approx 1.033$ and $31/6 \\approx 5.167$ are required. Decimal approximations are acceptable if derived from exact work. For part (ii), $D - 8 = -3\\sin(bt) < 0$ on $(0, 3.1)$ since $\\sin(bt) > 0$ there. The concavity of $-3\\sin(bt)$ is $-3 \\cdot (-\\sin) = +\\sin > 0$ on this interval (second derivative of sine is $-\\sin$, so second derivative of $-3\\sin$ is $+3\\sin$, which is positive), hence concave up.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "A large cargo ship requires a minimum water depth of $9.5$ meters to safely enter the harbor. Determine the total number of hours per tidal cycle (period $= 12.4$ hours) during which the cargo ship can safely enter the harbor. Express your answer as an exact value.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct setup — $-3\\sin\\left(\\frac{\\pi}{6.2}t\\right) + 8 \\geq 9.5 \\Rightarrow -3\\sin\\left(\\frac{\\pi}{6.2}t\\right) \\geq 1.5 \\Rightarrow \\sin\\left(\\frac{\\pi}{6.2}t\\right) \\leq -\\frac{1}{2}$; the sine function is $\\leq -1/2$ on the sub-interval corresponding to angles in $[\\pi + \\pi/6, 2\\pi - \\pi/6] = [7\\pi/6, 11\\pi/6]$",
+        "1 pt: Correct total time — the sine is $\\leq -1/2$ for $\\frac{2}{3}$ of a full period (from $7\\pi/6$ to $11\\pi/6$ spans $4\\pi/6 \\cdot \\frac{1}{2\\pi} = \\frac{2\\pi/3}{2\\pi} = \\frac{1}{3}$ of the period); so total safe time $= \\frac{1}{3} \\times 12.4 = \\frac{12.4}{3} = \\frac{62}{15}$ hours (accept decimal $\\approx 4.133$ hours)"
+      ],
+      "scoring_notes": "The safe entry window is when $D \\geq 9.5$, meaning $\\sin(bt) \\leq -1/2$. The sine is $\\leq -1/2$ for the interval from $7\\pi/6$ to $11\\pi/6$ within one period ($[0, 2\\pi]$), which is a span of $4\\pi/6 = 2\\pi/3$ radians — that's $1/3$ of a full period. So the ship can enter for $12.4/3 = 62/15 \\approx 4.13$ hours per tidal cycle. Exact answer $62/15$ hours earns full credit; decimal approximation is also acceptable with work.",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "id": "calc-ab-2022-frq-1",
+  "subject": "ap-calculus-ab",
+  "year": 2022,
+  "source": "released",
+  "title": "Toll Plaza Arrival Rate — Integrals, Average Value & Optimization",
+  "frq_type": "multi_part_math",
+  "related_units": [4, 5, 6],
+  "calculator_allowed": true,
+  "total_points": 9,
+  "stimulus": "From 5 A.M. to 10 A.M., the rate at which vehicles arrive at a certain toll plaza is given by $A(t) = 450\\sin(0.62t)$, where $t$ is the number of hours after 5 A.M. and $A(t)$ is measured in vehicles per hour. Traffic is flowing smoothly at 5 A.M. with no vehicles waiting in line.",
+  "stimulus_image": null,
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "Write, but do not evaluate, an integral expression that gives the total number of vehicles that arrive at the toll plaza from 6 A.M. ($t = 1$) to 10 A.M. ($t = 5$).",
+      "point_value": 1,
+      "rubric_criteria": [
+        "1 pt: Correct definite integral with correct limits: $\\int_1^5 A(t)\\, dt$ or equivalently $\\int_1^5 450\\sin(0.62t)\\, dt$"
+      ],
+      "scoring_notes": "Must be a definite integral with lower limit $1$ and upper limit $5$. Missing $dt$ or using $dx$ is still eligible. A copy error in $A(t)$ is acceptable only if $\\int_1^5 A(t)\\, dt$ is also present.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "Find the average value of the rate, in vehicles per hour, at which vehicles arrive at the toll plaza from 6 A.M. ($t = 1$) to 10 A.M. ($t = 5$).",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Uses average value formula: $\\frac{1}{5-1}\\int_1^5 A(t)\\, dt$",
+        "1 pt: Correct answer: $\\frac{1}{4}\\int_1^5 A(t)\\, dt \\approx 375.537$ (or $375.536$) vehicles per hour"
+      ],
+      "scoring_notes": "Average value formula must indicate $a = 1$ and $b = 5$, in single or multiple steps. Incorrect communication between integral and answer earns 1/2 points. Answer must be correct to three decimal places.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "Is the rate at which vehicles arrive at the toll plaza at 6 A.M. ($t = 1$) increasing or decreasing? Give a reason for your answer.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Considers $A'(1)$: $A'(1) \\approx 148.947 > 0$",
+        "1 pt: The rate is increasing at $t = 1$ because $A'(1) > 0$"
+      ],
+      "scoring_notes": "May present only the conclusion '$A'(1) > 0$, so increasing' to earn both points. If a value is given it must be correct. Must reference $t = 1$ for second point.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "d",
+      "prompt": "A line forms whenever $A(t) \\ge 400$. The number of vehicles in line at time $t$, for $a \\le t \\le 4$, is given by $N(t) = \\int_a^t (A(x) - 400)\\, dx$, where $a$ is the time when a line first begins to form. To the nearest whole number, find the greatest number of vehicles in line at the toll plaza in the time interval $a \\le t \\le 4$. Justify your answer.",
+      "point_value": 4,
+      "rubric_criteria": [
+        "1 pt: Considers $N'(t) = A(t) - 400 = 0$ to find critical points",
+        "1 pt: Identifies $a \\approx 1.469$ and $b \\approx 3.598$ (the times when $A(t) = 400$)",
+        "1 pt: Correct answer: greatest number of vehicles in line is $71$ (from $N(b) \\approx 71.254$)",
+        "1 pt: Correct justification (candidates test): $N(a) = 0$, $N(b) \\approx 71.254$, $N(4) \\approx 62.338$; maximum at $t = b$"
+      ],
+      "scoring_notes": "First point: considers $N'(t) = 0$ or $A(t) = 400$. Second point: values $a \\approx 1.469$ and $b \\approx 3.598$ accurate to at least one decimal. Third point: answer $71$ (rounded). Fourth point: candidates test with all three values ($N(a)$, $N(b)$, $N(4)$) correct. Alternate: $N(t)$ increasing on $(a,b)$, decreasing on $(b,4)$, so maximum at $t = b$.",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

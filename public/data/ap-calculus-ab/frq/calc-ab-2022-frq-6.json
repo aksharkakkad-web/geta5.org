@@ -1,0 +1,65 @@
+{
+  "id": "calc-ab-2022-frq-6",
+  "subject": "ap-calculus-ab",
+  "year": 2022,
+  "source": "released",
+  "title": "Two Particles — Velocity, Acceleration, Position & End Behavior",
+  "frq_type": "multi_part_math",
+  "related_units": [4, 6, 8],
+  "calculator_allowed": false,
+  "total_points": 9,
+  "stimulus": "Particle $P$ moves along the $x$-axis such that, for time $t > 0$, its position is given by $x_P(t) = 6 - 4e^{-t}$. Particle $Q$ moves along the $y$-axis such that, for time $t > 0$, its velocity is given by $v_Q(t) = \\frac{1}{t^2}$. At time $t = 1$, the position of particle $Q$ is $y_Q(1) = 2$.",
+  "stimulus_image": null,
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "Find $v_P(t)$, the velocity of particle $P$ at time $t$.",
+      "point_value": 1,
+      "rubric_criteria": [
+        "1 pt: $v_P(t) = x_P'(t) = 4e^{-t}$"
+      ],
+      "scoring_notes": "Must differentiate $x_P(t)$. A response equating $x_P(t)$ with $v_P(t)$ does not earn the point.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "Find $a_Q(t)$, the acceleration of particle $Q$ at time $t$. Find all times $t$, for $t > 0$, when the speed of particle $Q$ is decreasing. Justify your answer.",
+      "point_value": 3,
+      "rubric_criteria": [
+        "1 pt: $a_Q(t) = v_Q'(t) = -\\frac{2}{t^3}$",
+        "1 pt: For $t > 0$: $a_Q(t) < 0$ and $v_Q(t) = \\frac{1}{t^2} > 0$ (opposite signs)",
+        "1 pt: Speed is decreasing for all $t > 0$ because velocity and acceleration have opposite signs"
+      ],
+      "scoring_notes": "Second point: must consider signs of both $v_Q(t)$ and $a_Q(t)$. Third point: answer must be consistent with presented justification. A response indicating $v_Q(t) < 0$ does not earn the third point.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "Find $y_Q(t)$, the position of particle $Q$ at time $t$.",
+      "point_value": 3,
+      "rubric_criteria": [
+        "1 pt: Correct integral setup: $y_Q(t) = y_Q(1) + \\int_1^t v_Q(s)\\, ds = 2 + \\int_1^t \\frac{1}{s^2}\\, ds$",
+        "1 pt: Uses initial condition $y_Q(1) = 2$",
+        "1 pt: Correct answer: $y_Q(t) = 2 + \\left[-\\frac{1}{s}\\right]_1^t = 2 + \\left(-\\frac{1}{t} + 1\\right) = 3 - \\frac{1}{t}$"
+      ],
+      "scoring_notes": "Integral point earned for presenting $\\int \\frac{1}{t^2}\\, dt$ or $-\\frac{1}{t}$ (with no integral). A response of $y_Q(t) = -\\frac{1}{t} + 3$ earns all three points. $y_Q(t) = -\\frac{1}{t} + C$ with $C \\ne 3$ earns only first point.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "d",
+      "prompt": "As $t \\to \\infty$, which particle will eventually be farther from the origin? Give a reason for your answer.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: One correct limit: $\\lim_{t\\to\\infty} x_P(t) = \\lim_{t\\to\\infty}(6 - 4e^{-t}) = 6$ and $\\lim_{t\\to\\infty} y_Q(t) = \\lim_{t\\to\\infty}\\left(3 - \\frac{1}{t}\\right) = 3$",
+        "1 pt: Particle $P$ will eventually be farther from the origin because $6 > 3$"
+      ],
+      "scoring_notes": "Must present at least one correct limit. Statements such as '$x_P(t)$ approaches $6$' earn first point. A response that treats $\\infty$ as an input (e.g., $6 - 4e^{-\\infty}$) is not eligible for second point.",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

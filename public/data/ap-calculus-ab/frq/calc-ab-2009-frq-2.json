@@ -1,0 +1,65 @@
+{
+  "id": "calc-ab-2009-frq-2",
+  "subject": "ap-calculus-ab",
+  "year": 2009,
+  "source": "released",
+  "title": "Rock Concert Auditorium R(t)=1380t²-675t³ — People Count, Max Rate, Total Wait Time & Average Wait",
+  "frq_type": "multi_part_math",
+  "related_units": [4, 5, 6],
+  "calculator_allowed": true,
+  "total_points": 9,
+  "stimulus": "The rate at which people enter an auditorium for a rock concert is modeled by the function $R$ given by $R(t) = 1380t^2 - 675t^3$ for $0 \\le t \\le 2$ hours; $R(t)$ is measured in people per hour. No one is in the auditorium at time $t = 0$, when the doors open. The doors close and the concert begins at time $t = 2$.",
+  "stimulus_image": null,
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "How many people are in the auditorium when the concert begins?",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Sets up the integral: $\\int_0^2 R(t)\\, dt$",
+        "1 pt: Correct answer: $\\int_0^2 (1380t^2 - 675t^3)\\, dt = 980$ people"
+      ],
+      "scoring_notes": "From scoring key: $\\int_0^2 R(t)\\, dt = 980$ people.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "Find the time when the rate at which people enter the auditorium is a maximum. Justify your answer.",
+      "point_value": 3,
+      "rubric_criteria": [
+        "1 pt: Considers $R'(t) = 0$: $R'(t) = 2760t - 2025t^2 = t(2760 - 2025t) = 0$ at $t = 0$ and $t \\approx 1.362$",
+        "1 pt: Identifies interior critical point $t \\approx 1.362$ and considers $t = 0$ and $t = 2$",
+        "1 pt: Correct answer with justification: $R(0) = 0$, $R(1.362) \\approx 854.527$, $R(2) = 120$; maximum rate at $t \\approx 1.362$ or $1.363$ hours"
+      ],
+      "scoring_notes": "From scoring key: $R'(t) = 0$ when $t = 0$ and $t \\approx 1.362$ or $1.363$. Maximum rate at $t \\approx 1.362$ hours.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "The total wait time for all the people in the auditorium is found by adding the time each person waits, starting at the time the person enters the auditorium and ending when the concert begins. The function $w$ models the total wait time for all the people who enter the auditorium before time $t$. The derivative of $w$ is given by $w'(t) = (2 - t)R(t)$. Find $w(2) - w(1)$, the total wait time for those who enter the auditorium after time $t = 1$.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Sets up integral: $w(2) - w(1) = \\int_1^2 w'(t)\\, dt = \\int_1^2 (2-t)R(t)\\, dt$",
+        "1 pt: Correct answer: $\\int_1^2 (2-t)(1380t^2 - 675t^3)\\, dt \\approx 387.5$ hours"
+      ],
+      "scoring_notes": "From scoring key: $w(2) - w(1) = \\int_1^2 (2-t)R(t)\\, dt = 387.5$ hours total wait time.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "d",
+      "prompt": "On average, how long does a person wait in the auditorium for the concert to begin? Consider all people who enter the auditorium after the doors open, and use the model for total wait time from part (c).",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Sets up correct expression: $\\frac{w(2)}{980} = \\frac{1}{980}\\int_0^2 (2-t)R(t)\\, dt$",
+        "1 pt: Correct answer: $\\frac{1}{980}\\int_0^2 (2-t)(1380t^2 - 675t^3)\\, dt \\approx 0.775$ or $0.776$ hour"
+      ],
+      "scoring_notes": "From scoring key: Average wait $= \\frac{w(2)}{980} = \\frac{1}{980}\\int_0^2 (2-t)R(t)\\, dt \\approx 0.775$ or $0.776$ hour.",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

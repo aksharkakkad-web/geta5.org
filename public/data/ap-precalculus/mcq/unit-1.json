@@ -11,18 +11,63 @@
       "stimulus": {
         "type": "table",
         "content": {
-          "headers": ["$x$", "$f(x)$"],
-          "rows": [["0","3"],["1","7"],["2","11"],["3","15"],["4","19"]]
+          "headers": [
+            "$x$",
+            "$f(x)$"
+          ],
+          "rows": [
+            [
+              "0",
+              "3"
+            ],
+            [
+              "1",
+              "7"
+            ],
+            [
+              "2",
+              "11"
+            ],
+            [
+              "3",
+              "15"
+            ],
+            [
+              "4",
+              "19"
+            ]
+          ]
         }
       },
       "question": "The table above shows selected values of the function $f$. Which of the following best describes the average rate of change of $f$ over the interval $[1, 3]$?",
       "choices": [
-        { "id": "A", "text": "$2$", "is_correct": false, "explanation": "This is the average rate of change over a unit interval, not over $[1,3]$. Applying the formula: $\\frac{f(3)-f(1)}{3-1}=\\frac{15-7}{2}=4$." },
-        { "id": "B", "text": "$4$", "is_correct": true, "explanation": "$\\frac{f(3)-f(1)}{3-1}=\\frac{15-7}{2}=\\frac{8}{2}=4$. This is the slope of the secant line through $(1,7)$ and $(3,15)$." },
-        { "id": "C", "text": "$6$", "is_correct": false, "explanation": "$6$ does not result from applying the average rate of change formula to any pair of values in this table over the interval $[1,3]$." },
-        { "id": "D", "text": "$8$", "is_correct": false, "explanation": "$8=f(3)-f(1)$ is only the change in output; to get the average rate of change, divide by the length of the interval: $\\frac{8}{2}=4$." }
+        {
+          "id": "A",
+          "text": "$2$",
+          "is_correct": false,
+          "explanation": "This is the average rate of change over a unit interval, not over $[1,3]$. Applying the formula: $\\frac{f(3)-f(1)}{3-1}=\\frac{15-7}{2}=4$."
+        },
+        {
+          "id": "B",
+          "text": "$4$",
+          "is_correct": true,
+          "explanation": "$\\frac{f(3)-f(1)}{3-1}=\\frac{15-7}{2}=\\frac{8}{2}=4$. This is the slope of the secant line through $(1,7)$ and $(3,15)$."
+        },
+        {
+          "id": "C",
+          "text": "$6$",
+          "is_correct": false,
+          "explanation": "$6$ does not result from applying the average rate of change formula to any pair of values in this table over the interval $[1,3]$."
+        },
+        {
+          "id": "D",
+          "text": "$8$",
+          "is_correct": false,
+          "explanation": "$8=f(3)-f(1)$ is only the change in output; to get the average rate of change, divide by the length of the interval: $\\frac{8}{2}=4$."
+        }
       ],
-      "unit_objective": "PCF-1.A"
+      "unit_objective": "PCF-1.A",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q002",
@@ -34,20 +79,85 @@
         "content": {
           "type": "line",
           "data": {
-            "labels": ["-3","-2","-1","0","1","2","3"],
-            "datasets": [{ "label": "f(x)", "data": [9,4,1,0,1,4,9], "borderColor": "#6366f1", "backgroundColor": "transparent", "tension": 0.4 }]
+            "labels": [
+              "-3",
+              "-2",
+              "-1",
+              "0",
+              "1",
+              "2",
+              "3"
+            ],
+            "datasets": [
+              {
+                "label": "f(x)",
+                "data": [
+                  9,
+                  4,
+                  1,
+                  0,
+                  1,
+                  4,
+                  9
+                ],
+                "borderColor": "#6366f1",
+                "backgroundColor": "transparent",
+                "tension": 0.4
+              }
+            ]
           },
-          "options": { "plugins": {"legend":{"display":false}}, "scales": { "x": {"title":{"display":true,"text":"x"}}, "y": {"title":{"display":true,"text":"f(x)"}} } }
+          "options": {
+            "plugins": {
+              "legend": {
+                "display": false
+              }
+            },
+            "scales": {
+              "x": {
+                "title": {
+                  "display": true,
+                  "text": "x"
+                }
+              },
+              "y": {
+                "title": {
+                  "display": true,
+                  "text": "f(x)"
+                }
+              }
+            }
+          }
         }
       },
       "question": "The graph of $f$ is shown above. Which of the following best classifies $f$?",
       "choices": [
-        { "id": "A", "text": "Odd, because $f(-x) = -f(x)$", "is_correct": false, "explanation": "The graph is symmetric about the $y$-axis, not the origin. For an odd function, $f(1)$ would equal $-f(-1)=-1$, but here $f(1)=f(-1)=1$." },
-        { "id": "B", "text": "Even, because $f(-x) = f(x)$", "is_correct": true, "explanation": "The graph is symmetric about the $y$-axis: $f(-1)=f(1)=1$, $f(-2)=f(2)=4$, $f(-3)=f(3)=9$. This satisfies $f(-x)=f(x)$, the definition of an even function." },
-        { "id": "C", "text": "Neither even nor odd", "is_correct": false, "explanation": "The graph clearly has $y$-axis symmetry, which is the defining property of even functions." },
-        { "id": "D", "text": "Even, because the graph passes through the origin", "is_correct": false, "explanation": "Passing through the origin alone does not determine even or odd classification. The correct reason is $y$-axis symmetry, i.e., $f(-x)=f(x)$." }
+        {
+          "id": "A",
+          "text": "Odd, because $f(-x) = -f(x)$",
+          "is_correct": false,
+          "explanation": "The graph is symmetric about the $y$-axis, not the origin. For an odd function, $f(1)$ would equal $-f(-1)=-1$, but here $f(1)=f(-1)=1$."
+        },
+        {
+          "id": "B",
+          "text": "Even, because $f(-x) = f(x)$",
+          "is_correct": true,
+          "explanation": "The graph is symmetric about the $y$-axis: $f(-1)=f(1)=1$, $f(-2)=f(2)=4$, $f(-3)=f(3)=9$. This satisfies $f(-x)=f(x)$, the definition of an even function."
+        },
+        {
+          "id": "C",
+          "text": "Neither even nor odd",
+          "is_correct": false,
+          "explanation": "The graph clearly has $y$-axis symmetry, which is the defining property of even functions."
+        },
+        {
+          "id": "D",
+          "text": "Even, because the graph passes through the origin",
+          "is_correct": false,
+          "explanation": "Passing through the origin alone does not determine even or odd classification. The correct reason is $y$-axis symmetry, i.e., $f(-x)=f(x)$."
+        }
       ],
-      "unit_objective": "PCF-1.D"
+      "unit_objective": "PCF-1.D",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u1-q003",
@@ -57,18 +167,59 @@
       "stimulus": {
         "type": "table",
         "content": {
-          "headers": ["$x$", "$f(x)$"],
-          "rows": [["1","5"],["2","9"],["3","13"],["4","17"]]
+          "headers": [
+            "$x$",
+            "$f(x)$"
+          ],
+          "rows": [
+            [
+              "1",
+              "5"
+            ],
+            [
+              "2",
+              "9"
+            ],
+            [
+              "3",
+              "13"
+            ],
+            [
+              "4",
+              "17"
+            ]
+          ]
         }
       },
       "question": "The table above shows selected values of a function $f$. Which of the following best describes the average rate of change of $f$ on the interval $[2, 4]$?",
       "choices": [
-        { "id": "A", "text": "$2$", "is_correct": false, "explanation": "$2$ would result from dividing $f(4)-f(2)=8$ by $4$ instead of the correct interval length of $2$." },
-        { "id": "B", "text": "$4$", "is_correct": true, "explanation": "$\\frac{f(4)-f(2)}{4-2}=\\frac{17-9}{2}=\\frac{8}{2}=4$." },
-        { "id": "C", "text": "$6$", "is_correct": false, "explanation": "$6$ is not the result of any valid computation of $\\frac{f(4)-f(2)}{4-2}$; the numerator is $8$ and the denominator is $2$, giving $4$." },
-        { "id": "D", "text": "$8$", "is_correct": false, "explanation": "$8=f(4)-f(2)$ is only the change in output. The average rate of change divides this by the interval length $2$, giving $4$." }
+        {
+          "id": "A",
+          "text": "$2$",
+          "is_correct": false,
+          "explanation": "$2$ would result from dividing $f(4)-f(2)=8$ by $4$ instead of the correct interval length of $2$."
+        },
+        {
+          "id": "B",
+          "text": "$4$",
+          "is_correct": true,
+          "explanation": "$\\frac{f(4)-f(2)}{4-2}=\\frac{17-9}{2}=\\frac{8}{2}=4$."
+        },
+        {
+          "id": "C",
+          "text": "$6$",
+          "is_correct": false,
+          "explanation": "$6$ is not the result of any valid computation of $\\frac{f(4)-f(2)}{4-2}$; the numerator is $8$ and the denominator is $2$, giving $4$."
+        },
+        {
+          "id": "D",
+          "text": "$8$",
+          "is_correct": false,
+          "explanation": "$8=f(4)-f(2)$ is only the change in output. The average rate of change divides this by the interval length $2$, giving $4$."
+        }
       ],
-      "unit_objective": "PCF-1.A"
+      "unit_objective": "PCF-1.A",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q004",
@@ -78,18 +229,63 @@
       "stimulus": {
         "type": "table",
         "content": {
-          "headers": ["$x$", "$f(x)$"],
-          "rows": [["-2","10"],["-1","4"],["0","2"],["1","4"],["2","10"]]
+          "headers": [
+            "$x$",
+            "$f(x)$"
+          ],
+          "rows": [
+            [
+              "-2",
+              "10"
+            ],
+            [
+              "-1",
+              "4"
+            ],
+            [
+              "0",
+              "2"
+            ],
+            [
+              "1",
+              "4"
+            ],
+            [
+              "2",
+              "10"
+            ]
+          ]
         }
       },
       "question": "Based on the table above, which of the following best classifies $f$?",
       "choices": [
-        { "id": "A", "text": "Odd, because the outputs are symmetric", "is_correct": false, "explanation": "For an odd function, $f(-x)=-f(x)$. Here $f(-1)=4$ but $-f(1)=-4$; since $4\\neq -4$, $f$ is not odd." },
-        { "id": "B", "text": "Even, because $f(-x) = f(x)$ for all values in the table", "is_correct": true, "explanation": "$f(-2)=f(2)=10$, $f(-1)=f(1)=4$, $f(0)=2$. Every pair confirms $f(-x)=f(x)$, so $f$ is even." },
-        { "id": "C", "text": "Neither even nor odd, because $f(0) \\neq 0$", "is_correct": false, "explanation": "An even function does not require $f(0)=0$; it requires $f(-x)=f(x)$, which the table satisfies." },
-        { "id": "D", "text": "Odd, because $f(0) = 2$", "is_correct": false, "explanation": "An odd function requires $f(0)=0$, since $f(-0)=-f(0)$ implies $f(0)=0$. Because $f(0)=2\\neq0$, $f$ cannot be odd." }
+        {
+          "id": "A",
+          "text": "Odd, because the outputs are symmetric",
+          "is_correct": false,
+          "explanation": "For an odd function, $f(-x)=-f(x)$. Here $f(-1)=4$ but $-f(1)=-4$; since $4\\neq -4$, $f$ is not odd."
+        },
+        {
+          "id": "B",
+          "text": "Even, because $f(-x) = f(x)$ for all values in the table",
+          "is_correct": true,
+          "explanation": "$f(-2)=f(2)=10$, $f(-1)=f(1)=4$, $f(0)=2$. Every pair confirms $f(-x)=f(x)$, so $f$ is even."
+        },
+        {
+          "id": "C",
+          "text": "Neither even nor odd, because $f(0) \\neq 0$",
+          "is_correct": false,
+          "explanation": "An even function does not require $f(0)=0$; it requires $f(-x)=f(x)$, which the table satisfies."
+        },
+        {
+          "id": "D",
+          "text": "Odd, because $f(0) = 2$",
+          "is_correct": false,
+          "explanation": "An odd function requires $f(0)=0$, since $f(-0)=-f(0)$ implies $f(0)=0$. Because $f(0)=2\\neq0$, $f$ cannot be odd."
+        }
       ],
-      "unit_objective": "PCF-1.D"
+      "unit_objective": "PCF-1.D",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q005",
@@ -102,12 +298,33 @@
       },
       "question": "Which of the following best describes the end behavior of $f(x) = -2x^4 + 3x^2 - 1$?",
       "choices": [
-        { "id": "A", "text": "As $x \\to \\pm\\infty$, $f(x) \\to +\\infty$", "is_correct": false, "explanation": "A positive leading coefficient with even degree produces this behavior. Here the leading coefficient is $-2$, which is negative." },
-        { "id": "B", "text": "As $x \\to \\pm\\infty$, $f(x) \\to -\\infty$", "is_correct": true, "explanation": "Even degree ($n=4$) with negative leading coefficient ($-2$): both ends fall to $-\\infty$." },
-        { "id": "C", "text": "As $x \\to -\\infty$, $f(x) \\to +\\infty$; as $x \\to +\\infty$, $f(x) \\to -\\infty$", "is_correct": false, "explanation": "Opposite end behaviors describe odd-degree polynomials. Degree 4 is even, so both ends behave identically." },
-        { "id": "D", "text": "As $x \\to \\pm\\infty$, $f(x) \\to 0$", "is_correct": false, "explanation": "Outputs approaching $0$ describes rational functions where denominator degree exceeds numerator degree, not polynomials." }
+        {
+          "id": "A",
+          "text": "As $x \\to \\pm\\infty$, $f(x) \\to +\\infty$",
+          "is_correct": false,
+          "explanation": "A positive leading coefficient with even degree produces this behavior. Here the leading coefficient is $-2$, which is negative."
+        },
+        {
+          "id": "B",
+          "text": "As $x \\to \\pm\\infty$, $f(x) \\to -\\infty$",
+          "is_correct": true,
+          "explanation": "Even degree ($n=4$) with negative leading coefficient ($-2$): both ends fall to $-\\infty$."
+        },
+        {
+          "id": "C",
+          "text": "As $x \\to -\\infty$, $f(x) \\to +\\infty$; as $x \\to +\\infty$, $f(x) \\to -\\infty$",
+          "is_correct": false,
+          "explanation": "Opposite end behaviors describe odd-degree polynomials. Degree 4 is even, so both ends behave identically."
+        },
+        {
+          "id": "D",
+          "text": "As $x \\to \\pm\\infty$, $f(x) \\to 0$",
+          "is_correct": false,
+          "explanation": "Outputs approaching $0$ describes rational functions where denominator degree exceeds numerator degree, not polynomials."
+        }
       ],
-      "unit_objective": "PCF-1.B"
+      "unit_objective": "PCF-1.B",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q006",
@@ -120,12 +337,33 @@
       },
       "question": "Which of the following gives the zeros of $f(x) = (x-3)^2(x+1)$?",
       "choices": [
-        { "id": "A", "text": "$x = 3$ and $x = -1$ only", "is_correct": true, "explanation": "Setting $(x-3)^2=0$ gives $x=3$; setting $(x+1)=0$ gives $x=-1$. These are the only two distinct zeros." },
-        { "id": "B", "text": "$x = -3$ and $x = 1$ only", "is_correct": false, "explanation": "The signs are reversed. $(x-3)=0$ gives $x=3$ (not $-3$), and $(x+1)=0$ gives $x=-1$ (not $1$)." },
-        { "id": "C", "text": "$x = 3$, $x = 3$, and $x = -1$", "is_correct": false, "explanation": "While $x=3$ has multiplicity 2, there are still only two distinct zeros. Listing a zero twice conflates multiplicity with the number of distinct zeros." },
-        { "id": "D", "text": "$x = 0$, $x = 3$, and $x = -1$", "is_correct": false, "explanation": "There is no factor of $x$ in $f$, so $f(0)=(0-3)^2(0+1)=9\\neq0$. Zero is not a zero of this function." }
+        {
+          "id": "A",
+          "text": "$x = 3$ and $x = -1$ only",
+          "is_correct": true,
+          "explanation": "Setting $(x-3)^2=0$ gives $x=3$; setting $(x+1)=0$ gives $x=-1$. These are the only two distinct zeros."
+        },
+        {
+          "id": "B",
+          "text": "$x = -3$ and $x = 1$ only",
+          "is_correct": false,
+          "explanation": "The signs are reversed. $(x-3)=0$ gives $x=3$ (not $-3$), and $(x+1)=0$ gives $x=-1$ (not $1$)."
+        },
+        {
+          "id": "C",
+          "text": "$x = 3$, $x = 3$, and $x = -1$",
+          "is_correct": false,
+          "explanation": "While $x=3$ has multiplicity 2, there are still only two distinct zeros. Listing a zero twice conflates multiplicity with the number of distinct zeros."
+        },
+        {
+          "id": "D",
+          "text": "$x = 0$, $x = 3$, and $x = -1$",
+          "is_correct": false,
+          "explanation": "There is no factor of $x$ in $f$, so $f(0)=(0-3)^2(0+1)=9\\neq0$. Zero is not a zero of this function."
+        }
       ],
-      "unit_objective": "PCF-1.B"
+      "unit_objective": "PCF-1.B",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q007",
@@ -135,18 +373,59 @@
       "stimulus": {
         "type": "table",
         "content": {
-          "headers": ["$x$", "$f(x)$"],
-          "rows": [["0","2"],["2","6"],["4","14"],["6","26"]]
+          "headers": [
+            "$x$",
+            "$f(x)$"
+          ],
+          "rows": [
+            [
+              "0",
+              "2"
+            ],
+            [
+              "2",
+              "6"
+            ],
+            [
+              "4",
+              "14"
+            ],
+            [
+              "6",
+              "26"
+            ]
+          ]
         }
       },
       "question": "The table above shows selected values of $f$. Which of the following best compares the average rate of change on $[0,2]$ versus $[4,6]$?",
       "choices": [
-        { "id": "A", "text": "The average rate of change is greater on $[0, 2]$", "is_correct": false, "explanation": "AROC on $[0,2]=\\frac{6-2}{2}=2$; AROC on $[4,6]=\\frac{26-14}{2}=6$. The rate is smaller on $[0,2]$, not greater." },
-        { "id": "B", "text": "The average rate of change is equal on both intervals", "is_correct": false, "explanation": "AROC on $[0,2]=2$ and AROC on $[4,6]=6$. These are not equal, which means $f$ is not linear." },
-        { "id": "C", "text": "The average rate of change is greater on $[4, 6]$", "is_correct": true, "explanation": "AROC on $[0,2]=\\frac{6-2}{2}=2$; AROC on $[4,6]=\\frac{26-14}{2}=6$. The increasing rate of change indicates the function is concave up on this interval." },
-        { "id": "D", "text": "The average rate of change cannot be determined from a table", "is_correct": false, "explanation": "The average rate of change formula $\\frac{f(b)-f(a)}{b-a}$ only requires two function values, both provided in the table." }
+        {
+          "id": "A",
+          "text": "The average rate of change is greater on $[0, 2]$",
+          "is_correct": false,
+          "explanation": "AROC on $[0,2]=\\frac{6-2}{2}=2$; AROC on $[4,6]=\\frac{26-14}{2}=6$. The rate is smaller on $[0,2]$, not greater."
+        },
+        {
+          "id": "B",
+          "text": "The average rate of change is equal on both intervals",
+          "is_correct": false,
+          "explanation": "AROC on $[0,2]=2$ and AROC on $[4,6]=6$. These are not equal, which means $f$ is not linear."
+        },
+        {
+          "id": "C",
+          "text": "The average rate of change is greater on $[4, 6]$",
+          "is_correct": true,
+          "explanation": "AROC on $[0,2]=\\frac{6-2}{2}=2$; AROC on $[4,6]=\\frac{26-14}{2}=6$. The increasing rate of change indicates the function is concave up on this interval."
+        },
+        {
+          "id": "D",
+          "text": "The average rate of change cannot be determined from a table",
+          "is_correct": false,
+          "explanation": "The average rate of change formula $\\frac{f(b)-f(a)}{b-a}$ only requires two function values, both provided in the table."
+        }
       ],
-      "unit_objective": "PCF-1.A"
+      "unit_objective": "PCF-1.A",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u1-q008",
@@ -159,12 +438,33 @@
       },
       "question": "Which of the following best describes the end behavior of $g(x) = 5x^3 - 2x + 7$?",
       "choices": [
-        { "id": "A", "text": "As $x \\to -\\infty$, $g(x) \\to +\\infty$; as $x \\to +\\infty$, $g(x) \\to -\\infty$", "is_correct": false, "explanation": "This describes an odd-degree polynomial with a negative leading coefficient. Here the leading coefficient is $+5$, not negative." },
-        { "id": "B", "text": "As $x \\to \\pm\\infty$, $g(x) \\to +\\infty$", "is_correct": false, "explanation": "Both ends rising describes even-degree polynomials with positive leading coefficients. Degree 3 is odd, so the two ends must go in opposite directions." },
-        { "id": "C", "text": "As $x \\to -\\infty$, $g(x) \\to -\\infty$; as $x \\to +\\infty$, $g(x) \\to +\\infty$", "is_correct": true, "explanation": "Odd degree ($n=3$) with positive leading coefficient ($5$): left end falls, right end rises." },
-        { "id": "D", "text": "As $x \\to \\pm\\infty$, $g(x) \\to -\\infty$", "is_correct": false, "explanation": "Both ends falling describes even-degree polynomials with negative leading coefficients. This polynomial is odd-degree with a positive leading coefficient." }
+        {
+          "id": "A",
+          "text": "As $x \\to -\\infty$, $g(x) \\to +\\infty$; as $x \\to +\\infty$, $g(x) \\to -\\infty$",
+          "is_correct": false,
+          "explanation": "This describes an odd-degree polynomial with a negative leading coefficient. Here the leading coefficient is $+5$, not negative."
+        },
+        {
+          "id": "B",
+          "text": "As $x \\to \\pm\\infty$, $g(x) \\to +\\infty$",
+          "is_correct": false,
+          "explanation": "Both ends rising describes even-degree polynomials with positive leading coefficients. Degree 3 is odd, so the two ends must go in opposite directions."
+        },
+        {
+          "id": "C",
+          "text": "As $x \\to -\\infty$, $g(x) \\to -\\infty$; as $x \\to +\\infty$, $g(x) \\to +\\infty$",
+          "is_correct": true,
+          "explanation": "Odd degree ($n=3$) with positive leading coefficient ($5$): left end falls, right end rises."
+        },
+        {
+          "id": "D",
+          "text": "As $x \\to \\pm\\infty$, $g(x) \\to -\\infty$",
+          "is_correct": false,
+          "explanation": "Both ends falling describes even-degree polynomials with negative leading coefficients. This polynomial is odd-degree with a positive leading coefficient."
+        }
       ],
-      "unit_objective": "PCF-1.B"
+      "unit_objective": "PCF-1.B",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q009",
@@ -176,20 +476,85 @@
         "content": {
           "type": "line",
           "data": {
-            "labels": ["-3","-2","-1","0","1","2","3"],
-            "datasets": [{ "label": "f(x)", "data": [-27,-8,-1,0,1,8,27], "borderColor": "#6366f1", "backgroundColor": "transparent", "tension": 0.4 }]
+            "labels": [
+              "-3",
+              "-2",
+              "-1",
+              "0",
+              "1",
+              "2",
+              "3"
+            ],
+            "datasets": [
+              {
+                "label": "f(x)",
+                "data": [
+                  -27,
+                  -8,
+                  -1,
+                  0,
+                  1,
+                  8,
+                  27
+                ],
+                "borderColor": "#6366f1",
+                "backgroundColor": "transparent",
+                "tension": 0.4
+              }
+            ]
           },
-          "options": { "plugins": {"legend":{"display":false}}, "scales": { "x": {"title":{"display":true,"text":"x"}}, "y": {"title":{"display":true,"text":"f(x)"}} } }
+          "options": {
+            "plugins": {
+              "legend": {
+                "display": false
+              }
+            },
+            "scales": {
+              "x": {
+                "title": {
+                  "display": true,
+                  "text": "x"
+                }
+              },
+              "y": {
+                "title": {
+                  "display": true,
+                  "text": "f(x)"
+                }
+              }
+            }
+          }
         }
       },
       "question": "The graph of $f$ is shown above. Which of the following best classifies the symmetry of $f$?",
       "choices": [
-        { "id": "A", "text": "Even, because the graph is symmetric about the $y$-axis", "is_correct": false, "explanation": "The graph is symmetric about the origin, not the $y$-axis. At $x=1$, $f(1)=1$ but $f(-1)=-1$, so $f(-x)\\neq f(x)$." },
-        { "id": "B", "text": "Odd, because $f(-x) = -f(x)$", "is_correct": true, "explanation": "The graph has rotational symmetry about the origin: $f(-1)=-1=-f(1)$, $f(-2)=-8=-f(2)$, $f(-3)=-27=-f(3)$. This satisfies $f(-x)=-f(x)$." },
-        { "id": "C", "text": "Neither even nor odd, because $f(0) = 0$", "is_correct": false, "explanation": "$f(0)=0$ is actually consistent with odd symmetry (required for odd functions). The graph is odd, not neither." },
-        { "id": "D", "text": "Even, because every output value is either positive or negative", "is_correct": false, "explanation": "The sign of outputs has nothing to do with even/odd classification, which depends on the relationship $f(-x)=f(x)$ (even) or $f(-x)=-f(x)$ (odd)." }
+        {
+          "id": "A",
+          "text": "Even, because the graph is symmetric about the $y$-axis",
+          "is_correct": false,
+          "explanation": "The graph is symmetric about the origin, not the $y$-axis. At $x=1$, $f(1)=1$ but $f(-1)=-1$, so $f(-x)\\neq f(x)$."
+        },
+        {
+          "id": "B",
+          "text": "Odd, because $f(-x) = -f(x)$",
+          "is_correct": true,
+          "explanation": "The graph has rotational symmetry about the origin: $f(-1)=-1=-f(1)$, $f(-2)=-8=-f(2)$, $f(-3)=-27=-f(3)$. This satisfies $f(-x)=-f(x)$."
+        },
+        {
+          "id": "C",
+          "text": "Neither even nor odd, because $f(0) = 0$",
+          "is_correct": false,
+          "explanation": "$f(0)=0$ is actually consistent with odd symmetry (required for odd functions). The graph is odd, not neither."
+        },
+        {
+          "id": "D",
+          "text": "Even, because every output value is either positive or negative",
+          "is_correct": false,
+          "explanation": "The sign of outputs has nothing to do with even/odd classification, which depends on the relationship $f(-x)=f(x)$ (even) or $f(-x)=-f(x)$ (odd)."
+        }
       ],
-      "unit_objective": "PCF-1.D"
+      "unit_objective": "PCF-1.D",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u1-q010",
@@ -199,18 +564,63 @@
       "stimulus": {
         "type": "table",
         "content": {
-          "headers": ["$x$", "$f(x)$"],
-          "rows": [["0","5"],["1","2"],["2","1"],["3","2"],["4","5"]]
+          "headers": [
+            "$x$",
+            "$f(x)$"
+          ],
+          "rows": [
+            [
+              "0",
+              "5"
+            ],
+            [
+              "1",
+              "2"
+            ],
+            [
+              "2",
+              "1"
+            ],
+            [
+              "3",
+              "2"
+            ],
+            [
+              "4",
+              "5"
+            ]
+          ]
         }
       },
       "question": "The table above shows selected values for a quadratic function $f$. Which of the following best gives the vertex of $f$?",
       "choices": [
-        { "id": "A", "text": "$(0, 5)$", "is_correct": false, "explanation": "$(0,5)$ is the $y$-intercept. The vertex is at the minimum value of $f$, which is $f(2)=1$." },
-        { "id": "B", "text": "$(1, 2)$", "is_correct": false, "explanation": "$f(1)=2$ is not the minimum output. Since $f(2)=1 < 2$, the vertex is at $x=2$, not $x=1$." },
-        { "id": "C", "text": "$(2, 1)$", "is_correct": true, "explanation": "The minimum value in the table is $f(2)=1$. The symmetry confirms: $f(1)=f(3)=2$ and $f(0)=f(4)=5$, so the axis of symmetry is $x=2$ and the vertex is $(2,1)$." },
-        { "id": "D", "text": "$(3, 2)$", "is_correct": false, "explanation": "$f(3)=2=f(1)$; these are symmetric points about $x=2$. Neither is the vertex — the vertex is at the minimum $x=2$." }
+        {
+          "id": "A",
+          "text": "$(0, 5)$",
+          "is_correct": false,
+          "explanation": "$(0,5)$ is the $y$-intercept. The vertex is at the minimum value of $f$, which is $f(2)=1$."
+        },
+        {
+          "id": "B",
+          "text": "$(1, 2)$",
+          "is_correct": false,
+          "explanation": "$f(1)=2$ is not the minimum output. Since $f(2)=1 < 2$, the vertex is at $x=2$, not $x=1$."
+        },
+        {
+          "id": "C",
+          "text": "$(2, 1)$",
+          "is_correct": true,
+          "explanation": "The minimum value in the table is $f(2)=1$. The symmetry confirms: $f(1)=f(3)=2$ and $f(0)=f(4)=5$, so the axis of symmetry is $x=2$ and the vertex is $(2,1)$."
+        },
+        {
+          "id": "D",
+          "text": "$(3, 2)$",
+          "is_correct": false,
+          "explanation": "$f(3)=2=f(1)$; these are symmetric points about $x=2$. Neither is the vertex — the vertex is at the minimum $x=2$."
+        }
       ],
-      "unit_objective": "PCF-1.B"
+      "unit_objective": "PCF-1.B",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u1-q011",
@@ -222,20 +632,90 @@
         "content": {
           "type": "line",
           "data": {
-            "labels": ["-3","-2","-1","0","1","2","3"],
-            "datasets": [{ "label": "f(x)", "data": [null,null,null,3,1,-1,null], "borderColor": "#6366f1", "backgroundColor":"transparent","tension":0.1,"spanGaps":false }]
+            "labels": [
+              "-3",
+              "-2",
+              "-1",
+              "0",
+              "1",
+              "2",
+              "3"
+            ],
+            "datasets": [
+              {
+                "label": "f(x)",
+                "data": [
+                  null,
+                  null,
+                  null,
+                  3,
+                  1,
+                  -1,
+                  null
+                ],
+                "borderColor": "#6366f1",
+                "backgroundColor": "transparent",
+                "tension": 0.1,
+                "spanGaps": false
+              }
+            ]
           },
-          "options": { "plugins":{"legend":{"display":false}}, "scales": { "x":{"title":{"display":true,"text":"x"},"min":-3,"max":3}, "y":{"title":{"display":true,"text":"f(x)"},"min":-3,"max":5} } }
+          "options": {
+            "plugins": {
+              "legend": {
+                "display": false
+              }
+            },
+            "scales": {
+              "x": {
+                "title": {
+                  "display": true,
+                  "text": "x"
+                },
+                "min": -3,
+                "max": 3
+              },
+              "y": {
+                "title": {
+                  "display": true,
+                  "text": "f(x)"
+                },
+                "min": -3,
+                "max": 5
+              }
+            }
+          }
         }
       },
       "question": "A portion of the graph of $f$ is shown above, passing through $(0, 3)$ and $(2, -1)$. Which of the following gives the average rate of change of $f$ over $[0, 2]$?",
       "choices": [
-        { "id": "A", "text": "$2$", "is_correct": false, "explanation": "Dividing $\\Delta f = -1-3 = -4$ by the interval length $\\Delta x=2$ gives $-2$, not $+2$. The sign matters." },
-        { "id": "B", "text": "$-4$", "is_correct": false, "explanation": "$-4 = f(2)-f(0)$ is only the change in output. Divide by the interval length $2$: $\\frac{-4}{2}=-2$." },
-        { "id": "C", "text": "$-2$", "is_correct": true, "explanation": "$\\frac{f(2)-f(0)}{2-0}=\\frac{-1-3}{2}=\\frac{-4}{2}=-2$." },
-        { "id": "D", "text": "$4$", "is_correct": false, "explanation": "$4$ uses the absolute value of the change and also ignores the division by interval length. The average rate of change is $\\frac{-4}{2}=-2$." }
+        {
+          "id": "A",
+          "text": "$2$",
+          "is_correct": false,
+          "explanation": "Dividing $\\Delta f = -1-3 = -4$ by the interval length $\\Delta x=2$ gives $-2$, not $+2$. The sign matters."
+        },
+        {
+          "id": "B",
+          "text": "$-4$",
+          "is_correct": false,
+          "explanation": "$-4 = f(2)-f(0)$ is only the change in output. Divide by the interval length $2$: $\\frac{-4}{2}=-2$."
+        },
+        {
+          "id": "C",
+          "text": "$-2$",
+          "is_correct": true,
+          "explanation": "$\\frac{f(2)-f(0)}{2-0}=\\frac{-1-3}{2}=\\frac{-4}{2}=-2$."
+        },
+        {
+          "id": "D",
+          "text": "$4$",
+          "is_correct": false,
+          "explanation": "$4$ uses the absolute value of the change and also ignores the division by interval length. The average rate of change is $\\frac{-4}{2}=-2$."
+        }
       ],
-      "unit_objective": "PCF-1.A"
+      "unit_objective": "PCF-1.A",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u1-q012",
@@ -248,12 +728,33 @@
       },
       "question": "Which of the following gives the horizontal asymptote of $r(x) = \\frac{4x^2 - 1}{2x^2 + 3}$?",
       "choices": [
-        { "id": "A", "text": "$y = 0$", "is_correct": false, "explanation": "$y=0$ is the horizontal asymptote only when the numerator degree is less than the denominator degree. Here both have degree 2." },
-        { "id": "B", "text": "$y = 2$", "is_correct": true, "explanation": "Equal degrees: the horizontal asymptote equals the ratio of leading coefficients: $\\frac{4}{2}=2$, so $y=2$." },
-        { "id": "C", "text": "$y = 4$", "is_correct": false, "explanation": "$4$ is only the leading coefficient of the numerator. The horizontal asymptote requires dividing by the denominator's leading coefficient: $\\frac{4}{2}=2$." },
-        { "id": "D", "text": "There is no horizontal asymptote", "is_correct": false, "explanation": "No horizontal asymptote occurs only when the numerator degree exceeds the denominator degree. Here the degrees are equal, giving horizontal asymptote $y=\\frac{4}{2}=2$." }
+        {
+          "id": "A",
+          "text": "$y = 0$",
+          "is_correct": false,
+          "explanation": "$y=0$ is the horizontal asymptote only when the numerator degree is less than the denominator degree. Here both have degree 2."
+        },
+        {
+          "id": "B",
+          "text": "$y = 2$",
+          "is_correct": true,
+          "explanation": "Equal degrees: the horizontal asymptote equals the ratio of leading coefficients: $\\frac{4}{2}=2$, so $y=2$."
+        },
+        {
+          "id": "C",
+          "text": "$y = 4$",
+          "is_correct": false,
+          "explanation": "$4$ is only the leading coefficient of the numerator. The horizontal asymptote requires dividing by the denominator's leading coefficient: $\\frac{4}{2}=2$."
+        },
+        {
+          "id": "D",
+          "text": "There is no horizontal asymptote",
+          "is_correct": false,
+          "explanation": "No horizontal asymptote occurs only when the numerator degree exceeds the denominator degree. Here the degrees are equal, giving horizontal asymptote $y=\\frac{4}{2}=2$."
+        }
       ],
-      "unit_objective": "PCF-1.C"
+      "unit_objective": "PCF-1.C",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q013",
@@ -263,18 +764,63 @@
       "stimulus": {
         "type": "table",
         "content": {
-          "headers": ["$x$", "$f(x)$"],
-          "rows": [["0","3"],["1","5"],["2","9"],["3","15"],["4","23"]]
+          "headers": [
+            "$x$",
+            "$f(x)$"
+          ],
+          "rows": [
+            [
+              "0",
+              "3"
+            ],
+            [
+              "1",
+              "5"
+            ],
+            [
+              "2",
+              "9"
+            ],
+            [
+              "3",
+              "15"
+            ],
+            [
+              "4",
+              "23"
+            ]
+          ]
         }
       },
       "question": "The table above shows values of $f$. A student claims $f$ is linear. Which of the following best evaluates the claim?",
       "choices": [
-        { "id": "A", "text": "Correct, because the outputs increase as $x$ increases", "is_correct": false, "explanation": "Increasing outputs is consistent with many function types. A linear function specifically requires a constant rate of change." },
-        { "id": "B", "text": "Incorrect, because the average rates of change over consecutive unit intervals are not constant", "is_correct": true, "explanation": "AROC on $[0,1]=2$, on $[1,2]=4$, on $[2,3]=6$, on $[3,4]=8$. These are not equal, so $f$ is not linear." },
-        { "id": "C", "text": "Correct, because $f(0) = 3$ is a valid $y$-intercept", "is_correct": false, "explanation": "Every function has a value at $x=0$. The $y$-intercept alone says nothing about linearity." },
-        { "id": "D", "text": "Incorrect, because $f(0) \\neq 0$", "is_correct": false, "explanation": "Linear functions can have any $y$-intercept: $f(x)=mx+b$ gives $f(0)=b$, which need not be zero." }
+        {
+          "id": "A",
+          "text": "Correct, because the outputs increase as $x$ increases",
+          "is_correct": false,
+          "explanation": "Increasing outputs is consistent with many function types. A linear function specifically requires a constant rate of change."
+        },
+        {
+          "id": "B",
+          "text": "Incorrect, because the average rates of change over consecutive unit intervals are not constant",
+          "is_correct": true,
+          "explanation": "AROC on $[0,1]=2$, on $[1,2]=4$, on $[2,3]=6$, on $[3,4]=8$. These are not equal, so $f$ is not linear."
+        },
+        {
+          "id": "C",
+          "text": "Correct, because $f(0) = 3$ is a valid $y$-intercept",
+          "is_correct": false,
+          "explanation": "Every function has a value at $x=0$. The $y$-intercept alone says nothing about linearity."
+        },
+        {
+          "id": "D",
+          "text": "Incorrect, because $f(0) \\neq 0$",
+          "is_correct": false,
+          "explanation": "Linear functions can have any $y$-intercept: $f(x)=mx+b$ gives $f(0)=b$, which need not be zero."
+        }
       ],
-      "unit_objective": "PCF-1.A"
+      "unit_objective": "PCF-1.A",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q014",
@@ -286,20 +832,89 @@
         "content": {
           "type": "line",
           "data": {
-            "labels": ["-4","-3","-2","-1","0","1","2","3","4"],
-            "datasets": [{ "label": "f(x)", "data": [0,3,4,3,0,-3,-4,-3,0], "borderColor": "#6366f1", "backgroundColor": "transparent", "tension": 0.4 }]
+            "labels": [
+              "-4",
+              "-3",
+              "-2",
+              "-1",
+              "0",
+              "1",
+              "2",
+              "3",
+              "4"
+            ],
+            "datasets": [
+              {
+                "label": "f(x)",
+                "data": [
+                  0,
+                  3,
+                  4,
+                  3,
+                  0,
+                  -3,
+                  -4,
+                  -3,
+                  0
+                ],
+                "borderColor": "#6366f1",
+                "backgroundColor": "transparent",
+                "tension": 0.4
+              }
+            ]
           },
-          "options": { "plugins":{"legend":{"display":false}}, "scales": { "x":{"title":{"display":true,"text":"x"}}, "y":{"title":{"display":true,"text":"f(x)"}} } }
+          "options": {
+            "plugins": {
+              "legend": {
+                "display": false
+              }
+            },
+            "scales": {
+              "x": {
+                "title": {
+                  "display": true,
+                  "text": "x"
+                }
+              },
+              "y": {
+                "title": {
+                  "display": true,
+                  "text": "f(x)"
+                }
+              }
+            }
+          }
         }
       },
       "question": "The graph of $f$ is shown above. Based on the graph, which of the following best classifies $f$?",
       "choices": [
-        { "id": "A", "text": "Even, because the graph is symmetric about the $y$-axis", "is_correct": false, "explanation": "The graph is symmetric about the origin, not the $y$-axis. At $x=2$, $f(2)=-4$, while $f(-2)=4$; if it were even, $f(-2)$ would equal $f(2)=-4$." },
-        { "id": "B", "text": "Odd, because $f(-x) = -f(x)$ for all visible inputs", "is_correct": true, "explanation": "The graph has origin symmetry: $f(-2)=4=-f(2)$, $f(-1)=3=-f(1)$. This satisfies $f(-x)=-f(x)$, the definition of odd." },
-        { "id": "C", "text": "Neither even nor odd, because the graph has no axis of symmetry", "is_correct": false, "explanation": "The graph does have symmetry — origin symmetry — which classifies it as odd." },
-        { "id": "D", "text": "Even, because $f(0) = 0$", "is_correct": false, "explanation": "$f(0)=0$ is a property of odd functions (not a sufficient condition for even). Even functions require $y$-axis symmetry, which this graph does not have." }
+        {
+          "id": "A",
+          "text": "Even, because the graph is symmetric about the $y$-axis",
+          "is_correct": false,
+          "explanation": "The graph is symmetric about the origin, not the $y$-axis. At $x=2$, $f(2)=-4$, while $f(-2)=4$; if it were even, $f(-2)$ would equal $f(2)=-4$."
+        },
+        {
+          "id": "B",
+          "text": "Odd, because $f(-x) = -f(x)$ for all visible inputs",
+          "is_correct": true,
+          "explanation": "The graph has origin symmetry: $f(-2)=4=-f(2)$, $f(-1)=3=-f(1)$. This satisfies $f(-x)=-f(x)$, the definition of odd."
+        },
+        {
+          "id": "C",
+          "text": "Neither even nor odd, because the graph has no axis of symmetry",
+          "is_correct": false,
+          "explanation": "The graph does have symmetry — origin symmetry — which classifies it as odd."
+        },
+        {
+          "id": "D",
+          "text": "Even, because $f(0) = 0$",
+          "is_correct": false,
+          "explanation": "$f(0)=0$ is a property of odd functions (not a sufficient condition for even). Even functions require $y$-axis symmetry, which this graph does not have."
+        }
       ],
-      "unit_objective": "PCF-1.D"
+      "unit_objective": "PCF-1.D",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u1-q015",
@@ -311,20 +926,86 @@
         "content": {
           "type": "line",
           "data": {
-            "labels": ["-3","-2","-1","0","1","2","3"],
-            "datasets": [{ "label": "f(x)", "data": [null,0,3,4,3,0,null], "borderColor": "#6366f1", "backgroundColor": "transparent", "tension": 0.4, "spanGaps": false }]
+            "labels": [
+              "-3",
+              "-2",
+              "-1",
+              "0",
+              "1",
+              "2",
+              "3"
+            ],
+            "datasets": [
+              {
+                "label": "f(x)",
+                "data": [
+                  null,
+                  0,
+                  3,
+                  4,
+                  3,
+                  0,
+                  null
+                ],
+                "borderColor": "#6366f1",
+                "backgroundColor": "transparent",
+                "tension": 0.4,
+                "spanGaps": false
+              }
+            ]
           },
-          "options": { "plugins":{"legend":{"display":false}}, "scales": { "x":{"title":{"display":true,"text":"x"}}, "y":{"title":{"display":true,"text":"f(x)"}} } }
+          "options": {
+            "plugins": {
+              "legend": {
+                "display": false
+              }
+            },
+            "scales": {
+              "x": {
+                "title": {
+                  "display": true,
+                  "text": "x"
+                }
+              },
+              "y": {
+                "title": {
+                  "display": true,
+                  "text": "f(x)"
+                }
+              }
+            }
+          }
         }
       },
       "question": "The graph of $f$ is shown above. The function has zeros at $x = -2$ and $x = 2$ and a maximum at $(0, 4)$. Which of the following could be a formula for $f$?",
       "choices": [
-        { "id": "A", "text": "$f(x) = -(x-2)(x+2)$", "is_correct": true, "explanation": "$-(x-2)(x+2)=-(x^2-4)=-x^2+4$. Zeros at $x=\\pm2$, vertex at $(0,4)$, opens downward. This matches the graph." },
-        { "id": "B", "text": "$f(x) = (x-2)(x+2)$", "is_correct": false, "explanation": "$(x-2)(x+2)=x^2-4$ has zeros at $x=\\pm2$ but opens upward with a minimum at $(0,-4)$, not a maximum at $(0,4)$." },
-        { "id": "C", "text": "$f(x) = -(x+2)^2$", "is_correct": false, "explanation": "This has only one zero at $x=-2$ with multiplicity 2 and vertex at $(-2,0)$, not a maximum at $(0,4)$." },
-        { "id": "D", "text": "$f(x) = -(x-2)^2$", "is_correct": false, "explanation": "This has one zero at $x=2$ and vertex at $(2,0)$. There is no zero at $x=-2$ and no maximum at $(0,4)$." }
+        {
+          "id": "A",
+          "text": "$f(x) = -(x-2)(x+2)$",
+          "is_correct": true,
+          "explanation": "$-(x-2)(x+2)=-(x^2-4)=-x^2+4$. Zeros at $x=\\pm2$, vertex at $(0,4)$, opens downward. This matches the graph."
+        },
+        {
+          "id": "B",
+          "text": "$f(x) = (x-2)(x+2)$",
+          "is_correct": false,
+          "explanation": "$(x-2)(x+2)=x^2-4$ has zeros at $x=\\pm2$ but opens upward with a minimum at $(0,-4)$, not a maximum at $(0,4)$."
+        },
+        {
+          "id": "C",
+          "text": "$f(x) = -(x+2)^2$",
+          "is_correct": false,
+          "explanation": "This has only one zero at $x=-2$ with multiplicity 2 and vertex at $(-2,0)$, not a maximum at $(0,4)$."
+        },
+        {
+          "id": "D",
+          "text": "$f(x) = -(x-2)^2$",
+          "is_correct": false,
+          "explanation": "This has one zero at $x=2$ and vertex at $(2,0)$. There is no zero at $x=-2$ and no maximum at $(0,4)$."
+        }
       ],
-      "unit_objective": "PCF-1.B"
+      "unit_objective": "PCF-1.B",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u1-q016",
@@ -334,18 +1015,63 @@
       "stimulus": {
         "type": "table",
         "content": {
-          "headers": ["$x$", "$f(x)$"],
-          "rows": [["1","6"],["3","2"],["5","0"],["7","2"],["9","6"]]
+          "headers": [
+            "$x$",
+            "$f(x)$"
+          ],
+          "rows": [
+            [
+              "1",
+              "6"
+            ],
+            [
+              "3",
+              "2"
+            ],
+            [
+              "5",
+              "0"
+            ],
+            [
+              "7",
+              "2"
+            ],
+            [
+              "9",
+              "6"
+            ]
+          ]
         }
       },
       "question": "Based on the table above, which of the following is most consistent with $g$ having a minimum at $x = 5$?",
       "choices": [
-        { "id": "A", "text": "$g$ is linear on $[1, 9]$", "is_correct": false, "explanation": "A linear function has constant AROC. AROC on $[1,3]=\\frac{2-6}{2}=-2$ and AROC on $[7,9]=\\frac{6-2}{2}=2$. These differ, so $g$ is not linear." },
-        { "id": "B", "text": "$g$ is decreasing on $[1, 5]$ and increasing on $[5, 9]$", "is_correct": true, "explanation": "Outputs decrease from $x=1$ to $x=5$ ($6\\to2\\to0$) and increase from $x=5$ to $x=9$ ($0\\to2\\to6$), consistent with a minimum at $x=5$." },
-        { "id": "C", "text": "$g$ is increasing on $[1, 5]$ and decreasing on $[5, 9]$", "is_correct": false, "explanation": "This would describe a maximum at $x=5$. But $g(5)=0$ is the smallest value in the table." },
-        { "id": "D", "text": "The average rate of change on $[1, 9]$ is zero", "is_correct": false, "explanation": "$\\frac{g(9)-g(1)}{8}=\\frac{6-6}{8}=0$, which is true, but this does not confirm a minimum at $x=5$ — it only shows the same endpoint values." }
+        {
+          "id": "A",
+          "text": "$g$ is linear on $[1, 9]$",
+          "is_correct": false,
+          "explanation": "A linear function has constant AROC. AROC on $[1,3]=\\frac{2-6}{2}=-2$ and AROC on $[7,9]=\\frac{6-2}{2}=2$. These differ, so $g$ is not linear."
+        },
+        {
+          "id": "B",
+          "text": "$g$ is decreasing on $[1, 5]$ and increasing on $[5, 9]$",
+          "is_correct": true,
+          "explanation": "Outputs decrease from $x=1$ to $x=5$ ($6\\to2\\to0$) and increase from $x=5$ to $x=9$ ($0\\to2\\to6$), consistent with a minimum at $x=5$."
+        },
+        {
+          "id": "C",
+          "text": "$g$ is increasing on $[1, 5]$ and decreasing on $[5, 9]$",
+          "is_correct": false,
+          "explanation": "This would describe a maximum at $x=5$. But $g(5)=0$ is the smallest value in the table."
+        },
+        {
+          "id": "D",
+          "text": "The average rate of change on $[1, 9]$ is zero",
+          "is_correct": false,
+          "explanation": "$\\frac{g(9)-g(1)}{8}=\\frac{6-6}{8}=0$, which is true, but this does not confirm a minimum at $x=5$ — it only shows the same endpoint values."
+        }
       ],
-      "unit_objective": "PCF-1.A"
+      "unit_objective": "PCF-1.A",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u1-q017",
@@ -358,12 +1084,33 @@
       },
       "question": "Which of the following describes all transformations applied to $f(x) = x^3$ to obtain $g(x) = -2(x+3)^3 + 1$?",
       "choices": [
-        { "id": "A", "text": "Reflect over the $x$-axis, stretch vertically by 2, shift right 3, shift up 1", "is_correct": false, "explanation": "$(x+3)$ in the argument means the input is replaced by $x+3$, which shifts the graph left (not right) by 3 units." },
-        { "id": "B", "text": "Reflect over the $x$-axis, stretch vertically by 2, shift left 3, shift up 1", "is_correct": true, "explanation": "The factor $-2$ reflects over the $x$-axis and stretches vertically by 2; $(x+3)$ shifts left 3; $+1$ shifts up 1." },
-        { "id": "C", "text": "Reflect over the $y$-axis, stretch vertically by 2, shift left 3, shift up 1", "is_correct": false, "explanation": "Reflecting over the $y$-axis replaces $x$ with $-x$, giving $f(-x)$. The $-2$ coefficient reflects over the $x$-axis, not the $y$-axis." },
-        { "id": "D", "text": "Reflect over the $x$-axis, compress vertically by 2, shift left 3, shift up 1", "is_correct": false, "explanation": "A vertical stretch occurs when $|a|>1$. Since $|-2|=2>1$, the function is stretched (taller), not compressed (shorter)." }
+        {
+          "id": "A",
+          "text": "Reflect over the $x$-axis, stretch vertically by 2, shift right 3, shift up 1",
+          "is_correct": false,
+          "explanation": "$(x+3)$ in the argument means the input is replaced by $x+3$, which shifts the graph left (not right) by 3 units."
+        },
+        {
+          "id": "B",
+          "text": "Reflect over the $x$-axis, stretch vertically by 2, shift left 3, shift up 1",
+          "is_correct": true,
+          "explanation": "The factor $-2$ reflects over the $x$-axis and stretches vertically by 2; $(x+3)$ shifts left 3; $+1$ shifts up 1."
+        },
+        {
+          "id": "C",
+          "text": "Reflect over the $y$-axis, stretch vertically by 2, shift left 3, shift up 1",
+          "is_correct": false,
+          "explanation": "Reflecting over the $y$-axis replaces $x$ with $-x$, giving $f(-x)$. The $-2$ coefficient reflects over the $x$-axis, not the $y$-axis."
+        },
+        {
+          "id": "D",
+          "text": "Reflect over the $x$-axis, compress vertically by 2, shift left 3, shift up 1",
+          "is_correct": false,
+          "explanation": "A vertical stretch occurs when $|a|>1$. Since $|-2|=2>1$, the function is stretched (taller), not compressed (shorter)."
+        }
       ],
-      "unit_objective": "PCF-1.E"
+      "unit_objective": "PCF-1.E",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q018",
@@ -375,20 +1122,85 @@
         "content": {
           "type": "line",
           "data": {
-            "labels": ["-3","-2","-1","0","1","2","3"],
-            "datasets": [{ "label": "f(x)", "data": [18,4,0,0,-2,-12,-36], "borderColor": "#6366f1", "backgroundColor": "transparent", "tension": 0.4 }]
+            "labels": [
+              "-3",
+              "-2",
+              "-1",
+              "0",
+              "1",
+              "2",
+              "3"
+            ],
+            "datasets": [
+              {
+                "label": "f(x)",
+                "data": [
+                  18,
+                  4,
+                  0,
+                  0,
+                  -2,
+                  -12,
+                  -36
+                ],
+                "borderColor": "#6366f1",
+                "backgroundColor": "transparent",
+                "tension": 0.4
+              }
+            ]
           },
-          "options": { "plugins":{"legend":{"display":false}}, "scales": { "x":{"title":{"display":true,"text":"x"}}, "y":{"title":{"display":true,"text":"f(x)"}} } }
+          "options": {
+            "plugins": {
+              "legend": {
+                "display": false
+              }
+            },
+            "scales": {
+              "x": {
+                "title": {
+                  "display": true,
+                  "text": "x"
+                }
+              },
+              "y": {
+                "title": {
+                  "display": true,
+                  "text": "f(x)"
+                }
+              }
+            }
+          }
         }
       },
       "question": "The graph of a polynomial $f$ is shown above. The graph crosses the $x$-axis at $x = -1$ and touches but does not cross at $x = 0$. Which of the following could be a formula for $f$?",
       "choices": [
-        { "id": "A", "text": "$f(x) = x^2(x + 1)$", "is_correct": false, "explanation": "This has a bounce at $x=0$ (multiplicity 2) and a cross at $x=-1$ (multiplicity 1). However, the leading coefficient is positive, causing the right end to rise — contradicting the chart which falls to the right ($f(3)=-36$)." },
-        { "id": "B", "text": "$f(x) = -x^2(x + 1)$", "is_correct": true, "explanation": "Bounce at $x=0$ (even multiplicity 2) and cross at $x=-1$ (odd multiplicity 1). Leading term $-x^3$: right end falls, left end rises — consistent with the chart data $f(-3)=18$ and $f(3)=-36$." },
-        { "id": "C", "text": "$f(x) = x^3(x + 1)$", "is_correct": false, "explanation": "This has a cross at $x=0$ (odd multiplicity 3) and a cross at $x=-1$ (multiplicity 1). The graph shows a bounce at $x=0$, not a cross." },
-        { "id": "D", "text": "$f(x) = x(x + 1)^2$", "is_correct": false, "explanation": "This bounces at $x=-1$ and crosses at $x=0$ — the opposite of what the graph shows." }
+        {
+          "id": "A",
+          "text": "$f(x) = x^2(x + 1)$",
+          "is_correct": false,
+          "explanation": "This has a bounce at $x=0$ (multiplicity 2) and a cross at $x=-1$ (multiplicity 1). However, the leading coefficient is positive, causing the right end to rise — contradicting the chart which falls to the right ($f(3)=-36$)."
+        },
+        {
+          "id": "B",
+          "text": "$f(x) = -x^2(x + 1)$",
+          "is_correct": true,
+          "explanation": "Bounce at $x=0$ (even multiplicity 2) and cross at $x=-1$ (odd multiplicity 1). Leading term $-x^3$: right end falls, left end rises — consistent with the chart data $f(-3)=18$ and $f(3)=-36$."
+        },
+        {
+          "id": "C",
+          "text": "$f(x) = x^3(x + 1)$",
+          "is_correct": false,
+          "explanation": "This has a cross at $x=0$ (odd multiplicity 3) and a cross at $x=-1$ (multiplicity 1). The graph shows a bounce at $x=0$, not a cross."
+        },
+        {
+          "id": "D",
+          "text": "$f(x) = x(x + 1)^2$",
+          "is_correct": false,
+          "explanation": "This bounces at $x=-1$ and crosses at $x=0$ — the opposite of what the graph shows."
+        }
       ],
-      "unit_objective": "PCF-1.B"
+      "unit_objective": "PCF-1.B",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u1-q019",
@@ -398,18 +1210,63 @@
       "stimulus": {
         "type": "table",
         "content": {
-          "headers": ["$x$", "$f(x)$"],
-          "rows": [["0","3"],["1","5"],["2","9"],["3","15"],["4","23"]]
+          "headers": [
+            "$x$",
+            "$f(x)$"
+          ],
+          "rows": [
+            [
+              "0",
+              "3"
+            ],
+            [
+              "1",
+              "5"
+            ],
+            [
+              "2",
+              "9"
+            ],
+            [
+              "3",
+              "15"
+            ],
+            [
+              "4",
+              "23"
+            ]
+          ]
         }
       },
       "question": "The table above shows selected values of $f$. Which of the following best describes the concavity of $f$ on the interval $[0, 4]$?",
       "choices": [
-        { "id": "A", "text": "$f$ is concave down because the outputs are increasing", "is_correct": false, "explanation": "Increasing outputs indicate a positive rate of change, not concavity. Concavity is about whether the rate of change itself is increasing or decreasing." },
-        { "id": "B", "text": "$f$ is concave up because the average rate of change is increasing over consecutive intervals", "is_correct": true, "explanation": "AROC on $[0,1]=2$, $[1,2]=4$, $[2,3]=6$, $[3,4]=8$. The rate of change is increasing, so $f$ is concave up on this interval." },
-        { "id": "C", "text": "$f$ is concave down because the outputs accelerate", "is_correct": false, "explanation": "Accelerating outputs (increasing rate of change) indicate concave up, not concave down." },
-        { "id": "D", "text": "The concavity cannot be determined from a table of values", "is_correct": false, "explanation": "Comparing average rates of change over consecutive intervals directly reveals concavity: if AROC increases, the function is concave up." }
+        {
+          "id": "A",
+          "text": "$f$ is concave down because the outputs are increasing",
+          "is_correct": false,
+          "explanation": "Increasing outputs indicate a positive rate of change, not concavity. Concavity is about whether the rate of change itself is increasing or decreasing."
+        },
+        {
+          "id": "B",
+          "text": "$f$ is concave up because the average rate of change is increasing over consecutive intervals",
+          "is_correct": true,
+          "explanation": "AROC on $[0,1]=2$, $[1,2]=4$, $[2,3]=6$, $[3,4]=8$. The rate of change is increasing, so $f$ is concave up on this interval."
+        },
+        {
+          "id": "C",
+          "text": "$f$ is concave down because the outputs accelerate",
+          "is_correct": false,
+          "explanation": "Accelerating outputs (increasing rate of change) indicate concave up, not concave down."
+        },
+        {
+          "id": "D",
+          "text": "The concavity cannot be determined from a table of values",
+          "is_correct": false,
+          "explanation": "Comparing average rates of change over consecutive intervals directly reveals concavity: if AROC increases, the function is concave up."
+        }
       ],
-      "unit_objective": "PCF-1.A"
+      "unit_objective": "PCF-1.A",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u1-q020",
@@ -422,12 +1279,33 @@
       },
       "question": "Which of the following best identifies all discontinuities of $f(x) = \\frac{(x-1)(x+3)}{(x-1)(x-4)}$?",
       "choices": [
-        { "id": "A", "text": "Vertical asymptotes at $x = 1$ and $x = 4$; no holes", "is_correct": false, "explanation": "At $x=1$, both numerator and denominator are zero, creating a removable discontinuity (hole), not a vertical asymptote." },
-        { "id": "B", "text": "Hole at $x = 1$; vertical asymptote at $x = 4$", "is_correct": true, "explanation": "At $x=1$: factor $(x-1)$ cancels — hole. At $x=4$: denominator zero, numerator $(3)(7)=21\\neq0$ — vertical asymptote." },
-        { "id": "C", "text": "Vertical asymptotes at $x = -3$ and $x = 4$; hole at $x = 1$", "is_correct": false, "explanation": "$x=-3$ makes the numerator zero but NOT the denominator, so it is a zero of $f$, not an asymptote." },
-        { "id": "D", "text": "Hole at $x = 4$; vertical asymptote at $x = 1$", "is_correct": false, "explanation": "The roles are reversed. At $x=4$ only the denominator is zero (asymptote); at $x=1$ both are zero (hole)." }
+        {
+          "id": "A",
+          "text": "Vertical asymptotes at $x = 1$ and $x = 4$; no holes",
+          "is_correct": false,
+          "explanation": "At $x=1$, both numerator and denominator are zero, creating a removable discontinuity (hole), not a vertical asymptote."
+        },
+        {
+          "id": "B",
+          "text": "Hole at $x = 1$; vertical asymptote at $x = 4$",
+          "is_correct": true,
+          "explanation": "At $x=1$: factor $(x-1)$ cancels — hole. At $x=4$: denominator zero, numerator $(3)(7)=21\\neq0$ — vertical asymptote."
+        },
+        {
+          "id": "C",
+          "text": "Vertical asymptotes at $x = -3$ and $x = 4$; hole at $x = 1$",
+          "is_correct": false,
+          "explanation": "$x=-3$ makes the numerator zero but NOT the denominator, so it is a zero of $f$, not an asymptote."
+        },
+        {
+          "id": "D",
+          "text": "Hole at $x = 4$; vertical asymptote at $x = 1$",
+          "is_correct": false,
+          "explanation": "The roles are reversed. At $x=4$ only the denominator is zero (asymptote); at $x=1$ both are zero (hole)."
+        }
       ],
-      "unit_objective": "PCF-1.C"
+      "unit_objective": "PCF-1.C",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q021",
@@ -439,20 +1317,83 @@
         "content": {
           "type": "line",
           "data": {
-            "labels": ["0","1","2","3","4","5"],
-            "datasets": [{ "label": "f(x)", "data": [0,1,4,9,16,25], "borderColor": "#6366f1", "backgroundColor": "transparent", "tension": 0.3 }]
+            "labels": [
+              "0",
+              "1",
+              "2",
+              "3",
+              "4",
+              "5"
+            ],
+            "datasets": [
+              {
+                "label": "f(x)",
+                "data": [
+                  0,
+                  1,
+                  4,
+                  9,
+                  16,
+                  25
+                ],
+                "borderColor": "#6366f1",
+                "backgroundColor": "transparent",
+                "tension": 0.3
+              }
+            ]
           },
-          "options": { "plugins":{"legend":{"display":false}}, "scales": { "x":{"title":{"display":true,"text":"x"}}, "y":{"title":{"display":true,"text":"f(x)"}} } }
+          "options": {
+            "plugins": {
+              "legend": {
+                "display": false
+              }
+            },
+            "scales": {
+              "x": {
+                "title": {
+                  "display": true,
+                  "text": "x"
+                }
+              },
+              "y": {
+                "title": {
+                  "display": true,
+                  "text": "f(x)"
+                }
+              }
+            }
+          }
         }
       },
       "question": "The graph of $f(x) = x^2$ for $x \\geq 0$ is shown above. Which of the following best describes how the average rate of change of $f$ changes as $x$ increases?",
       "choices": [
-        { "id": "A", "text": "The average rate of change is constant", "is_correct": false, "explanation": "Constant AROC characterizes linear functions. On $[0,1]$ AROC $=1$; on $[1,2]$ AROC $=3$; on $[2,3]$ AROC $=5$. These are not equal." },
-        { "id": "B", "text": "The average rate of change is decreasing", "is_correct": false, "explanation": "The successive ARoCs are $1, 3, 5, 7, 9$ — increasing, not decreasing. The graph is concave up." },
-        { "id": "C", "text": "The average rate of change is increasing", "is_correct": true, "explanation": "On $[0,1]$: AROC $=1$; on $[1,2]$: $3$; on $[2,3]$: $5$; on $[3,4]$: $7$. The growing rate of change indicates concavity upward." },
-        { "id": "D", "text": "The average rate of change is negative throughout", "is_correct": false, "explanation": "For $x\\geq0$, $f(x)=x^2$ is non-decreasing. All output differences are non-negative, so AROC is non-negative." }
+        {
+          "id": "A",
+          "text": "The average rate of change is constant",
+          "is_correct": false,
+          "explanation": "Constant AROC characterizes linear functions. On $[0,1]$ AROC $=1$; on $[1,2]$ AROC $=3$; on $[2,3]$ AROC $=5$. These are not equal."
+        },
+        {
+          "id": "B",
+          "text": "The average rate of change is decreasing",
+          "is_correct": false,
+          "explanation": "The successive ARoCs are $1, 3, 5, 7, 9$ — increasing, not decreasing. The graph is concave up."
+        },
+        {
+          "id": "C",
+          "text": "The average rate of change is increasing",
+          "is_correct": true,
+          "explanation": "On $[0,1]$: AROC $=1$; on $[1,2]$: $3$; on $[2,3]$: $5$; on $[3,4]$: $7$. The growing rate of change indicates concavity upward."
+        },
+        {
+          "id": "D",
+          "text": "The average rate of change is negative throughout",
+          "is_correct": false,
+          "explanation": "For $x\\geq0$, $f(x)=x^2$ is non-decreasing. All output differences are non-negative, so AROC is non-negative."
+        }
       ],
-      "unit_objective": "PCF-1.A"
+      "unit_objective": "PCF-1.A",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u1-q022",
@@ -465,12 +1406,33 @@
       },
       "question": "Which of the following gives the range of $f(x) = -3(x-1)^2 + 4$ in interval notation?",
       "choices": [
-        { "id": "A", "text": "$(-\\infty, 4]$", "is_correct": true, "explanation": "The vertex is at $(1,4)$ and the parabola opens downward (coefficient $-3<0$), so the maximum value is $4$ and the range is $(-\\infty, 4]$." },
-        { "id": "B", "text": "$[4, +\\infty)$", "is_correct": false, "explanation": "This would be the range if the parabola opened upward. Since the leading coefficient $-3<0$, the parabola opens downward and $4$ is the maximum, not minimum." },
-        { "id": "C", "text": "$(-\\infty, +\\infty)$", "is_correct": false, "explanation": "A downward-opening parabola is bounded above by the vertex $y$-value $4$; outputs cannot exceed $4$." },
-        { "id": "D", "text": "$(-\\infty, 1]$", "is_correct": false, "explanation": "$1$ is the $x$-coordinate of the vertex, not the maximum output value. The maximum output is $f(1)=4$." }
+        {
+          "id": "A",
+          "text": "$(-\\infty, 4]$",
+          "is_correct": true,
+          "explanation": "The vertex is at $(1,4)$ and the parabola opens downward (coefficient $-3<0$), so the maximum value is $4$ and the range is $(-\\infty, 4]$."
+        },
+        {
+          "id": "B",
+          "text": "$[4, +\\infty)$",
+          "is_correct": false,
+          "explanation": "This would be the range if the parabola opened upward. Since the leading coefficient $-3<0$, the parabola opens downward and $4$ is the maximum, not minimum."
+        },
+        {
+          "id": "C",
+          "text": "$(-\\infty, +\\infty)$",
+          "is_correct": false,
+          "explanation": "A downward-opening parabola is bounded above by the vertex $y$-value $4$; outputs cannot exceed $4$."
+        },
+        {
+          "id": "D",
+          "text": "$(-\\infty, 1]$",
+          "is_correct": false,
+          "explanation": "$1$ is the $x$-coordinate of the vertex, not the maximum output value. The maximum output is $f(1)=4$."
+        }
       ],
-      "unit_objective": "PCF-1.B"
+      "unit_objective": "PCF-1.B",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q023",
@@ -480,18 +1442,67 @@
       "stimulus": {
         "type": "table",
         "content": {
-          "headers": ["$x$", "$f(x)$"],
-          "rows": [["-3","8"],["-2","3"],["-1","0"],["0","-1"],["1","0"],["2","3"]]
+          "headers": [
+            "$x$",
+            "$f(x)$"
+          ],
+          "rows": [
+            [
+              "-3",
+              "8"
+            ],
+            [
+              "-2",
+              "3"
+            ],
+            [
+              "-1",
+              "0"
+            ],
+            [
+              "0",
+              "-1"
+            ],
+            [
+              "1",
+              "0"
+            ],
+            [
+              "2",
+              "3"
+            ]
+          ]
         }
       },
       "question": "The table above shows selected values of a polynomial $f$. Which of the following best describes the behavior of $f$ near $x = -1$?",
       "choices": [
-        { "id": "A", "text": "The graph has a local maximum at $x = -1$", "is_correct": false, "explanation": "Near $x=-1$: $f(-2)=3>f(-1)=0$ and $f(0)=-1<f(-1)=0$. Since outputs on both sides are not both less than $f(-1)$, it is not a local maximum." },
-        { "id": "B", "text": "The graph crosses the $x$-axis at $x = -1$", "is_correct": true, "explanation": "$f(-1)=0$ means $x=-1$ is a zero. Since $f(-2)=3>0$ and $f(0)=-1<0$, the function changes sign, indicating the graph crosses the $x$-axis at $x=-1$." },
-        { "id": "C", "text": "The graph touches but does not cross the $x$-axis at $x = -1$", "is_correct": false, "explanation": "Touching without crossing requires even multiplicity. Here the function changes sign across $x=-1$ ($f(-2)>0$, $f(0)<0$), so the graph crosses." },
-        { "id": "D", "text": "The graph has a local minimum at $x = -1$", "is_correct": false, "explanation": "For a local minimum, values on both sides must be greater. Here $f(0)=-1<f(-1)=0$, so $x=-1$ is not a local minimum." }
+        {
+          "id": "A",
+          "text": "The graph has a local maximum at $x = -1$",
+          "is_correct": false,
+          "explanation": "Near $x=-1$: $f(-2)=3>f(-1)=0$ and $f(0)=-1<f(-1)=0$. Since outputs on both sides are not both less than $f(-1)$, it is not a local maximum."
+        },
+        {
+          "id": "B",
+          "text": "The graph crosses the $x$-axis at $x = -1$",
+          "is_correct": true,
+          "explanation": "$f(-1)=0$ means $x=-1$ is a zero. Since $f(-2)=3>0$ and $f(0)=-1<0$, the function changes sign, indicating the graph crosses the $x$-axis at $x=-1$."
+        },
+        {
+          "id": "C",
+          "text": "The graph touches but does not cross the $x$-axis at $x = -1$",
+          "is_correct": false,
+          "explanation": "Touching without crossing requires even multiplicity. Here the function changes sign across $x=-1$ ($f(-2)>0$, $f(0)<0$), so the graph crosses."
+        },
+        {
+          "id": "D",
+          "text": "The graph has a local minimum at $x = -1$",
+          "is_correct": false,
+          "explanation": "For a local minimum, values on both sides must be greater. Here $f(0)=-1<f(-1)=0$, so $x=-1$ is not a local minimum."
+        }
       ],
-      "unit_objective": "PCF-1.B"
+      "unit_objective": "PCF-1.B",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u1-q024",
@@ -503,20 +1514,87 @@
         "content": {
           "type": "line",
           "data": {
-            "labels": ["-3","-2","-1","0","1","2","3","4"],
-            "datasets": [{ "label": "f(x)", "data": [0,-50,-32,0,16,10,0,28], "borderColor": "#6366f1", "backgroundColor": "transparent", "tension": 0.4 }]
+            "labels": [
+              "-3",
+              "-2",
+              "-1",
+              "0",
+              "1",
+              "2",
+              "3",
+              "4"
+            ],
+            "datasets": [
+              {
+                "label": "f(x)",
+                "data": [
+                  0,
+                  -50,
+                  -32,
+                  0,
+                  16,
+                  10,
+                  0,
+                  28
+                ],
+                "borderColor": "#6366f1",
+                "backgroundColor": "transparent",
+                "tension": 0.4
+              }
+            ]
           },
-          "options": { "plugins":{"legend":{"display":false}}, "scales": { "x":{"title":{"display":true,"text":"x"}}, "y":{"title":{"display":true,"text":"f(x)"}} } }
+          "options": {
+            "plugins": {
+              "legend": {
+                "display": false
+              }
+            },
+            "scales": {
+              "x": {
+                "title": {
+                  "display": true,
+                  "text": "x"
+                }
+              },
+              "y": {
+                "title": {
+                  "display": true,
+                  "text": "f(x)"
+                }
+              }
+            }
+          }
         }
       },
       "question": "The graph of $f$ is shown above. The graph crosses the $x$-axis at $x = -3$ and $x = 0$ and touches but does not cross at $x = 3$. Which of the following could be a formula for $f(x)$?",
       "choices": [
-        { "id": "A", "text": "$f(x) = x(x+3)(x-3)^2$", "is_correct": true, "explanation": "Cross at $x=0$ (multiplicity 1), cross at $x=-3$ (multiplicity 1), bounce at $x=3$ (multiplicity 2). Consistent with the graph." },
-        { "id": "B", "text": "$f(x) = x^2(x+3)(x-3)$", "is_correct": false, "explanation": "This bounces at $x=0$ (multiplicity 2) and crosses at both $x=-3$ and $x=3$. The graph shows a cross at $x=0$ and a bounce at $x=3$." },
-        { "id": "C", "text": "$f(x) = x(x+3)^2(x-3)$", "is_correct": false, "explanation": "This bounces at $x=-3$ and crosses at $x=3$ — the opposite of what the graph shows." },
-        { "id": "D", "text": "$f(x) = x(x+3)(x-3)$", "is_correct": false, "explanation": "All three zeros have multiplicity 1 — the graph would cross at all three. The graph shows a bounce at $x=3$, requiring even multiplicity there." }
+        {
+          "id": "A",
+          "text": "$f(x) = x(x+3)(x-3)^2$",
+          "is_correct": true,
+          "explanation": "Cross at $x=0$ (multiplicity 1), cross at $x=-3$ (multiplicity 1), bounce at $x=3$ (multiplicity 2). Consistent with the graph."
+        },
+        {
+          "id": "B",
+          "text": "$f(x) = x^2(x+3)(x-3)$",
+          "is_correct": false,
+          "explanation": "This bounces at $x=0$ (multiplicity 2) and crosses at both $x=-3$ and $x=3$. The graph shows a cross at $x=0$ and a bounce at $x=3$."
+        },
+        {
+          "id": "C",
+          "text": "$f(x) = x(x+3)^2(x-3)$",
+          "is_correct": false,
+          "explanation": "This bounces at $x=-3$ and crosses at $x=3$ — the opposite of what the graph shows."
+        },
+        {
+          "id": "D",
+          "text": "$f(x) = x(x+3)(x-3)$",
+          "is_correct": false,
+          "explanation": "All three zeros have multiplicity 1 — the graph would cross at all three. The graph shows a bounce at $x=3$, requiring even multiplicity there."
+        }
       ],
-      "unit_objective": "PCF-1.B"
+      "unit_objective": "PCF-1.B",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u1-q025",
@@ -529,87 +1607,228 @@
       },
       "question": "Which of the following best describes the average rate of change of the population from $t = 2$ to $t = 6$?",
       "choices": [
-        { "id": "A", "text": "$1$ thousand people per year", "is_correct": false, "explanation": "$P(2)=-2+6+120=124$; $P(6)=-18+18+120=120$. AROC $=\\frac{120-124}{4}=-1$, not $+1$. The population is decreasing, so the average rate of change is negative." },
-        { "id": "B", "text": "$-1$ thousand people per year", "is_correct": true, "explanation": "$P(2)=-0.5(4)+3(2)+120=124$; $P(6)=-0.5(36)+3(6)+120=120$. AROC $=\\frac{120-124}{6-2}=\\frac{-4}{4}=-1$ thousand people per year." },
-        { "id": "C", "text": "$3$ thousand people per year", "is_correct": false, "explanation": "$3$ is the coefficient of $t$ in $P(t)$, representing the initial rate at $t=0$, not the average rate over $[2,6]$." },
-        { "id": "D", "text": "$-4$ thousand people per year", "is_correct": false, "explanation": "$-4=P(6)-P(2)=120-124$ is the total change in population, not the average rate of change. Divide by the interval length $4$: $\\frac{-4}{4}=-1$ thousand per year." }
+        {
+          "id": "A",
+          "text": "$1$ thousand people per year",
+          "is_correct": false,
+          "explanation": "$P(2)=-2+6+120=124$; $P(6)=-18+18+120=120$. AROC $=\\frac{120-124}{4}=-1$, not $+1$. The population is decreasing, so the average rate of change is negative."
+        },
+        {
+          "id": "B",
+          "text": "$-1$ thousand people per year",
+          "is_correct": true,
+          "explanation": "$P(2)=-0.5(4)+3(2)+120=124$; $P(6)=-0.5(36)+3(6)+120=120$. AROC $=\\frac{120-124}{6-2}=\\frac{-4}{4}=-1$ thousand people per year."
+        },
+        {
+          "id": "C",
+          "text": "$3$ thousand people per year",
+          "is_correct": false,
+          "explanation": "$3$ is the coefficient of $t$ in $P(t)$, representing the initial rate at $t=0$, not the average rate over $[2,6]$."
+        },
+        {
+          "id": "D",
+          "text": "$-4$ thousand people per year",
+          "is_correct": false,
+          "explanation": "$-4=P(6)-P(2)=120-124$ is the total change in population, not the average rate of change. Divide by the interval length $4$: $\\frac{-4}{4}=-1$ thousand per year."
+        }
       ],
-      "unit_objective": "PCF-1.A"
+      "unit_objective": "PCF-1.A",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u1-q026",
       "unit": "unit-1",
       "subject": "ap-precalculus",
       "difficulty": "medium",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "When $f(x) = 2x^3 - 5x^2 + 3x - 7$ is divided by $(x - 3)$, which of the following gives the remainder?",
       "choices": [
-        { "id": "A", "text": "$-7$", "is_correct": false, "explanation": "$-7$ is the constant term of $f$, not the remainder when dividing by $(x-3)$. The Remainder Theorem states the remainder equals $f(3)$." },
-        { "id": "B", "text": "$11$", "is_correct": true, "explanation": "By the Remainder Theorem, the remainder equals $f(3)=2(27)-5(9)+3(3)-7=54-45+9-7=11$." },
-        { "id": "C", "text": "$3$", "is_correct": false, "explanation": "$3$ is the divisor value, not the remainder. Evaluate $f$ at $x=3$: $f(3)=54-45+9-7=11$." },
-        { "id": "D", "text": "$0$", "is_correct": false, "explanation": "A remainder of $0$ would mean $(x-3)$ is a factor of $f$. Since $f(3)=11\\neq0$, $(x-3)$ is not a factor." }
+        {
+          "id": "A",
+          "text": "$-7$",
+          "is_correct": false,
+          "explanation": "$-7$ is the constant term of $f$, not the remainder when dividing by $(x-3)$. The Remainder Theorem states the remainder equals $f(3)$."
+        },
+        {
+          "id": "B",
+          "text": "$11$",
+          "is_correct": true,
+          "explanation": "By the Remainder Theorem, the remainder equals $f(3)=2(27)-5(9)+3(3)-7=54-45+9-7=11$."
+        },
+        {
+          "id": "C",
+          "text": "$3$",
+          "is_correct": false,
+          "explanation": "$3$ is the divisor value, not the remainder. Evaluate $f$ at $x=3$: $f(3)=54-45+9-7=11$."
+        },
+        {
+          "id": "D",
+          "text": "$0$",
+          "is_correct": false,
+          "explanation": "A remainder of $0$ would mean $(x-3)$ is a factor of $f$. Since $f(3)=11\\neq0$, $(x-3)$ is not a factor."
+        }
       ],
-      "unit_objective": "PCF-1.B"
+      "unit_objective": "PCF-1.B",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u1-q027",
       "unit": "unit-1",
       "subject": "ap-precalculus",
       "difficulty": "medium",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "A polynomial $p(x)$ has remainder $5$ when divided by $(x - 2)$. Which of the following must be true?",
       "choices": [
-        { "id": "A", "text": "$p(2) = 0$", "is_correct": false, "explanation": "If $p(2)=0$, then the remainder would be $0$, meaning $(x-2)$ is a factor. A remainder of $5$ means $p(2)=5$, not $0$." },
-        { "id": "B", "text": "$p(2) = 5$", "is_correct": true, "explanation": "By the Remainder Theorem: when $p(x)$ is divided by $(x-c)$, the remainder equals $p(c)$. Here $c=2$ and the remainder is $5$, so $p(2)=5$." },
-        { "id": "C", "text": "$(x - 2)$ is a factor of $p(x)$", "is_correct": false, "explanation": "$(x-2)$ is a factor only if the remainder is $0$. The remainder is $5\\neq0$, so $(x-2)$ is not a factor." },
-        { "id": "D", "text": "$p(5) = 2$", "is_correct": false, "explanation": "The Remainder Theorem does not imply $p(5)=2$. It states $p(2)=5$ (the remainder when dividing by $x-2$)." }
+        {
+          "id": "A",
+          "text": "$p(2) = 0$",
+          "is_correct": false,
+          "explanation": "If $p(2)=0$, then the remainder would be $0$, meaning $(x-2)$ is a factor. A remainder of $5$ means $p(2)=5$, not $0$."
+        },
+        {
+          "id": "B",
+          "text": "$p(2) = 5$",
+          "is_correct": true,
+          "explanation": "By the Remainder Theorem: when $p(x)$ is divided by $(x-c)$, the remainder equals $p(c)$. Here $c=2$ and the remainder is $5$, so $p(2)=5$."
+        },
+        {
+          "id": "C",
+          "text": "$(x - 2)$ is a factor of $p(x)$",
+          "is_correct": false,
+          "explanation": "$(x-2)$ is a factor only if the remainder is $0$. The remainder is $5\\neq0$, so $(x-2)$ is not a factor."
+        },
+        {
+          "id": "D",
+          "text": "$p(5) = 2$",
+          "is_correct": false,
+          "explanation": "The Remainder Theorem does not imply $p(5)=2$. It states $p(2)=5$ (the remainder when dividing by $x-2$)."
+        }
       ],
-      "unit_objective": "PCF-1.B"
+      "unit_objective": "PCF-1.B",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u1-q028",
       "unit": "unit-1",
       "subject": "ap-precalculus",
       "difficulty": "hard",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following gives the quotient when $f(x) = x^3 - 3x^2 - x + 3$ is divided by $(x - 3)$?",
       "choices": [
-        { "id": "A", "text": "$x^2 - 1$", "is_correct": true, "explanation": "Using synthetic division with $c=3$: coefficients $1, -3, -1, 3$. Bring down $1$; $1\\cdot3=3$, $-3+3=0$; $0\\cdot3=0$, $-1+0=-1$; $-1\\cdot3=-3$, $3+(-3)=0$ (remainder). Quotient: $x^2+0x-1=x^2-1$." },
-        { "id": "B", "text": "$x^2 - 3x - 1$", "is_correct": false, "explanation": "This ignores the cancellation of the $-3x^2$ term. After synthetic division, the middle coefficient is $0$, not $-3$." },
-        { "id": "C", "text": "$x^2 + 3x - 1$", "is_correct": false, "explanation": "The sign on the $x$ term is wrong. Synthetic division gives coefficients $1, 0, -1$ for the quotient, not $1, 3, -1$." },
-        { "id": "D", "text": "$x^2 - 6x + 17$", "is_correct": false, "explanation": "These are coefficients from applying the wrong divisor or making arithmetic errors. The correct quotient via synthetic division with $c=3$ is $x^2-1$." }
+        {
+          "id": "A",
+          "text": "$x^2 - 1$",
+          "is_correct": true,
+          "explanation": "Using synthetic division with $c=3$: coefficients $1, -3, -1, 3$. Bring down $1$; $1\\cdot3=3$, $-3+3=0$; $0\\cdot3=0$, $-1+0=-1$; $-1\\cdot3=-3$, $3+(-3)=0$ (remainder). Quotient: $x^2+0x-1=x^2-1$."
+        },
+        {
+          "id": "B",
+          "text": "$x^2 - 3x - 1$",
+          "is_correct": false,
+          "explanation": "This ignores the cancellation of the $-3x^2$ term. After synthetic division, the middle coefficient is $0$, not $-3$."
+        },
+        {
+          "id": "C",
+          "text": "$x^2 + 3x - 1$",
+          "is_correct": false,
+          "explanation": "The sign on the $x$ term is wrong. Synthetic division gives coefficients $1, 0, -1$ for the quotient, not $1, 3, -1$."
+        },
+        {
+          "id": "D",
+          "text": "$x^2 - 6x + 17$",
+          "is_correct": false,
+          "explanation": "These are coefficients from applying the wrong divisor or making arithmetic errors. The correct quotient via synthetic division with $c=3$ is $x^2-1$."
+        }
       ],
-      "unit_objective": "PCF-1.B"
+      "unit_objective": "PCF-1.B",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q029",
       "unit": "unit-1",
       "subject": "ap-precalculus",
       "difficulty": "hard",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "The function $f(x) = \\frac{(x^2 - 4)(x + 1)}{(x - 2)(x + 3)}$ has which of the following discontinuities?",
       "choices": [
-        { "id": "A", "text": "Vertical asymptotes at $x = 2$ and $x = -3$; no holes", "is_correct": false, "explanation": "$x^2-4=(x-2)(x+2)$, so $(x-2)$ cancels. At $x=2$: hole (removable). At $x=-3$: vertical asymptote (only denominator zero)." },
-        { "id": "B", "text": "Hole at $x = 2$; vertical asymptote at $x = -3$", "is_correct": true, "explanation": "Factor: numerator $= (x-2)(x+2)(x+1)$; denominator $= (x-2)(x+3)$. $(x-2)$ cancels $\\Rightarrow$ hole at $x=2$. Denominator zero at $x=-3$, numerator $\\neq0$ there $\\Rightarrow$ vertical asymptote." },
-        { "id": "C", "text": "Holes at $x = 2$ and $x = -2$; vertical asymptote at $x = -3$", "is_correct": false, "explanation": "$(x+2)$ appears only in the numerator, so $x=-2$ is a zero of $f$, not a hole. Holes arise only when a factor cancels with the denominator." },
-        { "id": "D", "text": "Vertical asymptote at $x = 2$; hole at $x = -3$", "is_correct": false, "explanation": "The roles are reversed. $(x-2)$ cancels from both numerator and denominator (hole at $x=2$), while $(x+3)$ remains only in denominator (vertical asymptote at $x=-3$)." }
+        {
+          "id": "A",
+          "text": "Vertical asymptotes at $x = 2$ and $x = -3$; no holes",
+          "is_correct": false,
+          "explanation": "$x^2-4=(x-2)(x+2)$, so $(x-2)$ cancels. At $x=2$: hole (removable). At $x=-3$: vertical asymptote (only denominator zero)."
+        },
+        {
+          "id": "B",
+          "text": "Hole at $x = 2$; vertical asymptote at $x = -3$",
+          "is_correct": true,
+          "explanation": "Factor: numerator $= (x-2)(x+2)(x+1)$; denominator $= (x-2)(x+3)$. $(x-2)$ cancels $\\Rightarrow$ hole at $x=2$. Denominator zero at $x=-3$, numerator $\\neq0$ there $\\Rightarrow$ vertical asymptote."
+        },
+        {
+          "id": "C",
+          "text": "Holes at $x = 2$ and $x = -2$; vertical asymptote at $x = -3$",
+          "is_correct": false,
+          "explanation": "$(x+2)$ appears only in the numerator, so $x=-2$ is a zero of $f$, not a hole. Holes arise only when a factor cancels with the denominator."
+        },
+        {
+          "id": "D",
+          "text": "Vertical asymptote at $x = 2$; hole at $x = -3$",
+          "is_correct": false,
+          "explanation": "The roles are reversed. $(x-2)$ cancels from both numerator and denominator (hole at $x=2$), while $(x+3)$ remains only in denominator (vertical asymptote at $x=-3$)."
+        }
       ],
-      "unit_objective": "PCF-1.C"
+      "unit_objective": "PCF-1.C",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q030",
       "unit": "unit-1",
       "subject": "ap-precalculus",
       "difficulty": "hard",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following best describes the end behavior of $r(x) = \\frac{3x^3 - x}{x^2 + 1}$?",
       "choices": [
-        { "id": "A", "text": "As $x \\to \\pm\\infty$, $r(x) \\to 3$", "is_correct": false, "explanation": "This would describe a horizontal asymptote when degrees are equal. Here the numerator degree (3) exceeds the denominator degree (2), so there is a slant asymptote, not a horizontal one." },
-        { "id": "B", "text": "As $x \\to \\pm\\infty$, $r(x) \\to 0$", "is_correct": false, "explanation": "$r(x)\\to0$ only when the denominator degree exceeds the numerator degree. Here numerator degree $=3>$ denominator degree $=2$." },
-        { "id": "C", "text": "As $x \\to -\\infty$, $r(x) \\to -\\infty$; as $x \\to +\\infty$, $r(x) \\to +\\infty$", "is_correct": true, "explanation": "The numerator has higher degree; the leading term of the quotient is $\\frac{3x^3}{x^2}=3x$. So $r(x)\\approx 3x$ for large $|x|$: $r(x)\\to-\\infty$ as $x\\to-\\infty$ and $r(x)\\to+\\infty$ as $x\\to+\\infty$." },
-        { "id": "D", "text": "As $x \\to \\pm\\infty$, $r(x) \\to +\\infty$", "is_correct": false, "explanation": "Both ends going to $+\\infty$ would require even-degree behavior. The effective degree is odd (linear slant asymptote), so the ends go in opposite directions." }
+        {
+          "id": "A",
+          "text": "As $x \\to \\pm\\infty$, $r(x) \\to 3$",
+          "is_correct": false,
+          "explanation": "This would describe a horizontal asymptote when degrees are equal. Here the numerator degree (3) exceeds the denominator degree (2), so there is a slant asymptote, not a horizontal one."
+        },
+        {
+          "id": "B",
+          "text": "As $x \\to \\pm\\infty$, $r(x) \\to 0$",
+          "is_correct": false,
+          "explanation": "$r(x)\\to0$ only when the denominator degree exceeds the numerator degree. Here numerator degree $=3>$ denominator degree $=2$."
+        },
+        {
+          "id": "C",
+          "text": "As $x \\to -\\infty$, $r(x) \\to -\\infty$; as $x \\to +\\infty$, $r(x) \\to +\\infty$",
+          "is_correct": true,
+          "explanation": "The numerator has higher degree; the leading term of the quotient is $\\frac{3x^3}{x^2}=3x$. So $r(x)\\approx 3x$ for large $|x|$: $r(x)\\to-\\infty$ as $x\\to-\\infty$ and $r(x)\\to+\\infty$ as $x\\to+\\infty$."
+        },
+        {
+          "id": "D",
+          "text": "As $x \\to \\pm\\infty$, $r(x) \\to +\\infty$",
+          "is_correct": false,
+          "explanation": "Both ends going to $+\\infty$ would require even-degree behavior. The effective degree is odd (linear slant asymptote), so the ends go in opposite directions."
+        }
       ],
-      "unit_objective": "PCF-1.C"
+      "unit_objective": "PCF-1.C",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u1-q031",
@@ -621,95 +1840,283 @@
         "content": {
           "type": "line",
           "data": {
-            "labels": ["-3","-2","-1","0","1","2","3"],
-            "datasets": [{ "label": "f(x)", "data": [0,0,null,null,null,0,0], "borderColor": "#6366f1", "backgroundColor": "transparent", "tension": 0.4, "spanGaps": false }]
+            "labels": [
+              "-3",
+              "-2",
+              "-1",
+              "0",
+              "1",
+              "2",
+              "3"
+            ],
+            "datasets": [
+              {
+                "label": "f(x)",
+                "data": [
+                  0,
+                  0,
+                  null,
+                  null,
+                  null,
+                  0,
+                  0
+                ],
+                "borderColor": "#6366f1",
+                "backgroundColor": "transparent",
+                "tension": 0.4,
+                "spanGaps": false
+              }
+            ]
           },
-          "options": { "plugins":{"legend":{"display":false}}, "scales": { "x":{"title":{"display":true,"text":"x"}}, "y":{"title":{"display":true,"text":"f(x)"},"min":-2,"max":4} } }
+          "options": {
+            "plugins": {
+              "legend": {
+                "display": false
+              }
+            },
+            "scales": {
+              "x": {
+                "title": {
+                  "display": true,
+                  "text": "x"
+                }
+              },
+              "y": {
+                "title": {
+                  "display": true,
+                  "text": "f(x)"
+                },
+                "min": -2,
+                "max": 4
+              }
+            }
+          }
         }
       },
       "question": "A polynomial graph has zeros at $x = -3$, $x = -2$, $x = 2$, and $x = 3$, touches but does not cross at $x = \\pm 2$, and crosses at $x = \\pm 3$. Which of the following could be a formula for the polynomial?",
       "choices": [
-        { "id": "A", "text": "$f(x) = (x-2)^2(x+2)^2(x-3)(x+3)$", "is_correct": true, "explanation": "Zeros at $x=\\pm2$ with even multiplicity (bounce) and $x=\\pm3$ with odd multiplicity (cross) match the described graph behavior." },
-        { "id": "B", "text": "$f(x) = (x-2)(x+2)(x-3)^2(x+3)^2$", "is_correct": false, "explanation": "This bounces at $x=\\pm3$ and crosses at $x=\\pm2$, which is the opposite of the described behavior." },
-        { "id": "C", "text": "$f(x) = (x-2)(x+2)(x-3)(x+3)$", "is_correct": false, "explanation": "All four zeros have multiplicity 1, so the graph would cross at all four zeros. The description requires bouncing at $x=\\pm2$." },
-        { "id": "D", "text": "$f(x) = (x-2)^2(x+2)(x-3)(x+3)$", "is_correct": false, "explanation": "This bounces at $x=2$ but crosses at $x=-2$, not symmetric. The description requires identical behavior at $x=2$ and $x=-2$." }
+        {
+          "id": "A",
+          "text": "$f(x) = (x-2)^2(x+2)^2(x-3)(x+3)$",
+          "is_correct": true,
+          "explanation": "Zeros at $x=\\pm2$ with even multiplicity (bounce) and $x=\\pm3$ with odd multiplicity (cross) match the described graph behavior."
+        },
+        {
+          "id": "B",
+          "text": "$f(x) = (x-2)(x+2)(x-3)^2(x+3)^2$",
+          "is_correct": false,
+          "explanation": "This bounces at $x=\\pm3$ and crosses at $x=\\pm2$, which is the opposite of the described behavior."
+        },
+        {
+          "id": "C",
+          "text": "$f(x) = (x-2)(x+2)(x-3)(x+3)$",
+          "is_correct": false,
+          "explanation": "All four zeros have multiplicity 1, so the graph would cross at all four zeros. The description requires bouncing at $x=\\pm2$."
+        },
+        {
+          "id": "D",
+          "text": "$f(x) = (x-2)^2(x+2)(x-3)(x+3)$",
+          "is_correct": false,
+          "explanation": "This bounces at $x=2$ but crosses at $x=-2$, not symmetric. The description requires identical behavior at $x=2$ and $x=-2$."
+        }
       ],
-      "unit_objective": "PCF-1.B"
+      "unit_objective": "PCF-1.B",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u1-q032",
       "unit": "unit-1",
       "subject": "ap-precalculus",
       "difficulty": "medium",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "A polynomial $f$ has real zeros at $x = 1$ and $x = 3$, and a complex zero at $2 + i$. Which of the following must also be a zero of $f$?",
       "choices": [
-        { "id": "A", "text": "$2 - i$", "is_correct": true, "explanation": "The Complex Conjugate Theorem: if a polynomial with real coefficients has $a+bi$ as a zero, then $a-bi$ is also a zero. Since $2+i$ is a zero, $2-i$ must also be a zero." },
-        { "id": "B", "text": "$-2 + i$", "is_correct": false, "explanation": "The conjugate of $2+i$ is $2-i$, not $-2+i$. Only the imaginary part changes sign when forming the conjugate." },
-        { "id": "C", "text": "$-2 - i$", "is_correct": false, "explanation": "The conjugate of $2+i$ is $2-i$. The real part $2$ does not change sign; only the imaginary part does." },
-        { "id": "D", "text": "$2i$", "is_correct": false, "explanation": "The conjugate rule applies to the complex zero $2+i$, requiring the conjugate $2-i$. The value $2i$ is unrelated to this conjugate pair." }
+        {
+          "id": "A",
+          "text": "$2 - i$",
+          "is_correct": true,
+          "explanation": "The Complex Conjugate Theorem: if a polynomial with real coefficients has $a+bi$ as a zero, then $a-bi$ is also a zero. Since $2+i$ is a zero, $2-i$ must also be a zero."
+        },
+        {
+          "id": "B",
+          "text": "$-2 + i$",
+          "is_correct": false,
+          "explanation": "The conjugate of $2+i$ is $2-i$, not $-2+i$. Only the imaginary part changes sign when forming the conjugate."
+        },
+        {
+          "id": "C",
+          "text": "$-2 - i$",
+          "is_correct": false,
+          "explanation": "The conjugate of $2+i$ is $2-i$. The real part $2$ does not change sign; only the imaginary part does."
+        },
+        {
+          "id": "D",
+          "text": "$2i$",
+          "is_correct": false,
+          "explanation": "The conjugate rule applies to the complex zero $2+i$, requiring the conjugate $2-i$. The value $2i$ is unrelated to this conjugate pair."
+        }
       ],
-      "unit_objective": "PCF-1.B"
+      "unit_objective": "PCF-1.B",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q033",
       "unit": "unit-1",
       "subject": "ap-precalculus",
       "difficulty": "medium",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "A polynomial with real coefficients has zeros at $x = -1$, $x = 4$, and $x = 1 - 3i$. What is the minimum possible degree of this polynomial?",
       "choices": [
-        { "id": "A", "text": "$3$", "is_correct": false, "explanation": "Three zeros are listed but $1-3i$ is complex. By the Complex Conjugate Theorem, $1+3i$ must also be a zero. That gives 4 zeros minimum, so degree at least $4$." },
-        { "id": "B", "text": "$4$", "is_correct": true, "explanation": "Given $1-3i$ as a zero, its conjugate $1+3i$ must also be a zero (real coefficients required). So zeros are: $-1$, $4$, $1-3i$, $1+3i$ — four zeros, minimum degree $4$." },
-        { "id": "C", "text": "$5$", "is_correct": false, "explanation": "With exactly four required zeros (including the conjugate pair), degree $4$ is sufficient. Degree $5$ is not the minimum." },
-        { "id": "D", "text": "$6$", "is_correct": false, "explanation": "Four zeros account for degree $4$ at minimum. No additional conjugate pairs are forced by the given information." }
+        {
+          "id": "A",
+          "text": "$3$",
+          "is_correct": false,
+          "explanation": "Three zeros are listed but $1-3i$ is complex. By the Complex Conjugate Theorem, $1+3i$ must also be a zero. That gives 4 zeros minimum, so degree at least $4$."
+        },
+        {
+          "id": "B",
+          "text": "$4$",
+          "is_correct": true,
+          "explanation": "Given $1-3i$ as a zero, its conjugate $1+3i$ must also be a zero (real coefficients required). So zeros are: $-1$, $4$, $1-3i$, $1+3i$ — four zeros, minimum degree $4$."
+        },
+        {
+          "id": "C",
+          "text": "$5$",
+          "is_correct": false,
+          "explanation": "With exactly four required zeros (including the conjugate pair), degree $4$ is sufficient. Degree $5$ is not the minimum."
+        },
+        {
+          "id": "D",
+          "text": "$6$",
+          "is_correct": false,
+          "explanation": "Four zeros account for degree $4$ at minimum. No additional conjugate pairs are forced by the given information."
+        }
       ],
-      "unit_objective": "PCF-1.B"
+      "unit_objective": "PCF-1.B",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q034",
       "unit": "unit-1",
       "subject": "ap-precalculus",
       "difficulty": "hard",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following gives a polynomial with real coefficients, leading coefficient $1$, and zeros at $x = 2$, $x = -1$, and $x = 3i$?",
       "choices": [
-        { "id": "A", "text": "$(x-2)(x+1)(x-3i)$", "is_correct": false, "explanation": "This polynomial has complex coefficients because $3i$ is not paired with its conjugate $-3i$. Real coefficients require complex zeros in conjugate pairs." },
-        { "id": "B", "text": "$(x-2)(x+1)(x-3i)(x+3i)$", "is_correct": true, "explanation": "Since $3i$ is a zero, $-3i$ must also be a zero (Complex Conjugate Theorem). The polynomial $(x-2)(x+1)(x-3i)(x+3i)=(x-2)(x+1)(x^2+9)$ has real coefficients and leading coefficient $1$." },
-        { "id": "C", "text": "$(x-2)(x+1)(x^2-9)$", "is_correct": false, "explanation": "$(x^2-9)=(x-3)(x+3)$ gives real zeros $x=\\pm3$, not complex zeros $x=\\pm3i$. The factor for $\\pm3i$ is $(x^2+9)$." },
-        { "id": "D", "text": "$(x-2)(x+1)(x+3i)(x-3i)^2$", "is_correct": false, "explanation": "The conjugate $x+3i$ must have the same multiplicity as $x-3i$. Different multiplicities break the real-coefficient requirement in general, and the problem specifies a single zero at $3i$." }
+        {
+          "id": "A",
+          "text": "$(x-2)(x+1)(x-3i)$",
+          "is_correct": false,
+          "explanation": "This polynomial has complex coefficients because $3i$ is not paired with its conjugate $-3i$. Real coefficients require complex zeros in conjugate pairs."
+        },
+        {
+          "id": "B",
+          "text": "$(x-2)(x+1)(x-3i)(x+3i)$",
+          "is_correct": true,
+          "explanation": "Since $3i$ is a zero, $-3i$ must also be a zero (Complex Conjugate Theorem). The polynomial $(x-2)(x+1)(x-3i)(x+3i)=(x-2)(x+1)(x^2+9)$ has real coefficients and leading coefficient $1$."
+        },
+        {
+          "id": "C",
+          "text": "$(x-2)(x+1)(x^2-9)$",
+          "is_correct": false,
+          "explanation": "$(x^2-9)=(x-3)(x+3)$ gives real zeros $x=\\pm3$, not complex zeros $x=\\pm3i$. The factor for $\\pm3i$ is $(x^2+9)$."
+        },
+        {
+          "id": "D",
+          "text": "$(x-2)(x+1)(x+3i)(x-3i)^2$",
+          "is_correct": false,
+          "explanation": "The conjugate $x+3i$ must have the same multiplicity as $x-3i$. Different multiplicities break the real-coefficient requirement in general, and the problem specifies a single zero at $3i$."
+        }
       ],
-      "unit_objective": "PCF-1.B"
+      "unit_objective": "PCF-1.B",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q035",
       "unit": "unit-1",
       "subject": "ap-precalculus",
       "difficulty": "medium",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following describes all the transformations applied to $f(x) = x^2$ to produce $g(x) = 3(x - 2)^2 - 5$?",
       "choices": [
-        { "id": "A", "text": "Shift right $2$, stretch vertically by $3$, shift down $5$", "is_correct": true, "explanation": "$(x-2)$ shifts right $2$; the factor $3$ stretches vertically by $3$; $-5$ shifts down $5$. Applied to $f(x)=x^2$, these give $g(x)=3(x-2)^2-5$." },
-        { "id": "B", "text": "Shift left $2$, stretch vertically by $3$, shift down $5$", "is_correct": false, "explanation": "$(x-2)$ shifts the graph right (not left) $2$ units. Replacing $x$ with $x-2$ shifts in the positive $x$ direction." },
-        { "id": "C", "text": "Shift right $2$, compress vertically by $3$, shift down $5$", "is_correct": false, "explanation": "A vertical stretch occurs when $|a|>1$. Since $3>1$, the graph is stretched (taller), not compressed." },
-        { "id": "D", "text": "Shift right $2$, stretch vertically by $3$, shift up $5$", "is_correct": false, "explanation": "The $-5$ outside the squared term shifts the graph down $5$, not up." }
+        {
+          "id": "A",
+          "text": "Shift right $2$, stretch vertically by $3$, shift down $5$",
+          "is_correct": true,
+          "explanation": "$(x-2)$ shifts right $2$; the factor $3$ stretches vertically by $3$; $-5$ shifts down $5$. Applied to $f(x)=x^2$, these give $g(x)=3(x-2)^2-5$."
+        },
+        {
+          "id": "B",
+          "text": "Shift left $2$, stretch vertically by $3$, shift down $5$",
+          "is_correct": false,
+          "explanation": "$(x-2)$ shifts the graph right (not left) $2$ units. Replacing $x$ with $x-2$ shifts in the positive $x$ direction."
+        },
+        {
+          "id": "C",
+          "text": "Shift right $2$, compress vertically by $3$, shift down $5$",
+          "is_correct": false,
+          "explanation": "A vertical stretch occurs when $|a|>1$. Since $3>1$, the graph is stretched (taller), not compressed."
+        },
+        {
+          "id": "D",
+          "text": "Shift right $2$, stretch vertically by $3$, shift up $5$",
+          "is_correct": false,
+          "explanation": "The $-5$ outside the squared term shifts the graph down $5$, not up."
+        }
       ],
-      "unit_objective": "PCF-1.E"
+      "unit_objective": "PCF-1.E",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q036",
       "unit": "unit-1",
       "subject": "ap-precalculus",
       "difficulty": "hard",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "The graph of $f(x) = x^3$ is transformed to produce $g(x) = -\\frac{1}{2}(2x + 4)^3 + 1$. Which of the following correctly identifies all transformations?",
       "choices": [
-        { "id": "A", "text": "Horizontal compression by $\\frac{1}{2}$, shift left $2$, vertical compression by $\\frac{1}{2}$, reflection over $x$-axis, shift up $1$", "is_correct": true, "explanation": "Read transformations from the unsimplified form $g(x) = -\\frac{1}{2}(2x+4)^3+1$. Factor the input: $2x+4 = 2(x+2)$. The factor of $2$ multiplying the input gives horizontal compression by $\\frac{1}{2}$; the $+2$ inside shifts left $2$. Outside: $-\\frac{1}{2}$ gives vertical compression by $\\frac{1}{2}$ and reflection over the $x$-axis; $+1$ shifts up. Note: simplifying first gives $-4(x+2)^3+1$, where the $-4$ is a combined vertical stretch — but the question asks for the individual transformations applied to $f(x) = x^3$." },
-        { "id": "B", "text": "Horizontal stretch by $2$, shift left $4$, reflection over $x$-axis, shift up $1$", "is_correct": false, "explanation": "Adding $4$ inside the argument as $2x+4=2(x+2)$ means a horizontal compression by $\\frac{1}{2}$ and a shift left $2$, not a stretch by $2$ or shift left $4$." },
-        { "id": "C", "text": "Shift left $4$, reflection over $x$-axis, shift up $1$", "is_correct": false, "explanation": "This ignores the factor of $2$ inside and the factor of $\\frac{1}{2}$ outside, both of which produce dilations in addition to the shifts." },
-        { "id": "D", "text": "Shift right $2$, vertical compression by $\\frac{1}{2}$, reflection over $x$-axis, shift up $1$", "is_correct": false, "explanation": "$(2x+4)=2(x+2)$ means the shift is $2$ units to the left (not right), because replacing $x$ with $x+2$ shifts left." }
+        {
+          "id": "A",
+          "text": "Horizontal compression by $\\frac{1}{2}$, shift left $2$, vertical compression by $\\frac{1}{2}$, reflection over $x$-axis, shift up $1$",
+          "is_correct": true,
+          "explanation": "Read transformations from the unsimplified form $g(x) = -\\frac{1}{2}(2x+4)^3+1$. Factor the input: $2x+4 = 2(x+2)$. The factor of $2$ multiplying the input gives horizontal compression by $\\frac{1}{2}$; the $+2$ inside shifts left $2$. Outside: $-\\frac{1}{2}$ gives vertical compression by $\\frac{1}{2}$ and reflection over the $x$-axis; $+1$ shifts up. Note: simplifying first gives $-4(x+2)^3+1$, where the $-4$ is a combined vertical stretch — but the question asks for the individual transformations applied to $f(x) = x^3$."
+        },
+        {
+          "id": "B",
+          "text": "Horizontal stretch by $2$, shift left $4$, reflection over $x$-axis, shift up $1$",
+          "is_correct": false,
+          "explanation": "Adding $4$ inside the argument as $2x+4=2(x+2)$ means a horizontal compression by $\\frac{1}{2}$ and a shift left $2$, not a stretch by $2$ or shift left $4$."
+        },
+        {
+          "id": "C",
+          "text": "Shift left $4$, reflection over $x$-axis, shift up $1$",
+          "is_correct": false,
+          "explanation": "This ignores the factor of $2$ inside and the factor of $\\frac{1}{2}$ outside, both of which produce dilations in addition to the shifts."
+        },
+        {
+          "id": "D",
+          "text": "Shift right $2$, vertical compression by $\\frac{1}{2}$, reflection over $x$-axis, shift up $1$",
+          "is_correct": false,
+          "explanation": "$(2x+4)=2(x+2)$ means the shift is $2$ units to the left (not right), because replacing $x$ with $x+2$ shifts left."
+        }
       ],
-      "unit_objective": "PCF-1.E"
+      "unit_objective": "PCF-1.E",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q037",
@@ -722,12 +2129,33 @@
       },
       "question": "Which of the following gives the value of $f(2) + f(-1)$?",
       "choices": [
-        { "id": "A", "text": "$1$", "is_correct": true, "explanation": "For $x=2$: use $3x-5$ (since $x\\geq2$): $f(2)=3(2)-5=1$. For $x=-1$: use $x^2-1$ (since $-1<2$): $f(-1)=1-1=0$. Sum: $1+0=1$." },
-        { "id": "B", "text": "$3$", "is_correct": false, "explanation": "$f(2)=3(2)-5=1$ (using the $x\\geq2$ piece) and $f(-1)=(-1)^2-1=0$ (using the $x<2$ piece). Sum is $1+0=1$, not $3$." },
-        { "id": "C", "text": "$4$", "is_correct": false, "explanation": "If $f(2)$ were computed using the $x<2$ piece incorrectly: $2^2-1=3$. Then $3+0=3\\neq4$. The correct branch for $x=2$ is $3x-5=1$." },
-        { "id": "D", "text": "$0$", "is_correct": false, "explanation": "$f(2)=1$ and $f(-1)=0$, so the sum is $1$, not $0$." }
+        {
+          "id": "A",
+          "text": "$1$",
+          "is_correct": true,
+          "explanation": "For $x=2$: use $3x-5$ (since $x\\geq2$): $f(2)=3(2)-5=1$. For $x=-1$: use $x^2-1$ (since $-1<2$): $f(-1)=1-1=0$. Sum: $1+0=1$."
+        },
+        {
+          "id": "B",
+          "text": "$3$",
+          "is_correct": false,
+          "explanation": "$f(2)=3(2)-5=1$ (using the $x\\geq2$ piece) and $f(-1)=(-1)^2-1=0$ (using the $x<2$ piece). Sum is $1+0=1$, not $3$."
+        },
+        {
+          "id": "C",
+          "text": "$4$",
+          "is_correct": false,
+          "explanation": "If $f(2)$ were computed using the $x<2$ piece incorrectly: $2^2-1=3$. Then $3+0=3\\neq4$. The correct branch for $x=2$ is $3x-5=1$."
+        },
+        {
+          "id": "D",
+          "text": "$0$",
+          "is_correct": false,
+          "explanation": "$f(2)=1$ and $f(-1)=0$, so the sum is $1$, not $0$."
+        }
       ],
-      "unit_objective": "PCF-1.F"
+      "unit_objective": "PCF-1.F",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q038",
@@ -740,12 +2168,33 @@
       },
       "question": "Which of the following best describes the continuity of $f$ at $x = 0$?",
       "choices": [
-        { "id": "A", "text": "$f$ is continuous at $x = 0$ because both pieces are polynomials", "is_correct": false, "explanation": "Being polynomials is necessary but not sufficient for continuity at the boundary. We must check that the left and right limits equal $f(0)$." },
-        { "id": "B", "text": "$f$ is not continuous at $x = 0$ because $\\lim_{x \\to 0^-} f(x) \\neq f(0)$", "is_correct": true, "explanation": "$\\lim_{x\\to0^-}f(x)=2(0)+3=3$; $f(0)=0^2=0$. Since $3\\neq0$, the left-hand limit does not equal $f(0)$, so $f$ is not continuous at $x=0$." },
-        { "id": "C", "text": "$f$ is continuous at $x = 0$ because $f(0) = 0$", "is_correct": false, "explanation": "$f(0)=0$, but $\\lim_{x\\to0^-}f(x)=3\\neq0$. Continuity requires the limit from both sides to equal the function value." },
-        { "id": "D", "text": "$f$ is not continuous at $x = 0$ because $f(0)$ is undefined", "is_correct": false, "explanation": "$f(0)$ is defined — use the $x\\geq0$ piece: $f(0)=0^2=0$. The discontinuity arises because the left-hand limit ($3$) does not equal $f(0)$ ($0$)." }
+        {
+          "id": "A",
+          "text": "$f$ is continuous at $x = 0$ because both pieces are polynomials",
+          "is_correct": false,
+          "explanation": "Being polynomials is necessary but not sufficient for continuity at the boundary. We must check that the left and right limits equal $f(0)$."
+        },
+        {
+          "id": "B",
+          "text": "$f$ is not continuous at $x = 0$ because $\\lim_{x \\to 0^-} f(x) \\neq f(0)$",
+          "is_correct": true,
+          "explanation": "$\\lim_{x\\to0^-}f(x)=2(0)+3=3$; $f(0)=0^2=0$. Since $3\\neq0$, the left-hand limit does not equal $f(0)$, so $f$ is not continuous at $x=0$."
+        },
+        {
+          "id": "C",
+          "text": "$f$ is continuous at $x = 0$ because $f(0) = 0$",
+          "is_correct": false,
+          "explanation": "$f(0)=0$, but $\\lim_{x\\to0^-}f(x)=3\\neq0$. Continuity requires the limit from both sides to equal the function value."
+        },
+        {
+          "id": "D",
+          "text": "$f$ is not continuous at $x = 0$ because $f(0)$ is undefined",
+          "is_correct": false,
+          "explanation": "$f(0)$ is defined — use the $x\\geq0$ piece: $f(0)=0^2=0$. The discontinuity arises because the left-hand limit ($3$) does not equal $f(0)$ ($0$)."
+        }
       ],
-      "unit_objective": "PCF-1.F"
+      "unit_objective": "PCF-1.F",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u1-q039",
@@ -758,12 +2207,33 @@
       },
       "question": "For what value of $a$ is $f$ continuous at $x = 1$?",
       "choices": [
-        { "id": "A", "text": "$a = 0$", "is_correct": true, "explanation": "Continuity at $x=1$ requires the left-hand limit to equal $f(1)$. Left limit: $a(1)+2=a+2$. $f(1)=3(1)^2-1=2$. Set equal: $a+2=2\\Rightarrow a=0$. Verify: left limit $=2$, $f(1)=2$. Continuous." },
-        { "id": "B", "text": "$a = 1$", "is_correct": false, "explanation": "If $a=1$: left limit $=1+2=3$; $f(1)=2$. Since $3\\neq2$, $f$ is not continuous at $x=1$ when $a=1$." },
-        { "id": "C", "text": "$a = 2$", "is_correct": false, "explanation": "If $a=2$: left limit $=2+2=4$; $f(1)=2$. Since $4\\neq2$, $a=2$ does not produce continuity." },
-        { "id": "D", "text": "$a = -2$", "is_correct": false, "explanation": "If $a=-2$: left limit $=-2+2=0$; $f(1)=2$. Since $0\\neq2$, $a=-2$ does not produce continuity." }
+        {
+          "id": "A",
+          "text": "$a = 0$",
+          "is_correct": true,
+          "explanation": "Continuity at $x=1$ requires the left-hand limit to equal $f(1)$. Left limit: $a(1)+2=a+2$. $f(1)=3(1)^2-1=2$. Set equal: $a+2=2\\Rightarrow a=0$. Verify: left limit $=2$, $f(1)=2$. Continuous."
+        },
+        {
+          "id": "B",
+          "text": "$a = 1$",
+          "is_correct": false,
+          "explanation": "If $a=1$: left limit $=1+2=3$; $f(1)=2$. Since $3\\neq2$, $f$ is not continuous at $x=1$ when $a=1$."
+        },
+        {
+          "id": "C",
+          "text": "$a = 2$",
+          "is_correct": false,
+          "explanation": "If $a=2$: left limit $=2+2=4$; $f(1)=2$. Since $4\\neq2$, $a=2$ does not produce continuity."
+        },
+        {
+          "id": "D",
+          "text": "$a = -2$",
+          "is_correct": false,
+          "explanation": "If $a=-2$: left limit $=-2+2=0$; $f(1)=2$. Since $0\\neq2$, $a=-2$ does not produce continuity."
+        }
       ],
-      "unit_objective": "PCF-1.F"
+      "unit_objective": "PCF-1.F",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q040",
@@ -776,12 +2246,33 @@
       },
       "question": "For what value of $k$ is $f$ continuous at $x = 2$?",
       "choices": [
-        { "id": "A", "text": "$k = 0$", "is_correct": true, "explanation": "Continuity requires left value $=$ right limit. Left: $k(2)+4=2k+4$. Right: $(2)^2-k=4-k$. Set equal: $2k+4=4-k\\Rightarrow3k=0\\Rightarrow k=0$. Verify: left $=4$, right $=4$. Continuous." },
-        { "id": "B", "text": "$k = 1$", "is_correct": false, "explanation": "If $k=1$: left $=2(1)+4=6$; right $=4-1=3$. Since $6\\neq3$, $f$ is not continuous with $k=1$." },
-        { "id": "C", "text": "$k = -1$", "is_correct": false, "explanation": "If $k=-1$: left $=-2+4=2$; right $=4-(-1)=5$. Since $2\\neq5$, $k=-1$ does not produce continuity." },
-        { "id": "D", "text": "$k = 2$", "is_correct": false, "explanation": "If $k=2$: left $=4+4=8$; right $=4-2=2$. Since $8\\neq2$, $k=2$ does not produce continuity." }
+        {
+          "id": "A",
+          "text": "$k = 0$",
+          "is_correct": true,
+          "explanation": "Continuity requires left value $=$ right limit. Left: $k(2)+4=2k+4$. Right: $(2)^2-k=4-k$. Set equal: $2k+4=4-k\\Rightarrow3k=0\\Rightarrow k=0$. Verify: left $=4$, right $=4$. Continuous."
+        },
+        {
+          "id": "B",
+          "text": "$k = 1$",
+          "is_correct": false,
+          "explanation": "If $k=1$: left $=2(1)+4=6$; right $=4-1=3$. Since $6\\neq3$, $f$ is not continuous with $k=1$."
+        },
+        {
+          "id": "C",
+          "text": "$k = -1$",
+          "is_correct": false,
+          "explanation": "If $k=-1$: left $=-2+4=2$; right $=4-(-1)=5$. Since $2\\neq5$, $k=-1$ does not produce continuity."
+        },
+        {
+          "id": "D",
+          "text": "$k = 2$",
+          "is_correct": false,
+          "explanation": "If $k=2$: left $=4+4=8$; right $=4-2=2$. Since $8\\neq2$, $k=2$ does not produce continuity."
+        }
       ],
-      "unit_objective": "PCF-1.F"
+      "unit_objective": "PCF-1.F",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q041",
@@ -794,12 +2285,33 @@
       },
       "question": "For what value of $k$ is $f$ continuous at $x = 2$?",
       "choices": [
-        { "id": "A", "text": "$k = 1$", "is_correct": false, "explanation": "If $k=1$: left limit $=3(2)-1=5$; $f(2)=1(2)+1=3$. Since $5\\neq3$, $k=1$ does not produce continuity." },
-        { "id": "B", "text": "$k = \\frac{5}{3}$", "is_correct": true, "explanation": "Set left limit equal to right value: $3(2)-k=k(2)+1\\Rightarrow6-k=2k+1\\Rightarrow5=3k\\Rightarrow k=\\frac{5}{3}$. Check: left $=6-\\frac{5}{3}=\\frac{13}{3}$; right $=\\frac{10}{3}+1=\\frac{13}{3}$. Continuous." },
-        { "id": "C", "text": "$k = 2$", "is_correct": false, "explanation": "If $k=2$: left limit $=6-2=4$; $f(2)=2(2)+1=5$. Since $4\\neq5$, $k=2$ does not produce continuity." },
-        { "id": "D", "text": "$k = 5$", "is_correct": false, "explanation": "If $k=5$: left limit $=6-5=1$; $f(2)=5(2)+1=11$. Since $1\\neq11$, $k=5$ does not produce continuity." }
+        {
+          "id": "A",
+          "text": "$k = 1$",
+          "is_correct": false,
+          "explanation": "If $k=1$: left limit $=3(2)-1=5$; $f(2)=1(2)+1=3$. Since $5\\neq3$, $k=1$ does not produce continuity."
+        },
+        {
+          "id": "B",
+          "text": "$k = \\frac{5}{3}$",
+          "is_correct": true,
+          "explanation": "Set left limit equal to right value: $3(2)-k=k(2)+1\\Rightarrow6-k=2k+1\\Rightarrow5=3k\\Rightarrow k=\\frac{5}{3}$. Check: left $=6-\\frac{5}{3}=\\frac{13}{3}$; right $=\\frac{10}{3}+1=\\frac{13}{3}$. Continuous."
+        },
+        {
+          "id": "C",
+          "text": "$k = 2$",
+          "is_correct": false,
+          "explanation": "If $k=2$: left limit $=6-2=4$; $f(2)=2(2)+1=5$. Since $4\\neq5$, $k=2$ does not produce continuity."
+        },
+        {
+          "id": "D",
+          "text": "$k = 5$",
+          "is_correct": false,
+          "explanation": "If $k=5$: left limit $=6-5=1$; $f(2)=5(2)+1=11$. Since $1\\neq11$, $k=5$ does not produce continuity."
+        }
       ],
-      "unit_objective": "PCF-1.F"
+      "unit_objective": "PCF-1.F",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q042",
@@ -809,18 +2321,67 @@
       "stimulus": {
         "type": "table",
         "content": {
-          "headers": ["$x$", "$f(x)$"],
-          "rows": [["0","12"],["1","9"],["2","8"],["3","9"],["4","12"],["5","17"]]
+          "headers": [
+            "$x$",
+            "$f(x)$"
+          ],
+          "rows": [
+            [
+              "0",
+              "12"
+            ],
+            [
+              "1",
+              "9"
+            ],
+            [
+              "2",
+              "8"
+            ],
+            [
+              "3",
+              "9"
+            ],
+            [
+              "4",
+              "12"
+            ],
+            [
+              "5",
+              "17"
+            ]
+          ]
         }
       },
       "question": "The table above shows selected values of $f$. Which of the following best describes the average rate of change of $f$ on $[0, 2]$ compared to $[2, 4]$?",
       "choices": [
-        { "id": "A", "text": "Both intervals have AROC $= -2$", "is_correct": false, "explanation": "AROC on $[0,2]=\\frac{8-12}{2}=-2$ and AROC on $[2,4]=\\frac{12-8}{2}=2$. The intervals have equal magnitude but opposite signs." },
-        { "id": "B", "text": "AROC on $[0, 2]$ is $-2$ and AROC on $[2, 4]$ is $2$", "is_correct": true, "explanation": "AROC on $[0,2]=\\frac{f(2)-f(0)}{2}=\\frac{8-12}{2}=\\frac{-4}{2}=-2$. AROC on $[2,4]=\\frac{f(4)-f(2)}{2}=\\frac{12-8}{2}=\\frac{4}{2}=2$." },
-        { "id": "C", "text": "AROC on $[0, 2]$ is $2$ and AROC on $[2, 4]$ is $-2$", "is_correct": false, "explanation": "The signs are reversed. $f$ decreases from $0$ to $2$ (AROC $< 0$) and increases from $2$ to $4$ (AROC $> 0$), suggesting a minimum near $x=2$." },
-        { "id": "D", "text": "Both intervals have AROC $= 0$", "is_correct": false, "explanation": "AROC $=0$ would require the same output at both endpoints. Here $f(0)=12\\neq f(2)=8$ and $f(2)=8\\neq f(4)=12$." }
+        {
+          "id": "A",
+          "text": "Both intervals have AROC $= -2$",
+          "is_correct": false,
+          "explanation": "AROC on $[0,2]=\\frac{8-12}{2}=-2$ and AROC on $[2,4]=\\frac{12-8}{2}=2$. The intervals have equal magnitude but opposite signs."
+        },
+        {
+          "id": "B",
+          "text": "AROC on $[0, 2]$ is $-2$ and AROC on $[2, 4]$ is $2$",
+          "is_correct": true,
+          "explanation": "AROC on $[0,2]=\\frac{f(2)-f(0)}{2}=\\frac{8-12}{2}=\\frac{-4}{2}=-2$. AROC on $[2,4]=\\frac{f(4)-f(2)}{2}=\\frac{12-8}{2}=\\frac{4}{2}=2$."
+        },
+        {
+          "id": "C",
+          "text": "AROC on $[0, 2]$ is $2$ and AROC on $[2, 4]$ is $-2$",
+          "is_correct": false,
+          "explanation": "The signs are reversed. $f$ decreases from $0$ to $2$ (AROC $< 0$) and increases from $2$ to $4$ (AROC $> 0$), suggesting a minimum near $x=2$."
+        },
+        {
+          "id": "D",
+          "text": "Both intervals have AROC $= 0$",
+          "is_correct": false,
+          "explanation": "AROC $=0$ would require the same output at both endpoints. Here $f(0)=12\\neq f(2)=8$ and $f(2)=8\\neq f(4)=12$."
+        }
       ],
-      "unit_objective": "PCF-1.A"
+      "unit_objective": "PCF-1.A",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q043",
@@ -830,18 +2391,63 @@
       "stimulus": {
         "type": "table",
         "content": {
-          "headers": ["$x$", "$f(x)$"],
-          "rows": [["1","3"],["2","5"],["3","7"],["4","9"],["5","11"]]
+          "headers": [
+            "$x$",
+            "$f(x)$"
+          ],
+          "rows": [
+            [
+              "1",
+              "3"
+            ],
+            [
+              "2",
+              "5"
+            ],
+            [
+              "3",
+              "7"
+            ],
+            [
+              "4",
+              "9"
+            ],
+            [
+              "5",
+              "11"
+            ]
+          ]
         }
       },
       "question": "Based on the table, which of the following best identifies the type of function $f$?",
       "choices": [
-        { "id": "A", "text": "Quadratic, because the outputs are increasing", "is_correct": false, "explanation": "Increasing outputs characterize many function types. A quadratic would show a non-constant rate of change. AROC here is constant at $2$, indicating linear behavior." },
-        { "id": "B", "text": "Linear, because the average rate of change is constant", "is_correct": true, "explanation": "AROC on every unit interval $=2$: $(5-3)/1=(7-5)/1=(9-7)/1=(11-9)/1=2$. Constant AROC is the defining characteristic of linear functions." },
-        { "id": "C", "text": "Exponential, because the outputs have a constant ratio", "is_correct": false, "explanation": "Check ratios: $5/3\\approx1.67$, $7/5=1.4$, $9/7\\approx1.29$. These ratios are not constant, so $f$ is not exponential." },
-        { "id": "D", "text": "Quadratic, because the second differences are constant", "is_correct": false, "explanation": "Second differences: $(7-5)-(5-3)=0$, $(9-7)-(7-5)=0$. Second differences equal zero — not constant positive values. This confirms linearity, not quadratic." }
+        {
+          "id": "A",
+          "text": "Quadratic, because the outputs are increasing",
+          "is_correct": false,
+          "explanation": "Increasing outputs characterize many function types. A quadratic would show a non-constant rate of change. AROC here is constant at $2$, indicating linear behavior."
+        },
+        {
+          "id": "B",
+          "text": "Linear, because the average rate of change is constant",
+          "is_correct": true,
+          "explanation": "AROC on every unit interval $=2$: $(5-3)/1=(7-5)/1=(9-7)/1=(11-9)/1=2$. Constant AROC is the defining characteristic of linear functions."
+        },
+        {
+          "id": "C",
+          "text": "Exponential, because the outputs have a constant ratio",
+          "is_correct": false,
+          "explanation": "Check ratios: $5/3\\approx1.67$, $7/5=1.4$, $9/7\\approx1.29$. These ratios are not constant, so $f$ is not exponential."
+        },
+        {
+          "id": "D",
+          "text": "Quadratic, because the second differences are constant",
+          "is_correct": false,
+          "explanation": "Second differences: $(7-5)-(5-3)=0$, $(9-7)-(7-5)=0$. Second differences equal zero — not constant positive values. This confirms linearity, not quadratic."
+        }
       ],
-      "unit_objective": "PCF-1.A"
+      "unit_objective": "PCF-1.A",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u1-q044",
@@ -851,18 +2457,63 @@
       "stimulus": {
         "type": "table",
         "content": {
-          "headers": ["$x$", "$f(x)$"],
-          "rows": [["0","1"],["1","3"],["2","9"],["3","27"],["4","81"]]
+          "headers": [
+            "$x$",
+            "$f(x)$"
+          ],
+          "rows": [
+            [
+              "0",
+              "1"
+            ],
+            [
+              "1",
+              "3"
+            ],
+            [
+              "2",
+              "9"
+            ],
+            [
+              "3",
+              "27"
+            ],
+            [
+              "4",
+              "81"
+            ]
+          ]
         }
       },
       "question": "The table above shows values of $f$. Which of the following best identifies the type of function $f$?",
       "choices": [
-        { "id": "A", "text": "Linear, because the outputs increase by a constant amount", "is_correct": false, "explanation": "Check differences: $3-1=2$, $9-3=6$, $27-9=18$. The differences are not constant, so $f$ is not linear." },
-        { "id": "B", "text": "Quadratic, because the outputs grow rapidly", "is_correct": false, "explanation": "Rapid growth could describe exponential functions too. Check second differences: $6-2=4$, $18-6=12$ — not constant, so not quadratic." },
-        { "id": "C", "text": "Exponential, because the ratio of consecutive outputs is constant", "is_correct": true, "explanation": "Ratios: $3/1=3$, $9/3=3$, $27/9=3$, $81/27=3$. A constant multiplicative ratio of $3$ confirms $f(x)=3^x$ is exponential." },
-        { "id": "D", "text": "Polynomial, because the domain is all real numbers", "is_correct": false, "explanation": "Both polynomial and exponential functions have domain all real numbers. The constant ratio of outputs identifies this as exponential, not polynomial." }
+        {
+          "id": "A",
+          "text": "Linear, because the outputs increase by a constant amount",
+          "is_correct": false,
+          "explanation": "Check differences: $3-1=2$, $9-3=6$, $27-9=18$. The differences are not constant, so $f$ is not linear."
+        },
+        {
+          "id": "B",
+          "text": "Quadratic, because the outputs grow rapidly",
+          "is_correct": false,
+          "explanation": "Rapid growth could describe exponential functions too. Check second differences: $6-2=4$, $18-6=12$ — not constant, so not quadratic."
+        },
+        {
+          "id": "C",
+          "text": "Exponential, because the ratio of consecutive outputs is constant",
+          "is_correct": true,
+          "explanation": "Ratios: $3/1=3$, $9/3=3$, $27/9=3$, $81/27=3$. A constant multiplicative ratio of $3$ confirms $f(x)=3^x$ is exponential."
+        },
+        {
+          "id": "D",
+          "text": "Polynomial, because the domain is all real numbers",
+          "is_correct": false,
+          "explanation": "Both polynomial and exponential functions have domain all real numbers. The constant ratio of outputs identifies this as exponential, not polynomial."
+        }
       ],
-      "unit_objective": "PCF-1.A"
+      "unit_objective": "PCF-1.A",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u1-q045",
@@ -872,93 +2523,254 @@
       "stimulus": {
         "type": "table",
         "content": {
-          "headers": ["Year", "Population (thousands)"],
-          "rows": [["0","50"],["5","65"],["10","84"],["15","110"]]
+          "headers": [
+            "Year",
+            "Population (thousands)"
+          ],
+          "rows": [
+            [
+              "0",
+              "50"
+            ],
+            [
+              "5",
+              "65"
+            ],
+            [
+              "10",
+              "84"
+            ],
+            [
+              "15",
+              "110"
+            ]
+          ]
         }
       },
       "question": "A researcher is modeling a town's population using the data in the table. Which type of function would best model the data, and why?",
       "choices": [
-        { "id": "A", "text": "Linear, because the population increases each period", "is_correct": false, "explanation": "AROC: $\\frac{65-50}{5}=3$, $\\frac{84-65}{5}=3.8$, $\\frac{110-84}{5}=5.2$. The rate of change is increasing, not constant, so the model is not linear." },
-        { "id": "B", "text": "Exponential, because the population increases by a constant amount each period", "is_correct": false, "explanation": "Constant additive change defines a linear model, not exponential. The differences are $15, 19, 26$ (thousands) — not constant. An exponential model is identified by constant multiplicative ratios or increasing average rate of change." },
-        { "id": "C", "text": "Quadratic, because the average rate of change is increasing at a constant rate", "is_correct": false, "explanation": "Second differences in AROC: $3.8-3=0.8$ and $5.2-3.8=1.4$. These are NOT constant ($0.8\\neq1.4$), so a quadratic model is not supported." },
-        { "id": "D", "text": "Exponential, because the average rate of change is increasing over equal intervals", "is_correct": true, "explanation": "Increasing AROC ($3, 3.8, 5.2$ per 5-year period) and near-constant multiplicative ratios ($\\approx1.30$ every 5 years) both suggest an exponential model, where growth compounds over time." }
+        {
+          "id": "A",
+          "text": "Linear, because the population increases each period",
+          "is_correct": false,
+          "explanation": "AROC: $\\frac{65-50}{5}=3$, $\\frac{84-65}{5}=3.8$, $\\frac{110-84}{5}=5.2$. The rate of change is increasing, not constant, so the model is not linear."
+        },
+        {
+          "id": "B",
+          "text": "Exponential, because the population increases by a constant amount each period",
+          "is_correct": false,
+          "explanation": "Constant additive change defines a linear model, not exponential. The differences are $15, 19, 26$ (thousands) — not constant. An exponential model is identified by constant multiplicative ratios or increasing average rate of change."
+        },
+        {
+          "id": "C",
+          "text": "Quadratic, because the average rate of change is increasing at a constant rate",
+          "is_correct": false,
+          "explanation": "Second differences in AROC: $3.8-3=0.8$ and $5.2-3.8=1.4$. These are NOT constant ($0.8\\neq1.4$), so a quadratic model is not supported."
+        },
+        {
+          "id": "D",
+          "text": "Exponential, because the average rate of change is increasing over equal intervals",
+          "is_correct": true,
+          "explanation": "Increasing AROC ($3, 3.8, 5.2$ per 5-year period) and near-constant multiplicative ratios ($\\approx1.30$ every 5 years) both suggest an exponential model, where growth compounds over time."
+        }
       ],
-      "unit_objective": "PCF-1.A"
+      "unit_objective": "PCF-1.A",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u1-q046",
       "unit": "unit-1",
       "subject": "ap-precalculus",
       "difficulty": "hard",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "A polynomial $f$ has exactly three distinct real zeros: $x = -2$ (multiplicity 1), $x = 1$ (multiplicity 2), and $x = 4$ (multiplicity 1). The leading coefficient is negative. Which of the following best describes the graph's end behavior and behavior at each zero?",
       "choices": [
-        { "id": "A", "text": "Rises left, falls right; crosses at $x = -2$ and $x = 4$; bounces at $x = 1$", "is_correct": false, "explanation": "Rises-left/falls-right describes an odd-degree polynomial with positive leading coefficient. Here the leading coefficient is negative. The total degree is $1+2+1=4$ (even), so both ends fall." },
-        { "id": "B", "text": "Falls both ends; crosses at $x = -2$ and $x = 4$; bounces at $x = 1$", "is_correct": true, "explanation": "Degree $=1+2+1=4$ (even), negative leading coefficient $\\Rightarrow$ both ends fall. Odd multiplicity at $x=-2$ and $x=4$ $\\Rightarrow$ crosses. Even multiplicity at $x=1$ $\\Rightarrow$ bounces." },
-        { "id": "C", "text": "Falls both ends; bounces at all three zeros", "is_correct": false, "explanation": "Only zeros with even multiplicity bounce. $x=-2$ (mult. 1) and $x=4$ (mult. 1) have odd multiplicity, so the graph crosses at those zeros." },
-        { "id": "D", "text": "Rises both ends; crosses at $x = -2$ and $x = 4$; bounces at $x = 1$", "is_correct": false, "explanation": "Even degree with negative leading coefficient falls on both ends (not rises). The zero behaviors are correct in this choice but the end behavior is wrong." }
+        {
+          "id": "A",
+          "text": "Rises left, falls right; crosses at $x = -2$ and $x = 4$; bounces at $x = 1$",
+          "is_correct": false,
+          "explanation": "Rises-left/falls-right describes an odd-degree polynomial with positive leading coefficient. Here the leading coefficient is negative. The total degree is $1+2+1=4$ (even), so both ends fall."
+        },
+        {
+          "id": "B",
+          "text": "Falls both ends; crosses at $x = -2$ and $x = 4$; bounces at $x = 1$",
+          "is_correct": true,
+          "explanation": "Degree $=1+2+1=4$ (even), negative leading coefficient $\\Rightarrow$ both ends fall. Odd multiplicity at $x=-2$ and $x=4$ $\\Rightarrow$ crosses. Even multiplicity at $x=1$ $\\Rightarrow$ bounces."
+        },
+        {
+          "id": "C",
+          "text": "Falls both ends; bounces at all three zeros",
+          "is_correct": false,
+          "explanation": "Only zeros with even multiplicity bounce. $x=-2$ (mult. 1) and $x=4$ (mult. 1) have odd multiplicity, so the graph crosses at those zeros."
+        },
+        {
+          "id": "D",
+          "text": "Rises both ends; crosses at $x = -2$ and $x = 4$; bounces at $x = 1$",
+          "is_correct": false,
+          "explanation": "Even degree with negative leading coefficient falls on both ends (not rises). The zero behaviors are correct in this choice but the end behavior is wrong."
+        }
       ],
-      "unit_objective": "PCF-1.B"
+      "unit_objective": "PCF-1.B",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q047",
       "unit": "unit-1",
       "subject": "ap-precalculus",
       "difficulty": "hard",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "A rational function $r(x) = \\frac{2x^2 + 3x - 2}{x^2 - x - 6}$ has which of the following features?",
       "choices": [
-        { "id": "A", "text": "Vertical asymptotes at $x = 3$ and $x = -2$; horizontal asymptote at $y = 2$; no holes", "is_correct": false, "explanation": "Factor numerator: $(2x-1)(x+2)$; denominator: $(x-3)(x+2)$. The common factor $(x+2)$ cancels, creating a hole at $x=-2$, not a vertical asymptote there." },
-        { "id": "B", "text": "Hole at $x = -2$; vertical asymptote at $x = 3$; horizontal asymptote at $y = 2$", "is_correct": true, "explanation": "Factor numerator $(2x-1)(x+2)$ and denominator $(x-3)(x+2)$. $(x+2)$ cancels $\\Rightarrow$ hole at $x=-2$. Vertical asymptote at $x=3$ (only remaining denominator zero). Equal degrees: HA $= \\frac{2}{1}=2$." },
-        { "id": "C", "text": "Vertical asymptotes at $x = 3$ and $x = -2$; horizontal asymptote at $y = 0$", "is_correct": false, "explanation": "HA $=y=0$ only when numerator degree $<$ denominator degree. Here degrees are equal, giving HA $=2$. Also $(x+2)$ cancels, so $x=-2$ is a hole, not a vertical asymptote." },
-        { "id": "D", "text": "No vertical asymptotes; hole at $x = 3$; horizontal asymptote at $y = 2$", "is_correct": false, "explanation": "$(x+2)$ cancels (not $(x-3)$), so the hole is at $x=-2$, not $x=3$. There is still a vertical asymptote at $x=3$." }
+        {
+          "id": "A",
+          "text": "Vertical asymptotes at $x = 3$ and $x = -2$; horizontal asymptote at $y = 2$; no holes",
+          "is_correct": false,
+          "explanation": "Factor numerator: $(2x-1)(x+2)$; denominator: $(x-3)(x+2)$. The common factor $(x+2)$ cancels, creating a hole at $x=-2$, not a vertical asymptote there."
+        },
+        {
+          "id": "B",
+          "text": "Hole at $x = -2$; vertical asymptote at $x = 3$; horizontal asymptote at $y = 2$",
+          "is_correct": true,
+          "explanation": "Factor numerator $(2x-1)(x+2)$ and denominator $(x-3)(x+2)$. $(x+2)$ cancels $\\Rightarrow$ hole at $x=-2$. Vertical asymptote at $x=3$ (only remaining denominator zero). Equal degrees: HA $= \\frac{2}{1}=2$."
+        },
+        {
+          "id": "C",
+          "text": "Vertical asymptotes at $x = 3$ and $x = -2$; horizontal asymptote at $y = 0$",
+          "is_correct": false,
+          "explanation": "HA $=y=0$ only when numerator degree $<$ denominator degree. Here degrees are equal, giving HA $=2$. Also $(x+2)$ cancels, so $x=-2$ is a hole, not a vertical asymptote."
+        },
+        {
+          "id": "D",
+          "text": "No vertical asymptotes; hole at $x = 3$; horizontal asymptote at $y = 2$",
+          "is_correct": false,
+          "explanation": "$(x+2)$ cancels (not $(x-3)$), so the hole is at $x=-2$, not $x=3$. There is still a vertical asymptote at $x=3$."
+        }
       ],
-      "unit_objective": "PCF-1.C"
+      "unit_objective": "PCF-1.C",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q048",
       "unit": "unit-1",
       "subject": "ap-precalculus",
       "difficulty": "hard",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following gives the slant asymptote of $r(x) = \\frac{x^2 + 2x - 1}{x - 1}$?",
       "choices": [
-        { "id": "A", "text": "$y = x + 3$", "is_correct": true, "explanation": "Long division: $x^2+2x-1 = (x-1)(x+3)+2$. So $r(x) = x+3+\\frac{2}{x-1}$. As $|x|\\to\\infty$, the remainder vanishes and $r(x)\\to x+3$. The slant asymptote is $y=x+3$." },
-        { "id": "B", "text": "$y = x + 1$", "is_correct": false, "explanation": "Long division of $x^2+2x-1$ by $(x-1)$ gives quotient $x+3$ with remainder $2$, not $x+1$." },
-        { "id": "C", "text": "$y = x$", "is_correct": false, "explanation": "The quotient from dividing $x^2+2x-1$ by $(x-1)$ is $x+3$, not just $x$. The constant $+3$ arises from the division." },
-        { "id": "D", "text": "$y = x - 3$", "is_correct": false, "explanation": "The quotient is $x+3$ (positive), not $x-3$. Verify: $(x-1)(x+3)+2 = x^2+2x-3+2 = x^2+2x-1$ ✓." }
+        {
+          "id": "A",
+          "text": "$y = x + 3$",
+          "is_correct": true,
+          "explanation": "Long division: $x^2+2x-1 = (x-1)(x+3)+2$. So $r(x) = x+3+\\frac{2}{x-1}$. As $|x|\\to\\infty$, the remainder vanishes and $r(x)\\to x+3$. The slant asymptote is $y=x+3$."
+        },
+        {
+          "id": "B",
+          "text": "$y = x + 1$",
+          "is_correct": false,
+          "explanation": "Long division of $x^2+2x-1$ by $(x-1)$ gives quotient $x+3$ with remainder $2$, not $x+1$."
+        },
+        {
+          "id": "C",
+          "text": "$y = x$",
+          "is_correct": false,
+          "explanation": "The quotient from dividing $x^2+2x-1$ by $(x-1)$ is $x+3$, not just $x$. The constant $+3$ arises from the division."
+        },
+        {
+          "id": "D",
+          "text": "$y = x - 3$",
+          "is_correct": false,
+          "explanation": "The quotient is $x+3$ (positive), not $x-3$. Verify: $(x-1)(x+3)+2 = x^2+2x-3+2 = x^2+2x-1$ ✓."
+        }
       ],
-      "unit_objective": "PCF-1.C"
+      "unit_objective": "PCF-1.C",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u1-q049",
       "unit": "unit-1",
       "subject": "ap-precalculus",
       "difficulty": "hard",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following gives all real zeros of $f(x) = x^4 - 5x^2 + 4$?",
       "choices": [
-        { "id": "A", "text": "$x = \\pm1$ and $x = \\pm2$", "is_correct": true, "explanation": "Factor: $x^4-5x^2+4=(x^2-1)(x^2-4)=(x-1)(x+1)(x-2)(x+2)$. Real zeros: $x=\\pm1$ and $x=\\pm2$." },
-        { "id": "B", "text": "$x = 1$ and $x = 4$", "is_correct": false, "explanation": "$x=4$ is not a zero: $4^4-5(16)+4=256-80+4=180\\neq0$. Use the substitution $u=x^2$ to factor: $(u-1)(u-4)=0$ gives $x^2=1$ or $x^2=4$, so $x=\\pm1$ or $x=\\pm2$." },
-        { "id": "C", "text": "$x = \\pm1$ only", "is_correct": false, "explanation": "$x=\\pm2$ are also zeros: $f(2)=16-20+4=0$ and $f(-2)=16-20+4=0$. The complete set of real zeros is $x=\\pm1$ and $x=\\pm2$." },
-        { "id": "D", "text": "$x = \\pm\\sqrt{5}$", "is_correct": false, "explanation": "$x=\\pm\\sqrt{5}$ would be a zero only if $x^4-5x^2+4$ had a factor $(x^2-5)$. Check: $(x^2-5)(x^2-?)=x^4-5x^2+4$ requires $?=?$, which doesn't give $4$. The correct factoring is $(x^2-1)(x^2-4)$." }
+        {
+          "id": "A",
+          "text": "$x = \\pm1$ and $x = \\pm2$",
+          "is_correct": true,
+          "explanation": "Factor: $x^4-5x^2+4=(x^2-1)(x^2-4)=(x-1)(x+1)(x-2)(x+2)$. Real zeros: $x=\\pm1$ and $x=\\pm2$."
+        },
+        {
+          "id": "B",
+          "text": "$x = 1$ and $x = 4$",
+          "is_correct": false,
+          "explanation": "$x=4$ is not a zero: $4^4-5(16)+4=256-80+4=180\\neq0$. Use the substitution $u=x^2$ to factor: $(u-1)(u-4)=0$ gives $x^2=1$ or $x^2=4$, so $x=\\pm1$ or $x=\\pm2$."
+        },
+        {
+          "id": "C",
+          "text": "$x = \\pm1$ only",
+          "is_correct": false,
+          "explanation": "$x=\\pm2$ are also zeros: $f(2)=16-20+4=0$ and $f(-2)=16-20+4=0$. The complete set of real zeros is $x=\\pm1$ and $x=\\pm2$."
+        },
+        {
+          "id": "D",
+          "text": "$x = \\pm\\sqrt{5}$",
+          "is_correct": false,
+          "explanation": "$x=\\pm\\sqrt{5}$ would be a zero only if $x^4-5x^2+4$ had a factor $(x^2-5)$. Check: $(x^2-5)(x^2-?)=x^4-5x^2+4$ requires $?=?$, which doesn't give $4$. The correct factoring is $(x^2-1)(x^2-4)$."
+        }
       ],
-      "unit_objective": "PCF-1.B"
+      "unit_objective": "PCF-1.B",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q050",
       "unit": "unit-1",
       "subject": "ap-precalculus",
       "difficulty": "hard",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "The graph of a polynomial $p(x)$ has zeros at $x = -1$ (crosses), $x = 2$ (bounces), and $x = 5$ (crosses), and rises to $+\\infty$ as $x \\to +\\infty$. Which of the following could be a formula for $p(x)$?",
       "choices": [
-        { "id": "A", "text": "$p(x) = (x+1)(x-2)^2(x-5)$", "is_correct": true, "explanation": "Crosses at $x=-1$ (mult. 1) and $x=5$ (mult. 1); bounces at $x=2$ (mult. 2). Degree $= 1+2+1=4$ (even). Leading term $=x^4>0$, so $p(x)\\to+\\infty$ as $x\\to+\\infty$. All conditions satisfied." },
-        { "id": "B", "text": "$p(x) = -(x+1)(x-2)^2(x-5)$", "is_correct": false, "explanation": "The negative leading coefficient would cause $p(x)\\to-\\infty$ as $x\\to+\\infty$, contradicting the given end behavior." },
-        { "id": "C", "text": "$p(x) = (x+1)^2(x-2)(x-5)$", "is_correct": false, "explanation": "This bounces at $x=-1$ (mult. 2) and crosses at $x=2$ (mult. 1) — the opposite of the described graph behavior." },
-        { "id": "D", "text": "$p(x) = (x+1)(x-2)(x-5)$", "is_correct": false, "explanation": "All three zeros have multiplicity 1, so the graph crosses at all three. The description requires a bounce at $x=2$ (even multiplicity)." }
+        {
+          "id": "A",
+          "text": "$p(x) = (x+1)(x-2)^2(x-5)$",
+          "is_correct": true,
+          "explanation": "Crosses at $x=-1$ (mult. 1) and $x=5$ (mult. 1); bounces at $x=2$ (mult. 2). Degree $= 1+2+1=4$ (even). Leading term $=x^4>0$, so $p(x)\\to+\\infty$ as $x\\to+\\infty$. All conditions satisfied."
+        },
+        {
+          "id": "B",
+          "text": "$p(x) = -(x+1)(x-2)^2(x-5)$",
+          "is_correct": false,
+          "explanation": "The negative leading coefficient would cause $p(x)\\to-\\infty$ as $x\\to+\\infty$, contradicting the given end behavior."
+        },
+        {
+          "id": "C",
+          "text": "$p(x) = (x+1)^2(x-2)(x-5)$",
+          "is_correct": false,
+          "explanation": "This bounces at $x=-1$ (mult. 2) and crosses at $x=2$ (mult. 1) — the opposite of the described graph behavior."
+        },
+        {
+          "id": "D",
+          "text": "$p(x) = (x+1)(x-2)(x-5)$",
+          "is_correct": false,
+          "explanation": "All three zeros have multiplicity 1, so the graph crosses at all three. The description requires a bounce at $x=2$ (even multiplicity)."
+        }
       ],
-      "unit_objective": "PCF-1.B"
+      "unit_objective": "PCF-1.B",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u1-q051",
@@ -970,50 +2782,170 @@
         "content": {
           "type": "line",
           "data": {
-            "labels": ["-3","-2","-1","0","1","2","3","4","5"],
-            "datasets": [{ "label": "f(x)", "data": [null,null,0,3,4,3,0,null,null], "borderColor": "#6366f1", "backgroundColor": "transparent", "tension": 0.4, "spanGaps": false }]
+            "labels": [
+              "-3",
+              "-2",
+              "-1",
+              "0",
+              "1",
+              "2",
+              "3",
+              "4",
+              "5"
+            ],
+            "datasets": [
+              {
+                "label": "f(x)",
+                "data": [
+                  null,
+                  null,
+                  0,
+                  3,
+                  4,
+                  3,
+                  0,
+                  null,
+                  null
+                ],
+                "borderColor": "#6366f1",
+                "backgroundColor": "transparent",
+                "tension": 0.4,
+                "spanGaps": false
+              }
+            ]
           },
-          "options": { "plugins":{"legend":{"display":false}}, "scales": { "x":{"title":{"display":true,"text":"x"}}, "y":{"title":{"display":true,"text":"f(x)"},"min":-1,"max":6} } }
+          "options": {
+            "plugins": {
+              "legend": {
+                "display": false
+              }
+            },
+            "scales": {
+              "x": {
+                "title": {
+                  "display": true,
+                  "text": "x"
+                }
+              },
+              "y": {
+                "title": {
+                  "display": true,
+                  "text": "f(x)"
+                },
+                "min": -1,
+                "max": 6
+              }
+            }
+          }
         }
       },
       "question": "The graph of $f$ passes through $(-1, 0)$, $(2, 3)$, $(0, 3)$, $(1, 4)$, and $(3, 0)$. The graph is a downward-opening parabola with vertex at $(1, 4)$ and zeros at $x = -1$ and $x = 3$. Which of the following gives a formula for $f$?",
       "choices": [
-        { "id": "A", "text": "$f(x) = -(x + 1)(x - 3)$", "is_correct": true, "explanation": "Zeros at $x=-1$ and $x=3$: factors $(x+1)$ and $(x-3)$. Negative sign opens downward. Vertex midpoint: $\\frac{-1+3}{2}=1$; $f(1)=-(2)(-2)=4$. Vertex $(1,4)$ confirmed." },
-        { "id": "B", "text": "$f(x) = (x + 1)(x - 3)$", "is_correct": false, "explanation": "This opens upward (positive leading coefficient), producing a minimum at the vertex, not the maximum shown by the graph." },
-        { "id": "C", "text": "$f(x) = -(x - 1)(x + 3)$", "is_correct": false, "explanation": "This has zeros at $x=1$ and $x=-3$, not at $x=-1$ and $x=3$. The vertex would be at $x=-1$, not at $x=1$." },
-        { "id": "D", "text": "$f(x) = -(x + 1)^2 + 3$", "is_correct": false, "explanation": "Vertex form $-(x+1)^2+3$ has vertex at $(-1,3)$, not $(1,4)$. Also, $f(-1)=0$ is correct but $f(3)=-(16)+3=-13\\neq0$." }
+        {
+          "id": "A",
+          "text": "$f(x) = -(x + 1)(x - 3)$",
+          "is_correct": true,
+          "explanation": "Zeros at $x=-1$ and $x=3$: factors $(x+1)$ and $(x-3)$. Negative sign opens downward. Vertex midpoint: $\\frac{-1+3}{2}=1$; $f(1)=-(2)(-2)=4$. Vertex $(1,4)$ confirmed."
+        },
+        {
+          "id": "B",
+          "text": "$f(x) = (x + 1)(x - 3)$",
+          "is_correct": false,
+          "explanation": "This opens upward (positive leading coefficient), producing a minimum at the vertex, not the maximum shown by the graph."
+        },
+        {
+          "id": "C",
+          "text": "$f(x) = -(x - 1)(x + 3)$",
+          "is_correct": false,
+          "explanation": "This has zeros at $x=1$ and $x=-3$, not at $x=-1$ and $x=3$. The vertex would be at $x=-1$, not at $x=1$."
+        },
+        {
+          "id": "D",
+          "text": "$f(x) = -(x + 1)^2 + 3$",
+          "is_correct": false,
+          "explanation": "Vertex form $-(x+1)^2+3$ has vertex at $(-1,3)$, not $(1,4)$. Also, $f(-1)=0$ is correct but $f(3)=-(16)+3=-13\\neq0$."
+        }
       ],
-      "unit_objective": "PCF-1.B"
+      "unit_objective": "PCF-1.B",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u1-q052",
       "unit": "unit-1",
       "subject": "ap-precalculus",
       "difficulty": "medium",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "A polynomial $f$ has a zero at $x = 2$ with multiplicity $3$. Which of the following best describes the graph of $f$ near $x = 2$?",
       "choices": [
-        { "id": "A", "text": "The graph touches but does not cross the $x$-axis at $x = 2$", "is_correct": false, "explanation": "Touching without crossing describes even multiplicity. Multiplicity $3$ is odd, so the graph crosses the $x$-axis at $x=2$." },
-        { "id": "B", "text": "The graph crosses the $x$-axis at $x = 2$, flattening near the axis", "is_correct": true, "explanation": "Odd multiplicity means the graph crosses (changes sign). Multiplicity $3$ (greater than $1$) causes the graph to flatten and appear tangent to the $x$-axis before crossing, unlike a simple cross at multiplicity $1$." },
-        { "id": "C", "text": "The graph crosses the $x$-axis sharply at $x = 2$, with no flattening", "is_correct": false, "explanation": "A sharp crossing with no flattening describes multiplicity $1$. Multiplicity $3$ produces a characteristic flattening (the graph is tangent to the $x$-axis) even though it still crosses." },
-        { "id": "D", "text": "The graph has a local maximum at $x = 2$", "is_correct": false, "explanation": "At a zero of odd multiplicity, the polynomial changes sign — it is not a local extremum. Local maxima/minima occur at turning points, not at odd-multiplicity zeros." }
+        {
+          "id": "A",
+          "text": "The graph touches but does not cross the $x$-axis at $x = 2$",
+          "is_correct": false,
+          "explanation": "Touching without crossing describes even multiplicity. Multiplicity $3$ is odd, so the graph crosses the $x$-axis at $x=2$."
+        },
+        {
+          "id": "B",
+          "text": "The graph crosses the $x$-axis at $x = 2$, flattening near the axis",
+          "is_correct": true,
+          "explanation": "Odd multiplicity means the graph crosses (changes sign). Multiplicity $3$ (greater than $1$) causes the graph to flatten and appear tangent to the $x$-axis before crossing, unlike a simple cross at multiplicity $1$."
+        },
+        {
+          "id": "C",
+          "text": "The graph crosses the $x$-axis sharply at $x = 2$, with no flattening",
+          "is_correct": false,
+          "explanation": "A sharp crossing with no flattening describes multiplicity $1$. Multiplicity $3$ produces a characteristic flattening (the graph is tangent to the $x$-axis) even though it still crosses."
+        },
+        {
+          "id": "D",
+          "text": "The graph has a local maximum at $x = 2$",
+          "is_correct": false,
+          "explanation": "At a zero of odd multiplicity, the polynomial changes sign — it is not a local extremum. Local maxima/minima occur at turning points, not at odd-multiplicity zeros."
+        }
       ],
-      "unit_objective": "PCF-1.B"
+      "unit_objective": "PCF-1.B",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q053",
       "unit": "unit-1",
       "subject": "ap-precalculus",
       "difficulty": "medium",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following gives the domain of $r(x) = \\frac{x + 2}{x^2 - 9}$?",
       "choices": [
-        { "id": "A", "text": "All real numbers except $x = 9$", "is_correct": false, "explanation": "The denominator is $x^2-9=(x-3)(x+3)$, which equals zero at $x=3$ and $x=-3$, not at $x=9$." },
-        { "id": "B", "text": "All real numbers except $x = 3$ and $x = -3$", "is_correct": true, "explanation": "The denominator $x^2-9=(x-3)(x+3)=0$ when $x=\\pm3$. These values must be excluded from the domain." },
-        { "id": "C", "text": "All real numbers except $x = -2$", "is_correct": false, "explanation": "$x=-2$ makes the numerator zero, giving $r(-2)=0$, which is defined. Domain restrictions come from zeros of the denominator, not the numerator." },
-        { "id": "D", "text": "All real numbers except $x = 3$, $x = -3$, and $x = -2$", "is_correct": false, "explanation": "$x=-2$ is a zero of the function (output $= 0$) but is in the domain. Only denominator zeros ($x=\\pm3$) are excluded." }
+        {
+          "id": "A",
+          "text": "All real numbers except $x = 9$",
+          "is_correct": false,
+          "explanation": "The denominator is $x^2-9=(x-3)(x+3)$, which equals zero at $x=3$ and $x=-3$, not at $x=9$."
+        },
+        {
+          "id": "B",
+          "text": "All real numbers except $x = 3$ and $x = -3$",
+          "is_correct": true,
+          "explanation": "The denominator $x^2-9=(x-3)(x+3)=0$ when $x=\\pm3$. These values must be excluded from the domain."
+        },
+        {
+          "id": "C",
+          "text": "All real numbers except $x = -2$",
+          "is_correct": false,
+          "explanation": "$x=-2$ makes the numerator zero, giving $r(-2)=0$, which is defined. Domain restrictions come from zeros of the denominator, not the numerator."
+        },
+        {
+          "id": "D",
+          "text": "All real numbers except $x = 3$, $x = -3$, and $x = -2$",
+          "is_correct": false,
+          "explanation": "$x=-2$ is a zero of the function (output $= 0$) but is in the domain. Only denominator zeros ($x=\\pm3$) are excluded."
+        }
       ],
-      "unit_objective": "PCF-1.C"
+      "unit_objective": "PCF-1.C",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q054",
@@ -1025,65 +2957,206 @@
         "content": {
           "type": "line",
           "data": {
-            "labels": ["-4","-3","-2","-1","0","1","2","3","4"],
-            "datasets": [{ "label": "f(x)", "data": [16,9,4,1,0,1,4,9,16], "borderColor": "#6366f1", "backgroundColor": "transparent", "tension": 0.2 }]
+            "labels": [
+              "-4",
+              "-3",
+              "-2",
+              "-1",
+              "0",
+              "1",
+              "2",
+              "3",
+              "4"
+            ],
+            "datasets": [
+              {
+                "label": "f(x)",
+                "data": [
+                  16,
+                  9,
+                  4,
+                  1,
+                  0,
+                  1,
+                  4,
+                  9,
+                  16
+                ],
+                "borderColor": "#6366f1",
+                "backgroundColor": "transparent",
+                "tension": 0.2
+              }
+            ]
           },
-          "options": { "plugins":{"legend":{"display":false}}, "scales": { "x":{"title":{"display":true,"text":"x"}}, "y":{"title":{"display":true,"text":"f(x)"}} } }
+          "options": {
+            "plugins": {
+              "legend": {
+                "display": false
+              }
+            },
+            "scales": {
+              "x": {
+                "title": {
+                  "display": true,
+                  "text": "x"
+                }
+              },
+              "y": {
+                "title": {
+                  "display": true,
+                  "text": "f(x)"
+                }
+              }
+            }
+          }
         }
       },
       "question": "The graph of $f(x) = x^2$ is shown above. Which of the following gives the equation of the graph obtained by shifting $f$ right $3$ and down $2$?",
       "choices": [
-        { "id": "A", "text": "$g(x) = (x - 3)^2 - 2$", "is_correct": true, "explanation": "Shifting right $3$ replaces $x$ with $x-3$: $(x-3)^2$. Shifting down $2$ subtracts $2$: $(x-3)^2-2$." },
-        { "id": "B", "text": "$g(x) = (x + 3)^2 - 2$", "is_correct": false, "explanation": "$(x+3)^2$ shifts the graph left $3$ (not right). To shift right, use $(x-3)^2$." },
-        { "id": "C", "text": "$g(x) = (x - 3)^2 + 2$", "is_correct": false, "explanation": "Adding $2$ shifts up, not down. The problem specifies a downward shift, requiring subtraction of $2$." },
-        { "id": "D", "text": "$g(x) = x^2 - 3x - 2$", "is_correct": false, "explanation": "This is not a horizontal shift of $f(x)=x^2$. Horizontal shifts require replacing $x$ with $x-h$ inside the function, giving $(x-3)^2-2$." }
+        {
+          "id": "A",
+          "text": "$g(x) = (x - 3)^2 - 2$",
+          "is_correct": true,
+          "explanation": "Shifting right $3$ replaces $x$ with $x-3$: $(x-3)^2$. Shifting down $2$ subtracts $2$: $(x-3)^2-2$."
+        },
+        {
+          "id": "B",
+          "text": "$g(x) = (x + 3)^2 - 2$",
+          "is_correct": false,
+          "explanation": "$(x+3)^2$ shifts the graph left $3$ (not right). To shift right, use $(x-3)^2$."
+        },
+        {
+          "id": "C",
+          "text": "$g(x) = (x - 3)^2 + 2$",
+          "is_correct": false,
+          "explanation": "Adding $2$ shifts up, not down. The problem specifies a downward shift, requiring subtraction of $2$."
+        },
+        {
+          "id": "D",
+          "text": "$g(x) = x^2 - 3x - 2$",
+          "is_correct": false,
+          "explanation": "This is not a horizontal shift of $f(x)=x^2$. Horizontal shifts require replacing $x$ with $x-h$ inside the function, giving $(x-3)^2-2$."
+        }
       ],
-      "unit_objective": "PCF-1.E"
+      "unit_objective": "PCF-1.E",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u1-q055",
       "unit": "unit-1",
       "subject": "ap-precalculus",
       "difficulty": "easy",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following best describes the transformation from $f(x) = \\sqrt{x}$ to $g(x) = \\sqrt{x + 4} - 1$?",
       "choices": [
-        { "id": "A", "text": "Shift left $4$, shift down $1$", "is_correct": true, "explanation": "$(x+4)$ inside the function shifts the graph left $4$. $-1$ outside shifts the graph down $1$." },
-        { "id": "B", "text": "Shift right $4$, shift down $1$", "is_correct": false, "explanation": "$\\sqrt{x+4}$ shifts the graph left $4$ (not right). Rightward shifts use $\\sqrt{x-4}$." },
-        { "id": "C", "text": "Shift left $4$, shift up $1$", "is_correct": false, "explanation": "The $-1$ outside shifts the graph down $1$, not up. Upward shifts require $+1$ outside." },
-        { "id": "D", "text": "Shift right $4$, shift up $1$", "is_correct": false, "explanation": "$\\sqrt{x+4}$ shifts left (not right), and $-1$ shifts down (not up). Both transformations have the wrong direction." }
+        {
+          "id": "A",
+          "text": "Shift left $4$, shift down $1$",
+          "is_correct": true,
+          "explanation": "$(x+4)$ inside the function shifts the graph left $4$. $-1$ outside shifts the graph down $1$."
+        },
+        {
+          "id": "B",
+          "text": "Shift right $4$, shift down $1$",
+          "is_correct": false,
+          "explanation": "$\\sqrt{x+4}$ shifts the graph left $4$ (not right). Rightward shifts use $\\sqrt{x-4}$."
+        },
+        {
+          "id": "C",
+          "text": "Shift left $4$, shift up $1$",
+          "is_correct": false,
+          "explanation": "The $-1$ outside shifts the graph down $1$, not up. Upward shifts require $+1$ outside."
+        },
+        {
+          "id": "D",
+          "text": "Shift right $4$, shift up $1$",
+          "is_correct": false,
+          "explanation": "$\\sqrt{x+4}$ shifts left (not right), and $-1$ shifts down (not up). Both transformations have the wrong direction."
+        }
       ],
-      "unit_objective": "PCF-1.E"
+      "unit_objective": "PCF-1.E",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q056",
       "unit": "unit-1",
       "subject": "ap-precalculus",
       "difficulty": "medium",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following gives the $x$-coordinates of all holes in the graph of $r(x) = \\frac{x^2 - 9}{x^2 - x - 6}$?",
       "choices": [
-        { "id": "A", "text": "$x = 3$ only", "is_correct": true, "explanation": "Factor: numerator $= (x-3)(x+3)$; denominator $= (x-3)(x+2)$. $(x-3)$ cancels $\\Rightarrow$ hole at $x=3$. $(x+2)$ remains in denominator only $\\Rightarrow$ vertical asymptote at $x=-2$, not a hole." },
-        { "id": "B", "text": "$x = 3$ and $x = -2$", "is_correct": false, "explanation": "$x=-2$ makes only the denominator zero (numerator: $(-2)^2-9=-5\\neq0$), so $x=-2$ is a vertical asymptote, not a hole." },
-        { "id": "C", "text": "$x = -3$ and $x = 3$", "is_correct": false, "explanation": "$x=-3$: numerator $=(−3)^2−9=0$ but denominator $=(−3)^2−(−3)−6=9+3−6=6\\neq0$. So $x=-3$ is a zero of $f$ (output $= 0$), not a hole." },
-        { "id": "D", "text": "No holes", "is_correct": false, "explanation": "The common factor $(x-3)$ cancels from numerator and denominator, creating a removable discontinuity (hole) at $x=3$." }
+        {
+          "id": "A",
+          "text": "$x = 3$ only",
+          "is_correct": true,
+          "explanation": "Factor: numerator $= (x-3)(x+3)$; denominator $= (x-3)(x+2)$. $(x-3)$ cancels $\\Rightarrow$ hole at $x=3$. $(x+2)$ remains in denominator only $\\Rightarrow$ vertical asymptote at $x=-2$, not a hole."
+        },
+        {
+          "id": "B",
+          "text": "$x = 3$ and $x = -2$",
+          "is_correct": false,
+          "explanation": "$x=-2$ makes only the denominator zero (numerator: $(-2)^2-9=-5\\neq0$), so $x=-2$ is a vertical asymptote, not a hole."
+        },
+        {
+          "id": "C",
+          "text": "$x = -3$ and $x = 3$",
+          "is_correct": false,
+          "explanation": "$x=-3$: numerator $=(−3)^2−9=0$ but denominator $=(−3)^2−(−3)−6=9+3−6=6\\neq0$. So $x=-3$ is a zero of $f$ (output $= 0$), not a hole."
+        },
+        {
+          "id": "D",
+          "text": "No holes",
+          "is_correct": false,
+          "explanation": "The common factor $(x-3)$ cancels from numerator and denominator, creating a removable discontinuity (hole) at $x=3$."
+        }
       ],
-      "unit_objective": "PCF-1.C"
+      "unit_objective": "PCF-1.C",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u1-q057",
       "unit": "unit-1",
       "subject": "ap-precalculus",
       "difficulty": "hard",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "A rational function $r(x)$ has a vertical asymptote at $x = 2$, a hole at $x = -1$, a horizontal asymptote at $y = \\frac{3}{2}$, and a zero at $x = 0$. Which of the following could be a formula for $r(x)$?",
       "choices": [
-        { "id": "A", "text": "$r(x) = \\frac{3x(x+1)}{2(x-2)(x+1)}$", "is_correct": true, "explanation": "Hole at $x=-1$ (common factor $x+1$ cancels). Vertical asymptote at $x=2$ (denominator zero after cancellation). Zero at $x=0$ (numerator factor $x$). Equal degrees (both 2): HA $= \\frac{3}{2}$. All conditions satisfied." },
-        { "id": "B", "text": "$r(x) = \\frac{3x}{2(x-2)}$", "is_correct": false, "explanation": "This has no hole (no cancelling factor), so it does not satisfy the hole at $x=-1$ condition." },
-        { "id": "C", "text": "$r(x) = \\frac{3x(x-2)}{2(x+1)(x-2)}$", "is_correct": false, "explanation": "Here the hole is at $x=2$ (where $(x-2)$ cancels) and the vertical asymptote is at $x=-1$. This reverses the required hole and asymptote locations." },
-        { "id": "D", "text": "$r(x) = \\frac{3(x+1)}{2(x-2)(x+1)}$", "is_correct": false, "explanation": "After cancellation, $r(x)=\\frac{3}{2(x-2)}$, which has no zero in its simplified form. The zero at $x=0$ is not satisfied (numerator $3\\neq0$ for any $x$)." }
+        {
+          "id": "A",
+          "text": "$r(x) = \\frac{3x(x+1)}{2(x-2)(x+1)}$",
+          "is_correct": true,
+          "explanation": "Hole at $x=-1$ (common factor $x+1$ cancels). Vertical asymptote at $x=2$ (denominator zero after cancellation). Zero at $x=0$ (numerator factor $x$). Equal degrees (both 2): HA $= \\frac{3}{2}$. All conditions satisfied."
+        },
+        {
+          "id": "B",
+          "text": "$r(x) = \\frac{3x}{2(x-2)}$",
+          "is_correct": false,
+          "explanation": "This has no hole (no cancelling factor), so it does not satisfy the hole at $x=-1$ condition."
+        },
+        {
+          "id": "C",
+          "text": "$r(x) = \\frac{3x(x-2)}{2(x+1)(x-2)}$",
+          "is_correct": false,
+          "explanation": "Here the hole is at $x=2$ (where $(x-2)$ cancels) and the vertical asymptote is at $x=-1$. This reverses the required hole and asymptote locations."
+        },
+        {
+          "id": "D",
+          "text": "$r(x) = \\frac{3(x+1)}{2(x-2)(x+1)}$",
+          "is_correct": false,
+          "explanation": "After cancellation, $r(x)=\\frac{3}{2(x-2)}$, which has no zero in its simplified form. The zero at $x=0$ is not satisfied (numerator $3\\neq0$ for any $x$)."
+        }
       ],
-      "unit_objective": "PCF-1.C"
+      "unit_objective": "PCF-1.C",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q058",
@@ -1093,18 +3166,63 @@
       "stimulus": {
         "type": "table",
         "content": {
-          "headers": ["$x$", "$f(x)$"],
-          "rows": [["0","10"],["1","12"],["2","16"],["3","22"],["4","30"]]
+          "headers": [
+            "$x$",
+            "$f(x)$"
+          ],
+          "rows": [
+            [
+              "0",
+              "10"
+            ],
+            [
+              "1",
+              "12"
+            ],
+            [
+              "2",
+              "16"
+            ],
+            [
+              "3",
+              "22"
+            ],
+            [
+              "4",
+              "30"
+            ]
+          ]
         }
       },
       "question": "The table above shows values of $f$. A student claims $f(x) = x^2 + 2x + 10$. Which of the following best evaluates the student's claim?",
       "choices": [
-        { "id": "A", "text": "Correct, because the output at $x = 0$ is $10$", "is_correct": false, "explanation": "One matching data point is insufficient to confirm a formula. Check $f(1)$: $1^2+2(1)+10=13\\neq12$. The formula fails at $x=1$." },
-        { "id": "B", "text": "Correct, because the function is quadratic and the leading coefficient is $1$", "is_correct": false, "explanation": "The data is quadratic (constant second differences of $2$), but the specific formula must be verified. $f(1)=13$ from the claimed formula, but the table shows $f(1)=12$. The claim is incorrect." },
-        { "id": "C", "text": "Incorrect, because $f(1) = 12$ but $1^2 + 2(1) + 10 = 13$", "is_correct": true, "explanation": "Check: $1^2+2(1)+10=1+2+10=13\\neq12=f(1)$. The formula does not match the table at $x=1$, so the student's claim is incorrect." },
-        { "id": "D", "text": "Incorrect, because the second differences are not constant", "is_correct": false, "explanation": "Second differences: $(16-12)-(12-10)=2$, $(22-16)-(16-12)=2$, $(30-22)-(22-16)=2$. Second differences are constant at $2$, confirming $f$ is quadratic. The formula is wrong, but not because the data isn't quadratic." }
+        {
+          "id": "A",
+          "text": "Correct, because the output at $x = 0$ is $10$",
+          "is_correct": false,
+          "explanation": "One matching data point is insufficient to confirm a formula. Check $f(1)$: $1^2+2(1)+10=13\\neq12$. The formula fails at $x=1$."
+        },
+        {
+          "id": "B",
+          "text": "Correct, because the function is quadratic and the leading coefficient is $1$",
+          "is_correct": false,
+          "explanation": "The data is quadratic (constant second differences of $2$), but the specific formula must be verified. $f(1)=13$ from the claimed formula, but the table shows $f(1)=12$. The claim is incorrect."
+        },
+        {
+          "id": "C",
+          "text": "Incorrect, because $f(1) = 12$ but $1^2 + 2(1) + 10 = 13$",
+          "is_correct": true,
+          "explanation": "Check: $1^2+2(1)+10=1+2+10=13\\neq12=f(1)$. The formula does not match the table at $x=1$, so the student's claim is incorrect."
+        },
+        {
+          "id": "D",
+          "text": "Incorrect, because the second differences are not constant",
+          "is_correct": false,
+          "explanation": "Second differences: $(16-12)-(12-10)=2$, $(22-16)-(16-12)=2$, $(30-22)-(22-16)=2$. Second differences are constant at $2$, confirming $f$ is quadratic. The formula is wrong, but not because the data isn't quadratic."
+        }
       ],
-      "unit_objective": "PCF-1.A"
+      "unit_objective": "PCF-1.A",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u1-q059",
@@ -1114,108 +3232,297 @@
       "stimulus": {
         "type": "table",
         "content": {
-          "headers": ["$x$", "$f(x)$"],
-          "rows": [["0","10"],["1","12"],["2","16"],["3","22"],["4","30"]]
+          "headers": [
+            "$x$",
+            "$f(x)$"
+          ],
+          "rows": [
+            [
+              "0",
+              "10"
+            ],
+            [
+              "1",
+              "12"
+            ],
+            [
+              "2",
+              "16"
+            ],
+            [
+              "3",
+              "22"
+            ],
+            [
+              "4",
+              "30"
+            ]
+          ]
         }
       },
       "question": "Using the table above, which quadratic formula best fits the data?",
       "choices": [
-        { "id": "A", "text": "$f(x) = x^2 + x + 10$", "is_correct": true, "explanation": "Check: $f(0)=10$, $f(1)=1+1+10=12$, $f(2)=4+2+10=16$, $f(3)=9+3+10=22$, $f(4)=16+4+10=30$. All values match." },
-        { "id": "B", "text": "$f(x) = x^2 + 2x + 10$", "is_correct": false, "explanation": "$f(1)=1+2+10=13\\neq12$. This formula does not match the table." },
-        { "id": "C", "text": "$f(x) = 2x^2 + 10$", "is_correct": false, "explanation": "$f(1)=2+10=12$ ✓ but $f(2)=8+10=18\\neq16$. This formula does not match the full table." },
-        { "id": "D", "text": "$f(x) = x^2 + 10$", "is_correct": false, "explanation": "$f(1)=1+10=11\\neq12$. This formula does not match the table." }
+        {
+          "id": "A",
+          "text": "$f(x) = x^2 + x + 10$",
+          "is_correct": true,
+          "explanation": "Check: $f(0)=10$, $f(1)=1+1+10=12$, $f(2)=4+2+10=16$, $f(3)=9+3+10=22$, $f(4)=16+4+10=30$. All values match."
+        },
+        {
+          "id": "B",
+          "text": "$f(x) = x^2 + 2x + 10$",
+          "is_correct": false,
+          "explanation": "$f(1)=1+2+10=13\\neq12$. This formula does not match the table."
+        },
+        {
+          "id": "C",
+          "text": "$f(x) = 2x^2 + 10$",
+          "is_correct": false,
+          "explanation": "$f(1)=2+10=12$ ✓ but $f(2)=8+10=18\\neq16$. This formula does not match the full table."
+        },
+        {
+          "id": "D",
+          "text": "$f(x) = x^2 + 10$",
+          "is_correct": false,
+          "explanation": "$f(1)=1+10=11\\neq12$. This formula does not match the table."
+        }
       ],
-      "unit_objective": "PCF-1.A"
+      "unit_objective": "PCF-1.A",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u1-q060",
       "unit": "unit-1",
       "subject": "ap-precalculus",
       "difficulty": "easy",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following gives the $y$-intercept of $r(x) = \\frac{x^2 - 4}{x + 3}$?",
       "choices": [
-        { "id": "A", "text": "$\\left(0, -\\frac{4}{3}\\right)$", "is_correct": true, "explanation": "$r(0)=\\frac{0-4}{0+3}=\\frac{-4}{3}$. The $y$-intercept is $\\left(0,-\\frac{4}{3}\\right)$." },
-        { "id": "B", "text": "$(0, 4)$", "is_correct": false, "explanation": "$r(0)=\\frac{-4}{3}$, not $4$. The numerator gives $-4$ when $x=0$, and this must be divided by the denominator value $3$." },
-        { "id": "C", "text": "$(0, -3)$", "is_correct": false, "explanation": "$-3$ is the value that makes the denominator zero ($x=-3$), which is the location of the vertical asymptote. Evaluate $r(0)=\\frac{-4}{3}$." },
-        { "id": "D", "text": "There is no $y$-intercept", "is_correct": false, "explanation": "The $y$-intercept exists when $x=0$ is in the domain. Since $x+3=3\\neq0$ at $x=0$, $r(0)$ is defined: $r(0)=-\\frac{4}{3}$." }
+        {
+          "id": "A",
+          "text": "$\\left(0, -\\frac{4}{3}\\right)$",
+          "is_correct": true,
+          "explanation": "$r(0)=\\frac{0-4}{0+3}=\\frac{-4}{3}$. The $y$-intercept is $\\left(0,-\\frac{4}{3}\\right)$."
+        },
+        {
+          "id": "B",
+          "text": "$(0, 4)$",
+          "is_correct": false,
+          "explanation": "$r(0)=\\frac{-4}{3}$, not $4$. The numerator gives $-4$ when $x=0$, and this must be divided by the denominator value $3$."
+        },
+        {
+          "id": "C",
+          "text": "$(0, -3)$",
+          "is_correct": false,
+          "explanation": "$-3$ is the value that makes the denominator zero ($x=-3$), which is the location of the vertical asymptote. Evaluate $r(0)=\\frac{-4}{3}$."
+        },
+        {
+          "id": "D",
+          "text": "There is no $y$-intercept",
+          "is_correct": false,
+          "explanation": "The $y$-intercept exists when $x=0$ is in the domain. Since $x+3=3\\neq0$ at $x=0$, $r(0)$ is defined: $r(0)=-\\frac{4}{3}$."
+        }
       ],
-      "unit_objective": "PCF-1.C"
+      "unit_objective": "PCF-1.C",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q061",
       "unit": "unit-1",
       "subject": "ap-precalculus",
       "difficulty": "hard",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following gives all real and complex zeros of $f(x) = x^4 - 16$?",
       "choices": [
-        { "id": "A", "text": "$x = 2$ and $x = -2$", "is_correct": false, "explanation": "$x^4-16=(x^2-4)(x^2+4)=(x-2)(x+2)(x^2+4)$. Setting $x^2+4=0$ gives $x=\\pm2i$. The complete set of zeros includes the complex pair $x=\\pm2i$." },
-        { "id": "B", "text": "$x = 2$, $x = -2$, $x = 2i$, and $x = -2i$", "is_correct": true, "explanation": "Factor: $x^4-16=(x^2-4)(x^2+4)=(x-2)(x+2)(x-2i)(x+2i)$. Real zeros: $\\pm2$; complex zeros: $\\pm2i$." },
-        { "id": "C", "text": "$x = \\pm4$", "is_correct": false, "explanation": "$4^4-16=256-16=240\\neq0$. These are not zeros. Factor $x^4-16$ as $(x^2-4)(x^2+4)$ to find $x=\\pm2$ and $x=\\pm2i$." },
-        { "id": "D", "text": "$x = 2$, $x = -2$, and $x = 4$", "is_correct": false, "explanation": "$f(4)=256-16=240\\neq0$, so $x=4$ is not a zero. The complex zeros $x=\\pm2i$ are missing from this list." }
+        {
+          "id": "A",
+          "text": "$x = 2$ and $x = -2$",
+          "is_correct": false,
+          "explanation": "$x^4-16=(x^2-4)(x^2+4)=(x-2)(x+2)(x^2+4)$. Setting $x^2+4=0$ gives $x=\\pm2i$. The complete set of zeros includes the complex pair $x=\\pm2i$."
+        },
+        {
+          "id": "B",
+          "text": "$x = 2$, $x = -2$, $x = 2i$, and $x = -2i$",
+          "is_correct": true,
+          "explanation": "Factor: $x^4-16=(x^2-4)(x^2+4)=(x-2)(x+2)(x-2i)(x+2i)$. Real zeros: $\\pm2$; complex zeros: $\\pm2i$."
+        },
+        {
+          "id": "C",
+          "text": "$x = \\pm4$",
+          "is_correct": false,
+          "explanation": "$4^4-16=256-16=240\\neq0$. These are not zeros. Factor $x^4-16$ as $(x^2-4)(x^2+4)$ to find $x=\\pm2$ and $x=\\pm2i$."
+        },
+        {
+          "id": "D",
+          "text": "$x = 2$, $x = -2$, and $x = 4$",
+          "is_correct": false,
+          "explanation": "$f(4)=256-16=240\\neq0$, so $x=4$ is not a zero. The complex zeros $x=\\pm2i$ are missing from this list."
+        }
       ],
-      "unit_objective": "PCF-1.B"
+      "unit_objective": "PCF-1.B",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q062",
       "unit": "unit-1",
       "subject": "ap-precalculus",
       "difficulty": "medium",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following best describes how the graph of $g(x) = f(-x)$ relates to the graph of $f(x)$?",
       "choices": [
-        { "id": "A", "text": "$g$ is a reflection of $f$ over the $x$-axis", "is_correct": false, "explanation": "Reflecting over the $x$-axis replaces $f(x)$ with $-f(x)$, not $f(-x)$. Replacing $x$ with $-x$ inside the function reflects over the $y$-axis." },
-        { "id": "B", "text": "$g$ is a reflection of $f$ over the $y$-axis", "is_correct": true, "explanation": "Replacing $x$ with $-x$ in the argument reflects the graph over the $y$-axis: each point $(a, b)$ on $f$ maps to $(-a, b)$ on $g$." },
-        { "id": "C", "text": "$g$ is a reflection of $f$ over the line $y = x$", "is_correct": false, "explanation": "Reflection over $y=x$ produces the inverse function $f^{-1}(x)$, which swaps $x$ and $y$ coordinates. $f(-x)$ reflects left-right, not over $y=x$." },
-        { "id": "D", "text": "$g$ is a vertical compression of $f$", "is_correct": false, "explanation": "Vertical compressions multiply outputs by a constant $|c|<1$: $cf(x)$. Replacing $x$ with $-x$ changes the input, producing a horizontal reflection." }
+        {
+          "id": "A",
+          "text": "$g$ is a reflection of $f$ over the $x$-axis",
+          "is_correct": false,
+          "explanation": "Reflecting over the $x$-axis replaces $f(x)$ with $-f(x)$, not $f(-x)$. Replacing $x$ with $-x$ inside the function reflects over the $y$-axis."
+        },
+        {
+          "id": "B",
+          "text": "$g$ is a reflection of $f$ over the $y$-axis",
+          "is_correct": true,
+          "explanation": "Replacing $x$ with $-x$ in the argument reflects the graph over the $y$-axis: each point $(a, b)$ on $f$ maps to $(-a, b)$ on $g$."
+        },
+        {
+          "id": "C",
+          "text": "$g$ is a reflection of $f$ over the line $y = x$",
+          "is_correct": false,
+          "explanation": "Reflection over $y=x$ produces the inverse function $f^{-1}(x)$, which swaps $x$ and $y$ coordinates. $f(-x)$ reflects left-right, not over $y=x$."
+        },
+        {
+          "id": "D",
+          "text": "$g$ is a vertical compression of $f$",
+          "is_correct": false,
+          "explanation": "Vertical compressions multiply outputs by a constant $|c|<1$: $cf(x)$. Replacing $x$ with $-x$ changes the input, producing a horizontal reflection."
+        }
       ],
-      "unit_objective": "PCF-1.E"
+      "unit_objective": "PCF-1.E",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q063",
       "unit": "unit-1",
       "subject": "ap-precalculus",
       "difficulty": "easy",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following correctly identifies $f(x) = x^5 - 3x^3 + 2x$ as even, odd, or neither?",
       "choices": [
-        { "id": "A", "text": "Even, because all exponents are odd", "is_correct": false, "explanation": "Having only odd-exponent terms means $f(-x)=-f(x)$, which defines an odd function, not even. The word 'odd exponents' applies to the classification of the function, but the function itself is odd." },
-        { "id": "B", "text": "Odd, because $f(-x) = -f(x)$", "is_correct": true, "explanation": "$f(-x)=(-x)^5-3(-x)^3+2(-x)=-x^5+3x^3-2x=-(x^5-3x^3+2x)=-f(x)$. Every term has an odd exponent, confirming $f(-x)=-f(x)$." },
-        { "id": "C", "text": "Neither, because the function has three terms", "is_correct": false, "explanation": "The number of terms does not determine even/odd classification. The test is $f(-x)=f(x)$ (even) or $f(-x)=-f(x)$ (odd). Here $f(-x)=-f(x)$, so $f$ is odd." },
-        { "id": "D", "text": "Even, because $f(0) = 0$", "is_correct": false, "explanation": "$f(0)=0$ is a necessary property of odd functions (not a condition for even functions). Even functions require $f(-x)=f(x)$, but here $f(-2)=-12\\neq12=f(2)$, so $f$ is not even." }
+        {
+          "id": "A",
+          "text": "Even, because all exponents are odd",
+          "is_correct": false,
+          "explanation": "Having only odd-exponent terms means $f(-x)=-f(x)$, which defines an odd function, not even. The word 'odd exponents' applies to the classification of the function, but the function itself is odd."
+        },
+        {
+          "id": "B",
+          "text": "Odd, because $f(-x) = -f(x)$",
+          "is_correct": true,
+          "explanation": "$f(-x)=(-x)^5-3(-x)^3+2(-x)=-x^5+3x^3-2x=-(x^5-3x^3+2x)=-f(x)$. Every term has an odd exponent, confirming $f(-x)=-f(x)$."
+        },
+        {
+          "id": "C",
+          "text": "Neither, because the function has three terms",
+          "is_correct": false,
+          "explanation": "The number of terms does not determine even/odd classification. The test is $f(-x)=f(x)$ (even) or $f(-x)=-f(x)$ (odd). Here $f(-x)=-f(x)$, so $f$ is odd."
+        },
+        {
+          "id": "D",
+          "text": "Even, because $f(0) = 0$",
+          "is_correct": false,
+          "explanation": "$f(0)=0$ is a necessary property of odd functions (not a condition for even functions). Even functions require $f(-x)=f(x)$, but here $f(-2)=-12\\neq12=f(2)$, so $f$ is not even."
+        }
       ],
-      "unit_objective": "PCF-1.D"
+      "unit_objective": "PCF-1.D",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q064",
       "unit": "unit-1",
       "subject": "ap-precalculus",
       "difficulty": "medium",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following correctly classifies $h(x) = x^4 - 3x^2 + 2$ as even, odd, or neither?",
       "choices": [
-        { "id": "A", "text": "Odd, because $h$ has four terms", "is_correct": false, "explanation": "Even/odd classification depends on $h(-x)$ vs. $h(x)$, not the number of terms. Check: $h(-x)=(-x)^4-3(-x)^2+2=x^4-3x^2+2=h(x)$, so $h$ is even." },
-        { "id": "B", "text": "Even, because $h(-x) = h(x)$", "is_correct": true, "explanation": "$h(-x)=(-x)^4-3(-x)^2+2=x^4-3x^2+2=h(x)$. All exponents are even, so every term satisfies $h(-x)=h(x)$." },
-        { "id": "C", "text": "Neither, because $h$ has both even and odd exponents", "is_correct": false, "explanation": "All exponents in $h$ are even ($4$, $2$, $0$ for the constant). A function with only even-exponent terms is even." },
-        { "id": "D", "text": "Odd, because $h(0) = 2 \\neq 0$", "is_correct": false, "explanation": "Odd functions require $h(0)=0$ (since $h(-0)=-h(0)$ implies $h(0)=0$). Since $h(0)=2\\neq0$, $h$ cannot be odd." }
+        {
+          "id": "A",
+          "text": "Odd, because $h$ has four terms",
+          "is_correct": false,
+          "explanation": "Even/odd classification depends on $h(-x)$ vs. $h(x)$, not the number of terms. Check: $h(-x)=(-x)^4-3(-x)^2+2=x^4-3x^2+2=h(x)$, so $h$ is even."
+        },
+        {
+          "id": "B",
+          "text": "Even, because $h(-x) = h(x)$",
+          "is_correct": true,
+          "explanation": "$h(-x)=(-x)^4-3(-x)^2+2=x^4-3x^2+2=h(x)$. All exponents are even, so every term satisfies $h(-x)=h(x)$."
+        },
+        {
+          "id": "C",
+          "text": "Neither, because $h$ has both even and odd exponents",
+          "is_correct": false,
+          "explanation": "All exponents in $h$ are even ($4$, $2$, $0$ for the constant). A function with only even-exponent terms is even."
+        },
+        {
+          "id": "D",
+          "text": "Odd, because $h(0) = 2 \\neq 0$",
+          "is_correct": false,
+          "explanation": "Odd functions require $h(0)=0$ (since $h(-0)=-h(0)$ implies $h(0)=0$). Since $h(0)=2\\neq0$, $h$ cannot be odd."
+        }
       ],
-      "unit_objective": "PCF-1.D"
+      "unit_objective": "PCF-1.D",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q065",
       "unit": "unit-1",
       "subject": "ap-precalculus",
       "difficulty": "hard",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following gives the equation of the rational function $r(x)$ with vertical asymptote at $x = -1$, horizontal asymptote at $y = 0$, and $x$-intercept at $x = 3$?",
       "choices": [
-        { "id": "A", "text": "$r(x) = \\frac{x - 3}{x + 1}$", "is_correct": false, "explanation": "This has equal numerator and denominator degrees, giving horizontal asymptote $y=1$, not $y=0$." },
-        { "id": "B", "text": "$r(x) = \\frac{x - 3}{(x + 1)^2}$", "is_correct": true, "explanation": "Vertical asymptote at $x=-1$ (denominator $= 0$). HA $= y=0$ (denominator degree $2 >$ numerator degree $1$). $x$-intercept at $x=3$ (numerator $= 0$, denominator $\\neq 0$). All conditions satisfied." },
-        { "id": "C", "text": "$r(x) = \\frac{(x - 3)^2}{x + 1}$", "is_correct": false, "explanation": "Numerator degree ($2$) exceeds denominator degree ($1$), so there is a slant asymptote, not a horizontal asymptote at $y=0$." },
-        { "id": "D", "text": "$r(x) = \\frac{1}{(x + 1)(x - 3)}$", "is_correct": false, "explanation": "This has vertical asymptotes at both $x=-1$ and $x=3$, and $x=3$ is an asymptote (not an $x$-intercept) in this formula." }
+        {
+          "id": "A",
+          "text": "$r(x) = \\frac{x - 3}{x + 1}$",
+          "is_correct": false,
+          "explanation": "This has equal numerator and denominator degrees, giving horizontal asymptote $y=1$, not $y=0$."
+        },
+        {
+          "id": "B",
+          "text": "$r(x) = \\frac{x - 3}{(x + 1)^2}$",
+          "is_correct": true,
+          "explanation": "Vertical asymptote at $x=-1$ (denominator $= 0$). HA $= y=0$ (denominator degree $2 >$ numerator degree $1$). $x$-intercept at $x=3$ (numerator $= 0$, denominator $\\neq 0$). All conditions satisfied."
+        },
+        {
+          "id": "C",
+          "text": "$r(x) = \\frac{(x - 3)^2}{x + 1}$",
+          "is_correct": false,
+          "explanation": "Numerator degree ($2$) exceeds denominator degree ($1$), so there is a slant asymptote, not a horizontal asymptote at $y=0$."
+        },
+        {
+          "id": "D",
+          "text": "$r(x) = \\frac{1}{(x + 1)(x - 3)}$",
+          "is_correct": false,
+          "explanation": "This has vertical asymptotes at both $x=-1$ and $x=3$, and $x=3$ is an asymptote (not an $x$-intercept) in this formula."
+        }
       ],
-      "unit_objective": "PCF-1.C"
+      "unit_objective": "PCF-1.C",
+      "calculator_allowed": false
     }
   ]
 }

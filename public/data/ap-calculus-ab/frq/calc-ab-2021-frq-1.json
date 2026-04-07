@@ -1,0 +1,65 @@
+{
+  "id": "calc-ab-2021-frq-1",
+  "subject": "ap-calculus-ab",
+  "year": 2021,
+  "source": "released",
+  "title": "Bacteria Density in Petri Dish — Rate Approximation, Riemann Sum & Average Value (Table)",
+  "frq_type": "multi_part_math",
+  "related_units": [4, 5, 6],
+  "calculator_allowed": true,
+  "total_points": 9,
+  "stimulus": "The density of a bacteria population in a circular petri dish at a distance $r$ centimeters from the center of the dish is given by an increasing, differentiable function $f$, where $f(r)$ is measured in milligrams per square centimeter. Values of $f(r)$ for selected values of $r$ are given in the table:\n\n| $r$ (centimeters) | 0 | 1 | 2 | 2.5 | 4 |\n|---|---|---|---|---|---|\n| $f(r)$ (mg/cm$^2$) | 1 | 2 | 6 | 10 | 18 |",
+  "stimulus_image": null,
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "Use the data in the table to estimate $f'(2.25)$. Using correct units, interpret the meaning of your answer in the context of this problem.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct estimate with supporting work: $f'(2.25) \\approx \\frac{f(2.5) - f(2)}{2.5 - 2} = \\frac{10-6}{0.5} = 8$ milligrams per square centimeter per centimeter",
+        "1 pt: Correct interpretation with units: At a distance of $r = 2.25$ centimeters from the center, the density of the bacteria population is increasing at a rate of $8$ milligrams per square centimeter per centimeter"
+      ],
+      "scoring_notes": "Must provide both difference and quotient using table values for first point. Interpretation requires: distance $r = 2.25$, density is increasing/changing, rate of $8$, and units mg/cm$^2$/cm. Interpretation must be consistent with presented value.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "The total mass, in milligrams, of bacteria in the petri dish is given by the integral expression $2\\pi\\int_0^4 r f(r)\\, dr$. Approximate the value of $2\\pi\\int_0^4 r f(r)\\, dr$ using a right Riemann sum with the four subintervals indicated by the data in the table.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct form of right Riemann sum (at most one error): $2\\pi[1\\cdot f(1)\\cdot(1-0) + 2\\cdot f(2)\\cdot(2-1) + 2.5\\cdot f(2.5)\\cdot(2.5-2) + 4\\cdot f(4)\\cdot(4-2.5)]$",
+        "1 pt: Correct approximation: $2\\pi[1(2)(1) + 2(6)(1) + 2.5(10)(0.5) + 4(18)(1.5)] = 2\\pi(2+12+12.5+108) = 2\\pi(134.5) = 269\\pi \\approx 845.088$"
+      ],
+      "scoring_notes": "Presence or absence of $2\\pi$ does not affect first point. First point: sum of four products with at most one error. Any error in Riemann sum loses second point. Correct left Riemann sum ($91\\pi$) earns 1/2 points.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "Is the approximation found in part (b) an overestimate or underestimate of the total mass of bacteria in the petri dish? Explain your reasoning.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Shows $\\frac{d}{dr}[rf(r)] = f(r) + rf'(r)$; since $f \\ge 0$ and $f'(r) > 0$ (increasing), $rf(r)$ is increasing on $[0, 4]$",
+        "1 pt: Overestimate; because the integrand $rf(r)$ is strictly increasing on $[0,4]$, the right Riemann sum is an overestimate"
+      ],
+      "scoring_notes": "Second point can be earned without first point, by stating $rf(r)$ is increasing. A response based on a left Riemann sum or on $\\int_0^4 f(r)\\, dr$ (without the $r$ factor) earns no points.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "d",
+      "prompt": "The density of bacteria in the petri dish, for $1 \\le r \\le 4$, is modeled by the function $g$ defined by $g(r) = 2 - 16(\\cos(1.57r))^3$. For what value of $k$, $1 < k < 4$, is $g(k)$ equal to the average value of $g(r)$ on the interval $1 \\le r \\le 4$?",
+      "point_value": 3,
+      "rubric_criteria": [
+        "1 pt: Sets up the correct definite integral for average value: $\\frac{1}{4-1}\\int_1^4 g(r)\\, dr$ or $\\frac{1}{3}\\int_1^4 g(r)\\, dr$",
+        "1 pt: Correct average value: $\\frac{1}{3}\\int_1^4 g(r)\\, dr \\approx 9.876$",
+        "1 pt: Correct answer: $g(k) = 9.876 \\Rightarrow k \\approx 2.497$"
+      ],
+      "scoring_notes": "First point for definite integral with integrand $g(r)$ (limits need not be correct). Second point for average value setup $\\frac{1}{3}\\int_1^4 g(r)\\, dr$; once earned cannot be lost. Third point only for $k = 2.497$ (cannot be earned without second point).",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

@@ -41,4 +41,6 @@ export const LS_KEYS = {
   migrated: 'ascendly_migrated',
   adiMessages: 'ascendly_adi_messages',
   adiDismissCount: 'ascendly_adi_dismiss_count',
+  frqDraft: (subject: string) => `ascendly_draft_frq_${subject}`,
+  frqMathTutorialSeen: 'ascendly_frq_math_tutorial_seen',
 } as const

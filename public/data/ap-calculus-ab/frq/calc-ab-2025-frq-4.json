@@ -1,0 +1,68 @@
+{
+  "id": "calc-ab-2025-frq-4",
+  "subject": "ap-calculus-ab",
+  "year": 2025,
+  "source": "released",
+  "title": "Accumulation Function from Piecewise Graph (FTC, Absolute Min)",
+  "frq_type": "multi_part_math",
+  "related_units": [
+    5,
+    6
+  ],
+  "calculator_allowed": false,
+  "total_points": 9,
+  "stimulus": "The continuous function $f$ is defined on the closed interval $-6 \\le x \\le 12$. The graph of $f$, consisting of two semicircles and one line segment, is shown in the figure. Let $g$ be the function defined by $g(x) = \\int_6^x f(t)\\, dt$.",
+  "stimulus_image": "/data/ap-calculus-ab/frq/images/calc-ab-2025-frq-4-stimulus.png",
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "Find $g'(8)$. Give a reason for your answer.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: By the Fundamental Theorem of Calculus, $g'(x) = f(x)$",
+        "1 pt: $g'(8) = f(8) = 1$"
+      ],
+      "scoring_notes": "P1 earned for $g'(x) = f(x)$ or $g'(8) = f(8)$. P2 earned for $g'(8) = 1$ consistent with the graph value $f(8) = 1$. A response of $g'(8) = f(8) - f(6)$ earns P2 but not P1.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "Find all values of $x$ in the open interval $-6 < x < 12$ at which the graph of $g$ has a point of inflection. Give a reason for your answer.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct answer: $x = -3$, $x = 3$, and $x = 6$ (all three, no extras)",
+        "1 pt: Correct reason tied to the graph of $f$: $g$ has points of inflection where $g'' = f'$ changes sign, i.e., where $f$ changes from increasing to decreasing or decreasing to increasing"
+      ],
+      "scoring_notes": "P3 requires all three values $x = -3, 3, 6$ and no additional values. P4 requires tying the reason to changes in $f$ (not just saying '$g$ changes concavity'). A response with two of three correct values and correct reasoning earns P4 but not P3.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "Find $g(12)$ and $g(0)$. Label your answers.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: $g(12) = \\int_6^{12} f(t)\\, dt = \\frac{1}{2}(6)(3) = 9$ (triangle with base 6 and height 3)",
+        "1 pt: $g(0) = \\int_6^0 f(t)\\, dt = -\\int_0^6 f(t)\\, dt = -\\frac{\\pi(3)^2}{2} = -\\frac{9\\pi}{2}$ (semicircle of radius 3)"
+      ],
+      "scoring_notes": "Labels are required — unlabeled values earn no credit. $g(12) = 9$ (area of triangle from $x=6$ to $x=12$). $g(0) = -\\frac{9\\pi}{2}$ (negative because integrating backwards over a region where $f \\ge 0$, using the upper semicircle of radius 3). Accept exact forms.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "d",
+      "prompt": "Find the value of $x$ at which $g$ attains an absolute minimum on the closed interval $-6 \\le x \\le 12$. Justify your answer.",
+      "point_value": 3,
+      "rubric_criteria": [
+        "1 pt: Considers $g'(x) = f(x) = 0$: identifies critical points at $x = 0$ and $x = 6$",
+        "1 pt: Global justification: evaluates (or reasons about) $g$ at $x = -6$, $x = 0$, $x = 6$, and $x = 12$; $g(-6) = 0$, $g(0) = -\\frac{9\\pi}{2} \\approx -14.14$, $g(6) = 0$, $g(12) = 9$",
+        "1 pt: Correct answer: $g$ attains its absolute minimum at $x = 0$"
+      ],
+      "scoring_notes": "Must consider $g'(x) = f(x) = 0$ (not just state $x = 0$). Must make a global argument comparing all candidate points: endpoints $x = -6$ and $x = 12$, and critical points $x = 0$ and $x = 6$. Alternate: $g'(x) \\le 0$ for $-6 \\le x < 0$ and $g'(x) \\ge 0$ for $0 < x \\le 12$, so absolute min at $x = 0$. Local argument does not earn P8.",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "id": "calc-ab-2023-frq-1",
+  "subject": "ap-calculus-ab",
+  "year": 2023,
+  "source": "released",
+  "title": "Gas Station Flow Rate — Riemann Sums, MVT & Average Value (Table)",
+  "frq_type": "multi_part_math",
+  "related_units": [4, 5, 6],
+  "calculator_allowed": true,
+  "total_points": 9,
+  "stimulus": "A customer at a gas station is pumping gasoline into a gas tank. The rate of flow of gasoline is modeled by a differentiable function $f$, where $f(t)$ is measured in gallons per second and $t$ is measured in seconds since pumping began. Selected values of $f(t)$ are given in the table:\n\n| $t$ (seconds) | 0 | 60 | 90 | 120 | 135 | 150 |\n|---|---|---|---|---|---|---|\n| $f(t)$ (gallons per second) | 0 | 0.1 | 0.15 | 0.1 | 0.05 | 0 |",
+  "stimulus_image": null,
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "Using correct units, interpret the meaning of $\\int_{60}^{135} f(t)\\, dt$ in the context of the problem. Use a right Riemann sum with the three subintervals $[60, 90]$, $[90, 120]$, and $[120, 135]$ to approximate the value of $\\int_{60}^{135} f(t)\\, dt$.",
+      "point_value": 3,
+      "rubric_criteria": [
+        "1 pt: Interpretation with units: $\\int_{60}^{135} f(t)\\, dt$ represents the total number of gallons of gasoline pumped into the gas tank from $t = 60$ seconds to $t = 135$ seconds",
+        "1 pt: Correct form of right Riemann sum: $f(90)(90-60) + f(120)(120-90) + f(135)(135-120)$",
+        "1 pt: Correct answer: $(0.15)(30) + (0.1)(30) + (0.05)(15) = 4.5 + 3 + 0.75 = 8.25$ gallons"
+      ],
+      "scoring_notes": "Interpretation must reference gallons of gasoline added and the time interval $t = 60$ to $t = 135$. For the Riemann sum form point, at least five of the six factors must be correct. If any error in the Riemann sum, the answer point is not earned. A response showing the three products without all six factors earns the answer point but not the form point.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "Must there exist a value of $c$, for $60 < c < 120$, such that $f'(c) = 0$? Justify your answer.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: $f(120) - f(60) = 0.1 - 0.1 = 0$, so $\\frac{f(120) - f(60)}{120 - 60} = 0$",
+        "1 pt: Yes; since $f$ is differentiable (hence continuous) on $[60, 120]$ and $f(60) = f(120)$, by the Mean Value Theorem (or Rolle's Theorem) there exists $c \\in (60, 120)$ such that $f'(c) = 0$"
+      ],
+      "scoring_notes": "First point: must present $f(120) - f(60) = 0$, or equivalently $f(60) = f(120) = 0.1$. Second point: must earn first point, state $f$ is continuous (because differentiable), and invoke MVT or Rolle's Theorem. Cannot earn second point by referencing IVT instead.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "The rate of flow of gasoline, in gallons per second, can also be modeled by $g(t) = \\left(\\frac{t}{500}\\right)\\cos\\left(\\frac{t}{120}\\right)$ for $0 \\le t \\le 150$. Using this model, find the average rate of flow of gasoline over the time interval $0 \\le t \\le 150$. Show the setup for your calculations.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct average value formula and setup: $\\frac{1}{150}\\int_0^{150} g(t)\\, dt$",
+        "1 pt: Correct answer: $\\frac{1}{150}\\int_0^{150} g(t)\\, dt \\approx 0.096$ (or $0.095$) gallons per second"
+      ],
+      "scoring_notes": "Must show the average value formula. $\\int_0^{150} g(t)\\, dt \\approx 14.399$, so average $\\approx 0.096$ gal/sec. Multiple steps accepted: present integral with correct answer as evidence of division by 150. Incorrect linkage between integral and answer is treated as scratch work.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "d",
+      "prompt": "Using the model $g$ defined in part (c), find the value of $g'(140)$. Interpret the meaning of your answer in the context of the problem.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: $g'(140) \\approx -0.005$ (or $-0.004$); found using calculator",
+        "1 pt: Interpretation: The rate at which gasoline is flowing into the tank is decreasing at a rate of approximately $0.005$ gallon per second per second at time $t = 140$ seconds"
+      ],
+      "scoring_notes": "The exact value is $g'(140) = \\frac{1}{500}\\cos\\left(\\frac{49}{36}\\right) - \\frac{49}{9000}\\sin\\left(\\frac{49}{36}\\right) \\approx -0.004908$. Value may appear only in the interpretation. Interpretation must include 'rate of flow is changing at [value]' and 'at $t = 140$'. Saying 'decreasing at rate of $-0.005$' or 'increasing at rate of $0.005$' does not earn the interpretation point.",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

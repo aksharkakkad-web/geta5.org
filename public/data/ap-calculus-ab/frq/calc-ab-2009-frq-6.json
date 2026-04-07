@@ -1,0 +1,55 @@
+{
+  "id": "calc-ab-2009-frq-6",
+  "subject": "ap-calculus-ab",
+  "year": 2009,
+  "source": "released",
+  "title": "f'(x) Piecewise {g(x) semicircle, 5e^(-x/3)-3}, f(0)=5 — Inflection Points, f(-4)/f(4) & Absolute Maximum",
+  "frq_type": "multi_part_math",
+  "related_units": [1, 5, 6],
+  "calculator_allowed": false,
+  "total_points": 9,
+  "stimulus": "The derivative of a function $f$ is defined by\n$$f'(x) = \\begin{cases} g(x) & -4 \\le x \\le 0 \\\\ 5e^{-x/3} - 3 & 0 < x \\le 4 \\end{cases}$$\nThe graph of the continuous function $f'$, shown in the figure, has $x$-intercepts at $x = -2$ and $x = 3\\ln\\left(\\frac{5}{3}\\right)$. The graph of $g$ on $-4 \\le x \\le 0$ is a semicircle, and $f(0) = 5$.",
+  "stimulus_image": null,
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "For $-4 < x < 4$, find all values of $x$ at which the graph of $f$ has a point of inflection. Justify your answer.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Identifies $x = -2$ or $x = 0$ as candidates where $f'$ changes monotonicity",
+        "1 pt: Correct answer with justification: $f$ has points of inflection at $x = -2$ and $x = 0$ because $f'$ changes from decreasing to increasing at $x = -2$, and from increasing to decreasing at $x = 0$"
+      ],
+      "scoring_notes": "From scoring key: Inflection points at $x = -2$ and $x = 0$ because $f'$ changes from decreasing to increasing at $x = -2$ and from increasing to decreasing at $x = 0$.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "Find $f(-4)$ and $f(4)$.",
+      "point_value": 5,
+      "rubric_criteria": [
+        "1 pt: Sets up integral for $f(-4)$: $f(-4) = f(0) + \\int_0^{-4} g(x)\\, dx = 5 - \\int_{-4}^0 g(x)\\, dx$",
+        "1 pt: Correct value: $\\int_{-4}^0 g(x)\\, dx = 8 - 2\\pi$ (semicircle of radius 2 above $x$-axis, area $= 2\\pi$, then area of remaining region; area of full semicircle $= \\frac{1}{2}\\pi(2)^2 = 2\\pi$, but the semicircle is above the $x$-axis from $-4$ to $0$ with radius 2 centered at $(-2,0)$, so $\\int_{-4}^0 g(x)\\, dx = 2\\pi$... from scoring key: $\\int_{-4}^0 g(x)\\, dx = 8 - 2\\pi$... possibly the semicircle is below combined with line; $f(-4) = 5 - (8 - 2\\pi) = 2\\pi - 3$)",
+        "1 pt: Sets up integral for $f(4)$: $f(4) = f(0) + \\int_0^4 (5e^{-x/3} - 3)\\, dx$",
+        "1 pt: Correct antiderivative: $\\left[-15e^{-x/3} - 3x\\right]_0^4$",
+        "1 pt: Correct value: $f(4) = 5 + (-15e^{-4/3} - 12) - (-15) = 5 + 3 - 15e^{-4/3} = 8 - 15e^{-4/3}$"
+      ],
+      "scoring_notes": "From scoring key: $f(-4) = 5 - (8-2\\pi) = 2\\pi - 3$. $f(4) = 5 + [-15e^{-x/3} - 3x]_0^4 = 5 + (-15e^{-4/3} - 12 + 15) = 8 - 15e^{-4/3}$.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "For $-4 \\le x \\le 4$, find the value of $x$ at which $f$ has an absolute maximum. Justify your answer.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct answer: $f$ has an absolute maximum at $x = 3\\ln\\left(\\frac{5}{3}\\right)$",
+        "1 pt: Justification: $f'(x) > 0$ on $(-4, -2)$ and $(-2, 3\\ln(5/3))$ so $f$ is increasing on $[-4, 3\\ln(5/3)]$; $f'(x) < 0$ on $(3\\ln(5/3), 4)$ so $f$ is decreasing on $[3\\ln(5/3), 4]$; therefore $f$ has its absolute maximum at $x = 3\\ln(5/3)$"
+      ],
+      "scoring_notes": "From scoring key: $f'(x) > 0$ on $(-4,-2)$ and $(-2, 3\\ln(5/3))$, so $f$ is increasing on $[-4, 3\\ln(5/3)]$. $f'(x) < 0$ on $(3\\ln(5/3), 4)$, so $f$ is decreasing. Absolute maximum at $x = 3\\ln(5/3)$.",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

@@ -11,18 +11,59 @@
       "stimulus": {
         "type": "table",
         "content": {
-          "headers": ["$x$", "$f(x)$"],
-          "rows": [["0","100"],["1","200"],["2","400"],["3","800"]]
+          "headers": [
+            "$x$",
+            "$f(x)$"
+          ],
+          "rows": [
+            [
+              "0",
+              "100"
+            ],
+            [
+              "1",
+              "200"
+            ],
+            [
+              "2",
+              "400"
+            ],
+            [
+              "3",
+              "800"
+            ]
+          ]
         }
       },
       "question": "The table above shows selected values of $f$. Which of the following best describes the function?",
       "choices": [
-        { "id": "A", "text": "Linear with slope $100$", "is_correct": false, "explanation": "A linear function has constant differences. Here differences are $100, 200, 400$ — not constant." },
-        { "id": "B", "text": "Exponential with base $2$", "is_correct": true, "explanation": "Each output doubles: $200/100=2$, $400/200=2$, $800/400=2$. Constant ratio of $2$ confirms $f(x)=100\\cdot2^x$." },
-        { "id": "C", "text": "Quadratic", "is_correct": false, "explanation": "A quadratic has constant second differences. Second differences here are $100, 200$ — not constant." },
-        { "id": "D", "text": "Exponential with base $100$", "is_correct": false, "explanation": "Base $100$ would give $f(1)=100\\cdot100=10{,}000$, not $200$. The ratio between consecutive terms is $2$, not $100$." }
+        {
+          "id": "A",
+          "text": "Linear with slope $100$",
+          "is_correct": false,
+          "explanation": "A linear function has constant differences. Here differences are $100, 200, 400$ — not constant."
+        },
+        {
+          "id": "B",
+          "text": "Exponential with base $2$",
+          "is_correct": true,
+          "explanation": "Each output doubles: $200/100=2$, $400/200=2$, $800/400=2$. Constant ratio of $2$ confirms $f(x)=100\\cdot2^x$."
+        },
+        {
+          "id": "C",
+          "text": "Quadratic",
+          "is_correct": false,
+          "explanation": "A quadratic has constant second differences. Second differences here are $100, 200$ — not constant."
+        },
+        {
+          "id": "D",
+          "text": "Exponential with base $100$",
+          "is_correct": false,
+          "explanation": "Base $100$ would give $f(1)=100\\cdot100=10{,}000$, not $200$. The ratio between consecutive terms is $2$, not $100$."
+        }
       ],
-      "unit_objective": "FUN-1.B"
+      "unit_objective": "FUN-1.B",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u2-q002",
@@ -32,138 +73,371 @@
       "stimulus": {
         "type": "table",
         "content": {
-          "headers": ["$x$", "$g(x)$"],
-          "rows": [["0","500"],["1","250"],["2","125"],["3","62.5"]]
+          "headers": [
+            "$x$",
+            "$g(x)$"
+          ],
+          "rows": [
+            [
+              "0",
+              "500"
+            ],
+            [
+              "1",
+              "250"
+            ],
+            [
+              "2",
+              "125"
+            ],
+            [
+              "3",
+              "62.5"
+            ]
+          ]
         }
       },
       "question": "The table above shows selected values of $g$. Which of the following best describes $g$?",
       "choices": [
-        { "id": "A", "text": "An exponential growth function", "is_correct": false, "explanation": "The outputs are decreasing ($500\\to250\\to125\\to62.5$), indicating decay, not growth." },
-        { "id": "B", "text": "An exponential decay function with base $\\frac{1}{2}$", "is_correct": true, "explanation": "Each output is halved: $250/500=1/2$. Constant ratio $0<b=1/2<1$ confirms exponential decay. $g(x)=500\\cdot(\\frac{1}{2})^x$." },
-        { "id": "C", "text": "A decreasing linear function", "is_correct": false, "explanation": "A linear function has constant differences. Here: $250-500=-250$, $125-250=-125$. Not constant — this is exponential decay." },
-        { "id": "D", "text": "An exponential decay function with base $2$", "is_correct": false, "explanation": "Base $b=2>1$ means growth, not decay. The decay base here is $1/2$ (each output is half the previous)." }
+        {
+          "id": "A",
+          "text": "An exponential growth function",
+          "is_correct": false,
+          "explanation": "The outputs are decreasing ($500\\to250\\to125\\to62.5$), indicating decay, not growth."
+        },
+        {
+          "id": "B",
+          "text": "An exponential decay function with base $\\frac{1}{2}$",
+          "is_correct": true,
+          "explanation": "Each output is halved: $250/500=1/2$. Constant ratio $0<b=1/2<1$ confirms exponential decay. $g(x)=500\\cdot(\\frac{1}{2})^x$."
+        },
+        {
+          "id": "C",
+          "text": "A decreasing linear function",
+          "is_correct": false,
+          "explanation": "A linear function has constant differences. Here: $250-500=-250$, $125-250=-125$. Not constant — this is exponential decay."
+        },
+        {
+          "id": "D",
+          "text": "An exponential decay function with base $2$",
+          "is_correct": false,
+          "explanation": "Base $b=2>1$ means growth, not decay. The decay base here is $1/2$ (each output is half the previous)."
+        }
       ],
-      "unit_objective": "FUN-1.B"
+      "unit_objective": "FUN-1.B",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u2-q003",
       "unit": "unit-2",
       "subject": "ap-precalculus",
       "difficulty": "easy",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following best gives $\\log_3 81$?",
       "choices": [
-        { "id": "A", "text": "$3$", "is_correct": false, "explanation": "$3^3=27\\neq81$. The question asks for the exponent: $3^?=81$." },
-        { "id": "B", "text": "$4$", "is_correct": true, "explanation": "$3^4=81$, so $\\log_3 81=4$." },
-        { "id": "C", "text": "$27$", "is_correct": false, "explanation": "$27$ is $3^3$, not $\\log_3 81$. The logarithm asks for the exponent, not the value of $3^{81}$." },
-        { "id": "D", "text": "$\\frac{1}{4}$", "is_correct": false, "explanation": "$\\frac{1}{4}$ would be the answer to $\\log_{81} 3$. Here the base is $3$ and we ask $3^?=81$, giving $4$." }
+        {
+          "id": "A",
+          "text": "$3$",
+          "is_correct": false,
+          "explanation": "$3^3=27\\neq81$. The question asks for the exponent: $3^?=81$."
+        },
+        {
+          "id": "B",
+          "text": "$4$",
+          "is_correct": true,
+          "explanation": "$3^4=81$, so $\\log_3 81=4$."
+        },
+        {
+          "id": "C",
+          "text": "$27$",
+          "is_correct": false,
+          "explanation": "$27$ is $3^3$, not $\\log_3 81$. The logarithm asks for the exponent, not the value of $3^{81}$."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{1}{4}$",
+          "is_correct": false,
+          "explanation": "$\\frac{1}{4}$ would be the answer to $\\log_{81} 3$. Here the base is $3$ and we ask $3^?=81$, giving $4$."
+        }
       ],
-      "unit_objective": "FUN-1.C"
+      "unit_objective": "FUN-1.C",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u2-q004",
       "unit": "unit-2",
       "subject": "ap-precalculus",
       "difficulty": "easy",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following is equivalent to $\\log_b y = x$?",
       "choices": [
-        { "id": "A", "text": "$y = b^x$", "is_correct": true, "explanation": "By definition, $\\log_b y = x$ means $b$ raised to the power $x$ equals $y$: $b^x=y$." },
-        { "id": "B", "text": "$x = y^b$", "is_correct": false, "explanation": "This confuses the base and exponent. The definition is $b^x=y$, not $y^b=x$." },
-        { "id": "C", "text": "$b = y^x$", "is_correct": false, "explanation": "$b$ is the base and $x$ is the exponent: $b^x=y$, not $b=y^x$." },
-        { "id": "D", "text": "$y = x^b$", "is_correct": false, "explanation": "This represents a power function, not exponential. The correct conversion is $b^x=y$." }
+        {
+          "id": "A",
+          "text": "$y = b^x$",
+          "is_correct": true,
+          "explanation": "By definition, $\\log_b y = x$ means $b$ raised to the power $x$ equals $y$: $b^x=y$."
+        },
+        {
+          "id": "B",
+          "text": "$x = y^b$",
+          "is_correct": false,
+          "explanation": "This confuses the base and exponent. The definition is $b^x=y$, not $y^b=x$."
+        },
+        {
+          "id": "C",
+          "text": "$b = y^x$",
+          "is_correct": false,
+          "explanation": "$b$ is the base and $x$ is the exponent: $b^x=y$, not $b=y^x$."
+        },
+        {
+          "id": "D",
+          "text": "$y = x^b$",
+          "is_correct": false,
+          "explanation": "This represents a power function, not exponential. The correct conversion is $b^x=y$."
+        }
       ],
-      "unit_objective": "FUN-1.C"
+      "unit_objective": "FUN-1.C",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u2-q005",
       "unit": "unit-2",
       "subject": "ap-precalculus",
       "difficulty": "easy",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following gives $\\ln e^5$?",
       "choices": [
-        { "id": "A", "text": "$e^5$", "is_correct": false, "explanation": "$\\ln e^5$ is asking for a number, not an expression with $e$. Use the inverse property: $\\ln e^x=x$." },
-        { "id": "B", "text": "$5e$", "is_correct": false, "explanation": "$5e$ is not a simplification of $\\ln e^5$. The natural log and exponential are inverses: $\\ln e^5=5$." },
-        { "id": "C", "text": "$5$", "is_correct": true, "explanation": "Since $\\ln$ and $e^x$ are inverse functions: $\\ln e^x=x$ for all $x$. Therefore $\\ln e^5=5$." },
-        { "id": "D", "text": "$\\frac{1}{5}$", "is_correct": false, "explanation": "$\\frac{1}{5}$ would be $\\log_{e^5} e$. Since $\\ln e^5=5$, not $\\frac{1}{5}$." }
+        {
+          "id": "A",
+          "text": "$e^5$",
+          "is_correct": false,
+          "explanation": "$\\ln e^5$ is asking for a number, not an expression with $e$. Use the inverse property: $\\ln e^x=x$."
+        },
+        {
+          "id": "B",
+          "text": "$5e$",
+          "is_correct": false,
+          "explanation": "$5e$ is not a simplification of $\\ln e^5$. The natural log and exponential are inverses: $\\ln e^5=5$."
+        },
+        {
+          "id": "C",
+          "text": "$5$",
+          "is_correct": true,
+          "explanation": "Since $\\ln$ and $e^x$ are inverse functions: $\\ln e^x=x$ for all $x$. Therefore $\\ln e^5=5$."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{1}{5}$",
+          "is_correct": false,
+          "explanation": "$\\frac{1}{5}$ would be $\\log_{e^5} e$. Since $\\ln e^5=5$, not $\\frac{1}{5}$."
+        }
       ],
-      "unit_objective": "FUN-1.C"
+      "unit_objective": "FUN-1.C",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u2-q006",
       "unit": "unit-2",
       "subject": "ap-precalculus",
       "difficulty": "easy",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following gives the value of $\\log_{10} 0.001$?",
       "choices": [
-        { "id": "A", "text": "$-3$", "is_correct": true, "explanation": "$0.001=10^{-3}$, so $\\log_{10}0.001=\\log_{10}10^{-3}=-3$." },
-        { "id": "B", "text": "$3$", "is_correct": false, "explanation": "$\\log_{10}1000=3$, not $\\log_{10}0.001$. Since $0.001<1$ and the base is $10>1$, the logarithm is negative." },
-        { "id": "C", "text": "$-\\frac{1}{3}$", "is_correct": false, "explanation": "$0.001=10^{-3}$, so the logarithm is $-3$, not $-\\frac{1}{3}$." },
-        { "id": "D", "text": "$0.001$", "is_correct": false, "explanation": "$\\log_{10}0.001$ is asking for the exponent: $10^?=0.001$. Since $0.001=10^{-3}$, the answer is $-3$." }
+        {
+          "id": "A",
+          "text": "$-3$",
+          "is_correct": true,
+          "explanation": "$0.001=10^{-3}$, so $\\log_{10}0.001=\\log_{10}10^{-3}=-3$."
+        },
+        {
+          "id": "B",
+          "text": "$3$",
+          "is_correct": false,
+          "explanation": "$\\log_{10}1000=3$, not $\\log_{10}0.001$. Since $0.001<1$ and the base is $10>1$, the logarithm is negative."
+        },
+        {
+          "id": "C",
+          "text": "$-\\frac{1}{3}$",
+          "is_correct": false,
+          "explanation": "$0.001=10^{-3}$, so the logarithm is $-3$, not $-\\frac{1}{3}$."
+        },
+        {
+          "id": "D",
+          "text": "$0.001$",
+          "is_correct": false,
+          "explanation": "$\\log_{10}0.001$ is asking for the exponent: $10^?=0.001$. Since $0.001=10^{-3}$, the answer is $-3$."
+        }
       ],
-      "unit_objective": "FUN-1.C"
+      "unit_objective": "FUN-1.C",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u2-q007",
       "unit": "unit-2",
       "subject": "ap-precalculus",
       "difficulty": "easy",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following best describes the horizontal asymptote of $f(x) = 3 \\cdot 2^x + 5$?",
       "choices": [
-        { "id": "A", "text": "$y = 0$", "is_correct": false, "explanation": "$y=0$ is the asymptote of $2^x$ alone, but the $+5$ shifts the entire function up by $5$." },
-        { "id": "B", "text": "$y = 3$", "is_correct": false, "explanation": "$3$ is the vertical stretch factor, not the asymptote. As $x\\to-\\infty$, $3\\cdot2^x\\to0$, so $f(x)\\to5$." },
-        { "id": "C", "text": "$y = 5$", "is_correct": true, "explanation": "As $x\\to-\\infty$, $2^x\\to0$, so $f(x)=3\\cdot2^x+5\\to0+5=5$. The horizontal asymptote is $y=5$." },
-        { "id": "D", "text": "$y = 8$", "is_correct": false, "explanation": "$8=3+5$ is not the asymptote. The asymptote comes from the limit as $x\\to-\\infty$, which gives $f(x)\\to5$." }
+        {
+          "id": "A",
+          "text": "$y = 0$",
+          "is_correct": false,
+          "explanation": "$y=0$ is the asymptote of $2^x$ alone, but the $+5$ shifts the entire function up by $5$."
+        },
+        {
+          "id": "B",
+          "text": "$y = 3$",
+          "is_correct": false,
+          "explanation": "$3$ is the vertical stretch factor, not the asymptote. As $x\\to-\\infty$, $3\\cdot2^x\\to0$, so $f(x)\\to5$."
+        },
+        {
+          "id": "C",
+          "text": "$y = 5$",
+          "is_correct": true,
+          "explanation": "As $x\\to-\\infty$, $2^x\\to0$, so $f(x)=3\\cdot2^x+5\\to0+5=5$. The horizontal asymptote is $y=5$."
+        },
+        {
+          "id": "D",
+          "text": "$y = 8$",
+          "is_correct": false,
+          "explanation": "$8=3+5$ is not the asymptote. The asymptote comes from the limit as $x\\to-\\infty$, which gives $f(x)\\to5$."
+        }
       ],
-      "unit_objective": "FUN-1.A"
+      "unit_objective": "FUN-1.A",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u2-q008",
       "unit": "unit-2",
       "subject": "ap-precalculus",
       "difficulty": "easy",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following gives the domain of $f(x) = \\log_2(x - 3)$?",
       "choices": [
-        { "id": "A", "text": "All real numbers", "is_correct": false, "explanation": "Logarithms require positive arguments. $\\log_2(x-3)$ requires $x-3>0$, so $x>3$." },
-        { "id": "B", "text": "$x > 3$", "is_correct": true, "explanation": "The argument of a logarithm must be positive: $x-3>0\\Rightarrow x>3$. Domain: $(3,\\infty)$." },
-        { "id": "C", "text": "$x \\geq 3$", "is_correct": false, "explanation": "At $x=3$: $\\log_2(3-3)=\\log_2 0$, which is undefined. The domain is strictly $x>3$, not $x\\geq3$." },
-        { "id": "D", "text": "$x > 0$", "is_correct": false, "explanation": "$x>0$ is the domain of $\\log_2 x$, not $\\log_2(x-3)$. The horizontal shift by $3$ moves the domain boundary to $x=3$." }
+        {
+          "id": "A",
+          "text": "All real numbers",
+          "is_correct": false,
+          "explanation": "Logarithms require positive arguments. $\\log_2(x-3)$ requires $x-3>0$, so $x>3$."
+        },
+        {
+          "id": "B",
+          "text": "$x > 3$",
+          "is_correct": true,
+          "explanation": "The argument of a logarithm must be positive: $x-3>0\\Rightarrow x>3$. Domain: $(3,\\infty)$."
+        },
+        {
+          "id": "C",
+          "text": "$x \\geq 3$",
+          "is_correct": false,
+          "explanation": "At $x=3$: $\\log_2(3-3)=\\log_2 0$, which is undefined. The domain is strictly $x>3$, not $x\\geq3$."
+        },
+        {
+          "id": "D",
+          "text": "$x > 0$",
+          "is_correct": false,
+          "explanation": "$x>0$ is the domain of $\\log_2 x$, not $\\log_2(x-3)$. The horizontal shift by $3$ moves the domain boundary to $x=3$."
+        }
       ],
-      "unit_objective": "FUN-1.D"
+      "unit_objective": "FUN-1.D",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u2-q009",
       "unit": "unit-2",
       "subject": "ap-precalculus",
       "difficulty": "easy",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following best describes the $y$-intercept of $f(x) = 4^x - 1$?",
       "choices": [
-        { "id": "A", "text": "$(0, 0)$", "is_correct": true, "explanation": "$f(0)=4^0-1=1-1=0$. The $y$-intercept is $(0,0)$." },
-        { "id": "B", "text": "$(0, 1)$", "is_correct": false, "explanation": "$f(0)=1-1=0$, not $1$. The $-1$ shifts the graph down, moving the $y$-intercept from $(0,1)$ to $(0,0)$." },
-        { "id": "C", "text": "$(0, -1)$", "is_correct": false, "explanation": "$f(0)=4^0-1=1-1=0$. The $-1$ lowers the base value of $1$ to $0$, not to $-1$." },
-        { "id": "D", "text": "There is no $y$-intercept", "is_correct": false, "explanation": "Exponential functions are defined for all real $x$, including $x=0$. $f(0)=1-1=0$." }
+        {
+          "id": "A",
+          "text": "$(0, 0)$",
+          "is_correct": true,
+          "explanation": "$f(0)=4^0-1=1-1=0$. The $y$-intercept is $(0,0)$."
+        },
+        {
+          "id": "B",
+          "text": "$(0, 1)$",
+          "is_correct": false,
+          "explanation": "$f(0)=1-1=0$, not $1$. The $-1$ shifts the graph down, moving the $y$-intercept from $(0,1)$ to $(0,0)$."
+        },
+        {
+          "id": "C",
+          "text": "$(0, -1)$",
+          "is_correct": false,
+          "explanation": "$f(0)=4^0-1=1-1=0$. The $-1$ lowers the base value of $1$ to $0$, not to $-1$."
+        },
+        {
+          "id": "D",
+          "text": "There is no $y$-intercept",
+          "is_correct": false,
+          "explanation": "Exponential functions are defined for all real $x$, including $x=0$. $f(0)=1-1=0$."
+        }
       ],
-      "unit_objective": "FUN-1.A"
+      "unit_objective": "FUN-1.A",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u2-q010",
       "unit": "unit-2",
       "subject": "ap-precalculus",
       "difficulty": "easy",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following gives $\\log_5 \\frac{1}{25}$?",
       "choices": [
-        { "id": "A", "text": "$2$", "is_correct": false, "explanation": "$\\log_5 25=2$, not $\\log_5\\frac{1}{25}$. Since $\\frac{1}{25}=5^{-2}$, the answer is $-2$." },
-        { "id": "B", "text": "$-2$", "is_correct": true, "explanation": "$\\frac{1}{25}=5^{-2}$, so $\\log_5\\frac{1}{25}=\\log_5 5^{-2}=-2$." },
-        { "id": "C", "text": "$\\frac{1}{2}$", "is_correct": false, "explanation": "$5^{1/2}=\\sqrt{5}\\approx2.24\\neq\\frac{1}{25}$. Since $\\frac{1}{25}=5^{-2}$, the logarithm is $-2$." },
-        { "id": "D", "text": "$-25$", "is_correct": false, "explanation": "$5^{-25}$ is an astronomically small number, not $\\frac{1}{25}$. Write $\\frac{1}{25}=5^{-2}$, giving $\\log_5\\frac{1}{25}=-2$." }
+        {
+          "id": "A",
+          "text": "$2$",
+          "is_correct": false,
+          "explanation": "$\\log_5 25=2$, not $\\log_5\\frac{1}{25}$. Since $\\frac{1}{25}=5^{-2}$, the answer is $-2$."
+        },
+        {
+          "id": "B",
+          "text": "$-2$",
+          "is_correct": true,
+          "explanation": "$\\frac{1}{25}=5^{-2}$, so $\\log_5\\frac{1}{25}=\\log_5 5^{-2}=-2$."
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{1}{2}$",
+          "is_correct": false,
+          "explanation": "$5^{1/2}=\\sqrt{5}\\approx2.24\\neq\\frac{1}{25}$. Since $\\frac{1}{25}=5^{-2}$, the logarithm is $-2$."
+        },
+        {
+          "id": "D",
+          "text": "$-25$",
+          "is_correct": false,
+          "explanation": "$5^{-25}$ is an astronomically small number, not $\\frac{1}{25}$. Write $\\frac{1}{25}=5^{-2}$, giving $\\log_5\\frac{1}{25}=-2$."
+        }
       ],
-      "unit_objective": "FUN-1.C"
+      "unit_objective": "FUN-1.C",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u2-q011",
@@ -175,140 +449,399 @@
         "content": {
           "type": "line",
           "data": {
-            "labels": ["-3","-2","-1","0","1","2","3"],
-            "datasets": [{ "label": "f(x)", "data": [0.125,0.25,0.5,1,2,4,8], "borderColor": "#6366f1", "backgroundColor": "transparent", "tension": 0.4 }]
+            "labels": [
+              "-3",
+              "-2",
+              "-1",
+              "0",
+              "1",
+              "2",
+              "3"
+            ],
+            "datasets": [
+              {
+                "label": "f(x)",
+                "data": [
+                  0.125,
+                  0.25,
+                  0.5,
+                  1,
+                  2,
+                  4,
+                  8
+                ],
+                "borderColor": "#6366f1",
+                "backgroundColor": "transparent",
+                "tension": 0.4
+              }
+            ]
           },
-          "options": { "plugins":{"legend":{"display":false}}, "scales": { "x":{"title":{"display":true,"text":"x"}}, "y":{"title":{"display":true,"text":"f(x)"},"min":0,"max":9} } }
+          "options": {
+            "plugins": {
+              "legend": {
+                "display": false
+              }
+            },
+            "scales": {
+              "x": {
+                "title": {
+                  "display": true,
+                  "text": "x"
+                }
+              },
+              "y": {
+                "title": {
+                  "display": true,
+                  "text": "f(x)"
+                },
+                "min": 0,
+                "max": 9
+              }
+            }
+          }
         }
       },
       "question": "The graph of $f$ is shown above. Which of the following gives the equation of the horizontal asymptote and the $y$-intercept?",
       "choices": [
-        { "id": "A", "text": "Horizontal asymptote $y = 1$; $y$-intercept $(0, 1)$", "is_correct": false, "explanation": "The horizontal asymptote for $f(x)=2^x$ is $y=0$ (the $x$-axis), not $y=1$. The $y$-intercept is correct: $f(0)=2^0=1$." },
-        { "id": "B", "text": "Horizontal asymptote $y = 0$; $y$-intercept $(0, 1)$", "is_correct": true, "explanation": "As $x\\to-\\infty$, $2^x\\to0$, so the horizontal asymptote is $y=0$. $f(0)=2^0=1$, so the $y$-intercept is $(0,1)$." },
-        { "id": "C", "text": "Horizontal asymptote $y = 0$; $y$-intercept $(0, 2)$", "is_correct": false, "explanation": "$f(0)=2^0=1$, not $2$. The $y$-intercept of $b^x$ is always $(0,1)$." },
-        { "id": "D", "text": "No horizontal asymptote; $y$-intercept $(0, 1)$", "is_correct": false, "explanation": "Exponential functions of the form $b^x$ with $b>0$, $b\\neq1$ always have horizontal asymptote $y=0$." }
+        {
+          "id": "A",
+          "text": "Horizontal asymptote $y = 1$; $y$-intercept $(0, 1)$",
+          "is_correct": false,
+          "explanation": "The horizontal asymptote for $f(x)=2^x$ is $y=0$ (the $x$-axis), not $y=1$. The $y$-intercept is correct: $f(0)=2^0=1$."
+        },
+        {
+          "id": "B",
+          "text": "Horizontal asymptote $y = 0$; $y$-intercept $(0, 1)$",
+          "is_correct": true,
+          "explanation": "As $x\\to-\\infty$, $2^x\\to0$, so the horizontal asymptote is $y=0$. $f(0)=2^0=1$, so the $y$-intercept is $(0,1)$."
+        },
+        {
+          "id": "C",
+          "text": "Horizontal asymptote $y = 0$; $y$-intercept $(0, 2)$",
+          "is_correct": false,
+          "explanation": "$f(0)=2^0=1$, not $2$. The $y$-intercept of $b^x$ is always $(0,1)$."
+        },
+        {
+          "id": "D",
+          "text": "No horizontal asymptote; $y$-intercept $(0, 1)$",
+          "is_correct": false,
+          "explanation": "Exponential functions of the form $b^x$ with $b>0$, $b\\neq1$ always have horizontal asymptote $y=0$."
+        }
       ],
-      "unit_objective": "FUN-1.A"
+      "unit_objective": "FUN-1.A",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u2-q012",
       "unit": "unit-2",
       "subject": "ap-precalculus",
       "difficulty": "medium",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following best describes the transformation from $f(x) = 2^x$ to $g(x) = 2^{x-3} + 4$?",
       "choices": [
-        { "id": "A", "text": "Shift right $3$, shift up $4$", "is_correct": true, "explanation": "$(x-3)$ in the exponent shifts the graph right $3$; $+4$ outside shifts up $4$. New asymptote: $y=4$." },
-        { "id": "B", "text": "Shift left $3$, shift up $4$", "is_correct": false, "explanation": "$(x-3)$ shifts right (not left). Left shifts use $(x+3)$." },
-        { "id": "C", "text": "Shift right $3$, shift down $4$", "is_correct": false, "explanation": "$+4$ shifts the graph up $4$, not down. A downward shift would use $2^{x-3}-4$." },
-        { "id": "D", "text": "Vertical stretch by $3$, shift up $4$", "is_correct": false, "explanation": "The $3$ in $(x-3)$ is a horizontal shift, not a vertical stretch. Vertical stretches multiply the entire function: $3\\cdot2^x$." }
+        {
+          "id": "A",
+          "text": "Shift right $3$, shift up $4$",
+          "is_correct": true,
+          "explanation": "$(x-3)$ in the exponent shifts the graph right $3$; $+4$ outside shifts up $4$. New asymptote: $y=4$."
+        },
+        {
+          "id": "B",
+          "text": "Shift left $3$, shift up $4$",
+          "is_correct": false,
+          "explanation": "$(x-3)$ shifts right (not left). Left shifts use $(x+3)$."
+        },
+        {
+          "id": "C",
+          "text": "Shift right $3$, shift down $4$",
+          "is_correct": false,
+          "explanation": "$+4$ shifts the graph up $4$, not down. A downward shift would use $2^{x-3}-4$."
+        },
+        {
+          "id": "D",
+          "text": "Vertical stretch by $3$, shift up $4$",
+          "is_correct": false,
+          "explanation": "The $3$ in $(x-3)$ is a horizontal shift, not a vertical stretch. Vertical stretches multiply the entire function: $3\\cdot2^x$."
+        }
       ],
-      "unit_objective": "FUN-1.A"
+      "unit_objective": "FUN-1.A",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u2-q013",
       "unit": "unit-2",
       "subject": "ap-precalculus",
       "difficulty": "medium",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following gives the equation of the vertical asymptote of $f(x) = \\log_3(x + 2) - 1$?",
       "choices": [
-        { "id": "A", "text": "$x = 0$", "is_correct": false, "explanation": "$x=0$ is the vertical asymptote of $\\log_3 x$, but the $+2$ inside shifts the asymptote left to $x=-2$." },
-        { "id": "B", "text": "$x = -2$", "is_correct": true, "explanation": "The argument $x+2=0$ when $x=-2$. The function is undefined there, and the vertical asymptote is $x=-2$." },
-        { "id": "C", "text": "$x = 1$", "is_correct": false, "explanation": "$x=1$ has no special role here. The vertical asymptote comes from setting the argument equal to zero: $x+2=0\\Rightarrow x=-2$." },
-        { "id": "D", "text": "$y = -1$", "is_correct": false, "explanation": "$y=-1$ is a horizontal reference (the asymptote is shifted by $-1$), but the vertical asymptote equation is $x=-2$, not a $y$-value." }
+        {
+          "id": "A",
+          "text": "$x = 0$",
+          "is_correct": false,
+          "explanation": "$x=0$ is the vertical asymptote of $\\log_3 x$, but the $+2$ inside shifts the asymptote left to $x=-2$."
+        },
+        {
+          "id": "B",
+          "text": "$x = -2$",
+          "is_correct": true,
+          "explanation": "The argument $x+2=0$ when $x=-2$. The function is undefined there, and the vertical asymptote is $x=-2$."
+        },
+        {
+          "id": "C",
+          "text": "$x = 1$",
+          "is_correct": false,
+          "explanation": "$x=1$ has no special role here. The vertical asymptote comes from setting the argument equal to zero: $x+2=0\\Rightarrow x=-2$."
+        },
+        {
+          "id": "D",
+          "text": "$y = -1$",
+          "is_correct": false,
+          "explanation": "$y=-1$ is a horizontal reference (the asymptote is shifted by $-1$), but the vertical asymptote equation is $x=-2$, not a $y$-value."
+        }
       ],
-      "unit_objective": "FUN-1.D"
+      "unit_objective": "FUN-1.D",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u2-q014",
       "unit": "unit-2",
       "subject": "ap-precalculus",
       "difficulty": "medium",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following is equivalent to $\\log_b(m^3 n)$?",
       "choices": [
-        { "id": "A", "text": "$3\\log_b m \\cdot \\log_b n$", "is_correct": false, "explanation": "The product rule says $\\log_b(m^3 n)=\\log_b m^3+\\log_b n$, using addition, not multiplication of logarithms." },
-        { "id": "B", "text": "$3\\log_b m + \\log_b n$", "is_correct": true, "explanation": "$\\log_b(m^3 n)=\\log_b m^3+\\log_b n=3\\log_b m+\\log_b n$ (product rule + power rule)." },
-        { "id": "C", "text": "$\\log_b m^3 - \\log_b n$", "is_correct": false, "explanation": "The quotient rule applies to $\\log_b\\frac{m^3}{n}$, not $\\log_b(m^3n)$. A product inside gives a sum of logarithms." },
-        { "id": "D", "text": "$3(\\log_b m + \\log_b n)$", "is_correct": false, "explanation": "The power $3$ applies only to $m$, not to $n$. $\\log_b(m^3 n)=3\\log_b m+\\log_b n$, not $3\\log_b m+3\\log_b n$." }
+        {
+          "id": "A",
+          "text": "$3\\log_b m \\cdot \\log_b n$",
+          "is_correct": false,
+          "explanation": "The product rule says $\\log_b(m^3 n)=\\log_b m^3+\\log_b n$, using addition, not multiplication of logarithms."
+        },
+        {
+          "id": "B",
+          "text": "$3\\log_b m + \\log_b n$",
+          "is_correct": true,
+          "explanation": "$\\log_b(m^3 n)=\\log_b m^3+\\log_b n=3\\log_b m+\\log_b n$ (product rule + power rule)."
+        },
+        {
+          "id": "C",
+          "text": "$\\log_b m^3 - \\log_b n$",
+          "is_correct": false,
+          "explanation": "The quotient rule applies to $\\log_b\\frac{m^3}{n}$, not $\\log_b(m^3n)$. A product inside gives a sum of logarithms."
+        },
+        {
+          "id": "D",
+          "text": "$3(\\log_b m + \\log_b n)$",
+          "is_correct": false,
+          "explanation": "The power $3$ applies only to $m$, not to $n$. $\\log_b(m^3 n)=3\\log_b m+\\log_b n$, not $3\\log_b m+3\\log_b n$."
+        }
       ],
-      "unit_objective": "FUN-1.C"
+      "unit_objective": "FUN-1.C",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u2-q015",
       "unit": "unit-2",
       "subject": "ap-precalculus",
       "difficulty": "medium",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following is equivalent to $\\log_4 30$ using the change of base formula?",
       "choices": [
-        { "id": "A", "text": "$\\frac{\\log 4}{\\log 30}$", "is_correct": false, "explanation": "Change of base: $\\log_b x = \\frac{\\log x}{\\log b}$. Here $b=4$ and $x=30$: $\\frac{\\log 30}{\\log 4}$, not $\\frac{\\log 4}{\\log 30}$." },
-        { "id": "B", "text": "$\\frac{\\log 30}{\\log 4}$", "is_correct": true, "explanation": "Change of base formula: $\\log_4 30 = \\frac{\\log 30}{\\log 4} = \\frac{\\ln 30}{\\ln 4}$. The base being changed to can be any valid base." },
-        { "id": "C", "text": "$\\log 30 - \\log 4$", "is_correct": false, "explanation": "$\\log 30 - \\log 4 = \\log\\frac{30}{4}$, which is a different expression. Change of base uses division of logs, not subtraction." },
-        { "id": "D", "text": "$\\log\\frac{4}{30}$", "is_correct": false, "explanation": "This equals $\\log 4 - \\log 30$, which is negative and does not equal $\\log_4 30 \\approx 2.45$." }
+        {
+          "id": "A",
+          "text": "$\\frac{\\log 4}{\\log 30}$",
+          "is_correct": false,
+          "explanation": "Change of base: $\\log_b x = \\frac{\\log x}{\\log b}$. Here $b=4$ and $x=30$: $\\frac{\\log 30}{\\log 4}$, not $\\frac{\\log 4}{\\log 30}$."
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{\\log 30}{\\log 4}$",
+          "is_correct": true,
+          "explanation": "Change of base formula: $\\log_4 30 = \\frac{\\log 30}{\\log 4} = \\frac{\\ln 30}{\\ln 4}$. The base being changed to can be any valid base."
+        },
+        {
+          "id": "C",
+          "text": "$\\log 30 - \\log 4$",
+          "is_correct": false,
+          "explanation": "$\\log 30 - \\log 4 = \\log\\frac{30}{4}$, which is a different expression. Change of base uses division of logs, not subtraction."
+        },
+        {
+          "id": "D",
+          "text": "$\\log\\frac{4}{30}$",
+          "is_correct": false,
+          "explanation": "This equals $\\log 4 - \\log 30$, which is negative and does not equal $\\log_4 30 \\approx 2.45$."
+        }
       ],
-      "unit_objective": "FUN-1.C"
+      "unit_objective": "FUN-1.C",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u2-q016",
       "unit": "unit-2",
       "subject": "ap-precalculus",
       "difficulty": "medium",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following best gives the solution to $3^x = 45$?",
       "choices": [
-        { "id": "A", "text": "$x = \\frac{\\log 3}{\\log 45}$", "is_correct": false, "explanation": "Change of base gives $\\log_3 45 = \\frac{\\log 45}{\\log 3}$, not $\\frac{\\log 3}{\\log 45}$. The argument goes in the numerator." },
-        { "id": "B", "text": "$x = \\log_3 45 = \\frac{\\log 45}{\\log 3}$", "is_correct": true, "explanation": "Take $\\log_3$ of both sides: $x = \\log_3 45$. By change of base: $x = \\frac{\\log 45}{\\log 3} = \\frac{\\ln 45}{\\ln 3} \\approx 3.465$." },
-        { "id": "C", "text": "$x = 45 - 3$", "is_correct": false, "explanation": "Subtracting the base from the target is not a valid algebraic operation for solving exponential equations." },
-        { "id": "D", "text": "$x = \\frac{45}{3} = 15$", "is_correct": false, "explanation": "$3^{15}$ is astronomically large, not $45$. Check: $3^3=27$ and $3^4=81$, so $x$ is between $3$ and $4$." }
+        {
+          "id": "A",
+          "text": "$x = \\frac{\\log 3}{\\log 45}$",
+          "is_correct": false,
+          "explanation": "Change of base gives $\\log_3 45 = \\frac{\\log 45}{\\log 3}$, not $\\frac{\\log 3}{\\log 45}$. The argument goes in the numerator."
+        },
+        {
+          "id": "B",
+          "text": "$x = \\log_3 45 = \\frac{\\log 45}{\\log 3}$",
+          "is_correct": true,
+          "explanation": "Take $\\log_3$ of both sides: $x = \\log_3 45$. By change of base: $x = \\frac{\\log 45}{\\log 3} = \\frac{\\ln 45}{\\ln 3} \\approx 3.465$."
+        },
+        {
+          "id": "C",
+          "text": "$x = 45 - 3$",
+          "is_correct": false,
+          "explanation": "Subtracting the base from the target is not a valid algebraic operation for solving exponential equations."
+        },
+        {
+          "id": "D",
+          "text": "$x = \\frac{45}{3} = 15$",
+          "is_correct": false,
+          "explanation": "$3^{15}$ is astronomically large, not $45$. Check: $3^3=27$ and $3^4=81$, so $x$ is between $3$ and $4$."
+        }
       ],
-      "unit_objective": "FUN-1.E"
+      "unit_objective": "FUN-1.E",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u2-q017",
       "unit": "unit-2",
       "subject": "ap-precalculus",
       "difficulty": "medium",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following gives the solution to $5^{2x} = 125$?",
       "choices": [
-        { "id": "A", "text": "$x = \\frac{3}{2}$", "is_correct": true, "explanation": "$125=5^3$, so $5^{2x}=5^3\\Rightarrow2x=3\\Rightarrow x=\\frac{3}{2}$." },
-        { "id": "B", "text": "$x = 3$", "is_correct": false, "explanation": "If $x=3$: $5^{2(3)}=5^6=15{,}625\\neq125$. Note $125=5^3$, so $2x=3$, giving $x=\\frac{3}{2}$." },
-        { "id": "C", "text": "$x = \\frac{1}{2}$", "is_correct": false, "explanation": "If $x=\\frac{1}{2}$: $5^{2(1/2)}=5^1=5\\neq125$. The exponent $2x$ must equal $3$, so $x=\\frac{3}{2}$." },
-        { "id": "D", "text": "$x = \\frac{5}{2}$", "is_correct": false, "explanation": "If $x=\\frac{5}{2}$: $5^5=3{,}125\\neq125$. Set $2x=3$ to get $x=\\frac{3}{2}$." }
+        {
+          "id": "A",
+          "text": "$x = \\frac{3}{2}$",
+          "is_correct": true,
+          "explanation": "$125=5^3$, so $5^{2x}=5^3\\Rightarrow2x=3\\Rightarrow x=\\frac{3}{2}$."
+        },
+        {
+          "id": "B",
+          "text": "$x = 3$",
+          "is_correct": false,
+          "explanation": "If $x=3$: $5^{2(3)}=5^6=15{,}625\\neq125$. Note $125=5^3$, so $2x=3$, giving $x=\\frac{3}{2}$."
+        },
+        {
+          "id": "C",
+          "text": "$x = \\frac{1}{2}$",
+          "is_correct": false,
+          "explanation": "If $x=\\frac{1}{2}$: $5^{2(1/2)}=5^1=5\\neq125$. The exponent $2x$ must equal $3$, so $x=\\frac{3}{2}$."
+        },
+        {
+          "id": "D",
+          "text": "$x = \\frac{5}{2}$",
+          "is_correct": false,
+          "explanation": "If $x=\\frac{5}{2}$: $5^5=3{,}125\\neq125$. Set $2x=3$ to get $x=\\frac{3}{2}$."
+        }
       ],
-      "unit_objective": "FUN-1.E"
+      "unit_objective": "FUN-1.E",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u2-q018",
       "unit": "unit-2",
       "subject": "ap-precalculus",
       "difficulty": "medium",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following gives the solution to $\\log_2(x + 1) = 4$?",
       "choices": [
-        { "id": "A", "text": "$x = 15$", "is_correct": true, "explanation": "Convert: $x+1=2^4=16$, so $x=15$. Check: $\\log_2(16)=4$. Correct." },
-        { "id": "B", "text": "$x = 16$", "is_correct": false, "explanation": "$\\log_2(16)=4$ is correct, but $x+1=16$ gives $x=15$, not $x=16$." },
-        { "id": "C", "text": "$x = 8$", "is_correct": false, "explanation": "$\\log_2(8+1)=\\log_2 9\\neq4$. Convert: $2^4=16=x+1\\Rightarrow x=15$." },
-        { "id": "D", "text": "$x = 3$", "is_correct": false, "explanation": "$\\log_2(3+1)=\\log_2 4=2\\neq4$. Set $x+1=2^4=16$ to find $x=15$." }
+        {
+          "id": "A",
+          "text": "$x = 15$",
+          "is_correct": true,
+          "explanation": "Convert: $x+1=2^4=16$, so $x=15$. Check: $\\log_2(16)=4$. Correct."
+        },
+        {
+          "id": "B",
+          "text": "$x = 16$",
+          "is_correct": false,
+          "explanation": "$\\log_2(16)=4$ is correct, but $x+1=16$ gives $x=15$, not $x=16$."
+        },
+        {
+          "id": "C",
+          "text": "$x = 8$",
+          "is_correct": false,
+          "explanation": "$\\log_2(8+1)=\\log_2 9\\neq4$. Convert: $2^4=16=x+1\\Rightarrow x=15$."
+        },
+        {
+          "id": "D",
+          "text": "$x = 3$",
+          "is_correct": false,
+          "explanation": "$\\log_2(3+1)=\\log_2 4=2\\neq4$. Set $x+1=2^4=16$ to find $x=15$."
+        }
       ],
-      "unit_objective": "FUN-1.E"
+      "unit_objective": "FUN-1.E",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u2-q019",
       "unit": "unit-2",
       "subject": "ap-precalculus",
       "difficulty": "medium",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following is equivalent to $\\log_b \\frac{x^2}{y^3}$?",
       "choices": [
-        { "id": "A", "text": "$2\\log_b x - 3\\log_b y$", "is_correct": true, "explanation": "Quotient rule: $\\log_b\\frac{x^2}{y^3}=\\log_b x^2-\\log_b y^3=2\\log_b x-3\\log_b y$." },
-        { "id": "B", "text": "$2\\log_b x + 3\\log_b y$", "is_correct": false, "explanation": "A quotient inside a log gives subtraction, not addition: $\\log_b\\frac{A}{B}=\\log_b A-\\log_b B$." },
-        { "id": "C", "text": "$\\frac{2\\log_b x}{3\\log_b y}$", "is_correct": false, "explanation": "Logarithm laws never produce division of two logarithms from a quotient inside. The correct result uses subtraction." },
-        { "id": "D", "text": "$\\log_b(2x - 3y)$", "is_correct": false, "explanation": "Logarithm laws involve operations on log expressions, not on the arguments directly. $\\log_b\\frac{x^2}{y^3}\\neq\\log_b(2x-3y)$." }
+        {
+          "id": "A",
+          "text": "$2\\log_b x - 3\\log_b y$",
+          "is_correct": true,
+          "explanation": "Quotient rule: $\\log_b\\frac{x^2}{y^3}=\\log_b x^2-\\log_b y^3=2\\log_b x-3\\log_b y$."
+        },
+        {
+          "id": "B",
+          "text": "$2\\log_b x + 3\\log_b y$",
+          "is_correct": false,
+          "explanation": "A quotient inside a log gives subtraction, not addition: $\\log_b\\frac{A}{B}=\\log_b A-\\log_b B$."
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{2\\log_b x}{3\\log_b y}$",
+          "is_correct": false,
+          "explanation": "Logarithm laws never produce division of two logarithms from a quotient inside. The correct result uses subtraction."
+        },
+        {
+          "id": "D",
+          "text": "$\\log_b(2x - 3y)$",
+          "is_correct": false,
+          "explanation": "Logarithm laws involve operations on log expressions, not on the arguments directly. $\\log_b\\frac{x^2}{y^3}\\neq\\log_b(2x-3y)$."
+        }
       ],
-      "unit_objective": "FUN-1.C"
+      "unit_objective": "FUN-1.C",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u2-q020",
@@ -321,12 +854,33 @@
       },
       "question": "Which of the following gives the amount $A$ in the account after $t$ years?",
       "choices": [
-        { "id": "A", "text": "$A = 1000(1.06)^t$", "is_correct": false, "explanation": "This uses annual compounding ($n=1$). Monthly compounding requires dividing the rate by $12$: $A=1000\\left(1+\\frac{0.06}{12}\\right)^{12t}$." },
-        { "id": "B", "text": "$A = 1000\\left(1 + \\frac{0.06}{12}\\right)^{12t}$", "is_correct": true, "explanation": "Compound interest formula: $A=P\\left(1+\\frac{r}{n}\\right)^{nt}$ with $P=1000$, $r=0.06$, $n=12$." },
-        { "id": "C", "text": "$A = 1000 e^{0.06t}$", "is_correct": false, "explanation": "This is continuous compounding ($A=Pe^{rt}$), not monthly. Monthly compounding uses the discrete formula with $n=12$." },
-        { "id": "D", "text": "$A = 1000(1.005)^t$", "is_correct": false, "explanation": "$1.005=1+0.06/12$ is the correct monthly factor, but the exponent should be $12t$ (total number of compounding periods), not $t$." }
+        {
+          "id": "A",
+          "text": "$A = 1000(1.06)^t$",
+          "is_correct": false,
+          "explanation": "This uses annual compounding ($n=1$). Monthly compounding requires dividing the rate by $12$: $A=1000\\left(1+\\frac{0.06}{12}\\right)^{12t}$."
+        },
+        {
+          "id": "B",
+          "text": "$A = 1000\\left(1 + \\frac{0.06}{12}\\right)^{12t}$",
+          "is_correct": true,
+          "explanation": "Compound interest formula: $A=P\\left(1+\\frac{r}{n}\\right)^{nt}$ with $P=1000$, $r=0.06$, $n=12$."
+        },
+        {
+          "id": "C",
+          "text": "$A = 1000 e^{0.06t}$",
+          "is_correct": false,
+          "explanation": "This is continuous compounding ($A=Pe^{rt}$), not monthly. Monthly compounding uses the discrete formula with $n=12$."
+        },
+        {
+          "id": "D",
+          "text": "$A = 1000(1.005)^t$",
+          "is_correct": false,
+          "explanation": "$1.005=1+0.06/12$ is the correct monthly factor, but the exponent should be $12t$ (total number of compounding periods), not $t$."
+        }
       ],
-      "unit_objective": "FUN-1.F"
+      "unit_objective": "FUN-1.F",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u2-q021",
@@ -339,12 +893,33 @@
       },
       "question": "Which of the following gives the amount $A$ after $10$ years?",
       "choices": [
-        { "id": "A", "text": "$A = 2000(1.05)^{10}$", "is_correct": false, "explanation": "This uses annual discrete compounding. Continuous compounding uses $A=Pe^{rt}$, not $(1+r)^t$." },
-        { "id": "B", "text": "$A = 2000 e^{0.5}$", "is_correct": true, "explanation": "Continuous compounding: $A=Pe^{rt}=2000e^{0.05\\cdot10}=2000e^{0.5}\\approx\\$3{,}297$." },
-        { "id": "C", "text": "$A = 2000 e^{5}$", "is_correct": false, "explanation": "The exponent should be $rt=0.05\\times10=0.5$, not $5$. $e^5\\approx148$, giving an unreasonably large amount." },
-        { "id": "D", "text": "$A = 2000 + 2000(0.05)(10)$", "is_correct": false, "explanation": "This is simple interest, not continuous compounding. Continuous compounding uses $A=Pe^{rt}=2000e^{0.5}$." }
+        {
+          "id": "A",
+          "text": "$A = 2000(1.05)^{10}$",
+          "is_correct": false,
+          "explanation": "This uses annual discrete compounding. Continuous compounding uses $A=Pe^{rt}$, not $(1+r)^t$."
+        },
+        {
+          "id": "B",
+          "text": "$A = 2000 e^{0.5}$",
+          "is_correct": true,
+          "explanation": "Continuous compounding: $A=Pe^{rt}=2000e^{0.05\\cdot10}=2000e^{0.5}\\approx\\$3{,}297$."
+        },
+        {
+          "id": "C",
+          "text": "$A = 2000 e^{5}$",
+          "is_correct": false,
+          "explanation": "The exponent should be $rt=0.05\\times10=0.5$, not $5$. $e^5\\approx148$, giving an unreasonably large amount."
+        },
+        {
+          "id": "D",
+          "text": "$A = 2000 + 2000(0.05)(10)$",
+          "is_correct": false,
+          "explanation": "This is simple interest, not continuous compounding. Continuous compounding uses $A=Pe^{rt}=2000e^{0.5}$."
+        }
       ],
-      "unit_objective": "FUN-1.F"
+      "unit_objective": "FUN-1.F",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u2-q022",
@@ -357,12 +932,33 @@
       },
       "question": "Which of the following gives the amount $A(t)$ remaining after $t$ years?",
       "choices": [
-        { "id": "A", "text": "$A(t) = 200\\left(\\frac{1}{2}\\right)^{8t}$", "is_correct": false, "explanation": "The exponent should be $t/h=t/8$, not $8t$. Using $8t$ would make the substance decay much faster than the stated half-life." },
-        { "id": "B", "text": "$A(t) = 200\\left(\\frac{1}{2}\\right)^{t/8}$", "is_correct": true, "explanation": "Half-life formula: $A(t)=A_0\\left(\\frac{1}{2}\\right)^{t/h}$ with $A_0=200$ and $h=8$. Check: $A(8)=200\\cdot\\frac{1}{2}=100$. Correct." },
-        { "id": "C", "text": "$A(t) = 200(2)^{t/8}$", "is_correct": false, "explanation": "Base $2>1$ gives growth, not decay. Half-life uses base $\\frac{1}{2}$ (or equivalently $2^{-t/8}$)." },
-        { "id": "D", "text": "$A(t) = 200 - 8t$", "is_correct": false, "explanation": "This is linear decrease, not exponential decay. After $t=200/8=25$ years the amount would be negative, which is impossible." }
+        {
+          "id": "A",
+          "text": "$A(t) = 200\\left(\\frac{1}{2}\\right)^{8t}$",
+          "is_correct": false,
+          "explanation": "The exponent should be $t/h=t/8$, not $8t$. Using $8t$ would make the substance decay much faster than the stated half-life."
+        },
+        {
+          "id": "B",
+          "text": "$A(t) = 200\\left(\\frac{1}{2}\\right)^{t/8}$",
+          "is_correct": true,
+          "explanation": "Half-life formula: $A(t)=A_0\\left(\\frac{1}{2}\\right)^{t/h}$ with $A_0=200$ and $h=8$. Check: $A(8)=200\\cdot\\frac{1}{2}=100$. Correct."
+        },
+        {
+          "id": "C",
+          "text": "$A(t) = 200(2)^{t/8}$",
+          "is_correct": false,
+          "explanation": "Base $2>1$ gives growth, not decay. Half-life uses base $\\frac{1}{2}$ (or equivalently $2^{-t/8}$)."
+        },
+        {
+          "id": "D",
+          "text": "$A(t) = 200 - 8t$",
+          "is_correct": false,
+          "explanation": "This is linear decrease, not exponential decay. After $t=200/8=25$ years the amount would be negative, which is impossible."
+        }
       ],
-      "unit_objective": "FUN-1.F"
+      "unit_objective": "FUN-1.F",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u2-q023",
@@ -372,18 +968,59 @@
       "stimulus": {
         "type": "table",
         "content": {
-          "headers": ["$t$ (hours)", "$N(t)$ (bacteria)"],
-          "rows": [["0","500"],["1","1000"],["2","2000"],["3","4000"]]
+          "headers": [
+            "$t$ (hours)",
+            "$N(t)$ (bacteria)"
+          ],
+          "rows": [
+            [
+              "0",
+              "500"
+            ],
+            [
+              "1",
+              "1000"
+            ],
+            [
+              "2",
+              "2000"
+            ],
+            [
+              "3",
+              "4000"
+            ]
+          ]
         }
       },
       "question": "Based on the table, which of the following best gives the exponential model for $N(t)$?",
       "choices": [
-        { "id": "A", "text": "$N(t) = 500 \\cdot 2^t$", "is_correct": true, "explanation": "$N(0)=500$ (initial value). Ratio: $1000/500=2$. So $N(t)=500\\cdot2^t$. Check: $N(3)=500\\cdot8=4000$. Correct." },
-        { "id": "B", "text": "$N(t) = 500t + 500$", "is_correct": false, "explanation": "This is linear. AROC: $1000-500=500$, $2000-1000=1000$ — not constant, so the model is not linear." },
-        { "id": "C", "text": "$N(t) = 2 \\cdot 500^t$", "is_correct": false, "explanation": "$N(0)=2\\cdot500^0=2\\neq500$. The initial value must be $500$, placed as the coefficient, not the base." },
-        { "id": "D", "text": "$N(t) = 500 \\cdot t^2$", "is_correct": false, "explanation": "$N(1)=500(1)=500\\neq1000$. This is a power function, not exponential. The constant multiplicative ratio confirms exponential growth." }
+        {
+          "id": "A",
+          "text": "$N(t) = 500 \\cdot 2^t$",
+          "is_correct": true,
+          "explanation": "$N(0)=500$ (initial value). Ratio: $1000/500=2$. So $N(t)=500\\cdot2^t$. Check: $N(3)=500\\cdot8=4000$. Correct."
+        },
+        {
+          "id": "B",
+          "text": "$N(t) = 500t + 500$",
+          "is_correct": false,
+          "explanation": "This is linear. AROC: $1000-500=500$, $2000-1000=1000$ — not constant, so the model is not linear."
+        },
+        {
+          "id": "C",
+          "text": "$N(t) = 2 \\cdot 500^t$",
+          "is_correct": false,
+          "explanation": "$N(0)=2\\cdot500^0=2\\neq500$. The initial value must be $500$, placed as the coefficient, not the base."
+        },
+        {
+          "id": "D",
+          "text": "$N(t) = 500 \\cdot t^2$",
+          "is_correct": false,
+          "explanation": "$N(1)=500(1)=500\\neq1000$. This is a power function, not exponential. The constant multiplicative ratio confirms exponential growth."
+        }
       ],
-      "unit_objective": "FUN-1.B"
+      "unit_objective": "FUN-1.B",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u2-q024",
@@ -393,93 +1030,250 @@
       "stimulus": {
         "type": "table",
         "content": {
-          "headers": ["$x$", "$h(x)$"],
-          "rows": [["0","10"],["2","2.5"],["4","0.625"]]
+          "headers": [
+            "$x$",
+            "$h(x)$"
+          ],
+          "rows": [
+            [
+              "0",
+              "10"
+            ],
+            [
+              "2",
+              "2.5"
+            ],
+            [
+              "4",
+              "0.625"
+            ]
+          ]
         }
       },
       "question": "The table shows selected values of $h$. Which of the following best gives a formula for $h(x)$?",
       "choices": [
-        { "id": "A", "text": "$h(x) = 10 \\cdot \\left(\\frac{1}{4}\\right)^x$", "is_correct": false, "explanation": "$h(2)=10\\cdot(1/16)=0.625\\neq2.5$. The per-unit ratio must be $1/2$, not $1/4$." },
-        { "id": "B", "text": "$h(x) = 10 \\cdot \\left(\\frac{1}{2}\\right)^x$", "is_correct": true, "explanation": "$h(0)=10$. $\\frac{h(2)}{h(0)}=\\frac{2.5}{10}=\\frac{1}{4}=\\left(\\frac{1}{2}\\right)^2$, confirming base $\\frac{1}{2}$. Check: $h(4)=10\\cdot\\frac{1}{16}=0.625$. Correct." },
-        { "id": "C", "text": "$h(x) = 10 \\cdot \\left(\\frac{1}{3}\\right)^x$", "is_correct": false, "explanation": "$h(2)=10\\cdot(1/9)\\approx1.11\\neq2.5$. The ratio $\\frac{2.5}{10}=(1/2)^2$ shows the base is $1/2$, not $1/3$." },
-        { "id": "D", "text": "$h(x) = 10 - 2.5x$", "is_correct": false, "explanation": "This is linear. $h(2)=10-5=5\\neq2.5$. The constant multiplicative ratio of $1/2$ confirms exponential, not linear." }
+        {
+          "id": "A",
+          "text": "$h(x) = 10 \\cdot \\left(\\frac{1}{4}\\right)^x$",
+          "is_correct": false,
+          "explanation": "$h(2)=10\\cdot(1/16)=0.625\\neq2.5$. The per-unit ratio must be $1/2$, not $1/4$."
+        },
+        {
+          "id": "B",
+          "text": "$h(x) = 10 \\cdot \\left(\\frac{1}{2}\\right)^x$",
+          "is_correct": true,
+          "explanation": "$h(0)=10$. $\\frac{h(2)}{h(0)}=\\frac{2.5}{10}=\\frac{1}{4}=\\left(\\frac{1}{2}\\right)^2$, confirming base $\\frac{1}{2}$. Check: $h(4)=10\\cdot\\frac{1}{16}=0.625$. Correct."
+        },
+        {
+          "id": "C",
+          "text": "$h(x) = 10 \\cdot \\left(\\frac{1}{3}\\right)^x$",
+          "is_correct": false,
+          "explanation": "$h(2)=10\\cdot(1/9)\\approx1.11\\neq2.5$. The ratio $\\frac{2.5}{10}=(1/2)^2$ shows the base is $1/2$, not $1/3$."
+        },
+        {
+          "id": "D",
+          "text": "$h(x) = 10 - 2.5x$",
+          "is_correct": false,
+          "explanation": "This is linear. $h(2)=10-5=5\\neq2.5$. The constant multiplicative ratio of $1/2$ confirms exponential, not linear."
+        }
       ],
-      "unit_objective": "FUN-1.B"
+      "unit_objective": "FUN-1.B",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u2-q025",
       "unit": "unit-2",
       "subject": "ap-precalculus",
       "difficulty": "medium",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following gives the solution to $\\log_3(2x - 1) = 2$?",
       "choices": [
-        { "id": "A", "text": "$x = 4$", "is_correct": false, "explanation": "$2(4)-1=7$; $\\log_3 7\\approx1.77\\neq2$. Convert: $2x-1=3^2=9\\Rightarrow x=5$." },
-        { "id": "B", "text": "$x = 5$", "is_correct": true, "explanation": "Convert: $2x-1=3^2=9\\Rightarrow2x=10\\Rightarrow x=5$. Check: $\\log_3(10-1)=\\log_3 9=2$. Correct." },
-        { "id": "C", "text": "$x = 3$", "is_correct": false, "explanation": "$\\log_3(2(3)-1)=\\log_3 5\\approx1.46\\neq2$. Set $2x-1=9$ to get $x=5$." },
-        { "id": "D", "text": "$x = \\frac{10}{3}$", "is_correct": false, "explanation": "$2x-1=3^2=9\\Rightarrow x=5$, not $\\frac{10}{3}$. Division by $2$ should give $x=\\frac{10}{2}=5$." }
+        {
+          "id": "A",
+          "text": "$x = 4$",
+          "is_correct": false,
+          "explanation": "$2(4)-1=7$; $\\log_3 7\\approx1.77\\neq2$. Convert: $2x-1=3^2=9\\Rightarrow x=5$."
+        },
+        {
+          "id": "B",
+          "text": "$x = 5$",
+          "is_correct": true,
+          "explanation": "Convert: $2x-1=3^2=9\\Rightarrow2x=10\\Rightarrow x=5$. Check: $\\log_3(10-1)=\\log_3 9=2$. Correct."
+        },
+        {
+          "id": "C",
+          "text": "$x = 3$",
+          "is_correct": false,
+          "explanation": "$\\log_3(2(3)-1)=\\log_3 5\\approx1.46\\neq2$. Set $2x-1=9$ to get $x=5$."
+        },
+        {
+          "id": "D",
+          "text": "$x = \\frac{10}{3}$",
+          "is_correct": false,
+          "explanation": "$2x-1=3^2=9\\Rightarrow x=5$, not $\\frac{10}{3}$. Division by $2$ should give $x=\\frac{10}{2}=5$."
+        }
       ],
-      "unit_objective": "FUN-1.E"
+      "unit_objective": "FUN-1.E",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u2-q026",
       "unit": "unit-2",
       "subject": "ap-precalculus",
       "difficulty": "medium",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following gives the solution to $2\\ln x = 6$?",
       "choices": [
-        { "id": "A", "text": "$x = e^3$", "is_correct": true, "explanation": "$\\ln x = 3 \\Rightarrow x = e^3$." },
-        { "id": "B", "text": "$x = 3e$", "is_correct": false, "explanation": "$\\ln(3e)=\\ln 3+\\ln e=\\ln 3+1\\approx2.1\\neq3$. Solve: $\\ln x=3\\Rightarrow x=e^3$." },
-        { "id": "C", "text": "$x = e^6$", "is_correct": false, "explanation": "$2\\ln e^6=2(6)=12\\neq6$. Divide both sides by $2$ first: $\\ln x=3$, then $x=e^3$." },
-        { "id": "D", "text": "$x = 6e$", "is_correct": false, "explanation": "$\\ln(6e)=\\ln 6+1\\approx2.79\\neq3$. Correct solution: $\\ln x=3\\Rightarrow x=e^3\\approx20.09$." }
+        {
+          "id": "A",
+          "text": "$x = e^3$",
+          "is_correct": true,
+          "explanation": "$\\ln x = 3 \\Rightarrow x = e^3$."
+        },
+        {
+          "id": "B",
+          "text": "$x = 3e$",
+          "is_correct": false,
+          "explanation": "$\\ln(3e)=\\ln 3+\\ln e=\\ln 3+1\\approx2.1\\neq3$. Solve: $\\ln x=3\\Rightarrow x=e^3$."
+        },
+        {
+          "id": "C",
+          "text": "$x = e^6$",
+          "is_correct": false,
+          "explanation": "$2\\ln e^6=2(6)=12\\neq6$. Divide both sides by $2$ first: $\\ln x=3$, then $x=e^3$."
+        },
+        {
+          "id": "D",
+          "text": "$x = 6e$",
+          "is_correct": false,
+          "explanation": "$\\ln(6e)=\\ln 6+1\\approx2.79\\neq3$. Correct solution: $\\ln x=3\\Rightarrow x=e^3\\approx20.09$."
+        }
       ],
-      "unit_objective": "FUN-1.E"
+      "unit_objective": "FUN-1.E",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u2-q027",
       "unit": "unit-2",
       "subject": "ap-precalculus",
       "difficulty": "hard",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following gives all solutions to $e^{2x} - 5e^x + 6 = 0$?",
       "choices": [
-        { "id": "A", "text": "$x = \\ln 2$ and $x = \\ln 3$", "is_correct": true, "explanation": "Let $u=e^x$: $u^2-5u+6=0\\Rightarrow(u-2)(u-3)=0\\Rightarrow u=2$ or $u=3$. So $e^x=2\\Rightarrow x=\\ln2$ and $e^x=3\\Rightarrow x=\\ln3$." },
-        { "id": "B", "text": "$x = 2$ and $x = 3$", "is_correct": false, "explanation": "Setting $u=e^x$ gives $e^x=2$ or $e^x=3$, not $x=2$ or $x=3$. Take natural log: $x=\\ln2$ or $x=\\ln3$." },
-        { "id": "C", "text": "$x = \\ln 5$", "is_correct": false, "explanation": "$\\ln 5$ is not a solution. The substitution $u=e^x$ gives $u=2$ or $u=3$, corresponding to $x=\\ln2$ or $x=\\ln3$." },
-        { "id": "D", "text": "$x = -\\ln 2$ and $x = -\\ln 3$", "is_correct": false, "explanation": "Negative log solutions would come from $e^x=1/2$ or $e^x=1/3$. Here $e^x=2$ or $e^x=3$, giving positive logarithm solutions." }
+        {
+          "id": "A",
+          "text": "$x = \\ln 2$ and $x = \\ln 3$",
+          "is_correct": true,
+          "explanation": "Let $u=e^x$: $u^2-5u+6=0\\Rightarrow(u-2)(u-3)=0\\Rightarrow u=2$ or $u=3$. So $e^x=2\\Rightarrow x=\\ln2$ and $e^x=3\\Rightarrow x=\\ln3$."
+        },
+        {
+          "id": "B",
+          "text": "$x = 2$ and $x = 3$",
+          "is_correct": false,
+          "explanation": "Setting $u=e^x$ gives $e^x=2$ or $e^x=3$, not $x=2$ or $x=3$. Take natural log: $x=\\ln2$ or $x=\\ln3$."
+        },
+        {
+          "id": "C",
+          "text": "$x = \\ln 5$",
+          "is_correct": false,
+          "explanation": "$\\ln 5$ is not a solution. The substitution $u=e^x$ gives $u=2$ or $u=3$, corresponding to $x=\\ln2$ or $x=\\ln3$."
+        },
+        {
+          "id": "D",
+          "text": "$x = -\\ln 2$ and $x = -\\ln 3$",
+          "is_correct": false,
+          "explanation": "Negative log solutions would come from $e^x=1/2$ or $e^x=1/3$. Here $e^x=2$ or $e^x=3$, giving positive logarithm solutions."
+        }
       ],
-      "unit_objective": "FUN-1.E"
+      "unit_objective": "FUN-1.E",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u2-q028",
       "unit": "unit-2",
       "subject": "ap-precalculus",
       "difficulty": "hard",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following gives all solutions to $\\log(x + 3) + \\log(x - 2) = 1$?",
       "choices": [
-        { "id": "A", "text": "$x = \\frac{-1 + \\sqrt{65}}{2}$ only", "is_correct": true, "explanation": "Combine: $(x+3)(x-2)=10\\Rightarrow x^2+x-16=0\\Rightarrow x=\\frac{-1\\pm\\sqrt{65}}{2}$. Domain requires $x>2$. Check: $\\frac{-1+\\sqrt{65}}{2}\\approx3.53>2$ (valid); $\\frac{-1-\\sqrt{65}}{2}\\approx-4.53<2$ (rejected)." },
-        { "id": "B", "text": "$x = 7$", "is_correct": false, "explanation": "$\\log(10)+\\log(5)=1+\\log5\\approx1.70\\neq1$. Combine logs: $(x+3)(x-2)=10\\Rightarrow x^2+x-16=0$. $x=7$ is not a root." },
-        { "id": "C", "text": "$x = \\frac{-1+\\sqrt{65}}{2}$ and $x = \\frac{-1-\\sqrt{65}}{2}$", "is_correct": false, "explanation": "Both values satisfy the quadratic, but the domain requires $x>2$. $\\frac{-1-\\sqrt{65}}{2}\\approx-4.53$ makes $\\log(x-2)$ undefined, so it is rejected." },
-        { "id": "D", "text": "$x = 4$", "is_correct": false, "explanation": "$\\log(7)+\\log(2)=\\log14\\approx1.146\\neq1$. The exact solution is $x=\\frac{-1+\\sqrt{65}}{2}\\approx3.53$, not $4$." }
+        {
+          "id": "A",
+          "text": "$x = \\frac{-1 + \\sqrt{65}}{2}$ only",
+          "is_correct": true,
+          "explanation": "Combine: $(x+3)(x-2)=10\\Rightarrow x^2+x-16=0\\Rightarrow x=\\frac{-1\\pm\\sqrt{65}}{2}$. Domain requires $x>2$. Check: $\\frac{-1+\\sqrt{65}}{2}\\approx3.53>2$ (valid); $\\frac{-1-\\sqrt{65}}{2}\\approx-4.53<2$ (rejected)."
+        },
+        {
+          "id": "B",
+          "text": "$x = 7$",
+          "is_correct": false,
+          "explanation": "$\\log(10)+\\log(5)=1+\\log5\\approx1.70\\neq1$. Combine logs: $(x+3)(x-2)=10\\Rightarrow x^2+x-16=0$. $x=7$ is not a root."
+        },
+        {
+          "id": "C",
+          "text": "$x = \\frac{-1+\\sqrt{65}}{2}$ and $x = \\frac{-1-\\sqrt{65}}{2}$",
+          "is_correct": false,
+          "explanation": "Both values satisfy the quadratic, but the domain requires $x>2$. $\\frac{-1-\\sqrt{65}}{2}\\approx-4.53$ makes $\\log(x-2)$ undefined, so it is rejected."
+        },
+        {
+          "id": "D",
+          "text": "$x = 4$",
+          "is_correct": false,
+          "explanation": "$\\log(7)+\\log(2)=\\log14\\approx1.146\\neq1$. The exact solution is $x=\\frac{-1+\\sqrt{65}}{2}\\approx3.53$, not $4$."
+        }
       ],
-      "unit_objective": "FUN-1.E"
+      "unit_objective": "FUN-1.E",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u2-q029",
       "unit": "unit-2",
       "subject": "ap-precalculus",
       "difficulty": "hard",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following gives the solution to $\\log_2(x + 3) + \\log_2(x - 1) = 3$?",
       "choices": [
-        { "id": "A", "text": "$x = 3$", "is_correct": false, "explanation": "$\\log_2(6)+\\log_2(2)=\\log_2(6)+1\\approx3.58\\neq3$. Combine: $(x+3)(x-1)=8\\Rightarrow x^2+2x-3=8\\Rightarrow x^2+2x-11=0$." },
-        { "id": "B", "text": "$x = -1 + 2\\sqrt{3}$", "is_correct": true, "explanation": "$(x+3)(x-1)=2^3=8\\Rightarrow x^2+2x-3=8\\Rightarrow x^2+2x-11=0\\Rightarrow x=\\frac{-2\\pm\\sqrt{4+44}}{2}=-1\\pm\\sqrt{12}=-1\\pm2\\sqrt{3}$. Domain: $x>1$, so $x=-1+2\\sqrt{3}\\approx2.46$." },
-        { "id": "C", "text": "$x = 2$", "is_correct": false, "explanation": "$\\log_2(5)+\\log_2(1)=\\log_2(5)+0\\approx2.32\\neq3$. The equation requires $(x+3)(x-1)=8$, and $x=2$ gives $(5)(1)=5\\neq8$." },
-        { "id": "D", "text": "$x = -1 + \\sqrt{12}$ and $x = -1 - \\sqrt{12}$", "is_correct": false, "explanation": "$x=-1-\\sqrt{12}<1$ makes $\\log_2(x-1)$ undefined (negative argument). Only $x=-1+2\\sqrt{3}$ is valid." }
+        {
+          "id": "A",
+          "text": "$x = 3$",
+          "is_correct": false,
+          "explanation": "$\\log_2(6)+\\log_2(2)=\\log_2(6)+1\\approx3.58\\neq3$. Combine: $(x+3)(x-1)=8\\Rightarrow x^2+2x-3=8\\Rightarrow x^2+2x-11=0$."
+        },
+        {
+          "id": "B",
+          "text": "$x = -1 + 2\\sqrt{3}$",
+          "is_correct": true,
+          "explanation": "$(x+3)(x-1)=2^3=8\\Rightarrow x^2+2x-3=8\\Rightarrow x^2+2x-11=0\\Rightarrow x=\\frac{-2\\pm\\sqrt{4+44}}{2}=-1\\pm\\sqrt{12}=-1\\pm2\\sqrt{3}$. Domain: $x>1$, so $x=-1+2\\sqrt{3}\\approx2.46$."
+        },
+        {
+          "id": "C",
+          "text": "$x = 2$",
+          "is_correct": false,
+          "explanation": "$\\log_2(5)+\\log_2(1)=\\log_2(5)+0\\approx2.32\\neq3$. The equation requires $(x+3)(x-1)=8$, and $x=2$ gives $(5)(1)=5\\neq8$."
+        },
+        {
+          "id": "D",
+          "text": "$x = -1 + \\sqrt{12}$ and $x = -1 - \\sqrt{12}$",
+          "is_correct": false,
+          "explanation": "$x=-1-\\sqrt{12}<1$ makes $\\log_2(x-1)$ undefined (negative argument). Only $x=-1+2\\sqrt{3}$ is valid."
+        }
       ],
-      "unit_objective": "FUN-1.E"
+      "unit_objective": "FUN-1.E",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u2-q030",
@@ -491,20 +1285,81 @@
         "content": {
           "type": "line",
           "data": {
-            "labels": ["0","1","2","3","4"],
-            "datasets": [{ "label": "f(x)", "data": [1,3,9,27,81], "borderColor": "#6366f1", "backgroundColor": "transparent", "tension": 0.4 }]
+            "labels": [
+              "0",
+              "1",
+              "2",
+              "3",
+              "4"
+            ],
+            "datasets": [
+              {
+                "label": "f(x)",
+                "data": [
+                  1,
+                  3,
+                  9,
+                  27,
+                  81
+                ],
+                "borderColor": "#6366f1",
+                "backgroundColor": "transparent",
+                "tension": 0.4
+              }
+            ]
           },
-          "options": { "plugins":{"legend":{"display":false}}, "scales": { "x":{"title":{"display":true,"text":"x"}}, "y":{"title":{"display":true,"text":"f(x)"}} } }
+          "options": {
+            "plugins": {
+              "legend": {
+                "display": false
+              }
+            },
+            "scales": {
+              "x": {
+                "title": {
+                  "display": true,
+                  "text": "x"
+                }
+              },
+              "y": {
+                "title": {
+                  "display": true,
+                  "text": "f(x)"
+                }
+              }
+            }
+          }
         }
       },
       "question": "The graph of $f(x) = 3^x$ is shown above. Which of the following best describes the graph of $g(x) = \\log_3 x$ relative to $f$?",
       "choices": [
-        { "id": "A", "text": "The graph of $g$ is the graph of $f$ reflected over the $x$-axis", "is_correct": false, "explanation": "Reflecting $3^x$ over the $x$-axis gives $-3^x$. The inverse function $\\log_3 x$ is obtained by reflecting over the line $y=x$." },
-        { "id": "B", "text": "The graph of $g$ is the graph of $f$ reflected over the line $y = x$", "is_correct": true, "explanation": "$g(x)=\\log_3 x$ is the inverse of $f(x)=3^x$. Inverse functions are reflections of each other over the line $y=x$." },
-        { "id": "C", "text": "The graph of $g$ is the graph of $f$ shifted down", "is_correct": false, "explanation": "A vertical shift would give $3^x + k$. The logarithm is the inverse function, related by reflection over $y=x$, not a vertical shift." },
-        { "id": "D", "text": "The graph of $g$ is the graph of $f$ reflected over the $y$-axis", "is_correct": false, "explanation": "Reflecting over the $y$-axis gives $f(-x)=3^{-x}=\\left(\\frac{1}{3}\\right)^x$. The inverse $\\log_3 x$ reflects over $y=x$, not the $y$-axis." }
+        {
+          "id": "A",
+          "text": "The graph of $g$ is the graph of $f$ reflected over the $x$-axis",
+          "is_correct": false,
+          "explanation": "Reflecting $3^x$ over the $x$-axis gives $-3^x$. The inverse function $\\log_3 x$ is obtained by reflecting over the line $y=x$."
+        },
+        {
+          "id": "B",
+          "text": "The graph of $g$ is the graph of $f$ reflected over the line $y = x$",
+          "is_correct": true,
+          "explanation": "$g(x)=\\log_3 x$ is the inverse of $f(x)=3^x$. Inverse functions are reflections of each other over the line $y=x$."
+        },
+        {
+          "id": "C",
+          "text": "The graph of $g$ is the graph of $f$ shifted down",
+          "is_correct": false,
+          "explanation": "A vertical shift would give $3^x + k$. The logarithm is the inverse function, related by reflection over $y=x$, not a vertical shift."
+        },
+        {
+          "id": "D",
+          "text": "The graph of $g$ is the graph of $f$ reflected over the $y$-axis",
+          "is_correct": false,
+          "explanation": "Reflecting over the $y$-axis gives $f(-x)=3^{-x}=\\left(\\frac{1}{3}\\right)^x$. The inverse $\\log_3 x$ reflects over $y=x$, not the $y$-axis."
+        }
       ],
-      "unit_objective": "FUN-1.D"
+      "unit_objective": "FUN-1.D",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u2-q031",
@@ -516,20 +1371,83 @@
         "content": {
           "type": "line",
           "data": {
-            "labels": ["0","1","2","3","4","5"],
-            "datasets": [{ "label": "f(x)", "data": [2,4,8,16,32,64], "borderColor": "#6366f1", "backgroundColor": "transparent", "tension": 0.4 }]
+            "labels": [
+              "0",
+              "1",
+              "2",
+              "3",
+              "4",
+              "5"
+            ],
+            "datasets": [
+              {
+                "label": "f(x)",
+                "data": [
+                  2,
+                  4,
+                  8,
+                  16,
+                  32,
+                  64
+                ],
+                "borderColor": "#6366f1",
+                "backgroundColor": "transparent",
+                "tension": 0.4
+              }
+            ]
           },
-          "options": { "plugins":{"legend":{"display":false}}, "scales": { "x":{"title":{"display":true,"text":"x"}}, "y":{"title":{"display":true,"text":"f(x)"}} } }
+          "options": {
+            "plugins": {
+              "legend": {
+                "display": false
+              }
+            },
+            "scales": {
+              "x": {
+                "title": {
+                  "display": true,
+                  "text": "x"
+                }
+              },
+              "y": {
+                "title": {
+                  "display": true,
+                  "text": "f(x)"
+                }
+              }
+            }
+          }
         }
       },
       "question": "The graph above shows $f(x) = 2 \\cdot 2^x = 2^{x+1}$. Which of the following best gives the range of $f$?",
       "choices": [
-        { "id": "A", "text": "All real numbers", "is_correct": false, "explanation": "Exponential functions with positive base and positive coefficient always produce positive outputs. The range is $(0,\\infty)$." },
-        { "id": "B", "text": "$(0, \\infty)$", "is_correct": true, "explanation": "$2\\cdot2^x>0$ for all real $x$. As $x\\to-\\infty$, $f(x)\\to0^+$; as $x\\to+\\infty$, $f(x)\\to+\\infty$. Range: $(0,\\infty)$." },
-        { "id": "C", "text": "$[2, \\infty)$", "is_correct": false, "explanation": "The minimum approaches (but never reaches) $0$, not $2$. As $x\\to-\\infty$, $f(x)\\to0$, so values arbitrarily close to $0$ are in the range." },
-        { "id": "D", "text": "$(-\\infty, 0)$", "is_correct": false, "explanation": "$2\\cdot2^x$ is always positive. Negative range values would require a negative coefficient or reflection." }
+        {
+          "id": "A",
+          "text": "All real numbers",
+          "is_correct": false,
+          "explanation": "Exponential functions with positive base and positive coefficient always produce positive outputs. The range is $(0,\\infty)$."
+        },
+        {
+          "id": "B",
+          "text": "$(0, \\infty)$",
+          "is_correct": true,
+          "explanation": "$2\\cdot2^x>0$ for all real $x$. As $x\\to-\\infty$, $f(x)\\to0^+$; as $x\\to+\\infty$, $f(x)\\to+\\infty$. Range: $(0,\\infty)$."
+        },
+        {
+          "id": "C",
+          "text": "$[2, \\infty)$",
+          "is_correct": false,
+          "explanation": "The minimum approaches (but never reaches) $0$, not $2$. As $x\\to-\\infty$, $f(x)\\to0$, so values arbitrarily close to $0$ are in the range."
+        },
+        {
+          "id": "D",
+          "text": "$(-\\infty, 0)$",
+          "is_correct": false,
+          "explanation": "$2\\cdot2^x$ is always positive. Negative range values would require a negative coefficient or reflection."
+        }
       ],
-      "unit_objective": "FUN-1.A"
+      "unit_objective": "FUN-1.A",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u2-q032",
@@ -539,18 +1457,59 @@
       "stimulus": {
         "type": "table",
         "content": {
-          "headers": ["$x$", "$f(x)$"],
-          "rows": [["0","8"],["1","4"],["2","2"],["3","1"]]
+          "headers": [
+            "$x$",
+            "$f(x)$"
+          ],
+          "rows": [
+            [
+              "0",
+              "8"
+            ],
+            [
+              "1",
+              "4"
+            ],
+            [
+              "2",
+              "2"
+            ],
+            [
+              "3",
+              "1"
+            ]
+          ]
         }
       },
       "question": "The table above shows selected values of $f$. Assuming $f$ is exponential, which of the following gives $f(x)$?",
       "choices": [
-        { "id": "A", "text": "$f(x) = 8 \\cdot \\left(\\frac{1}{2}\\right)^x$", "is_correct": true, "explanation": "$f(0)=8$. Ratio: $4/8=1/2$. So $f(x)=8\\cdot(1/2)^x$. Check: $f(3)=8\\cdot(1/8)=1$. Correct." },
-        { "id": "B", "text": "$f(x) = 8 - 2x$", "is_correct": false, "explanation": "$f(3)=8-6=2\\neq1$. This linear model fails at $x=3$. The constant ratio $1/2$ confirms exponential, not linear." },
-        { "id": "C", "text": "$f(x) = 8 \\cdot 2^x$", "is_correct": false, "explanation": "$f(1)=8\\cdot2=16\\neq4$. The outputs are decreasing, requiring a base less than $1$, not $b=2$." },
-        { "id": "D", "text": "$f(x) = 8 \\cdot \\left(\\frac{1}{4}\\right)^x$", "is_correct": false, "explanation": "$f(1)=8\\cdot(1/4)=2\\neq4$. The ratio between consecutive terms is $1/2$, not $1/4$." }
+        {
+          "id": "A",
+          "text": "$f(x) = 8 \\cdot \\left(\\frac{1}{2}\\right)^x$",
+          "is_correct": true,
+          "explanation": "$f(0)=8$. Ratio: $4/8=1/2$. So $f(x)=8\\cdot(1/2)^x$. Check: $f(3)=8\\cdot(1/8)=1$. Correct."
+        },
+        {
+          "id": "B",
+          "text": "$f(x) = 8 - 2x$",
+          "is_correct": false,
+          "explanation": "$f(3)=8-6=2\\neq1$. This linear model fails at $x=3$. The constant ratio $1/2$ confirms exponential, not linear."
+        },
+        {
+          "id": "C",
+          "text": "$f(x) = 8 \\cdot 2^x$",
+          "is_correct": false,
+          "explanation": "$f(1)=8\\cdot2=16\\neq4$. The outputs are decreasing, requiring a base less than $1$, not $b=2$."
+        },
+        {
+          "id": "D",
+          "text": "$f(x) = 8 \\cdot \\left(\\frac{1}{4}\\right)^x$",
+          "is_correct": false,
+          "explanation": "$f(1)=8\\cdot(1/4)=2\\neq4$. The ratio between consecutive terms is $1/2$, not $1/4$."
+        }
       ],
-      "unit_objective": "FUN-1.B"
+      "unit_objective": "FUN-1.B",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u2-q033",
@@ -560,33 +1519,94 @@
       "stimulus": {
         "type": "table",
         "content": {
-          "headers": ["$x$", "$f(x)$"],
-          "rows": [["1","6"],["2","18"],["3","54"]]
+          "headers": [
+            "$x$",
+            "$f(x)$"
+          ],
+          "rows": [
+            [
+              "1",
+              "6"
+            ],
+            [
+              "2",
+              "18"
+            ],
+            [
+              "3",
+              "54"
+            ]
+          ]
         }
       },
       "question": "The table above shows three points on an exponential function $f(x) = a \\cdot b^x$. Which of the following gives the values of $a$ and $b$?",
       "choices": [
-        { "id": "A", "text": "$a = 2$ and $b = 3$", "is_correct": true, "explanation": "Ratio: $18/6=3$, so $b=3$. Use $f(1)=ab=6$: $a\\cdot3=6\\Rightarrow a=2$. Check: $f(2)=2\\cdot9=18$, $f(3)=2\\cdot27=54$. Correct." },
-        { "id": "B", "text": "$a = 3$ and $b = 2$", "is_correct": false, "explanation": "$f(1)=3\\cdot2=6$ (correct), but $f(2)=3\\cdot4=12\\neq18$. The ratio of consecutive terms is $18/6=3=b$." },
-        { "id": "C", "text": "$a = 6$ and $b = 3$", "is_correct": false, "explanation": "$f(1)=6\\cdot3=18\\neq6$. With $b=3$: $f(1)=a\\cdot3=6\\Rightarrow a=2$." },
-        { "id": "D", "text": "$a = 1$ and $b = 6$", "is_correct": false, "explanation": "$f(1)=1\\cdot6=6$ (correct), but $f(2)=1\\cdot36=36\\neq18$. The ratio is $3$, not $6$." }
+        {
+          "id": "A",
+          "text": "$a = 2$ and $b = 3$",
+          "is_correct": true,
+          "explanation": "Ratio: $18/6=3$, so $b=3$. Use $f(1)=ab=6$: $a\\cdot3=6\\Rightarrow a=2$. Check: $f(2)=2\\cdot9=18$, $f(3)=2\\cdot27=54$. Correct."
+        },
+        {
+          "id": "B",
+          "text": "$a = 3$ and $b = 2$",
+          "is_correct": false,
+          "explanation": "$f(1)=3\\cdot2=6$ (correct), but $f(2)=3\\cdot4=12\\neq18$. The ratio of consecutive terms is $18/6=3=b$."
+        },
+        {
+          "id": "C",
+          "text": "$a = 6$ and $b = 3$",
+          "is_correct": false,
+          "explanation": "$f(1)=6\\cdot3=18\\neq6$. With $b=3$: $f(1)=a\\cdot3=6\\Rightarrow a=2$."
+        },
+        {
+          "id": "D",
+          "text": "$a = 1$ and $b = 6$",
+          "is_correct": false,
+          "explanation": "$f(1)=1\\cdot6=6$ (correct), but $f(2)=1\\cdot36=36\\neq18$. The ratio is $3$, not $6$."
+        }
       ],
-      "unit_objective": "FUN-1.B"
+      "unit_objective": "FUN-1.B",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u2-q034",
       "unit": "unit-2",
       "subject": "ap-precalculus",
       "difficulty": "hard",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following gives the solution to $4^{x+1} = 8^{x-1}$?",
       "choices": [
-        { "id": "A", "text": "$x = 5$", "is_correct": true, "explanation": "Rewrite with base $2$: $2^{2(x+1)}=2^{3(x-1)}\\Rightarrow2x+2=3x-3\\Rightarrow x=5$. Check: $4^6=4096=2^{12}$; $8^4=4096=2^{12}$. Correct." },
-        { "id": "B", "text": "$x = 3$", "is_correct": false, "explanation": "$4^4=256$ and $8^2=64$. $256\\neq64$. Solve: $2x+2=3x-3\\Rightarrow x=5$." },
-        { "id": "C", "text": "$x = -5$", "is_correct": false, "explanation": "$4^{-4}=1/256$ and $8^{-6}=1/262144$. Not equal. The equation $2x+2=3x-3$ gives $x=5$, not $-5$." },
-        { "id": "D", "text": "$x = 1$", "is_correct": false, "explanation": "$4^2=16$ and $8^0=1$. $16\\neq1$. Setting exponents equal: $2(x+1)=3(x-1)\\Rightarrow2x+2=3x-3\\Rightarrow x=5$." }
+        {
+          "id": "A",
+          "text": "$x = 5$",
+          "is_correct": true,
+          "explanation": "Rewrite with base $2$: $2^{2(x+1)}=2^{3(x-1)}\\Rightarrow2x+2=3x-3\\Rightarrow x=5$. Check: $4^6=4096=2^{12}$; $8^4=4096=2^{12}$. Correct."
+        },
+        {
+          "id": "B",
+          "text": "$x = 3$",
+          "is_correct": false,
+          "explanation": "$4^4=256$ and $8^2=64$. $256\\neq64$. Solve: $2x+2=3x-3\\Rightarrow x=5$."
+        },
+        {
+          "id": "C",
+          "text": "$x = -5$",
+          "is_correct": false,
+          "explanation": "$4^{-4}=1/256$ and $8^{-6}=1/262144$. Not equal. The equation $2x+2=3x-3$ gives $x=5$, not $-5$."
+        },
+        {
+          "id": "D",
+          "text": "$x = 1$",
+          "is_correct": false,
+          "explanation": "$4^2=16$ and $8^0=1$. $16\\neq1$. Setting exponents equal: $2(x+1)=3(x-1)\\Rightarrow2x+2=3x-3\\Rightarrow x=5$."
+        }
       ],
-      "unit_objective": "FUN-1.E"
+      "unit_objective": "FUN-1.E",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u2-q035",
@@ -599,12 +1619,33 @@
       },
       "question": "Which of the following best gives the time $t$ when the population first reaches $1{,}200$?",
       "choices": [
-        { "id": "A", "text": "$t = \\frac{\\ln 4}{0.04}$", "is_correct": true, "explanation": "$300e^{0.04t}=1200\\Rightarrow e^{0.04t}=4\\Rightarrow0.04t=\\ln4\\Rightarrow t=\\frac{\\ln4}{0.04}\\approx34.66$ hours." },
-        { "id": "B", "text": "$t = \\frac{\\ln 1200}{0.04}$", "is_correct": false, "explanation": "Divide by $300$ first: $e^{0.04t}=4$, not $1200$. $\\ln4$ in the numerator, not $\\ln1200$." },
-        { "id": "C", "text": "$t = \\frac{4}{0.04}$", "is_correct": false, "explanation": "$4$ is the growth factor ($1200/300$), but you need $\\ln(4)$ in the numerator since the equation is $e^{0.04t}=4$." },
-        { "id": "D", "text": "$t = 0.04\\ln 4$", "is_correct": false, "explanation": "$0.04t=\\ln4\\Rightarrow t=\\frac{\\ln4}{0.04}$, not $t=0.04\\ln4$. Dividing by $0.04$ gives $t\\approx34.66$." }
+        {
+          "id": "A",
+          "text": "$t = \\frac{\\ln 4}{0.04}$",
+          "is_correct": true,
+          "explanation": "$300e^{0.04t}=1200\\Rightarrow e^{0.04t}=4\\Rightarrow0.04t=\\ln4\\Rightarrow t=\\frac{\\ln4}{0.04}\\approx34.66$ hours."
+        },
+        {
+          "id": "B",
+          "text": "$t = \\frac{\\ln 1200}{0.04}$",
+          "is_correct": false,
+          "explanation": "Divide by $300$ first: $e^{0.04t}=4$, not $1200$. $\\ln4$ in the numerator, not $\\ln1200$."
+        },
+        {
+          "id": "C",
+          "text": "$t = \\frac{4}{0.04}$",
+          "is_correct": false,
+          "explanation": "$4$ is the growth factor ($1200/300$), but you need $\\ln(4)$ in the numerator since the equation is $e^{0.04t}=4$."
+        },
+        {
+          "id": "D",
+          "text": "$t = 0.04\\ln 4$",
+          "is_correct": false,
+          "explanation": "$0.04t=\\ln4\\Rightarrow t=\\frac{\\ln4}{0.04}$, not $t=0.04\\ln4$. Dividing by $0.04$ gives $t\\approx34.66$."
+        }
       ],
-      "unit_objective": "FUN-1.F"
+      "unit_objective": "FUN-1.F",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u2-q036",
@@ -617,42 +1658,111 @@
       },
       "question": "Which of the following gives the decay constant $k$ in terms of the half-life $h$?",
       "choices": [
-        { "id": "A", "text": "$k = \\frac{\\ln 2}{h}$", "is_correct": false, "explanation": "At $t=h$: $A_0/2=A_0e^{kh}\\Rightarrow e^{kh}=1/2\\Rightarrow kh=\\ln(1/2)=-\\ln2\\Rightarrow k=-\\frac{\\ln2}{h}$. Since this is decay, $k$ is negative." },
-        { "id": "B", "text": "$k = -\\frac{\\ln 2}{h}$", "is_correct": true, "explanation": "At $t=h$, $A(h)=A_0/2$: $A_0e^{kh}=A_0/2\\Rightarrow e^{kh}=1/2\\Rightarrow kh=\\ln(1/2)=-\\ln2\\Rightarrow k=-\\frac{\\ln2}{h}$." },
-        { "id": "C", "text": "$k = h\\ln 2$", "is_correct": false, "explanation": "This gives a positive $k$ that grows with $h$, implying faster decay for longer half-lives — the opposite of what half-life means. $k=-\\frac{\\ln2}{h}$." },
-        { "id": "D", "text": "$k = \\frac{h}{\\ln 2}$", "is_correct": false, "explanation": "This is positive and has $h$ in the numerator. The decay constant should be negative and inversely proportional to $h$: $k=-\\frac{\\ln2}{h}$." }
+        {
+          "id": "A",
+          "text": "$k = \\frac{\\ln 2}{h}$",
+          "is_correct": false,
+          "explanation": "At $t=h$: $A_0/2=A_0e^{kh}\\Rightarrow e^{kh}=1/2\\Rightarrow kh=\\ln(1/2)=-\\ln2\\Rightarrow k=-\\frac{\\ln2}{h}$. Since this is decay, $k$ is negative."
+        },
+        {
+          "id": "B",
+          "text": "$k = -\\frac{\\ln 2}{h}$",
+          "is_correct": true,
+          "explanation": "At $t=h$, $A(h)=A_0/2$: $A_0e^{kh}=A_0/2\\Rightarrow e^{kh}=1/2\\Rightarrow kh=\\ln(1/2)=-\\ln2\\Rightarrow k=-\\frac{\\ln2}{h}$."
+        },
+        {
+          "id": "C",
+          "text": "$k = h\\ln 2$",
+          "is_correct": false,
+          "explanation": "This gives a positive $k$ that grows with $h$, implying faster decay for longer half-lives — the opposite of what half-life means. $k=-\\frac{\\ln2}{h}$."
+        },
+        {
+          "id": "D",
+          "text": "$k = \\frac{h}{\\ln 2}$",
+          "is_correct": false,
+          "explanation": "This is positive and has $h$ in the numerator. The decay constant should be negative and inversely proportional to $h$: $k=-\\frac{\\ln2}{h}$."
+        }
       ],
-      "unit_objective": "FUN-1.F"
+      "unit_objective": "FUN-1.F",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u2-q037",
       "unit": "unit-2",
       "subject": "ap-precalculus",
       "difficulty": "hard",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following is equivalent to $\\log_b(a^3 b^2)$?",
       "choices": [
-        { "id": "A", "text": "$3\\log_b a + 2$", "is_correct": true, "explanation": "$\\log_b(a^3b^2)=\\log_b a^3+\\log_b b^2=3\\log_b a+2\\log_b b=3\\log_b a+2(1)=3\\log_b a+2$." },
-        { "id": "B", "text": "$3\\log_b a + 2\\log_b b$", "is_correct": false, "explanation": "This is correct symbolically but not simplified: $\\log_b b=1$, so $2\\log_b b=2$. The fully simplified form is $3\\log_b a+2$." },
-        { "id": "C", "text": "$3\\log_b a \\cdot 2\\log_b b$", "is_correct": false, "explanation": "Product rule gives addition, not multiplication: $\\log_b(a^3b^2)=\\log_b a^3+\\log_b b^2$." },
-        { "id": "D", "text": "$5\\log_b(ab)$", "is_correct": false, "explanation": "$5\\log_b(ab)=5(\\log_b a+\\log_b b)=5\\log_b a+5$, which is not equal to $3\\log_b a+2$." }
+        {
+          "id": "A",
+          "text": "$3\\log_b a + 2$",
+          "is_correct": true,
+          "explanation": "$\\log_b(a^3b^2)=\\log_b a^3+\\log_b b^2=3\\log_b a+2\\log_b b=3\\log_b a+2(1)=3\\log_b a+2$."
+        },
+        {
+          "id": "B",
+          "text": "$3\\log_b a + 2\\log_b b$",
+          "is_correct": false,
+          "explanation": "This is correct symbolically but not simplified: $\\log_b b=1$, so $2\\log_b b=2$. The fully simplified form is $3\\log_b a+2$."
+        },
+        {
+          "id": "C",
+          "text": "$3\\log_b a \\cdot 2\\log_b b$",
+          "is_correct": false,
+          "explanation": "Product rule gives addition, not multiplication: $\\log_b(a^3b^2)=\\log_b a^3+\\log_b b^2$."
+        },
+        {
+          "id": "D",
+          "text": "$5\\log_b(ab)$",
+          "is_correct": false,
+          "explanation": "$5\\log_b(ab)=5(\\log_b a+\\log_b b)=5\\log_b a+5$, which is not equal to $3\\log_b a+2$."
+        }
       ],
-      "unit_objective": "FUN-1.C"
+      "unit_objective": "FUN-1.C",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u2-q038",
       "unit": "unit-2",
       "subject": "ap-precalculus",
       "difficulty": "hard",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following best gives $\\log_6 10$ using the change of base formula and given that $\\log 2 \\approx 0.301$ and $\\log 3 \\approx 0.477$?",
       "choices": [
-        { "id": "A", "text": "$\\approx 1.285$", "is_correct": true, "explanation": "$\\log_6 10=\\frac{\\log10}{\\log6}=\\frac{1}{\\log(2\\cdot3)}=\\frac{1}{\\log2+\\log3}=\\frac{1}{0.301+0.477}=\\frac{1}{0.778}\\approx1.285$." },
-        { "id": "B", "text": "$\\approx 0.778$", "is_correct": false, "explanation": "$0.778=\\log6=\\log2+\\log3$. This is the denominator in the change-of-base formula, not the result." },
-        { "id": "C", "text": "$\\approx 0.699$", "is_correct": false, "explanation": "$0.699\\approx\\log5=\\log(10/2)=1-\\log2$. This is not $\\log_6 10$." },
-        { "id": "D", "text": "$\\approx 10/6 \\approx 1.667$", "is_correct": false, "explanation": "Change of base uses $\\frac{\\log10}{\\log6}$, not $\\frac{10}{6}$. Always apply the logarithm to both values." }
+        {
+          "id": "A",
+          "text": "$\\approx 1.285$",
+          "is_correct": true,
+          "explanation": "$\\log_6 10=\\frac{\\log10}{\\log6}=\\frac{1}{\\log(2\\cdot3)}=\\frac{1}{\\log2+\\log3}=\\frac{1}{0.301+0.477}=\\frac{1}{0.778}\\approx1.285$."
+        },
+        {
+          "id": "B",
+          "text": "$\\approx 0.778$",
+          "is_correct": false,
+          "explanation": "$0.778=\\log6=\\log2+\\log3$. This is the denominator in the change-of-base formula, not the result."
+        },
+        {
+          "id": "C",
+          "text": "$\\approx 0.699$",
+          "is_correct": false,
+          "explanation": "$0.699\\approx\\log5=\\log(10/2)=1-\\log2$. This is not $\\log_6 10$."
+        },
+        {
+          "id": "D",
+          "text": "$\\approx 10/6 \\approx 1.667$",
+          "is_correct": false,
+          "explanation": "Change of base uses $\\frac{\\log10}{\\log6}$, not $\\frac{10}{6}$. Always apply the logarithm to both values."
+        }
       ],
-      "unit_objective": "FUN-1.C"
+      "unit_objective": "FUN-1.C",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u2-q039",
@@ -664,50 +1774,159 @@
         "content": {
           "type": "line",
           "data": {
-            "labels": ["1","2","4","8","16"],
-            "datasets": [{ "label": "f(x)", "data": [0,1,2,3,4], "borderColor": "#6366f1", "backgroundColor": "transparent", "tension": 0.4 }]
+            "labels": [
+              "1",
+              "2",
+              "4",
+              "8",
+              "16"
+            ],
+            "datasets": [
+              {
+                "label": "f(x)",
+                "data": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "borderColor": "#6366f1",
+                "backgroundColor": "transparent",
+                "tension": 0.4
+              }
+            ]
           },
-          "options": { "plugins":{"legend":{"display":false}}, "scales": { "x":{"title":{"display":true,"text":"x"}}, "y":{"title":{"display":true,"text":"f(x)"}} } }
+          "options": {
+            "plugins": {
+              "legend": {
+                "display": false
+              }
+            },
+            "scales": {
+              "x": {
+                "title": {
+                  "display": true,
+                  "text": "x"
+                }
+              },
+              "y": {
+                "title": {
+                  "display": true,
+                  "text": "f(x)"
+                }
+              }
+            }
+          }
         }
       },
       "question": "The graph above shows $f(x) = \\log_2 x$. Which of the following best describes the graph?",
       "choices": [
-        { "id": "A", "text": "Increasing with vertical asymptote at $x = 0$ and domain $(0, \\infty)$", "is_correct": true, "explanation": "$\\log_2 x$ is defined for $x>0$, increases without bound as $x\\to+\\infty$, and has vertical asymptote $x=0$ as $x\\to0^+$." },
-        { "id": "B", "text": "Increasing with horizontal asymptote at $y = 0$", "is_correct": false, "explanation": "$\\log_2 x$ has a vertical asymptote at $x=0$, not a horizontal asymptote. The function grows without bound — there is no horizontal asymptote." },
-        { "id": "C", "text": "Decreasing with vertical asymptote at $x = 0$", "is_correct": false, "explanation": "$\\log_2 x$ is increasing for $b=2>1$. A logarithm with base $b>1$ is always an increasing function." },
-        { "id": "D", "text": "Decreasing with $x$-intercept at $x = 1$", "is_correct": false, "explanation": "$\\log_2 1=0$ so the $x$-intercept is $(1,0)$ — this part is correct. But $\\log_2 x$ with base $>1$ is increasing, not decreasing." }
+        {
+          "id": "A",
+          "text": "Increasing with vertical asymptote at $x = 0$ and domain $(0, \\infty)$",
+          "is_correct": true,
+          "explanation": "$\\log_2 x$ is defined for $x>0$, increases without bound as $x\\to+\\infty$, and has vertical asymptote $x=0$ as $x\\to0^+$."
+        },
+        {
+          "id": "B",
+          "text": "Increasing with horizontal asymptote at $y = 0$",
+          "is_correct": false,
+          "explanation": "$\\log_2 x$ has a vertical asymptote at $x=0$, not a horizontal asymptote. The function grows without bound — there is no horizontal asymptote."
+        },
+        {
+          "id": "C",
+          "text": "Decreasing with vertical asymptote at $x = 0$",
+          "is_correct": false,
+          "explanation": "$\\log_2 x$ is increasing for $b=2>1$. A logarithm with base $b>1$ is always an increasing function."
+        },
+        {
+          "id": "D",
+          "text": "Decreasing with $x$-intercept at $x = 1$",
+          "is_correct": false,
+          "explanation": "$\\log_2 1=0$ so the $x$-intercept is $(1,0)$ — this part is correct. But $\\log_2 x$ with base $>1$ is increasing, not decreasing."
+        }
       ],
-      "unit_objective": "FUN-1.D"
+      "unit_objective": "FUN-1.D",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u2-q040",
       "unit": "unit-2",
       "subject": "ap-precalculus",
       "difficulty": "medium",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following gives the $x$-intercept of $f(x) = \\log_5(x - 4) + 1$?",
       "choices": [
-        { "id": "A", "text": "$\\left(\\frac{1}{5}, 0\\right)$", "is_correct": false, "explanation": "This gives only $5^{-1} = \\frac{1}{5}$ without adding the horizontal shift of $4$. The correct $x$-intercept is $4 + \\frac{1}{5} = \\frac{21}{5}$." },
-        { "id": "B", "text": "$\\left(\\frac{21}{5}, 0\\right)$", "is_correct": true, "explanation": "Set $f(x)=0$: $\\log_5(x-4)=-1\\Rightarrow x-4=5^{-1}=\\frac{1}{5}\\Rightarrow x=4+\\frac{1}{5}=\\frac{21}{5}$." },
-        { "id": "C", "text": "$(5, 0)$", "is_correct": false, "explanation": "$f(5)=\\log_5(1)+1=0+1=1\\neq0$. Setting $f(x)=0$ gives $x=\\frac{21}{5}$." },
-        { "id": "D", "text": "$(6, 0)$", "is_correct": false, "explanation": "$f(6)=\\log_5(2)+1\\approx0.43+1=1.43\\neq0$. The $x$-intercept is at $x=\\frac{21}{5}=4.2$." }
+        {
+          "id": "A",
+          "text": "$\\left(\\frac{1}{5}, 0\\right)$",
+          "is_correct": false,
+          "explanation": "This gives only $5^{-1} = \\frac{1}{5}$ without adding the horizontal shift of $4$. The correct $x$-intercept is $4 + \\frac{1}{5} = \\frac{21}{5}$."
+        },
+        {
+          "id": "B",
+          "text": "$\\left(\\frac{21}{5}, 0\\right)$",
+          "is_correct": true,
+          "explanation": "Set $f(x)=0$: $\\log_5(x-4)=-1\\Rightarrow x-4=5^{-1}=\\frac{1}{5}\\Rightarrow x=4+\\frac{1}{5}=\\frac{21}{5}$."
+        },
+        {
+          "id": "C",
+          "text": "$(5, 0)$",
+          "is_correct": false,
+          "explanation": "$f(5)=\\log_5(1)+1=0+1=1\\neq0$. Setting $f(x)=0$ gives $x=\\frac{21}{5}$."
+        },
+        {
+          "id": "D",
+          "text": "$(6, 0)$",
+          "is_correct": false,
+          "explanation": "$f(6)=\\log_5(2)+1\\approx0.43+1=1.43\\neq0$. The $x$-intercept is at $x=\\frac{21}{5}=4.2$."
+        }
       ],
-      "unit_objective": "FUN-1.D"
+      "unit_objective": "FUN-1.D",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u2-q041",
       "unit": "unit-2",
       "subject": "ap-precalculus",
       "difficulty": "medium",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following best describes the difference between $f(x) = 2^x$ and $g(x) = \\left(\\frac{1}{2}\\right)^x$?",
       "choices": [
-        { "id": "A", "text": "$f$ is exponential growth and $g$ is exponential decay; they are reflections over the $y$-axis", "is_correct": true, "explanation": "$f(x)=2^x$ (growth, $b>1$) and $g(x)=(1/2)^x=2^{-x}$ (decay). $g(x)=f(-x)$: reflection of $f$ over the $y$-axis." },
-        { "id": "B", "text": "$f$ and $g$ are reflections over the $x$-axis", "is_correct": false, "explanation": "Reflecting over the $x$-axis gives $-f(x)=-2^x$, which is negative. $g(x)=(1/2)^x$ is always positive." },
-        { "id": "C", "text": "$f$ has the larger initial value", "is_correct": false, "explanation": "$f(0)=2^0=1$ and $g(0)=(1/2)^0=1$. Both have the same initial value of $1$." },
-        { "id": "D", "text": "$f$ and $g$ have different horizontal asymptotes", "is_correct": false, "explanation": "Both $2^x$ and $(1/2)^x$ approach $0$ from different directions, but both have horizontal asymptote $y=0$." }
+        {
+          "id": "A",
+          "text": "$f$ is exponential growth and $g$ is exponential decay; they are reflections over the $y$-axis",
+          "is_correct": true,
+          "explanation": "$f(x)=2^x$ (growth, $b>1$) and $g(x)=(1/2)^x=2^{-x}$ (decay). $g(x)=f(-x)$: reflection of $f$ over the $y$-axis."
+        },
+        {
+          "id": "B",
+          "text": "$f$ and $g$ are reflections over the $x$-axis",
+          "is_correct": false,
+          "explanation": "Reflecting over the $x$-axis gives $-f(x)=-2^x$, which is negative. $g(x)=(1/2)^x$ is always positive."
+        },
+        {
+          "id": "C",
+          "text": "$f$ has the larger initial value",
+          "is_correct": false,
+          "explanation": "$f(0)=2^0=1$ and $g(0)=(1/2)^0=1$. Both have the same initial value of $1$."
+        },
+        {
+          "id": "D",
+          "text": "$f$ and $g$ have different horizontal asymptotes",
+          "is_correct": false,
+          "explanation": "Both $2^x$ and $(1/2)^x$ approach $0$ from different directions, but both have horizontal asymptote $y=0$."
+        }
       ],
-      "unit_objective": "FUN-1.A"
+      "unit_objective": "FUN-1.A",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u2-q042",
@@ -720,12 +1939,33 @@
       },
       "question": "Which of the following gives the amount after $3$ years?",
       "choices": [
-        { "id": "A", "text": "$A = 5000(1.04)^3$", "is_correct": false, "explanation": "This uses annual compounding ($n=1$). Quarterly means $n=4$: $A=5000\\left(1+\\frac{0.04}{4}\\right)^{4\\cdot3}$." },
-        { "id": "B", "text": "$A = 5000(1.01)^{12}$", "is_correct": true, "explanation": "$A=5000\\left(1+\\frac{0.04}{4}\\right)^{4(3)}=5000(1.01)^{12}\\approx\\$5{,}634.07$." },
-        { "id": "C", "text": "$A = 5000e^{0.12}$", "is_correct": false, "explanation": "This is continuous compounding, not quarterly. Quarterly uses $(1+r/n)^{nt}$ with $n=4$." },
-        { "id": "D", "text": "$A = 5000(1.04)^{12}$", "is_correct": false, "explanation": "The base should be $1+0.04/4=1.01$ (monthly rate divided by $n=4$), and the exponent is $12$ total periods. The base $1.04$ would apply to annual compounding." }
+        {
+          "id": "A",
+          "text": "$A = 5000(1.04)^3$",
+          "is_correct": false,
+          "explanation": "This uses annual compounding ($n=1$). Quarterly means $n=4$: $A=5000\\left(1+\\frac{0.04}{4}\\right)^{4\\cdot3}$."
+        },
+        {
+          "id": "B",
+          "text": "$A = 5000(1.01)^{12}$",
+          "is_correct": true,
+          "explanation": "$A=5000\\left(1+\\frac{0.04}{4}\\right)^{4(3)}=5000(1.01)^{12}\\approx\\$5{,}634.07$."
+        },
+        {
+          "id": "C",
+          "text": "$A = 5000e^{0.12}$",
+          "is_correct": false,
+          "explanation": "This is continuous compounding, not quarterly. Quarterly uses $(1+r/n)^{nt}$ with $n=4$."
+        },
+        {
+          "id": "D",
+          "text": "$A = 5000(1.04)^{12}$",
+          "is_correct": false,
+          "explanation": "The base should be $1+0.04/4=1.01$ (monthly rate divided by $n=4$), and the exponent is $12$ total periods. The base $1.04$ would apply to annual compounding."
+        }
       ],
-      "unit_objective": "FUN-1.F"
+      "unit_objective": "FUN-1.F",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u2-q043",
@@ -738,12 +1978,33 @@
       },
       "question": "Which of the following best gives the continuous annual growth rate $r$?",
       "choices": [
-        { "id": "A", "text": "$r = \\frac{\\ln 2}{12}$", "is_correct": true, "explanation": "$A_0 e^{12r}=2A_0\\Rightarrow e^{12r}=2\\Rightarrow12r=\\ln2\\Rightarrow r=\\frac{\\ln2}{12}\\approx0.0578$ or $5.78\\%$ per year." },
-        { "id": "B", "text": "$r = \\frac{12}{\\ln 2}$", "is_correct": false, "explanation": "This has the numerator and denominator swapped: $r=\\frac{\\ln2}{12}$, not $\\frac{12}{\\ln2}$." },
-        { "id": "C", "text": "$r = 12\\ln 2$", "is_correct": false, "explanation": "$12\\ln2\\approx8.32$, a growth rate of $832\\%$ per year — unreasonably large. $r=\\frac{\\ln2}{12}\\approx5.78\\%$." },
-        { "id": "D", "text": "$r = \\frac{2}{12}$", "is_correct": false, "explanation": "$r=\\frac{2}{12}=\\frac{1}{6}\\approx16.7\\%$ is not derived from the doubling time formula. Use $e^{12r}=2\\Rightarrow r=\\frac{\\ln2}{12}$." }
+        {
+          "id": "A",
+          "text": "$r = \\frac{\\ln 2}{12}$",
+          "is_correct": true,
+          "explanation": "$A_0 e^{12r}=2A_0\\Rightarrow e^{12r}=2\\Rightarrow12r=\\ln2\\Rightarrow r=\\frac{\\ln2}{12}\\approx0.0578$ or $5.78\\%$ per year."
+        },
+        {
+          "id": "B",
+          "text": "$r = \\frac{12}{\\ln 2}$",
+          "is_correct": false,
+          "explanation": "This has the numerator and denominator swapped: $r=\\frac{\\ln2}{12}$, not $\\frac{12}{\\ln2}$."
+        },
+        {
+          "id": "C",
+          "text": "$r = 12\\ln 2$",
+          "is_correct": false,
+          "explanation": "$12\\ln2\\approx8.32$, a growth rate of $832\\%$ per year — unreasonably large. $r=\\frac{\\ln2}{12}\\approx5.78\\%$."
+        },
+        {
+          "id": "D",
+          "text": "$r = \\frac{2}{12}$",
+          "is_correct": false,
+          "explanation": "$r=\\frac{2}{12}=\\frac{1}{6}\\approx16.7\\%$ is not derived from the doubling time formula. Use $e^{12r}=2\\Rightarrow r=\\frac{\\ln2}{12}$."
+        }
       ],
-      "unit_objective": "FUN-1.F"
+      "unit_objective": "FUN-1.F",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u2-q044",
@@ -753,33 +2014,102 @@
       "stimulus": {
         "type": "table",
         "content": {
-          "headers": ["$x$", "$f(x)$"],
-          "rows": [["0","3"],["1","6"],["2","12"],["3","24"],["4","48"]]
+          "headers": [
+            "$x$",
+            "$f(x)$"
+          ],
+          "rows": [
+            [
+              "0",
+              "3"
+            ],
+            [
+              "1",
+              "6"
+            ],
+            [
+              "2",
+              "12"
+            ],
+            [
+              "3",
+              "24"
+            ],
+            [
+              "4",
+              "48"
+            ]
+          ]
         }
       },
       "question": "The table above shows values of $f$. Which of the following gives $\\log_2 f(3)$?",
       "choices": [
-        { "id": "A", "text": "$\\log_2 24$", "is_correct": false, "explanation": "$f(3)=24$, so $\\log_2 f(3)=\\log_2 24=\\log_2(8\\cdot3)=3+\\log_2 3\\approx4.58$. This is the unsimplified form." },
-        { "id": "B", "text": "$3 + \\log_2 3$", "is_correct": true, "explanation": "$f(x)=3\\cdot2^x$, so $f(3)=3\\cdot8=24$. $\\log_2 24=\\log_2(8\\cdot3)=\\log_2 8+\\log_2 3=3+\\log_2 3$." },
-        { "id": "C", "text": "$4$", "is_correct": false, "explanation": "$\\log_2 16=4$, but $f(3)=24\\neq16$. $\\log_2 24=3+\\log_2 3\\approx4.58$." },
-        { "id": "D", "text": "$3$", "is_correct": false, "explanation": "$\\log_2 8=3$, but $f(3)=24\\neq8$. $f(x)=3\\cdot2^x$, so $f(3)=24$." }
+        {
+          "id": "A",
+          "text": "$\\log_2 24$",
+          "is_correct": false,
+          "explanation": "$f(3)=24$, so $\\log_2 f(3)=\\log_2 24=\\log_2(8\\cdot3)=3+\\log_2 3\\approx4.58$. This is the unsimplified form."
+        },
+        {
+          "id": "B",
+          "text": "$3 + \\log_2 3$",
+          "is_correct": true,
+          "explanation": "$f(x)=3\\cdot2^x$, so $f(3)=3\\cdot8=24$. $\\log_2 24=\\log_2(8\\cdot3)=\\log_2 8+\\log_2 3=3+\\log_2 3$."
+        },
+        {
+          "id": "C",
+          "text": "$4$",
+          "is_correct": false,
+          "explanation": "$\\log_2 16=4$, but $f(3)=24\\neq16$. $\\log_2 24=3+\\log_2 3\\approx4.58$."
+        },
+        {
+          "id": "D",
+          "text": "$3$",
+          "is_correct": false,
+          "explanation": "$\\log_2 8=3$, but $f(3)=24\\neq8$. $f(x)=3\\cdot2^x$, so $f(3)=24$."
+        }
       ],
-      "unit_objective": "FUN-1.C"
+      "unit_objective": "FUN-1.C",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u2-q045",
       "unit": "unit-2",
       "subject": "ap-precalculus",
       "difficulty": "medium",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following best describes the effect of replacing $f(x) = \\log x$ with $g(x) = -\\log x + 3$?",
       "choices": [
-        { "id": "A", "text": "Reflection over $x$-axis and shift up $3$", "is_correct": true, "explanation": "The negative sign reflects over the $x$-axis (multiplies outputs by $-1$); $+3$ shifts the graph up $3$ units." },
-        { "id": "B", "text": "Reflection over $y$-axis and shift up $3$", "is_correct": false, "explanation": "Reflecting over the $y$-axis replaces $x$ with $-x$: $\\log(-x)$. Here the sign is outside the log function, reflecting over the $x$-axis." },
-        { "id": "C", "text": "Reflection over $x$-axis and shift right $3$", "is_correct": false, "explanation": "$+3$ is added outside the logarithm, producing a vertical shift up, not a horizontal shift right." },
-        { "id": "D", "text": "Reflection over $x$-axis and shift down $3$", "is_correct": false, "explanation": "$+3$ outside shifts the graph up $3$ (adds $3$ to all outputs). A downward shift would use $-\\log x - 3$." }
+        {
+          "id": "A",
+          "text": "Reflection over $x$-axis and shift up $3$",
+          "is_correct": true,
+          "explanation": "The negative sign reflects over the $x$-axis (multiplies outputs by $-1$); $+3$ shifts the graph up $3$ units."
+        },
+        {
+          "id": "B",
+          "text": "Reflection over $y$-axis and shift up $3$",
+          "is_correct": false,
+          "explanation": "Reflecting over the $y$-axis replaces $x$ with $-x$: $\\log(-x)$. Here the sign is outside the log function, reflecting over the $x$-axis."
+        },
+        {
+          "id": "C",
+          "text": "Reflection over $x$-axis and shift right $3$",
+          "is_correct": false,
+          "explanation": "$+3$ is added outside the logarithm, producing a vertical shift up, not a horizontal shift right."
+        },
+        {
+          "id": "D",
+          "text": "Reflection over $x$-axis and shift down $3$",
+          "is_correct": false,
+          "explanation": "$+3$ outside shifts the graph up $3$ (adds $3$ to all outputs). A downward shift would use $-\\log x - 3$."
+        }
       ],
-      "unit_objective": "FUN-1.D"
+      "unit_objective": "FUN-1.D",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u2-q046",
@@ -789,18 +2119,59 @@
       "stimulus": {
         "type": "table",
         "content": {
-          "headers": ["$x$", "$f(x)$"],
-          "rows": [["1","2"],["10","3"],["100","4"],["1000","5"]]
+          "headers": [
+            "$x$",
+            "$f(x)$"
+          ],
+          "rows": [
+            [
+              "1",
+              "2"
+            ],
+            [
+              "10",
+              "3"
+            ],
+            [
+              "100",
+              "4"
+            ],
+            [
+              "1000",
+              "5"
+            ]
+          ]
         }
       },
       "question": "The table above shows selected values of $f$. Which of the following best identifies the function?",
       "choices": [
-        { "id": "A", "text": "$f(x) = \\log_{10} x + 1$", "is_correct": false, "explanation": "$f(1)=\\log_{10}1+1=0+1=1\\neq2$. This formula gives values that are $1$ less than the table." },
-        { "id": "B", "text": "$f(x) = \\log_{10} x + 2$", "is_correct": true, "explanation": "$f(1)=0+2=2$, $f(10)=1+2=3$, $f(100)=2+2=4$, $f(1000)=3+2=5$. All values match." },
-        { "id": "C", "text": "$f(x) = 2 \\log_{10} x + 1$", "is_correct": false, "explanation": "$f(10)=2(1)+1=3$ (matches), but $f(100)=2(2)+1=5\\neq4$. This formula fails at $x=100$." },
-        { "id": "D", "text": "$f(x) = 10^x + 1$", "is_correct": false, "explanation": "$f(1)=10+1=11\\neq2$. The outputs increase by $1$ each time $x$ is multiplied by $10$, which is logarithmic, not exponential." }
+        {
+          "id": "A",
+          "text": "$f(x) = \\log_{10} x + 1$",
+          "is_correct": false,
+          "explanation": "$f(1)=\\log_{10}1+1=0+1=1\\neq2$. This formula gives values that are $1$ less than the table."
+        },
+        {
+          "id": "B",
+          "text": "$f(x) = \\log_{10} x + 2$",
+          "is_correct": true,
+          "explanation": "$f(1)=0+2=2$, $f(10)=1+2=3$, $f(100)=2+2=4$, $f(1000)=3+2=5$. All values match."
+        },
+        {
+          "id": "C",
+          "text": "$f(x) = 2 \\log_{10} x + 1$",
+          "is_correct": false,
+          "explanation": "$f(10)=2(1)+1=3$ (matches), but $f(100)=2(2)+1=5\\neq4$. This formula fails at $x=100$."
+        },
+        {
+          "id": "D",
+          "text": "$f(x) = 10^x + 1$",
+          "is_correct": false,
+          "explanation": "$f(1)=10+1=11\\neq2$. The outputs increase by $1$ each time $x$ is multiplied by $10$, which is logarithmic, not exponential."
+        }
       ],
-      "unit_objective": "FUN-1.D"
+      "unit_objective": "FUN-1.D",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u2-q047",
@@ -812,23 +2183,97 @@
         "content": {
           "type": "line",
           "data": {
-            "labels": ["0","1","2","3","4","5"],
+            "labels": [
+              "0",
+              "1",
+              "2",
+              "3",
+              "4",
+              "5"
+            ],
             "datasets": [
-              { "label": "y = f(x)", "data": [1,2.718,7.389,20.086,54.598,148.413], "borderColor": "#6366f1", "backgroundColor": "transparent", "tension": 0.4 },
-              { "label": "y = ln(f(x))", "data": [0,1,2,3,4,5], "borderColor": "#10b981", "backgroundColor": "transparent", "tension": 0.1 }
+              {
+                "label": "y = f(x)",
+                "data": [
+                  1,
+                  2.718,
+                  7.389,
+                  20.086,
+                  54.598,
+                  148.413
+                ],
+                "borderColor": "#6366f1",
+                "backgroundColor": "transparent",
+                "tension": 0.4
+              },
+              {
+                "label": "y = ln(f(x))",
+                "data": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "borderColor": "#10b981",
+                "backgroundColor": "transparent",
+                "tension": 0.1
+              }
             ]
           },
-          "options": { "plugins":{"legend":{"display":true}}, "scales": { "x":{"title":{"display":true,"text":"x"}}, "y":{"title":{"display":true,"text":"y"}} } }
+          "options": {
+            "plugins": {
+              "legend": {
+                "display": true
+              }
+            },
+            "scales": {
+              "x": {
+                "title": {
+                  "display": true,
+                  "text": "x"
+                }
+              },
+              "y": {
+                "title": {
+                  "display": true,
+                  "text": "y"
+                }
+              }
+            }
+          }
         }
       },
       "question": "The graph above shows $f(x) = e^x$ and $y = \\ln(f(x))$. A student notices that when plotted on a semi-log scale (vertical axis is $\\ln y$), an exponential function appears linear. Which of the following best explains why?",
       "choices": [
-        { "id": "A", "text": "If $y = ab^x$, then $\\ln y = \\ln a + x \\ln b$, which is linear in $x$", "is_correct": true, "explanation": "Taking the natural log: $\\ln y=\\ln a+x\\ln b$. This is a linear function of $x$ with slope $\\ln b$ and intercept $\\ln a$, explaining the linear appearance on a semi-log plot." },
-        { "id": "B", "text": "The logarithm compresses large values, making all functions appear linear", "is_correct": false, "explanation": "Logarithms do compress large values, but not all functions become linear. Only exponential functions become exactly linear when their logarithm is plotted." },
-        { "id": "C", "text": "Taking $\\ln$ of an exponential removes the exponent, giving a constant", "is_correct": false, "explanation": "$\\ln(ab^x)=\\ln a+x\\ln b$, which is linear in $x$, not a constant. The exponent $x$ becomes the variable in a linear expression." },
-        { "id": "D", "text": "Exponential functions have constant rates of change", "is_correct": false, "explanation": "Exponential functions have increasing rates of change. It is linear functions that have constant rates of change." }
+        {
+          "id": "A",
+          "text": "If $y = ab^x$, then $\\ln y = \\ln a + x \\ln b$, which is linear in $x$",
+          "is_correct": true,
+          "explanation": "Taking the natural log: $\\ln y=\\ln a+x\\ln b$. This is a linear function of $x$ with slope $\\ln b$ and intercept $\\ln a$, explaining the linear appearance on a semi-log plot."
+        },
+        {
+          "id": "B",
+          "text": "The logarithm compresses large values, making all functions appear linear",
+          "is_correct": false,
+          "explanation": "Logarithms do compress large values, but not all functions become linear. Only exponential functions become exactly linear when their logarithm is plotted."
+        },
+        {
+          "id": "C",
+          "text": "Taking $\\ln$ of an exponential removes the exponent, giving a constant",
+          "is_correct": false,
+          "explanation": "$\\ln(ab^x)=\\ln a+x\\ln b$, which is linear in $x$, not a constant. The exponent $x$ becomes the variable in a linear expression."
+        },
+        {
+          "id": "D",
+          "text": "Exponential functions have constant rates of change",
+          "is_correct": false,
+          "explanation": "Exponential functions have increasing rates of change. It is linear functions that have constant rates of change."
+        }
       ],
-      "unit_objective": "FUN-1.B"
+      "unit_objective": "FUN-1.B",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u2-q048",
@@ -838,63 +2283,176 @@
       "stimulus": {
         "type": "table",
         "content": {
-          "headers": ["$x$", "$\\ln f(x)$"],
-          "rows": [["0","1"],["1","2.5"],["2","4"],["3","5.5"]]
+          "headers": [
+            "$x$",
+            "$\\ln f(x)$"
+          ],
+          "rows": [
+            [
+              "0",
+              "1"
+            ],
+            [
+              "1",
+              "2.5"
+            ],
+            [
+              "2",
+              "4"
+            ],
+            [
+              "3",
+              "5.5"
+            ]
+          ]
         }
       },
       "question": "A semi-log table shows $\\ln f(x)$ is linear. Which of the following best gives $f(x)$?",
       "choices": [
-        { "id": "A", "text": "$f(x) = e \\cdot e^{1.5x}$", "is_correct": true, "explanation": "$\\ln f(x)=1+1.5x$ (slope $=1.5$, intercept $=1$). Exponentiating: $f(x)=e^{1+1.5x}=e\\cdot e^{1.5x}=e\\cdot(e^{1.5})^x$." },
-        { "id": "B", "text": "$f(x) = 1.5x + 1$", "is_correct": false, "explanation": "This is $\\ln f(x)$, not $f(x)$. To recover $f(x)$, exponentiate: $f(x)=e^{1.5x+1}$." },
-        { "id": "C", "text": "$f(x) = e^{1.5x}$", "is_correct": false, "explanation": "$f(x)=e^{1.5x}$ gives $\\ln f(x)=1.5x$, but the table shows intercept $1$, not $0$. Include the constant: $f(x)=e^{1+1.5x}$." },
-        { "id": "D", "text": "$f(x) = 1.5^x$", "is_correct": false, "explanation": "$\\ln(1.5^x)=x\\ln1.5\\approx0.405x$, not $1.5x+1$. The base and constant offset are both wrong." }
+        {
+          "id": "A",
+          "text": "$f(x) = e \\cdot e^{1.5x}$",
+          "is_correct": true,
+          "explanation": "$\\ln f(x)=1+1.5x$ (slope $=1.5$, intercept $=1$). Exponentiating: $f(x)=e^{1+1.5x}=e\\cdot e^{1.5x}=e\\cdot(e^{1.5})^x$."
+        },
+        {
+          "id": "B",
+          "text": "$f(x) = 1.5x + 1$",
+          "is_correct": false,
+          "explanation": "This is $\\ln f(x)$, not $f(x)$. To recover $f(x)$, exponentiate: $f(x)=e^{1.5x+1}$."
+        },
+        {
+          "id": "C",
+          "text": "$f(x) = e^{1.5x}$",
+          "is_correct": false,
+          "explanation": "$f(x)=e^{1.5x}$ gives $\\ln f(x)=1.5x$, but the table shows intercept $1$, not $0$. Include the constant: $f(x)=e^{1+1.5x}$."
+        },
+        {
+          "id": "D",
+          "text": "$f(x) = 1.5^x$",
+          "is_correct": false,
+          "explanation": "$\\ln(1.5^x)=x\\ln1.5\\approx0.405x$, not $1.5x+1$. The base and constant offset are both wrong."
+        }
       ],
-      "unit_objective": "FUN-1.B"
+      "unit_objective": "FUN-1.B",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u2-q049",
       "unit": "unit-2",
       "subject": "ap-precalculus",
       "difficulty": "hard",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following best compares the growth rates of $f(x) = 100 \\cdot 1.05^x$ and $g(x) = 200 \\cdot 1.03^x$ as $x \\to \\infty$?",
       "choices": [
-        { "id": "A", "text": "$g$ eventually exceeds $f$ because $g$ has a larger initial value", "is_correct": false, "explanation": "$g(0)=200>100=f(0)$, but the growth rate of $f$ (base $1.05$) exceeds that of $g$ (base $1.03$). For large $x$, $f$ surpasses $g$." },
-        { "id": "B", "text": "$f$ eventually exceeds $g$ because $f$ has a larger growth factor", "is_correct": true, "explanation": "The base (growth factor) determines long-run behavior. $1.05>1.03$, so $f$ grows faster. For large enough $x$, $f(x)/g(x)=(100/200)\\cdot(1.05/1.03)^x\\to\\infty$." },
-        { "id": "C", "text": "$f$ and $g$ grow at equal rates in the long run", "is_correct": false, "explanation": "Different bases ($1.05$ vs. $1.03$) mean different long-run growth rates. The function with the larger base ultimately dominates." },
-        { "id": "D", "text": "$g$ always exceeds $f$ because $g(0) > f(0)$", "is_correct": false, "explanation": "Initial value only determines which is larger at $x=0$. Long-run growth is determined by the base, and $1.05>1.03$ means $f$ eventually surpasses $g$." }
+        {
+          "id": "A",
+          "text": "$g$ eventually exceeds $f$ because $g$ has a larger initial value",
+          "is_correct": false,
+          "explanation": "$g(0)=200>100=f(0)$, but the growth rate of $f$ (base $1.05$) exceeds that of $g$ (base $1.03$). For large $x$, $f$ surpasses $g$."
+        },
+        {
+          "id": "B",
+          "text": "$f$ eventually exceeds $g$ because $f$ has a larger growth factor",
+          "is_correct": true,
+          "explanation": "The base (growth factor) determines long-run behavior. $1.05>1.03$, so $f$ grows faster. For large enough $x$, $f(x)/g(x)=(100/200)\\cdot(1.05/1.03)^x\\to\\infty$."
+        },
+        {
+          "id": "C",
+          "text": "$f$ and $g$ grow at equal rates in the long run",
+          "is_correct": false,
+          "explanation": "Different bases ($1.05$ vs. $1.03$) mean different long-run growth rates. The function with the larger base ultimately dominates."
+        },
+        {
+          "id": "D",
+          "text": "$g$ always exceeds $f$ because $g(0) > f(0)$",
+          "is_correct": false,
+          "explanation": "Initial value only determines which is larger at $x=0$. Long-run growth is determined by the base, and $1.05>1.03$ means $f$ eventually surpasses $g$."
+        }
       ],
-      "unit_objective": "FUN-1.A"
+      "unit_objective": "FUN-1.A",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u2-q050",
       "unit": "unit-2",
       "subject": "ap-precalculus",
       "difficulty": "medium",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following gives the inverse function of $f(x) = 3^x + 2$?",
       "choices": [
-        { "id": "A", "text": "$f^{-1}(x) = \\log_3(x - 2)$", "is_correct": true, "explanation": "Set $y=3^x+2$. Solve for $x$: $y-2=3^x\\Rightarrow x=\\log_3(y-2)$. Replace $y$ with $x$: $f^{-1}(x)=\\log_3(x-2)$." },
-        { "id": "B", "text": "$f^{-1}(x) = \\log_3 x - 2$", "is_correct": false, "explanation": "$\\log_3 x-2\\neq\\log_3(x-2)$ in general. The $-2$ must be inside the argument of the logarithm." },
-        { "id": "C", "text": "$f^{-1}(x) = \\log_3 x + 2$", "is_correct": false, "explanation": "Substituting back: $f(f^{-1}(x))=3^{\\log_3 x+2}+2=x\\cdot9+2\\neq x$. The correct inverse is $\\log_3(x-2)$." },
-        { "id": "D", "text": "$f^{-1}(x) = \\frac{1}{3^x + 2}$", "is_correct": false, "explanation": "This is not the inverse function. The inverse is found by swapping $x$ and $y$ and solving, not by taking the reciprocal." }
+        {
+          "id": "A",
+          "text": "$f^{-1}(x) = \\log_3(x - 2)$",
+          "is_correct": true,
+          "explanation": "Set $y=3^x+2$. Solve for $x$: $y-2=3^x\\Rightarrow x=\\log_3(y-2)$. Replace $y$ with $x$: $f^{-1}(x)=\\log_3(x-2)$."
+        },
+        {
+          "id": "B",
+          "text": "$f^{-1}(x) = \\log_3 x - 2$",
+          "is_correct": false,
+          "explanation": "$\\log_3 x-2\\neq\\log_3(x-2)$ in general. The $-2$ must be inside the argument of the logarithm."
+        },
+        {
+          "id": "C",
+          "text": "$f^{-1}(x) = \\log_3 x + 2$",
+          "is_correct": false,
+          "explanation": "Substituting back: $f(f^{-1}(x))=3^{\\log_3 x+2}+2=x\\cdot9+2\\neq x$. The correct inverse is $\\log_3(x-2)$."
+        },
+        {
+          "id": "D",
+          "text": "$f^{-1}(x) = \\frac{1}{3^x + 2}$",
+          "is_correct": false,
+          "explanation": "This is not the inverse function. The inverse is found by swapping $x$ and $y$ and solving, not by taking the reciprocal."
+        }
       ],
-      "unit_objective": "FUN-1.D"
+      "unit_objective": "FUN-1.D",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u2-q051",
       "unit": "unit-2",
       "subject": "ap-precalculus",
       "difficulty": "medium",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following gives the inverse function of $f(x) = \\ln(x + 4)$?",
       "choices": [
-        { "id": "A", "text": "$f^{-1}(x) = e^x - 4$", "is_correct": true, "explanation": "Set $y=\\ln(x+4)$. Solve: $e^y=x+4\\Rightarrow x=e^y-4$. Replace $y$ with $x$: $f^{-1}(x)=e^x-4$." },
-        { "id": "B", "text": "$f^{-1}(x) = e^x + 4$", "is_correct": false, "explanation": "Check: $f(f^{-1}(x))=\\ln(e^x+4+4)=\\ln(e^x+8)\\neq x$. The correct inverse is $e^x-4$." },
-        { "id": "C", "text": "$f^{-1}(x) = e^{x+4}$", "is_correct": false, "explanation": "$e^{x+4}=e^4\\cdot e^x$. Check: $f(e^4 e^x)=\\ln(e^4 e^x+4)\\neq x$. The correct inverse is $e^x-4$." },
-        { "id": "D", "text": "$f^{-1}(x) = \\frac{1}{\\ln(x+4)}$", "is_correct": false, "explanation": "This is the reciprocal of $f$, not the inverse. The inverse undoes $f$ by solving $y=\\ln(x+4)$ for $x$." }
+        {
+          "id": "A",
+          "text": "$f^{-1}(x) = e^x - 4$",
+          "is_correct": true,
+          "explanation": "Set $y=\\ln(x+4)$. Solve: $e^y=x+4\\Rightarrow x=e^y-4$. Replace $y$ with $x$: $f^{-1}(x)=e^x-4$."
+        },
+        {
+          "id": "B",
+          "text": "$f^{-1}(x) = e^x + 4$",
+          "is_correct": false,
+          "explanation": "Check: $f(f^{-1}(x))=\\ln(e^x+4+4)=\\ln(e^x+8)\\neq x$. The correct inverse is $e^x-4$."
+        },
+        {
+          "id": "C",
+          "text": "$f^{-1}(x) = e^{x+4}$",
+          "is_correct": false,
+          "explanation": "$e^{x+4}=e^4\\cdot e^x$. Check: $f(e^4 e^x)=\\ln(e^4 e^x+4)\\neq x$. The correct inverse is $e^x-4$."
+        },
+        {
+          "id": "D",
+          "text": "$f^{-1}(x) = \\frac{1}{\\ln(x+4)}$",
+          "is_correct": false,
+          "explanation": "This is the reciprocal of $f$, not the inverse. The inverse undoes $f$ by solving $y=\\ln(x+4)$ for $x$."
+        }
       ],
-      "unit_objective": "FUN-1.D"
+      "unit_objective": "FUN-1.D",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u2-q052",
@@ -907,12 +2465,33 @@
       },
       "question": "Assuming exponential growth, which of the following best gives the annual growth rate $r$ to the nearest percent?",
       "choices": [
-        { "id": "A", "text": "$r \\approx 3\\%$", "is_correct": true, "explanation": "$4000(1+r)^{10}=5600\\Rightarrow(1+r)^{10}=1.4\\Rightarrow1+r=1.4^{1/10}\\approx1.034$. So $r\\approx3.4\\%$, which rounds to $3\\%$." },
-        { "id": "B", "text": "$r \\approx 4\\%$", "is_correct": false, "explanation": "$(1.04)^{10}\\approx1.48$, which exceeds the $40\\%$ growth. The actual rate is $1.4^{1/10}-1\\approx3.4\\%$, closest to $3\\%$." },
-        { "id": "C", "text": "$r \\approx 14\\%$", "is_correct": false, "explanation": "$14\\%$ total growth over 10 years ($5600-4000=1600$ and $1600/4000=0.4=40\\%$) would imply linear growth, not exponential. The annual rate is $(1.4)^{0.1}-1\\approx3.4\\%$." },
-        { "id": "D", "text": "$r \\approx 40\\%$", "is_correct": false, "explanation": "$40\\%$ is the total percent increase over 10 years, not the annual rate. The annual exponential rate is $(1.4)^{1/10}-1\\approx3.4\\%$." }
+        {
+          "id": "A",
+          "text": "$r \\approx 3\\%$",
+          "is_correct": true,
+          "explanation": "$4000(1+r)^{10}=5600\\Rightarrow(1+r)^{10}=1.4\\Rightarrow1+r=1.4^{1/10}\\approx1.034$. So $r\\approx3.4\\%$, which rounds to $3\\%$."
+        },
+        {
+          "id": "B",
+          "text": "$r \\approx 4\\%$",
+          "is_correct": false,
+          "explanation": "$(1.04)^{10}\\approx1.48$, which exceeds the $40\\%$ growth. The actual rate is $1.4^{1/10}-1\\approx3.4\\%$, closest to $3\\%$."
+        },
+        {
+          "id": "C",
+          "text": "$r \\approx 14\\%$",
+          "is_correct": false,
+          "explanation": "$14\\%$ total growth over 10 years ($5600-4000=1600$ and $1600/4000=0.4=40\\%$) would imply linear growth, not exponential. The annual rate is $(1.4)^{0.1}-1\\approx3.4\\%$."
+        },
+        {
+          "id": "D",
+          "text": "$r \\approx 40\\%$",
+          "is_correct": false,
+          "explanation": "$40\\%$ is the total percent increase over 10 years, not the annual rate. The annual exponential rate is $(1.4)^{1/10}-1\\approx3.4\\%$."
+        }
       ],
-      "unit_objective": "FUN-1.F"
+      "unit_objective": "FUN-1.F",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u2-q053",
@@ -925,12 +2504,33 @@
       },
       "question": "Which of the following gives the function $f(x) = a \\cdot b^x$?",
       "choices": [
-        { "id": "A", "text": "$f(x) = 5 \\cdot 2^x$", "is_correct": true, "explanation": "$f(0)=a=5$. $f(3)=5b^3=40\\Rightarrow b^3=8\\Rightarrow b=2$. So $f(x)=5\\cdot2^x$. Check: $f(3)=5\\cdot8=40$. Correct." },
-        { "id": "B", "text": "$f(x) = 5 \\cdot 8^x$", "is_correct": false, "explanation": "$f(1)=5\\cdot8=40$, not $f(3)$. $f(3)=5\\cdot512=2560\\neq40$. From $5b^3=40$, $b=2$, not $8$." },
-        { "id": "C", "text": "$f(x) = 40 \\cdot 2^x$", "is_correct": false, "explanation": "$f(0)=40\neq5$. Since $f(0)=a$, and $f(0)=5$, we need $a=5$." },
-        { "id": "D", "text": "$f(x) = 5 \\cdot 3^x$", "is_correct": false, "explanation": "$f(3)=5\\cdot27=135\\neq40$. From $5b^3=40$, $b^3=8$, so $b=2$, not $3$." }
+        {
+          "id": "A",
+          "text": "$f(x) = 5 \\cdot 2^x$",
+          "is_correct": true,
+          "explanation": "$f(0)=a=5$. $f(3)=5b^3=40\\Rightarrow b^3=8\\Rightarrow b=2$. So $f(x)=5\\cdot2^x$. Check: $f(3)=5\\cdot8=40$. Correct."
+        },
+        {
+          "id": "B",
+          "text": "$f(x) = 5 \\cdot 8^x$",
+          "is_correct": false,
+          "explanation": "$f(1)=5\\cdot8=40$, not $f(3)$. $f(3)=5\\cdot512=2560\\neq40$. From $5b^3=40$, $b=2$, not $8$."
+        },
+        {
+          "id": "C",
+          "text": "$f(x) = 40 \\cdot 2^x$",
+          "is_correct": false,
+          "explanation": "$f(0)=40\neq5$. Since $f(0)=a$, and $f(0)=5$, we need $a=5$."
+        },
+        {
+          "id": "D",
+          "text": "$f(x) = 5 \\cdot 3^x$",
+          "is_correct": false,
+          "explanation": "$f(3)=5\\cdot27=135\\neq40$. From $5b^3=40$, $b^3=8$, so $b=2$, not $3$."
+        }
       ],
-      "unit_objective": "FUN-1.B"
+      "unit_objective": "FUN-1.B",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u2-q054",
@@ -943,87 +2543,228 @@
       },
       "question": "Which of the following gives the function $f(x) = a \\cdot b^x$?",
       "choices": [
-        { "id": "A", "text": "$f(x) = 3 \\cdot 2^x$", "is_correct": true, "explanation": "$\\frac{f(3)}{f(1)}=\\frac{24}{6}=4=b^2\\Rightarrow b=2$. Then $f(1)=a\\cdot2=6\\Rightarrow a=3$. So $f(x)=3\\cdot2^x$. Check: $f(3)=3\\cdot8=24$. Correct." },
-        { "id": "B", "text": "$f(x) = 6 \\cdot 2^x$", "is_correct": false, "explanation": "$f(1)=6\\cdot2=12\\neq6$. With $b=2$: $a\\cdot2=6\\Rightarrow a=3$." },
-        { "id": "C", "text": "$f(x) = 3 \\cdot 4^x$", "is_correct": false, "explanation": "$f(1)=3\\cdot4=12\\neq6$. The ratio $f(3)/f(1)=b^2=4\\Rightarrow b=2$, not $4$." },
-        { "id": "D", "text": "$f(x) = 2 \\cdot 3^x$", "is_correct": false, "explanation": "$f(1)=2\\cdot3=6$ (correct), but $f(3)=2\\cdot27=54\\neq24$. Ratio: $54/6=9=b^2$, but with $b=3$: $f(3)/f(1)=3^2=9\neq4$." }
+        {
+          "id": "A",
+          "text": "$f(x) = 3 \\cdot 2^x$",
+          "is_correct": true,
+          "explanation": "$\\frac{f(3)}{f(1)}=\\frac{24}{6}=4=b^2\\Rightarrow b=2$. Then $f(1)=a\\cdot2=6\\Rightarrow a=3$. So $f(x)=3\\cdot2^x$. Check: $f(3)=3\\cdot8=24$. Correct."
+        },
+        {
+          "id": "B",
+          "text": "$f(x) = 6 \\cdot 2^x$",
+          "is_correct": false,
+          "explanation": "$f(1)=6\\cdot2=12\\neq6$. With $b=2$: $a\\cdot2=6\\Rightarrow a=3$."
+        },
+        {
+          "id": "C",
+          "text": "$f(x) = 3 \\cdot 4^x$",
+          "is_correct": false,
+          "explanation": "$f(1)=3\\cdot4=12\\neq6$. The ratio $f(3)/f(1)=b^2=4\\Rightarrow b=2$, not $4$."
+        },
+        {
+          "id": "D",
+          "text": "$f(x) = 2 \\cdot 3^x$",
+          "is_correct": false,
+          "explanation": "$f(1)=2\\cdot3=6$ (correct), but $f(3)=2\\cdot27=54\\neq24$. Ratio: $54/6=9=b^2$, but with $b=3$: $f(3)/f(1)=3^2=9\neq4$."
+        }
       ],
-      "unit_objective": "FUN-1.B"
+      "unit_objective": "FUN-1.B",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u2-q055",
       "unit": "unit-2",
       "subject": "ap-precalculus",
       "difficulty": "medium",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following gives $e^{\\ln 7}$?",
       "choices": [
-        { "id": "A", "text": "$7$", "is_correct": true, "explanation": "$e$ and $\\ln$ are inverse functions: $e^{\\ln x}=x$ for all $x>0$. Therefore $e^{\\ln 7}=7$." },
-        { "id": "B", "text": "$7e$", "is_correct": false, "explanation": "$e^{\\ln 7}\\neq7e$. The inverse property gives $e^{\\ln 7}=7$ exactly." },
-        { "id": "C", "text": "$\\ln 7$", "is_correct": false, "explanation": "$\\ln 7\\approx1.946$, while $e^{\\ln 7}=7$. The exponential function applied to $\\ln 7$ returns to the original argument." },
-        { "id": "D", "text": "$e^7$", "is_correct": false, "explanation": "$e^7\\approx1097$, but $e^{\\ln 7}=7$. $\\ln7\\approx1.946$, not $7$." }
+        {
+          "id": "A",
+          "text": "$7$",
+          "is_correct": true,
+          "explanation": "$e$ and $\\ln$ are inverse functions: $e^{\\ln x}=x$ for all $x>0$. Therefore $e^{\\ln 7}=7$."
+        },
+        {
+          "id": "B",
+          "text": "$7e$",
+          "is_correct": false,
+          "explanation": "$e^{\\ln 7}\\neq7e$. The inverse property gives $e^{\\ln 7}=7$ exactly."
+        },
+        {
+          "id": "C",
+          "text": "$\\ln 7$",
+          "is_correct": false,
+          "explanation": "$\\ln 7\\approx1.946$, while $e^{\\ln 7}=7$. The exponential function applied to $\\ln 7$ returns to the original argument."
+        },
+        {
+          "id": "D",
+          "text": "$e^7$",
+          "is_correct": false,
+          "explanation": "$e^7\\approx1097$, but $e^{\\ln 7}=7$. $\\ln7\\approx1.946$, not $7$."
+        }
       ],
-      "unit_objective": "FUN-1.C"
+      "unit_objective": "FUN-1.C",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u2-q056",
       "unit": "unit-2",
       "subject": "ap-precalculus",
       "difficulty": "easy",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following best identifies the $x$-intercept of $f(x) = \\log_2(x + 8)$?",
       "choices": [
-        { "id": "A", "text": "$(-7, 0)$", "is_correct": true, "explanation": "Set $f(x)=0$: $\\log_2(x+8)=0\\Rightarrow x+8=2^0=1\\Rightarrow x=-7$. $x$-intercept: $(-7,0)$." },
-        { "id": "B", "text": "$(-8, 0)$", "is_correct": false, "explanation": "At $x=-8$: $\\log_2(0)$ is undefined. The $x$-intercept requires $x+8=1$, giving $x=-7$." },
-        { "id": "C", "text": "$(0, 3)$", "is_correct": false, "explanation": "$(0,3)$ is the $y$-intercept: $f(0)=\\log_2 8=3$. The question asks for the $x$-intercept, where $f(x)=0$." },
-        { "id": "D", "text": "$(8, 0)$", "is_correct": false, "explanation": "$f(8)=\\log_2(16)=4\\neq0$. Set $x+8=1$ to find $x=-7$." }
+        {
+          "id": "A",
+          "text": "$(-7, 0)$",
+          "is_correct": true,
+          "explanation": "Set $f(x)=0$: $\\log_2(x+8)=0\\Rightarrow x+8=2^0=1\\Rightarrow x=-7$. $x$-intercept: $(-7,0)$."
+        },
+        {
+          "id": "B",
+          "text": "$(-8, 0)$",
+          "is_correct": false,
+          "explanation": "At $x=-8$: $\\log_2(0)$ is undefined. The $x$-intercept requires $x+8=1$, giving $x=-7$."
+        },
+        {
+          "id": "C",
+          "text": "$(0, 3)$",
+          "is_correct": false,
+          "explanation": "$(0,3)$ is the $y$-intercept: $f(0)=\\log_2 8=3$. The question asks for the $x$-intercept, where $f(x)=0$."
+        },
+        {
+          "id": "D",
+          "text": "$(8, 0)$",
+          "is_correct": false,
+          "explanation": "$f(8)=\\log_2(16)=4\\neq0$. Set $x+8=1$ to find $x=-7$."
+        }
       ],
-      "unit_objective": "FUN-1.D"
+      "unit_objective": "FUN-1.D",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u2-q057",
       "unit": "unit-2",
       "subject": "ap-precalculus",
       "difficulty": "medium",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following is equivalent to $\\ln \\sqrt{\\frac{x^4}{e^2}}$?",
       "choices": [
-        { "id": "A", "text": "$2\\ln x - 1$", "is_correct": true, "explanation": "$\\ln\\sqrt{\\frac{x^4}{e^2}}=\\frac{1}{2}\\ln\\frac{x^4}{e^2}=\\frac{1}{2}(4\\ln x-\\ln e^2)=\\frac{1}{2}(4\\ln x-2)=2\\ln x-1$." },
-        { "id": "B", "text": "$4\\ln x - 2$", "is_correct": false, "explanation": "This is $\\ln\\frac{x^4}{e^2}$ without the square root factor. The $\\sqrt{}$ introduces a factor of $\\frac{1}{2}$: $\\frac{1}{2}(4\\ln x-2)=2\\ln x-1$." },
-        { "id": "C", "text": "$2\\ln x - 2$", "is_correct": false, "explanation": "$\\frac{1}{2}(4\\ln x-2)=2\\ln x-1$, not $2\\ln x-2$. The $\\frac{1}{2}$ applies to the $-2$ term: $\\frac{1}{2}(-2)=-1$." },
-        { "id": "D", "text": "$\\ln x - 1$", "is_correct": false, "explanation": "The exponent $4$ on $x^4$ contributes $\\frac{1}{2}(4)=2$ as the coefficient of $\\ln x$, not $1$." }
+        {
+          "id": "A",
+          "text": "$2\\ln x - 1$",
+          "is_correct": true,
+          "explanation": "$\\ln\\sqrt{\\frac{x^4}{e^2}}=\\frac{1}{2}\\ln\\frac{x^4}{e^2}=\\frac{1}{2}(4\\ln x-\\ln e^2)=\\frac{1}{2}(4\\ln x-2)=2\\ln x-1$."
+        },
+        {
+          "id": "B",
+          "text": "$4\\ln x - 2$",
+          "is_correct": false,
+          "explanation": "This is $\\ln\\frac{x^4}{e^2}$ without the square root factor. The $\\sqrt{}$ introduces a factor of $\\frac{1}{2}$: $\\frac{1}{2}(4\\ln x-2)=2\\ln x-1$."
+        },
+        {
+          "id": "C",
+          "text": "$2\\ln x - 2$",
+          "is_correct": false,
+          "explanation": "$\\frac{1}{2}(4\\ln x-2)=2\\ln x-1$, not $2\\ln x-2$. The $\\frac{1}{2}$ applies to the $-2$ term: $\\frac{1}{2}(-2)=-1$."
+        },
+        {
+          "id": "D",
+          "text": "$\\ln x - 1$",
+          "is_correct": false,
+          "explanation": "The exponent $4$ on $x^4$ contributes $\\frac{1}{2}(4)=2$ as the coefficient of $\\ln x$, not $1$."
+        }
       ],
-      "unit_objective": "FUN-1.C"
+      "unit_objective": "FUN-1.C",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u2-q058",
       "unit": "unit-2",
       "subject": "ap-precalculus",
       "difficulty": "hard",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following best gives the solution to $7^{3x-1} = 2^{x+4}$?",
       "choices": [
-        { "id": "A", "text": "$x = \\frac{\\ln 2 + 4\\ln 2}{\\ln 7 \\cdot 3 - \\ln 2}$", "is_correct": false, "explanation": "Taking logarithms: $(3x-1)\\ln7=(x+4)\\ln2\\Rightarrow3x\\ln7-\\ln7=x\\ln2+4\\ln2$. Collect $x$: $x(3\\ln7-\\ln2)=4\\ln2+\\ln7\\Rightarrow x=\\frac{4\\ln2+\\ln7}{3\\ln7-\\ln2}$." },
-        { "id": "B", "text": "$x = \\frac{4\\ln 2 + \\ln 7}{3\\ln 7 - \\ln 2}$", "is_correct": true, "explanation": "Take $\\ln$: $(3x-1)\\ln7=(x+4)\\ln2\\Rightarrow3x\\ln7-\\ln7=x\\ln2+4\\ln2\\Rightarrow x(3\\ln7-\\ln2)=4\\ln2+\\ln7\\Rightarrow x=\\frac{4\\ln2+\\ln7}{3\\ln7-\\ln2}$." },
-        { "id": "C", "text": "$x = \\frac{3 - 4}{\\ln 7 - \\ln 2}$", "is_correct": false, "explanation": "This oversimplifies. You must distribute $\\ln7$ and $\\ln2$ and group $x$ terms before solving." },
-        { "id": "D", "text": "$x = \\frac{\\ln 7 + 4\\ln 2}{3\\ln 7 + \\ln 2}$", "is_correct": false, "explanation": "The sign in the denominator is wrong. Collecting $x$: $x(3\\ln7-\\ln2)=4\\ln2+\\ln7$, giving denominator $3\\ln7-\\ln2$, not $3\\ln7+\\ln2$." }
+        {
+          "id": "A",
+          "text": "$x = \\frac{\\ln 2 + 4\\ln 2}{\\ln 7 \\cdot 3 - \\ln 2}$",
+          "is_correct": false,
+          "explanation": "Taking logarithms: $(3x-1)\\ln7=(x+4)\\ln2\\Rightarrow3x\\ln7-\\ln7=x\\ln2+4\\ln2$. Collect $x$: $x(3\\ln7-\\ln2)=4\\ln2+\\ln7\\Rightarrow x=\\frac{4\\ln2+\\ln7}{3\\ln7-\\ln2}$."
+        },
+        {
+          "id": "B",
+          "text": "$x = \\frac{4\\ln 2 + \\ln 7}{3\\ln 7 - \\ln 2}$",
+          "is_correct": true,
+          "explanation": "Take $\\ln$: $(3x-1)\\ln7=(x+4)\\ln2\\Rightarrow3x\\ln7-\\ln7=x\\ln2+4\\ln2\\Rightarrow x(3\\ln7-\\ln2)=4\\ln2+\\ln7\\Rightarrow x=\\frac{4\\ln2+\\ln7}{3\\ln7-\\ln2}$."
+        },
+        {
+          "id": "C",
+          "text": "$x = \\frac{3 - 4}{\\ln 7 - \\ln 2}$",
+          "is_correct": false,
+          "explanation": "This oversimplifies. You must distribute $\\ln7$ and $\\ln2$ and group $x$ terms before solving."
+        },
+        {
+          "id": "D",
+          "text": "$x = \\frac{\\ln 7 + 4\\ln 2}{3\\ln 7 + \\ln 2}$",
+          "is_correct": false,
+          "explanation": "The sign in the denominator is wrong. Collecting $x$: $x(3\\ln7-\\ln2)=4\\ln2+\\ln7$, giving denominator $3\\ln7-\\ln2$, not $3\\ln7+\\ln2$."
+        }
       ],
-      "unit_objective": "FUN-1.E"
+      "unit_objective": "FUN-1.E",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u2-q059",
       "unit": "unit-2",
       "subject": "ap-precalculus",
       "difficulty": "hard",
-      "stimulus": { "type": "none", "content": null },
+      "stimulus": {
+        "type": "none",
+        "content": null
+      },
       "question": "Which of the following best gives the number of years for an account earning $3\\%$ continuous interest to triple in value?",
       "choices": [
-        { "id": "A", "text": "$t = \\frac{\\ln 3}{0.03}$", "is_correct": true, "explanation": "$Pe^{0.03t}=3P\\Rightarrow e^{0.03t}=3\\Rightarrow0.03t=\\ln3\\Rightarrow t=\\frac{\\ln3}{0.03}\\approx36.6$ years." },
-        { "id": "B", "text": "$t = \\frac{3}{0.03}$", "is_correct": false, "explanation": "$\\frac{3}{0.03}=100$ years, computed without logarithms. Continuous compounding requires $t=\\frac{\\ln3}{0.03}\\approx36.6$ years." },
-        { "id": "C", "text": "$t = \\frac{\\ln 3}{3}$", "is_correct": false, "explanation": "The denominator should be $r=0.03$, not $3$. $\\frac{\\ln3}{3}\\approx0.366$, which is far too short." },
-        { "id": "D", "text": "$t = 0.03\\ln 3$", "is_correct": false, "explanation": "$0.03\\ln3\\approx0.033$, much less than a year. Solve $0.03t=\\ln3$ by dividing: $t=\\frac{\\ln3}{0.03}$." }
+        {
+          "id": "A",
+          "text": "$t = \\frac{\\ln 3}{0.03}$",
+          "is_correct": true,
+          "explanation": "$Pe^{0.03t}=3P\\Rightarrow e^{0.03t}=3\\Rightarrow0.03t=\\ln3\\Rightarrow t=\\frac{\\ln3}{0.03}\\approx36.6$ years."
+        },
+        {
+          "id": "B",
+          "text": "$t = \\frac{3}{0.03}$",
+          "is_correct": false,
+          "explanation": "$\\frac{3}{0.03}=100$ years, computed without logarithms. Continuous compounding requires $t=\\frac{\\ln3}{0.03}\\approx36.6$ years."
+        },
+        {
+          "id": "C",
+          "text": "$t = \\frac{\\ln 3}{3}$",
+          "is_correct": false,
+          "explanation": "The denominator should be $r=0.03$, not $3$. $\\frac{\\ln3}{3}\\approx0.366$, which is far too short."
+        },
+        {
+          "id": "D",
+          "text": "$t = 0.03\\ln 3$",
+          "is_correct": false,
+          "explanation": "$0.03\\ln3\\approx0.033$, much less than a year. Solve $0.03t=\\ln3$ by dividing: $t=\\frac{\\ln3}{0.03}$."
+        }
       ],
-      "unit_objective": "FUN-1.F"
+      "unit_objective": "FUN-1.F",
+      "calculator_allowed": true
     },
     {
       "id": "precalc-u2-q060",
@@ -1033,18 +2774,55 @@
       "stimulus": {
         "type": "table",
         "content": {
-          "headers": ["$x$", "$f(x)$"],
-          "rows": [["0","4"],["3","108"],["6","2916"]]
+          "headers": [
+            "$x$",
+            "$f(x)$"
+          ],
+          "rows": [
+            [
+              "0",
+              "4"
+            ],
+            [
+              "3",
+              "108"
+            ],
+            [
+              "6",
+              "2916"
+            ]
+          ]
         }
       },
       "question": "The values in the table suggest $f$ is exponential. Which of the following best gives the base $b$ of $f(x) = 4 \\cdot b^x$?",
       "choices": [
-        { "id": "A", "text": "$b = 3$", "is_correct": true, "explanation": "$\\frac{f(3)}{f(0)}=\\frac{108}{4}=27=b^3\\Rightarrow b=3$. Check: $f(6)=4\\cdot3^6=4\\cdot729=2916$. Correct." },
-        { "id": "B", "text": "$b = 9$", "is_correct": false, "explanation": "$f(3)=4\\cdot9^3=4\\cdot729=2916\\neq108$. Check ratio: $108/4=27=b^3\\Rightarrow b=3$." },
-        { "id": "C", "text": "$b = 27$", "is_correct": false, "explanation": "$27=b^3$ means $b=3$, not $b=27$. The ratio $f(3)/f(0)=27$ is the growth over $3$ periods, not the per-period base." },
-        { "id": "D", "text": "$b = 4$", "is_correct": false, "explanation": "$f(3)=4\\cdot4^3=4\\cdot64=256\\neq108$. From $b^3=27$, $b=3$." }
+        {
+          "id": "A",
+          "text": "$b = 3$",
+          "is_correct": true,
+          "explanation": "$\\frac{f(3)}{f(0)}=\\frac{108}{4}=27=b^3\\Rightarrow b=3$. Check: $f(6)=4\\cdot3^6=4\\cdot729=2916$. Correct."
+        },
+        {
+          "id": "B",
+          "text": "$b = 9$",
+          "is_correct": false,
+          "explanation": "$f(3)=4\\cdot9^3=4\\cdot729=2916\\neq108$. Check ratio: $108/4=27=b^3\\Rightarrow b=3$."
+        },
+        {
+          "id": "C",
+          "text": "$b = 27$",
+          "is_correct": false,
+          "explanation": "$27=b^3$ means $b=3$, not $b=27$. The ratio $f(3)/f(0)=27$ is the growth over $3$ periods, not the per-period base."
+        },
+        {
+          "id": "D",
+          "text": "$b = 4$",
+          "is_correct": false,
+          "explanation": "$f(3)=4\\cdot4^3=4\\cdot64=256\\neq108$. From $b^3=27$, $b=3$."
+        }
       ],
-      "unit_objective": "FUN-1.B"
+      "unit_objective": "FUN-1.B",
+      "calculator_allowed": true
     }
   ]
 }

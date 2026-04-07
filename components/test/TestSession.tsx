@@ -2,8 +2,9 @@
 
 import React, { useState, useRef, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { ChevronLeft, ChevronRight, Flag, Grid, X } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Flag, Grid, X, Calculator } from 'lucide-react'
 import MCQCard from '@/components/mcq/MCQCard'
+import DesmosPanel from '@/components/tools/DesmosPanel'
 import TestTimer from '@/components/test/TestTimer'
 import { saveTestDraft, clearTestDraft } from '@/utils/testSession'
 import type { TestSessionState, TestAnswer } from '@/utils/testSession'
@@ -28,6 +29,9 @@ export default function TestSession({
   const [showSubmitConfirm, setShowSubmitConfirm] = useState(false)
   const [showTimesUp, setShowTimesUp] = useState(false)
   const [showNavModal, setShowNavModal] = useState(false)
+  const [desmosOpen, setDesmosOpen] = useState(false)
+
+  const isCalcSubject = session.subjectSlug === 'ap-calculus-ab' || session.subjectSlug === 'ap-precalculus'
 
   // answersRef: prevents stale closure in timer's onExpiry callback
   const answersRef = useRef(answers)
@@ -62,6 +66,12 @@ export default function TestSession({
   const questions = session.questions
   const currentQuestion = questions[currentIndex]
   const isLastQuestion = currentIndex === questions.length - 1
+
+  useEffect(() => {
+    if (isCalcSubject && !currentQuestion?.calculator_allowed) {
+      setDesmosOpen(false)
+    }
+  }, [currentIndex]) // eslint-disable-line react-hooks/exhaustive-deps
 
   function handleAnswer(questionId: string, selectedChoiceId: string, isCorrect: boolean) {
     setAnswers(prev => {
@@ -487,6 +497,28 @@ export default function TestSession({
               Question {currentIndex + 1} of {questions.length}
             </span>
 
+            {isCalcSubject && currentQuestion?.calculator_allowed === true && (
+              <button
+                onClick={() => setDesmosOpen(o => !o)}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                  padding: '3px 10px',
+                  borderRadius: '999px',
+                  background: 'color-mix(in srgb, var(--accent) 15%, transparent)',
+                  border: '1px solid color-mix(in srgb, var(--accent) 30%, transparent)',
+                  color: 'var(--accent)',
+                  fontSize: '0.8125rem',
+                  fontWeight: 600,
+                  cursor: 'pointer',
+                }}
+              >
+                <Calculator size={14} />
+                Calculator
+              </button>
+            )}
+
             <TestTimer
               initialSeconds={session.durationSeconds}
               timed={session.timed}
@@ -626,6 +658,8 @@ export default function TestSession({
           </div>
         </div>
       </div>
+
+      {desmosOpen && <DesmosPanel onClose={() => setDesmosOpen(false)} />}
     </>
   )
 }

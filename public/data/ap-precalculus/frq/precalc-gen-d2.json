@@ -1,0 +1,52 @@
+{
+  "id": "precalc-gen-d2",
+  "subject": "ap-precalculus",
+  "year": null,
+  "source": "generated",
+  "title": "Exponential Decay: Medication Dosage, Half-Life & Logarithmic Solving",
+  "frq_type": "multi_part_math",
+  "related_units": [2],
+  "calculator_allowed": true,
+  "total_points": 6,
+  "stimulus": "A patient is given $400$ milligrams of a medication at noon. The amount of medication remaining in the patient's bloodstream can be modeled by the function $Q$ given by $Q(t) = 400 \\cdot \\left(\\frac{1}{2}\\right)^{t/k}$, where $Q(t)$ is the amount of medication in milligrams, $t$ is time in hours after noon, and $k$ is the half-life of the medication in hours. A doctor observes that $6$ hours after noon, the patient has $175$ milligrams remaining.",
+  "stimulus_image": null,
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "(i) Use the given data to write an equation that can be used to find the half-life $k$.\n\n(ii) Find the half-life $k$ as a decimal approximation. Show the computations that lead to your answer.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct equation — $400 \\cdot \\left(\\frac{1}{2}\\right)^{6/k} = 175$; or equivalently $\\left(\\frac{1}{2}\\right)^{6/k} = 0.4375$",
+        "1 pt: Correct half-life — from $\\left(\\frac{1}{2}\\right)^{6/k} = \\frac{175}{400} = 0.4375$: taking $\\ln$ of both sides: $\\frac{6}{k} \\cdot \\ln\\left(\\frac{1}{2}\\right) = \\ln(0.4375) \\Rightarrow \\frac{6}{k} = \\frac{\\ln(0.4375)}{\\ln(0.5)} = \\frac{-0.8267}{-0.6931} \\approx 1.1927 \\Rightarrow k = \\frac{6}{1.1927} \\approx 5.031$ hours (accept values in $[5.02, 5.04]$)"
+      ],
+      "scoring_notes": "For part (i), substituting $t = 6$ and $Q = 175$ into the model formula is required. For part (ii), the logarithm approach is expected. Alternatively: $(1/2)^{6/k} = 7/16$, so $6/k = \\log_{1/2}(7/16) = \\ln(7/16)/\\ln(1/2) \\approx 1.193$, giving $k \\approx 5.03$. Common error: writing $k/6$ instead of $6/k$ in the exponent.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "(i) Using $k = 5$ hours, find the time $t$ at which there are exactly $50$ milligrams of medication remaining in the patient's bloodstream. Express your answer as a decimal approximation. Show the computations that lead to your answer.\n\n(ii) The average rate of change of $Q$ from $t = 0$ to $t = 10$ hours is negative. What does this mean in the context of this problem? Use specific values from the model (with $k = 5$) to support your answer.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct time — $400 \\cdot (1/2)^{t/5} = 50 \\Rightarrow (1/2)^{t/5} = 1/8 \\Rightarrow t/5 = 3 \\Rightarrow t = 15$ hours (exact); supporting work must show the logarithm or exponent step $2^{t/5} = 8 \\Rightarrow t/5 = 3$",
+        "1 pt: Contextual interpretation — average rate of change $= \\frac{Q(10) - Q(0)}{10} = \\frac{400(1/2)^2 - 400}{10} = \\frac{100 - 400}{10} = \\frac{-300}{10} = -30$ mg/hr; the negative rate of change means the medication is decreasing at an average rate of $30$ milligrams per hour over the first $10$ hours; interpretation must include direction (decreasing), rate ($30$ mg/hr), and time interval (first $10$ hours)"
+      ],
+      "scoring_notes": "For part (i), $t = 15$ hours is exact. Full credit without calculator for this part. For part (ii), $Q(0) = 400$ and $Q(10) = 400(1/4) = 100$. Average rate $= (100-400)/10 = -30$ mg/hr. The contextual interpretation must reference medication amount, time, and the meaning of the negative sign. A response that only states 'the amount is decreasing' without the rate or time interval does not earn the point.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "Using $k = 5$ hours, the model $Q(t) = 400 \\cdot (1/2)^{t/5}$ can be rewritten in the form $Q(t) = 400 \\cdot e^{ct}$ for some constant $c$.\n\n(i) Find the value of $c$ as a decimal approximation.\n\n(ii) A nurse uses the linear approximation $L(t) = 400 - 55.452t$ to estimate drug levels near $t = 0$. Explain why $L(t) < Q(t)$ for all $t > 0$ and $L(t) > Q(t)$ is not possible. Use the concavity of $Q$ to justify.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct value $c = \\frac{\\ln(1/2)}{5} = \\frac{-\\ln 2}{5} \\approx \\frac{-0.6931}{5} \\approx -0.1386$ (accept values in $[-0.139, -0.138]$)",
+        "1 pt: Correct concavity-based explanation — $Q(t) = 400e^{ct}$ is a decreasing exponential function with a concave up graph (second derivative is positive: $Q''(t) = 400c^2e^{ct} > 0$); a tangent line at $t = 0$ (which is what $L(t)$ approximates) lies below a concave up function for all $t \\neq 0$; therefore $L(t) \\leq Q(t)$ for all $t$, with equality only at $t = 0$"
+      ],
+      "scoring_notes": "For part (i), $e^c = (1/2)^{1/5}$, so $c = \\frac{\\ln(1/2)}{5} = -\\frac{\\ln 2}{5} \\approx -0.1386$. Note: $-55.452 \\approx 400c$ confirms this is the slope at $t=0$. For part (ii), the key reasoning is: concave up function $\\Rightarrow$ tangent line lies below the curve everywhere except the point of tangency. This is a fundamental property of convex functions. The explanation must explicitly invoke 'concave up' and connect it to the tangent/linear approximation relationship.",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

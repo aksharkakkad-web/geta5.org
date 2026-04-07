@@ -1,0 +1,52 @@
+{
+  "id": "precalc-gen-b1",
+  "subject": "ap-precalculus",
+  "year": null,
+  "source": "generated",
+  "title": "Rational & Piecewise Functions: Asymptotes, Inverses & Transformations",
+  "frq_type": "multi_part_math",
+  "related_units": [1, 2],
+  "calculator_allowed": true,
+  "total_points": 6,
+  "stimulus": "The function $f$ is defined by $f(x) = \\frac{3x + 6}{x - 2}$ for $x \\neq 2$. The function $g$ is defined by $g(x) = \\ln(x - 1) + 4$ for $x > 1$.",
+  "stimulus_image": null,
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "(i) Determine the equations of any vertical and horizontal asymptotes of $f$. Explain how each asymptote relates to the structure of the function.\n\n(ii) Determine whether $f$ has an inverse function. If it does, find $f^{-1}(x)$. If it does not, explain why.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct asymptotes — vertical asymptote $x = 2$ (denominator equals zero) and horizontal asymptote $y = 3$ (ratio of leading coefficients as $x \\to \\pm\\infty$, since $\\frac{3x+6}{x-2} \\to 3$); both must be present with correct equations",
+        "1 pt: Correct inverse — $f$ has an inverse (it is one-to-one: each horizontal line $y = k \\neq 3$ intersects the graph at most once); $f^{-1}(x) = \\frac{2x + 6}{x - 3}$ (derived by solving $y = \\frac{3x+6}{x-2}$ for $x$: $y(x-2) = 3x+6 \\Rightarrow xy - 2y = 3x + 6 \\Rightarrow x(y-3) = 2y+6 \\Rightarrow x = \\frac{2y+6}{y-3}$)"
+      ],
+      "scoring_notes": "For part (i), the explanation of vertical asymptote should reference 'denominator equals zero at $x = 2$.' The horizontal asymptote explanation should reference degree comparison or limit behavior. For part (ii), the domain of $f^{-1}$ is $x \\neq 3$. Accept any equivalent form of $f^{-1}(x)$. Note $f$ is actually a shifted hyperbola and is strictly decreasing on each piece, so it is one-to-one on its domain $x \\neq 2$.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "(i) Find the value of $g^{-1}(6)$, where $g^{-1}$ is the inverse of $g$. Show the computations that lead to your answer.\n\n(ii) Find all values of $x$ for which $(f \\circ g)(x) = 4$, or indicate there are no such values. Express your answer as a decimal approximation.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct value $g^{-1}(6) = e^2 + 1 = 8.389$ (from $\\ln(x-1) + 4 = 6 \\Rightarrow \\ln(x-1) = 2 \\Rightarrow x - 1 = e^2 \\Rightarrow x = e^2 + 1$; accept exact $e^2 + 1$ or decimal approximation $8.389$)",
+        "1 pt: Correct solution — $f(g(x)) = 4$: first solve $f(u) = 4$ to get $\\frac{3u+6}{u-2} = 4 \\Rightarrow 3u+6 = 4u-8 \\Rightarrow u = 14$; then $g(x) = 14 \\Rightarrow \\ln(x-1) + 4 = 14 \\Rightarrow \\ln(x-1) = 10 \\Rightarrow x = e^{10} + 1 \\approx 22027.466$"
+      ],
+      "scoring_notes": "For part (i), accept either exact or decimal form. For part (ii), the two-step approach (solve $f(u)=4$ then $g(x)=u$) is the expected method. Decimal approximation $x \\approx 22027.466$ must be correct to three decimal places. Common error: solving $g(f(x)) = 4$ instead of $f(g(x)) = 4$.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "The function $g(x) = \\ln(x - 1) + 4$ is a transformation of $y = \\ln(x)$.\n\n(i) Describe the transformations applied to $y = \\ln(x)$ to obtain $g(x)$.\n\n(ii) Determine the end behavior of $g$ as $x$ increases without bound. Express your answer using the notation of a limit.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct transformations — horizontal shift right by $1$ unit (replacing $x$ with $x - 1$) and vertical shift up by $4$ units (adding $4$); both transformations must be named correctly with directions",
+        "1 pt: Correct limit statement $\\lim_{x \\to \\infty} g(x) = \\infty$, with all four components: 'lim', '$x \\to \\infty$', function $g$, and $\\infty$"
+      ],
+      "scoring_notes": "For part (i), accept 'shift right 1, up 4' or equivalent. Do not accept 'shift left 1' or 'shift down 4.' For part (ii), the end behavior of $\\ln$ functions grows without bound (slowly), so the limit is $\\infty$. Also accept: $g(x) \\to \\infty$ as $x \\to \\infty$. If student writes $\\lim_{x \\to \\infty} g(x) = \\ln(\\infty) + 4$, this is not acceptable notation.",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

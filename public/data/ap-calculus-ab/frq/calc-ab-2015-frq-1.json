@@ -1,0 +1,65 @@
+{
+  "id": "calc-ab-2015-frq-1",
+  "subject": "ap-calculus-ab",
+  "year": 2015,
+  "source": "released",
+  "title": "Drainpipe Water Flow — Cubic Feet In/Out, Min Water Time & Overflow Equation",
+  "frq_type": "multi_part_math",
+  "related_units": [4, 6, 8],
+  "calculator_allowed": true,
+  "total_points": 9,
+  "stimulus": "The rate at which rainwater flows into a drainpipe is modeled by the function $R$, where $R(t) = 20\\sin\\left(\\frac{t^2}{35}\\right)$ cubic feet per hour, $t$ is measured in hours, and $0 \\le t \\le 8$. The pipe is partially blocked, allowing water to drain out the other end of the pipe at a rate modeled by $D(t) = -0.04t^3 + 0.4t^2 + 0.96t$ cubic feet per hour, for $0 \\le t \\le 8$. There are 30 cubic feet of water in the pipe at time $t = 0$.",
+  "stimulus_image": null,
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "How many cubic feet of rainwater flow into the pipe during the 8-hour time interval $0 \\le t \\le 8$?",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct integral expression: $\\int_0^8 R(t)\\, dt$",
+        "1 pt: Correct answer: $\\int_0^8 R(t)\\, dt \\approx 76.570$ cubic feet"
+      ],
+      "scoring_notes": "From scoring key: $\\int_0^8 R(t)\\, dt \\approx 76.570$ cubic feet of rainwater flow into the pipe.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "Is the amount of water in the pipe increasing or decreasing at time $t = 3$ hours? Give a reason for your answer.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Computes and compares $R(3)$ and $D(3)$: $R(3) - D(3) \\approx -0.314 < 0$",
+        "1 pt: Correct answer with reason: the amount of water is decreasing at $t = 3$ because $R(3) < D(3)$ (the rate draining out exceeds the rate flowing in)"
+      ],
+      "scoring_notes": "From scoring key: $R(3) - D(3) \\approx -0.314 < 0$. Since $R(3) < D(3)$, the amount of water is decreasing at $t = 3$.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "At what time $t$, $0 \\le t \\le 8$, is the amount of water in the pipe at a minimum? Justify your answer.",
+      "point_value": 3,
+      "rubric_criteria": [
+        "1 pt: Sets $R(t) - D(t) = 0$ to find critical points: $t = 0$ and $t \\approx 3.272$",
+        "1 pt: Correct answer: minimum at $t \\approx 3.272$ (or $3.271$) hours",
+        "1 pt: Justification: evaluates amount of water at $t = 0$, $t \\approx 3.272$, and $t = 8$; values are $30$, $\\approx 27.965$, $\\approx 48.544$; minimum is $\\approx 27.965$ at $t \\approx 3.272$"
+      ],
+      "scoring_notes": "From scoring key: Amount of water $= 30 + \\int_0^t [R(x)-D(x)]\\, dx$. Critical points: $t \\approx 3.272$. Values: $30$ (at $t=0$), $\\approx 27.965$ (at $t \\approx 3.272$), $\\approx 48.544$ (at $t=8$). Minimum at $t \\approx 3.272$.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "d",
+      "prompt": "The pipe can hold 50 cubic feet of water before overflowing. For $t > 8$, water continues to flow into and out of the pipe at the given rates until the pipe begins to overflow. Write, but do not solve, an equation involving one or more integrals that gives the time $w$ when the pipe will begin to overflow.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct integral expression: $\\int_0^w [R(t) - D(t)]\\, dt$ representing net change",
+        "1 pt: Correct equation: $30 + \\int_0^w [R(t) - D(t)]\\, dt = 50$"
+      ],
+      "scoring_notes": "From scoring key: $30 + \\int_0^w [R(t) - D(t)]\\, dt = 50$ (do not solve for $w$).",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

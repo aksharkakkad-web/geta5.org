@@ -1,0 +1,68 @@
+{
+  "id": "calc-ab-2017-frq-1",
+  "subject": "ap-calculus-ab",
+  "year": 2017,
+  "source": "released",
+  "title": "Water Tank Cross-Section — Left Riemann Sum, Volume Model & Related Rates",
+  "frq_type": "multi_part_math",
+  "related_units": [
+    6,
+    8
+  ],
+  "calculator_allowed": true,
+  "total_points": 9,
+  "stimulus": "A tank has a height of 10 feet. The area of the horizontal cross section of the tank at height $h$ feet is given by the function $A$, where $A(h)$ is measured in square feet. The function $A$ is continuous and decreases as $h$ increases. Selected values for $A(h)$ are given in the table.\n\n| $h$ (feet) | 0 | 2 | 5 | 10 |\n|---|---|---|---|---|\n| $A(h)$ (square feet) | 50.3 | 14.4 | 6.5 | 2.9 |",
+  "stimulus_image": "/data/ap-calculus-ab/frq/images/calc-ab-2017-frq-1-stimulus.png",
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "Use a left Riemann sum with the three subintervals indicated by the data in the table to approximate the volume of the tank. Indicate units of measure.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Sets up left Riemann sum: $(2-0) \\cdot A(0) + (5-2) \\cdot A(2) + (10-5) \\cdot A(5)$",
+        "1 pt: Correct answer with units: $2(50.3) + 3(14.4) + 5(6.5) = 100.6 + 43.2 + 32.5 = 176.3$ cubic feet"
+      ],
+      "scoring_notes": "From scoring key: $(2)(50.3) + (3)(14.4) + (5)(6.5) = 176.3$ cubic feet. Units must be stated.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "Does the approximation in part (a) overestimate or underestimate the volume of the tank? Explain your reasoning.",
+      "point_value": 1,
+      "rubric_criteria": [
+        "1 pt: Overestimate with reason: a left Riemann sum is used and $A$ is decreasing (so left endpoints give values larger than function values over each subinterval)"
+      ],
+      "scoring_notes": "From scoring key: The approximation is an overestimate because a left Riemann sum is used and $A$ is decreasing.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "The area, in square feet, of the horizontal cross section at height $h$ feet is modeled by the function $f$ given by $f(h) = \\frac{50.3}{e^{0.2h} + h}$. Based on this model, find the volume of the tank. Indicate units of measure.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct integral expression: $\\int_0^{10} f(h)\\, dh$",
+        "1 pt: Correct answer with units: $\\int_0^{10} f(h)\\, dh \\approx 101.325$ cubic feet"
+      ],
+      "scoring_notes": "From scoring key: Volume $= \\int_0^{10} f(h)\\, dh \\approx 101.325$ cubic feet. Units must be stated.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "d",
+      "prompt": "Water is pumped into the tank. When the height of the water is 5 feet, the height is increasing at the rate of 0.26 foot per minute. Using the model from part (c), find the rate at which the volume of water is changing with respect to time when the height of the water is 5 feet. Indicate units of measure.",
+      "point_value": 4,
+      "rubric_criteria": [
+        "1 pt: Sets up $V(h) = \\int_0^h f(x)\\, dx$, so $\\frac{dV}{dt} = f(h) \\cdot \\frac{dh}{dt}$ by chain rule",
+        "1 pt: Evaluates $f(5) = \\frac{50.3}{e^{1} + 5} \\approx 6.520$ (from model)",
+        "1 pt: Correct setup: $\\frac{dV}{dt}\\big|_{h=5} = f(5) \\cdot 0.26$",
+        "1 pt: Correct answer with units: $\\frac{dV}{dt} \\approx 1.694$ cubic feet per minute"
+      ],
+      "scoring_notes": "From scoring key: $\\frac{dV}{dt} = \\frac{dV}{dh} \\cdot \\frac{dh}{dt} = f(h) \\cdot \\frac{dh}{dt}\\bigg|_{h=5} = f(5) \\cdot 0.26 \\approx 1.694$ cubic feet per minute. Units must be stated.",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

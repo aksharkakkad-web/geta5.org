@@ -1,0 +1,65 @@
+{
+  "id": "calc-ab-2023-frq-3",
+  "subject": "ap-calculus-ab",
+  "year": 2023,
+  "source": "released",
+  "title": "Milk Temperature — Slope Field, Linear Approximation & Separation of Variables",
+  "frq_type": "multi_part_math",
+  "related_units": [7],
+  "calculator_allowed": false,
+  "total_points": 9,
+  "stimulus": "A bottle of milk is taken out of a refrigerator and placed in a pan of hot water to be warmed. The increasing function $M$ models the temperature of the milk at time $t$, where $M(t)$ is measured in degrees Celsius and $t$ is the number of minutes since the bottle was placed in the pan. $M$ satisfies the differential equation $\\frac{dM}{dt} = \\frac{1}{4}(40 - M)$. At time $t = 0$, the temperature of the milk is $5^\\circ$C. It can be shown that $M(t) < 40$ for all values of $t$.",
+  "stimulus_image": null,
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "A slope field for the differential equation $\\frac{dM}{dt} = \\frac{1}{4}(40 - M)$ is shown. Sketch the solution curve through the point $(0, 5)$.",
+      "point_value": 1,
+      "rubric_criteria": [
+        "1 pt: Solution curve passes through $(0, 5)$, extends reasonably close to left and right edges, follows slope lines with no obvious conflicts, and lies entirely below the horizontal line $M = 40$"
+      ],
+      "scoring_notes": "The curve must start at $(0, 5)$, increase toward the asymptote $M = 40$, and be consistent with the slope field. Only the portion within the given slope field is evaluated.",
+      "requires_drawing": true,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "Use the line tangent to the graph of $M$ at $t = 0$ to approximate $M(2)$, the temperature of the milk at time $t = 2$ minutes.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct slope at $t = 0$: $\\frac{dM}{dt}\\big|_{t=0} = \\frac{1}{4}(40 - 5) = \\frac{35}{4}$",
+        "1 pt: Correct linear approximation: $M(2) \\approx 5 + \\frac{35}{4}(2) = 5 + \\frac{35}{2} = 22.5$°C"
+      ],
+      "scoring_notes": "The slope value $\\frac{35}{4}$ may appear in a tangent line equation or approximation. Minimal correct response: $5 + \\frac{35}{4}\\cdot 2$. If simplification is incorrect, the approximation point is lost. Must use tangent line through $(0, 5)$ with the correct slope.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "Write an expression for $\\frac{d^2M}{dt^2}$ in terms of $M$. Use $\\frac{d^2M}{dt^2}$ to determine whether the approximation from part (b) is an underestimate or an overestimate for the actual value of $M(2)$. Give a reason for your answer.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct second derivative: $\\frac{d^2M}{dt^2} = -\\frac{1}{4}\\cdot\\frac{dM}{dt} = -\\frac{1}{4}\\cdot\\frac{1}{4}(40-M) = -\\frac{1}{16}(40-M)$",
+        "1 pt: Overestimate; because $M(t) < 40$, $\\frac{d^2M}{dt^2} = -\\frac{1}{16}(40-M) < 0$, so the graph of $M$ is concave down, meaning the tangent line approximation is an overestimate"
+      ],
+      "scoring_notes": "First point earned for $\\frac{d^2M}{dt^2} = -\\frac{1}{16}(40-M)$ or equivalent. Second point requires stating $\\frac{d^2M}{dt^2} < 0$ (or concave down) AND concluding overestimate. A response presenting only the expression in terms of $\\frac{dM}{dt}$ (not $M$) does not earn first point but is eligible for second point.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "d",
+      "prompt": "Use separation of variables to find an expression for $M(t)$, the particular solution to the differential equation $\\frac{dM}{dt} = \\frac{1}{4}(40 - M)$ with initial condition $M(0) = 5$.",
+      "point_value": 4,
+      "rubric_criteria": [
+        "1 pt: Correctly separates variables: $\\frac{dM}{40-M} = \\frac{1}{4}\\, dt$",
+        "1 pt: Correct antiderivatives: $-\\ln|40-M| = \\frac{t}{4} + C$ (or equivalent)",
+        "1 pt: Uses initial condition $M(0) = 5$: $-\\ln(35) = 0 + C$, so $C = -\\ln 35$",
+        "1 pt: Solves for $M$: $M(t) = 40 - 35e^{-t/4}$"
+      ],
+      "scoring_notes": "A response with no separation earns 0/4. No constant of integration earns at most 2/4. Must earn first two points to be eligible for third. Must earn first three to be eligible for fourth. Since $M(t) < 40$, absolute value can be dropped: $40 - M > 0$. Final answer $M(t) = 40 - 35e^{-t/4}$.",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "id": "calc-ab-2012-frq-4",
+  "subject": "ap-calculus-ab",
+  "year": 2012,
+  "source": "released",
+  "title": "f(x) = √(25-x²) — Derivative, Tangent Line, Continuity of g & Substitution Integral",
+  "frq_type": "multi_part_math",
+  "related_units": [1, 2, 3, 6],
+  "calculator_allowed": false,
+  "total_points": 9,
+  "stimulus": "The function $f$ is defined by $f(x) = \\sqrt{25 - x^2}$ for $-5 \\le x \\le 5$.",
+  "stimulus_image": null,
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "Find $f'(x)$.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Applies chain rule correctly",
+        "1 pt: Correct answer: $f'(x) = \\frac{-x}{\\sqrt{25-x^2}}$ for $-5 < x < 5$"
+      ],
+      "scoring_notes": "From scoring key: $f'(x) = \\frac{1}{2}(25-x^2)^{-1/2}(-2x) = \\frac{-x}{\\sqrt{25-x^2}}$.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "Write an equation for the line tangent to the graph of $f$ at $x = -3$.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Finds $f'(-3) = \\frac{-(-3)}{\\sqrt{25-9}} = \\frac{3}{4}$ (slope at $x = -3$)",
+        "1 pt: Correct tangent line: $f(-3) = \\sqrt{16} = 4$; equation: $y = 4 + \\frac{3}{4}(x+3)$"
+      ],
+      "scoring_notes": "From scoring key: $f'(-3) = \\frac{3}{4}$, $f(-3) = 4$. Tangent line: $y = 4 + \\frac{3}{4}(x+3)$.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "Let $g$ be the function defined by $g(x) = \\begin{cases} f(x) & \\text{for } -5 \\le x \\le -3 \\\\ x + 7 & \\text{for } -3 < x \\le 5 \\end{cases}$. Is $g$ continuous at $x = -3$? Use the definition of continuity to explain your answer.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Considers both one-sided limits: $\\lim_{x \\to -3^-} g(x) = \\lim_{x \\to -3^-} f(x) = 4$ and $\\lim_{x \\to -3^+} g(x) = \\lim_{x \\to -3^+} (x+7) = 4$",
+        "1 pt: Correct conclusion with justification: $\\lim_{x \\to -3} g(x) = 4 = g(-3)$, so $g$ is continuous at $x = -3$"
+      ],
+      "scoring_notes": "From scoring key: Both one-sided limits equal 4, and $g(-3) = f(-3) = 4$. Since $\\lim_{x \\to -3} g(x) = g(-3)$, $g$ is continuous at $x = -3$.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "d",
+      "prompt": "Find the value of $\\int_0^5 x\\sqrt{25-x^2}\\, dx$.",
+      "point_value": 3,
+      "rubric_criteria": [
+        "1 pt: Uses substitution: let $u = 25 - x^2$, $du = -2x\\, dx$; limits change from $u = 25$ (at $x=0$) to $u = 0$ (at $x=5$)",
+        "1 pt: Correct antiderivative: $\\int x\\sqrt{25-x^2}\\, dx = -\\frac{1}{2}\\int \\sqrt{u}\\, du = -\\frac{1}{3}u^{3/2}$",
+        "1 pt: Correct answer: $\\left[-\\frac{1}{3}u^{3/2}\\right]_{25}^0 = -\\frac{1}{3}(0 - 125) = \\frac{125}{3}$"
+      ],
+      "scoring_notes": "From scoring key: $u = 25-x^2$. $\\int_0^5 x\\sqrt{25-x^2}\\, dx = -\\frac{1}{2}\\int_{25}^0 \\sqrt{u}\\, du = -\\frac{1}{3}[u^{3/2}]_0^{25}|$... $= -\\frac{1}{3}(0-125) = \\frac{125}{3}$.",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "id": "calc-ab-2008-frq-3",
+  "subject": "ap-calculus-ab",
+  "year": 2008,
+  "source": "released",
+  "title": "Oil Slick Cylinder V=πr²h — Related Rates dh/dt, Max Volume Time & Volume Expression (Write Only)",
+  "frq_type": "multi_part_math",
+  "related_units": [4, 6, 8],
+  "calculator_allowed": true,
+  "total_points": 9,
+  "stimulus": "Oil is leaking from a pipeline on the surface of a lake and forms an oil slick whose volume increases at a constant rate of 2000 cubic centimeters per minute. The oil slick takes the form of a right circular cylinder with both its radius and height changing with time. (Note: The volume $V$ of a right circular cylinder with radius $r$ and height $h$ is given by $V = \\pi r^2 h$.)",
+  "stimulus_image": null,
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "At the instant when the radius of the oil slick is 100 centimeters and the height is 0.5 centimeter, the radius is increasing at the rate of 2.5 centimeters per minute. At this instant, what is the rate of change of the height of the oil slick with respect to time, in centimeters per minute?",
+      "point_value": 4,
+      "rubric_criteria": [
+        "1 pt: States $\\frac{dV}{dt} = 2000$ and $\\frac{dr}{dt} = 2.5$",
+        "2 pts: Differentiates: $\\frac{dV}{dt} = 2\\pi r h \\frac{dr}{dt} + \\pi r^2 \\frac{dh}{dt}$",
+        "1 pt: Correct answer: $2000 = 2\\pi(100)(0.5)(2.5) + \\pi(100)^2 \\frac{dh}{dt}$; $\\frac{dh}{dt} = \\frac{2000 - 250\\pi}{10000\\pi} \\approx 0.038$ or $0.039$ cm/min"
+      ],
+      "scoring_notes": "From scoring key: $2000 = 2\\pi(100)(2.5)(0.5) + \\pi(100)^2 \\frac{dh}{dt}$; $\\frac{dh}{dt} \\approx 0.038$ or $0.039$ cm/min.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "A recovery device arrives on the scene and begins removing oil. The rate at which oil is removed is $R(t) = 400\\sqrt{t}$ cubic centimeters per minute, where $t$ is the time in minutes since the device began working. Oil continues to leak at the rate of 2000 cubic centimeters per minute. Find the time $t$ when the oil slick reaches its maximum volume. Justify your answer.",
+      "point_value": 3,
+      "rubric_criteria": [
+        "1 pt: Sets $\\frac{dV}{dt} = 2000 - R(t) = 0 \\Rightarrow R(t) = 2000 \\Rightarrow 400\\sqrt{t} = 2000 \\Rightarrow t = 25$",
+        "1 pt: Correct answer: $t = 25$ minutes",
+        "1 pt: Justification: $\\frac{dV}{dt} > 0$ for $0 < t < 25$ and $\\frac{dV}{dt} < 0$ for $t > 25$, so the oil slick reaches its maximum volume at $t = 25$ minutes"
+      ],
+      "scoring_notes": "From scoring key: $R(t) = 2000$ when $t = 25$. $\\frac{dV}{dt} > 0$ for $t < 25$ and $< 0$ for $t > 25$; maximum volume at $t = 25$.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "By the time the recovery device began removing oil, 60,000 cubic centimeters of oil had already leaked. Write, but do not evaluate, an expression involving an integral that gives the volume of oil at the time found in part (b).",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct limits and initial condition: starts from $60,000$ plus accumulation from $t=0$ to $t=25$",
+        "1 pt: Correct integrand: $60,000 + \\int_0^{25}(2000 - R(t))\\, dt = 60,000 + \\int_0^{25}(2000 - 400\\sqrt{t})\\, dt$ cubic centimeters"
+      ],
+      "scoring_notes": "From scoring key: Volume at $t=25$ is $60{,}000 + \\int_0^{25}(2000 - 400\\sqrt{t})\\, dt$ cubic centimeters (do not evaluate).",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

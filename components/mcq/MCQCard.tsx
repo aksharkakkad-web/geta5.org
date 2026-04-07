@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import { Check, X } from 'lucide-react'
 import KatexRenderer from '@/components/KatexRenderer'
+import InlineKatex from '@/components/study-guide/InlineKatex'
 import StimulusRenderer from '@/components/mcq/StimulusRenderer'
 import { scramble } from '@/utils/scramble'
 import type { MCQ, MCQChoice } from '@/utils/mcqSession'
@@ -262,7 +263,7 @@ export default function MCQCard({ question, onAnswer, onNext, testMode = false, 
                   paddingLeft: '40px',
                 }}
               >
-                {choice.explanation}
+                <InlineKatex text={choice.explanation ?? ''} />
               </div>
             )}
           </div>

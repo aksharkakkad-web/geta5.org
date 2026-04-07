@@ -1,0 +1,58 @@
+{
+  "id": "calc-ab-2018-frq-6",
+  "subject": "ap-calculus-ab",
+  "year": 2018,
+  "source": "released",
+  "title": "dy/dx = (1/3)x(y-2)² — Slope Field, Tangent Line & Separation of Variables",
+  "frq_type": "multi_part_math",
+  "related_units": [
+    3,
+    7
+  ],
+  "calculator_allowed": false,
+  "total_points": 9,
+  "stimulus": "Consider the differential equation $\\frac{dy}{dx} = \\frac{1}{3}x(y-2)^2$.",
+  "stimulus_image": null,
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "A slope field for the given differential equation is shown. Sketch the solution curve that passes through the point $(0, 2)$, and sketch the solution curve that passes through the point $(1, 0)$.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Solution curve through $(0, 2)$: horizontal line $y = 2$ (since $\\frac{dy}{dx} = 0$ when $y = 2$; $y = 2$ is an equilibrium solution)",
+        "1 pt: Solution curve through $(1, 0)$: follows slope field lines, passing through $(1, 0)$, decreasing then increasing toward $y = 2$ from below"
+      ],
+      "scoring_notes": "From scoring key: Curves must pass through indicated points, follow slope field lines, and extend to boundary of slope field. The curve through $(0,2)$ is the horizontal asymptote $y = 2$. Curve through $(1,0)$ is a non-constant solution approaching $y = 2$ asymptotically.",
+      "requires_drawing": true,
+      "reference_image": "/data/ap-calculus-ab/frq/images/calc-ab-2018-frq-6-a-ref.png"
+    },
+    {
+      "letter": "b",
+      "prompt": "Let $y = f(x)$ be the particular solution to the given differential equation with initial condition $f(1) = 0$. Write an equation for the line tangent to the graph of $y = f(x)$ at $x = 1$. Use your equation to approximate $f(0.7)$.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Equation of tangent line: $\\frac{dy}{dx}\\big|_{(1,0)} = \\frac{1}{3}(1)(0-2)^2 = \\frac{4}{3}$; tangent line: $y = \\frac{4}{3}(x - 1)$",
+        "1 pt: Correct approximation: $f(0.7) \\approx \\frac{4}{3}(0.7 - 1) = \\frac{4}{3}(-0.3) = -0.4$"
+      ],
+      "scoring_notes": "From scoring key: Slope at $(1, 0)$: $\\frac{dy}{dx} = \\frac{1}{3}(1)(0-2)^2 = \\frac{4}{3}$. Tangent line: $y = \\frac{4}{3}(x - 1)$. Approximation: $f(0.7) \\approx \\frac{4}{3}(0.7 - 1) = -0.4$.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "Find the particular solution $y = f(x)$ to the given differential equation with initial condition $f(1) = 0$.",
+      "point_value": 5,
+      "rubric_criteria": [
+        "1 pt: Separates variables: $\\frac{dy}{(y-2)^2} = \\frac{1}{3}x\\, dx$",
+        "1 pt: Correct antiderivatives: $\\int (y-2)^{-2}\\, dy = -\\frac{1}{y-2}$ and $\\int \\frac{x}{3}\\, dx = \\frac{x^2}{6}$; so $-\\frac{1}{y-2} = \\frac{x^2}{6} + C$",
+        "1 pt: Includes constant of integration",
+        "1 pt: Uses initial condition $f(1) = 0$: $-\\frac{1}{0-2} = \\frac{1}{6} + C \\Rightarrow \\frac{1}{2} = \\frac{1}{6} + C \\Rightarrow C = \\frac{1}{3}$",
+        "1 pt: Solves for $y$: $-\\frac{1}{y-2} = \\frac{x^2}{6} + \\frac{1}{3} = \\frac{x^2 + 2}{6}$; so $y - 2 = \\frac{-6}{x^2+2}$; $y = 2 - \\frac{6}{x^2+2}$"
+      ],
+      "scoring_notes": "From scoring key: Separation gives $\\frac{dy}{(y-2)^2} = \\frac{x}{3}\\, dx$. Integrating: $-\\frac{1}{y-2} = \\frac{x^2}{6} + C$. With $f(1) = 0$: $C = \\frac{1}{3}$. Final answer: $y = f(x) = 2 - \\frac{6}{x^2+2}$, valid for all $x$. No separation of variables = 0/5. No constant of integration = at most 3/5.",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

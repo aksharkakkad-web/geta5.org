@@ -1,0 +1,58 @@
+{
+  "id": "calc-ab-2024-frq-6",
+  "subject": "ap-calculus-ab",
+  "year": 2024,
+  "source": "released",
+  "title": "Area Between Curves, Volume of Solids",
+  "frq_type": "multi_part_math",
+  "related_units": [
+    6,
+    8
+  ],
+  "calculator_allowed": false,
+  "total_points": 9,
+  "stimulus": "The functions $f$ and $g$ are defined by $f(x) = x^2 + 2$ and $g(x) = x^2 - 2x$, as shown in the graph.",
+  "stimulus_image": "/data/ap-calculus-ab/frq/images/calc-ab-2024-frq-6-stimulus.png",
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "Let $R$ be the region bounded by the graphs of $f$ and $g$, from $x = 0$ to $x = 2$, as shown in the graph. Write, but do not evaluate, an integral expression that gives the area of region $R$.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Correct integrand form: $f(x) - g(x) = (x^2 + 2) - (x^2 - 2x) = 2x + 2$, or presented as $f(x) - g(x)$",
+        "1 pt: Correct complete expression: $\\int_0^2 (f(x) - g(x))\\, dx$ or $\\int_0^2 (2x+2)\\, dx$"
+      ],
+      "scoring_notes": "Accept $\\int_0^2 (f(x)-g(x))\\, dx$, $\\int_0^2 (2x+2)\\, dx$, or difference of integrals. Note $f(x) \\ge g(x)$ on $[0,2]$ so the integrand is non-negative. A response with $g(x) - f(x)$ earns P1 only if it acknowledges the area is the absolute value.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "Let $S$ be the region bounded by the graph of $g$ and the $x$-axis, from $x = 2$ to $x = 5$, as shown in the graph. Region $S$ is the base of a solid. For this solid, at each $x$ the cross section perpendicular to the $x$-axis is a rectangle with height equal to half its base in region $S$. Find the volume of the solid. Show the work that leads to your answer.",
+      "point_value": 4,
+      "rubric_criteria": [
+        "1 pt: Correct integrand for volume: $\\frac{1}{2}[g(x)]^2 = \\frac{1}{2}(x^2-2x)^2$",
+        "1 pt: Correct limits $x = 2$ to $x = 5$ in a definite integral",
+        "1 pt: Correct antiderivative: $\\frac{1}{2}\\int_2^5 (x^4 - 4x^3 + 4x^2)\\, dx = \\frac{1}{2}\\left[\\frac{x^5}{5} - x^4 + \\frac{4x^3}{3}\\right]_2^5$",
+        "1 pt: Correct answer: $\\frac{1}{2}\\left[\\left(\\frac{3125}{5} - 625 + \\frac{500}{3}\\right) - \\left(\\frac{32}{5} - 16 + \\frac{32}{3}\\right)\\right] = \\frac{414}{5}$ or equivalent"
+      ],
+      "scoring_notes": "The cross section is a rectangle where base $= g(x) = x^2 - 2x$ and height $= \\frac{1}{2}(x^2-2x)$, so area $= \\frac{1}{2}(x^2-2x)^2$. Volume $= \\int_2^5 \\frac{1}{2}(x^2-2x)^2\\, dx$. Expanding: $\\frac{1}{2}\\int_2^5(x^4-4x^3+4x^2)\\, dx$. Antiderivative: $\\frac{1}{2}\\left[\\frac{x^5}{5}-x^4+\\frac{4x^3}{3}\\right]_2^5 = \\frac{1500}{2\\cdot3} - \\frac{16}{2\\cdot15} = \\frac{414}{5}$. Accept equivalent exact form.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "Write, but do not evaluate, an integral expression that gives the volume of the solid generated when region $S$, as described in part (b), is rotated about the horizontal line $y = 20$.",
+      "point_value": 3,
+      "rubric_criteria": [
+        "1 pt: Correct form of integrand using washer method: outer radius $= 20 - 0 = 20$ and inner radius $= 20 - g(x) = 20 - (x^2-2x)$, i.e., $R^2 - r^2$ form",
+        "1 pt: Correct integrand: $\\pi\\left[(20)^2 - (20 - (x^2-2x))^2\\right]$ or $\\pi\\left[20^2 - (20-g(x))^2\\right]$",
+        "1 pt: Correct limits, constant $\\pi$, and differential $dx$: $\\pi\\int_2^5 \\left[(20)^2 - (20-(x^2-2x))^2\\right]\\, dx$"
+      ],
+      "scoring_notes": "Since $y = 20$ is above the region, the outer radius is $20 - 0 = 20$ (distance from axis to $x$-axis) and inner radius is $20 - g(x)$ (distance from axis to $g(x)$). Volume $= \\pi\\int_2^5\\left[20^2 - (20-g(x))^2\\right]\\, dx$. A response that reverses the difference of squares but compensates with the constant or limits also earns P7. Must include $\\pi$, correct limits, and $dx$ for the third point.",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

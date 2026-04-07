@@ -18,7 +18,7 @@ function todayUTC(): string {
   return new Date().toISOString().split('T')[0]
 }
 
-export async function checkAndIncrementUsage(userId: string): Promise<{
+export async function checkAndIncrementUsage(userId: string, callCost: number = 1): Promise<{
   allowed: boolean
   reason?: 'user_limit' | 'global_limit'
   current: number
@@ -30,7 +30,7 @@ export async function checkAndIncrementUsage(userId: string): Promise<{
 
   // --- Fast-deny from cache (avoids DB round-trip for already-limited users) ---
   const cached = cache.get(userId)
-  if (cached && cached.date === today && cached.count >= DAILY_USER_LIMIT) {
+  if (cached && cached.date === today && cached.count + callCost > DAILY_USER_LIMIT) {
     return {
       allowed: false,
       reason: 'user_limit',
@@ -53,10 +53,11 @@ export async function checkAndIncrementUsage(userId: string): Promise<{
   }
 
   // --- Atomic check-and-increment via RPC (race-safe) ---
+  // For multi-call operations (e.g., FRQ grading = 2 calls), we increment by callCost
   const { data: newCount, error: rpcError } = await supabase.rpc('check_and_increment_adi_usage', {
     p_user_id: userId,
     p_date: today,
-    p_cost_cents: COST_PER_CALL_CENTS,
+    p_cost_cents: COST_PER_CALL_CENTS * callCost,
     p_limit: DAILY_USER_LIMIT,
   })
 
@@ -84,7 +85,7 @@ export async function checkAndIncrementUsage(userId: string): Promise<{
 
   supabase.rpc('increment_global_adi_usage', {
     p_date: today,
-    p_cost_cents: COST_PER_CALL_CENTS,
+    p_cost_cents: COST_PER_CALL_CENTS * callCost,
   }).then(({ error }) => { if (error) console.error('global adi_usage increment failed:', error) })
 
   return {

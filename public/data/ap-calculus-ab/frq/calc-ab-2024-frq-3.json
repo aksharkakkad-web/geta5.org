@@ -1,0 +1,57 @@
+{
+  "id": "calc-ab-2024-frq-3",
+  "subject": "ap-calculus-ab",
+  "year": 2024,
+  "source": "released",
+  "title": "Differential Equation — Slope Field & Separation of Variables",
+  "frq_type": "multi_part_math",
+  "related_units": [
+    7
+  ],
+  "calculator_allowed": false,
+  "total_points": 9,
+  "stimulus": "The depth of seawater at a location can be modeled by the function $H$ that satisfies the differential equation $\\frac{dH}{dt} = \\frac{1}{2}(H-1)\\cos\\left(\\frac{t}{2}\\right)$, where $H(t)$ is measured in feet and $t$ is measured in hours after noon ($t = 0$). It is known that $H(0) = 4$.",
+  "stimulus_image": "/data/ap-calculus-ab/frq/images/calc-ab-2024-frq-3-stimulus.png",
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "A portion of the slope field for the differential equation is provided. Sketch the solution curve, $y = H(t)$, through the point $(0, 4)$.",
+      "point_value": 1,
+      "rubric_criteria": [
+        "1 pt: Solution curve passes through $(0, 4)$ and follows the slope field, with $H > 1$ maintained for $t$ up to approximately $t = 4.5$ before turning; curve must be consistent with the slope field"
+      ],
+      "scoring_notes": "The curve must start at $(0, 4)$ and follow slope field direction. It should show a maximum near $t = \\pi \\approx 3.14$ and decrease afterward. Curve must stay above $y = 1$ on the visible portion.",
+      "requires_drawing": true,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "For $0 < t < 5$, it can be shown that $H(t) > 1$. Find the value of $t$, for $0 < t < 5$, at which $H$ has a critical point. Determine whether the critical point corresponds to a relative minimum, a relative maximum, or neither a relative minimum nor a relative maximum of the depth of seawater at the location. Justify your answer.",
+      "point_value": 3,
+      "rubric_criteria": [
+        "1 pt: Correctly identifies that critical point occurs when $\\frac{dH}{dt} = 0$, and since $H(t) > 1$, this requires $\\cos\\left(\\frac{t}{2}\\right) = 0$, giving $t = \\pi$",
+        "1 pt: Correctly identifies $t = \\pi$ as the critical point",
+        "1 pt: Correct classification as relative maximum with justification: $\\frac{dH}{dt} > 0$ for $0 < t < \\pi$ and $\\frac{dH}{dt} < 0$ for $\\pi < t < 5$, so $H$ changes from increasing to decreasing at $t = \\pi$"
+      ],
+      "scoring_notes": "First sign analysis point requires checking sign of $\\frac{dH}{dt}$ on both sides of $t = \\pi$. Accept second derivative test: $\\frac{d^2H}{dt^2}\\big|_{t=\\pi} < 0$ also earns the classification point. Must use $H(t) > 1$ to eliminate $H - 1 = 0$ as source of critical point.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "Use separation of variables to find $y = H(t)$, the particular solution to the differential equation $\\frac{dH}{dt} = \\frac{1}{2}(H-1)\\cos\\left(\\frac{t}{2}\\right)$ with initial condition $H(0) = 4$.",
+      "point_value": 5,
+      "rubric_criteria": [
+        "1 pt: Correctly separates variables: $\\frac{dH}{H-1} = \\frac{1}{2}\\cos\\left(\\frac{t}{2}\\right)\\, dt$",
+        "1 pt: Correct antiderivative of left side: $\\ln|H-1|$",
+        "1 pt: Correct antiderivative of right side: $\\sin\\left(\\frac{t}{2}\\right) + C$",
+        "1 pt: Uses initial condition $H(0) = 4$ to find $C = \\ln 3$",
+        "1 pt: Correctly solves for $H$: $H(t) = 1 + 3e^{\\sin(t/2)}$"
+      ],
+      "scoring_notes": "Separation point requires moving all $H$ terms to one side and all $t$ terms to the other. Both antiderivative points are independent. The constant of integration point requires applying $H(0) = 4$: $\\ln|4-1| = \\sin(0) + C \\Rightarrow C = \\ln 3$. Final answer $H(t) = 1 + 3e^{\\sin(t/2)}$. Since $H > 1$, absolute value bars may be dropped. Must verify $H(0) = 4$ to earn the constant point.",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}

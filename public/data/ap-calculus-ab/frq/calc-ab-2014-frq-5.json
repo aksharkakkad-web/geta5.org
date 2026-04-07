@@ -1,0 +1,65 @@
+{
+  "id": "calc-ab-2014-frq-5",
+  "subject": "ap-calculus-ab",
+  "year": 2014,
+  "source": "released",
+  "title": "Functions Table f, f', g, g' — Relative Min, MVT for f'', Chain Rule h'(3) & Substitution Integral",
+  "frq_type": "multi_part_math",
+  "related_units": [2, 3, 5, 6],
+  "calculator_allowed": false,
+  "total_points": 9,
+  "stimulus": "The twice-differentiable functions $f$ and $g$ are defined for all real numbers $x$. Values of $f$, $f'$, $g$, and $g'$ for various values of $x$ are given in the table.\n\n| $x$ | $f(x)$ | $f'(x)$ | $g(x)$ | $g'(x)$ |\n|---|---|---|---|---|\n| $-2$ | 12 | $-5$ | $-1$ | 2 |\n| $-1$ | 8 | 0 | 0 | positive |\n| $1$ | 2 | 0 | 3 | 0 |\n| $3$ | 7 | $\\frac{1}{2}$ | 1 | $-2$ |\n\n($f'(x)$ is negative for $-2 < x < -1$, negative for $-1 < x < 1$, and positive for $1 < x < 3$. $g'(x)$ is positive for $-2 < x < 1$ and negative for $1 < x < 3$.)",
+  "stimulus_image": null,
+  "documents": null,
+  "parts": [
+    {
+      "letter": "a",
+      "prompt": "Find the $x$-coordinate of each relative minimum of $f$ on the interval $[-2, 3]$. Justify your answers.",
+      "point_value": 1,
+      "rubric_criteria": [
+        "1 pt: $x = 1$ is the only relative minimum of $f$, with justification: $f'(x)$ changes from negative to positive at $x = 1$ (so $f$ changes from decreasing to increasing)"
+      ],
+      "scoring_notes": "From scoring key: $f'$ changes sign from negative to positive only at $x = 1$. Relative minimum at $x = 1$.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "b",
+      "prompt": "Explain why there must be a value $c$, for $-1 < c < 1$, such that $f''(c) = 0$.",
+      "point_value": 2,
+      "rubric_criteria": [
+        "1 pt: Computes average rate of change of $f'$ over $[-1, 1]$: $\\frac{f'(1) - f'(-1)}{1 - (-1)} = \\frac{0 - 0}{2} = 0$",
+        "1 pt: Applies MVT: since $f'$ is differentiable (hence continuous) on $[-1, 1]$, by MVT there exists $c \\in (-1, 1)$ such that $f''(c) = 0$"
+      ],
+      "scoring_notes": "From scoring key: $\\frac{f'(1) - f'(-1)}{2} = 0$. By MVT (f' differentiable), $\\exists c \\in (-1,1)$ with $f''(c) = 0$.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "c",
+      "prompt": "The function $h$ is defined by $h(x) = \\ln(f(x))$. Find $h'(3)$. Show the computations that lead to your answer.",
+      "point_value": 3,
+      "rubric_criteria": [
+        "1 pt: Applies chain rule: $h'(x) = \\frac{f'(x)}{f(x)}$",
+        "1 pt: Correct expression at $x = 3$",
+        "1 pt: Correct answer: $h'(3) = \\frac{f'(3)}{f(3)} = \\frac{1/2}{7} = \\frac{1}{14}$"
+      ],
+      "scoring_notes": "From scoring key: $h'(x) = \\frac{1}{f(x)} \\cdot f'(x)$. $h'(3) = \\frac{f'(3)}{f(3)} = \\frac{1/2}{7} = \\frac{1}{14}$.",
+      "requires_drawing": false,
+      "reference_image": null
+    },
+    {
+      "letter": "d",
+      "prompt": "Evaluate $\\int_{-2}^3 f'(g(x)) g'(x)\\, dx$.",
+      "point_value": 3,
+      "rubric_criteria": [
+        "1 pt: Recognizes substitution/FTC: $\\int_{-2}^3 f'(g(x))g'(x)\\, dx = [f(g(x))]_{-2}^3$",
+        "1 pt: Evaluates: $f(g(3)) - f(g(-2)) = f(1) - f(-1)$",
+        "1 pt: Correct answer: $f(1) - f(-1) = 2 - 8 = -6$"
+      ],
+      "scoring_notes": "From scoring key: By FTC/substitution, $\\int_{-2}^3 f'(g(x))g'(x)\\, dx = f(g(x))\\big|_{-2}^3 = f(g(3)) - f(g(-2)) = f(1) - f(-1) = 2 - 8 = -6$.",
+      "requires_drawing": false,
+      "reference_image": null
+    }
+  ]
+}
