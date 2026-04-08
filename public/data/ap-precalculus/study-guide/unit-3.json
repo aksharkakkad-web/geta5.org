@@ -21,6 +21,10 @@
       "detail": "The Pythagorean identity $\\sin^2\\theta + \\cos^2\\theta = 1$ holds for all $\\theta$. Dividing through by $\\cos^2\\theta$ gives $\\tan^2\\theta + 1 = \\sec^2\\theta$; dividing by $\\sin^2\\theta$ gives $1 + \\cot^2\\theta = \\csc^2\\theta$."
     },
     {
+      "title": "Angle Sum, Double-Angle, and Half-Angle Identities",
+      "detail": "These identities (CED Topic 3.12) let you rewrite trig expressions in equivalent forms. Angle sum: $\\sin(\\alpha + \\beta) = \\sin\\alpha\\cos\\beta + \\cos\\alpha\\sin\\beta$; $\\cos(\\alpha + \\beta) = \\cos\\alpha\\cos\\beta - \\sin\\alpha\\sin\\beta$. Double angle: $\\sin(2\\alpha) = 2\\sin\\alpha\\cos\\alpha$; $\\cos(2\\alpha) = \\cos^2\\alpha - \\sin^2\\alpha$. Half angle (power-reduction): $\\sin^2\\theta = \\frac{1 - \\cos(2\\theta)}{2}$; $\\cos^2\\theta = \\frac{1 + \\cos(2\\theta)}{2}$. On the AP exam these appear in simplification, solving equations, and verifying identities."
+    },
+    {
       "title": "Inverse Trig Restrictions",
       "detail": "Inverse trig functions have restricted domains to ensure they are functions: $\\sin^{-1}$ has range $\\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right]$, $\\cos^{-1}$ has range $[0, \\pi]$, and $\\tan^{-1}$ has range $\\left(-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right)$. Always report the principal value."
     },
@@ -57,6 +61,30 @@
       "katex_string": "\\sin^2\\theta + \\cos^2\\theta = 1",
       "description": "The fundamental trigonometric identity, valid for all angles. It follows directly from the unit circle definition and is the starting point for simplifying trig expressions and solving trig equations.",
       "example": "If $\\sin\\theta = \\frac{3}{5}$ and $\\theta$ is in Quadrant II, then $\\cos^2\\theta = 1 - \\frac{9}{25} = \\frac{16}{25}$, so $\\cos\\theta = -\\frac{4}{5}$."
+    },
+    {
+      "name": "Angle Sum / Difference — Sine",
+      "katex_string": "\\sin(\\alpha \\pm \\beta) = \\sin\\alpha\\cos\\beta \\pm \\cos\\alpha\\sin\\beta",
+      "description": "The sine of a sum or difference of two angles. The sign on the right matches the sign in the argument: sin(α + β) uses +, sin(α − β) uses −. Use this to find exact values for non-standard angles or to simplify expressions.",
+      "example": "$\\sin(75°) = \\sin(45° + 30°) = \\frac{\\sqrt{2}}{2}\\cdot\\frac{\\sqrt{3}}{2} + \\frac{\\sqrt{2}}{2}\\cdot\\frac{1}{2} = \\frac{\\sqrt{6}+\\sqrt{2}}{4}$."
+    },
+    {
+      "name": "Angle Sum / Difference — Cosine",
+      "katex_string": "\\cos(\\alpha \\pm \\beta) = \\cos\\alpha\\cos\\beta \\mp \\sin\\alpha\\sin\\beta",
+      "description": "The cosine of a sum or difference. Note the sign flip: the ∓ means cos(α + β) uses minus and cos(α − β) uses plus — opposite to the signs in the argument.",
+      "example": "$\\cos\\!\\left(\\frac{\\pi}{12}\\right) = \\cos\\!\\left(\\frac{\\pi}{4} - \\frac{\\pi}{6}\\right) = \\frac{\\sqrt{2}}{2}\\cdot\\frac{\\sqrt{3}}{2} + \\frac{\\sqrt{2}}{2}\\cdot\\frac{1}{2} = \\frac{\\sqrt{6}+\\sqrt{2}}{4}$."
+    },
+    {
+      "name": "Double-Angle Identities",
+      "katex_string": "\\sin(2\\alpha) = 2\\sin\\alpha\\cos\\alpha; \\quad \\cos(2\\alpha) = \\cos^2\\alpha - \\sin^2\\alpha = 2\\cos^2\\alpha - 1 = 1 - 2\\sin^2\\alpha",
+      "description": "Special cases of the angle sum formulas with α = β. The three cosine forms are all equivalent (use the Pythagorean identity to convert); choose whichever form matches the given expression.",
+      "example": "If $\\sin\\theta = \\frac{3}{5}$ and $\\cos\\theta = \\frac{4}{5}$, then $\\sin(2\\theta) = 2\\cdot\\frac{3}{5}\\cdot\\frac{4}{5} = \\frac{24}{25}$ and $\\cos(2\\theta) = \\frac{16}{25} - \\frac{9}{25} = \\frac{7}{25}$."
+    },
+    {
+      "name": "Half-Angle (Power-Reduction) Identities",
+      "katex_string": "\\sin^2\\theta = \\frac{1 - \\cos(2\\theta)}{2}; \\quad \\cos^2\\theta = \\frac{1 + \\cos(2\\theta)}{2}",
+      "description": "Derived by solving the double-angle cosine forms for sin²θ and cos²θ. These reduce squared trig functions to single-angle cosine expressions, which is essential for solving trig equations and verifying identities.",
+      "example": "Solve $2\\sin^2\\theta = 1$: rewrite as $2\\cdot\\frac{1 - \\cos(2\\theta)}{2} = 1$, so $1 - \\cos(2\\theta) = 1$, giving $\\cos(2\\theta) = 0$, thus $2\\theta = \\frac{\\pi}{2} + n\\pi$, so $\\theta = \\frac{\\pi}{4} + \\frac{n\\pi}{2}$."
     },
     {
       "name": "Polar to Rectangular",
