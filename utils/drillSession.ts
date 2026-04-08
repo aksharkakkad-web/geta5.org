@@ -30,6 +30,22 @@ export type DrillMode =
   | 'name_to_formula'
   | 'concept_mc'
 
+export type DrillFilter = 'all' | 'vocab' | 'concept'
+
+const VOCAB_MODES = new Set<DrillMode>([
+  'definition_to_term',
+  'significance_to_person',
+  'significance_to_event',
+  'significance_to_case',
+  'name_to_formula',
+])
+
+export function matchesFilter(card: DrillCard, filter: DrillFilter): boolean {
+  if (filter === 'all') return true
+  if (filter === 'vocab') return VOCAB_MODES.has(card.mode)
+  return card.mode === 'concept_mc'
+}
+
 export interface SessionState {
   cards: DrillCard[]
   workingDeck?: DrillCard[]   // active sequence; includes retry insertions

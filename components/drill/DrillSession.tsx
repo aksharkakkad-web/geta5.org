@@ -4,8 +4,10 @@ import React, { useState, useRef, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import { Check, X } from 'lucide-react'
 import DrillCard from '@/components/drill/DrillCard'
-import { SessionState, saveDrillDraft, clearDrillDraft, insertRetryCard } from '@/utils/drillSession'
+import { SessionState, saveDrillDraft, clearDrillDraft, insertRetryCard, matchesFilter } from '@/utils/drillSession'
+import type { DrillFilter } from '@/utils/drillSession'
 import { getSubject } from '@/utils/subjects'
+import { scramble } from '@/utils/scramble'
 import { lsGet, lsSet, LS_KEYS } from '@/utils/localStorage'
 import { logEvent } from '@/utils/analytics'
 import { syncStats } from '@/utils/persistence'
@@ -32,11 +34,28 @@ export default function DrillSession({ session, subject, onComplete, onStartFres
   const answersRef = useRef(answers)
   answersRef.current = answers
 
+  const [filterMode, setFilterMode] = useState<DrillFilter>('all')
+
   const [workingDeck, setWorkingDeck] = useState<SessionState['cards']>(() =>
     session.workingDeck ?? [...session.cards]
   )
   const workingDeckRef = useRef(workingDeck)
   workingDeckRef.current = workingDeck
+
+  const handleFilterChange = (newFilter: DrillFilter) => {
+    if (newFilter === filterMode) return
+    const currentCard = workingDeckRef.current[currentIndex]
+    const answeredIds = new Set(Object.keys(answersRef.current))
+    const unanswered = session.cards.filter(c =>
+      !answeredIds.has(c.id) && c.id !== currentCard.id && matchesFilter(c, newFilter)
+    )
+    const wrong = session.cards.filter(c =>
+      answersRef.current[c.id]?.verdict === 'wrong' && matchesFilter(c, newFilter)
+    )
+    const newRemaining = scramble([...unanswered, ...wrong])
+    setWorkingDeck([...workingDeckRef.current.slice(0, currentIndex + 1), ...newRemaining])
+    setFilterMode(newFilter)
+  }
 
   // Auto-save draft + update partial mastery whenever currentIndex advances
   useEffect(() => {
@@ -337,6 +356,43 @@ export default function DrillSession({ session, subject, onComplete, onStartFres
               Start fresh
             </button>
           )}
+        </div>
+      </div>
+
+      {/* Filter toggle */}
+      <div style={{ marginTop: '12px' }}>
+        <div
+          style={{
+            display: 'inline-flex',
+            background: 'var(--bg-card)',
+            border: '1px solid var(--bg-border)',
+            borderRadius: 'var(--radius-md)',
+            padding: '3px',
+          }}
+        >
+          {(['all', 'vocab', 'concept'] as DrillFilter[]).map((f) => {
+            const labels: Record<DrillFilter, string> = { all: 'All', vocab: 'Vocab', concept: 'Concept' }
+            const active = filterMode === f
+            return (
+              <button
+                key={f}
+                onClick={() => handleFilterChange(f)}
+                style={{
+                  padding: '5px 14px',
+                  borderRadius: '5px',
+                  border: 'none',
+                  background: active ? 'var(--accent)' : 'transparent',
+                  color: active ? 'white' : 'var(--text-muted)',
+                  fontSize: '0.8125rem',
+                  fontWeight: 600,
+                  cursor: 'pointer',
+                  transition: 'background 150ms ease, color 150ms ease',
+                }}
+              >
+                {labels[f]}
+              </button>
+            )
+          })}
         </div>
       </div>
 
