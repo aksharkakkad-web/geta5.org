@@ -43,6 +43,7 @@ export function Header() {
       transform: visible ? 'translateY(0)' : 'translateY(-100%)',
       transition: 'transform 0.3s ease',
     }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '28px' }}>
       <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'baseline', gap: '1px' }}>
         <span style={{ fontWeight: 700, fontSize: '1.125rem', color: '#d4d4d4', letterSpacing: '-0.01em' }}>
           geta
@@ -61,6 +62,15 @@ export function Header() {
           .app
         </span>
       </Link>
+      <Link
+        href="/founder"
+        style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', textDecoration: 'none', transition: 'color 0.15s ease' }}
+        onMouseEnter={e => (e.currentTarget.style.color = 'var(--text-primary)')}
+        onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-secondary)')}
+      >
+        Founder
+      </Link>
+      </div>
 
       {!isLoading && (
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
