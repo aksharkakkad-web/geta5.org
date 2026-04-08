@@ -28,9 +28,6 @@ export default function DrillSession({ session, subject, onComplete, onStartFres
   >(session.answers ?? {})
   const [gateBlocked, setGateBlocked] = useState(false)
 
-  // Track when each card is shown so we can measure time spent
-  const cardStartRef = useRef(Date.now())
-
   // Keep a ref so handleNext always sees latest answers without stale closure
   const answersRef = useRef(answers)
   answersRef.current = answers
@@ -104,12 +101,6 @@ export default function DrillSession({ session, subject, onComplete, onStartFres
   const handleNext = () => {
     const cardBeingAnswered = workingDeckRef.current[currentIndex]
     const finalVerdict = answersRef.current[cardBeingAnswered.id]?.verdict
-
-    // Track time spent on this card
-    const cardSeconds = Math.round((Date.now() - cardStartRef.current) / 1000)
-    const newSeconds = lsGet<number>(LS_KEYS.totalSeconds, 0) + cardSeconds
-    lsSet(LS_KEYS.totalSeconds, newSeconds)
-    cardStartRef.current = Date.now()
 
     // Increment counters for ALL users
     const newTotal = lsGet<number>(LS_KEYS.totalQuestions, 0) + 1

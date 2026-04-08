@@ -31,9 +31,6 @@ export default function MCQSession({ session, subject, onComplete, onStartFresh 
 
   const isCalcSubject = subject === 'ap-calculus-ab' || subject === 'ap-precalculus'
 
-  // Track when each card is shown so we can measure time spent
-  const cardStartRef = useRef(Date.now())
-
   // Keep a ref so handleNext always sees latest answers without stale closure
   const answersRef = useRef(answers)
   answersRef.current = answers
@@ -102,12 +99,6 @@ export default function MCQSession({ session, subject, onComplete, onStartFresh 
 
   const handleNext = () => {
     const currentAnswer = answersRef.current[session.questions[currentIndex]?.id]
-
-    // Track time spent on this question
-    const cardSeconds = Math.round((Date.now() - cardStartRef.current) / 1000)
-    const newSeconds = lsGet<number>(LS_KEYS.totalSeconds, 0) + cardSeconds
-    lsSet(LS_KEYS.totalSeconds, newSeconds)
-    cardStartRef.current = Date.now()
 
     // Increment counters for ALL users
     const newTotal = lsGet<number>(LS_KEYS.totalQuestions, 0) + 1

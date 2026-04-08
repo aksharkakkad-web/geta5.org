@@ -7,6 +7,7 @@ import { AuthProvider } from '@/contexts/AuthContext'
 import { AdiProvider } from '@/components/adi/AdiProvider'
 import { AdiBubble } from '@/components/adi/AdiBubble'
 import { AdiChatPanel } from '@/components/adi/AdiChatPanel'
+import ActiveTimeTracker from '@/components/ActiveTimeTracker'
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -38,6 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </main>
             <AdiBubble />
             <AdiChatPanel />
+            <ActiveTimeTracker />
           </AdiProvider>
         </AuthProvider>
       </body>
