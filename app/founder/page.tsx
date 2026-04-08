@@ -172,6 +172,20 @@ export default function FounderPage() {
               }}>
                 I&apos;m constantly working to make this better. If you have feedback, ideas, or just want to say hi, I&apos;d love to hear from you.
               </p>
+              <p style={{
+                fontSize: '1rem',
+                color: 'var(--text-secondary)',
+                lineHeight: 1.7,
+                margin: 0,
+              }}>
+                Feel free to reach out:{' '}
+                <a
+                  href="mailto:aksharkakkad@gmail.com"
+                  style={{ color: '#a78bfa', textDecoration: 'none', fontWeight: 500 }}
+                >
+                  aksharkakkad@gmail.com
+                </a>
+              </p>
             </div>
 
             {/* Stats row */}
