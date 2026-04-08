@@ -147,16 +147,23 @@ function SignupForm() {
 
     try {
       if (mode === 'signup') {
-        const emailRedirectTo = `${window.location.origin}/auth/callback?redirect=${encodeURIComponent(redirect)}`
-        const { error: signUpError } = await supabase.auth.signUp({
-          email,
-          password,
-          options: { emailRedirectTo },
+        // Create user via admin API (bypasses email confirmation)
+        const res = await fetch('/api/auth/signup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password }),
         })
-        if (signUpError) {
-          setError(signUpError.message)
+        const body = await res.json()
+        if (!res.ok) {
+          setError(body.error || 'Sign up failed. Please try again.')
         } else {
-          setSuccess('Check your email for a confirmation link to complete signup.')
+          // Auto sign in immediately — no email verification needed
+          const { error: signInError } = await supabase.auth.signInWithPassword({ email, password })
+          if (signInError) {
+            setError(signInError.message)
+          } else {
+            router.replace(redirect)
+          }
         }
       } else {
         const { error: signInError } = await supabase.auth.signInWithPassword({ email, password })
