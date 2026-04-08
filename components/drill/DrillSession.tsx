@@ -8,7 +8,7 @@ import { SessionState, saveDrillDraft, clearDrillDraft, insertRetryCard } from '
 import { getSubject } from '@/utils/subjects'
 import { lsGet, lsSet, LS_KEYS } from '@/utils/localStorage'
 import { logEvent } from '@/utils/analytics'
-import { saveStats } from '@/utils/persistence'
+import { syncStats } from '@/utils/persistence'
 import { shouldBlockAccess } from '@/utils/freeTrialGate'
 import { useAuth } from '@/contexts/AuthContext'
 
@@ -27,6 +27,9 @@ export default function DrillSession({ session, subject, onComplete, onStartFres
     Record<string, { verdict: 'correct' | 'wrong'; userInput: string }>
   >(session.answers ?? {})
   const [gateBlocked, setGateBlocked] = useState(false)
+
+  // Track when each card is shown so we can measure time spent
+  const cardStartRef = useRef(Date.now())
 
   // Keep a ref so handleNext always sees latest answers without stale closure
   const answersRef = useRef(answers)
@@ -102,22 +105,23 @@ export default function DrillSession({ session, subject, onComplete, onStartFres
     const cardBeingAnswered = workingDeckRef.current[currentIndex]
     const finalVerdict = answersRef.current[cardBeingAnswered.id]?.verdict
 
-    // Increment counters for ALL users (not just unauthenticated)
+    // Track time spent on this card
+    const cardSeconds = Math.round((Date.now() - cardStartRef.current) / 1000)
+    const newSeconds = lsGet<number>(LS_KEYS.totalSeconds, 0) + cardSeconds
+    lsSet(LS_KEYS.totalSeconds, newSeconds)
+    cardStartRef.current = Date.now()
+
+    // Increment counters for ALL users
     const newTotal = lsGet<number>(LS_KEYS.totalQuestions, 0) + 1
     lsSet(LS_KEYS.totalQuestions, newTotal)
     const newDrill = lsGet<number>(LS_KEYS.drillCount, 0) + 1
     lsSet(LS_KEYS.drillCount, newDrill)
+    if (finalVerdict === 'correct') {
+      lsSet(LS_KEYS.drillCorrect, lsGet<number>(LS_KEYS.drillCorrect, 0) + 1)
+    }
 
     // Sync to Supabase immediately so stats persist even if tab is closed
-    const streak = lsGet<{ count: number; lastPracticeDate: string } | null>(LS_KEYS.streak, null)
-    saveStats(
-      newTotal,
-      streak?.count ?? 0,
-      streak?.lastPracticeDate ?? null,
-      newDrill,
-      lsGet<number>(LS_KEYS.mcqCount, 0),
-      lsGet<number>(LS_KEYS.frqCount, 0),
-    )
+    syncStats()
 
     // Check freemium gate only for unauthenticated users
     if (!isAuthenticated) {

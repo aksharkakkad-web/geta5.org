@@ -34,7 +34,7 @@ import {
 import type { FRQ, FRQGradingResult, GradingStrictness, FRQDraft } from '@/utils/frqSession'
 import { logEvent } from '@/utils/analytics'
 import { lsGet, lsSet, LS_KEYS } from '@/utils/localStorage'
-import { saveStats } from '@/utils/persistence'
+import { syncStats } from '@/utils/persistence'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -250,21 +250,11 @@ export default function FRQPage({ params }: PageProps) {
 
         // Increment counters
         const partCount = selectedQuestion.parts?.length ?? 1
-        const prevTotal = lsGet<number>(LS_KEYS.totalQuestions, 0)
-        lsSet(LS_KEYS.totalQuestions, prevTotal + partCount)
-        const prevFrq = lsGet<number>(LS_KEYS.frqCount, 0)
-        lsSet(LS_KEYS.frqCount, prevFrq + 1)
+        lsSet(LS_KEYS.totalQuestions, lsGet<number>(LS_KEYS.totalQuestions, 0) + partCount)
+        lsSet(LS_KEYS.frqCount, lsGet<number>(LS_KEYS.frqCount, 0) + 1)
 
         // Sync stats to Supabase
-        const streak = lsGet<{ count: number; lastPracticeDate: string } | null>(LS_KEYS.streak, null)
-        saveStats(
-          prevTotal + partCount,
-          streak?.count ?? 0,
-          streak?.lastPracticeDate ?? null,
-          lsGet<number>(LS_KEYS.drillCount, 0),
-          lsGet<number>(LS_KEYS.mcqCount, 0),
-          prevFrq + 1,
-        )
+        syncStats()
 
         // Fire analytics
         logEvent({

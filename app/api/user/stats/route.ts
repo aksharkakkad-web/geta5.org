@@ -6,19 +6,22 @@ export async function POST(req: NextRequest) {
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
 
-  const { totalQuestions, streakCount, streakLastDate, drillCount, mcqCount, frqCount } = await req.json()
+  const body = await req.json()
 
   const { error } = await supabase
     .from('user_stats')
     .upsert(
       {
         user_id: user.id,
-        total_questions: totalQuestions,
-        streak_count: streakCount,
-        streak_last_date: streakLastDate,
-        drill_count: drillCount ?? 0,
-        mcq_count: mcqCount ?? 0,
-        frq_count: frqCount ?? 0,
+        total_questions: body.totalQuestions ?? 0,
+        streak_count: body.streakCount ?? 0,
+        streak_last_date: body.streakLastDate ?? null,
+        drill_count: body.drillCount ?? 0,
+        mcq_count: body.mcqCount ?? 0,
+        frq_count: body.frqCount ?? 0,
+        drill_correct: body.drillCorrect ?? 0,
+        mcq_correct: body.mcqCorrect ?? 0,
+        total_seconds: body.totalSeconds ?? 0,
         updated_at: new Date().toISOString(),
       },
       { onConflict: 'user_id' }

@@ -10,6 +10,18 @@ interface MasteryData {
   totalAttempts: number
 }
 
+export interface StatsPayload {
+  totalQuestions: number
+  streakCount: number
+  streakLastDate: string | null
+  drillCount: number
+  mcqCount: number
+  frqCount: number
+  drillCorrect: number
+  mcqCorrect: number
+  totalSeconds: number
+}
+
 let _isAuthenticated = false
 
 export function setAuthState(authenticated: boolean): void {
@@ -28,28 +40,31 @@ export function saveProgress(subject: string, unit: string, data: MasteryData): 
   }
 }
 
-export function saveStats(
-  totalQuestions: number,
-  streakCount: number,
-  streakLastDate: string | null,
-  drillCount?: number,
-  mcqCount?: number,
-  frqCount?: number,
-): void {
-  if (_isAuthenticated) {
-    fetch('/api/user/stats', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        totalQuestions,
-        streakCount,
-        streakLastDate,
-        drillCount: drillCount ?? 0,
-        mcqCount: mcqCount ?? 0,
-        frqCount: frqCount ?? 0,
-      }),
-    }).catch(() => {})
+/** Read all stat counters from localStorage into a single payload. */
+export function readStatsFromLS(): StatsPayload {
+  const streak = lsGet<{ count: number; lastPracticeDate: string } | null>(LS_KEYS.streak, null)
+  return {
+    totalQuestions: lsGet<number>(LS_KEYS.totalQuestions, 0),
+    streakCount: streak?.count ?? 0,
+    streakLastDate: streak?.lastPracticeDate ?? null,
+    drillCount: lsGet<number>(LS_KEYS.drillCount, 0),
+    mcqCount: lsGet<number>(LS_KEYS.mcqCount, 0),
+    frqCount: lsGet<number>(LS_KEYS.frqCount, 0),
+    drillCorrect: lsGet<number>(LS_KEYS.drillCorrect, 0),
+    mcqCorrect: lsGet<number>(LS_KEYS.mcqCorrect, 0),
+    totalSeconds: lsGet<number>(LS_KEYS.totalSeconds, 0),
   }
+}
+
+/** Fire-and-forget sync of current localStorage stats to Supabase. */
+export function syncStats(): void {
+  if (!_isAuthenticated) return
+  const payload = readStatsFromLS()
+  fetch('/api/user/stats', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  }).catch(() => {})
 }
 
 export function syncFromSupabase(): void {
@@ -63,6 +78,9 @@ export function syncFromSupabase(): void {
         if (data.stats.drill_count != null) lsSet(LS_KEYS.drillCount, data.stats.drill_count)
         if (data.stats.mcq_count != null) lsSet(LS_KEYS.mcqCount, data.stats.mcq_count)
         if (data.stats.frq_count != null) lsSet(LS_KEYS.frqCount, data.stats.frq_count)
+        if (data.stats.drill_correct != null) lsSet(LS_KEYS.drillCorrect, data.stats.drill_correct)
+        if (data.stats.mcq_correct != null) lsSet(LS_KEYS.mcqCorrect, data.stats.mcq_correct)
+        if (data.stats.total_seconds != null) lsSet(LS_KEYS.totalSeconds, data.stats.total_seconds)
         if (data.stats.streak_count > 0) {
           lsSet(LS_KEYS.streak, {
             count: data.stats.streak_count,

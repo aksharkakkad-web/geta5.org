@@ -1,6 +1,6 @@
 import { lsGet, lsSet, lsClear, LS_KEYS } from '@/utils/localStorage'
 import { logEvent } from '@/utils/analytics'
-import { saveProgress, saveStats } from '@/utils/persistence'
+import { saveProgress, syncStats } from '@/utils/persistence'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -87,12 +87,7 @@ export function handleMCQSessionComplete(session: MCQSessionState, subject: stri
   // mid-session freemium gating. We do NOT increment it here to avoid double-counting.
 
   // Sync stats to Supabase
-  const prevTotal = lsGet<number>(LS_KEYS.totalQuestions, 0)
-  const streak = lsGet<{ count: number; lastPracticeDate: string } | null>(LS_KEYS.streak, null)
-  const drillCount = lsGet<number>(LS_KEYS.drillCount, 0)
-  const mcqCount = lsGet<number>(LS_KEYS.mcqCount, 0)
-  const frqCount = lsGet<number>(LS_KEYS.frqCount, 0)
-  saveStats(prevTotal, streak?.count ?? 0, streak?.lastPracticeDate ?? null, drillCount, mcqCount, frqCount)
+  syncStats()
 
   // Write mcqAccuracy for non-retry sessions
   if (!session.isRetry) {
