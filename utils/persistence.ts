@@ -28,12 +28,26 @@ export function saveProgress(subject: string, unit: string, data: MasteryData): 
   }
 }
 
-export function saveStats(totalQuestions: number, streakCount: number, streakLastDate: string | null): void {
+export function saveStats(
+  totalQuestions: number,
+  streakCount: number,
+  streakLastDate: string | null,
+  drillCount?: number,
+  mcqCount?: number,
+  frqCount?: number,
+): void {
   if (_isAuthenticated) {
     fetch('/api/user/stats', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ totalQuestions, streakCount, streakLastDate }),
+      body: JSON.stringify({
+        totalQuestions,
+        streakCount,
+        streakLastDate,
+        drillCount: drillCount ?? 0,
+        mcqCount: mcqCount ?? 0,
+        frqCount: frqCount ?? 0,
+      }),
     }).catch(() => {})
   }
 }
@@ -46,6 +60,9 @@ export function syncFromSupabase(): void {
     .then(data => {
       if (data.stats) {
         lsSet(LS_KEYS.totalQuestions, data.stats.total_questions)
+        if (data.stats.drill_count != null) lsSet(LS_KEYS.drillCount, data.stats.drill_count)
+        if (data.stats.mcq_count != null) lsSet(LS_KEYS.mcqCount, data.stats.mcq_count)
+        if (data.stats.frq_count != null) lsSet(LS_KEYS.frqCount, data.stats.frq_count)
         if (data.stats.streak_count > 0) {
           lsSet(LS_KEYS.streak, {
             count: data.stats.streak_count,

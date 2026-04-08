@@ -32,6 +32,9 @@ import {
   setMathTutorialSeen,
 } from '@/utils/frqSession'
 import type { FRQ, FRQGradingResult, GradingStrictness, FRQDraft } from '@/utils/frqSession'
+import { logEvent } from '@/utils/analytics'
+import { lsGet, lsSet, LS_KEYS } from '@/utils/localStorage'
+import { saveStats } from '@/utils/persistence'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -244,6 +247,39 @@ export default function FRQPage({ params }: PageProps) {
         setGradingStrictness(strictness)
         clearFRQDraft(subject)
         setPhase('results')
+
+        // Increment counters
+        const partCount = selectedQuestion.parts?.length ?? 1
+        const prevTotal = lsGet<number>(LS_KEYS.totalQuestions, 0)
+        lsSet(LS_KEYS.totalQuestions, prevTotal + partCount)
+        const prevFrq = lsGet<number>(LS_KEYS.frqCount, 0)
+        lsSet(LS_KEYS.frqCount, prevFrq + 1)
+
+        // Sync stats to Supabase
+        const streak = lsGet<{ count: number; lastPracticeDate: string } | null>(LS_KEYS.streak, null)
+        saveStats(
+          prevTotal + partCount,
+          streak?.count ?? 0,
+          streak?.lastPracticeDate ?? null,
+          lsGet<number>(LS_KEYS.drillCount, 0),
+          lsGet<number>(LS_KEYS.mcqCount, 0),
+          prevFrq + 1,
+        )
+
+        // Fire analytics
+        logEvent({
+          event_type: 'frq_completed',
+          subject,
+          unit: selectedQuestion.related_units?.[0] ? `unit-${selectedQuestion.related_units[0]}` : undefined,
+          metadata: {
+            question_id: selectedQuestion.id,
+            frq_type: selectedQuestion.frq_type,
+            strictness,
+            parts_count: partCount,
+            score: data.result?.total_score ?? undefined,
+            max_score: data.result?.max_score ?? undefined,
+          },
+        })
       } else if (data.status === 'queued') {
         clearFRQDraft(subject)
         setPhase('queued')

@@ -43,4 +43,7 @@ export const LS_KEYS = {
   adiDismissCount: 'ascendly_adi_dismiss_count',
   frqDraft: (subject: string) => `ascendly_draft_frq_${subject}`,
   frqMathTutorialSeen: 'ascendly_frq_math_tutorial_seen',
+  drillCount: 'ascendly_drill_count',
+  mcqCount: 'ascendly_mcq_count',
+  frqCount: 'ascendly_frq_count',
 } as const

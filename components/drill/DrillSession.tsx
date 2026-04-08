@@ -8,6 +8,7 @@ import { SessionState, saveDrillDraft, clearDrillDraft, insertRetryCard } from '
 import { getSubject } from '@/utils/subjects'
 import { lsGet, lsSet, LS_KEYS } from '@/utils/localStorage'
 import { logEvent } from '@/utils/analytics'
+import { saveStats } from '@/utils/persistence'
 import { shouldBlockAccess } from '@/utils/freeTrialGate'
 import { useAuth } from '@/contexts/AuthContext'
 
@@ -101,11 +102,25 @@ export default function DrillSession({ session, subject, onComplete, onStartFres
     const cardBeingAnswered = workingDeckRef.current[currentIndex]
     const finalVerdict = answersRef.current[cardBeingAnswered.id]?.verdict
 
-    // Increment totalQuestions per card answered (enables mid-session gate check)
+    // Increment counters for ALL users (not just unauthenticated)
+    const newTotal = lsGet<number>(LS_KEYS.totalQuestions, 0) + 1
+    lsSet(LS_KEYS.totalQuestions, newTotal)
+    const newDrill = lsGet<number>(LS_KEYS.drillCount, 0) + 1
+    lsSet(LS_KEYS.drillCount, newDrill)
+
+    // Sync to Supabase immediately so stats persist even if tab is closed
+    const streak = lsGet<{ count: number; lastPracticeDate: string } | null>(LS_KEYS.streak, null)
+    saveStats(
+      newTotal,
+      streak?.count ?? 0,
+      streak?.lastPracticeDate ?? null,
+      newDrill,
+      lsGet<number>(LS_KEYS.mcqCount, 0),
+      lsGet<number>(LS_KEYS.frqCount, 0),
+    )
+
+    // Check freemium gate only for unauthenticated users
     if (!isAuthenticated) {
-      const prev = lsGet<number>(LS_KEYS.totalQuestions, 0)
-      lsSet(LS_KEYS.totalQuestions, prev + 1)
-      // Check gate after incrementing
       if (shouldBlockAccess()) {
         setGateBlocked(true)
         return
