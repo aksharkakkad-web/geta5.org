@@ -7,9 +7,7 @@ import { composeTest, loadTestDraft, clearTestDraft } from '@/utils/testSession'
 import TestSetup from '@/components/test/TestSetup'
 import TestSession from '@/components/test/TestSession'
 import TestResults from '@/components/test/TestResults'
-import ReferenceSheetSidebar from '@/components/tools/ReferenceSheetSidebar'
-import ChemReferenceSheet from '@/components/tools/ChemReferenceSheet'
-import CSPReferenceSheet from '@/components/tools/CSPReferenceSheet'
+import ReferenceSheetModal from '@/components/tools/ReferenceSheetModal'
 import type { TestSessionState, TestDraft } from '@/utils/testSession'
 import type { MCQ } from '@/utils/mcqSession'
 import { AuthGuard } from '@/components/auth/AuthGuard'
@@ -266,11 +264,7 @@ export default function PracticeTestPage({ params }: PracticeTestPageProps) {
       )}
     </main>
 
-    {(subject === 'ap-chemistry' || subject === 'ap-computer-science-principles') && (
-      <ReferenceSheetSidebar title={subject === 'ap-chemistry' ? 'AP Chemistry Reference' : 'AP CSP Reference'}>
-        {subject === 'ap-chemistry' ? <ChemReferenceSheet /> : <CSPReferenceSheet />}
-      </ReferenceSheetSidebar>
-    )}
+    <ReferenceSheetModal subject={subject} />
     </AuthGuard>
   )
 }

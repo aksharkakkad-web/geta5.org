@@ -4,9 +4,7 @@ import { useState, useEffect, use } from 'react'
 import UnitSelector from '@/components/mcq/UnitSelector'
 import MCQSession from '@/components/mcq/MCQSession'
 import MCQResults from '@/components/mcq/MCQResults'
-import ReferenceSheetSidebar from '@/components/tools/ReferenceSheetSidebar'
-import ChemReferenceSheet from '@/components/tools/ChemReferenceSheet'
-import CSPReferenceSheet from '@/components/tools/CSPReferenceSheet'
+import ReferenceSheetModal from '@/components/tools/ReferenceSheetModal'
 import { loadMCQDraft, clearMCQDraft } from '@/utils/mcqSession'
 import type { MCQView, MCQSessionState, MCQDraft } from '@/utils/mcqSession'
 import { AuthGuard } from '@/components/auth/AuthGuard'
@@ -108,11 +106,7 @@ export default function PracticePage({ params }: PracticePageProps) {
         )}
       </main>
 
-      {(subject === 'ap-chemistry' || subject === 'ap-computer-science-principles') && (
-        <ReferenceSheetSidebar title={subject === 'ap-chemistry' ? 'AP Chemistry Reference' : 'AP CSP Reference'}>
-          {subject === 'ap-chemistry' ? <ChemReferenceSheet /> : <CSPReferenceSheet />}
-        </ReferenceSheetSidebar>
-      )}
+      <ReferenceSheetModal subject={subject} />
     </AuthGuard>
   )
 }

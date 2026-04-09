@@ -4,9 +4,7 @@ import { useState, useEffect, use } from 'react'
 import { Calculator } from 'lucide-react'
 import { AuthGuard } from '@/components/auth/AuthGuard'
 import DesmosPanel from '@/components/tools/DesmosPanel'
-import ReferenceSheetSidebar from '@/components/tools/ReferenceSheetSidebar'
-import ChemReferenceSheet from '@/components/tools/ChemReferenceSheet'
-import CSPReferenceSheet from '@/components/tools/CSPReferenceSheet'
+import ReferenceSheetModal from '@/components/tools/ReferenceSheetModal'
 import FRQQuestionSelect from '@/components/frq/FRQQuestionSelect'
 import FRQDBQLayout from '@/components/frq/FRQDBQLayout'
 import FRQEssayLayout from '@/components/frq/FRQEssayLayout'
@@ -81,8 +79,6 @@ export default function FRQPage({ params }: PageProps) {
   const [error, setError] = useState<string | null>(null)
   const [desmosOpen, setDesmosOpen] = useState(false)
 
-  const isRefSubject = subject === 'ap-chemistry' || subject === 'ap-computer-science-principles'
-  const refTitle = subject === 'ap-chemistry' ? 'AP Chemistry Reference' : 'AP CSP Reference'
 
   // ─── Loading ──────────────────────────────────────────────────────────────
 
@@ -760,11 +756,7 @@ export default function FRQPage({ params }: PageProps) {
 
       {desmosOpen && <DesmosPanel onClose={() => setDesmosOpen(false)} />}
 
-      {isRefSubject && (
-        <ReferenceSheetSidebar title={refTitle}>
-          {subject === 'ap-chemistry' ? <ChemReferenceSheet /> : <CSPReferenceSheet />}
-        </ReferenceSheetSidebar>
-      )}
+      <ReferenceSheetModal subject={subject} />
     </AuthGuard>
   )
 }
