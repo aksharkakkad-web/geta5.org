@@ -1047,37 +1047,70 @@
     {
       "id": "chem-mcq-5-023",
       "stimulus": {
-        "type": "text",
-        "content": "A chemist runs a reaction at two different temperatures. At $T_1 = 300$ K, $k_1 = 2.0 \\times 10^{-3}$ L/mol·s. At $T_2 = 320$ K, $k_2 = 6.0 \\times 10^{-3}$ L/mol·s. The Arrhenius equation in two-point form is: $\\ln(k_2/k_1) = (E_a/R)(1/T_1 - 1/T_2)$, where $R = 8.314$ J/mol·K."
+        "type": "table",
+        "content": {
+          "headers": [
+            "Reaction",
+            "$E_a$ (kJ/mol)",
+            "Temperature (K)",
+            "Relative Rate"
+          ],
+          "rows": [
+            [
+              "I",
+              "50",
+              "300",
+              "1.0"
+            ],
+            [
+              "II",
+              "50",
+              "310",
+              "1.7"
+            ],
+            [
+              "III",
+              "100",
+              "300",
+              "very small"
+            ],
+            [
+              "IV",
+              "25",
+              "300",
+              "very large"
+            ]
+          ]
+        }
       },
-      "question": "Which of the following most closely approximates the activation energy $E_a$ for this reaction?",
+      "question": "Based on the data in the table, which of the following correctly explains the difference in relative rates between Reactions I and IV?",
       "choices": [
         {
           "id": "A",
-          "text": "22 kJ/mol",
+          "text": "Reaction IV is faster because it is run at a higher temperature than Reaction I",
           "is_correct": false,
-          "explanation": "22 kJ/mol is too low. Using the formula: ln(6.0/2.0) = ln(3) ≈ 1.099; (1/300 − 1/320) = (320−300)/(300×320) = 20/96000 = 2.083×10⁻⁴; Ea = R × ln(k₂/k₁)/(1/T₁ − 1/T₂) = 8.314 × 1.099 / 2.083×10⁻⁴ ≈ 43900 J/mol ≈ 44 kJ/mol."
+          "explanation": "Both Reactions I and IV are run at the same temperature (300 K). The difference in rate is entirely due to the lower activation energy of Reaction IV (25 kJ/mol vs 50 kJ/mol), not temperature."
         },
         {
           "id": "B",
-          "text": "44 kJ/mol",
+          "text": "Reaction IV is faster because a lower activation energy means a greater fraction of molecular collisions have sufficient energy to result in a reaction",
           "is_correct": true,
-          "explanation": "ln(3) ≈ 1.099; (1/300 − 1/320) ≈ 2.08×10⁻⁴ K⁻¹; Ea = (8.314 J/mol·K)(1.099)/(2.08×10⁻⁴ K⁻¹) ≈ 43,900 J/mol ≈ 44 kJ/mol."
+          "explanation": "At the same temperature, the Maxwell-Boltzmann distribution of molecular energies is identical for both reactions. A lower $E_a$ means the threshold for successful collision is easier to meet — a larger fraction of collisions have energy ≥ $E_a$, producing a higher rate constant and faster rate."
         },
         {
           "id": "C",
-          "text": "88 kJ/mol",
+          "text": "Reaction IV is faster because lower activation energy means molecules move faster and collide more frequently",
           "is_correct": false,
-          "explanation": "88 kJ/mol is double the correct value; this error might arise from using the wrong temperature difference or doubling ln(k₂/k₁) unnecessarily."
+          "explanation": "Activation energy is a property of the reaction pathway (the energy barrier), not of molecular speed. Molecular speed depends on temperature and molar mass. At the same temperature, collision frequency is the same regardless of Ea."
         },
         {
           "id": "D",
-          "text": "132 kJ/mol",
+          "text": "Reaction IV is faster because lower activation energy means the reaction releases more energy (is more exothermic)",
           "is_correct": false,
-          "explanation": "132 kJ/mol corresponds to roughly 3× the correct value; this might arise from using the ratio 6:2 directly (as 3) without taking the natural log."
+          "explanation": "Activation energy and reaction enthalpy ($\\Delta H$) are independent quantities. A reaction can have a low $E_a$ and still be endothermic; the activation energy describes the kinetic barrier, not the thermodynamic energy change."
         }
       ],
-      "difficulty": "hard",
+      "difficulty": "medium",
       "unit_objective": "5.B",
       "subject": "ap-chemistry",
       "unit": "unit-5"

@@ -599,7 +599,7 @@
           "id": "B",
           "text": "Some parts of Task D must be executed sequentially and cannot be parallelized, limiting the achievable speedup",
           "is_correct": true,
-          "explanation": "Amdahl's Law states that the maximum speedup from parallelism is limited by the sequential (non-parallelizable) portion of the task. If some steps must happen in order, they cannot be split across processors."
+          "explanation": "The maximum speedup from parallelism is limited by the sequential (non-parallelizable) portion of the task. If some steps must happen in order, they cannot be split across processors — so the sequential portion acts as a ceiling on achievable speedup."
         },
         {
           "id": "C",
@@ -1034,19 +1034,19 @@
           "id": "B",
           "text": "Some portion of the program must run sequentially and cannot be divided across processors, limiting the maximum speedup",
           "is_correct": true,
-          "explanation": "Amdahl's Law: if any portion of a program is sequential (cannot be parallelized), it creates a ceiling on speedup. The sequential portion takes the same time regardless of processor count, pulling the total time above the ideal 120÷6=20s."
+          "explanation": "When any portion of a program is sequential — meaning it cannot be parallelized — that portion takes the same time regardless of processor count. This creates a ceiling on speedup, pulling total time above the ideal 120÷6=20s."
         },
         {
           "id": "C",
           "text": "Adding more processors always reduces performance because they compete for bandwidth",
           "is_correct": false,
-          "explanation": "The program runs faster with 6 processors (30s vs 120s). More processors can improve performance — the limitation is the sequential portion, not processor competition."
+          "explanation": "The program runs faster with 6 processors (30s vs 120s). More processors can improve performance — the limitation is the sequential portion of the program, not processor competition."
         },
         {
           "id": "D",
           "text": "The 6 processors each have lower clock speeds than the single processor",
           "is_correct": false,
-          "explanation": "Clock speed differences are not described in the scenario. The reason speedup is less than 6× is that some program steps must run sequentially — Amdahl's Law."
+          "explanation": "Clock speed differences are not described in the scenario. The reason speedup is less than 6× is that some program steps must run sequentially and cannot be split across processors, regardless of how many processors are added."
         }
       ],
       "unit_objective": "CSN-2.A"

@@ -101,7 +101,7 @@
           "id": "C",
           "text": "$\\frac{-1}{1+x^2}$",
           "is_correct": false,
-          "explanation": "The derivative of $\\arctan(x)$ is positive: $\\frac{1}{1+x^2}$. A negative result would come from differentiating $\\text{arccot}(x)$."
+          "explanation": "The derivative of $\\arctan(x)$ is positive: $\\frac{1}{1+x^2}$. The sign is always positive because $\\arctan$ is a strictly increasing function."
         },
         {
           "id": "D",
@@ -1931,64 +1931,36 @@
       "unit": "unit-3",
       "difficulty": "hard",
       "has_stimulus": true,
-      "question": "If $x = t^2 - 1$ and $y = t^3 + t$, which of the following gives $\\frac{dy}{dx}$ in terms of $t$?",
+      "question": "The curve $C$ is defined implicitly by $x^3 + xy + y^2 = 7$. Which of the following gives $\\frac{dy}{dx}$?",
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{3t^2 + 1}{2t}$",
+          "text": "$\\frac{-(3x^2 + y)}{x + 2y}$",
           "is_correct": true,
-          "explanation": "For parametric curves: $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt} = \\frac{3t^2+1}{2t}$."
+          "explanation": "Differentiate both sides with respect to $x$: $3x^2 + (y + x\\frac{dy}{dx}) + 2y\\frac{dy}{dx} = 0$. Collect $\\frac{dy}{dx}$ terms: $\\frac{dy}{dx}(x + 2y) = -(3x^2 + y)$. Divide: $\\frac{dy}{dx} = \\frac{-(3x^2+y)}{x+2y}$."
         },
         {
           "id": "B",
-          "text": "$\\frac{2t}{3t^2+1}$",
+          "text": "$\\frac{3x^2 + y}{x + 2y}$",
           "is_correct": false,
-          "explanation": "This inverts the ratio. $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$, not $\\frac{dx/dt}{dy/dt}$."
+          "explanation": "Sign error. Differentiating $x^3 + xy + y^2 = 7$ gives $3x^2 + y + x\\frac{dy}{dx} + 2y\\frac{dy}{dx} = 0$, so $\\frac{dy}{dx} = \\frac{-(3x^2+y)}{x+2y}$ (negative numerator)."
         },
         {
           "id": "C",
-          "text": "$6t$",
+          "text": "$\\frac{-(3x^2 + y)}{2y}$",
           "is_correct": false,
-          "explanation": "$6t$ would come from $(3t^2+1)' = 6t$, which differentiates $dy/dt$ rather than computing the parametric ratio. The answer is $\\frac{3t^2+1}{2t}$."
+          "explanation": "This omits the $x\\frac{dy}{dx}$ term from differentiating $xy$ by the Product Rule. The product rule gives $(xy)' = y + x\\frac{dy}{dx}$, so $x$ must appear in the denominator."
         },
         {
           "id": "D",
-          "text": "$3t^2 + 1$",
+          "text": "$\\frac{-3x^2}{x + 2y}$",
           "is_correct": false,
-          "explanation": "That is $dy/dt$, not $dy/dx$. For parametric equations, $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt} = \\frac{3t^2+1}{2t}$."
+          "explanation": "This omits the $y$ term that comes from differentiating $xy$: $(xy)' = y + x\\frac{dy}{dx}$, so the $y$ from $y'$ of $xy$ must appear in the numerator: $-(3x^2 + y)$."
         }
       ],
       "stimulus": {
-        "type": "table",
-        "content": {
-          "headers": [
-            "$t$",
-            "$x = t^2-1$",
-            "$y = t^3+t$"
-          ],
-          "rows": [
-            [
-              "-1",
-              "0",
-              "-2"
-            ],
-            [
-              "0",
-              "-1",
-              "0"
-            ],
-            [
-              "1",
-              "0",
-              "2"
-            ],
-            [
-              "2",
-              "3",
-              "10"
-            ]
-          ]
-        }
+        "type": "text",
+        "content": "The curve $C$ is defined implicitly by $x^3 + xy + y^2 = 7$. Differentiate both sides with respect to $x$, applying the Product Rule to the $xy$ term and the Chain Rule to the $y^2$ term."
       },
       "subject": "ap-calculus-ab",
       "calculator_allowed": true

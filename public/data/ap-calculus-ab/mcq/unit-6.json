@@ -58,7 +58,7 @@
           "id": "B",
           "text": "$xe^x + C$",
           "is_correct": false,
-          "explanation": "That is NOT the antiderivative. Integration by parts would give $xe^x - e^x$ for $\\int xe^x\\,dx$. For $\\int e^x\\,dx$: simply $e^x + C$."
+          "explanation": "$xe^x + C$ is not the antiderivative of $e^x$. Check by differentiating: $\\frac{d}{dx}[xe^x] = e^x + xe^x \\neq e^x$. The correct antiderivative of $e^x$ is simply $e^x + C$."
         },
         {
           "id": "C",
@@ -1629,7 +1629,7 @@
           "id": "D",
           "text": "The integral diverges",
           "is_correct": false,
-          "explanation": "While the integrand has a singularity at $x=1$, the integral converges (improper integral equals 1 via $u$-sub)."
+          "explanation": "The integrand approaches infinity at $x = 1$, but the $u$-substitution result $[\\sqrt{u}]_0^1 = 1$ is finite. The integral equals 1, not 0."
         }
       ],
       "stimulus": {
@@ -1800,31 +1800,31 @@
       "unit": "unit-6",
       "difficulty": "hard",
       "has_stimulus": false,
-      "question": "Which of the following gives $\\int \\frac{1}{x^2-4}\\,dx$ using partial fractions?",
+      "question": "Which of the following gives $\\int \\frac{(\\ln x)^3}{x}\\,dx$?",
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{1}{4}\\ln\\left|\\frac{x-2}{x+2}\\right| + C$",
+          "text": "$\\frac{(\\ln x)^4}{4} + C$",
           "is_correct": true,
-          "explanation": "Partial fractions: $\\frac{1}{x^2-4} = \\frac{1}{(x-2)(x+2)} = \\frac{1/4}{x-2} - \\frac{1/4}{x+2}$. Integrate: $\\frac{1}{4}\\ln|x-2| - \\frac{1}{4}\\ln|x+2| = \\frac{1}{4}\\ln\\left|\\frac{x-2}{x+2}\\right|+C$."
+          "explanation": "Let $u = \\ln x$, so $du = \\frac{1}{x}dx$. The integral becomes $\\int u^3\\,du = \\frac{u^4}{4} + C = \\frac{(\\ln x)^4}{4} + C$."
         },
         {
           "id": "B",
-          "text": "$\\frac{1}{2x}\\ln|x^2-4| + C$",
+          "text": "$\\frac{(\\ln x)^4}{4x} + C$",
           "is_correct": false,
-          "explanation": "This is not a valid antiderivative. Partial fractions decompose the integrand before integrating."
+          "explanation": "The $\\frac{1}{x}$ factor is absorbed into $du = \\frac{1}{x}dx$, so it does not remain in the answer. After back-substituting $u = \\ln x$: $\\frac{(\\ln x)^4}{4} + C$."
         },
         {
           "id": "C",
-          "text": "$\\ln|x^2-4| + C$",
+          "text": "$3(\\ln x)^2 \\cdot \\frac{1}{x} + C$",
           "is_correct": false,
-          "explanation": "$\\frac{d}{dx}[\\ln|x^2-4|] = \\frac{2x}{x^2-4} \\neq \\frac{1}{x^2-4}$. Partial fractions give $\\frac{1}{4}\\ln|\\frac{x-2}{x+2}|+C$."
+          "explanation": "This is $\\frac{d}{dx}[(\\ln x)^3]$ (differentiating, not integrating). Use $u$-sub with $u = \\ln x$ to integrate: $\\frac{(\\ln x)^4}{4} + C$."
         },
         {
           "id": "D",
-          "text": "$-\\frac{1}{4}\\ln\\left|\\frac{x-2}{x+2}\\right| + C$",
+          "text": "$\\frac{(\\ln x)^2}{2x^2} + C$",
           "is_correct": false,
-          "explanation": "Sign error. $\\frac{1}{4}\\ln|x-2| - \\frac{1}{4}\\ln|x+2| = \\frac{1}{4}\\ln\\left|\\frac{x-2}{x+2}\\right|$ (positive $\\frac{1}{4}$)."
+          "explanation": "This is not a valid antiderivative. Verify: $\\frac{d}{dx}\\left[\\frac{(\\ln x)^4}{4}\\right] = \\frac{4(\\ln x)^3}{4} \\cdot \\frac{1}{x} = \\frac{(\\ln x)^3}{x}$ ✓."
         }
       ],
       "stimulus": {
@@ -2167,31 +2167,31 @@
       "unit": "unit-6",
       "difficulty": "hard",
       "has_stimulus": false,
-      "question": "Which of the following gives $\\int e^{\\sqrt{x}}\\,dx$? (Hint: use $u=\\sqrt{x}$)",
+      "question": "Which of the following gives $\\int \\frac{e^x}{e^x + 3}\\,dx$?",
       "choices": [
         {
           "id": "A",
-          "text": "$2(\\sqrt{x}-1)e^{\\sqrt{x}} + C$",
+          "text": "$\\ln|e^x + 3| + C$",
           "is_correct": true,
-          "explanation": "$u=\\sqrt{x}$, $x=u^2$, $dx=2u\\,du$. $\\int e^u \\cdot 2u\\,du = 2\\int ue^u\\,du = 2(ue^u-e^u)+C = 2e^u(u-1)+C = 2e^{\\sqrt{x}}(\\sqrt{x}-1)+C$."
+          "explanation": "Let $u = e^x + 3$, so $du = e^x\\,dx$. The integral becomes $\\int \\frac{du}{u} = \\ln|u| + C = \\ln|e^x + 3| + C$. Since $e^x + 3 > 0$, the absolute value is optional."
         },
         {
           "id": "B",
-          "text": "$2\\sqrt{x}\\,e^{\\sqrt{x}} + C$",
+          "text": "$\\frac{1}{e^x + 3} + C$",
           "is_correct": false,
-          "explanation": "Integration by parts gives $2ue^u - 2e^u = 2e^u(u-1)$, not just $2ue^u$. The $-2e^u$ term is missing."
+          "explanation": "This would be the antiderivative of $-(e^x + 3)^{-2} \\cdot e^x$. The numerator $e^x$ matches $du$ for a $\\ln$ antiderivative, not a power-rule form."
         },
         {
           "id": "C",
-          "text": "$\\frac{e^{\\sqrt{x}}}{\\sqrt{x}} + C$",
+          "text": "$e^x \\ln|e^x + 3| + C$",
           "is_correct": false,
-          "explanation": "$\\frac{d}{dx}\\left[\\frac{e^{\\sqrt{x}}}{\\sqrt{x}}\\right]$ is not $e^{\\sqrt{x}}$. The correct antiderivative is $2(\\sqrt{x}-1)e^{\\sqrt{x}}+C$."
+          "explanation": "The factor $e^x$ is consumed by the substitution $du = e^x\\,dx$. After substituting, you integrate $\\frac{1}{u}$, which gives $\\ln|u| + C$, not $e^x \\ln|u| + C$."
         },
         {
           "id": "D",
-          "text": "$e^{\\sqrt{x}}(2\\sqrt{x}+2) + C$",
+          "text": "$\\frac{1}{2}\\ln(e^{2x} + 3) + C$",
           "is_correct": false,
-          "explanation": "$2(u-1)e^u = 2ue^u-2e^u = 2e^u(u-1)$, which means the factor is $(\\sqrt{x}-1)$, not $(\\sqrt{x}+1)$."
+          "explanation": "This does not match. Verify the correct answer: $\\frac{d}{dx}[\\ln(e^x+3)] = \\frac{e^x}{e^x+3}$ ✓. The answer is $\\ln|e^x+3|+C$."
         }
       ],
       "stimulus": {
@@ -2300,31 +2300,31 @@
       "unit": "unit-6",
       "difficulty": "hard",
       "has_stimulus": true,
-      "question": "Which of the following gives $\\int_1^e x^2 \\ln(x)\\,dx$?",
+      "question": "The function $F$ is defined by $F(x) = \\int_0^{x^2} \\cos(t)\\,dt$. Which of the following gives $F'(x)$?",
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{e^3+2}{9}$",
-          "is_correct": false,
-          "explanation": "IBP: $u=\\ln x$, $dv=x^2 dx$; $v=x^3/3$. $\\int x^2\\ln x\\,dx = \\frac{x^3\\ln x}{3} - \\int\\frac{x^2}{3}dx = \\frac{x^3\\ln x}{3}-\\frac{x^3}{9}+C$. Evaluate $[\\frac{x^3}{3}(\\ln x-\\frac{1}{3})]_1^e = \\frac{e^3}{3}(1-1/3)-\\frac{1}{3}(0-1/3) = \\frac{2e^3}{9}+\\frac{1}{9} = \\frac{2e^3+1}{9}$."
+          "text": "$2x\\cos(x^2)$",
+          "is_correct": true,
+          "explanation": "By FTC Part 1 with chain rule: $F'(x) = \\cos(x^2) \\cdot \\frac{d}{dx}[x^2] = \\cos(x^2) \\cdot 2x = 2x\\cos(x^2)$."
         },
         {
           "id": "B",
-          "text": "$\\frac{2e^3+1}{9}$",
-          "is_correct": true,
-          "explanation": "IBP: $[\\frac{x^3\\ln x}{3}-\\frac{x^3}{9}]_1^e = (\\frac{e^3}{3}-\\frac{e^3}{9})-(0-\\frac{1}{9}) = \\frac{2e^3}{9}+\\frac{1}{9} = \\frac{2e^3+1}{9}$."
+          "text": "$\\cos(x^2)$",
+          "is_correct": false,
+          "explanation": "This omits the chain rule factor. When the upper limit is $g(x) = x^2$ (not just $x$), multiply by $g'(x) = 2x$: $F'(x) = 2x\\cos(x^2)$."
         },
         {
           "id": "C",
-          "text": "$\\frac{e^3}{3}$",
+          "text": "$\\sin(x^2)$",
           "is_correct": false,
-          "explanation": "Forgetting the $-\\frac{x^3}{9}$ term and the lower-bound contribution. Full IBP gives $\\frac{2e^3+1}{9}$."
+          "explanation": "$\\sin(x^2)$ is the antiderivative concept applied incorrectly. FTC Part 1 says $F'(x) = f(g(x))\\cdot g'(x) = \\cos(x^2)\\cdot 2x$."
         },
         {
           "id": "D",
-          "text": "$\\frac{2e^3-1}{9}$",
+          "text": "$-2x\\sin(x^2)$",
           "is_correct": false,
-          "explanation": "The lower-bound contribution: $-\\frac{1^3}{9}(\\ln 1 - 1/3) = -\\frac{1}{9}(0-1/3) = +\\frac{1}{9}$. So the answer has $+1$, not $-1$: $\\frac{2e^3+1}{9}$."
+          "explanation": "$-\\sin$ would arise from differentiating $\\cos$, not from FTC. The integrand is $\\cos(t)$, so $F'(x) = \\cos(x^2)\\cdot 2x = 2x\\cos(x^2)$."
         }
       ],
       "stimulus": {
@@ -2336,26 +2336,26 @@
           ],
           "rows": [
             [
-              "Integration by parts",
-              "$\\int u\\,dv = uv - \\int v\\,du$"
+              "FTC Part 1 (chain rule form)",
+              "$\\frac{d}{dx}\\int_a^{g(x)} f(t)\\,dt = f(g(x))\\cdot g'(x)$"
             ],
             [
-              "Let $u=\\ln x$",
-              "$du=\\frac{1}{x}dx$"
+              "Integrand $f(t)$",
+              "$\\cos(t)$"
             ],
             [
-              "Let $dv=x^2 dx$",
-              "$v=\\frac{x^3}{3}$"
+              "Upper limit $g(x)$",
+              "$x^2$, so $g'(x) = 2x$"
             ],
             [
-              "Result",
-              "$\\left[\\frac{x^3\\ln x}{3}\\right]_1^e - \\int_1^e \\frac{x^2}{3}\\,dx$"
+              "Apply rule",
+              "$F'(x) = \\cos(x^2)\\cdot 2x$"
             ]
           ]
         }
       },
       "subject": "ap-calculus-ab",
-      "calculator_allowed": true
+      "calculator_allowed": false
     },
     {
       "id": "calc-mcq-u6-054",
@@ -2904,36 +2904,55 @@
       "unit": "unit-6",
       "difficulty": "hard",
       "has_stimulus": true,
-      "question": "Which of the following gives $\\int \\frac{x^2-x+1}{x^3-x}\\,dx$? (Hint: factor $x^3-x = x(x-1)(x+1)$)",
+      "question": "The function $G$ is defined by $G(x) = \\int_x^{x^3} \\sin(t^2)\\,dt$. Which of the following gives $G'(x)$?",
       "choices": [
         {
           "id": "A",
-          "text": "$-\\ln|x| + \\frac{1}{2}\\ln|x-1| + \\frac{1}{2}\\ln|x+1| + C$",
-          "is_correct": false,
-          "explanation": "This uses $C = 1/2$, but the correct value is $C = 3/2$. At $x = -1$: $C(-1)(-2) = 1 + 1 + 1 = 3$, so $2C = 3$ and $C = 3/2$."
+          "text": "$3x^2\\sin(x^6) - \\sin(x^2)$",
+          "is_correct": true,
+          "explanation": "Use FTC Part 1 with chain rule on both limits: $G'(x) = \\sin((x^3)^2)\\cdot 3x^2 - \\sin(x^2)\\cdot 1 = 3x^2\\sin(x^6) - \\sin(x^2)$."
         },
         {
           "id": "B",
-          "text": "$-\\ln|x| + \\frac{1}{2}\\ln|x-1| + \\frac{3}{2}\\ln|x+1| + C$",
-          "is_correct": true,
-          "explanation": "Partial fractions: $\\frac{x^2-x+1}{x(x-1)(x+1)} = \\frac{A}{x}+\\frac{B}{x-1}+\\frac{C}{x+1}$. At $x=0$: $A(-1)(1) = 1$, so $A = -1$. At $x=1$: $B(1)(2) = 1$, so $B = 1/2$. At $x=-1$: $C(-1)(-2) = 3$, so $C = 3/2$. Integrating: $-\\ln|x| + \\frac{1}{2}\\ln|x-1| + \\frac{3}{2}\\ln|x+1| + C$."
+          "text": "$\\sin(x^6) - \\sin(x^2)$",
+          "is_correct": false,
+          "explanation": "This omits the chain rule factor $3x^2$ from the upper limit $x^3$. When the upper limit is $g(x) = x^3$, multiply by $g'(x) = 3x^2$: $3x^2\\sin(x^6) - \\sin(x^2)$."
         },
         {
           "id": "C",
-          "text": "$\\ln|x(x-1)(x+1)| + C$",
+          "text": "$3x^2\\sin(x^6)$",
           "is_correct": false,
-          "explanation": "$\\frac{d}{dx}[\\ln|x^3-x|] = \\frac{3x^2-1}{x^3-x}$, not $\\frac{x^2-x+1}{x^3-x}$. Partial fractions are needed."
+          "explanation": "This handles only the upper limit. The lower limit $x$ also contributes: differentiating $\\int_a^x$ gives $+f(x)$, so the lower limit $x$ contributes $-\\sin(x^2)\\cdot 1$."
         },
         {
           "id": "D",
-          "text": "$\\frac{1}{3}\\ln|x^3-x| + C$",
+          "text": "$3x^2\\sin(x^3) - \\sin(x)$",
           "is_correct": false,
-          "explanation": "This would be the antiderivative if the numerator were exactly $\\frac{3x^2-1}{3}$, which it is not. Partial fractions give separate $\\ln$ terms."
+          "explanation": "The integrand is $\\sin(t^2)$, evaluated at $t = x^3$ and $t = x$: giving $\\sin((x^3)^2) = \\sin(x^6)$ and $\\sin(x^2)$. The arguments were not squared correctly."
         }
       ],
       "stimulus": {
-        "type": "text",
-        "content": "To integrate $\\int \\frac{x^2-x+1}{x^3-x}\\,dx$, factor: $x^3-x = x(x-1)(x+1)$. Use partial fractions: $\\frac{x^2-x+1}{x(x-1)(x+1)} = \\frac{A}{x}+\\frac{B}{x-1}+\\frac{C}{x+1}$."
+        "type": "table",
+        "content": {
+          "headers": [
+            "Step",
+            "Expression"
+          ],
+          "rows": [
+            [
+              "Generalized FTC Part 1",
+              "$\\frac{d}{dx}\\int_{h(x)}^{g(x)} f(t)\\,dt = f(g(x))g'(x) - f(h(x))h'(x)$"
+            ],
+            [
+              "Upper limit $g(x) = x^3$",
+              "$g'(x) = 3x^2$; evaluate integrand at $x^3$: $\\sin((x^3)^2) = \\sin(x^6)$"
+            ],
+            [
+              "Lower limit $h(x) = x$",
+              "$h'(x) = 1$; evaluate integrand at $x$: $\\sin(x^2)$"
+            ]
+          ]
+        }
       },
       "subject": "ap-calculus-ab",
       "calculator_allowed": false

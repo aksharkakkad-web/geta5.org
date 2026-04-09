@@ -1101,31 +1101,31 @@
       "unit": "unit-7",
       "difficulty": "medium",
       "has_stimulus": true,
-      "question": "Which of the following correctly describes the long-term behavior of the solution to $\\frac{dy}{dx} = y(1-y)$ as $x \\to \\infty$ for $y(0) = 0.5$?",
+      "question": "The slope field for the differential equation $\\frac{dy}{dx} = 2y$ is shown. If $y(0) = 3$, which of the following gives the particular solution?",
       "choices": [
         {
           "id": "A",
-          "text": "$y \\to 0$",
-          "is_correct": false,
-          "explanation": "$y=0$ is an unstable equilibrium for this equation. Starting at $y=0.5 > 0$ with $y(1-y)>0$: $y$ is increasing toward $y=1$."
+          "text": "$y = 3e^{2x}$",
+          "is_correct": true,
+          "explanation": "$\\frac{dy}{dx} = 2y$ is the exponential model with $k = 2$. General solution: $y = Ce^{2x}$. Apply $y(0)=3$: $3 = Ce^0 = C$. Particular solution: $y = 3e^{2x}$."
         },
         {
           "id": "B",
-          "text": "$y \\to 1$",
-          "is_correct": true,
-          "explanation": "The equation has equilibria at $y=0$ (unstable) and $y=1$ (stable). Starting at $y=0.5$, the solution increases toward the stable equilibrium $y=1$."
+          "text": "$y = e^{2x} + 2$",
+          "is_correct": false,
+          "explanation": "Check: $y(0) = 1 + 2 = 3$ ✓. But $dy/dx = 2e^{2x}$, while $2y = 2e^{2x}+4$. These are not equal, so this function does not satisfy the DE."
         },
         {
           "id": "C",
-          "text": "$y \\to \\infty$",
+          "text": "$y = 3e^{x}$",
           "is_correct": false,
-          "explanation": "For $y > 1$: $y(1-y) < 0$, so $y$ decreases toward 1. Solutions are bounded and approach 1."
+          "explanation": "$y(0)=3$ ✓. But $dy/dx = 3e^x$ and $2y = 6e^x$. Since $3e^x \\neq 6e^x$, this does not satisfy $dy/dx = 2y$. The correct solution is $y = 3e^{2x}$."
         },
         {
           "id": "D",
-          "text": "$y \\to 0.5$",
+          "text": "$y = 3 + 2x$",
           "is_correct": false,
-          "explanation": "$y=0.5$ is not an equilibrium. $y(1-y) = 0.5(0.5) = 0.25 > 0$, so $y$ is increasing toward 1."
+          "explanation": "$y(0)=3$ ✓. But $dy/dx = 2$ (constant), while $2y = 6 + 4x$. These are not equal. The equation $dy/dx = 2y$ requires an exponential solution."
         }
       ],
       "stimulus": {
@@ -1133,47 +1133,14 @@
         "content": {
           "type": "line",
           "data": {
-            "labels": [
-              "-2",
-              "-1",
-              "0",
-              "1",
-              "2",
-              "3",
-              "4"
-            ],
+            "labels": ["-2", "-1", "0", "1", "2"],
             "datasets": [
               {
-                "label": "Logistic: dy/dx = y(1-y)",
-                "data": [
-                  -0.03,
-                  0.24,
-                  0,
-                  0.24,
-                  -0.03,
-                  -0.06,
-                  0
-                ],
-                "borderColor": "#6366f1",
-                "fill": false
-              },
-              {
-                "label": "Solution approaches y=1",
-                "data": [
-                  null,
-                  null,
-                  0.5,
-                  0.73,
-                  0.88,
-                  0.95,
-                  0.98
-                ],
+                "label": "Solution y = 3e^(2x)",
+                "data": [0.055, 0.406, 3, 22.17, 163.8],
                 "borderColor": "#f59e0b",
                 "fill": false,
-                "borderDash": [
-                  5,
-                  5
-                ]
+                "borderDash": [5, 5]
               }
             ]
           },
@@ -1928,31 +1895,31 @@
       "unit": "unit-7",
       "difficulty": "hard",
       "has_stimulus": false,
-      "question": "Which of the following gives the solution to $\\frac{dy}{dx} = y^2 - 4$, $y(0) = 0$?",
+      "question": "Which of the following gives the particular solution to $\\frac{dy}{dx} = \\frac{x^2}{y}$, $y(0) = 4$?",
       "choices": [
         {
           "id": "A",
-          "text": "$y = -2\\tanh(2x)$",
-          "is_correct": false,
-          "explanation": "Separation: $\\frac{dy}{y^2-4} = dx$. Partial fractions: $\\frac{1}{(y-2)(y+2)} = \\frac{1/4}{y-2}-\\frac{1/4}{y+2}$. Integrate: $\\frac{1}{4}\\ln|\\frac{y-2}{y+2}| = x+C$. At $(0,0)$: $\\frac{1}{4}\\ln 1 = 0$, $C=0$. $\\frac{y-2}{y+2} = e^{4x}$. Solve: $y-2=e^{4x}(y+2)$, $y(1-e^{4x})=2+2e^{4x}$, $y=\\frac{2(1+e^{4x})}{1-e^{4x}} = -2\\coth(2x)$. Hmm."
+          "text": "$y = \\sqrt{\\frac{2x^3}{3} + 16}$",
+          "is_correct": true,
+          "explanation": "Separate: $y\\,dy = x^2\\,dx$. Integrate both sides: $\\frac{y^2}{2} = \\frac{x^3}{3} + C$. Apply $y(0)=4$: $\\frac{16}{2} = 0 + C$, so $C = 8$. Thus $y^2 = \\frac{2x^3}{3} + 16$, and taking the positive root (since $y(0)=4>0$): $y = \\sqrt{\\frac{2x^3}{3}+16}$."
         },
         {
           "id": "B",
-          "text": "$y = -2\\cdot\\frac{1+e^{4x}}{1-e^{4x}}$",
+          "text": "$y = \\frac{x^3}{3} + 4$",
           "is_correct": false,
-          "explanation": "From $\\frac{y-2}{y+2} = e^{4x}$: $y-2 = e^{4x}(y+2)$. $y(1-e^{4x}) = 2(1+e^{4x})$. $y = \\frac{2(1+e^{4x})}{1-e^{4x}}$. Verify $y(0)=\\frac{2(2)}{0}$... there's a discontinuity. Rechecking: at $y=0$: $\\frac{0-2}{0+2}=-1=e^{4\\cdot 0}=1$. Contradiction — $-1\\neq 1$. So $y=-2$ is the equilibrium reached differently."
+          "explanation": "This treats the equation as $dy/dx = x^2$ (integrating without separating $y$). Must first separate: $y\\,dy = x^2\\,dx$, then integrate both sides."
         },
         {
           "id": "C",
-          "text": "$y = -2\\tanh(2x)$",
-          "is_correct": true,
-          "explanation": "For $dy/dx=y^2-4=(y-2)(y+2)$ with $y(0)=0$: the solution stays between $-2$ and $2$ (since $y_0=0$ is between the equilibria). Using $y=-2\\tanh(2x)$: $y(0)=0$ ✓. $dy/dx = -4\\text{sech}^2(2x)$. $y^2-4 = 4\\tanh^2(2x)-4 = -4\\text{sech}^2(2x)$ ✓."
+          "text": "$y^2 = \\frac{2x^3}{3} + 4$",
+          "is_correct": false,
+          "explanation": "The constant $C = 8$, not 4. Applying $y(0)=4$: $\\frac{4^2}{2} = 8 = C$. So $y^2 = \\frac{2x^3}{3} + 16$."
         },
         {
           "id": "D",
-          "text": "$y = 2\\tanh(2x)$",
+          "text": "$y = \\sqrt{\\frac{2x^3}{3} + 4}$",
           "is_correct": false,
-          "explanation": "Check sign: $y'=4\\text{sech}^2(2x)$ and $y^2-4=4\\tanh^2(2x)-4=-4\\text{sech}^2(2x)\\neq 4\\text{sech}^2(2x)$. The correct solution is $y=-2\\tanh(2x)$."
+          "explanation": "The constant was computed incorrectly. At $x=0$: $y^2/2 = C$, and $y(0)=4$ gives $C = 8$. So $y^2 = \\frac{2x^3}{3}+16$, and $y = \\sqrt{\\frac{2x^3}{3}+16}$."
         }
       ],
       "stimulus": {

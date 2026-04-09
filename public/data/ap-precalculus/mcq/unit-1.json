@@ -2164,153 +2164,153 @@
       "difficulty": "medium",
       "stimulus": {
         "type": "text",
-        "content": "A piecewise function is defined as: $f(x) = \\begin{cases} 2x + 3 & x < 0 \\\\ x^2 & x \\geq 0 \\end{cases}$"
+        "content": "A piecewise function is defined as: $f(x) = \begin{cases} x^2 - 1 & x < 2 \\ 3x - 5 & x geq 2 end{cases}$"
       },
-      "question": "Which of the following best describes the continuity of $f$ at $x = 0$?",
+      "question": "Which of the following gives the value of $f(3) + f(0)$?",
       "choices": [
         {
           "id": "A",
-          "text": "$f$ is continuous at $x = 0$ because both pieces are polynomials",
+          "text": "$2$",
           "is_correct": false,
-          "explanation": "Being polynomials is necessary but not sufficient for continuity at the boundary. We must check that the left and right limits equal $f(0)$."
+          "explanation": "$f(3)=3(3)-5=4$ and $f(0)=0^2-1=-1$, so $f(3)+f(0)=4+(-1)=3$, not $2$."
         },
         {
           "id": "B",
-          "text": "$f$ is not continuous at $x = 0$ because $\\lim_{x \\to 0^-} f(x) \\neq f(0)$",
+          "text": "$3$",
           "is_correct": true,
-          "explanation": "$\\lim_{x\\to0^-}f(x)=2(0)+3=3$; $f(0)=0^2=0$. Since $3\\neq0$, the left-hand limit does not equal $f(0)$, so $f$ is not continuous at $x=0$."
+          "explanation": "Since $3geq2$, use the second piece: $f(3)=3(3)-5=4$. Since $0<2$, use the first piece: $f(0)=0^2-1=-1$. Thus $f(3)+f(0)=4+(-1)=3$."
         },
         {
           "id": "C",
-          "text": "$f$ is continuous at $x = 0$ because $f(0) = 0$",
+          "text": "$5$",
           "is_correct": false,
-          "explanation": "$f(0)=0$, but $\\lim_{x\\to0^-}f(x)=3\\neq0$. Continuity requires the limit from both sides to equal the function value."
+          "explanation": "$f(0)=0^2-1=-1$ (using the first piece since $0<2$) and $f(3)=4$, giving a sum of $3$, not $5$."
         },
         {
           "id": "D",
-          "text": "$f$ is not continuous at $x = 0$ because $f(0)$ is undefined",
+          "text": "$-1$",
           "is_correct": false,
-          "explanation": "$f(0)$ is defined — use the $x\\geq0$ piece: $f(0)=0^2=0$. The discontinuity arises because the left-hand limit ($3$) does not equal $f(0)$ ($0$)."
+          "explanation": "$-1=f(0)$ alone. The question asks for $f(3)+f(0)=4+(-1)=3$."
         }
       ],
-      "unit_objective": "PCF-1.F",
-      "calculator_allowed": true
+      "unit_objective": "PCF-1.E",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q039",
       "unit": "unit-1",
       "subject": "ap-precalculus",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "stimulus": {
         "type": "text",
-        "content": "A piecewise function is defined as: $f(x) = \\begin{cases} ax + 2 & x < 1 \\\\ 3x^2 - 1 & x \\geq 1 \\end{cases}$"
+        "content": "A piecewise function is defined as: $f(x) = \begin{cases} 2x + 3 & x < 0 \\ x^2 - 4 & x geq 0 end{cases}$"
       },
-      "question": "For what value of $a$ is $f$ continuous at $x = 1$?",
+      "question": "Which of the following gives all zeros of $f$?",
       "choices": [
         {
           "id": "A",
-          "text": "$a = 0$",
-          "is_correct": true,
-          "explanation": "Continuity at $x=1$ requires the left-hand limit to equal $f(1)$. Left limit: $a(1)+2=a+2$. $f(1)=3(1)^2-1=2$. Set equal: $a+2=2\\Rightarrow a=0$. Verify: left limit $=2$, $f(1)=2$. Continuous."
+          "text": "$x = -2$ and $x = 2$ only",
+          "is_correct": false,
+          "explanation": "For the first piece ($x<0$): $2x+3=0 Rightarrow x=-\frac{3}{2}$, which satisfies $x<0$. For the second piece ($xgeq0$): $x^2-4=0 Rightarrow x=pm2$; only $x=2$ satisfies $xgeq0$. So zeros are $x=-\frac{3}{2}$ and $x=2$."
         },
         {
           "id": "B",
-          "text": "$a = 1$",
-          "is_correct": false,
-          "explanation": "If $a=1$: left limit $=1+2=3$; $f(1)=2$. Since $3\\neq2$, $f$ is not continuous at $x=1$ when $a=1$."
+          "text": "$x = -dfrac{3}{2}$ and $x = 2$ only",
+          "is_correct": true,
+          "explanation": "First piece ($x<0$): $2x+3=0 Rightarrow x=-\frac{3}{2}$. This satisfies $x<0$, so it is a valid zero. Second piece ($xgeq0$): $x^2-4=0 Rightarrow x=2$ or $x=-2$. Only $x=2geq0$ is valid. Zeros: $x=-\frac{3}{2}$ and $x=2$."
         },
         {
           "id": "C",
-          "text": "$a = 2$",
+          "text": "$x = 2$ only",
           "is_correct": false,
-          "explanation": "If $a=2$: left limit $=2+2=4$; $f(1)=2$. Since $4\\neq2$, $a=2$ does not produce continuity."
+          "explanation": "The first piece also has a zero: $2x+3=0Rightarrow x=-\frac{3}{2}$, which lies in $x<0$ and is a valid zero of $f$."
         },
         {
           "id": "D",
-          "text": "$a = -2$",
+          "text": "$x = -2$, $x = -dfrac{3}{2}$, and $x = 2$",
           "is_correct": false,
-          "explanation": "If $a=-2$: left limit $=-2+2=0$; $f(1)=2$. Since $0\\neq2$, $a=-2$ does not produce continuity."
+          "explanation": "While $x^2-4=0$ gives $x=pm2$, the solution $x=-2$ does not satisfy the condition $xgeq0$ for that piece, so it is not a zero of $f$."
         }
       ],
-      "unit_objective": "PCF-1.F",
+      "unit_objective": "PCF-1.E",
       "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q040",
       "unit": "unit-1",
       "subject": "ap-precalculus",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "stimulus": {
         "type": "text",
-        "content": "A piecewise function is defined as: $f(x) = \\begin{cases} kx + 4 & x \\leq 2 \\\\ x^2 - k & x > 2 \\end{cases}$"
+        "content": "A piecewise function is defined as: $f(x) = \begin{cases} -x + 4 & x leq 1 \\ x^2 + 1 & x > 1 end{cases}$"
       },
-      "question": "For what value of $k$ is $f$ continuous at $x = 2$?",
+      "question": "Which of the following gives the range of $f$?",
       "choices": [
         {
           "id": "A",
-          "text": "$k = 0$",
-          "is_correct": true,
-          "explanation": "Continuity requires left value $=$ right limit. Left: $k(2)+4=2k+4$. Right: $(2)^2-k=4-k$. Set equal: $2k+4=4-k\\Rightarrow3k=0\\Rightarrow k=0$. Verify: left $=4$, right $=4$. Continuous."
+          "text": "All real numbers",
+          "is_correct": false,
+          "explanation": "The second piece $x^2+1 > 1$ for $x>1$, so outputs greater than $2$. The first piece $-x+4$ for $xleq1$ gives outputs $geq 3$. There are no outputs in $(2, 3)$, so the range is not all real numbers."
         },
         {
           "id": "B",
-          "text": "$k = 1$",
+          "text": "$[2, infty)$",
           "is_correct": false,
-          "explanation": "If $k=1$: left $=2(1)+4=6$; right $=4-1=3$. Since $6\\neq3$, $f$ is not continuous with $k=1$."
+          "explanation": "The first piece $-x+4$ for $xleq1$ gives values $geq3$. The minimum of the first piece at $x=1$ is $3$. So outputs below $3$ from the first piece are impossible; the second piece gives values $(2,infty)$ but starts just above $2$."
         },
         {
           "id": "C",
-          "text": "$k = -1$",
+          "text": "$(2, infty)$ union $[3, infty)$",
           "is_correct": false,
-          "explanation": "If $k=-1$: left $=-2+4=2$; right $=4-(-1)=5$. Since $2\\neq5$, $k=-1$ does not produce continuity."
+          "explanation": "These two sets overlap since $(2,infty)$ already contains $[3,infty)$. Writing the union correctly: the second piece gives $(2,infty)$ and the first gives $[3,infty)$; the union is $(2,infty)$."
         },
         {
           "id": "D",
-          "text": "$k = 2$",
-          "is_correct": false,
-          "explanation": "If $k=2$: left $=4+4=8$; right $=4-2=2$. Since $8\\neq2$, $k=2$ does not produce continuity."
+          "text": "$(2, infty)$",
+          "is_correct": true,
+          "explanation": "Second piece ($x>1$): $x^2+1>1^2+1=2$, so outputs are in $(2,infty)$. First piece ($xleq1$): $-x+4geq-1+4=3$, so outputs are in $[3,infty)subset(2,infty)$. Combined range is $(2,infty)$."
         }
       ],
-      "unit_objective": "PCF-1.F",
+      "unit_objective": "PCF-1.E",
       "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q041",
       "unit": "unit-1",
       "subject": "ap-precalculus",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "stimulus": {
         "type": "text",
-        "content": "A piecewise function is defined as: $f(x) = \\begin{cases} 3x - k & x < 2 \\\\ kx + 1 & x \\geq 2 \\end{cases}$"
+        "content": "A piecewise function is defined as: $f(x) = \begin{cases} 3x - k & x < 2 \\ kx + 1 & x geq 2 end{cases}$"
       },
-      "question": "For what value of $k$ is $f$ continuous at $x = 2$?",
+      "question": "If $k = 2$, which of the following gives $f(-1) + f(4)$?",
       "choices": [
         {
           "id": "A",
-          "text": "$k = 1$",
+          "text": "$0$",
           "is_correct": false,
-          "explanation": "If $k=1$: left limit $=3(2)-1=5$; $f(2)=1(2)+1=3$. Since $5\\neq3$, $k=1$ does not produce continuity."
+          "explanation": "With $k=2$: $f(-1)=3(-1)-2=-5$ (since $-1<2$) and $f(4)=2(4)+1=9$ (since $4geq2$). So $f(-1)+f(4)=-5+9=4$, not $0$."
         },
         {
           "id": "B",
-          "text": "$k = \\frac{5}{3}$",
+          "text": "$4$",
           "is_correct": true,
-          "explanation": "Set left limit equal to right value: $3(2)-k=k(2)+1\\Rightarrow6-k=2k+1\\Rightarrow5=3k\\Rightarrow k=\\frac{5}{3}$. Check: left $=6-\\frac{5}{3}=\\frac{13}{3}$; right $=\\frac{10}{3}+1=\\frac{13}{3}$. Continuous."
+          "explanation": "With $k=2$: since $-1<2$, use the first piece: $f(-1)=3(-1)-2=-5$. Since $4geq2$, use the second piece: $f(4)=2(4)+1=9$. Thus $f(-1)+f(4)=-5+9=4$."
         },
         {
           "id": "C",
-          "text": "$k = 2$",
+          "text": "$9$",
           "is_correct": false,
-          "explanation": "If $k=2$: left limit $=6-2=4$; $f(2)=2(2)+1=5$. Since $4\\neq5$, $k=2$ does not produce continuity."
+          "explanation": "$9=f(4)$ alone. The question asks for $f(-1)+f(4)$. Using the first piece for $x=-1$: $f(-1)=3(-1)-2=-5$, so the sum is $-5+9=4$."
         },
         {
           "id": "D",
-          "text": "$k = 5$",
+          "text": "$-5$",
           "is_correct": false,
-          "explanation": "If $k=5$: left limit $=6-5=1$; $f(2)=5(2)+1=11$. Since $1\\neq11$, $k=5$ does not produce continuity."
+          "explanation": "$-5=f(-1)$ alone. The question asks for $f(-1)+f(4)=-5+9=4$. Don't forget to add $f(4)$ using the second piece."
         }
       ],
-      "unit_objective": "PCF-1.F",
+      "unit_objective": "PCF-1.E",
       "calculator_allowed": false
     },
     {

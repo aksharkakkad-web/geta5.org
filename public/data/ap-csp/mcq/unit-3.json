@@ -1144,7 +1144,7 @@
       "difficulty": "hard",
       "stimulus": {
         "type": "code",
-        "content": "PROCEDURE mystery2(n)\n{\n  IF(n ≤ 1)\n  {\n    RETURN(1)\n  }\n  ELSE\n  {\n    RETURN(n * mystery2(n - 1))\n  }\n}\nDISPLAY(mystery2(5))"
+        "content": "PROCEDURE mystery2(n)\n{\n  result ← 1\n  counter ← 1\n  REPEAT UNTIL(counter > n)\n  {\n    result ← result * counter\n    counter ← counter + 1\n  }\n  RETURN(result)\n}\nDISPLAY(mystery2(5))"
       },
       "question": "What is displayed when the code segment is executed?",
       "choices": [
@@ -1152,25 +1152,25 @@
           "id": "A",
           "text": "5",
           "is_correct": false,
-          "explanation": "mystery2 computes the factorial of n. mystery2(5) = 5 × 4 × 3 × 2 × 1 = 120, not 5."
+          "explanation": "mystery2 computes the factorial of n by multiplying result by counter on each iteration. For n = 5: result goes 1 → 1 → 2 → 6 → 24 → 120. The display is 120, not 5."
         },
         {
           "id": "B",
           "text": "25",
           "is_correct": false,
-          "explanation": "25 = 5^2. The procedure computes factorial: 5! = 5 × 4 × 3 × 2 × 1 = 120."
+          "explanation": "25 = 5². The procedure multiplies result by each counter value from 1 to n: 1 × 2 × 3 × 4 × 5 = 120, not 25."
         },
         {
           "id": "C",
           "text": "120",
           "is_correct": true,
-          "explanation": "mystery2 computes factorial recursively. mystery2(5) = 5 × mystery2(4) = 5 × 4 × mystery2(3) = 5 × 4 × 3 × mystery2(2) = 5 × 4 × 3 × 2 × mystery2(1) = 5 × 4 × 3 × 2 × 1 = 120."
+          "explanation": "mystery2 computes the factorial of n iteratively. Starting with result = 1, counter = 1: iteration 1 → result = 1, iteration 2 → result = 2, iteration 3 → result = 6, iteration 4 → result = 24, iteration 5 → result = 120. Loop ends when counter = 6 > 5. RETURN(120)."
         },
         {
           "id": "D",
-          "text": "The procedure will run forever because there is no loop",
+          "text": "The procedure will run forever",
           "is_correct": false,
-          "explanation": "The procedure uses recursion with a base case (n ≤ 1 returns 1). It will terminate — each call reduces n by 1 until it reaches the base case."
+          "explanation": "counter starts at 1 and increments by 1 each iteration. It will eventually exceed n, causing the REPEAT UNTIL condition to be true and the loop to terminate."
         }
       ],
       "unit_objective": "AAP-3.A"
@@ -1220,33 +1220,33 @@
       "difficulty": "hard",
       "stimulus": {
         "type": "code",
-        "content": "PROCEDURE compress(str)\n{\n  result ← \"\"\n  i ← 1\n  REPEAT UNTIL(i > LENGTH(str))\n  {\n    IF(str[i] = str[i + 1])\n    {\n      i ← i + 2\n    }\n    ELSE\n    {\n      result ← result + str[i]\n      i ← i + 1\n    }\n  }\n  RETURN(result)\n}\nDISPLAY(compress(\"aabbc\"))"
+        "content": "PROCEDURE removeDupes(lst)\n{\n  result ← []\n  i ← 1\n  REPEAT UNTIL(i > LENGTH(lst))\n  {\n    IF(i + 1 ≤ LENGTH(lst) AND lst[i] = lst[i + 1])\n    {\n      i ← i + 2\n    }\n    ELSE\n    {\n      APPEND(result, lst[i])\n      i ← i + 1\n    }\n  }\n  RETURN(result)\n}\ndata ← [\"a\", \"a\", \"b\", \"b\", \"c\"]\nDISPLAY(LENGTH(removeDupes(data)))"
       },
-      "question": "What is displayed when the code segment is executed? (Assume + concatenates strings.)",
+      "question": "What is displayed when the code segment is executed?",
       "choices": [
         {
           "id": "A",
-          "text": "aabbc",
+          "text": "5",
           "is_correct": false,
-          "explanation": "The procedure removes duplicate adjacent pairs. \"a\" pairs with the next \"a\" (i jumps by 2), \"b\" pairs with next \"b\" (i jumps by 2), then \"c\" has no match and is appended. Result is \"c\"."
+          "explanation": "5 is the length of the original list. removeDupes removes adjacent duplicate pairs — \"a\",\"a\" are both skipped, \"b\",\"b\" are both skipped, only \"c\" has no adjacent match and is kept. The returned list has length 1."
         },
         {
           "id": "B",
-          "text": "abc",
+          "text": "3",
           "is_correct": false,
-          "explanation": "When a character matches the next, both are skipped (i += 2). \"a\" and \"a\" are both skipped, \"b\" and \"b\" are both skipped, only \"c\" (unmatched) is kept. Result is \"c\"."
+          "explanation": "3 would be the result if the procedure kept one of each duplicate pair. Instead, when lst[i] = lst[i+1], both elements are skipped (i advances by 2). Only \"c\" at position 5 has no match and is appended. Result list has 1 element."
         },
         {
           "id": "C",
-          "text": "c",
+          "text": "1",
           "is_correct": true,
-          "explanation": "i=1: str[1]='a'=str[2]='a' → i jumps to 3. i=3: str[3]='b'=str[4]='b' → i jumps to 5. i=5: str[5]='c', str[6] would be out of range (treated as not equal) → result='c', i=6. Loop ends. RETURN('c')."
+          "explanation": "i=1: lst[1]=\"a\" = lst[2]=\"a\" → i jumps to 3. i=3: lst[3]=\"b\" = lst[4]=\"b\" → i jumps to 5. i=5: lst[5]=\"c\", i+1=6 > LENGTH(lst)=5 so condition is false → APPEND(result, \"c\"), i=6. Loop ends. result = [\"c\"], LENGTH = 1."
         },
         {
           "id": "D",
-          "text": "Nothing is displayed",
+          "text": "0",
           "is_correct": false,
-          "explanation": "The 'c' at the end of the string has no matching adjacent character, so it is appended to result. The procedure returns and displays 'c'."
+          "explanation": "0 would mean no elements were kept. The last element \"c\" at position 5 has no adjacent match (i+1 would exceed the list length), so it is appended to result. The returned list has 1 element."
         }
       ],
       "unit_objective": "AAP-3.A"

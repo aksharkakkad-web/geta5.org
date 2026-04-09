@@ -849,38 +849,61 @@
       "subject": "ap-precalculus",
       "difficulty": "medium",
       "stimulus": {
-        "type": "text",
-        "content": "An account earns $6\\%$ annual interest, compounded monthly. The initial deposit is $\\$1{,}000$."
+        "type": "table",
+        "content": {
+          "headers": [
+            "$t$ (years)",
+            "$P(t)$ (thousands)"
+          ],
+          "rows": [
+            [
+              "0",
+              "5"
+            ],
+            [
+              "1",
+              "6"
+            ],
+            [
+              "2",
+              "7.2"
+            ],
+            [
+              "3",
+              "8.64"
+            ]
+          ]
+        }
       },
-      "question": "Which of the following gives the amount $A$ in the account after $t$ years?",
+      "question": "The table above shows values of a population $P(t)$ (in thousands) over time. Assuming $P$ is exponential, which of the following gives $P(t)$?",
       "choices": [
         {
           "id": "A",
-          "text": "$A = 1000(1.06)^t$",
-          "is_correct": false,
-          "explanation": "This uses annual compounding ($n=1$). Monthly compounding requires dividing the rate by $12$: $A=1000\\left(1+\\frac{0.06}{12}\\right)^{12t}$."
+          "text": "$P(t) = 5(1.2)^t$",
+          "is_correct": true,
+          "explanation": "The initial value is $P(0)=5$. The common ratio is $\frac{6}{5}=1.2$, confirmed by $\frac{7.2}{6}=1.2$ and $\frac{8.64}{7.2}=1.2$. So $P(t)=5(1.2)^t$."
         },
         {
           "id": "B",
-          "text": "$A = 1000\\left(1 + \\frac{0.06}{12}\\right)^{12t}$",
-          "is_correct": true,
-          "explanation": "Compound interest formula: $A=P\\left(1+\\frac{r}{n}\\right)^{nt}$ with $P=1000$, $r=0.06$, $n=12$."
+          "text": "$P(t) = 5 + 1.2t$",
+          "is_correct": false,
+          "explanation": "This is linear. A linear model would give equal changes each year, but here outputs multiply by a constant ratio of $1.2$, not add a constant."
         },
         {
           "id": "C",
-          "text": "$A = 1000 e^{0.06t}$",
+          "text": "$P(t) = 5(2)^t$",
           "is_correct": false,
-          "explanation": "This is continuous compounding ($A=Pe^{rt}$), not monthly. Monthly compounding uses the discrete formula with $n=12$."
+          "explanation": "A base of $2$ would double each year: $P(1)$ would be $10$, but the table shows $P(1)=6$. The ratio is $1.2$, not $2$."
         },
         {
           "id": "D",
-          "text": "$A = 1000(1.005)^t$",
+          "text": "$P(t) = 5(0.8)^t$",
           "is_correct": false,
-          "explanation": "$1.005=1+0.06/12$ is the correct monthly factor, but the exponent should be $12t$ (total number of compounding periods), not $t$."
+          "explanation": "Base $0.8<1$ describes exponential decay. This population is growing (outputs increase), so the base must be greater than $1$."
         }
       ],
-      "unit_objective": "FUN-1.F",
-      "calculator_allowed": true
+      "unit_objective": "FUN-1.D",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u2-q021",
@@ -889,36 +912,36 @@
       "difficulty": "medium",
       "stimulus": {
         "type": "text",
-        "content": "An investment earns $5\\%$ continuous annual interest. The initial principal is $\\$2{,}000$."
+        "content": "A city's population is modeled by $P(t) = 80{,}000 cdot (1.04)^t$, where $t$ is the number of years after 2010."
       },
-      "question": "Which of the following gives the amount $A$ after $10$ years?",
+      "question": "Which of the following best gives the number of years after 2010 for the population to first exceed $100{,}000$?",
       "choices": [
         {
           "id": "A",
-          "text": "$A = 2000(1.05)^{10}$",
+          "text": "$t = dfrac{ln(100000)}{ln(1.04)}$",
           "is_correct": false,
-          "explanation": "This uses annual discrete compounding. Continuous compounding uses $A=Pe^{rt}$, not $(1+r)^t$."
+          "explanation": "This solves $(1.04)^t=100000$ instead of the correct equation $(1.04)^t=\frac{100000}{80000}=1.25$. The initial value must be divided out first."
         },
         {
           "id": "B",
-          "text": "$A = 2000 e^{0.5}$",
+          "text": "$t = dfrac{ln(1.25)}{ln(1.04)}$",
           "is_correct": true,
-          "explanation": "Continuous compounding: $A=Pe^{rt}=2000e^{0.05\\cdot10}=2000e^{0.5}\\approx\\$3{,}297$."
+          "explanation": "$80000(1.04)^t=100000 Rightarrow (1.04)^t=\frac{100000}{80000}=1.25 Rightarrow tln(1.04)=ln(1.25) Rightarrow t=\frac{ln 1.25}{ln 1.04}approx5.7$ years."
         },
         {
           "id": "C",
-          "text": "$A = 2000 e^{5}$",
+          "text": "$t = dfrac{ln(1.04)}{ln(1.25)}$",
           "is_correct": false,
-          "explanation": "The exponent should be $rt=0.05\\times10=0.5$, not $5$. $e^5\\approx148$, giving an unreasonably large amount."
+          "explanation": "The ratio is inverted. From $(1.04)^t=1.25$, taking $ln$ gives $t=\frac{ln(1.25)}{ln(1.04)}$, not the reciprocal."
         },
         {
           "id": "D",
-          "text": "$A = 2000 + 2000(0.05)(10)$",
+          "text": "$t = 20$",
           "is_correct": false,
-          "explanation": "This is simple interest, not continuous compounding. Continuous compounding uses $A=Pe^{rt}=2000e^{0.5}$."
+          "explanation": "$80000(1.04)^{20}approx175{,}000 gg 100{,}000$. The population exceeds $100{,}000$ much sooner, around $tapprox5.7$ years."
         }
       ],
-      "unit_objective": "FUN-1.F",
+      "unit_objective": "FUN-1.E",
       "calculator_allowed": true
     },
     {
@@ -1935,37 +1958,37 @@
       "difficulty": "medium",
       "stimulus": {
         "type": "text",
-        "content": "$\\$5{,}000$ is invested at $4\\%$ annual interest, compounded quarterly."
+        "content": "A bacterial culture starts with $500$ bacteria. The number of bacteria triples every $6$ hours."
       },
-      "question": "Which of the following gives the amount after $3$ years?",
+      "question": "Which of the following best gives the number of bacteria $N(t)$ after $t$ hours?",
       "choices": [
         {
           "id": "A",
-          "text": "$A = 5000(1.04)^3$",
+          "text": "$N(t) = 500 cdot 3^t$",
           "is_correct": false,
-          "explanation": "This uses annual compounding ($n=1$). Quarterly means $n=4$: $A=5000\\left(1+\\frac{0.04}{4}\\right)^{4\\cdot3}$."
+          "explanation": "This triples every $1$ hour, not every $6$ hours. The exponent must include a factor of $\frac{1}{6}$ to count the number of 6-hour periods."
         },
         {
           "id": "B",
-          "text": "$A = 5000(1.01)^{12}$",
+          "text": "$N(t) = 500 cdot 3^{t/6}$",
           "is_correct": true,
-          "explanation": "$A=5000\\left(1+\\frac{0.04}{4}\\right)^{4(3)}=5000(1.01)^{12}\\approx\\$5{,}634.07$."
+          "explanation": "At $t=0$: $N=500$. At $t=6$: $N=500cdot3^1=1500$ (tripled). At $t=12$: $N=500cdot3^2=4500$ (tripled again). The exponent $t/6$ counts the number of complete 6-hour periods."
         },
         {
           "id": "C",
-          "text": "$A = 5000e^{0.12}$",
+          "text": "$N(t) = 500 cdot 6^{t/3}$",
           "is_correct": false,
-          "explanation": "This is continuous compounding, not quarterly. Quarterly uses $(1+r/n)^{nt}$ with $n=4$."
+          "explanation": "At $t=6$: $N=500cdot6^2=18{,}000$, far more than triple the starting value. The base should be $3$ (the growth factor), not $6$."
         },
         {
           "id": "D",
-          "text": "$A = 5000(1.04)^{12}$",
+          "text": "$N(t) = 3 cdot 500^{t/6}$",
           "is_correct": false,
-          "explanation": "The base should be $1+0.04/4=1.01$ (monthly rate divided by $n=4$), and the exponent is $12$ total periods. The base $1.04$ would apply to annual compounding."
+          "explanation": "$N(0)=3cdot500^0=3$, not $500$. The initial value $a$ must be the coefficient in $N(t)=acdot b^{t/6}$, so $a=500$."
         }
       ],
-      "unit_objective": "FUN-1.F",
-      "calculator_allowed": true
+      "unit_objective": "FUN-1.D",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u2-q043",
@@ -1973,38 +1996,61 @@
       "subject": "ap-precalculus",
       "difficulty": "hard",
       "stimulus": {
-        "type": "text",
-        "content": "An investment doubles in value every $12$ years under continuous compounding."
+        "type": "table",
+        "content": {
+          "headers": [
+            "$x$",
+            "$f(x)$"
+          ],
+          "rows": [
+            [
+              "0",
+              "4"
+            ],
+            [
+              "1",
+              "6"
+            ],
+            [
+              "2",
+              "9"
+            ],
+            [
+              "3",
+              "13.5"
+            ]
+          ]
+        }
       },
-      "question": "Which of the following best gives the continuous annual growth rate $r$?",
+      "question": "The table above shows values of an exponential function $f(x) = a cdot b^x$. Which of the following gives the values of $a$ and $b$?",
       "choices": [
         {
           "id": "A",
-          "text": "$r = \\frac{\\ln 2}{12}$",
+          "text": "$a = 4$, $b = 1.5$",
           "is_correct": true,
-          "explanation": "$A_0 e^{12r}=2A_0\\Rightarrow e^{12r}=2\\Rightarrow12r=\\ln2\\Rightarrow r=\\frac{\\ln2}{12}\\approx0.0578$ or $5.78\\%$ per year."
+          "explanation": "$f(0)=a=4$. The common ratio is $\frac{f(1)}{f(0)}=\frac{6}{4}=1.5=b$, confirmed by $\frac{9}{6}=1.5$ and $\frac{13.5}{9}=1.5$. So $f(x)=4(1.5)^x$."
         },
         {
           "id": "B",
-          "text": "$r = \\frac{12}{\\ln 2}$",
+          "text": "$a = 4$, $b = 2$",
           "is_correct": false,
-          "explanation": "This has the numerator and denominator swapped: $r=\\frac{\\ln2}{12}$, not $\\frac{12}{\\ln2}$."
+          "explanation": "If $b=2$, then $f(1)=8$, but the table shows $f(1)=6$. The common ratio is $\frac{6}{4}=1.5$, not $2$."
         },
         {
           "id": "C",
-          "text": "$r = 12\\ln 2$",
+          "text": "$a = 6$, $b = 1.5$",
           "is_correct": false,
-          "explanation": "$12\\ln2\\approx8.32$, a growth rate of $832\\%$ per year — unreasonably large. $r=\\frac{\\ln2}{12}\\approx5.78\\%$."
+          "explanation": "$a=f(0)=4$, not $6$. The initial value $a$ is the function output when $x=0$."
         },
         {
           "id": "D",
-          "text": "$r = \\frac{2}{12}$",
+          "text": "$a = 4$, $b = 3.5$",
           "is_correct": false,
-          "explanation": "$r=\\frac{2}{12}=\\frac{1}{6}\\approx16.7\\%$ is not derived from the doubling time formula. Use $e^{12r}=2\\Rightarrow r=\\frac{\\ln2}{12}$."
+          "explanation": "$3.5$ is not the common ratio. The ratio $\frac{f(1)}{f(0)}=\frac{6}{4}=1.5$ is the base $b$."
         }
       ],
-      "unit_objective": "FUN-1.F",
-      "calculator_allowed": true
+      "unit_objective": "FUN-1.C",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u2-q044",
@@ -2733,37 +2779,37 @@
       "subject": "ap-precalculus",
       "difficulty": "hard",
       "stimulus": {
-        "type": "none",
-        "content": null
+        "type": "text",
+        "content": "A population grows according to the model $P(t) = 2000 cdot (1.06)^t$, where $t$ is measured in years."
       },
-      "question": "Which of the following best gives the number of years for an account earning $3\\%$ continuous interest to triple in value?",
+      "question": "Which of the following best gives the number of years for the population to triple?",
       "choices": [
         {
           "id": "A",
-          "text": "$t = \\frac{\\ln 3}{0.03}$",
+          "text": "$t = dfrac{ln 3}{ln 1.06}$",
           "is_correct": true,
-          "explanation": "$Pe^{0.03t}=3P\\Rightarrow e^{0.03t}=3\\Rightarrow0.03t=\\ln3\\Rightarrow t=\\frac{\\ln3}{0.03}\\approx36.6$ years."
+          "explanation": "$2000(1.06)^t=6000 Rightarrow (1.06)^t=3 Rightarrow tln(1.06)=ln 3 Rightarrow t=\frac{ln 3}{ln 1.06}approx18.9$ years."
         },
         {
           "id": "B",
-          "text": "$t = \\frac{3}{0.03}$",
+          "text": "$t = dfrac{3}{ln 1.06}$",
           "is_correct": false,
-          "explanation": "$\\frac{3}{0.03}=100$ years, computed without logarithms. Continuous compounding requires $t=\\frac{\\ln3}{0.03}\\approx36.6$ years."
+          "explanation": "This replaces $ln 3$ with $3$ in the numerator, which is incorrect. The logarithm of $3$ (approximately $1.099$) is not the same as $3$."
         },
         {
           "id": "C",
-          "text": "$t = \\frac{\\ln 3}{3}$",
+          "text": "$t = dfrac{ln 1.06}{ln 3}$",
           "is_correct": false,
-          "explanation": "The denominator should be $r=0.03$, not $3$. $\\frac{\\ln3}{3}\\approx0.366$, which is far too short."
+          "explanation": "The ratio is inverted. From $(1.06)^t=3$, taking $ln$ gives $tln(1.06)=ln 3$, so $t=\frac{ln 3}{ln 1.06}$, not the reciprocal."
         },
         {
           "id": "D",
-          "text": "$t = 0.03\\ln 3$",
+          "text": "$t = dfrac{ln 2000}{ln 1.06}$",
           "is_correct": false,
-          "explanation": "$0.03\\ln3\\approx0.033$, much less than a year. Solve $0.03t=\\ln3$ by dividing: $t=\\frac{\\ln3}{0.03}$."
+          "explanation": "This uses $ln 2000$ instead of $ln 3$. After dividing both sides by $2000$, we get $(1.06)^t=3$, so $ln 3$ is the correct numerator."
         }
       ],
-      "unit_objective": "FUN-1.F",
+      "unit_objective": "FUN-1.E",
       "calculator_allowed": true
     },
     {
