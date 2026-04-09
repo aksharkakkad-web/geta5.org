@@ -1,11 +1,13 @@
 'use client'
 
-import { useState, useEffect, use } from 'react'
+import { useState, useEffect, useRef, use } from 'react'
 import { Calculator } from 'lucide-react'
 import { AuthGuard } from '@/components/auth/AuthGuard'
 import DesmosPanel from '@/components/tools/DesmosPanel'
 import ReferenceSheetModal from '@/components/tools/ReferenceSheetModal'
 import FRQQuestionSelect from '@/components/frq/FRQQuestionSelect'
+import FRQReadyScreen from '@/components/frq/FRQReadyScreen'
+import FRQTimerBar from '@/components/frq/FRQTimerBar'
 import FRQDBQLayout from '@/components/frq/FRQDBQLayout'
 import FRQEssayLayout from '@/components/frq/FRQEssayLayout'
 import FRQMultiPartLayout from '@/components/frq/FRQMultiPartLayout'
@@ -28,6 +30,10 @@ import {
   clearFRQDraft,
   hasMathTutorialSeen,
   setMathTutorialSeen,
+  getQuestionSeconds,
+  getTimedModePreference,
+  setTimedModePreference,
+  getLastStrictness,
 } from '@/utils/frqSession'
 import type { FRQ, FRQGradingResult, GradingStrictness, FRQDraft } from '@/utils/frqSession'
 import { logEvent } from '@/utils/analytics'
@@ -36,7 +42,7 @@ import { syncStats } from '@/utils/persistence'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-type Phase = 'loading' | 'select' | 'answer' | 'submitting' | 'results' | 'queued'
+type Phase = 'loading' | 'select' | 'ready' | 'answer' | 'submitting' | 'results' | 'queued'
 
 interface PageProps {
   params: Promise<{ subject: string }>
@@ -78,6 +84,10 @@ export default function FRQPage({ params }: PageProps) {
   const [remainingCalls, setRemainingCalls] = useState(30)
   const [error, setError] = useState<string | null>(null)
   const [desmosOpen, setDesmosOpen] = useState(false)
+  const [timedMode, setTimedMode] = useState(true)
+  const [timerStartedAt, setTimerStartedAt] = useState<number | null>(null)
+  const [showTimesUp, setShowTimesUp] = useState(false)
+  const timerCancelledRef = useRef(false)
 
 
   // ─── Loading ──────────────────────────────────────────────────────────────
@@ -153,21 +163,51 @@ export default function FRQPage({ params }: PageProps) {
 
   function handleSelect(q: FRQ) {
     setSelectedQuestion(q)
+    timerCancelledRef.current = false
 
     // Restore draft if exists for this question
     const draft: FRQDraft | null = loadFRQDraft(subject)
     if (draft && draft.questionId === q.id) {
       setResponses(draft.responses)
+      setTimerStartedAt(draft.timerStartedAt ?? null)
+      setTimedMode(draft.timedMode ?? getTimedModePreference())
     } else {
       setResponses({})
+      setTimerStartedAt(null)
+      setTimedMode(getTimedModePreference())
     }
 
+    setPhase('ready')
+  }
+
+  function handleTimedModeChange(timed: boolean) {
+    setTimedMode(timed)
+    setTimedModePreference(timed)
+  }
+
+  function handleStart() {
+    const now = Date.now()
+    if (timedMode) {
+      setTimerStartedAt(now)
+    } else {
+      setTimerStartedAt(null)
+    }
     setPhase('answer')
 
     // Math subjects: show tutorial overlay on first visit
     if (isMathSubject(subject) && !hasMathTutorialSeen()) {
       setShowMathTutorial(true)
     }
+  }
+
+  function handleTimerExpire() {
+    if (timerCancelledRef.current) return
+    timerCancelledRef.current = true
+    setShowTimesUp(true)
+    setTimeout(() => {
+      setShowTimesUp(false)
+      handleSubmit(getLastStrictness())
+    }, 3000)
   }
 
   function handleMathTutorialClose() {
@@ -187,6 +227,8 @@ export default function FRQPage({ params }: PageProps) {
           responses: next,
           currentPart: letter,
           savedAt: Date.now(),
+          timedMode,
+          timerStartedAt,
         })
       }
       return next
@@ -201,6 +243,8 @@ export default function FRQPage({ params }: PageProps) {
       responses,
       currentPart: Object.keys(responses).at(-1) ?? '',
       savedAt: Date.now(),
+      timedMode,
+      timerStartedAt,
     })
   }
 
@@ -209,6 +253,9 @@ export default function FRQPage({ params }: PageProps) {
   }
 
   function handleBackToSelect() {
+    timerCancelledRef.current = true
+    setTimerStartedAt(null)
+    setShowTimesUp(false)
     setSelectedQuestion(null)
     setResponses({})
     setGradingResult(null)
@@ -288,6 +335,9 @@ export default function FRQPage({ params }: PageProps) {
   }
 
   function handleNextQuestion() {
+    timerCancelledRef.current = true
+    setTimerStartedAt(null)
+    setShowTimesUp(false)
     setSelectedQuestion(null)
     setResponses({})
     setGradingResult(null)
@@ -296,10 +346,14 @@ export default function FRQPage({ params }: PageProps) {
   }
 
   function handleRetry() {
+    timerCancelledRef.current = false
+    setTimerStartedAt(null)
+    setShowTimesUp(false)
     setResponses({})
     setGradingResult(null)
     setError(null)
-    setPhase('answer')
+    setTimedMode(getTimedModePreference())
+    setPhase('ready')
   }
 
   // ─── Render helpers ───────────────────────────────────────────────────────
@@ -378,6 +432,22 @@ export default function FRQPage({ params }: PageProps) {
           </div>
         )}
 
+        {/* ── Ready ──────────────────────────────────────────────────────── */}
+        {phase === 'ready' && selectedQuestion && (
+          <FRQReadyScreen
+            question={selectedQuestion}
+            subject={subject}
+            timedMode={timedMode}
+            onTimedModeChange={handleTimedModeChange}
+            onStart={handleStart}
+            onBack={() => {
+              setSelectedQuestion(null)
+              setResponses({})
+              setPhase('select')
+            }}
+          />
+        )}
+
         {/* ── Select ─────────────────────────────────────────────────────── */}
         {phase === 'select' && (
           <div>
@@ -440,6 +510,15 @@ export default function FRQPage({ params }: PageProps) {
         {/* ── Answer ─────────────────────────────────────────────────────── */}
         {phase === 'answer' && selectedQuestion && (
           <div>
+            {/* Timer bar */}
+            {timedMode && timerStartedAt !== null && (
+              <FRQTimerBar
+                totalSeconds={getQuestionSeconds(selectedQuestion)}
+                startedAt={timerStartedAt}
+                onExpire={handleTimerExpire}
+              />
+            )}
+
             {/* Error banner */}
             {error && (
               <div
@@ -752,6 +831,86 @@ export default function FRQPage({ params }: PageProps) {
           onSubmit={handleSubmit}
           remainingCalls={remainingCalls}
         />
+
+        {/* ── Time's Up overlay ───────────────────────────────────────────── */}
+        {showTimesUp && (
+          <div
+            style={{
+              position: 'fixed',
+              inset: 0,
+              zIndex: 9999,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              background: 'rgba(0,0,0,0.75)',
+              backdropFilter: 'blur(4px)',
+              WebkitBackdropFilter: 'blur(4px)',
+              animation: 'fadeIn 0.2s ease-out',
+            }}
+          >
+            <div
+              style={{
+                background: 'var(--bg-card)',
+                border: '1px solid rgba(239,68,68,0.3)',
+                borderRadius: 'var(--radius-lg)',
+                padding: '40px 48px',
+                textAlign: 'center',
+                maxWidth: '340px',
+                width: '100%',
+              }}
+            >
+              <p
+                style={{
+                  margin: '0 0 8px',
+                  fontSize: '2rem',
+                  lineHeight: 1,
+                }}
+              >
+                ⏱
+              </p>
+              <h2
+                style={{
+                  margin: '0 0 8px',
+                  fontSize: '1.5rem',
+                  fontWeight: 700,
+                  color: 'var(--accent-danger, #ef4444)',
+                  fontFamily: 'var(--font-outfit)',
+                }}
+              >
+                Time&apos;s Up
+              </h2>
+              <p
+                style={{
+                  margin: 0,
+                  fontSize: '0.875rem',
+                  color: 'var(--text-muted)',
+                }}
+              >
+                Submitting your response…
+              </p>
+
+              {/* Drain bar */}
+              <div
+                style={{
+                  marginTop: '20px',
+                  height: '3px',
+                  borderRadius: '2px',
+                  background: 'var(--bg-border)',
+                  overflow: 'hidden',
+                }}
+              >
+                <div
+                  style={{
+                    height: '100%',
+                    background: 'var(--accent-danger, #ef4444)',
+                    animation: 'timesup-drain 3s linear forwards',
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+        )}
       </main>
 
       {desmosOpen && <DesmosPanel onClose={() => setDesmosOpen(false)} />}

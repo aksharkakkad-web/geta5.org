@@ -49,4 +49,5 @@ export const LS_KEYS = {
   drillCorrect: 'ascendly_drill_correct',
   mcqCorrect: 'ascendly_mcq_correct',
   totalSeconds: 'ascendly_total_seconds',
+  frqTimedMode: 'ascendly_frq_timed_mode',
 } as const
