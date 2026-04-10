@@ -180,7 +180,7 @@ export default function StimulusRenderer({ stimulus }: StimulusRendererProps) {
                     borderBottom: '2px solid var(--bg-border)',
                   }}
                 >
-                  {header}
+                  {parseInlineMath(header)}
                 </th>
               ))}
             </tr>
@@ -197,7 +197,7 @@ export default function StimulusRenderer({ stimulus }: StimulusRendererProps) {
                       borderBottom: '1px solid var(--bg-border)',
                     }}
                   >
-                    {cell}
+                    {parseInlineMath(cell)}
                   </td>
                 ))}
               </tr>
