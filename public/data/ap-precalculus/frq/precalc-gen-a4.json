@@ -38,13 +38,13 @@
     },
     {
       "letter": "c",
-      "prompt": "(i) Evaluate $\\sin\\left(\\arctan\\left(\\frac{3}{4}\\right)\\right)$ without a calculator. Express your answer as an exact fraction. Show supporting work.\n\n(ii) Determine the domain and range of $y = \\arctan(x)$. Explain why the range must be restricted compared to $y = \\tan(x)$.",
+      "prompt": "(i) Evaluate $\\sin\\left(\\arctan\\left(\\frac{3}{4}\\right)\\right)$ without a calculator. Express your answer as an exact fraction. Show supporting work.\n\n(ii) The function $m$ is given by $m(x) = \\arccos\\left(\\tan\\left(\\frac{x}{2}\\right)\\right)$. Find all values of $x$ in the interval $\\left[0, \\pi\\right)$ for which $m(x) = \\frac{\\pi}{3}$. Show the computations that lead to your answer.",
       "point_value": 2,
       "rubric_criteria": [
         "1 pt: Correct exact value $\\sin\\left(\\arctan\\left(\\frac{3}{4}\\right)\\right) = \\frac{3}{5}$; supporting work must show a right triangle with opposite $= 3$, adjacent $= 4$, hypotenuse $= \\sqrt{9+16} = 5$, so $\\sin = \\frac{3}{5}$",
-        "1 pt: Correct domain $(-\\infty, \\infty)$ (all real numbers) and range $\\left(-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right)$ AND a valid explanation — the range of $\\arctan$ must be restricted to an interval where $\\tan$ is one-to-one so that $\\arctan$ is itself a function (each input has exactly one output)"
+        "1 pt: Correct solution — $m(x) = \\frac{\\pi}{3}$ requires $\\arccos\\left(\\tan\\left(\\frac{x}{2}\\right)\\right) = \\frac{\\pi}{3}$, so $\\tan\\left(\\frac{x}{2}\\right) = \\cos\\left(\\frac{\\pi}{3}\\right) = \\frac{1}{2}$; solving $\\tan\\left(\\frac{x}{2}\\right) = \\frac{1}{2}$: $\\frac{x}{2} = \\arctan\\left(\\frac{1}{2}\\right)$, giving $x = 2\\arctan\\left(\\frac{1}{2}\\right)$; this is the unique solution in $[0, \\pi)$ since $\\arctan$ outputs values in $\\left(-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right)$, so $\\frac{x}{2} \\in \\left(-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right)$ and $x = 2\\arctan\\left(\\frac{1}{2}\\right) \\approx 0.927$ is in $[0, \\pi)$"
       ],
-      "scoring_notes": "For part (i), the triangle method is the expected approach. Accept equivalent fractions. For part (ii), both domain and range must be stated correctly. The explanation must connect 'one-to-one' or 'each input maps to exactly one output' with the need for restriction. A response stating only 'because $\\tan$ is periodic' without explaining the one-to-one requirement is insufficient for the second point.",
+      "scoring_notes": "For part (i), the triangle method is the expected approach. Accept equivalent fractions. For part (ii), the key insight is that $\\arccos$ is the outer function, so first evaluate what its argument must equal: $\\tan(x/2) = \\cos(\\pi/3) = 1/2$. Then apply $\\arctan$ to both sides and multiply by 2. The domain constraint from $\\arccos$ is that its argument must lie in $[-1, 1]$, which $\\tan(x/2)$ satisfies near $x = 0$. The unique solution is $x = 2\\arctan(1/2)$. A response that correctly identifies $\\tan(x/2) = 1/2$ earns the first criterion point even if the final exact form is written differently. Do not accept $x = \\frac{\\pi}{3}$ without supporting work showing the composition was correctly unwrapped.",
       "requires_drawing": false,
       "reference_image": null
     }

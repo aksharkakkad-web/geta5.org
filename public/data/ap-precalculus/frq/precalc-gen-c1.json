@@ -3,48 +3,48 @@
   "subject": "ap-precalculus",
   "year": null,
   "source": "generated",
-  "title": "Polynomial Modeling: Drug Concentration & Average Rate of Change",
+  "title": "Polynomial Modeling: Covariation, Finite Differences & Concentration Analysis",
   "frq_type": "multi_part_math",
   "related_units": [1, 2],
   "calculator_allowed": true,
   "total_points": 6,
-  "stimulus": "After a patient takes a medication, the concentration of the drug in the bloodstream (in micrograms per milliliter) can be modeled by the function $C$ given by $C(t) = -0.4t^3 + 4.2t^2 - 0.8t + 0.5$ for $0 \\leq t \\leq 9$, where $t$ is time in hours after taking the medication.",
+  "stimulus": "After a patient takes a medication, the concentration of the drug in the bloodstream (in micrograms per milliliter) can be modeled by a polynomial function $C$ for $0 \\leq t \\leq 9$, where $t$ is time in hours after taking the medication. Selected values of $C(t)$ are given in the table below.\n\n| $t$ (hours) | $0$ | $1$ | $2$ | $3$ | $4$ | $5$ |\n|---|---|---|---|---|---|---|\n| $C(t)$ ($\\mu$g/mL) | $0.5$ | $3.5$ | $12.5$ | $25.1$ | $38.9$ | $51.5$ |",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "(i) Find the concentration of the drug at $t = 3$ hours. Express your answer as a decimal approximation.\n\n(ii) Find the average rate of change of $C$ from $t = 1$ to $t = 6$ hours. Express your answer as a decimal approximation and include appropriate units. Show the computations that lead to your answer.",
+      "prompt": "(i) Compute the average rates of change of $C$ over the intervals $[0, 1]$, $[1, 2]$, $[2, 3]$, and $[3, 4]$. Show the computations that lead to your answer.\n\n(ii) Based on the first differences (average rates of change over unit intervals) computed in part (i), determine whether the function $C$ is better modeled by a linear function or a higher-degree polynomial on the interval $0 \\leq t \\leq 4$. Justify your answer by referring to what the first differences would look like if $C$ were linear.",
       "point_value": 2,
       "rubric_criteria": [
-        "1 pt: Correct value $C(3) = -0.4(27) + 4.2(9) - 0.8(3) + 0.5 = -10.8 + 37.8 - 2.4 + 0.5 = 25.1$ micrograms per milliliter",
-        "1 pt: Correct average rate of change — $C(1) = -0.4 + 4.2 - 0.8 + 0.5 = 3.5$ and $C(6) = -0.4(216) + 4.2(36) - 0.8(6) + 0.5 = -86.4 + 151.2 - 4.8 + 0.5 = 60.5$; average rate $= \\frac{C(6) - C(1)}{6 - 1} = \\frac{60.5 - 3.5}{5} = \\frac{57}{5} = 11.4$ micrograms per milliliter per hour; supporting work must show a difference quotient"
+        "1 pt: All four average rates of change correct — $\\frac{C(1)-C(0)}{1} = \\frac{3.5-0.5}{1} = 3.0$; $\\frac{C(2)-C(1)}{1} = \\frac{12.5-3.5}{1} = 9.0$; $\\frac{C(3)-C(2)}{1} = \\frac{25.1-12.5}{1} = 12.6$; $\\frac{C(4)-C(3)}{1} = \\frac{38.9-25.1}{1} = 13.8$; all four values $3.0$, $9.0$, $12.6$, $13.8$ must be present (accept $\\pm 0.05$ rounding)",
+        "1 pt: Correct conclusion with justification — the first differences $3.0, 9.0, 12.6, 13.8$ are not constant, so $C$ is not linear (a linear function would have constant first differences); the varying first differences indicate a higher-degree polynomial; the justification must explicitly state that linear functions have constant first differences and compare this to the data"
       ],
-      "scoring_notes": "For part (i), the computation is straightforward substitution. For part (ii), $C(1) = 3.5$ and $C(6) = 60.5$ are exact. The average rate of change is exactly $11.4$ $\\mu$g/mL per hour. Units (micrograms per milliliter per hour, or $\\mu$g/mL/hr) are required for the second point. Supporting work showing the quotient $\\frac{60.5 - 3.5}{5}$ is required.",
+      "scoring_notes": "For part (i), all four differences are over unit-length intervals, so average rate equals the simple difference. The values $C(0)=0.5$, $C(1)=3.5$, $C(2)=12.5$, $C(3)=25.1$, $C(4)=38.9$ give differences $3.0, 9.0, 12.6, 13.8$. For part (ii), if the function were linear, all first differences would be equal (constant). The first differences here are $3.0, 9.0, 12.6, 13.8$ — clearly not constant, so the model is not linear. A higher-degree polynomial (or non-linear model) is appropriate. A response that computes the differences correctly but does not explain what constant first differences indicate does not earn the second point.",
       "requires_drawing": false,
       "reference_image": null
     },
     {
       "letter": "b",
-      "prompt": "(i) Find the time $t$, to the nearest hundredth of an hour, at which the concentration of the drug is greatest on the interval $0 \\leq t \\leq 9$. Express your answer as a decimal approximation.\n\n(ii) Describe the end behavior of $C(t)$ as $t$ increases without bound (beyond the model's domain). Explain what this means in the context of the problem.",
+      "prompt": "(i) Compute the second differences of $C$ (the differences of consecutive first differences from part (a)). Based on the second differences, determine whether a quadratic polynomial is an appropriate model for $C$ on $0 \\leq t \\leq 4$. Justify your answer.\n\n(ii) Find the average rate of change of $C$ from $t = 1$ to $t = 5$ hours. Express your answer with appropriate units, and describe in context what this value represents about the drug concentration.",
       "point_value": 2,
       "rubric_criteria": [
-        "1 pt: Correct time $t \\approx 7.24$ hours (the maximum of $C$ on $[0,9]$ occurs near $t \\approx 7.24$, found by using a graphing calculator or by solving $C'(t) = -1.2t^2 + 8.4t - 0.8 = 0$; discriminant $= 8.4^2 - 4(1.2)(0.8) = 70.56 - 3.84 = 66.72$; $t = \\frac{8.4 \\pm \\sqrt{66.72}}{2.4} = \\frac{8.4 \\pm 8.168}{2.4}$; positive root: $t \\approx \\frac{16.568}{2.4} \\approx 6.90$; accept values in $[6.88, 6.92]$)",
-        "1 pt: Correct end behavior statement — $\\lim_{t \\to \\infty} C(t) = -\\infty$ (the leading term is $-0.4t^3$, so the function decreases without bound) AND contextual explanation — this means the drug concentration would become arbitrarily negative, which is not physically meaningful; the model is only valid on $[0, 9]$"
+        "1 pt: Correct second differences and conclusion — second differences: $9.0 - 3.0 = 6.0$; $12.6 - 9.0 = 3.6$; $13.8 - 12.6 = 1.2$; the second differences $6.0, 3.6, 1.2$ are not constant; conclusion: a quadratic model is not appropriate because a quadratic function would produce constant second differences; the data suggest a cubic or higher-degree polynomial",
+        "1 pt: Correct average rate of change — $\\frac{C(5) - C(1)}{5 - 1} = \\frac{51.5 - 3.5}{4} = \\frac{48.0}{4} = 12.0$ micrograms per milliliter per hour; contextual description must state (a) the concentration is increasing on average, (b) at a rate of $12.0$ $\\mu$g/mL per hour, and (c) over the time interval from $1$ to $5$ hours after taking the medication; all three components required"
       ],
-      "scoring_notes": "For part (i), a graphing calculator should be used; the maximum of the cubic $C(t) = -0.4t^3 + 4.2t^2 - 0.8t + 0.5$ on $[0,9]$ is at the local max, approximately $t \\approx 6.90$ hours. Recheck: $C'(t) = -1.2t^2 + 8.4t - 0.8$. Setting to zero: $t = \\frac{-8.4 \\pm \\sqrt{70.56 - 3.84}}{-2.4} = \\frac{-8.4 \\pm 8.168}{-2.4}$. Taking the root that gives $t \\approx 6.90$. Accept $[6.85, 6.95]$. For part (ii), both the mathematical end behavior ($-\\infty$) and the contextual limitation must be stated.",
+      "scoring_notes": "For part (i), the three second differences are $6.0, 3.6, 1.2$. These are not constant, ruling out a quadratic model. A quadratic would have constant second differences. For part (ii), $C(1) = 3.5$ and $C(5) = 51.5$ are given in the table. The exact average rate is $48.0/4 = 12.0$ $\\mu$g/mL/hr. The contextual description requires all three components: direction (increasing), rate (12.0), and time interval (1 to 5 hours). Units are required for full credit.",
       "requires_drawing": false,
       "reference_image": null
     },
     {
       "letter": "c",
-      "prompt": "A doctor determines the medication is effective only when the concentration is above $20$ micrograms per milliliter. Use technology to find the time interval(s) during $0 \\leq t \\leq 9$ when the medication is effective. Express the endpoints as decimal approximations to the nearest hundredth.",
+      "prompt": "A doctor determines the medication is effective only when the concentration exceeds $20$ micrograms per milliliter. The complete model is given by $C(t) = -0.4t^3 + 4.2t^2 - 0.8t + 0.5$ for $0 \\leq t \\leq 9$.\n\n(i) Use technology to find all times $t$ in $0 \\leq t \\leq 9$ at which $C(t) = 20$. Express the values as decimal approximations to the nearest hundredth.\n\n(ii) State the time interval(s) during which the medication is effective, and describe one assumption that must be made for this model to remain valid as a representation of drug concentration.",
       "point_value": 2,
       "rubric_criteria": [
-        "1 pt: Correct setup — solving $C(t) = 20$, i.e., $-0.4t^3 + 4.2t^2 - 0.8t + 0.5 = 20$, or $-0.4t^3 + 4.2t^2 - 0.8t - 19.5 = 0$; identifying that $t \\approx 2.44$ and $t \\approx 9.00$ (and a third root that is negative/outside domain) are the boundaries",
-        "1 pt: Correct interval — the medication is effective approximately on $2.44 \\leq t \\leq 9.00$ (one continuous interval since the cubic only crosses $20$ twice within $[0,9]$); accept endpoints in $[2.40, 2.48]$ for the lower bound; the upper bound is approximately $t \\approx 8.96$ or wherever $C$ drops back below 20 before $t = 9$"
+        "1 pt: Correct times — solving $-0.4t^3 + 4.2t^2 - 0.8t + 0.5 = 20$, i.e., $-0.4t^3 + 4.2t^2 - 0.8t - 19.5 = 0$; using technology, the relevant root in $[0, 9]$ is $t \\approx 2.62$ (the concentration rises through 20 near $t \\approx 2.62$ and $C(9) \\approx 41.9 > 20$ so the concentration remains above 20 through $t = 9$); accept $t \\approx 2.62$ (accept values in $[2.58, 2.66]$)",
+        "1 pt: Correct effective interval $[2.62, 9]$ (approximately) AND a valid model assumption — e.g., the model assumes drug concentration cannot be negative (but the leading term $-0.4t^3$ implies $C(t) \\to -\\infty$ as $t \\to \\infty$, which is not physically meaningful); or the model assumes no additional doses are taken; or the model is restricted to $[0, 9]$ because beyond $t = 9$ the model predicts concentrations that decrease toward zero and eventually negative; the assumption must reference a specific structural limitation of the polynomial model"
       ],
-      "scoring_notes": "The cubic $C(t) = 20$ has roots that require technology to find precisely. The concentration rises above 20 around $t \\approx 2.44$ and may come back down before $t = 9$ depending on exact values. Check: $C(9) = -0.4(729) + 4.2(81) - 0.8(9) + 0.5 = -291.6 + 340.2 - 7.2 + 0.5 = 41.9 > 20$. So actually the drug stays above 20 from approximately $t \\approx 2.44$ through $t = 9$ (the endpoint of the domain). The interval is approximately $[2.44, 9]$. Award full credit for this answer with supporting work.",
+      "scoring_notes": "For part (i), $C(9) = -0.4(729) + 4.2(81) - 0.8(9) + 0.5 = -291.6 + 340.2 - 7.2 + 0.5 = 41.9 > 20$, so the concentration stays above 20 from $t \\approx 2.62$ to $t = 9$ (the end of the domain). Verify: $C(2) = -0.4(8) + 4.2(4) - 0.8(2) + 0.5 = -3.2 + 16.8 - 1.6 + 0.5 = 12.5 < 20$ and $C(3) = 25.1 > 20$, confirming the crossing is between $t = 2$ and $t = 3$ near $t \\approx 2.62$. There is only one crossing in $[0, 9]$. For part (ii), the effective interval is approximately $[2.62, 9]$. The assumption must go beyond saying 'the model is a polynomial' — it should identify a specific physical or mathematical limitation, such as: the polynomial end behavior ($C \\to -\\infty$ as $t$ increases beyond 9) is physically impossible for a drug concentration, or the domain must be restricted to $t \\geq 0$.",
       "requires_drawing": false,
       "reference_image": null
     }

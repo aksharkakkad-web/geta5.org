@@ -51,28 +51,6 @@
       "format_hint": "Note the sign: shift right means subtract h inside the function"
     },
     {
-      "id": "precalc-u1-d005",
-      "unit": "unit-1",
-      "subject": "ap-precalculus",
-      "mode": "name_to_formula",
-      "prompt": "Vertical dilation of $f(x)$ by a factor of $a$",
-      "answer": "g(x) = a \\cdot f(x)",
-      "is_key_term": false,
-      "difficulty": "easy",
-      "katex_required": true
-    },
-    {
-      "id": "precalc-u1-d006",
-      "unit": "unit-1",
-      "subject": "ap-precalculus",
-      "mode": "name_to_formula",
-      "prompt": "Horizontal dilation of $f(x)$ by a factor of $\\frac{1}{b}$",
-      "answer": "g(x) = f(bx)",
-      "is_key_term": false,
-      "difficulty": "medium",
-      "katex_required": true
-    },
-    {
       "id": "precalc-u1-d007",
       "unit": "unit-1",
       "subject": "ap-precalculus",
@@ -112,33 +90,23 @@
       "subject": "ap-precalculus",
       "mode": "name_to_formula",
       "prompt": "Horizontal asymptote when degrees of numerator and denominator are equal in $r(x) = p(x)/q(x)$",
-      "answer": "y = \\frac{a_n}{b_m}",
+      "answer": "y = \\frac{a_n}{b_n}",
       "is_key_term": false,
       "difficulty": "medium",
       "katex_required": true,
       "format_hint": "Ratio of leading coefficients; a_n is leading coeff of numerator, b_m of denominator"
     },
     {
-      "id": "precalc-u1-d011",
-      "unit": "unit-1",
-      "subject": "ap-precalculus",
-      "mode": "name_to_formula",
-      "prompt": "Slope of the secant line between points $(a, f(a))$ and $(b, f(b))$",
-      "answer": "m = \\frac{f(b) - f(a)}{b - a}",
-      "is_key_term": false,
-      "difficulty": "easy",
-      "katex_required": true
-    },
-    {
       "id": "precalc-u1-d012",
       "unit": "unit-1",
       "subject": "ap-precalculus",
       "mode": "name_to_formula",
-      "prompt": "Binomial theorem expansion of $(a + b)^2$",
-      "answer": "a^2 + 2ab + b^2",
+      "prompt": "General Binomial Theorem: expansion of $(a + b)^n$",
+      "answer": "\\sum_{k=0}^{n} \\binom{n}{k} a^{n-k} b^k",
       "is_key_term": false,
-      "difficulty": "easy",
-      "katex_required": true
+      "difficulty": "hard",
+      "katex_required": true,
+      "format_hint": "Use sigma notation; C(n,k) is the binomial coefficient"
     },
     {
       "id": "precalc-u1-d013",
@@ -158,17 +126,6 @@
       "mode": "name_to_formula",
       "prompt": "Reflection of $f(x)$ over the $x$-axis",
       "answer": "g(x) = -f(x)",
-      "is_key_term": false,
-      "difficulty": "easy",
-      "katex_required": true
-    },
-    {
-      "id": "precalc-u1-d015",
-      "unit": "unit-1",
-      "subject": "ap-precalculus",
-      "mode": "name_to_formula",
-      "prompt": "Reflection of $f(x)$ over the $y$-axis",
-      "answer": "g(x) = f(-x)",
       "is_key_term": false,
       "difficulty": "easy",
       "katex_required": true
@@ -420,8 +377,8 @@
       "unit": "unit-1",
       "subject": "ap-precalculus",
       "mode": "definition_to_term",
-      "prompt": "The degree of the polynomial determined by examining $n$th successive differences of output values over equal-interval inputs",
-      "answer": "degree of polynomial",
+      "prompt": "If the $n$th-order differences of a polynomial's output values over equally spaced inputs are constant, the polynomial has this degree",
+      "answer": "degree $n$",
       "is_key_term": false,
       "difficulty": "hard",
       "katex_required": true
@@ -475,11 +432,11 @@
       "unit": "unit-1",
       "subject": "ap-precalculus",
       "mode": "definition_to_term",
-      "prompt": "For a rational function, a zero is canceled from numerator and denominator with equal multiplicity — this creates this feature on the graph",
-      "answer": "hole (removable discontinuity)",
+      "prompt": "The $x$-coordinate of a hole in a rational function is found by setting this equal to zero",
+      "answer": "the canceled common factor",
       "is_key_term": false,
       "difficulty": "medium",
-      "katex_required": false
+      "katex_required": true
     },
     {
       "id": "precalc-u1-d044",
@@ -502,6 +459,61 @@
       "is_key_term": false,
       "difficulty": "medium",
       "katex_required": false
+    },
+    {
+      "id": "precalc-u1-d046",
+      "unit": "unit-1",
+      "subject": "ap-precalculus",
+      "mode": "name_to_formula",
+      "prompt": "Remainder Theorem: when $p(x)$ is divided by $(x - c)$, the remainder equals",
+      "answer": "p(c)",
+      "is_key_term": true,
+      "difficulty": "medium",
+      "katex_required": true
+    },
+    {
+      "id": "precalc-u1-d047",
+      "unit": "unit-1",
+      "subject": "ap-precalculus",
+      "mode": "name_to_formula",
+      "prompt": "Factor Theorem: $(x - c)$ is a factor of $p(x)$ if and only if",
+      "answer": "p(c) = 0",
+      "is_key_term": true,
+      "difficulty": "medium",
+      "katex_required": true
+    },
+    {
+      "id": "precalc-u1-d048",
+      "unit": "unit-1",
+      "subject": "ap-precalculus",
+      "mode": "definition_to_term",
+      "prompt": "If the $n$th-order differences of a polynomial evaluated at equally-spaced inputs are constant, the polynomial has this degree",
+      "answer": "n",
+      "is_key_term": false,
+      "difficulty": "hard",
+      "katex_required": true
+    },
+    {
+      "id": "precalc-u1-d049",
+      "unit": "unit-1",
+      "subject": "ap-precalculus",
+      "mode": "definition_to_term",
+      "prompt": "A rational function has a slant asymptote when this condition holds for the degrees of numerator and denominator",
+      "answer": "degree of numerator = degree of denominator + 1",
+      "is_key_term": false,
+      "difficulty": "hard",
+      "katex_required": false
+    },
+    {
+      "id": "precalc-u1-d050",
+      "unit": "unit-1",
+      "subject": "ap-precalculus",
+      "mode": "definition_to_term",
+      "prompt": "The values of $x$ that make each factor of a polynomial equal zero are called",
+      "answer": "real zeros",
+      "is_key_term": false,
+      "difficulty": "easy",
+      "katex_required": true
     }
   ]
 }

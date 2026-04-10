@@ -3,48 +3,48 @@
   "subject": "ap-precalculus",
   "year": null,
   "source": "generated",
-  "title": "Rational Functions: Depreciation, Modeling & Function Composition",
+  "title": "Rational Functions: Covariation, Asymptotic Behavior & Model Validity",
   "frq_type": "multi_part_math",
   "related_units": [1, 2],
   "calculator_allowed": true,
   "total_points": 6,
-  "stimulus": "A car dealership models the value of a used car using two different functions. The function $V$ gives the value of the car, in thousands of dollars, as a function of $x$, the number of years since purchase, and is given by $V(x) = \\frac{28}{1 + 0.4x}$ for $x \\geq 0$. The function $M$ gives the annual maintenance cost of the car, in hundreds of dollars, as a function of $x$, and is given by $M(x) = 1.5 \\cdot (1.2)^x$.",
+  "stimulus": "A car dealership models the resale value of a used vehicle using the function $V$ given by $V(x) = \\frac{28}{1 + 0.4x}$ for $x \\geq 0$, where $V(x)$ is the value in thousands of dollars and $x$ is the number of years since purchase. The function $M$ gives the cumulative maintenance cost of the car, in thousands of dollars, as a function of $x$, and is given by $M(x) = 0.15 \\cdot (1.2)^x$.",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "(i) Find the value of the car at $x = 5$ years. Express your answer as a decimal approximation and interpret it in context.\n\n(ii) Find the average rate of change of $V$ from $x = 0$ to $x = 5$ years. Express your answer as a decimal approximation. Show the computations that lead to your answer.",
+      "prompt": "(i) Find the average rate of change of $V$ from $x = 0$ to $x = 2$, and from $x = 2$ to $x = 4$. Express answers in thousands of dollars per year. Show supporting work.\n\n(ii) Based on the two average rates of change found in part (i), determine whether the average rate of change of $V$ is increasing or decreasing as $x$ increases from $0$ to $4$. Describe what this tells you about the concavity of the graph of $V$ on this interval, and interpret what this means in the context of car depreciation.",
       "point_value": 2,
       "rubric_criteria": [
-        "1 pt: Correct value $V(5) = \\frac{28}{1 + 0.4(5)} = \\frac{28}{3} \\approx 9.333$ thousand dollars ($9{,}333$); interpretation must state the car is worth approximately $\\$9{,}333$ (or $9.333$ thousand dollars) after $5$ years",
-        "1 pt: Correct average rate of change — $V(0) = \\frac{28}{1} = 28$ and $V(5) = \\frac{28}{3} \\approx 9.333$; $\\frac{V(5) - V(0)}{5 - 0} = \\frac{9.333 - 28}{5} = \\frac{-18.667}{5} \\approx -3.733$ thousand dollars per year (accept $-3.733$ to $-3.734$); supporting work must show difference quotient"
+        "1 pt: Both average rates of change correct — $V(0) = \\frac{28}{1} = 28$, $V(2) = \\frac{28}{1.8} \\approx 15.556$, $V(4) = \\frac{28}{2.6} \\approx 10.769$; rate on $[0,2]$: $\\frac{15.556 - 28}{2} = \\frac{-12.444}{2} \\approx -6.222$ thousand dollars/year (accept $[-6.23, -6.22]$); rate on $[2,4]$: $\\frac{10.769 - 15.556}{2} = \\frac{-4.787}{2} \\approx -2.394$ thousand dollars/year (accept $[-2.40, -2.39]$); both values required with supporting work",
+        "1 pt: Correct conclusion with full interpretation — the average rate of change goes from $\\approx -6.22$ to $\\approx -2.39$, which is an increase (becoming less negative); the average rate of change is increasing, so the graph of $V$ is concave up on $[0, 4]$; in context: the car is still losing value (rate is negative) but the rate of depreciation is slowing down — the car loses value more slowly as it ages; all three elements required: (1) rate is increasing, (2) concave up, (3) contextual meaning about depreciation slowing"
       ],
-      "scoring_notes": "For part (i), $V(5) = 28/3 \\approx 9.333$ thousands of dollars. Accept $\\$9{,}333$ or $9.333$ thousand. The interpretation must reference the car value and the 5-year timeframe. For part (ii), the average rate of change is negative, indicating depreciation. Accept units of 'thousand dollars per year.' The exact value is $-56/15 \\approx -3.733$ thousand dollars/year.",
+      "scoring_notes": "Exact values: $V(0) = 28$, $V(2) = 140/9 \\approx 15.556$, $V(4) = 280/26 = 140/13 \\approx 10.769$. Rate on $[0,2]$: $(140/9 - 28)/2 = (140/9 - 252/9)/2 = (-112/9)/2 = -56/9 \\approx -6.222$. Rate on $[2,4]$: $(140/13 - 140/9)/4$; common denominator 117: $(1260 - 1820)/117 ÷ 4... easier numerically: $\\approx -2.394$. The key insight for part (ii) is that a rate going from $-6.22$ to $-2.39$ is increasing (becoming less negative), which corresponds to concave up. In context, depreciation slows over time — a key feature of rational depreciation models.",
       "requires_drawing": false,
       "reference_image": null
     },
     {
       "letter": "b",
-      "prompt": "(i) Determine the end behavior of $V(x)$ as $x$ increases without bound. Express your answer using the notation of a limit and interpret it in context.\n\n(ii) Find the value of $x$ at which the annual maintenance cost $M(x)$ equals the car's value $V(x)$. Express your answer as a decimal approximation. Show or describe the method used.",
+      "prompt": "(i) Determine the end behavior of $V(x)$ as $x$ increases without bound. Express your answer using the notation of a limit, and interpret it in the context of car value.\n\n(ii) Find the value of $x$ at which the cumulative maintenance cost $M(x)$ equals the car's resale value $V(x)$. Express your answer as a decimal approximation. Show or describe the method used, and explain what this value of $x$ represents for a car owner.",
       "point_value": 2,
       "rubric_criteria": [
-        "1 pt: Correct limit $\\lim_{x \\to \\infty} V(x) = 0$ (as $x \\to \\infty$, denominator grows without bound so $V \\to 0$); contextual interpretation: over very long time, the car approaches $\\$0$ in value (worthless); both the limit notation and context required",
-        "1 pt: Correct solution $x \\approx 8.18$ years (from $\\frac{28}{1 + 0.4x} = 1.5 \\cdot (1.2)^x \\cdot \\frac{1}{10}$; note units: $V$ in thousands and $M$ in hundreds — need to convert to same units; $V(x)$ in thousands $=$ $V(x) \\times 10$ in hundreds; so $\\frac{280}{1 + 0.4x} = 1.5 \\cdot (1.2)^x$; solving numerically gives $x \\approx 8.18$; accept values in $[8.0, 8.4]$)"
+        "1 pt: Correct limit $\\lim_{x \\to \\infty} V(x) = 0$ with all four limit notation components ('lim', '$x \\to \\infty$', function $V$, value $0$); AND contextual interpretation: over a very long time, the car's resale value approaches $\\$0$ (worthless) but never actually reaches zero — both the mathematical result and the contextual meaning required",
+        "1 pt: Correct crossover value $x \\approx 8.0$ years (from $\\frac{28}{1 + 0.4x} = 0.15 \\cdot (1.2)^x$; graphing both sides or using technology yields intersection near $x \\approx 8.0$; accept values in $[7.8, 8.2]$); AND interpretation: at approximately $x \\approx 8$ years, the annual maintenance cost equals the car's resale value — beyond this point, the car costs as much to maintain as it is worth, suggesting the owner may consider replacing it"
       ],
-      "scoring_notes": "For part (i), the limit must be complete with all four components. For part (ii), the unit conversion is key: $V(x)$ is in thousands of dollars and $M(x)$ is in hundreds of dollars. To compare, either convert both to the same unit or set $V(x) \\times 1000 = M(x) \\times 100$ (dollars). Equation becomes $280/(1 + 0.4x) = 1.5(1.2)^x$. Graphical or numerical solution is expected; $x \\approx 8.18$ years. Some students may miss the unit conversion — award 0 points for part (ii) if units are ignored and an incorrect value is found.",
+      "scoring_notes": "For part (i), as $x \\to \\infty$, the denominator $1 + 0.4x \\to \\infty$, so $V(x) = 28/(1+0.4x) \\to 0$. The limit notation must include all four components. The contextual note that value approaches but never reaches zero (due to the horizontal asymptote at $y = 0$) is an important insight. For part (ii), both functions are in thousands of dollars, so no unit conversion is needed. The equation $28/(1+0.4x) = 0.15(1.2)^x$ is transcendental and requires technology. A graphing calculator intersection near $x \\approx 8.0$ is expected. The interpretation must connect the crossover point to a practical car-ownership decision.",
       "requires_drawing": false,
       "reference_image": null
     },
     {
       "letter": "c",
-      "prompt": "The total cost model is defined as $T(x) = (V + M)(x) = V(x) + M(x)$, where $V(x)$ is in thousands of dollars and $M(x)$ has been converted to thousands of dollars.\n\n(i) Write an explicit expression for $T(x)$ after converting $M(x)$ to thousands of dollars.\n\n(ii) Find the value of $T(3)$ as a decimal approximation. Show the computations that lead to your answer.",
+      "prompt": "A financial analyst proposes an alternative model for the car's total cost of ownership, $T(x) = V(x) + M(x)$, defined as the sum of the car's current resale value and cumulative maintenance cost.\n\n(i) Find the value of $T(3)$ as a decimal approximation. Show the computations that lead to your answer.\n\n(ii) The analyst argues that $T(x)$ must have a local minimum for some $x > 0$, because $V(x)$ is decreasing and $M(x)$ is increasing. Determine, using technology, the approximate value of $x$ at which $T(x)$ achieves its minimum on $0 \\leq x \\leq 15$. Then describe one assumption embedded in the model $T(x) = V(x) + M(x)$ that may not reflect reality.",
       "point_value": 2,
       "rubric_criteria": [
-        "1 pt: Correct expression — $M(x)$ in hundreds of dollars $\\div\\ 10$ gives thousands: $\\frac{M(x)}{10} = \\frac{1.5 \\cdot (1.2)^x}{10} = 0.15 \\cdot (1.2)^x$ thousand dollars; so $T(x) = \\frac{28}{1 + 0.4x} + 0.15 \\cdot (1.2)^x$",
-        "1 pt: Correct value $T(3) = \\frac{28}{1 + 1.2} + 0.15 \\cdot (1.2)^3 = \\frac{28}{2.2} + 0.15 \\cdot 1.728 = 12.727 + 0.259 = 12.986$ thousand dollars (accept values in $[12.97, 13.00]$); supporting work must show both terms evaluated"
+        "1 pt: Correct value — $V(3) = \\frac{28}{1 + 1.2} = \\frac{28}{2.2} \\approx 12.727$ thousand dollars; $M(3) = 0.15 \\cdot (1.2)^3 = 0.15 \\cdot 1.728 = 0.259$ thousand dollars; $T(3) = 12.727 + 0.259 \\approx 12.986$ thousand dollars (accept values in $[12.97, 13.00]$); supporting work must show both $V(3)$ and $M(3)$ evaluated separately before adding",
+        "1 pt: Correct minimum location — using technology, $T(x) = \\frac{28}{1+0.4x} + 0.15 \\cdot (1.2)^x$ achieves a minimum near $x \\approx 8.0$ to $8.5$ years on $[0, 15]$ (accept values in $[7.5, 9.0]$); AND a valid assumption critique — e.g., the model assumes $M(x)$ grows exponentially forever without bound, but in reality a car may be replaced or repaired at fixed cost; or the model assumes resale value is always positive and approaches $\\$0$ asymptotically, but real cars may have zero resale value at finite age; or the model does not account for insurance, fuel, or other ownership costs; accept any specific and contextually reasonable limitation"
       ],
-      "scoring_notes": "For part (i), the conversion is dividing $M(x)$ by 10 (since $M$ is in hundreds and $V$ is in thousands). Full credit for either the explicit formula or the simplified version. For part (ii), $V(3) = 28/(1+1.2) = 28/2.2 = 12.\\overline{72}$ and $M(3)$ converted $= 0.15(1.728) \\approx 0.259$. Sum $\\approx 12.987$. Accept $12.986$ or $12.987$ thousand dollars.",
+      "scoring_notes": "For part (i), $V(3) = 28/2.2 \\approx 12.727$ and $M(3) = 0.15 \\times 1.728 = 0.259$, so $T(3) \\approx 12.986$ thousand dollars. For part (ii), $T(x)$ decreases initially (because $V$ drops steeply while $M$ grows slowly) then increases (as $M$ grows exponentially and $V$ flattens near zero). The minimum occurs near $x \\approx 8$ years, which corresponds to the crossover from part (b). The assumption critique requires identifying a specific structural limitation — not just 'it might not be accurate' but rather pointing to a specific modeling choice (exponential growth of $M$, asymptotic behavior of $V$, or missing cost components).",
       "requires_drawing": false,
       "reference_image": null
     }

@@ -6,7 +6,7 @@
   "core_concepts": [
     {
       "title": "Exponential Growth and Decay",
-      "detail": "An exponential function $f(x) = a \\cdot b^x$ has a constant ratio: each equal increase in $x$ multiplies the output by the base $b$. If $b > 1$, the function grows; if $0 < b < 1$, it decays. The initial value is $a = f(0)$."
+      "detail": "An exponential function $f(x) = a \\cdot b^x$ has a constant ratio: each equal increase in $x$ multiplies the output by the base $b$. If $b > 1$, the function grows; if $0 < b < 1$, it decays. The initial value is $a = f(0)$. Crucially, for equal input changes $\\Delta x$, exponential output RATIOS are constant (not differences) — this is the rate-of-change signature that distinguishes exponential from linear behavior (LO 2.2.B)."
     },
     {
       "title": "The Natural Base $e$",
@@ -25,12 +25,16 @@
       "detail": "The change of base formula $\\log_b a = \\frac{\\ln a}{\\ln b}$ converts any logarithm to base $e$ or base 10 for calculator evaluation. It is essential for solving exponential equations with bases other than $e$ or 10."
     },
     {
-      "title": "Transformations of Exponential Functions",
-      "detail": "Transformations of $f(x) = b^x$: adding $k$ shifts the horizontal asymptote from $y = 0$ to $y = k$; replacing $x$ with $-x$ converts growth to decay. The horizontal asymptote is a key feature distinguishing exponential from polynomial models."
+      "title": "Transformations and Translation Equivalence",
+      "detail": "Transformations of $f(x) = b^x$: adding $k$ to the output shifts the horizontal asymptote from $y = 0$ to $y = k$; replacing $x$ with $-x$ converts growth to decay. A key equivalence (CED 2.4.A): a horizontal shift by $k$ is identical to a vertical dilation — $f(x + k) = b^k \\cdot f(x)$. For example, $2^{x+3} = 8 \\cdot 2^x$. This means every horizontal translation of an exponential can be rewritten as a change in initial value."
     },
     {
       "title": "Solving Exponential and Log Equations",
-      "detail": "To solve an exponential equation, isolate the exponential and take the natural log of both sides. To solve a logarithmic equation, isolate the log and exponentiate both sides — always check for extraneous solutions since $\\log_b(x)$ requires $x > 0$."
+      "detail": "To solve an exponential equation, isolate the exponential and take the natural log of both sides. To solve a logarithmic equation, isolate the log and exponentiate both sides — always check for extraneous solutions since $\\log_b(x)$ requires $x > 0$. For compositions involving logarithms, such as $\\ln(g(x))$, the domain requires $g(x) > 0$; the composition inherits the inner function's domain restriction."
+    },
+    {
+      "title": "Competing Model Selection",
+      "detail": "To determine whether data follows an exponential or linear model, examine equal-interval behavior: if consecutive output RATIOS over equal input intervals are constant, the model is exponential; if consecutive output DIFFERENCES are constant, the model is linear (LO 2.6.A). Semi-log linearization provides a formal check: plot $\\ln(y)$ vs. $x$ — a straight line confirms an exponential model with slope $\\ln b$ and intercept $\\ln a$."
     }
   ],
   "formulas": [
@@ -41,16 +45,22 @@
       "example": "A population of 500 growing by 8% per year: $P(t) = 500 \\cdot (1.08)^t$. After 10 years: $P(10) = 500 \\cdot (1.08)^{10} \\approx 1079$."
     },
     {
+      "name": "Horizontal Translation Equivalence",
+      "katex_string": "f(x + k) = b^k \\cdot f(x)",
+      "description": "Shifting an exponential function horizontally by k units produces the same result as multiplying the entire function by b^k — a vertical dilation. This means a horizontal shift changes only the initial value, not the base.",
+      "example": "Let $f(x) = 5 \\cdot 2^x$. Then $f(x + 3) = 5 \\cdot 2^{x+3} = 5 \\cdot 2^3 \\cdot 2^x = 40 \\cdot 2^x$. So shifting $f$ left by 3 is the same as multiplying the initial value by $2^3 = 8$."
+    },
+    {
       "name": "Composition of Functions",
       "katex_string": "(f \\circ g)(x) = f(g(x))",
       "description": "Applying function g first, then feeding its output into function f. The inner function g runs first; the outer function f runs on the result. The domain of the composition must satisfy the domain constraints of both functions.",
-      "example": "If $f(x) = x^2$ and $g(x) = 3x - 1$, then $(f \\circ g)(2) = f(g(2)) = f(5) = 25$."
+      "example": "Let $f(x) = \\ln(x)$ and $g(x) = x^2 + 1$. Then $(f \\circ g)(x) = \\ln(x^2 + 1)$. Since $x^2 + 1 \\geq 1 > 0$ for all real $x$, the domain is all real numbers — no restrictions needed. If instead $g(x) = x^2 - 1$, then $\\ln(x^2 - 1)$ requires $x^2 - 1 > 0$, so $|x| > 1$."
     },
     {
       "name": "Inverse Function",
       "katex_string": "f^{-1}(f(x)) = x \\text{ and } f(f^{-1}(x)) = x",
-      "description": "The inverse function reverses the input-output relationship of the original. If $(a, b)$ is on the graph of $f$, then $(b, a)$ is on the graph of $f^{-1}$. Graphically, $f^{-1}$ is the reflection of $f$ over the line $y = x$.",
-      "example": "If $f(x) = 2x + 3$, solve $y = 2x + 3$ for $x$: $x = \\frac{y-3}{2}$, so $f^{-1}(x) = \\frac{x-3}{2}$. Check: $f(f^{-1}(5)) = f(1) = 5$. ✓"
+      "description": "The inverse function reverses the input-output relationship of the original. If (a, b) is on the graph of f, then (b, a) is on the graph of f^{-1}. Graphically, f^{-1} is the reflection of f over the line y = x.",
+      "example": "Find the inverse of $f(x) = 5 \\cdot 2^x$. Set $y = 5 \\cdot 2^x$, solve for $x$: $\\frac{y}{5} = 2^x$, so $x = \\log_2\\!\\left(\\frac{y}{5}\\right) = \\frac{\\ln(y/5)}{\\ln 2}$. Thus $f^{-1}(x) = \\frac{\\ln(x/5)}{\\ln 2}$. Domain of $f^{-1}$: $x > 0$ (since you can only take $\\ln$ of positive numbers)."
     },
     {
       "name": "Change of Base Formula",
@@ -69,7 +79,13 @@
       "katex_string": "\\log_b(MN) = \\log_b M + \\log_b N; \\quad \\log_b\\!\\left(\\frac{M}{N}\\right) = \\log_b M - \\log_b N; \\quad \\log_b(M^p) = p\\log_b M",
       "description": "The three core log rules: logs convert multiplication to addition, division to subtraction, and exponents to multiplication. Use these to expand or condense logarithmic expressions before solving.",
       "example": "$\\ln(e^3 \\cdot x^2) = \\ln(e^3) + \\ln(x^2) = 3 + 2\\ln x$."
+    },
+    {
+      "name": "Semi-Log Linearization",
+      "katex_string": "\\ln(f(x)) = x\\ln(b) + \\ln(a) \\quad \\text{for } f(x) = ab^x",
+      "description": "Taking the natural log of an exponential model produces a linear equation in x. This lets you confirm exponential behavior (a straight line on a ln-y vs x plot) and recover the base and initial value from the slope and intercept.",
+      "example": "A ln(P) vs. t scatter plot shows slope $0.6$ and y-intercept $2.3$. From $\\ln(P) = 0.6t + 2.3$: the base is $b = e^{0.6} \\approx 1.822$ and the initial value is $a = e^{2.3} \\approx 9.97$, so $P(t) \\approx 9.97 \\cdot e^{0.6t}$."
     }
   ],
-  "exam_tip": "The AP exam frequently presents exponential models in table form — identify the constant ratio (consecutive outputs divide to give the same factor) to confirm exponential behavior, then use $f(x) = ab^x$ with two data points to find $a$ and $b$ before answering the question."
+  "exam_tip": "The AP exam frequently presents exponential models in table form — identify the constant ratio (consecutive outputs divide to give the same factor) to confirm exponential behavior, then use $f(x) = ab^x$ with two data points to find $a$ and $b$. When solving for an exponent in word problems, always isolate the exponential term by dividing by the initial value before taking the logarithm — skipping this step is the most common source of algebra errors."
 }

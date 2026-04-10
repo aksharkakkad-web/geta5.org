@@ -5,36 +5,36 @@
   "theme": "Polynomial and rational functions reveal how quantities change together through rates of change, end behavior, and the structure of zeros and asymptotes.",
   "core_concepts": [
     {
-      "title": "Functions, Domain, and Range",
-      "detail": "A function assigns exactly one output to each input; the domain is all valid inputs and the range is all possible outputs. Interval notation $[a, b]$ includes endpoints while $(a, b)$ excludes them."
+      "title": "Functions, Domain, Range, and Covariation",
+      "detail": "A function assigns exactly one output to each input; the domain is all valid inputs and the range is all possible outputs. Interval notation $[a, b]$ includes endpoints while $(a, b)$ excludes them. Covariation describes how input and output values change together — the conceptual foundation of rate of change. Observing that as $x$ increases by 1 the output doubles, for example, is covariation thinking (LO 1.1.A/B)."
     },
     {
       "title": "Average Rate of Change",
-      "detail": "The average rate of change of $f$ over $[a, b]$ is $\\frac{f(b)-f(a)}{b-a}$, which equals the slope of the secant line through $(a, f(a))$ and $(b, f(b))$. A positive AROC means the function is increasing; negative means decreasing."
+      "detail": "The average rate of change of $f$ over $[a, b]$ is $\\frac{f(b)-f(a)}{b-a}$, which equals the slope of the secant line through $(a, f(a))$ and $(b, f(b))$. A positive AROC means the function is increasing; negative means decreasing. Comparing AROC across intervals reveals where a function is changing fastest or slowest."
     },
     {
-      "title": "Polynomial End Behavior",
-      "detail": "A polynomial's end behavior is governed entirely by its leading term $a_n x^n$: if $n$ is even and $a_n > 0$, both ends rise; if $a_n < 0$, both ends fall. If $n$ is odd, the ends go in opposite directions."
+      "title": "Polynomial Structure: Degree and Finite Differences",
+      "detail": "A polynomial's end behavior is governed entirely by its leading term $a_n x^n$: if $n$ is even and $a_n > 0$, both ends rise; if $a_n < 0$, both ends fall. If $n$ is odd, the ends go in opposite directions. The Finite Differences Method identifies degree from a table: compute first differences $\\Delta y$, then second differences $\\Delta^2 y$, and so on — when the $n$th differences are constant, the polynomial has degree $n$ (LO 1.3.B)."
     },
     {
-      "title": "Zeros and Multiplicity",
-      "detail": "A zero at $x = c$ with odd multiplicity means the graph crosses the $x$-axis; even multiplicity means the graph touches but does not cross (bounces). Higher multiplicity makes the graph flatter near the zero."
+      "title": "Zeros, Multiplicity, and Algebraic Theorems",
+      "detail": "A zero at $x = c$ with odd multiplicity means the graph crosses the $x$-axis; even multiplicity means it touches and bounces. The Remainder Theorem states that $p(c)$ equals the remainder when $p(x)$ is divided by $(x - c)$; the Factor Theorem states that $(x - c)$ is a factor if and only if $p(c) = 0$. For polynomials with real coefficients, non-real zeros always come in conjugate pairs: if $a + bi$ is a zero, so is $a - bi$."
     },
     {
-      "title": "Vertical Asymptotes and Holes",
-      "detail": "A rational function $\\frac{p(x)}{q(x)}$ has a vertical asymptote at $x = c$ where $q(c) = 0$ and $p(c) \\neq 0$. If both $p(c) = 0$ and $q(c) = 0$, there is a removable discontinuity (hole) at $x = c$."
+      "title": "Piecewise-Defined Functions",
+      "detail": "A piecewise function uses different rules on different intervals of the domain, e.g. $f(x) = \\begin{cases} x^2 & x < 0 \\\\ 2x+1 & x \\geq 0 \\end{cases}$. At the boundary, check whether both pieces give the same value (continuity) or different values (jump discontinuity). Reading piecewise graphs requires identifying which piece applies to each input value."
     },
     {
-      "title": "Horizontal Asymptotes",
-      "detail": "The horizontal asymptote of a rational function depends on the degrees: if $\\deg(p) < \\deg(q)$, then $y = 0$; if degrees are equal, $y = \\frac{a_n}{b_n}$; if $\\deg(p) > \\deg(q)$, there is no horizontal asymptote."
+      "title": "Rational Functions: Asymptotes and Holes",
+      "detail": "A rational function $\\frac{p(x)}{q(x)}$ has a vertical asymptote at $x = c$ where $q(c) = 0$ and $p(c) \\neq 0$; if both are zero there is a removable discontinuity (hole). Horizontal asymptotes depend on degrees: $\\deg(p) < \\deg(q)$ gives $y = 0$; equal degrees give $y = \\frac{a_n}{b_n}$; higher numerator degree means no horizontal asymptote. A slant asymptote occurs when $\\deg(p) = \\deg(q) + 1$; find it by polynomial long division — the quotient (ignoring the remainder) is the slant asymptote."
     },
     {
       "title": "Transformations of Functions",
-      "detail": "Transformations of $f(x)$: $f(x - h) + k$ shifts right $h$ units and up $k$ units; $a \\cdot f(bx)$ stretches vertically by $|a|$ (reflects if $a < 0$) and compresses horizontally by factor $|b|$."
+      "detail": "Transformations of $f(x)$: $f(x - h) + k$ shifts right $h$ units and up $k$ units; $a \\cdot f(bx)$ stretches vertically by $|a|$ (reflects if $a < 0$) and compresses horizontally by factor $|b|$. Even functions satisfy $f(-x) = f(x)$ (symmetric about the $y$-axis); odd functions satisfy $f(-x) = -f(x)$ (symmetric about the origin). Vertex form $a(x-h)^2 + k$ is a transformation of $y = x^2$."
     },
     {
-      "title": "Even and Odd Functions",
-      "detail": "Even functions satisfy $f(-x) = f(x)$ (symmetric about the $y$-axis); odd functions satisfy $f(-x) = -f(x)$ (symmetric about the origin). A function is neither if neither condition holds everywhere."
+      "title": "Binomial Theorem",
+      "detail": "The Binomial Theorem expands $(a+b)^n$ as $\\sum_{k=0}^{n} \\binom{n}{k} a^{n-k} b^k$, where $\\binom{n}{k} = \\frac{n!}{k!(n-k)!}$ is the binomial coefficient. Pascal's Triangle gives these coefficients row by row. To find a specific term without full expansion, identify $k$ from the power of $b$ you want: the $k$th term is $\\binom{n}{k}a^{n-k}b^k$ (LO 1.11.C)."
     }
   ],
   "formulas": [
@@ -51,10 +51,34 @@
       "example": "$f(x) = -2x^4 + 3x^2 - 1$ has degree 4 and leading coefficient $-2$, so as $x \\to \\pm\\infty$, $f(x) \\to -\\infty$."
     },
     {
+      "name": "Factored Form of a Polynomial",
+      "katex_string": "p(x) = a_n(x - r_1)(x - r_2)\\cdots(x - r_n)",
+      "description": "A degree-n polynomial written as a product of linear factors, where r_1 through r_n are the zeros and a_n is the leading coefficient. This form makes it easy to read off all zeros and their multiplicities directly.",
+      "example": "$p(x) = 2(x+3)(x-1)^2$ has leading coefficient 2, zeros at $x = -3$ (multiplicity 1, crosses) and $x = 1$ (multiplicity 2, bounces), and $y$-intercept $p(0) = 2(3)(1)^2 = 6$."
+    },
+    {
       "name": "Vertex Form of a Quadratic",
       "katex_string": "f(x) = a(x - h)^2 + k",
-      "description": "A parabola with vertex at (h, k). The sign of a determines whether the parabola opens up (a > 0) or down (a < 0), and |a| controls how wide or narrow it is.",
-      "example": "$f(x) = -3(x - 2)^2 + 5$ has vertex $(2, 5)$, opens downward, and is narrower than $y = x^2$."
+      "description": "A parabola with vertex at (h, k). The sign of a determines whether the parabola opens up (a > 0) or down (a < 0), and |a| controls width. Convert from standard form by completing the square.",
+      "example": "To convert $f(x) = 2x^2 - 8x + 5$: factor out 2 from the first two terms: $2(x^2 - 4x) + 5$. Complete the square: $2(x^2 - 4x + 4 - 4) + 5 = 2(x-2)^2 - 8 + 5 = 2(x-2)^2 - 3$. Vertex is $(2, -3)$, minimum value is $-3$."
+    },
+    {
+      "name": "Remainder Theorem",
+      "katex_string": "p(x) \\div (x - c) \\Rightarrow \\text{remainder} = p(c)",
+      "description": "When a polynomial p(x) is divided by (x - c), the remainder equals p(c). This lets you evaluate a polynomial at a point without full division. If p(c) = 0, then (x - c) is a factor (Factor Theorem).",
+      "example": "Find the remainder when $p(x) = x^3 - 4x + 2$ is divided by $(x - 2)$: $p(2) = 8 - 8 + 2 = 2$. The remainder is 2. Since $p(2) \\neq 0$, $(x-2)$ is not a factor."
+    },
+    {
+      "name": "Slant Asymptote",
+      "katex_string": "\\deg(\\text{numerator}) = \\deg(\\text{denominator}) + 1 \\implies y = \\text{quotient}",
+      "description": "A slant (oblique) asymptote exists when the numerator's degree is exactly one more than the denominator's degree. Perform polynomial long division; the linear quotient (ignoring the remainder) is the equation of the slant asymptote.",
+      "example": "Find the slant asymptote of $f(x) = \\frac{2x^2 + 3x - 1}{x + 1}$. Divide: $2x^2 + 3x - 1$ by $x + 1$ gives quotient $2x + 1$ with remainder $-2$. So the slant asymptote is $y = 2x + 1$."
+    },
+    {
+      "name": "Binomial Theorem",
+      "katex_string": "(a+b)^n = \\sum_{k=0}^{n}\\binom{n}{k}a^{n-k}b^k",
+      "description": "Expands a binomial raised to any positive integer power n without multiplying out repeatedly. Each term uses a binomial coefficient from Pascal's Triangle. To find one specific term, use the general term formula directly.",
+      "example": "Find the coefficient of $x^3$ in $(2x - 1)^5$. The $k$th term is $\\binom{5}{k}(2x)^{5-k}(-1)^k$. For $x^3$, need $5 - k = 3$, so $k = 2$: $\\binom{5}{2}(2x)^3(-1)^2 = 10 \\cdot 8x^3 \\cdot 1 = 80x^3$. Coefficient is $80$."
     },
     {
       "name": "Horizontal Asymptote (Equal Degrees)",
@@ -69,5 +93,5 @@
       "example": "$f(x) = x^4 - 2x^2$: $f(-x) = (-x)^4 - 2(-x)^2 = x^4 - 2x^2 = f(x)$, so $f$ is even."
     }
   ],
-  "exam_tip": "The AP exam heavily tests average rate of change from tables and graphs — always use $\\frac{\\Delta f}{\\Delta x}$ and connect it to the slope of the secant line, and watch for questions asking you to compare ARoC across intervals to determine where a function is increasing fastest."
+  "exam_tip": "The AP exam tests average rate of change from tables and graphs (always use $\\frac{\\Delta f}{\\Delta x}$ and connect to the secant slope), transformations of function graphs (shifts, stretches, and reflections are frequent), and rational function behavior (expect asymptote and hole identification together in the same question). For multiple-choice, use finite differences on a table to quickly identify polynomial degree without guessing."
 }

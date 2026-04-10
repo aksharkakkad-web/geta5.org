@@ -3,48 +3,48 @@
   "subject": "ap-precalculus",
   "year": null,
   "source": "generated",
-  "title": "Rational & Piecewise Functions: Asymptotes, Inverses & Transformations",
+  "title": "Rational Functions: Holes, Long Division, Asymptotes & Model Construction",
   "frq_type": "multi_part_math",
   "related_units": [1, 2],
   "calculator_allowed": true,
   "total_points": 6,
-  "stimulus": "The function $f$ is defined by $f(x) = \\frac{3x + 6}{x - 2}$ for $x \\neq 2$. The function $g$ is defined by $g(x) = \\ln(x - 1) + 4$ for $x > 1$.",
+  "stimulus": "The function $f$ is defined by $f(x) = \\frac{x^3 - x^2 - 6x}{x^2 - x - 6}$ for $x \\neq -2$ and $x \\neq 3$. The function $g$ is defined by $g(x) = \\ln(x - 1) + 4$ for $x > 1$.",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "(i) Determine the equations of any vertical and horizontal asymptotes of $f$. Explain how each asymptote relates to the structure of the function.\n\n(ii) Determine whether $f$ has an inverse function. If it does, find $f^{-1}(x)$. If it does not, explain why.",
+      "prompt": "(i) Factor the numerator and denominator of $f(x)$ completely. Identify any values of $x$ at which the graph of $f$ has a hole, and find the coordinates of each hole. Show supporting work.\n\n(ii) After removing any holes, determine the simplified form of $f$ and find the equations of any vertical asymptotes. Explain why a vertical asymptote exists at each location.",
       "point_value": 2,
       "rubric_criteria": [
-        "1 pt: Correct asymptotes — vertical asymptote $x = 2$ (denominator equals zero) and horizontal asymptote $y = 3$ (ratio of leading coefficients as $x \\to \\pm\\infty$, since $\\frac{3x+6}{x-2} \\to 3$); both must be present with correct equations",
-        "1 pt: Correct inverse — $f$ has an inverse (it is one-to-one: each horizontal line $y = k \\neq 3$ intersects the graph at most once); $f^{-1}(x) = \\frac{2x + 6}{x - 3}$ (derived by solving $y = \\frac{3x+6}{x-2}$ for $x$: $y(x-2) = 3x+6 \\Rightarrow xy - 2y = 3x + 6 \\Rightarrow x(y-3) = 2y+6 \\Rightarrow x = \\frac{2y+6}{y-3}$)"
+        "1 pt: Correct factoring and hole identification — numerator: $x^3 - x^2 - 6x = x(x^2 - x - 6) = x(x-3)(x+2)$; denominator: $x^2 - x - 6 = (x-3)(x+2)$; the common factors $(x-3)$ and $(x+2)$ produce holes at $x = 3$ and $x = -2$; hole at $x = 3$: $y$-coordinate $= \\lim_{x \\to 3} f(x) = 3$, so hole at $(3, 3)$; hole at $x = -2$: $y$-coordinate $= -2$, so hole at $(-2, -2)$; both holes with correct coordinates required",
+        "1 pt: Correct simplified form $f(x) = x$ (for $x \\neq -2, 3$) with the explanation that the vertical asymptote analysis now shows NO vertical asymptotes — the simplified function is linear with two punctures; a response that incorrectly identifies vertical asymptotes at $x = 3$ or $x = -2$ (instead of holes) does not earn the point; correct conclusion: $f(x) = x$ has no vertical asymptotes; the domain of $f$ is all real numbers except $x = -2$ and $x = 3$"
       ],
-      "scoring_notes": "For part (i), the explanation of vertical asymptote should reference 'denominator equals zero at $x = 2$.' The horizontal asymptote explanation should reference degree comparison or limit behavior. For part (ii), the domain of $f^{-1}$ is $x \\neq 3$. Accept any equivalent form of $f^{-1}(x)$. Note $f$ is actually a shifted hyperbola and is strictly decreasing on each piece, so it is one-to-one on its domain $x \\neq 2$.",
+      "scoring_notes": "The numerator factors as $x(x-3)(x+2)$ and the denominator as $(x-3)(x+2)$. Both factors cancel, leaving $f(x) = x$ with holes (not vertical asymptotes) at $x = -2$ and $x = 3$. The hole coordinates are $(-2, -2)$ and $(3, 3)$ — the $y$-coordinate is found by substituting into the simplified $x$. Both holes required for the first point. For the second point, the key insight is that after cancellation, NO vertical asymptotes remain. A common error is confusing holes with vertical asymptotes — holes occur when the factor appears in both numerator and denominator.",
       "requires_drawing": false,
       "reference_image": null
     },
     {
       "letter": "b",
-      "prompt": "(i) Find the value of $g^{-1}(6)$, where $g^{-1}$ is the inverse of $g$. Show the computations that lead to your answer.\n\n(ii) Find all values of $x$ for which $(f \\circ g)(x) = 4$, or indicate there are no such values. Express your answer as a decimal approximation.",
+      "prompt": "(i) Find the value of $g^{-1}(7)$, where $g^{-1}$ is the inverse of $g$. Show the computations that lead to your answer.\n\n(ii) Find all values of $x$ for which $(f \\circ g)(x) = 5$, where $f$ is the simplified form from part (a). Show supporting work, and verify that any solution satisfies the domain restriction of $g$.",
       "point_value": 2,
       "rubric_criteria": [
-        "1 pt: Correct value $g^{-1}(6) = e^2 + 1 = 8.389$ (from $\\ln(x-1) + 4 = 6 \\Rightarrow \\ln(x-1) = 2 \\Rightarrow x - 1 = e^2 \\Rightarrow x = e^2 + 1$; accept exact $e^2 + 1$ or decimal approximation $8.389$)",
-        "1 pt: Correct solution — $f(g(x)) = 4$: first solve $f(u) = 4$ to get $\\frac{3u+6}{u-2} = 4 \\Rightarrow 3u+6 = 4u-8 \\Rightarrow u = 14$; then $g(x) = 14 \\Rightarrow \\ln(x-1) + 4 = 14 \\Rightarrow \\ln(x-1) = 10 \\Rightarrow x = e^{10} + 1 \\approx 22027.466$"
+        "1 pt: Correct value $g^{-1}(7) = e^3 + 1 \\approx 21.086$ (from $\\ln(x-1) + 4 = 7 \\Rightarrow \\ln(x-1) = 3 \\Rightarrow x - 1 = e^3 \\Rightarrow x = e^3 + 1$; accept exact $e^3 + 1$ or decimal approximation $21.086$; supporting work must show the logarithm-to-exponential conversion step)",
+        "1 pt: Correct solution — since $f(x) = x$ (simplified), $(f \\circ g)(x) = f(g(x)) = g(x) = \\ln(x-1) + 4$; setting $\\ln(x-1) + 4 = 5 \\Rightarrow \\ln(x-1) = 1 \\Rightarrow x - 1 = e \\Rightarrow x = e + 1 \\approx 3.718$; domain check: $x = e + 1 > 1$ ✓, and $x \\neq 3$ ✓ (since $e + 1 \\approx 3.718 \\neq 3$); the solution $x = e + 1$ is valid; supporting work must show the composition and the domain verification"
       ],
-      "scoring_notes": "For part (i), accept either exact or decimal form. For part (ii), the two-step approach (solve $f(u)=4$ then $g(x)=u$) is the expected method. Decimal approximation $x \\approx 22027.466$ must be correct to three decimal places. Common error: solving $g(f(x)) = 4$ instead of $f(g(x)) = 4$.",
+      "scoring_notes": "For part (i), the inverse of $g(x) = \\ln(x-1) + 4$ is $g^{-1}(y) = e^{y-4} + 1$, so $g^{-1}(7) = e^3 + 1 \\approx 21.086$. For part (ii), using the simplified $f(x) = x$, the composition becomes $f(g(x)) = g(x)$. Setting $g(x) = 5$ gives $x = e + 1$. The domain verification must check both $x > 1$ (domain of $g$) and $x \\neq 3$ (hole restriction from $f$). A response that solves correctly but omits domain verification does not earn the point.",
       "requires_drawing": false,
       "reference_image": null
     },
     {
       "letter": "c",
-      "prompt": "The function $g(x) = \\ln(x - 1) + 4$ is a transformation of $y = \\ln(x)$.\n\n(i) Describe the transformations applied to $y = \\ln(x)$ to obtain $g(x)$.\n\n(ii) Determine the end behavior of $g$ as $x$ increases without bound. Express your answer using the notation of a limit.",
+      "prompt": "A researcher proposes using the function $h(x) = \\frac{ax^2 + bx}{x + c}$ to model data from an experiment, where $a$, $b$, and $c$ are constants.\n\n(i) Use polynomial long division to rewrite $h(x)$ in the form $h(x) = q(x) + \\frac{r}{x + c}$, where $q(x)$ is a polynomial quotient and $r$ is a constant remainder (in terms of $a$, $b$, $c$). Show each step of the long division.\n\n(ii) The researcher observes that for large values of $x$, the data appear to follow a linear trend with slope $a$ and $y$-intercept $(b - ac)$. Identify the slant asymptote of $h$ and explain one assumption the researcher must make about the domain of $h$ for the model to be valid.",
       "point_value": 2,
       "rubric_criteria": [
-        "1 pt: Correct transformations — horizontal shift right by $1$ unit (replacing $x$ with $x - 1$) and vertical shift up by $4$ units (adding $4$); both transformations must be named correctly with directions",
-        "1 pt: Correct limit statement $\\lim_{x \\to \\infty} g(x) = \\infty$, with all four components: 'lim', '$x \\to \\infty$', function $g$, and $\\infty$"
+        "1 pt: Correct long division — dividing $ax^2 + bx$ by $x + c$: first term of quotient is $ax$; $ax \\cdot (x + c) = ax^2 + acx$; subtracting: $(ax^2 + bx) - (ax^2 + acx) = (b - ac)x$; second term of quotient is $(b-ac)$; $(b-ac)(x+c) = (b-ac)x + (b-ac)c$; subtracting: $0 - (b-ac)c = -(b-ac)c = c(ac-b)$; result: $h(x) = ax + (b - ac) + \\frac{c(ac-b)}{x+c}$; all steps must be shown; accept any equivalent form",
+        "1 pt: Correct slant asymptote $y = ax + (b - ac)$ (the polynomial quotient from the division); valid assumption must address the domain — e.g., $x \\neq -c$ (the denominator cannot equal zero), and the model is only appropriate for $x > 0$ or within the experimentally observed domain if negative concentrations or times are not meaningful; accept any contextually reasonable domain restriction with a brief justification referencing the structure of the rational function"
       ],
-      "scoring_notes": "For part (i), accept 'shift right 1, up 4' or equivalent. Do not accept 'shift left 1' or 'shift down 4.' For part (ii), the end behavior of $\\ln$ functions grows without bound (slowly), so the limit is $\\infty$. Also accept: $g(x) \\to \\infty$ as $x \\to \\infty$. If student writes $\\lim_{x \\to \\infty} g(x) = \\ln(\\infty) + 4$, this is not acceptable notation.",
+      "scoring_notes": "For part (i), the long division of $ax^2 + bx$ by $x + c$ yields quotient $ax + (b-ac)$ with remainder $c(ac-b)$. All intermediate subtraction steps must be shown. For part (ii), the slant asymptote $y = ax + (b-ac)$ arises because the degree of the numerator exceeds the degree of the denominator by exactly 1. The domain assumption must include at least $x \\neq -c$; accept additional restrictions like $x > 0$ if the context demands non-negative inputs. A response that only names the slant asymptote without addressing domain assumptions earns 1 of the 2 points (only the second rubric point requires both components).",
       "requires_drawing": false,
       "reference_image": null
     }
