@@ -377,25 +377,25 @@
         "type": "none",
         "content": null
       },
-      "question": "Let $f(x) = \\log_b x$ and $g(x) = \\dfrac{x^2}{y^3}$, where $y$ is a positive constant. Which of the following gives the domain of $f(g(x))$ and a simplified expression for $f(g(x))$?",
+      "question": "Let $f(x) = log_b x$ and $g(x) = dfrac{x^2}{y^3}$, where $y$ is a positive constant. Which of the following gives the domain of $f(g(x))$ and a simplified expression for $f(g(x))$ using logarithm properties?",
       "choices": [
         {
           "id": "A",
-          "text": "Domain: $x\\neq0$; $f(g(x))=2\\log_b x - 3\\log_b y$",
+          "text": "Domain: $x > 0$; $f(g(x)) = 2log_b x - 3log_b y$",
           "is_correct": true,
-          "explanation": "$f(g(x))=\\log_b\\frac{x^2}{y^3}$. Domain requires $\\frac{x^2}{y^3}>0$: since $y>0$, $y^3>0$, so we need $x^2>0$, i.e. $x\\neq0$. Simplified: $\\log_b x^2-\\log_b y^3=2\\log_b x-3\\log_b y$ (for $x>0$; domain notation $x\\neq0$ covers all sign cases)."
+          "explanation": "$f(g(x)) = log_b\frac{x^2}{y^3} = log_b x^2 - log_b y^3 = 2log_b x - 3log_b y$. Since applying the power rule $log_b x^2 = 2log_b x$ requires $x > 0$, the domain is $x > 0$."
         },
         {
           "id": "B",
-          "text": "Domain: all real numbers; $f(g(x))=2\\log_b x+3\\log_b y$",
+          "text": "Domain: all real numbers; $f(g(x)) = 2log_b x + 3log_b y$",
           "is_correct": false,
-          "explanation": "Domain cannot be all reals; at $x=0$, $g(0)=0$ and $\\log_b 0$ is undefined. Also, a quotient inside a log gives subtraction, not addition."
+          "explanation": "Domain cannot be all reals; at $x = 0$, $g(0) = 0$ and $log_b 0$ is undefined. For $x < 0$, $g(x) > 0$ but the power-rule simplification $2log_b x$ requires $x > 0$. Also, a quotient inside a log gives subtraction, not addition."
         },
         {
           "id": "C",
-          "text": "Domain: $x>0$; $f(g(x))=\\log_b(2x-3y)$",
+          "text": "Domain: $x \neq 0$; $f(g(x)) = log_b(2x - 3y)$",
           "is_correct": false,
-          "explanation": "Log laws operate on log expressions, not directly on arguments: $\\log_b\\frac{x^2}{y^3}\\neq\\log_b(2x-3y)$. Also, negative $x$ values with $x\\neq0$ yield $x^2>0$, so they are in the domain too."
+          "explanation": "The simplification $log_b(2x - 3y)$ is incorrect — log laws operate on log expressions, not directly on arguments. The domain $x \neq 0$ is also incorrect because the power-rule simplification $2log_b x$ requires $x > 0$."
         },
         {
           "id": "D",
@@ -405,7 +405,8 @@
         }
       ],
       "unit_objective": "FUN-1.C",
-      "calculator_allowed": false
+      "calculator_allowed": false,
+      "explanation": "Since $y > 0$, we have $y^3 > 0$. The composite is $f(g(x)) = log_b\frac{x^2}{y^3}$. The argument $x^2/y^3 > 0$ whenever $x \neq 0$, but applying the power rule $log_b x^2 = 2log_b x$ requires $x > 0$ (logarithm base requires a positive argument for the variable). Domain is $x > 0$. Simplified: $log_b x^2 - log_b y^3 = 2log_b x - 3log_b y$."
     },
     {
       "id": "precalc-u2-q020",
@@ -2503,10 +2504,22 @@
             "$\\ln P$"
           ],
           "rows": [
-            ["0", "2.3"],
-            ["1", "2.9"],
-            ["2", "3.5"],
-            ["3", "4.1"]
+            [
+              "0",
+              "2.3"
+            ],
+            [
+              "1",
+              "2.9"
+            ],
+            [
+              "2",
+              "3.5"
+            ],
+            [
+              "3",
+              "4.1"
+            ]
           ]
         }
       },
@@ -2631,10 +2644,22 @@
             "$f(x)$"
           ],
           "rows": [
-            ["1", "6"],
-            ["3", "24"],
-            ["6", "192"],
-            ["10", "3072"]
+            [
+              "1",
+              "6"
+            ],
+            [
+              "3",
+              "24"
+            ],
+            [
+              "6",
+              "192"
+            ],
+            [
+              "10",
+              "3072"
+            ]
           ]
         }
       },
@@ -2681,10 +2706,22 @@
             "$N(t)$"
           ],
           "rows": [
-            ["0", "50"],
-            ["2", "80"],
-            ["4", "128"],
-            ["6", "204.8"]
+            [
+              "0",
+              "50"
+            ],
+            [
+              "2",
+              "80"
+            ],
+            [
+              "4",
+              "128"
+            ],
+            [
+              "6",
+              "204.8"
+            ]
           ]
         }
       },
@@ -2887,10 +2924,22 @@
             "$V(t)$ (dollars)"
           ],
           "rows": [
-            ["0", "1000"],
-            ["1", "1100"],
-            ["2", "1210"],
-            ["3", "1331"]
+            [
+              "0",
+              "1000"
+            ],
+            [
+              "1",
+              "1100"
+            ],
+            [
+              "2",
+              "1210"
+            ],
+            [
+              "3",
+              "1331"
+            ]
           ]
         }
       },
