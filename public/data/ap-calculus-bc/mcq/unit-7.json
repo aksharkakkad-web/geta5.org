@@ -1895,32 +1895,32 @@
         "type": "none"
       },
       "calculator_allowed": false,
-      "unit_objective": "FUN-7.A: Verify solutions to second-order differential equations",
-      "question": "Which of the following functions is a solution to the second-order differential equation $y'' - y = 0$?",
+      "unit_objective": "FUN-7.D: Solve separable differential equations with initial conditions",
+      "question": "Which of the following is the particular solution to $\\frac{dy}{dx} = \\frac{x}{y}$ with $y(0) = 3$?",
       "choices": [
         {
           "id": "A",
-          "text": "$y = \\sin(x)$",
-          "is_correct": false,
-          "explanation": "If $y = \\sin(x)$, then $y'' = -\\sin(x)$, so $y'' - y = -\\sin(x) - \\sin(x) = -2\\sin(x) \\neq 0$. Note that $\\sin(x)$ satisfies $y'' + y = 0$, not $y'' - y = 0$."
+          "text": "$y = \\sqrt{x^2 + 9}$",
+          "is_correct": true,
+          "explanation": "Correct. Separation gives $y^2 = x^2 + 9$; taking the positive root with $y(0)=3>0$ yields $\\sqrt{x^2+9}$."
         },
         {
           "id": "B",
-          "text": "$y = e^x$",
-          "is_correct": true,
-          "explanation": "If $y = e^x$, then $y'' = e^x$, so $y'' - y = e^x - e^x = 0$ for all $x$. This confirms $y = e^x$ is a solution. The general solution to $y'' - y = 0$ is $y = c_1 e^x + c_2 e^{-x}$, of which $y = e^x$ is a special case with $c_1=1, c_2=0$."
+          "text": "$y = x^2 + 3$",
+          "is_correct": false,
+          "explanation": "Incorrect. This ignores the square root and misapplies the initial condition."
         },
         {
           "id": "C",
-          "text": "$y = x^2$",
+          "text": "$y = \\sqrt{x^2 + 3}$",
           "is_correct": false,
-          "explanation": "If $y = x^2$, then $y'' = 2$, so $y'' - y = 2 - x^2$. This is zero only at $x = \\pm\\sqrt{2}$, not identically zero for all $x$. Therefore $y = x^2$ is not a solution."
+          "explanation": "Incorrect. This applies the initial condition as $y(0)^2 = 3$ instead of $9$."
         },
         {
           "id": "D",
-          "text": "$y = \\cos(x)$",
+          "text": "$y = e^{x^2/2} + 3$",
           "is_correct": false,
-          "explanation": "If $y = \\cos(x)$, then $y'' = -\\cos(x)$, so $y'' - y = -\\cos(x) - \\cos(x) = -2\\cos(x) \\neq 0$. Like $\\sin(x)$, the function $\\cos(x)$ satisfies $y'' + y = 0$, not $y'' - y = 0$."
+          "explanation": "Incorrect. This treats the equation as $dy/dx = x$ rather than $x/y$."
         }
       ]
     },
