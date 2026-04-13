@@ -1133,14 +1133,29 @@
         "content": {
           "type": "line",
           "data": {
-            "labels": ["-2", "-1", "0", "1", "2"],
+            "labels": [
+              "-2",
+              "-1",
+              "0",
+              "1",
+              "2"
+            ],
             "datasets": [
               {
                 "label": "Solution y = 3e^(2x)",
-                "data": [0.055, 0.406, 3, 22.17, 163.8],
+                "data": [
+                  0.055,
+                  0.406,
+                  3,
+                  22.17,
+                  163.8
+                ],
                 "borderColor": "#f59e0b",
                 "fill": false,
-                "borderDash": [5, 5]
+                "borderDash": [
+                  5,
+                  5
+                ]
               }
             ]
           },
@@ -2194,42 +2209,37 @@
     },
     {
       "id": "calc-mcq-u7-050",
-      "unit": "unit-7",
       "difficulty": "hard",
-      "has_stimulus": false,
-      "stimulus": {
-        "type": "none",
-        "content": null
-      },
-      "question": "Which of the following gives the general solution to $\\frac{dy}{dx} = y - x$?",
+      "question": "Which of the following gives the particular solution to $\\frac{dy}{dx} = y^2 \\cos x$ with initial condition $y(0) = 1$?",
       "choices": [
         {
           "id": "A",
-          "text": "$y = x + 1 + Ce^x$",
-          "is_correct": true,
-          "explanation": "This is a first-order linear ODE. Integrating factor: $e^{-x}$. $y = e^x\\int xe^{-x}dx + Ce^x = e^x(-xe^{-x}-e^{-x})+Ce^x = -x-1+Ce^x = Ce^x-x-1$... check: $y'=Ce^x-1$ and $y-x = Ce^x-x-1-x=Ce^x-2x-1\\neq Ce^x-1$. Hmm, let me redo: $y'-y=-x$. Integrating factor $e^{-x}$: $(ye^{-x})'=-xe^{-x}$. $ye^{-x}=\\int-xe^{-x}dx=xe^{-x}+e^{-x}+C=(x+1)e^{-x}+C$. $y=(x+1)+Ce^x$."
+          "text": "$y = \\frac{1}{1 - \\sin x}$",
+          "is_correct": true
         },
         {
           "id": "B",
-          "text": "$y = Ce^x + x + 1$",
-          "is_correct": false,
-          "explanation": "From the integrating factor method: $y = Ce^x + x + 1$. Verify: $y' = Ce^x+1$ and $y-x = Ce^x+1$. $y'=y-x$ ✓."
+          "text": "$y = \\frac{1}{1 + \\sin x}$",
+          "is_correct": false
         },
         {
           "id": "C",
-          "text": "$y = Ce^{-x} + x$",
-          "is_correct": false,
-          "explanation": "Verify: $y'=-Ce^{-x}+1$, $y-x=Ce^{-x}$. $-Ce^{-x}+1\\neq Ce^{-x}$ in general."
+          "text": "$y = e^{\\sin x}$",
+          "is_correct": false
         },
         {
           "id": "D",
-          "text": "$y = x$",
-          "is_correct": false,
-          "explanation": "$y=x$ is one solution only if $dy/dx=y-x=0$, but $dy/dx=1\\neq 0$ for $y=x$. $y=x$ is an isocline (where slope=0), not a solution curve."
+          "text": "$y = \\frac{1}{\\cos x - 1}$",
+          "is_correct": false
         }
       ],
-      "subject": "ap-calculus-ab",
-      "calculator_allowed": false
+      "explanation": "Separate variables: $y^{-2}\\,dy = \\cos x\\,dx$. Integrate: $-y^{-1} = \\sin x + C$. Apply $y(0)=1$: $-1 = 0 + C$, so $C=-1$. Thus $-1/y = \\sin x - 1$, giving $y = \\frac{1}{1-\\sin x}$.",
+      "choice_explanations": {
+        "A": "Correct. Separating and integrating gives $-1/y = \\sin x - 1$, so $y = 1/(1-\\sin x)$.",
+        "B": "Incorrect. This would result from a sign error when applying the initial condition.",
+        "C": "Incorrect. This would come from incorrectly treating $dy/dx = y\\cos x$ (first-order linear, not $y^2\\cos x$).",
+        "D": "Incorrect. This arises from integrating $\\cos x$ as $\\sin x - 1$ without properly applying separation."
+      }
     }
   ]
 }

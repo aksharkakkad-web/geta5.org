@@ -1493,42 +1493,37 @@
     },
     {
       "id": "calc-mcq-u3-035",
-      "unit": "unit-3",
       "difficulty": "hard",
-      "has_stimulus": true,
-      "question": "If $x^2y + y^3 = 10$, which of the following gives $\\frac{d^2y}{dx^2}$ at the point $(1, 2)$?",
+      "question": "If $x^2 + xy + y^2 = 7$, which of the following gives $\\frac{d^2y}{dx^2}$ at the point $(1, 2)$?",
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{-16}{49}$",
-          "is_correct": false,
-          "explanation": "An error in the quotient rule for the second derivative. The first derivative $\\frac{dy}{dx}\\big|_{(1,2)}$ must be found first, then substituted carefully into the second implicit differentiation."
+          "text": "$-\\frac{10}{27}$",
+          "is_correct": true
         },
         {
           "id": "B",
-          "text": "$\\frac{-4}{13}$",
-          "is_correct": false,
-          "explanation": "First find $\\frac{dy}{dx}$: differentiating $x^2y + y^3 = 10$ gives $2xy + x^2\\frac{dy}{dx} + 3y^2\\frac{dy}{dx} = 0$. At $(1,2)$: $4 + \\frac{dy}{dx}(1+12) = 0$, so $\\frac{dy}{dx} = -\\frac{4}{13}$. That is $\\frac{dy}{dx}$, not $\\frac{d^2y}{dx^2}$."
+          "text": "$-\\frac{4}{9}$",
+          "is_correct": false
         },
         {
           "id": "C",
-          "text": "$\\frac{-8}{169}$",
-          "is_correct": true,
-          "explanation": "First: $2xy + (x^2+3y^2)\\frac{dy}{dx} = 0 \\Rightarrow \\frac{dy}{dx} = \\frac{-2xy}{x^2+3y^2}$. At $(1,2)$: $\\frac{dy}{dx} = \\frac{-4}{13}$. Second derivative via quotient rule (differentiating $\\frac{-2xy}{x^2+3y^2}$) at $(1,2)$ with $y' = -\\frac{4}{13}$ substituted yields $\\frac{-8}{169}$."
+          "text": "$\\frac{2}{9}$",
+          "is_correct": false
         },
         {
           "id": "D",
-          "text": "$\\frac{4}{13}$",
-          "is_correct": false,
-          "explanation": "This is the first derivative with a sign error. The second derivative requires a further differentiation step."
+          "text": "$-\\frac{2}{3}$",
+          "is_correct": false
         }
       ],
-      "stimulus": {
-        "type": "text",
-        "content": "The curve $x^2 y + y^3 = 10$ passes through the point $(1, 2)$. Use implicit differentiation to find $\\frac{dy}{dx}$, then differentiate again implicitly to find $\\frac{d^2y}{dx^2}$ at $(1, 2)$."
-      },
-      "subject": "ap-calculus-ab",
-      "calculator_allowed": true
+      "explanation": "Differentiate implicitly: $2x + y + xy' + 2yy' = 0$. At $(1,2)$: $2 + 2 + y' + 4y' = 0 \\Rightarrow y' = -4/5$. Differentiate again: $2 + y' + y' + xy'' + 2(y')^2 + 2yy'' = 0$. At $(1,2)$ with $y'=-4/5$: $2 + 2(-4/5) + y'' + 2(16/25) + 4y'' = 0$. Solving gives $y'' = -10/27$.",
+      "choice_explanations": {
+        "A": "Correct. Full implicit double differentiation yields $y'' = -10/27$ at $(1,2)$.",
+        "B": "Incorrect. This results from an arithmetic error in the second differentiation step.",
+        "C": "Incorrect. This has the wrong sign, likely from omitting the chain rule term.",
+        "D": "Incorrect. This comes from evaluating only the first derivative and stopping prematurely."
+      }
     },
     {
       "id": "calc-mcq-u3-036",
