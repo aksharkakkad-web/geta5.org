@@ -1631,40 +1631,37 @@
     },
     {
       "id": "chem-mcq-5-033",
-      "stimulus": {
-        "type": "none"
-      },
-      "question": "According to collision theory, which of the following conditions must be met for a collision between reactant molecules to result in a reaction?",
+      "difficulty": "medium",
+      "question": "A reaction has a large activation energy. Which of the following best predicts the effect on reaction rate when a catalyst is added?",
       "choices": [
         {
           "id": "A",
-          "text": "Molecules must collide with sufficient energy only; orientation does not matter",
-          "is_correct": false,
-          "explanation": "Both conditions are required: sufficient energy (≥ activation energy) AND correct orientation for bond breaking/forming to occur. Many high-energy collisions fail due to wrong orientation."
+          "text": "The rate increases because the catalyst lowers the activation energy",
+          "is_correct": true
         },
         {
           "id": "B",
-          "text": "Molecules must collide with sufficient energy ($\\geq E_a$) and with the correct geometric orientation to allow bond breaking and formation",
-          "is_correct": true,
-          "explanation": "Collision theory requires both conditions: (1) collision energy ≥ activation energy, and (2) proper molecular orientation so that the reactive bonds are aligned correctly. Both factors reduce the effective collision frequency."
+          "text": "The rate increases because the catalyst increases the temperature",
+          "is_correct": false
         },
         {
           "id": "C",
-          "text": "Any collision between reactant molecules will result in a reaction if the temperature is high enough",
-          "is_correct": false,
-          "explanation": "Even at high temperatures, many collisions are unproductive due to incorrect orientation; increasing temperature increases the fraction of collisions with sufficient energy, but correct orientation remains necessary."
+          "text": "The rate increases because the catalyst shifts the equilibrium to the right",
+          "is_correct": false
         },
         {
           "id": "D",
-          "text": "Only one reactant molecule needs sufficient energy; the other molecule can be at rest",
-          "is_correct": false,
-          "explanation": "The collision itself requires two molecules to collide; the collision energy comes from the relative kinetic energies of both molecules. A molecule at rest would contribute zero kinetic energy to the collision."
+          "text": "The rate is unchanged because catalysts only affect equilibrium position",
+          "is_correct": false
         }
       ],
-      "difficulty": "easy",
-      "unit_objective": "5.D",
-      "subject": "ap-chemistry",
-      "unit": "unit-5"
+      "explanation": "Catalysts provide an alternative reaction pathway with lower activation energy $E_a$. By reducing $E_a$ in $k = Ae^{-E_a/RT}$, the rate constant $k$ increases and so does the reaction rate. Catalysts do not change temperature, equilibrium position, or enthalpy of reaction.",
+      "choice_explanations": {
+        "A": "Correct. Lower $E_a$ → larger $k$ → faster rate.",
+        "B": "Incorrect. Catalysts do not generate heat or raise temperature.",
+        "C": "Incorrect. Catalysts increase forward and reverse rates equally, so equilibrium position is unchanged.",
+        "D": "Incorrect. Catalysts affect rate, not just equilibrium. They do not shift $K_{eq}$."
+      }
     },
     {
       "id": "chem-mcq-5-034",
@@ -2109,79 +2106,37 @@
     },
     {
       "id": "chem-mcq-5-044",
-      "stimulus": {
-        "type": "table",
-        "content": {
-          "headers": [
-            "Experiment",
-            "$[\\text{A}]_0$ (M)",
-            "$[\\text{B}]_0$ (M)",
-            "$[\\text{C}]_0$ (M)",
-            "Initial Rate (M/s)"
-          ],
-          "rows": [
-            [
-              "1",
-              "0.10",
-              "0.10",
-              "0.10",
-              "0.040"
-            ],
-            [
-              "2",
-              "0.20",
-              "0.10",
-              "0.10",
-              "0.080"
-            ],
-            [
-              "3",
-              "0.10",
-              "0.30",
-              "0.10",
-              "0.360"
-            ],
-            [
-              "4",
-              "0.10",
-              "0.10",
-              "0.40",
-              "0.040"
-            ]
-          ]
-        }
-      },
-      "question": "Based on the data in the table, which of the following correctly identifies the rate law?",
+      "difficulty": "medium",
+      "question": "A first-order reaction has a half-life of 20 minutes. What fraction of the original reactant remains after 60 minutes?",
       "choices": [
         {
           "id": "A",
-          "text": "Rate = $k[\\text{A}][\\text{B}]^2[\\text{C}]$",
-          "is_correct": false,
-          "explanation": "Experiments 1 and 4 show that tripling [C] (actually quadrupling from 0.10 to 0.40) does not change the rate; C is zero order. This rate law incorrectly includes [C]."
+          "text": "$\frac{1}{8}$",
+          "is_correct": true
         },
         {
           "id": "B",
-          "text": "Rate = $k[\\text{A}][\\text{B}]^2$",
-          "is_correct": true,
-          "explanation": "Exp 1→2: doubling [A] doubles rate (first order in A). Exp 1→3: tripling [B] gives rate × 9 (0.360/0.040 = 9 = 3²); second order in B. Exp 1→4: quadrupling [C] leaves rate unchanged; zero order in C. Rate = k[A][B]²."
+          "text": "$\frac{1}{4}$",
+          "is_correct": false
         },
         {
           "id": "C",
-          "text": "Rate = $k[\\text{A}]^2[\\text{B}]$",
-          "is_correct": false,
-          "explanation": "Tripling [B] (Exp 1→3) increases the rate 9-fold; if first order in B, tripling [B] should give 3× increase. The 9× increase confirms second order in B, not first."
+          "text": "$\frac{1}{3}$",
+          "is_correct": false
         },
         {
           "id": "D",
-          "text": "Rate = $k[\\text{A}][\\text{B}]^3[\\text{C}]^0$",
-          "is_correct": false,
-          "explanation": "If third order in B, tripling [B] would give 27× rate increase; the observed ratio is 9 (= 3²), confirming second order in B, not third."
+          "text": "$\frac{1}{6}$",
+          "is_correct": false
         }
       ],
-      "difficulty": "hard",
-      "unit_objective": "5.A",
-      "subject": "ap-chemistry",
-      "unit": "unit-5"
+      "explanation": "60 min ÷ 20 min/half-life = 3 half-lives. After 3 half-lives: $(1/2)^3 = 1/8$ remains.",
+      "choice_explanations": {
+        "A": "Correct. Three half-lives: $(1/2)^3 = 1/8$.",
+        "B": "Incorrect. This corresponds to 2 half-lives (40 minutes).",
+        "C": "Incorrect. $1/3$ is not a power of $1/2$.",
+        "D": "Incorrect. $1/6$ is not a power of $1/2$."
+      }
     },
     {
       "id": "chem-mcq-5-045",
@@ -2335,40 +2290,37 @@
     },
     {
       "id": "chem-mcq-5-049",
-      "stimulus": {
-        "type": "none"
-      },
-      "question": "For the reaction $\\text{A} + \\text{B} \\rightarrow \\text{C}$, the rate law is Rate = $k[\\text{A}]^2[\\text{B}]^0$. What is the overall reaction order?",
+      "difficulty": "hard",
+      "question": "The activation energy for a reaction is 80 kJ/mol. Using the Arrhenius equation, which of the following would most significantly increase the rate constant $k$?",
       "choices": [
         {
           "id": "A",
-          "text": "Zero",
-          "is_correct": false,
-          "explanation": "Overall reaction order = sum of all exponents in the rate law = 2 + 0 = 2; it is not zero."
+          "text": "Increasing temperature from 300 K to 350 K",
+          "is_correct": true
         },
         {
           "id": "B",
-          "text": "First",
-          "is_correct": false,
-          "explanation": "First order would require the sum of exponents to equal 1; here 2 + 0 = 2."
+          "text": "Increasing temperature from 300 K to 310 K",
+          "is_correct": false
         },
         {
           "id": "C",
-          "text": "Second",
-          "is_correct": true,
-          "explanation": "Overall order = sum of all exponents in the rate law = 2 (from [A]²) + 0 (from [B]⁰) = 2. The reaction is second order overall, and specifically second order in A and zero order in B."
+          "text": "Doubling the concentration of reactants",
+          "is_correct": false
         },
         {
           "id": "D",
-          "text": "Third",
-          "is_correct": false,
-          "explanation": "Third order would require exponents summing to 3; [A]² contributes 2 and [B]⁰ contributes 0, giving total order = 2."
+          "text": "Decreasing pressure by half",
+          "is_correct": false
         }
       ],
-      "difficulty": "easy",
-      "unit_objective": "5.A",
-      "subject": "ap-chemistry",
-      "unit": "unit-5"
+      "explanation": "The Arrhenius equation: $k = Ae^{-E_a/RT}$. Rate constant depends on temperature, not concentration or pressure. A larger temperature increase (300→350 K) produces a larger increase in $k$ than a small increase (300→310 K). Concentration and pressure do not affect $k$.",
+      "choice_explanations": {
+        "A": "Correct. The exponential dependence on $T$ means a 50 K increase produces a much larger effect than a 10 K increase.",
+        "B": "Incorrect. A 10 K increase is smaller than a 50 K increase and produces less change in $k$.",
+        "C": "Incorrect. Concentration affects reaction rate $r$ but not the rate constant $k$.",
+        "D": "Incorrect. Pressure does not appear in the Arrhenius equation."
+      }
     },
     {
       "id": "chem-mcq-5-050",

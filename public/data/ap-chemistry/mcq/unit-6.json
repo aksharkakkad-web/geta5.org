@@ -1624,64 +1624,37 @@
     },
     {
       "id": "chem-mcq-6-038",
-      "stimulus": {
-        "type": "table",
-        "content": {
-          "headers": [
-            "Reaction Step",
-            "Equation",
-            "$\\Delta H$ (kJ)"
-          ],
-          "rows": [
-            [
-              "Step 1",
-              "$\\text{S}(s) + \\text{O}_2(g) \\rightarrow \\text{SO}_2(g)$",
-              "-296.8"
-            ],
-            [
-              "Step 2",
-              "$2\\text{SO}_2(g) + \\text{O}_2(g) \\rightarrow 2\\text{SO}_3(g)$",
-              "-198.2"
-            ],
-            [
-              "Target",
-              "$\\text{S}(s) + \\frac{3}{2}\\text{O}_2(g) \\rightarrow \\text{SO}_3(g)$",
-              "?"
-            ]
-          ]
-        }
-      },
-      "question": "Using Hess's Law and the data in the table, which of the following correctly calculates $\\Delta H$ for the target reaction?",
+      "difficulty": "hard",
+      "question": "Using bond energies, estimate the enthalpy change for the reaction $\text{H}_2(g) + \text{Cl}_2(g) \to 2,\text{HCl}(g)$. Given: $D(\text{H--H}) = 432$ kJ/mol, $D(\text{Cl--Cl}) = 243$ kJ/mol, $D(\text{H--Cl}) = 431$ kJ/mol.",
       "choices": [
         {
           "id": "A",
-          "text": "$\\Delta H = -296.8 + (-198.2) = -495.0$ kJ/mol",
-          "is_correct": false,
-          "explanation": "Step 2 produces 2 mol SO₃; for only 1 mol SO₃, Step 2 must be halved: ΔH(Step 2 halved) = −198.2/2 = −99.1 kJ."
+          "text": "$-187$ kJ/mol",
+          "is_correct": true
         },
         {
           "id": "B",
-          "text": "$\\Delta H = -296.8 + (-99.1) = -395.9$ kJ/mol",
-          "is_correct": true,
-          "explanation": "Use Step 1 as is (S + O₂ → SO₂, ΔH = −296.8 kJ) and half of Step 2 (SO₂ + ½O₂ → SO₃, ΔH = −99.1 kJ). Sum: S + O₂ + SO₂ + ½O₂ → SO₂ + SO₃; SO₂ cancels, giving S + 3/2 O₂ → SO₃; ΔH = −296.8 + (−99.1) = −395.9 kJ/mol."
+          "text": "$+187$ kJ/mol",
+          "is_correct": false
         },
         {
           "id": "C",
-          "text": "$\\Delta H = -296.8 - (-198.2) = -98.6$ kJ/mol",
-          "is_correct": false,
-          "explanation": "Subtracting Step 2 from Step 1 is not the correct Hess's Law approach for this target; both steps must be added (with Step 2 halved) to get the target."
+          "text": "$-675$ kJ/mol",
+          "is_correct": false
         },
         {
           "id": "D",
-          "text": "$\\Delta H = 2(-296.8) + (-198.2) = -791.8$ kJ/mol",
-          "is_correct": false,
-          "explanation": "This would apply for the formation of 2 mol SO₃; for 1 mol SO₃ (the target), only 1 × Step 1 and 0.5 × Step 2 are needed."
+          "text": "$-244$ kJ/mol",
+          "is_correct": false
         }
       ],
-      "difficulty": "hard",
-      "unit_objective": "6.B",
-      "subject": "ap-chemistry",
-      "unit": "unit-6"
+      "explanation": "$Delta H = Sigma D(\text{bonds broken}) - Sigma D(\text{bonds formed})$. Bonds broken: H–H (432) + Cl–Cl (243) = 675 kJ. Bonds formed: 2 × H–Cl = 2 × 431 = 862 kJ. $Delta H = 675 - 862 = -187$ kJ/mol.",
+      "choice_explanations": {
+        "A": "Correct. $675 - 862 = -187$ kJ/mol. Exothermic: more energy released in bond formation than input for bond breaking.",
+        "B": "Incorrect. The sign is wrong; the reaction is exothermic (bonds formed > bonds broken).",
+        "C": "Incorrect. This is only the energy of bonds broken (not subtracting bonds formed).",
+        "D": "Incorrect. This is the difference in single bond energies without accounting for stoichiometry."
+      }
     },
     {
       "id": "chem-mcq-6-039",
