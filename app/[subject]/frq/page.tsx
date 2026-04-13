@@ -55,6 +55,7 @@ const SUBJECT_DISPLAY_NAMES: Record<string, string> = {
   'ap-world-history': 'AP World History',
   'ap-government': 'AP Government',
   'ap-calculus-ab': 'AP Calculus AB',
+  'ap-calculus-bc': 'AP Calculus BC',
   'ap-precalculus': 'AP Precalculus',
   'ap-computer-science-principles': 'AP Computer Science Principles',
   'ap-chemistry': 'AP Chemistry',

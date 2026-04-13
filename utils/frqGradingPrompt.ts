@@ -116,12 +116,15 @@ const GRADING_ROLE = `You are Adi, an AP exam grader built into Ascendly. You gr
 
 const GRADING_RULES = `GRADING RULES:
 - Award points ONLY when the criterion is clearly met — do not give benefit of the doubt
+- BLANK OR MISSING RESPONSES EARN ZERO POINTS. If a part's student response is "[NO RESPONSE]", empty, whitespace-only, or clearly non-substantive (e.g., "idk", "?", random characters), you MUST award 0 points for every criterion of that part. Do NOT infer, complete, or guess what the student might have meant. Do NOT award credit based on the answer key alone.
+- Grade ONLY what the student actually wrote. The rubric criteria contain the correct answers for YOUR reference — they are not the student's work. Never credit the student for content that appears only in the rubric.
 - Partial credit: If a rubric criterion is partially met, award 0 for that point (AP exams are binary per point)
 - Equivalent mathematical expressions earn full credit (e.g., 1-cos(9) = -cos(9)+1)
 - Alternative valid solution methods earn full credit if they reach the correct answer
 - Minor notation differences are acceptable (e.g., f'(x) vs dy/dx)
 - For math: correct answer with no work shown still earns answer points but not setup/method points
 - For essays: grammar/spelling are not graded — focus on content and reasoning
+- For blank parts, the "feedback" field must say the student did not respond and "missed" must describe what a complete response would have contained
 - Be encouraging in feedback but honest about what was missed`
 
 const RESPONSE_FORMAT = `RESPOND IN THIS EXACT JSON FORMAT (no markdown fences, just raw JSON):
@@ -179,10 +182,15 @@ PARTS (with correct answers from official scoring guidelines):
 ${gradableParts.map(p => `(${p.letter}) [${p.point_value} pt${p.point_value > 1 ? 's' : ''}] ${p.prompt}
   Scoring criteria:${p.rubric_criteria.map((c, i) => `\n    ${i + 1}. ${c}`).join('')}${p.scoring_notes ? `\n  Scoring notes: ${p.scoring_notes}` : ''}`).join('\n\n')}`
 
+  // Enumerate every gradable part so the grader sees missing letters as
+  // [NO RESPONSE] instead of silently omitting them. This prevents the LLM
+  // from hallucinating credit when responses = {} or a subset of parts.
   const studentBlock = `STUDENT RESPONSES:
-${Object.entries(responses).map(([letter, text]) =>
-    `(${letter}): ${text.trim() || '[NO RESPONSE]'}`
-  ).join('\n')}`
+${gradableParts.map(p => {
+    const raw = responses[p.letter] ?? ''
+    const trimmed = typeof raw === 'string' ? raw.trim() : ''
+    return `(${p.letter}): ${trimmed || '[NO RESPONSE]'}`
+  }).join('\n')}`
 
   return [GRADING_ROLE, rubric, strictnessBlock, GRADING_RULES, RESPONSE_FORMAT, questionBlock, studentBlock]
     .filter(Boolean)

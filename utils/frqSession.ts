@@ -157,7 +157,7 @@ export function setLastStrictness(s: GradingStrictness): void {
 
 /** Check if a subject uses math input (shortcuts + KaTeX preview) */
 export function isMathSubject(subject: string): boolean {
-  return ['ap-calculus-ab', 'ap-precalculus', 'ap-chemistry'].includes(subject)
+  return ['ap-calculus-ab', 'ap-calculus-bc', 'ap-precalculus', 'ap-chemistry'].includes(subject)
 }
 
 /** Check if a subject has FRQs */
