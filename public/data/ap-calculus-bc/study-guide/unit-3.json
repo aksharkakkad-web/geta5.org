@@ -1,0 +1,59 @@
+{
+  "id": "calcbc-sg-unit-3",
+  "unit": "unit-3",
+  "subject": "ap-calculus-bc",
+  "theme": "The Chain Rule, implicit differentiation, and inverse function derivatives extend differentiation beyond simple compositions to handle any function built from basic building blocks.",
+  "core_concepts": [
+    {
+      "title": "The Chain Rule",
+      "detail": "For composite functions: $\\frac{d}{dx}[f(g(x))] = f'(g(x)) \\cdot g'(x)$. Differentiate the outer function, keep the inner function unchanged, then multiply by the derivative of the inner function."
+    },
+    {
+      "title": "Implicit Differentiation",
+      "detail": "When $y$ is defined implicitly by an equation like $x^2 + y^2 = 25$, differentiate both sides with respect to $x$, treating $y$ as a function of $x$, and apply the Chain Rule to $y$-terms."
+    },
+    {
+      "title": "Derivative of an Inverse Function",
+      "detail": "If $f$ is one-to-one and differentiable, then $(f^{-1})'(x) = \\frac{1}{f'(f^{-1}(x))}$. Find $f^{-1}(x)$ first, then use the formula."
+    },
+    {
+      "title": "Inverse Trig Derivatives",
+      "detail": "$\\frac{d}{dx}[\\arcsin x] = \\frac{1}{\\sqrt{1-x^2}}$, $\\frac{d}{dx}[\\arccos x] = \\frac{-1}{\\sqrt{1-x^2}}$, $\\frac{d}{dx}[\\arctan x] = \\frac{1}{1+x^2}$."
+    },
+    {
+      "title": "Higher-Order Derivatives",
+      "detail": "The second derivative $f''(x)$ is the derivative of $f'(x)$. It describes acceleration in motion problems and determines concavity of graphs."
+    },
+    {
+      "title": "Implicit Second Derivative",
+      "detail": "To find $\\frac{d^2y}{dx^2}$ implicitly, differentiate $\\frac{dy}{dx}$ with respect to $x$ again, substituting the known $\\frac{dy}{dx}$ expression to eliminate remaining $y'$ terms."
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Chain Rule",
+      "katex_string": "\\frac{d}{dx}[f(g(x))] = f'(g(x)) \\cdot g'(x)",
+      "description": "Differentiate the outer function evaluated at the inner, then multiply by the derivative of the inner function. This is the most frequently used derivative rule on the AP exam.",
+      "example": "$\\frac{d}{dx}[\\sin(3x^2)] = \\cos(3x^2) \\cdot 6x = 6x\\cos(3x^2)$."
+    },
+    {
+      "name": "Inverse Function Derivative",
+      "katex_string": "(f^{-1})'(x) = \\frac{1}{f'(f^{-1}(x))}",
+      "description": "The derivative of the inverse at x equals 1 divided by the derivative of f evaluated at the corresponding point. You need f and f' but not an explicit formula for the inverse.",
+      "example": "If $f(2) = 5$ and $f'(2) = 3$, then $(f^{-1})'(5) = \\frac{1}{f'(f^{-1}(5))} = \\frac{1}{f'(2)} = \\frac{1}{3}$."
+    },
+    {
+      "name": "Derivative of arcsin x",
+      "katex_string": "\\frac{d}{dx}[\\arcsin x] = \\frac{1}{\\sqrt{1 - x^2}}",
+      "description": "Valid for $-1 < x < 1$. Often combined with Chain Rule when the argument is not simply x.",
+      "example": "$\\frac{d}{dx}[\\arcsin(2x)] = \\frac{1}{\\sqrt{1-(2x)^2}} \\cdot 2 = \\frac{2}{\\sqrt{1-4x^2}}$."
+    },
+    {
+      "name": "Derivative of arctan x",
+      "katex_string": "\\frac{d}{dx}[\\arctan x] = \\frac{1}{1 + x^2}",
+      "description": "Valid for all real x. One of the most common inverse trig derivatives on the AP exam.",
+      "example": "$\\frac{d}{dx}[\\arctan(x^3)] = \\frac{1}{1+(x^3)^2} \\cdot 3x^2 = \\frac{3x^2}{1+x^6}$."
+    }
+  ],
+  "exam_tip": "For implicit differentiation on FRQs, always apply the Chain Rule when differentiating terms involving $y$ — write $\\frac{dy}{dx}$ explicitly at each step. When evaluating $(f^{-1})'(x)$, first find $f^{-1}(x) = a$ from a given point where $f(a) = x$."
+}

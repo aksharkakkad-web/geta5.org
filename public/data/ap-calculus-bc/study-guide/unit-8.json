@@ -1,0 +1,59 @@
+{
+  "id": "calcbc-sg-unit-8",
+  "unit": "unit-8",
+  "subject": "ap-calculus-bc",
+  "theme": "Integration measures accumulated quantities — areas between curves, volumes of solids, displacement, and (BC-only) arc length of curves.",
+  "core_concepts": [
+    {
+      "title": "Average Value of a Function",
+      "detail": "The average value of $f$ on $[a,b]$ is $f_{\\text{avg}} = \\frac{1}{b-a}\\int_a^b f(x)\\,dx$. By MVT for integrals, there exists a $c$ where $f(c) = f_{\\text{avg}}$."
+    },
+    {
+      "title": "Displacement vs. Total Distance",
+      "detail": "Displacement is $\\int_a^b v(t)\\,dt$ (net change, can be negative). Total distance is $\\int_a^b |v(t)|\\,dt$ (always non-negative). Split at zeros of $v(t)$ to compute total distance."
+    },
+    {
+      "title": "Area Between Curves",
+      "detail": "Area $= \\int_a^b [f(x) - g(x)]\\,dx$ where $f(x) \\geq g(x)$. When curves cross, split into subintervals. Can also integrate with respect to $y$."
+    },
+    {
+      "title": "Volumes: Disc and Washer",
+      "detail": "Disc: $V = \\pi\\int_a^b [f(x)]^2\\,dx$ (solid, no hole). Washer: $V = \\pi\\int_a^b ([R(x)]^2 - [r(x)]^2)\\,dx$ (outer minus inner radius squared)."
+    },
+    {
+      "title": "Volumes: Known Cross Sections",
+      "detail": "$V = \\int_a^b A(x)\\,dx$ where $A(x)$ is the cross-sectional area. Common shapes: squares ($s^2$), semicircles ($\\frac{\\pi}{8}d^2$), equilateral triangles ($\\frac{\\sqrt{3}}{4}s^2$)."
+    },
+    {
+      "title": "Arc Length (BC)",
+      "detail": "$L = \\int_a^b \\sqrt{1 + [f'(x)]^2}\\,dx$ gives the length of the curve $y = f(x)$ from $x = a$ to $x = b$. This is a BC-only topic."
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Average Value",
+      "katex_string": "f_{\\text{avg}} = \\frac{1}{b - a}\\int_a^b f(x)\\,dx",
+      "description": "The height of a rectangle with the same base and same area as the region under f. Divides the total accumulation by the interval length.",
+      "example": "Average value of $f(x) = x^2$ on $[0, 3]$: $\\frac{1}{3}\\int_0^3 x^2\\,dx = \\frac{1}{3} \\cdot 9 = 3$."
+    },
+    {
+      "name": "Volume by Disc Method",
+      "katex_string": "V = \\pi \\int_a^b [f(x)]^2\\,dx",
+      "description": "Revolve y = f(x) around the x-axis. Each slice is a circle with radius f(x). Integrate the area π[f(x)]² across the interval.",
+      "example": "Revolve $y = \\sqrt{x}$ around the $x$-axis from 0 to 4: $V = \\pi\\int_0^4 x\\,dx = \\pi \\cdot 8 = 8\\pi$."
+    },
+    {
+      "name": "Volume by Washer Method",
+      "katex_string": "V = \\pi \\int_a^b \\left([R(x)]^2 - [r(x)]^2\\right)dx",
+      "description": "Revolve a region between two curves. R(x) is the outer radius, r(x) is the inner radius. The integral computes the area of each washer.",
+      "example": "Revolve region between $y = x$ and $y = x^2$ around $x$-axis on $[0,1]$: $V = \\pi\\int_0^1(x^2 - x^4)\\,dx = \\pi\\left[\\frac{x^3}{3} - \\frac{x^5}{5}\\right]_0^1 = \\frac{2\\pi}{15}$."
+    },
+    {
+      "name": "Arc Length",
+      "katex_string": "L = \\int_a^b \\sqrt{1 + [f'(x)]^2}\\,dx",
+      "description": "BC-only. Measures the actual length of a curve, not just horizontal distance. Derived from the Pythagorean theorem on infinitesimal pieces of the curve.",
+      "example": "Arc length of $y = \\frac{2}{3}x^{3/2}$ from $x = 0$ to $x = 3$: $f'(x) = x^{1/2}$, so $L = \\int_0^3 \\sqrt{1+x}\\,dx = \\frac{2}{3}(4^{3/2} - 1) = \\frac{14}{3}$."
+    }
+  ],
+  "exam_tip": "For washer problems, sketch the region and identify which curve is farther from the axis of rotation (outer radius $R$) vs. closer (inner radius $r$). The formula is $\\pi\\int(R^2 - r^2)$, not $\\pi\\int(R - r)^2$."
+}

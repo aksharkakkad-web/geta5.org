@@ -1,0 +1,2107 @@
+{
+  "unit": "unit-8",
+  "subject": "ap-calculus-bc",
+  "questions": [
+    {
+      "id": "calcbc-mcq-u8-001",
+      "unit": "unit-8",
+      "difficulty": "easy",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "What is the average value of $f(x) = 3x^2$ on the interval $[0, 2]$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$4$",
+          "is_correct": true,
+          "explanation": "The average value is $\\frac{1}{2-0}\\int_0^2 3x^2\\,dx = \\frac{1}{2}[x^3]_0^2 = \\frac{1}{2}(8) = 4$."
+        },
+        {
+          "id": "B",
+          "text": "$8$",
+          "is_correct": false,
+          "explanation": "This is $\\int_0^2 3x^2\\,dx = 8$ without dividing by the interval length 2. The average value formula requires dividing by $(b-a)$."
+        },
+        {
+          "id": "C",
+          "text": "$6$",
+          "is_correct": false,
+          "explanation": "$f(2) = 3(4) = 12$ and $f(0) = 0$; the arithmetic mean of endpoint values is 6, but that is not the average value of a function."
+        },
+        {
+          "id": "D",
+          "text": "$2$",
+          "is_correct": false,
+          "explanation": "Dividing the integrand by 2 before integrating is incorrect. The interval length divides the entire integral: $\\frac{1}{2}\\int_0^2 3x^2\\,dx = 4$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Calculate the average value of a function over an interval."
+    },
+    {
+      "id": "calcbc-mcq-u8-002",
+      "unit": "unit-8",
+      "difficulty": "easy",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "table",
+        "content": "<table><thead><tr><th>$t$ (seconds)</th><th>$v(t)$ (m/s)</th></tr></thead><tbody><tr><td>0</td><td>2</td></tr><tr><td>2</td><td>5</td></tr><tr><td>4</td><td>−1</td></tr><tr><td>6</td><td>3</td></tr></tbody></table>"
+      },
+      "question": "A particle moves along a straight line with velocity $v(t)$ given by selected values in the table above. Which of the following correctly describes the relationship between displacement and total distance traveled on the interval $[0, 6]$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Displacement $= \\int_0^6 v(t)\\,dt$ and total distance $= \\int_0^6 |v(t)|\\,dt$.",
+          "is_correct": true,
+          "explanation": "Displacement is $\\int_a^b v(t)\\,dt$ (net signed area). Total distance is $\\int_a^b |v(t)|\\,dt$ (all area counted positively, accounting for direction changes)."
+        },
+        {
+          "id": "B",
+          "text": "Displacement $= \\int_0^6 |v(t)|\\,dt$ and total distance $= \\int_0^6 v(t)\\,dt$.",
+          "is_correct": false,
+          "explanation": "The roles are reversed. Displacement uses the signed integral and total distance uses the absolute value of velocity."
+        },
+        {
+          "id": "C",
+          "text": "Displacement and total distance are always equal.",
+          "is_correct": false,
+          "explanation": "They are equal only when $v(t) \\geq 0$ throughout. Since $v(4) = -1 < 0$, the particle reverses direction, so total distance exceeds displacement in magnitude."
+        },
+        {
+          "id": "D",
+          "text": "Total distance $= \\int_0^6 v(t)^2\\,dt$.",
+          "is_correct": false,
+          "explanation": "Squaring velocity does not give distance. Total distance is computed using $\\int |v(t)|\\,dt$, not the square of velocity."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Distinguish between displacement and total distance traveled using definite integrals."
+    },
+    {
+      "id": "calcbc-mcq-u8-003",
+      "unit": "unit-8",
+      "difficulty": "easy",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "A particle moves along the $x$-axis with velocity $v(t) = t^2 - 4$ for $0 \\leq t \\leq 3$. What is the total distance traveled by the particle on this interval?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\dfrac{23}{3}$",
+          "is_correct": true,
+          "explanation": "$v(t) = 0$ when $t = 2$. On $[0,2]$, $v < 0$; on $[2,3]$, $v > 0$. Total distance $= \\int_0^2(4-t^2)\\,dt + \\int_2^3(t^2-4)\\,dt = \\left[4t - \\frac{t^3}{3}\\right]_0^2 + \\left[\\frac{t^3}{3}-4t\\right]_2^3 = \\frac{16}{3} + \\frac{7}{3} = \\frac{23}{3}$."
+        },
+        {
+          "id": "B",
+          "text": "$-3$",
+          "is_correct": false,
+          "explanation": "This is the displacement $\\int_0^3(t^2-4)\\,dt = \\left[\\frac{t^3}{3}-4t\\right]_0^3 = 9-12 = -3$, not the total distance, which uses $|v(t)|$."
+        },
+        {
+          "id": "C",
+          "text": "$3$",
+          "is_correct": false,
+          "explanation": "Taking the absolute value of displacement $|-3| = 3$ is not the same as total distance. Each portion of travel must be computed separately using $|v(t)|$."
+        },
+        {
+          "id": "D",
+          "text": "$\\dfrac{16}{3}$",
+          "is_correct": false,
+          "explanation": "This counts only the distance traveled while $v < 0$ on $[0,2]$. The interval $[2,3]$ where $v > 0$ adds $\\frac{7}{3}$ more, giving $\\frac{23}{3}$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Calculate total distance traveled by integrating the absolute value of velocity."
+    },
+    {
+      "id": "calcbc-mcq-u8-004",
+      "unit": "unit-8",
+      "difficulty": "easy",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "The area of the region enclosed between $f(x) = x^2$ and $g(x) = x$ is given by which of the following integrals?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\displaystyle\\int_0^1 (x - x^2)\\,dx$",
+          "is_correct": true,
+          "explanation": "The curves intersect at $x=0$ and $x=1$. On $[0,1]$, $x \\geq x^2$, so the area is $\\int_0^1(x - x^2)\\,dx = \\left[\\frac{x^2}{2}-\\frac{x^3}{3}\\right]_0^1 = \\frac{1}{6}$."
+        },
+        {
+          "id": "B",
+          "text": "$\\displaystyle\\int_0^1 (x^2 - x)\\,dx$",
+          "is_correct": false,
+          "explanation": "On $[0,1]$, $x \\geq x^2$, so the top curve minus the bottom curve is $x - x^2$, not $x^2 - x$. Using $x^2 - x$ would give a negative value."
+        },
+        {
+          "id": "C",
+          "text": "$\\displaystyle\\int_{-1}^{1} (x - x^2)\\,dx$",
+          "is_correct": false,
+          "explanation": "The intersection points of $x = x^2$ are $x = 0$ and $x = 1$, not $x = -1$ and $x = 1$. The correct limits are $0$ to $1$."
+        },
+        {
+          "id": "D",
+          "text": "$\\displaystyle\\int_0^1 (x^2 + x)\\,dx$",
+          "is_correct": false,
+          "explanation": "The area between two curves is the difference, not the sum, of the functions. The correct integrand is $x - x^2$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Set up definite integrals to find areas between curves."
+    },
+    {
+      "id": "calcbc-mcq-u8-005",
+      "unit": "unit-8",
+      "difficulty": "easy",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "The region bounded by $y = \\sqrt{x}$, $y = 0$, and $x = 4$ is revolved about the $x$-axis. Which integral gives the volume of the resulting solid?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\pi \\displaystyle\\int_0^4 x\\,dx$",
+          "is_correct": true,
+          "explanation": "Using the disk method, each cross-section is a disk with radius $r(x) = \\sqrt{x}$. Volume $= \\pi\\int_0^4 (\\sqrt{x})^2\\,dx = \\pi\\int_0^4 x\\,dx = \\pi\\cdot 8 = 8\\pi$."
+        },
+        {
+          "id": "B",
+          "text": "$\\pi \\displaystyle\\int_0^4 \\sqrt{x}\\,dx$",
+          "is_correct": false,
+          "explanation": "The disk formula uses $\\pi r^2$, so $r = \\sqrt{x}$ must be squared: $r^2 = x$. Using $\\sqrt{x}$ instead of $x$ gives the wrong integral."
+        },
+        {
+          "id": "C",
+          "text": "$2\\pi \\displaystyle\\int_0^4 x\\sqrt{x}\\,dx$",
+          "is_correct": false,
+          "explanation": "This resembles the shell method integral for rotation about the $y$-axis, not the $x$-axis. For rotation about the $x$-axis, use the disk method."
+        },
+        {
+          "id": "D",
+          "text": "$\\pi \\displaystyle\\int_0^2 x^2\\,dy$",
+          "is_correct": false,
+          "explanation": "Integrating with respect to $y$ with $x = y^2$ is valid but gives a different form. The most direct setup here integrates with respect to $x$ using the disk method."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Set up volume integrals using the disk method."
+    },
+    {
+      "id": "calcbc-mcq-u8-006",
+      "unit": "unit-8",
+      "difficulty": "easy",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "Let $f$ be a continuous function on $[a, b]$ with $f(c) = f_{\\text{avg}}$ for some $c \\in [a, b]$, where $f_{\\text{avg}}$ denotes the average value of $f$ on $[a, b]$."
+      },
+      "question": "The statement above describes which theorem?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "The Mean Value Theorem for Integrals",
+          "is_correct": true,
+          "explanation": "The Mean Value Theorem for Integrals guarantees that a continuous function attains its average value at least once on the closed interval."
+        },
+        {
+          "id": "B",
+          "text": "The Fundamental Theorem of Calculus, Part 1",
+          "is_correct": false,
+          "explanation": "FTC Part 1 states that $\\frac{d}{dx}\\int_a^x f(t)\\,dt = f(x)$. It does not address the average value of a function."
+        },
+        {
+          "id": "C",
+          "text": "The Intermediate Value Theorem",
+          "is_correct": false,
+          "explanation": "The IVT guarantees a function takes every value between $f(a)$ and $f(b)$, but it does not specifically address the average value."
+        },
+        {
+          "id": "D",
+          "text": "The Mean Value Theorem for Derivatives",
+          "is_correct": false,
+          "explanation": "The MVT for derivatives states $f'(c) = \\frac{f(b)-f(a)}{b-a}$ for some $c$. It is distinct from the integral version, which equates $f(c)$ to the average value."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Identify and apply the Mean Value Theorem for Integrals."
+    },
+    {
+      "id": "calcbc-mcq-u8-007",
+      "unit": "unit-8",
+      "difficulty": "easy",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "What is the arc length of the curve $y = x$ from $x = 0$ to $x = 3$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$3\\sqrt{2}$",
+          "is_correct": true,
+          "explanation": "Arc length $= \\int_0^3 \\sqrt{1 + (y')^2}\\,dx = \\int_0^3 \\sqrt{1+1}\\,dx = \\sqrt{2}\\cdot 3 = 3\\sqrt{2}$, consistent with the diagonal of a $3\\times 3$ square."
+        },
+        {
+          "id": "B",
+          "text": "$3$",
+          "is_correct": false,
+          "explanation": "The arc length of a diagonal line is longer than its horizontal run. Forgetting the $\\sqrt{1+(y')^2}$ factor gives just the horizontal distance, not the curve length."
+        },
+        {
+          "id": "C",
+          "text": "$6$",
+          "is_correct": false,
+          "explanation": "$6 = 2 \\times 3$ and does not arise from the arc length formula. $3\\sqrt{2} \\approx 4.24$, not 6."
+        },
+        {
+          "id": "D",
+          "text": "$\\sqrt{18}$",
+          "is_correct": false,
+          "explanation": "$\\sqrt{18}$ is an unsimplified radical. Since $18 = 9 \\cdot 2$, we have $\\sqrt{18} = 3\\sqrt{2}$. The answer must be expressed in simplified form, so $3\\sqrt{2}$ (choice A) is the correct presentation."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Apply the arc length formula for curves defined by $y = f(x)$ (BC-only)."
+    },
+    {
+      "id": "calcbc-mcq-u8-008",
+      "unit": "unit-8",
+      "difficulty": "medium",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "table",
+        "content": "<table><thead><tr><th>$t$ (min)</th><th>$v(t)$ (ft/min)</th></tr></thead><tbody><tr><td>0</td><td>10</td></tr><tr><td>3</td><td>4</td></tr><tr><td>6</td><td>−2</td></tr><tr><td>9</td><td>5</td></tr><tr><td>12</td><td>8</td></tr></tbody></table>"
+      },
+      "question": "The velocity of a particle is given by selected values in the table above for $0 \\leq t \\leq 12$. Using a left Riemann sum with 4 subintervals of equal width, which of the following best approximates the displacement of the particle on $[0, 12]$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$51$ ft",
+          "is_correct": true,
+          "explanation": "Left Riemann sum with width 3: $3[v(0)+v(3)+v(6)+v(9)] = 3[10+4+(-2)+5] = 3(17) = 51$ ft."
+        },
+        {
+          "id": "B",
+          "text": "$75$ ft",
+          "is_correct": false,
+          "explanation": "Using $3[v(3)+v(6)+v(9)+v(12)] = 3[4+(-2)+5+8] = 3(15) = 45$ ft is the right Riemann sum. $75$ does not correspond to any standard approximation here."
+        },
+        {
+          "id": "C",
+          "text": "$45$ ft",
+          "is_correct": false,
+          "explanation": "This is the right Riemann sum: $3[v(3)+v(6)+v(9)+v(12)] = 3[4-2+5+8] = 45$. The left Riemann sum uses $v(0), v(3), v(6), v(9)$, giving 51 ft."
+        },
+        {
+          "id": "D",
+          "text": "$25$ ft",
+          "is_correct": false,
+          "explanation": "Simply summing $v(0)+v(3)+v(6)+v(9) = 17$ without multiplying by the subinterval width $3$ gives 17, not 25. The width must be included."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Approximate displacement using Riemann sum approximations of velocity integrals."
+    },
+    {
+      "id": "calcbc-mcq-u8-009",
+      "unit": "unit-8",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "The region bounded by $y = e^x$, $y = 1$, and $x = 2$ is revolved about the $x$-axis. Which integral correctly gives the volume of this solid using the washer method?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\pi \\displaystyle\\int_0^2 (e^{2x} - 1)\\,dx$",
+          "is_correct": true,
+          "explanation": "The outer radius is $R = e^x$ and the inner radius is $r = 1$. Washer volume $= \\pi\\int_0^2[(e^x)^2 - 1^2]\\,dx = \\pi\\int_0^2(e^{2x}-1)\\,dx$."
+        },
+        {
+          "id": "B",
+          "text": "$\\pi \\displaystyle\\int_0^2 (e^x - 1)^2\\,dx$",
+          "is_correct": false,
+          "explanation": "$(e^x-1)^2 = e^{2x} - 2e^x + 1 \\neq e^{2x} - 1$. The washer method subtracts the squares of the radii: $R^2 - r^2 = e^{2x} - 1$, not $(R-r)^2$."
+        },
+        {
+          "id": "C",
+          "text": "$\\pi \\displaystyle\\int_1^{e^2}(\\ln y)^2\\,dy$",
+          "is_correct": false,
+          "explanation": "Integrating with respect to $y$ using shells or disks perpendicular to the $y$-axis would give a different form. The washer method about the $x$-axis integrates in $x$."
+        },
+        {
+          "id": "D",
+          "text": "$\\pi \\displaystyle\\int_0^2 e^{2x}\\,dx$",
+          "is_correct": false,
+          "explanation": "This is the disk volume if the inner hole were absent. The washer requires subtracting the inner radius squared: $e^{2x} - 1^2 = e^{2x}-1$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Apply the washer method to find volumes of solids of revolution."
+    },
+    {
+      "id": "calcbc-mcq-u8-010",
+      "unit": "unit-8",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "The base of a solid is the region in the $xy$-plane bounded by $y = 4 - x^2$ and $y = 0$. Cross sections perpendicular to the $x$-axis are squares. What is the volume of the solid?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\dfrac{512}{15}$",
+          "is_correct": true,
+          "explanation": "The side length of each square cross section is $4 - x^2$. The region spans $-2 \\leq x \\leq 2$. Volume $= \\int_{-2}^{2}(4-x^2)^2\\,dx = \\int_{-2}^2(16-8x^2+x^4)\\,dx = \\left[16x - \\frac{8x^3}{3}+\\frac{x^5}{5}\\right]_{-2}^{2} = 2\\left(32-\\frac{64}{3}+\\frac{32}{5}\\right) = \\frac{512}{15}$."
+        },
+        {
+          "id": "B",
+          "text": "$\\dfrac{256}{15}$",
+          "is_correct": false,
+          "explanation": "This is half the correct answer, likely from integrating on $[0,2]$ only and forgetting the symmetric portion on $[-2, 0]$."
+        },
+        {
+          "id": "C",
+          "text": "$32$",
+          "is_correct": false,
+          "explanation": "$\\int_{-2}^2(4-x^2)\\,dx = \\frac{32}{3}$, which is the area of the base, not the volume. Volume requires squaring the side length: $(4-x^2)^2$."
+        },
+        {
+          "id": "D",
+          "text": "$\\dfrac{32}{3}$",
+          "is_correct": false,
+          "explanation": "This is the area of the base region. For square cross sections, each slab has area equal to (side length)$^2$, not the side length itself."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Calculate volumes of solids with known cross-sectional shapes."
+    },
+    {
+      "id": "calcbc-mcq-u8-011",
+      "unit": "unit-8",
+      "difficulty": "medium",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A particle moves along the $x$-axis so that its velocity at time $t$ is given by $v(t) = \\sin(\\pi t)$ for $0 \\leq t \\leq 2$."
+      },
+      "question": "What is the total distance traveled by the particle on the interval $[0, 2]$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\dfrac{4}{\\pi}$",
+          "is_correct": true,
+          "explanation": "$v(t) = \\sin(\\pi t) = 0$ at $t = 0, 1, 2$. Total distance $= \\int_0^1 \\sin(\\pi t)\\,dt + \\int_1^2 |\\sin(\\pi t)|\\,dt = \\left[-\\frac{\\cos(\\pi t)}{\\pi}\\right]_0^1 + \\left[\\frac{\\cos(\\pi t)}{\\pi}\\right]_1^2 = \\frac{2}{\\pi}+\\frac{2}{\\pi} = \\frac{4}{\\pi}$."
+        },
+        {
+          "id": "B",
+          "text": "$0$",
+          "is_correct": false,
+          "explanation": "This is the displacement $\\int_0^2 \\sin(\\pi t)\\,dt = 0$. The particle returns to its start, but the total distance includes all motion, forward and backward."
+        },
+        {
+          "id": "C",
+          "text": "$\\dfrac{2}{\\pi}$",
+          "is_correct": false,
+          "explanation": "This is the distance in one half-period only. Since $v$ is negative on $[1,2]$, both halves contribute $\\frac{2}{\\pi}$ each, for a total of $\\frac{4}{\\pi}$."
+        },
+        {
+          "id": "D",
+          "text": "$2$",
+          "is_correct": false,
+          "explanation": "$2$ is not the result of the arc-length computation. The antiderivative of $|\\sin(\\pi t)|$ involves $\\frac{1}{\\pi}$, giving $\\frac{4}{\\pi} \\approx 1.27$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Calculate total distance traveled by integrating the absolute value of velocity."
+    },
+    {
+      "id": "calcbc-mcq-u8-012",
+      "unit": "unit-8",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "Which of the following integrals gives the arc length of $y = \\ln x$ from $x = 1$ to $x = e$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\displaystyle\\int_1^e \\sqrt{1 + \\frac{1}{x^2}}\\,dx$",
+          "is_correct": true,
+          "explanation": "$y = \\ln x \\Rightarrow y' = \\frac{1}{x}$. Arc length $= \\int_1^e \\sqrt{1+(y')^2}\\,dx = \\int_1^e \\sqrt{1+\\frac{1}{x^2}}\\,dx$."
+        },
+        {
+          "id": "B",
+          "text": "$\\displaystyle\\int_1^e \\sqrt{1 + \\ln x}\\,dx$",
+          "is_correct": false,
+          "explanation": "The arc length formula uses $(y')^2$, not $y$ itself. $y' = \\frac{1}{x}$, so $(y')^2 = \\frac{1}{x^2}$, giving $\\sqrt{1+\\frac{1}{x^2}}$."
+        },
+        {
+          "id": "C",
+          "text": "$\\displaystyle\\int_1^e \\sqrt{1 + \\frac{1}{x}}\\,dx$",
+          "is_correct": false,
+          "explanation": "$(y')^2 = \\left(\\frac{1}{x}\\right)^2 = \\frac{1}{x^2}$, not $\\frac{1}{x}$. Squaring the derivative, not just writing it, is required."
+        },
+        {
+          "id": "D",
+          "text": "$\\displaystyle\\int_1^e \\sqrt{1 + x^2}\\,dx$",
+          "is_correct": false,
+          "explanation": "The arc length formula requires $(y')^2$, not $x^2$. Since $y = \\ln x$, we have $y' = \\frac{1}{x}$ and $(y')^2 = \\frac{1}{x^2}$. Using $x^2$ instead of $\\frac{1}{x^2}$ in the integrand confuses the function $y = \\ln x$ with its derivative."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Set up arc length integrals for curves of the form $y = f(x)$ (BC-only)."
+    },
+    {
+      "id": "calcbc-mcq-u8-013",
+      "unit": "unit-8",
+      "difficulty": "medium",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "The region $R$ is bounded by $y = x^2$ and $y = 2x$."
+      },
+      "question": "What is the area of region $R$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\dfrac{4}{3}$",
+          "is_correct": true,
+          "explanation": "The curves intersect at $x = 0$ and $x = 2$. On $[0,2]$, $2x \\geq x^2$. Area $= \\int_0^2(2x-x^2)\\,dx = \\left[x^2-\\frac{x^3}{3}\\right]_0^2 = 4-\\frac{8}{3} = \\frac{4}{3}$."
+        },
+        {
+          "id": "B",
+          "text": "$\\dfrac{8}{3}$",
+          "is_correct": false,
+          "explanation": "$\\int_0^2 x^2\\,dx = \\frac{8}{3}$, which is the area under $y = x^2$ alone. The area between the curves requires subtracting $x^2$ from $2x$."
+        },
+        {
+          "id": "C",
+          "text": "$2$",
+          "is_correct": false,
+          "explanation": "$\\int_0^2 2x\\,dx = 4$ and the area under $x^2$ is $\\frac{8}{3}$; their difference is $\\frac{4}{3}$, not 2."
+        },
+        {
+          "id": "D",
+          "text": "$\\dfrac{2}{3}$",
+          "is_correct": false,
+          "explanation": "This is half the correct area, possibly from integrating on $[0,1]$ instead of $[0,2]$. The curves intersect at $x = 2$, not $x = 1$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Calculate the area of a region bounded by two curves."
+    },
+    {
+      "id": "calcbc-mcq-u8-014",
+      "unit": "unit-8",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "The region bounded by $y = x^2$ and $x = y^2$ is revolved about the $y$-axis. Using the washer method with respect to $y$, which integral gives the volume?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\pi \\displaystyle\\int_0^1 (y - y^4)\\,dy$",
+          "is_correct": true,
+          "explanation": "On $[0,1]$, $x = \\sqrt{y}$ is the outer boundary and $x = y^2$ is the inner boundary. Washer volume $= \\pi\\int_0^1[(\\sqrt{y})^2-(y^2)^2]\\,dy = \\pi\\int_0^1(y-y^4)\\,dy$."
+        },
+        {
+          "id": "B",
+          "text": "$\\pi \\displaystyle\\int_0^1 (\\sqrt{y} - y^2)^2\\,dy$",
+          "is_correct": false,
+          "explanation": "The washer method subtracts squared radii: $R^2 - r^2 = y - y^4$. The expression $(\\sqrt{y}-y^2)^2$ squares the difference of radii, which is not the washer formula."
+        },
+        {
+          "id": "C",
+          "text": "$2\\pi \\displaystyle\\int_0^1 y(\\sqrt{y} - y^2)\\,dy$",
+          "is_correct": false,
+          "explanation": "This is the shell method integrating in $y$, not the washer method. The problem specifies the washer method with respect to $y$."
+        },
+        {
+          "id": "D",
+          "text": "$\\pi \\displaystyle\\int_0^1 (y^2 - \\sqrt{y})^2\\,dy$",
+          "is_correct": false,
+          "explanation": "Same error as choice B — squaring the difference of radii rather than taking the difference of squares. Also, $y^2 < \\sqrt{y}$ on $(0,1)$, so $y^2 - \\sqrt{y}$ is negative there."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Apply the washer method integrating with respect to $y$."
+    },
+    {
+      "id": "calcbc-mcq-u8-015",
+      "unit": "unit-8",
+      "difficulty": "medium",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A particle moves along the $x$-axis. At time $t = 0$, the particle is at position $x = 3$. The velocity of the particle is given by $v(t) = t^2 - 2t - 3$ for $t \\geq 0$."
+      },
+      "question": "What is the position of the particle at $t = 4$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$-\\dfrac{11}{3}$",
+          "is_correct": true,
+          "explanation": "Position $= x(0) + \\int_0^4 v(t)\\,dt = 3 + \\left[\\frac{t^3}{3}-t^2-3t\\right]_0^4 = 3 + \\left(\\frac{64}{3}-16-12\\right) = 3 + \\left(-\\frac{20}{3}\\right) = \\frac{9-20}{3} = -\\frac{11}{3}$."
+        },
+        {
+          "id": "B",
+          "text": "$3$",
+          "is_correct": false,
+          "explanation": "$3 = x(0)$ is the initial position. The particle moves during $[0,4]$, so position changes by $\\int_0^4 v(t)\\,dt = -\\frac{20}{3}$. Final position $= 3 - \\frac{20}{3} = -\\frac{11}{3}$."
+        },
+        {
+          "id": "C",
+          "text": "$\\dfrac{1}{3}$",
+          "is_correct": false,
+          "explanation": "A computation error, possibly from incorrect antidifferentiation. The antiderivative of $t^2-2t-3$ is $\\frac{t^3}{3}-t^2-3t$. Evaluated from 0 to 4: $\\frac{64}{3}-16-12 = -\\frac{20}{3}$. Adding $x(0) = 3$ gives $-\\frac{11}{3}$."
+        },
+        {
+          "id": "D",
+          "text": "$5$",
+          "is_correct": false,
+          "explanation": "$v(4) = 16-8-3 = 5$ is the velocity at $t=4$, not the position. Position requires integrating velocity over $[0,4]$ and adding the initial position $x(0) = 3$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Use the relationship between position and velocity integrals."
+    },
+    {
+      "id": "calcbc-mcq-u8-016",
+      "unit": "unit-8",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "The base of a solid is the region bounded by $y = \\cos x$ and $y = 0$ on $\\left[-\\dfrac{\\pi}{2}, \\dfrac{\\pi}{2}\\right]$. Cross sections perpendicular to the $x$-axis are equilateral triangles. Which expression gives the volume of the solid?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\dfrac{\\sqrt{3}}{4}\\displaystyle\\int_{-\\pi/2}^{\\pi/2} \\cos^2 x\\,dx$",
+          "is_correct": true,
+          "explanation": "The side length of each equilateral triangle is $s = \\cos x$. The area of an equilateral triangle with side $s$ is $\\frac{\\sqrt{3}}{4}s^2$. Volume $= \\int_{-\\pi/2}^{\\pi/2}\\frac{\\sqrt{3}}{4}\\cos^2 x\\,dx$."
+        },
+        {
+          "id": "B",
+          "text": "$\\dfrac{1}{2}\\displaystyle\\int_{-\\pi/2}^{\\pi/2} \\cos^2 x\\,dx$",
+          "is_correct": false,
+          "explanation": "$\\frac{1}{2}s^2$ is the area of a right isosceles triangle with legs $s$, not an equilateral triangle. For equilateral triangles the area coefficient is $\\frac{\\sqrt{3}}{4}$."
+        },
+        {
+          "id": "C",
+          "text": "$\\displaystyle\\int_{-\\pi/2}^{\\pi/2} \\cos^2 x\\,dx$",
+          "is_correct": false,
+          "explanation": "This would be correct for semicircular cross sections with diameter as the base length. The equilateral triangle area formula introduces the $\\frac{\\sqrt{3}}{4}$ factor."
+        },
+        {
+          "id": "D",
+          "text": "$\\dfrac{\\sqrt{3}}{4}\\displaystyle\\int_{-\\pi/2}^{\\pi/2} \\cos x\\,dx$",
+          "is_correct": false,
+          "explanation": "The integrand must be $s^2 = \\cos^2 x$, not $\\cos x$. The area of an equilateral triangle involves the square of the side length."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Set up volume integrals for solids with equilateral triangle cross sections."
+    },
+    {
+      "id": "calcbc-mcq-u8-017",
+      "unit": "unit-8",
+      "difficulty": "medium",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "Let $f$ be a continuous function on $[-1, 3]$ with the following properties: $f(-1) = 2$, $f(3) = 8$, and $\\displaystyle\\int_{-1}^{3} f(x)\\,dx = 12$."
+      },
+      "question": "What is the average value of $f$ on $[-1, 3]$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$3$",
+          "is_correct": true,
+          "explanation": "Average value $= \\frac{1}{3-(-1)}\\int_{-1}^{3}f(x)\\,dx = \\frac{1}{4}(12) = 3$."
+        },
+        {
+          "id": "B",
+          "text": "$5$",
+          "is_correct": false,
+          "explanation": "$\\frac{f(-1)+f(3)}{2} = \\frac{2+8}{2} = 5$ is the arithmetic mean of the endpoint values, not the average value of the function. The average value requires dividing the integral by the interval length."
+        },
+        {
+          "id": "C",
+          "text": "$12$",
+          "is_correct": false,
+          "explanation": "$12 = \\int_{-1}^3 f(x)\\,dx$ is the definite integral, not the average value. The average value divides this by the interval length $(3-(-1)) = 4$."
+        },
+        {
+          "id": "D",
+          "text": "$6$",
+          "is_correct": false,
+          "explanation": "Dividing by 2 instead of the interval length 4 gives $\\frac{12}{2} = 6$. The denominator must be $b - a = 4$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Calculate the average value of a function from a given integral."
+    },
+    {
+      "id": "calcbc-mcq-u8-018",
+      "unit": "unit-8",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "The region bounded by $y = \\sqrt{x}$, $y = 0$, and $x = 9$ is revolved about the line $y = -1$. Which integral correctly gives the volume using the washer method?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\pi \\displaystyle\\int_0^9 \\left[(\\sqrt{x}+1)^2 - 1\\right]dx$",
+          "is_correct": true,
+          "explanation": "The axis of rotation is $y = -1$. Outer radius: from $y = -1$ to $y = \\sqrt{x}$ is $R = \\sqrt{x}+1$. Inner radius: from $y=-1$ to $y=0$ is $r = 1$. Volume $= \\pi\\int_0^9[(\\sqrt{x}+1)^2-1^2]\\,dx = \\pi\\int_0^9[(\\sqrt{x}+1)^2-1]\\,dx$."
+        },
+        {
+          "id": "B",
+          "text": "$\\pi \\displaystyle\\int_0^9 (x + 1)\\,dx$",
+          "is_correct": false,
+          "explanation": "$(\\sqrt{x}+1)^2 - 1 = x + 2\\sqrt{x}$, not $x+1$. The cross-product term $2\\sqrt{x}$ from expanding the square is missing."
+        },
+        {
+          "id": "C",
+          "text": "$\\pi \\displaystyle\\int_0^9 (\\sqrt{x} + 1)^2\\,dx$",
+          "is_correct": false,
+          "explanation": "This is the volume if there were no inner hole. Since the region does not touch the axis $y = -1$ (there is space between $y = 0$ and $y = -1$), an inner radius of $r = 1$ must be subtracted."
+        },
+        {
+          "id": "D",
+          "text": "$\\pi \\displaystyle\\int_0^9 (\\sqrt{x} - 1)^2\\,dx$",
+          "is_correct": false,
+          "explanation": "The outer radius is $\\sqrt{x} + 1$ (distance from $y = -1$ upward to $y = \\sqrt{x}$), not $\\sqrt{x}-1$. Subtracting 1 gives the wrong direction."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Set up washer method integrals for revolution about lines other than coordinate axes."
+    },
+    {
+      "id": "calcbc-mcq-u8-019",
+      "unit": "unit-8",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "Which of the following represents the arc length of the parametric curve $x = t^2$, $y = t^3$ from $t = 0$ to $t = 1$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\displaystyle\\int_0^1 \\sqrt{4t^2 + 9t^4}\\,dt$",
+          "is_correct": true,
+          "explanation": "$\\frac{dx}{dt} = 2t$, $\\frac{dy}{dt} = 3t^2$. Arc length $= \\int_0^1\\sqrt{(2t)^2+(3t^2)^2}\\,dt = \\int_0^1\\sqrt{4t^2+9t^4}\\,dt$."
+        },
+        {
+          "id": "B",
+          "text": "$\\displaystyle\\int_0^1 \\sqrt{2t + 3t^2}\\,dt$",
+          "is_correct": false,
+          "explanation": "The arc length formula requires squaring $\\frac{dx}{dt}$ and $\\frac{dy}{dt}$ before summing: $(2t)^2 + (3t^2)^2 = 4t^2+9t^4$, not $2t+3t^2$."
+        },
+        {
+          "id": "C",
+          "text": "$\\displaystyle\\int_0^1 \\sqrt{1 + \\frac{9t^4}{4t^2}}\\,dt$",
+          "is_correct": false,
+          "explanation": "This attempts to use $\\sqrt{1+(dy/dx)^2}$ with $\\frac{dy}{dx} = \\frac{3t^2}{2t} = \\frac{3t}{2}$, giving $\\int_0^1\\sqrt{1+\\frac{9t^2}{4}}\\,dt$. However, this integrates with respect to $t$ without the appropriate Jacobian $|dx/dt|$."
+        },
+        {
+          "id": "D",
+          "text": "$\\displaystyle\\int_0^1 (2t + 3t^2)\\,dt$",
+          "is_correct": false,
+          "explanation": "Simply summing the derivatives without the square root gives the wrong formula. Arc length requires $\\sqrt{(dx/dt)^2+(dy/dt)^2}$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Apply the arc length formula for parametric curves (BC-only)."
+    },
+    {
+      "id": "calcbc-mcq-u8-020",
+      "unit": "unit-8",
+      "difficulty": "medium",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A particle moves along the $y$-axis so that at time $t \\geq 0$ its position is given by $y(t) = t^3 - 6t^2 + 9t + 2$."
+      },
+      "question": "On which interval(s) is the particle moving upward (in the positive $y$-direction)?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$(0, 1)$ and $(3, \\infty)$",
+          "is_correct": true,
+          "explanation": "$v(t) = y'(t) = 3t^2-12t+9 = 3(t-1)(t-3)$. $v > 0$ when $t < 1$ or $t > 3$. Since $t \\geq 0$, the particle moves upward on $(0,1)$ and $(3,\\infty)$."
+        },
+        {
+          "id": "B",
+          "text": "$(1, 3)$",
+          "is_correct": false,
+          "explanation": "On $(1,3)$, $(t-1) > 0$ and $(t-3) < 0$, so $v(t) = 3(t-1)(t-3) < 0$. The particle moves downward on this interval."
+        },
+        {
+          "id": "C",
+          "text": "$(0, 3)$",
+          "is_correct": false,
+          "explanation": "$v(t) < 0$ on $(1,3)$, so the particle does not move upward throughout $(0,3)$. The upward motion is interrupted between $t=1$ and $t=3$."
+        },
+        {
+          "id": "D",
+          "text": "$(1, \\infty)$",
+          "is_correct": false,
+          "explanation": "At $t = 2$ (in $(1,3)$), $v(2) = 3(1)(-1) = -3 < 0$, so the particle moves downward. The interval $(1,\\infty)$ is not entirely upward motion."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Analyze particle motion using velocity derived from position."
+    },
+    {
+      "id": "calcbc-mcq-u8-021",
+      "unit": "unit-8",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "The region enclosed by $x = y^2 - 2$ and $x = y$ is revolved about the line $x = 4$. Which integral gives the volume of the resulting solid using the shell method?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$2\\pi \\displaystyle\\int_{-1}^{2}(4 - y)(y - y^2 + 2)\\,dy$",
+          "is_correct": true,
+          "explanation": "The curves intersect where $y = y^2-2$, giving $y = -1$ and $y = 2$. On $[-1,2]$, $x = y$ is to the right of $x = y^2-2$. Shells about $x = 4$: radius $= 4-y$ (distance from shell to axis), height $= y-(y^2-2)$. Volume $= 2\\pi\\int_{-1}^{2}(4-y)[y-(y^2-2)]\\,dy$."
+        },
+        {
+          "id": "B",
+          "text": "$2\\pi \\displaystyle\\int_{-1}^{2}(y + 4)(y - y^2 + 2)\\,dy$",
+          "is_correct": false,
+          "explanation": "The radius of each shell is the distance from the shell (at $x = y$) to the axis ($x = 4$): $4 - y$, not $y + 4$. Adding rather than subtracting gives the wrong distance."
+        },
+        {
+          "id": "C",
+          "text": "$\\pi \\displaystyle\\int_{-2}^{4}\\left[(x+2) - \\sqrt{x+2}\\right]^2 dx$",
+          "is_correct": false,
+          "explanation": "This attempts a washer approach but incorrectly computes the outer and inner radii. The washer method for rotation about $x = 4$ would require expressing $y$ bounds as functions of $x$, with correct $R$ and $r$ measured from the axis."
+        },
+        {
+          "id": "D",
+          "text": "$2\\pi \\displaystyle\\int_{-1}^{2}(4 - y)(y^2 - y - 2)\\,dy$",
+          "is_correct": false,
+          "explanation": "The height of each shell should be $y-(y^2-2) = -y^2+y+2 > 0$ on $(-1,2)$. Using $y^2-y-2$ gives a negative height, which is incorrect."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Apply the shell method for revolution about vertical lines."
+    },
+    {
+      "id": "calcbc-mcq-u8-022",
+      "unit": "unit-8",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "What is the arc length of $y = \\dfrac{x^2}{2} - \\dfrac{\\ln x}{4}$ from $x = 1$ to $x = 2$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\dfrac{3}{2} + \\dfrac{\\ln 2}{4}$",
+          "is_correct": true,
+          "explanation": "$y' = x - \\frac{1}{4x}$. $(y')^2 = x^2 - \\frac{1}{2} + \\frac{1}{16x^2}$. So $1+(y')^2 = x^2+\\frac{1}{2}+\\frac{1}{16x^2} = \\left(x+\\frac{1}{4x}\\right)^2$. Arc length $= \\int_1^2\\left(x+\\frac{1}{4x}\\right)dx = \\left[\\frac{x^2}{2}+\\frac{\\ln x}{4}\\right]_1^2 = \\left(2+\\frac{\\ln 2}{4}\\right)-\\frac{1}{2} = \\frac{3}{2}+\\frac{\\ln 2}{4}$."
+        },
+        {
+          "id": "B",
+          "text": "$\\dfrac{3}{4} + \\ln 2$",
+          "is_correct": false,
+          "explanation": "The antiderivative of $x + \\frac{1}{4x}$ is $\\frac{x^2}{2} + \\frac{\\ln x}{4}$, not $\\frac{x^2}{4} + \\ln x$. Evaluating correctly from 1 to 2 gives $\\frac{3}{2}+\\frac{\\ln 2}{4}$."
+        },
+        {
+          "id": "C",
+          "text": "$\\dfrac{5}{4}$",
+          "is_correct": false,
+          "explanation": "Ignoring the $\\ln x$ term. The arc length integrand simplifies to $x + \\frac{1}{4x}$, whose antiderivative includes $\\frac{\\ln x}{4}$, contributing $\\frac{\\ln 2}{4}$ at the upper limit."
+        },
+        {
+          "id": "D",
+          "text": "$\\ln 2 + 1$",
+          "is_correct": false,
+          "explanation": "A common error is using $y'$ directly instead of $\\sqrt{1+(y')^2}$. The integrand simplifies to $x+\\frac{1}{4x}$ only after recognizing the perfect square $\\left(x+\\frac{1}{4x}\\right)^2$ under the radical."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Evaluate arc length when the integrand simplifies to a perfect square (BC-only)."
+    },
+    {
+      "id": "calcbc-mcq-u8-023",
+      "unit": "unit-8",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A particle moves in the $xy$-plane with position given by $x(t) = t^2 - 1$ and $y(t) = \\dfrac{2}{3}t^3$ for $0 \\leq t \\leq 2$."
+      },
+      "question": "Which of the following gives the total distance traveled by the particle from $t = 0$ to $t = 2$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\displaystyle\\int_0^2 \\sqrt{4t^2 + 4t^4}\\,dt$",
+          "is_correct": true,
+          "explanation": "$x'(t) = 2t$, $y'(t) = 2t^2$. Distance $= \\int_0^2\\sqrt{(2t)^2+(2t^2)^2}\\,dt = \\int_0^2\\sqrt{4t^2+4t^4}\\,dt = \\int_0^2 2t\\sqrt{1+t^2}\\,dt$."
+        },
+        {
+          "id": "B",
+          "text": "$\\displaystyle\\int_0^2 (2t + 2t^2)\\,dt$",
+          "is_correct": false,
+          "explanation": "Summing the component speeds without the square root gives an overestimate. The distance formula requires $\\sqrt{(x')^2+(y')^2}$, not $|x'|+|y'|$."
+        },
+        {
+          "id": "C",
+          "text": "$\\displaystyle\\int_0^2 \\sqrt{2t + 2t^2}\\,dt$",
+          "is_correct": false,
+          "explanation": "The derivatives must be squared before summing: $(2t)^2 + (2t^2)^2 = 4t^2+4t^4$. Using $2t+2t^2$ omits the squaring step."
+        },
+        {
+          "id": "D",
+          "text": "$\\sqrt{(x(2)-x(0))^2+(y(2)-y(0))^2}$",
+          "is_correct": false,
+          "explanation": "This is the straight-line distance between start and end points, not the arc length (total path length). It equals displacement, not total distance, for a curved path."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Compute the total distance traveled along a parametric path (BC-only)."
+    },
+    {
+      "id": "calcbc-mcq-u8-024",
+      "unit": "unit-8",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "The region $R$ is bounded by $y = \\sec^2 x$, $y = 0$, $x = -\\dfrac{\\pi}{4}$, and $x = \\dfrac{\\pi}{4}$. The average value of $y = \\sec^2 x$ on $R$ equals which of the following?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\dfrac{4}{ \\pi}$",
+          "is_correct": true,
+          "explanation": "Average value $= \\frac{1}{\\pi/4-(-\\pi/4)}\\int_{-\\pi/4}^{\\pi/4}\\sec^2 x\\,dx = \\frac{1}{\\pi/2}[\\tan x]_{-\\pi/4}^{\\pi/4} = \\frac{2}{\\pi}(1-(-1)) = \\frac{4}{\\pi}$."
+        },
+        {
+          "id": "B",
+          "text": "$\\dfrac{2}{\\pi}$",
+          "is_correct": false,
+          "explanation": "This is $\\frac{1}{\\pi/2}\\cdot 1 = \\frac{2}{\\pi}$, but $\\int_{-\\pi/4}^{\\pi/4}\\sec^2 x\\,dx = \\tan(\\pi/4)-\\tan(-\\pi/4) = 1-(-1) = 2$. The correct answer is $\\frac{2}{\\pi/2}\\cdot\\frac{1}{1} = \\frac{4}{\\pi}$."
+        },
+        {
+          "id": "C",
+          "text": "$1$",
+          "is_correct": false,
+          "explanation": "$\\int_{-\\pi/4}^{\\pi/4}\\sec^2 x\\,dx = 2$, and dividing by the interval length $\\frac{\\pi}{2}$ gives $\\frac{4}{\\pi}\\approx 1.27$, not 1."
+        },
+        {
+          "id": "D",
+          "text": "$2$",
+          "is_correct": false,
+          "explanation": "$2 = \\int_{-\\pi/4}^{\\pi/4}\\sec^2 x\\,dx$ is the definite integral, not the average value. The average value divides by the interval length $\\frac{\\pi}{2}$, giving $\\frac{4}{\\pi}$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Calculate the average value of a trigonometric function."
+    },
+    {
+      "id": "calcbc-mcq-u8-025",
+      "unit": "unit-8",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "The region $R$ is bounded by $y = e^{-x}$, $y = e^x$, $x = 0$, and $x = 1$."
+      },
+      "question": "What is the area of region $R$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$e + e^{-1} - 2$",
+          "is_correct": true,
+          "explanation": "On $[0,1]$, $e^x \\geq e^{-x}$ (since at $x = 0$ they are equal and $e^x$ grows faster). Area $= \\int_0^1(e^x-e^{-x})\\,dx = \\left[e^x+e^{-x}\\right]_0^1 = (e+e^{-1})-(1+1) = e+e^{-1}-2$."
+        },
+        {
+          "id": "B",
+          "text": "$e - e^{-1}$",
+          "is_correct": false,
+          "explanation": "$\\int_0^1(e^x-e^{-x})\\,dx$: the antiderivative of $-e^{-x}$ is $+e^{-x}$, so the antiderivative is $e^x+e^{-x}$. Evaluating: $(e+e^{-1})-(1+1) = e+e^{-1}-2$, not $e-e^{-1}$."
+        },
+        {
+          "id": "C",
+          "text": "$e - e^{-1} - 2$",
+          "is_correct": false,
+          "explanation": "The antiderivative of $e^x - e^{-x}$ is $e^x + e^{-x}$ (note the sign change for $-e^{-x}$). So the result is $e + e^{-1} - 2$, which includes $+e^{-1}$, not $-e^{-1}$."
+        },
+        {
+          "id": "D",
+          "text": "$2e - 2$",
+          "is_correct": false,
+          "explanation": "This ignores the lower curve $e^{-x}$. The area between the curves requires $\\int_0^1(e^x - e^{-x})\\,dx$, not $\\int_0^1 e^x\\,dx$ alone. The correct answer includes the $e^{-1}$ term."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Compute the area between exponential curves."
+    },
+    {
+      "id": "calcbc-mcq-u8-026",
+      "unit": "unit-8",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "The region bounded by $y = x$ and $y = x^3$ for $x \\geq 0$ is enclosed between $x = 0$ and $x = 1$. What is the area of this region?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\dfrac{1}{4}$",
+          "is_correct": true,
+          "explanation": "On $(0,1)$, $x > x^3 \\geq 0$. Area $= \\int_0^1(x-x^3)\\,dx = \\left[\\frac{x^2}{2}-\\frac{x^4}{4}\\right]_0^1 = \\frac{1}{2}-\\frac{1}{4} = \\frac{1}{4}$."
+        },
+        {
+          "id": "B",
+          "text": "$\\dfrac{1}{2}$",
+          "is_correct": false,
+          "explanation": "Area $= \\int_0^1(x-x^3)\\,dx = \\frac{1}{2}-\\frac{1}{4} = \\frac{1}{4}$, not $\\frac{1}{2}$. The $\\frac{x^4}{4}$ term from $x^3$ must be subtracted."
+        },
+        {
+          "id": "C",
+          "text": "$\\dfrac{1}{3}$",
+          "is_correct": false,
+          "explanation": "$\\int_0^1 x^2\\,dx = \\frac{1}{3}$ is the area under $y = x^2$, not between $y = x$ and $y = x^3$. The correct integrand is $x - x^3$."
+        },
+        {
+          "id": "D",
+          "text": "$\\dfrac{3}{4}$",
+          "is_correct": false,
+          "explanation": "$\\int_0^1 x\\,dx = \\frac{1}{2}$ is the area under $y=x$ alone. Subtracting $\\int_0^1 x^3\\,dx = \\frac{1}{4}$ gives the area between the curves: $\\frac{1}{2}-\\frac{1}{4} = \\frac{1}{4}$, not $\\frac{3}{4}$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Calculate the area of an enclosed region between power function curves."
+    },
+    {
+      "id": "calcbc-mcq-u8-027",
+      "unit": "unit-8",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "The arc length of a curve defined by $y = f(x)$ on $[a, b]$ is given by $L = \\displaystyle\\int_a^b \\sqrt{1 + [f'(x)]^2}\\,dx$. For $f(x) = \\dfrac{2}{3}x^{3/2}$, what is the arc length from $x = 0$ to $x = 3$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\dfrac{14}{3}$",
+          "is_correct": true,
+          "explanation": "$f'(x) = x^{1/2}$, so $[f'(x)]^2 = x$. Arc length $= \\int_0^3\\sqrt{1+x}\\,dx = \\left[\\frac{2}{3}(1+x)^{3/2}\\right]_0^3 = \\frac{2}{3}(4^{3/2}-1) = \\frac{2}{3}(8-1) = \\frac{14}{3}$."
+        },
+        {
+          "id": "B",
+          "text": "$\\dfrac{2}{3}(4\\sqrt{3}-1)$",
+          "is_correct": false,
+          "explanation": "$(1+3)^{3/2} = 4^{3/2} = 8$, not $4\\sqrt{3}$. The evaluation of $(1+x)^{3/2}$ at $x=3$ gives $4^{3/2} = (2^2)^{3/2} = 2^3 = 8$."
+        },
+        {
+          "id": "C",
+          "text": "$3$",
+          "is_correct": false,
+          "explanation": "This is the horizontal distance from $x=0$ to $x=3$, not the arc length. The formula $\\sqrt{1+x}$ must be integrated, yielding $\\frac{14}{3} \\approx 4.67$."
+        },
+        {
+          "id": "D",
+          "text": "$\\sqrt{10}$",
+          "is_correct": false,
+          "explanation": "$\\sqrt{10}$ does not arise from this integral. The antiderivative of $\\sqrt{1+x}$ is $\\frac{2}{3}(1+x)^{3/2}$, evaluated from 0 to 3 to give $\\frac{14}{3}$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Evaluate an arc length integral for a power function (BC-only)."
+    },
+    {
+      "id": "calcbc-mcq-u8-028",
+      "unit": "unit-8",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "table",
+        "content": "<table><thead><tr><th>$x$</th><th>$f(x)$</th></tr></thead><tbody><tr><td>1</td><td>3</td></tr><tr><td>2</td><td>5</td></tr><tr><td>3</td><td>4</td></tr><tr><td>4</td><td>6</td></tr><tr><td>5</td><td>2</td></tr></tbody></table>"
+      },
+      "question": "A continuous function $f$ satisfies the values in the table. The Mean Value Theorem for Integrals guarantees that there exists $c \\in [1, 5]$ such that $f(c)$ equals the average value of $f$ on $[1,5]$. If the average value is approximately $4$, which of the following is a consistent conclusion?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "There exists $c \\in [1,5]$ with $f(c) = 4$, which is guaranteed because $f$ is continuous.",
+          "is_correct": true,
+          "explanation": "The Mean Value Theorem for Integrals states that a continuous function attains its average value at least once on the closed interval. Since $f$ is continuous and the average value is 4, which lies between the minimum and maximum values of $f$, such a $c$ is guaranteed."
+        },
+        {
+          "id": "B",
+          "text": "There exists $c \\in [1,5]$ with $f'(c) = 4$, which is guaranteed because $f$ is differentiable.",
+          "is_correct": false,
+          "explanation": "This confuses the Mean Value Theorem for Integrals with the MVT for derivatives. The integral version sets $f(c)$ equal to the average value, not $f'(c)$."
+        },
+        {
+          "id": "C",
+          "text": "$f(c) = 4$ for all $c \\in [1,5]$.",
+          "is_correct": false,
+          "explanation": "The theorem guarantees existence of at least one such $c$, not that every point has function value 4. The table shows values different from 4 at most points."
+        },
+        {
+          "id": "D",
+          "text": "The average value can only be computed if $f$ is differentiable on $(1,5)$.",
+          "is_correct": false,
+          "explanation": "The average value $\\frac{1}{b-a}\\int_a^b f(x)\\,dx$ requires only that $f$ be integrable (continuous is sufficient). Differentiability is not required for the average value formula."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Apply the Mean Value Theorem for Integrals."
+    },
+    {
+      "id": "calcbc-mcq-u8-029",
+      "unit": "unit-8",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "Let $R$ be the region bounded by $y = \\dfrac{1}{x}$, $x = 1$, $x = 3$, and $y = 0$. The solid formed by revolving $R$ about the $y$-axis has volume given by which integral using the shell method?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$2\\pi \\displaystyle\\int_1^3 1\\,dx$",
+          "is_correct": true,
+          "explanation": "Shell method about the $y$-axis: radius $= x$, height $= f(x) = \\frac{1}{x}$. Volume $= 2\\pi\\int_1^3 x\\cdot\\frac{1}{x}\\,dx = 2\\pi\\int_1^3 1\\,dx = 2\\pi(2) = 4\\pi$."
+        },
+        {
+          "id": "B",
+          "text": "$2\\pi \\displaystyle\\int_1^3 \\frac{1}{x}\\,dx$",
+          "is_correct": false,
+          "explanation": "The shell integrand is $x \\cdot f(x) = x \\cdot \\frac{1}{x} = 1$. Using $\\frac{1}{x}$ omits the factor of $x$ (the radius), which is $x$ itself."
+        },
+        {
+          "id": "C",
+          "text": "$\\pi \\displaystyle\\int_{1/3}^{1}\\left(\\frac{1}{y^2}-1\\right)dy$",
+          "is_correct": false,
+          "explanation": "This attempts a washer approach with $x = \\frac{1}{y}$ but omits the outer boundary and incorrect limits. The shell method gives $4\\pi$ directly and more cleanly."
+        },
+        {
+          "id": "D",
+          "text": "$2\\pi \\displaystyle\\int_1^3 x^2\\,dx$",
+          "is_correct": false,
+          "explanation": "The shell integrand is $x \\cdot f(x) = x \\cdot \\frac{1}{x} = 1$, not $x^2$. Squaring $x$ is incorrect; the radius appears once, not squared, in the shell formula."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Apply the cylindrical shell method for revolution about the $y$-axis."
+    },
+    {
+      "id": "calcbc-mcq-u8-030",
+      "unit": "unit-8",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "A curve is defined by $x = \\cos t$, $y = \\sin t$ for $0 \\leq t \\leq \\pi$. What is the arc length of this curve?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\pi$",
+          "is_correct": true,
+          "explanation": "$\\frac{dx}{dt} = -\\sin t$, $\\frac{dy}{dt} = \\cos t$. Arc length $= \\int_0^\\pi\\sqrt{\\sin^2 t + \\cos^2 t}\\,dt = \\int_0^\\pi 1\\,dt = \\pi$. This is the upper semicircle of the unit circle, whose length is indeed $\\pi r = \\pi$."
+        },
+        {
+          "id": "B",
+          "text": "$2\\pi$",
+          "is_correct": false,
+          "explanation": "The parameter runs from $0$ to $\\pi$, tracing only the upper semicircle. The full circumference $2\\pi$ would require $t \\in [0, 2\\pi]$."
+        },
+        {
+          "id": "C",
+          "text": "$2$",
+          "is_correct": false,
+          "explanation": "The arc length of a semicircle of radius 1 is $\\pi \\approx 3.14$, not 2. The formula gives $\\int_0^\\pi 1\\,dt = \\pi$."
+        },
+        {
+          "id": "D",
+          "text": "$1$",
+          "is_correct": false,
+          "explanation": "The speed $\\sqrt{(dx/dt)^2+(dy/dt)^2} = \\sqrt{\\sin^2t+\\cos^2t} = 1$ for all $t$, but integrating this speed over $[0,\\pi]$ gives $\\pi$, not 1."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Compute arc length of parametric curves using the parametric arc length formula (BC-only)."
+    },
+    {
+      "id": "calcbc-mcq-u8-031",
+      "unit": "unit-8",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "Let $R$ be the region in the first quadrant bounded by $y = \\sqrt{x}$, $y = 2$, and $x = 0$."
+      },
+      "question": "The solid formed when $R$ is revolved about the $y$-axis has volume given by which of the following?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\pi \\displaystyle\\int_0^2 y^4\\,dy$",
+          "is_correct": false,
+          "explanation": "This expression arises from an attempted disk method: solving $y = \\sqrt{x}$ for $x$ gives $x = y^2$, and squaring again for $\\pi r^2$ yields $\\pi(y^2)^2 = \\pi y^4$. However, the disk radius at height $y$ is simply $x = y^2$, so the volume element is $\\pi(y^2)^2\\,dy = \\pi y^4\\,dy$. The shell method (choice C) sets up the same integral along the $x$-axis and is the expected approach for this configuration."
+        },
+        {
+          "id": "B",
+          "text": "$\\pi \\displaystyle\\int_0^2 (4 - y^4)\\,dy$",
+          "is_correct": false,
+          "explanation": "The outer radius is $x = 4$ (boundary at $y=2$ where $x = y^2 = 4$) only if using a washer about the $y$-axis with an outer wall. Region $R$ is bounded by $x = 0$ on the left and $x = y^2$ on the right, so the disk radius is $y^2$."
+        },
+        {
+          "id": "C",
+          "text": "$2\\pi \\displaystyle\\int_0^4 x(2 - \\sqrt{x})\\,dx$",
+          "is_correct": true,
+          "explanation": "Shell method about the $y$-axis: radius $= x$, height $= 2 - \\sqrt{x}$ (from $y = \\sqrt{x}$ to $y = 2$). Volume $= 2\\pi\\int_0^4 x(2-\\sqrt{x})\\,dx = 2\\pi\\int_0^4(2x - x^{3/2})\\,dx = 2\\pi\\left[x^2 - \\frac{2}{5}x^{5/2}\\right]_0^4 = 2\\pi\\left(16 - \\frac{64}{5}\\right) = \\frac{32\\pi}{5}$."
+        },
+        {
+          "id": "D",
+          "text": "$\\pi \\displaystyle\\int_0^4 (\\sqrt{x})^2\\,dx$",
+          "is_correct": false,
+          "explanation": "$\\pi\\int_0^4 x\\,dx = 8\\pi$ is the volume under $y = \\sqrt{x}$ revolved about the $x$-axis, not the region $R$ revolved about the $y$-axis."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Set up volume integrals using shell or disk methods for revolution about the $y$-axis."
+    },
+    {
+      "id": "calcbc-mcq-u8-032",
+      "unit": "unit-8",
+      "difficulty": "easy",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "A car travels in a straight line with velocity $v(t) = 3t^2 - 12$ m/s for $0 \\leq t \\leq 4$. What is the displacement of the car from $t = 0$ to $t = 4$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$16$ m",
+          "is_correct": true,
+          "explanation": "Displacement $= \\int_0^4(3t^2-12)\\,dt = \\left[t^3-12t\\right]_0^4 = (64-48)-0 = 16$ m."
+        },
+        {
+          "id": "B",
+          "text": "$0$ m",
+          "is_correct": false,
+          "explanation": "$v(t) = 0$ at $t = 2$, but the net displacement is not zero. $\\int_0^4(3t^2-12)\\,dt = 16 \\neq 0$."
+        },
+        {
+          "id": "C",
+          "text": "$48$ m",
+          "is_correct": false,
+          "explanation": "$v(4) = 3(16)-12 = 36$, and computing $4 \\cdot 12 = 48$ corresponds to erroneously using constant velocity. The correct integral gives 16 m."
+        },
+        {
+          "id": "D",
+          "text": "$32$ m",
+          "is_correct": false,
+          "explanation": "$\\int_0^4 3t^2\\,dt = 64$, but the $-12t$ term contributes $-48$, giving $64-48=16$. Omitting the $-12t$ antiderivative yields an incorrect result of 64, not 32."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Compute displacement from a velocity function."
+    },
+    {
+      "id": "calcbc-mcq-u8-033",
+      "unit": "unit-8",
+      "difficulty": "easy",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "The base of a solid is the triangular region with vertices $(0,0)$, $(2,0)$, and $(0,4)$. Cross sections perpendicular to the $x$-axis are semicircles with diameters along the base."
+      },
+      "question": "Which of the following correctly expresses the volume of the solid?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\dfrac{\\pi}{2}\\displaystyle\\int_0^2 \\left(2 - x\\right)^2\\,dx$",
+          "is_correct": false,
+          "explanation": "The diameter of each semicircle equals the base width in the $y$-direction. The boundary line is $y = 4 - 2x$ (from $(0,4)$ to $(2,0)$). The diameter is $4-2x$ and the radius is $\\frac{4-2x}{2} = 2-x$. Semicircle area $= \\frac{\\pi r^2}{2} = \\frac{\\pi(2-x)^2}{2}$. Volume $= \\int_0^2\\frac{\\pi(2-x)^2}{2}\\,dx = \\frac{\\pi}{2}\\int_0^2(2-x)^2\\,dx$."
+        },
+        {
+          "id": "B",
+          "text": "$\\dfrac{\\pi}{2}\\displaystyle\\int_0^2 (2-x)^2\\,dx$",
+          "is_correct": true,
+          "explanation": "The slant boundary is $y = 4-2x$, so the diameter of each semicircle is $4-2x$ and the radius is $2-x$. Semicircle area $= \\frac{\\pi(2-x)^2}{2}$. Volume $= \\frac{\\pi}{2}\\int_0^2(2-x)^2\\,dx$."
+        },
+        {
+          "id": "C",
+          "text": "$\\pi\\displaystyle\\int_0^2 (2-x)^2\\,dx$",
+          "is_correct": false,
+          "explanation": "The area of a semicircle is $\\frac{\\pi r^2}{2}$, not $\\pi r^2$ (which is a full circle). Including the factor $\\frac{1}{2}$ is essential."
+        },
+        {
+          "id": "D",
+          "text": "$\\dfrac{\\pi}{2}\\displaystyle\\int_0^2 (4-2x)^2\\,dx$",
+          "is_correct": false,
+          "explanation": "$(4-2x)$ is the diameter, not the radius. The radius is $\\frac{4-2x}{2} = 2-x$, so $r^2 = (2-x)^2$, not $(4-2x)^2$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Set up volume integrals for solids with semicircular cross sections."
+    },
+    {
+      "id": "calcbc-mcq-u8-034",
+      "unit": "unit-8",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "Let $f(x) = x^3 - 3x$. The average value of $f$ on $[-2, 2]$ equals which of the following?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$0$",
+          "is_correct": true,
+          "explanation": "$f(x) = x^3-3x$ is an odd function (since $f(-x) = -f(x)$). On a symmetric interval $[-a, a]$, the integral of an odd function is 0. Therefore the average value $= \\frac{1}{4}\\int_{-2}^{2}(x^3-3x)\\,dx = \\frac{1}{4}(0) = 0$."
+        },
+        {
+          "id": "B",
+          "text": "$-2$",
+          "is_correct": false,
+          "explanation": "$f(2) = 8-6 = 2$ and $f(-2) = -8+6 = -2$. Taking one endpoint value is not the average value of the function. The correct approach uses $\\frac{1}{b-a}\\int_a^b f(x)\\,dx = 0$ by odd symmetry."
+        },
+        {
+          "id": "C",
+          "text": "$\\dfrac{1}{2}$",
+          "is_correct": false,
+          "explanation": "This does not arise from the average value calculation. Since $f$ is an odd function on $[-2,2]$, the integral is 0 and the average value is 0."
+        },
+        {
+          "id": "D",
+          "text": "$-6$",
+          "is_correct": false,
+          "explanation": "$f'(x) = 3x^2-3$; $f'(0) = -3$ and $f'(2) = 9$. None of these equal $-6$. The average value of $f$ (not $f'$) on the symmetric interval is 0 by odd symmetry."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Use symmetry properties to evaluate average values of odd functions."
+    },
+    {
+      "id": "calcbc-mcq-u8-035",
+      "unit": "unit-8",
+      "difficulty": "medium",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A particle moves along the $x$-axis with position $x(t) = 2t - t^2$ for $0 \\leq t \\leq 3$."
+      },
+      "question": "Which of the following correctly gives the total distance traveled by the particle on $[0, 3]$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\displaystyle\\int_0^3 |2 - 2t|\\,dt$",
+          "is_correct": true,
+          "explanation": "$v(t) = x'(t) = 2-2t$. Total distance $= \\int_0^3|v(t)|\\,dt = \\int_0^3|2-2t|\\,dt$. $v = 0$ at $t=1$: distance $= \\int_0^1(2-2t)\\,dt + \\int_1^3(2t-2)\\,dt = 1 + 4 = 5$."
+        },
+        {
+          "id": "B",
+          "text": "$\\left|\\displaystyle\\int_0^3 (2 - 2t)\\,dt\\right|$",
+          "is_correct": false,
+          "explanation": "$\\int_0^3(2-2t)\\,dt = [2t-t^2]_0^3 = 6-9 = -3$, so $|-3| = 3$. This is $|$displacement$|$, not total distance. The particle travels 5 units total (1 forward, 4 backward)."
+        },
+        {
+          "id": "C",
+          "text": "$\\displaystyle\\int_0^3 (2 - 2t)\\,dt$",
+          "is_correct": false,
+          "explanation": "This computes displacement $= -3$, which is negative and cannot represent a distance. Total distance requires using $|v(t)|$."
+        },
+        {
+          "id": "D",
+          "text": "$x(3) - x(0)$",
+          "is_correct": false,
+          "explanation": "$x(3) - x(0) = (6-9)-(0) = -3$ is displacement. The particle reverses direction at $t=1$ (where $v=0$), so total distance (5) exceeds $|$displacement$|$ (3)."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Set up total distance integral using absolute value of velocity."
+    },
+    {
+      "id": "calcbc-mcq-u8-036",
+      "unit": "unit-8",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "The arc length of the curve $y = \\cosh x$ from $x = 0$ to $x = \\ln 2$ is which of the following? (Note: $\\cosh x = \\dfrac{e^x + e^{-x}}{2}$, $\\sinh x = \\dfrac{e^x - e^{-x}}{2}$, and $\\cosh^2 x - \\sinh^2 x = 1$.)",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\dfrac{3}{4}$",
+          "is_correct": true,
+          "explanation": "$y' = \\sinh x$. $1+(y')^2 = 1+\\sinh^2 x = \\cosh^2 x$. Arc length $= \\int_0^{\\ln 2}\\cosh x\\,dx = [\\sinh x]_0^{\\ln 2} = \\sinh(\\ln 2)-0 = \\frac{2-1/2}{2} = \\frac{3}{4}$."
+        },
+        {
+          "id": "B",
+          "text": "$\\ln 2$",
+          "is_correct": false,
+          "explanation": "Integrating $\\cosh x$ gives $\\sinh x$, not $\\ln$ of anything. $\\sinh(\\ln 2) = \\frac{e^{\\ln 2}-e^{-\\ln 2}}{2} = \\frac{2-\\frac{1}{2}}{2} = \\frac{3}{4}$."
+        },
+        {
+          "id": "C",
+          "text": "$\\dfrac{5}{4}$",
+          "is_correct": false,
+          "explanation": "$\\cosh(\\ln 2) = \\frac{2+1/2}{2} = \\frac{5}{4}$, but this is the value of $\\cosh$ at the upper limit, not the arc length. The arc length uses $\\sinh$: $[\\sinh x]_0^{\\ln 2} = \\frac{3}{4}$."
+        },
+        {
+          "id": "D",
+          "text": "$1$",
+          "is_correct": false,
+          "explanation": "$\\sinh(0) = 0$ and the definite integral evaluates to $\\frac{3}{4}$, not 1. $\\sinh(\\ln 2) = \\frac{3}{4}$ as computed from the definition."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Apply the arc length formula with hyperbolic function simplification (BC-only)."
+    },
+    {
+      "id": "calcbc-mcq-u8-037",
+      "unit": "unit-8",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "The region bounded by $y = \\sin x$, $y = \\cos x$, $x = 0$, and $x = \\dfrac{\\pi}{4}$ is revolved about the $x$-axis. Using the washer method, which integral gives the volume?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\pi \\displaystyle\\int_0^{\\pi/4}(\\cos^2 x - \\sin^2 x)\\,dx$",
+          "is_correct": true,
+          "explanation": "On $[0, \\pi/4]$, $\\cos x \\geq \\sin x \\geq 0$. Outer radius $R = \\cos x$, inner radius $r = \\sin x$. Volume $= \\pi\\int_0^{\\pi/4}(\\cos^2 x - \\sin^2 x)\\,dx = \\pi\\int_0^{\\pi/4}\\cos(2x)\\,dx = \\pi\\left[\\frac{\\sin(2x)}{2}\\right]_0^{\\pi/4} = \\frac{\\pi}{2}$."
+        },
+        {
+          "id": "B",
+          "text": "$\\pi \\displaystyle\\int_0^{\\pi/4}(\\cos x - \\sin x)^2\\,dx$",
+          "is_correct": false,
+          "explanation": "$(\\cos x-\\sin x)^2 = \\cos^2 x - 2\\sin x\\cos x + \\sin^2 x = 1 - \\sin(2x) \\neq \\cos^2 x - \\sin^2 x$. The washer method subtracts squared radii, not the square of their difference."
+        },
+        {
+          "id": "C",
+          "text": "$\\pi \\displaystyle\\int_0^{\\pi/4}(\\sin^2 x - \\cos^2 x)\\,dx$",
+          "is_correct": false,
+          "explanation": "On $[0,\\pi/4]$, $\\cos x \\geq \\sin x$, so $\\cos x$ is the outer radius. Using $\\sin^2 x - \\cos^2 x$ subtracts in the wrong order, giving a negative value."
+        },
+        {
+          "id": "D",
+          "text": "$\\pi \\displaystyle\\int_0^{\\pi/4}\\cos^2 x\\,dx$",
+          "is_correct": false,
+          "explanation": "This would be the disk volume if $\\sin x = 0$ (no inner hole). Since the region is between $\\sin x$ and $\\cos x$, the inner radius $r = \\sin x$ must be subtracted: $\\cos^2 x - \\sin^2 x$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Apply the washer method with trigonometric functions."
+    },
+    {
+      "id": "calcbc-mcq-u8-038",
+      "unit": "unit-8",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A particle moves along the $x$-axis so that at time $t \\geq 0$ its acceleration is $a(t) = 6t - 6$. At $t = 0$, the particle's velocity is $v(0) = -9$ and its position is $x(0) = 2$."
+      },
+      "question": "What is the total distance traveled by the particle from $t = 0$ to $t = 4$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\dfrac{55}{2}$",
+          "is_correct": false,
+          "explanation": "Correcting: $v(t) = 3t^2-6t-9 = 3(t-3)(t+1)$. Since $t \\geq 0$, $v = 0$ at $t=3$. On $[0,3]$: $v < 0$; on $[3,4]$: $v > 0$. Distance $= \\int_0^3|v|\\,dt + \\int_3^4 v\\,dt = \\int_0^3(9+6t-3t^2)\\,dt + \\int_3^4(3t^2-6t-9)\\,dt = [9t+3t^2-t^3]_0^3+[t^3-3t^2-9t]_3^4$."
+        },
+        {
+          "id": "B",
+          "text": "$\\dfrac{65}{2}$",
+          "is_correct": false,
+          "explanation": "$v(t) = \\int a\\,dt = 3t^2-6t+C$. With $v(0) = -9$: $C = -9$. So $v(t) = 3t^2-6t-9$. $v = 0$ at $t = 3$ (for $t \\geq 0$). Distance on $[0,3]$: $\\int_0^3(9+6t-3t^2)\\,dt = 27+27-27 = 27$. Distance on $[3,4]$: $\\int_3^4(3t^2-6t-9)\\,dt = [t^3-3t^2-9t]_3^4 = (64-48-36)-(27-27-27) = -20+27 = 7$. Total $= 34$."
+        },
+        {
+          "id": "C",
+          "text": "$34$",
+          "is_correct": true,
+          "explanation": "$v(t) = 3t^2-6t-9 = 3(t-3)(t+1)$. $v < 0$ on $(0,3)$, $v > 0$ on $(3,4)$. Distance $= \\int_0^3(9+6t-3t^2)\\,dt + \\int_3^4(3t^2-6t-9)\\,dt = [9t+3t^2-t^3]_0^3+[t^3-3t^2-9t]_3^4 = 27 + (64-48-36-(27-27-27)) = 27+7 = 34$."
+        },
+        {
+          "id": "D",
+          "text": "$14$",
+          "is_correct": false,
+          "explanation": "$\\int_0^4(3t^2-6t-9)\\,dt = [t^3-3t^2-9t]_0^4 = 64-48-36 = -20$. The displacement is $-20$, not the total distance. Total distance accounts for the direction reversal at $t=3$ and equals 34."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Find total distance from acceleration by integrating twice and applying initial conditions."
+    },
+    {
+      "id": "calcbc-mcq-u8-039",
+      "unit": "unit-8",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "The curves $y = x^2$ and $y = 2x - x^2$ enclose a region $R$. The volume generated when $R$ is revolved about the $x$-axis equals which of the following?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\pi \\displaystyle\\int_0^1 \\left[(2x-x^2)^2 - x^4\\right]dx$",
+          "is_correct": true,
+          "explanation": "The curves intersect: $x^2 = 2x-x^2 \\Rightarrow 2x^2-2x=0 \\Rightarrow x = 0$ or $x = 1$. On $[0,1]$, $2x-x^2 \\geq x^2$. Washer: outer $R = 2x-x^2$, inner $r = x^2$. Volume $= \\pi\\int_0^1[(2x-x^2)^2-x^4]\\,dx$."
+        },
+        {
+          "id": "B",
+          "text": "$\\pi \\displaystyle\\int_0^1 (2x - 2x^2)^2\\,dx$",
+          "is_correct": false,
+          "explanation": "$(R-r)^2 \\neq R^2-r^2$. The washer method requires $(2x-x^2)^2 - (x^2)^2 = (2x-x^2)^2 - x^4$, not the square of the difference of the radii."
+        },
+        {
+          "id": "C",
+          "text": "$\\pi \\displaystyle\\int_0^1 (2x - x^2 - x^2)^2\\,dx$",
+          "is_correct": false,
+          "explanation": "Same error: this squares $(2x-2x^2)$, which is $(R-r)^2$, not the correct $R^2-r^2$. The washer formula is $\\pi\\int(R^2-r^2)\\,dx$."
+        },
+        {
+          "id": "D",
+          "text": "$2\\pi \\displaystyle\\int_0^1 x(2x-2x^2)\\,dx$",
+          "is_correct": false,
+          "explanation": "This is the shell method for revolution about the $y$-axis (not the $x$-axis). Revolution about the $x$-axis uses the washer method with horizontal cross sections."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Apply the washer method for revolution about the $x$-axis."
+    },
+    {
+      "id": "calcbc-mcq-u8-040",
+      "unit": "unit-8",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "Which of the following integrals gives the arc length of the curve $x = e^t \\cos t$, $y = e^t \\sin t$ from $t = 0$ to $t = \\dfrac{\\pi}{2}$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\sqrt{2}\\displaystyle\\int_0^{\\pi/2} e^t\\,dt$",
+          "is_correct": true,
+          "explanation": "$\\frac{dx}{dt} = e^t\\cos t - e^t\\sin t = e^t(\\cos t-\\sin t)$. $\\frac{dy}{dt} = e^t\\sin t + e^t\\cos t = e^t(\\sin t+\\cos t)$. $(dx/dt)^2+(dy/dt)^2 = e^{2t}[(\\cos t-\\sin t)^2+(\\sin t+\\cos t)^2] = e^{2t}[1-2\\sin t\\cos t+1+2\\sin t\\cos t] = 2e^{2t}$. Arc length $= \\int_0^{\\pi/2}\\sqrt{2}e^t\\,dt = \\sqrt{2}(e^{\\pi/2}-1)$."
+        },
+        {
+          "id": "B",
+          "text": "$\\displaystyle\\int_0^{\\pi/2} e^t\\,dt$",
+          "is_correct": false,
+          "explanation": "$(dx/dt)^2+(dy/dt)^2 = 2e^{2t}$, so $\\sqrt{2e^{2t}} = \\sqrt{2}\\,e^t$. The $\\sqrt{2}$ factor is missing from this choice."
+        },
+        {
+          "id": "C",
+          "text": "$\\displaystyle\\int_0^{\\pi/2} \\sqrt{2}\\,e^{2t}\\,dt$",
+          "is_correct": false,
+          "explanation": "$\\sqrt{2e^{2t}} = \\sqrt{2}\\,e^t$, not $\\sqrt{2}\\,e^{2t}$. The square root of $e^{2t}$ is $e^t$ (not $e^{2t}$)."
+        },
+        {
+          "id": "D",
+          "text": "$\\displaystyle\\int_0^{\\pi/2} 2e^t\\,dt$",
+          "is_correct": false,
+          "explanation": "$\\sqrt{2e^{2t}} = \\sqrt{2}\\,e^t$, and $\\sqrt{2} \\neq 2$. Using 2 instead of $\\sqrt{2}$ is incorrect."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Compute arc length of parametric curves involving products of exponential and trigonometric functions (BC-only)."
+    },
+    {
+      "id": "calcbc-mcq-u8-041",
+      "unit": "unit-8",
+      "difficulty": "medium",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "The region $R$ is bounded above by $f(x) = 4$ and below by $g(x) = x^2$. Both functions are defined on the interval $[-2, 2]$."
+      },
+      "question": "What is the area of region $R$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\dfrac{32}{3}$",
+          "is_correct": true,
+          "explanation": "Area $= \\int_{-2}^{2}(4-x^2)\\,dx = \\left[4x-\\frac{x^3}{3}\\right]_{-2}^{2} = \\left(8-\\frac{8}{3}\\right)-\\left(-8+\\frac{8}{3}\\right) = 16-\\frac{16}{3} = \\frac{32}{3}$."
+        },
+        {
+          "id": "B",
+          "text": "$16$",
+          "is_correct": false,
+          "explanation": "$4 \\times 4 = 16$ is the area of a rectangle enclosing $R$. Subtracting $\\int_{-2}^2 x^2\\,dx = \\frac{16}{3}$ gives $16-\\frac{16}{3} = \\frac{32}{3}$, not 16."
+        },
+        {
+          "id": "C",
+          "text": "$\\dfrac{16}{3}$",
+          "is_correct": false,
+          "explanation": "$\\int_{-2}^2 x^2\\,dx = \\frac{16}{3}$ is the area under $g(x) = x^2$, not the area between $f$ and $g$. The area between the curves is $\\frac{32}{3}$."
+        },
+        {
+          "id": "D",
+          "text": "$8$",
+          "is_correct": false,
+          "explanation": "Integrating on $[0,2]$ only gives $\\int_0^2(4-x^2)\\,dx = 8-\\frac{8}{3} = \\frac{16}{3}$. The region is symmetric about $x=0$, so the total area is twice this: $\\frac{32}{3}$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Calculate the area between a constant function and a parabola."
+    },
+    {
+      "id": "calcbc-mcq-u8-042",
+      "unit": "unit-8",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "Which of the following integrals gives the volume of the solid generated when the region bounded by $y = x^2$, $y = 0$, $x = 0$, and $x = 2$ is revolved about the line $x = 2$ using the shell method?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$2\\pi \\displaystyle\\int_0^2(2-x)x^2\\,dx$",
+          "is_correct": true,
+          "explanation": "Shells are perpendicular to the $x$-axis. Radius $= 2-x$ (distance from $x$ to axis $x=2$). Height $= x^2$. Volume $= 2\\pi\\int_0^2(2-x)x^2\\,dx$."
+        },
+        {
+          "id": "B",
+          "text": "$2\\pi \\displaystyle\\int_0^2(x+2)x^2\\,dx$",
+          "is_correct": false,
+          "explanation": "The radius of a shell at position $x$ from the axis $x=2$ is $2-x$, not $x+2$. Using $x+2$ would apply if the axis were at $x = -2$."
+        },
+        {
+          "id": "C",
+          "text": "$\\pi \\displaystyle\\int_0^4 (2-\\sqrt{y})^2\\,dy$",
+          "is_correct": false,
+          "explanation": "This attempts a disk/washer approach about the line $x=2$ with $y$ as the variable, but the setup is incomplete. The correct disk approach would need the square of the radius $(2-x)$ in terms of $y$: $R = 2-\\sqrt{y}$, giving $\\pi\\int_0^4(2-\\sqrt{y})^2\\,dy$. However, the problem asks for the shell method."
+        },
+        {
+          "id": "D",
+          "text": "$2\\pi \\displaystyle\\int_0^2 x^3\\,dx$",
+          "is_correct": false,
+          "explanation": "This would be the shell integrand if the axis were $x=0$ (radius $x$, height $x^2$), giving $2\\pi\\int_0^2 x^3\\,dx$. For axis $x=2$, the radius is $2-x$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Apply the shell method for revolution about a vertical line."
+    },
+    {
+      "id": "calcbc-mcq-u8-043",
+      "unit": "unit-8",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "The arc length formula for a polar curve $r = f(\\theta)$ from $\\theta = \\alpha$ to $\\theta = \\beta$ is $L = \\displaystyle\\int_\\alpha^\\beta \\sqrt{r^2 + \\left(\\frac{dr}{d\\theta}\\right)^2}\\,d\\theta$. What is the arc length of $r = 2\\cos\\theta$ from $\\theta = 0$ to $\\theta = \\dfrac{\\pi}{2}$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\pi$",
+          "is_correct": true,
+          "explanation": "$\\frac{dr}{d\\theta} = -2\\sin\\theta$. $r^2 + (dr/d\\theta)^2 = 4\\cos^2\\theta+4\\sin^2\\theta = 4$. Arc length $= \\int_0^{\\pi/2}\\sqrt{4}\\,d\\theta = 2\\cdot\\frac{\\pi}{2} = \\pi$. This is the semicircle $r = 2\\cos\\theta$ (a circle of radius 1 centered at $(1,0)$)."
+        },
+        {
+          "id": "B",
+          "text": "$2$",
+          "is_correct": false,
+          "explanation": "$\\int_0^{\\pi/2} 2\\,d\\theta = \\pi$, not 2. The arc length is $\\pi$ since the integrand $\\sqrt{r^2+(dr/d\\theta)^2} = 2$ is constant and the interval has length $\\frac{\\pi}{2}$."
+        },
+        {
+          "id": "C",
+          "text": "$2\\pi$",
+          "is_correct": false,
+          "explanation": "$r = 2\\cos\\theta$ traces a complete circle from $\\theta = 0$ to $\\theta = \\pi$. From $0$ to $\\frac{\\pi}{2}$, only a semicircle is traced, with arc length $\\pi$, not $2\\pi$."
+        },
+        {
+          "id": "D",
+          "text": "$\\dfrac{\\pi}{2}$",
+          "is_correct": false,
+          "explanation": "The integrand simplifies to $\\sqrt{4} = 2$ (a constant), and the interval length is $\\frac{\\pi}{2}$. Arc length $= 2 \\cdot \\frac{\\pi}{2} = \\pi$, not $\\frac{\\pi}{2}$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Calculate arc length of polar curves using the polar arc length formula (BC-only)."
+    },
+    {
+      "id": "calcbc-mcq-u8-044",
+      "unit": "unit-8",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A solid has a base that is the region enclosed by $x^2 + y^2 = 4$ in the $xy$-plane. Cross sections perpendicular to the $x$-axis are isosceles right triangles with the hypotenuse in the base."
+      },
+      "question": "Which expression gives the volume of the solid?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\displaystyle\\int_{-2}^{2} 2 - \\frac{x^2}{2}\\,dx$",
+          "is_correct": false,
+          "explanation": "For an isosceles right triangle with hypotenuse $h = 2\\sqrt{4-x^2}$, the legs have length $\\frac{h}{\\sqrt{2}}$ and the area is $\\frac{1}{2}\\cdot\\left(\\frac{h}{\\sqrt{2}}\\right)^2 = \\frac{h^2}{4} = \\frac{4(4-x^2)}{4} = 4-x^2$. Volume $= \\int_{-2}^2(4-x^2)\\,dx = \\frac{32}{3}$."
+        },
+        {
+          "id": "B",
+          "text": "$\\displaystyle\\int_{-2}^{2}(4 - x^2)\\,dx$",
+          "is_correct": true,
+          "explanation": "The hypotenuse of each isosceles right triangle is $h = 2\\sqrt{4-x^2}$ (the chord length). For an isosceles right triangle with hypotenuse $h$, the area is $\\frac{h^2}{4} = \\frac{4(4-x^2)}{4} = 4-x^2$. Volume $= \\int_{-2}^2(4-x^2)\\,dx = \\frac{32}{3}$."
+        },
+        {
+          "id": "C",
+          "text": "$\\dfrac{1}{2}\\displaystyle\\int_{-2}^{2}(4 - x^2)\\,dx$",
+          "is_correct": false,
+          "explanation": "The factor of $\\frac{1}{2}$ would apply if the legs of the right triangle equaled the base width $2\\sqrt{4-x^2}$. For hypotenuse = base width, the correct area is $\\frac{h^2}{4} = 4-x^2$, without the extra $\\frac{1}{2}$."
+        },
+        {
+          "id": "D",
+          "text": "$\\pi\\displaystyle\\int_{-2}^{2}(4 - x^2)\\,dx$",
+          "is_correct": false,
+          "explanation": "The $\\pi$ factor applies to circular cross sections. For triangular cross sections, no $\\pi$ is involved; the area formula is purely geometric."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Set up volume integrals for solids with isosceles right triangle cross sections."
+    },
+    {
+      "id": "calcbc-mcq-u8-045",
+      "unit": "unit-8",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "The length of the curve $x = \\dfrac{y^3}{6} + \\dfrac{1}{2y}$ from $y = 1$ to $y = 2$ is which of the following?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\dfrac{17}{12}$",
+          "is_correct": true,
+          "explanation": "$\\frac{dx}{dy} = \\frac{y^2}{2} - \\frac{1}{2y^2}$. $\\left(\\frac{dx}{dy}\\right)^2 = \\frac{y^4}{4}-\\frac{1}{2}+\\frac{1}{4y^4}$. $1+\\left(\\frac{dx}{dy}\\right)^2 = \\frac{y^4}{4}+\\frac{1}{2}+\\frac{1}{4y^4} = \\left(\\frac{y^2}{2}+\\frac{1}{2y^2}\\right)^2$. Arc length $= \\int_1^2\\left(\\frac{y^2}{2}+\\frac{1}{2y^2}\\right)dy = \\left[\\frac{y^3}{6}-\\frac{1}{2y}\\right]_1^2 = \\left(\\frac{8}{6}-\\frac{1}{4}\\right)-\\left(\\frac{1}{6}-\\frac{1}{2}\\right) = \\frac{4}{3}-\\frac{1}{4}+\\frac{1}{3} = \\frac{5}{3}-\\frac{1}{4} = \\frac{17}{12}$."
+        },
+        {
+          "id": "B",
+          "text": "$\\dfrac{5}{12}$",
+          "is_correct": false,
+          "explanation": "A sign error in evaluating the antiderivative $\\left[\\frac{y^3}{6}-\\frac{1}{2y}\\right]_1^2$. At $y=2$: $\\frac{4}{3}-\\frac{1}{4}$; at $y=1$: $\\frac{1}{6}-\\frac{1}{2}=-\\frac{1}{3}$. Difference: $\\frac{4}{3}-\\frac{1}{4}+\\frac{1}{3} = \\frac{5}{3}-\\frac{1}{4} = \\frac{17}{12}$."
+        },
+        {
+          "id": "C",
+          "text": "$\\dfrac{7}{6}$",
+          "is_correct": false,
+          "explanation": "Forgetting the cross-term $+\\frac{1}{2}$ when completing the square leads to an incorrect integrand. The identity $\\frac{y^4}{4}+\\frac{1}{2}+\\frac{1}{4y^4} = \\left(\\frac{y^2}{2}+\\frac{1}{2y^2}\\right)^2$ must be recognized."
+        },
+        {
+          "id": "D",
+          "text": "$\\ln 2 + \\dfrac{1}{2}$",
+          "is_correct": false,
+          "explanation": "No logarithm arises from this integral. The integrand $\\frac{y^2}{2}+\\frac{1}{2y^2}$ integrates to $\\frac{y^3}{6}-\\frac{1}{2y}$, a polynomial-type expression evaluated at the limits."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Evaluate arc length when integrating with respect to $y$ using the perfect-square technique (BC-only)."
+    },
+    {
+      "id": "calcbc-mcq-u8-046",
+      "unit": "unit-8",
+      "difficulty": "medium",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "The region $R$ is bounded by $f(x) = x^2 + 1$ and $g(x) = 3$ on $[-1, 1]$."
+      },
+      "question": "Using the disk/washer method, which integral gives the volume when $R$ is revolved about the line $y = 5$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\pi \\displaystyle\\int_{-1}^{1}\\left[(5-(x^2+1))^2-(5-3)^2\\right]dx$",
+          "is_correct": true,
+          "explanation": "Axis $y=5$. Outer radius (to lower curve $y=x^2+1$): $R = 5-(x^2+1) = 4-x^2$. Inner radius (to upper curve $y=3$): $r = 5-3 = 2$. Volume $= \\pi\\int_{-1}^1[(4-x^2)^2-4]\\,dx$."
+        },
+        {
+          "id": "B",
+          "text": "$\\pi \\displaystyle\\int_{-1}^{1}\\left[(5-3)^2 - (5-(x^2+1))^2\\right]dx$",
+          "is_correct": false,
+          "explanation": "The outer radius is farther from the axis. Since $y=5$ is above the region, $y = x^2+1$ is farther from $y=5$ than $y=3$, making $R = 5-(x^2+1)$ larger than $r=5-3=2$. The outer radius should be $4-x^2$."
+        },
+        {
+          "id": "C",
+          "text": "$\\pi \\displaystyle\\int_{-1}^{1}\\left[(3-(x^2+1))^2\\right]dx$",
+          "is_correct": false,
+          "explanation": "This treats the distance between the two curves as the radius, but the axis of revolution is $y=5$, not the boundary of the region. Radii must be measured from $y=5$."
+        },
+        {
+          "id": "D",
+          "text": "$2\\pi \\displaystyle\\int_{-1}^{1}(5-x^2-1)(3-x^2-1)\\,dx$",
+          "is_correct": false,
+          "explanation": "This resembles a shell method expression but applies it incorrectly. Shells about a horizontal axis integrate in $y$, not $x$. The correct approach is the washer method in $x$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Set up washer method integrals for revolution about a horizontal line above the region."
+    },
+    {
+      "id": "calcbc-mcq-u8-047",
+      "unit": "unit-8",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "If $g(t)$ represents the rate of water flow (in gallons per minute) into a tank for $0 \\leq t \\leq 5$, and $\\displaystyle\\int_0^5 g(t)\\,dt = 40$, what does the integral represent?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "The total amount of water that flowed into the tank over the 5-minute period.",
+          "is_correct": true,
+          "explanation": "Since $g(t)$ is a rate (gallons per minute), integrating it over time gives the total accumulation: $\\int_0^5 g(t)\\,dt = 40$ gallons entered the tank over 5 minutes."
+        },
+        {
+          "id": "B",
+          "text": "The average rate of water flow over the 5-minute period.",
+          "is_correct": false,
+          "explanation": "The average rate is $\\frac{1}{5}\\int_0^5 g(t)\\,dt = \\frac{40}{5} = 8$ gal/min. The integral itself (40) represents total accumulation, not the average rate."
+        },
+        {
+          "id": "C",
+          "text": "The rate of water flow at $t = 5$ minutes.",
+          "is_correct": false,
+          "explanation": "The rate at a specific time is $g(5)$, a function value, not a definite integral. The integral accumulates the rate over the entire 5-minute interval."
+        },
+        {
+          "id": "D",
+          "text": "The change in flow rate from $t = 0$ to $t = 5$.",
+          "is_correct": false,
+          "explanation": "Change in flow rate = $g(5)-g(0)$ (difference of values, not an integral). The integral of a rate gives total amount accumulated, not the change in rate."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Interpret definite integrals of rate functions in context."
+    },
+    {
+      "id": "calcbc-mcq-u8-048",
+      "unit": "unit-8",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A particle moves in the plane with $x(t) = t - \\sin t$ and $y(t) = 1 - \\cos t$ for $0 \\leq t \\leq 2\\pi$. This is the cycloid generated by a point on a circle of radius 1."
+      },
+      "question": "Which of the following gives the total arc length of one arch of the cycloid from $t = 0$ to $t = 2\\pi$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\displaystyle\\int_0^{2\\pi} \\sqrt{2 - 2\\cos t}\\,dt$",
+          "is_correct": true,
+          "explanation": "$x'(t) = 1-\\cos t$, $y'(t) = \\sin t$. $(x')^2+(y')^2 = (1-\\cos t)^2+\\sin^2 t = 1-2\\cos t+\\cos^2 t+\\sin^2 t = 2-2\\cos t$. Arc length $= \\int_0^{2\\pi}\\sqrt{2-2\\cos t}\\,dt = 8$ (using $\\sqrt{2-2\\cos t} = 2|\\sin(t/2)|$)."
+        },
+        {
+          "id": "B",
+          "text": "$\\displaystyle\\int_0^{2\\pi} \\sqrt{\\sin^2 t + (1-\\cos t)^2}\\,dt$",
+          "is_correct": false,
+          "explanation": "$\\sin^2 t + (1-\\cos t)^2 = \\sin^2 t + 1 - 2\\cos t+\\cos^2 t = 2-2\\cos t$. So this equals choice A and is also correct, but choice A is the simplified form."
+        },
+        {
+          "id": "C",
+          "text": "$\\displaystyle\\int_0^{2\\pi} \\sqrt{(1-\\sin t)^2 + \\cos^2 t}\\,dt$",
+          "is_correct": false,
+          "explanation": "$x'(t) = 1-\\cos t$ and $y'(t) = \\sin t$, not $1-\\sin t$ and $\\cos t$. Confusing $x$ and $y$ derivatives gives the wrong integrand."
+        },
+        {
+          "id": "D",
+          "text": "$2\\pi$",
+          "is_correct": false,
+          "explanation": "$2\\pi$ is the circumference of the generating circle, not the arc length of the cycloid arch. The arc length of one arch is 8 (four times the diameter of the generating circle)."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Set up the arc length integral for a cycloid (parametric BC-only topic)."
+    },
+    {
+      "id": "calcbc-mcq-u8-049",
+      "unit": "unit-8",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "The region bounded by $y = \\ln x$, $x = 1$, $x = e$, and $y = 0$ is revolved about the $y$-axis. Using the shell method, the volume is which of the following?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$2\\pi \\displaystyle\\int_1^e x \\ln x\\,dx$",
+          "is_correct": true,
+          "explanation": "Shell method: radius $= x$, height $= \\ln x$. Volume $= 2\\pi\\int_1^e x\\ln x\\,dx$. Integrating by parts: $= 2\\pi\\left[\\frac{x^2}{2}\\ln x - \\frac{x^2}{4}\\right]_1^e = 2\\pi\\left(\\frac{e^2}{4}+\\frac{1}{4}\\right) = \\frac{\\pi(e^2+1)}{2}$."
+        },
+        {
+          "id": "B",
+          "text": "$\\pi \\displaystyle\\int_0^1 (e^2 - e^{2y})\\,dy$",
+          "is_correct": false,
+          "explanation": "This is the washer method about the $y$-axis: outer $R = e$, inner $r = e^y$ (since $x = e^y$ when $y = \\ln x$). Volume $= \\pi\\int_0^1(e^2-e^{2y})\\,dy$. This equals $\\frac{\\pi(e^2+1)}{2}$ as well — it is a correct alternate form, but the question asks specifically about the shell method."
+        },
+        {
+          "id": "C",
+          "text": "$2\\pi \\displaystyle\\int_1^e \\ln x\\,dx$",
+          "is_correct": false,
+          "explanation": "The shell integrand must include the radius $x$ as well as the height $\\ln x$: the shell integrand is $x\\cdot\\ln x$, not $\\ln x$ alone."
+        },
+        {
+          "id": "D",
+          "text": "$2\\pi \\displaystyle\\int_1^e x^2\\ln x\\,dx$",
+          "is_correct": false,
+          "explanation": "The shell formula multiplies radius $\\times$ height $= x \\cdot \\ln x$. Using $x^2 \\ln x$ would imply the radius is $x^2$, which is incorrect for vertical shells about the $y$-axis."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Apply the shell method to revolve a logarithmic region about the $y$-axis."
+    },
+    {
+      "id": "calcbc-mcq-u8-050",
+      "unit": "unit-8",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A function $f$ is continuous on $[0, 6]$ with $f(0) = 1$. Selected values of $f'(x)$ are given below:\n\n<table><thead><tr><th>$x$</th><th>$f'(x)$</th></tr></thead><tbody><tr><td>0</td><td>2</td></tr><tr><td>2</td><td>5</td></tr><tr><td>4</td><td>−1</td></tr><tr><td>6</td><td>3</td></tr></tbody></table>"
+      },
+      "question": "Using a right Riemann sum with 3 subintervals, which of the following best approximates $\\displaystyle\\int_0^6 f'(x)\\,dx$, and what does this quantity represent?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$14$; this approximates $f(6) - f(0)$.",
+          "is_correct": true,
+          "explanation": "Right Riemann sum with $\\Delta x = 2$: $2[f'(2)+f'(4)+f'(6)] = 2[5+(-1)+3] = 2(7) = 14$. By the FTC, $\\int_0^6 f'(x)\\,dx = f(6)-f(0)$, the net change in $f$."
+        },
+        {
+          "id": "B",
+          "text": "$18$; this approximates $f(6)$.",
+          "is_correct": false,
+          "explanation": "$\\int_0^6 f'(x)\\,dx = f(6)-f(0)$, not $f(6)$. Also, the right Riemann sum is $2[5-1+3] = 14$, not 18."
+        },
+        {
+          "id": "C",
+          "text": "$16$; this approximates $f(6) - f(0)$.",
+          "is_correct": false,
+          "explanation": "The right Riemann sum uses $f'$ at the right endpoint of each subinterval: $f'(2), f'(4), f'(6)$. $2(5-1+3) = 14$, not 16. Using left endpoints $f'(0), f'(2), f'(4)$ gives $2(2+5-1) = 12$."
+        },
+        {
+          "id": "D",
+          "text": "$14$; this approximates the average rate of change of $f$ on $[0,6]$.",
+          "is_correct": false,
+          "explanation": "The approximation of 14 is correct, but the interpretation is wrong. $\\int_0^6 f'(x)\\,dx = f(6)-f(0)$, the net change in $f$. The average rate of change would be $\\frac{f(6)-f(0)}{6}$, not the integral itself."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Approximate and interpret integrals of rate-of-change functions."
+    },
+    {
+      "id": "calcbc-mcq-u8-051",
+      "unit": "unit-8",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "The area of the surface generated by revolving $y = \\sqrt{x}$ from $x = 0$ to $x = 4$ about the $x$-axis is given by $2\\pi\\displaystyle\\int_0^4 \\sqrt{x}\\cdot\\sqrt{1+\\frac{1}{4x}}\\,dx$. Simplifying, which of the following is equivalent?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\pi\\displaystyle\\int_0^4 \\sqrt{4x+1}\\,dx$",
+          "is_correct": true,
+          "explanation": "$2\\pi\\int_0^4\\sqrt{x}\\cdot\\sqrt{1+\\frac{1}{4x}}\\,dx = 2\\pi\\int_0^4\\sqrt{x\\cdot\\frac{4x+1}{4x}}\\,dx = 2\\pi\\int_0^4\\sqrt{\\frac{4x+1}{4}}\\,dx = 2\\pi\\int_0^4\\frac{\\sqrt{4x+1}}{2}\\,dx = \\pi\\int_0^4\\sqrt{4x+1}\\,dx$."
+        },
+        {
+          "id": "B",
+          "text": "$2\\pi\\displaystyle\\int_0^4 \\sqrt{x+\\frac{1}{4}}\\,dx$",
+          "is_correct": false,
+          "explanation": "$\\sqrt{x}\\cdot\\sqrt{1+\\frac{1}{4x}} = \\sqrt{x+\\frac{1}{4}}$ only if $\\sqrt{x}\\cdot\\sqrt{1+\\frac{1}{4x}} = \\sqrt{x(1+\\frac{1}{4x})} = \\sqrt{x+\\frac{1}{4}}$. This is correct algebraically, but the factor of $2\\pi$ is retained; the simplified form in choice A is equivalent: $2\\pi\\int_0^4\\sqrt{x+\\frac{1}{4}}\\,dx = 2\\pi\\int_0^4\\frac{\\sqrt{4x+1}}{2}\\,dx = \\pi\\int_0^4\\sqrt{4x+1}\\,dx$."
+        },
+        {
+          "id": "C",
+          "text": "$2\\pi\\displaystyle\\int_0^4 \\sqrt{x+\\frac{1}{4x}}\\,dx$",
+          "is_correct": false,
+          "explanation": "$\\sqrt{x}\\cdot\\sqrt{1+\\frac{1}{4x}} \\neq \\sqrt{x+\\frac{1}{4x}}$. The product under the radical distributes as $x\\cdot(1+\\frac{1}{4x}) = x+\\frac{1}{4}$, not $x+\\frac{1}{4x}$."
+        },
+        {
+          "id": "D",
+          "text": "$2\\pi\\displaystyle\\int_0^4 \\sqrt{4x+1}\\,dx$",
+          "is_correct": false,
+          "explanation": "The simplification gives $\\pi\\int_0^4\\sqrt{4x+1}\\,dx$ (with coefficient $\\pi$, not $2\\pi$). The factor of 2 in the denominator cancels with the 2 outside."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Simplify surface area integral expressions (BC-only concept)."
+    },
+    {
+      "id": "calcbc-mcq-u8-052",
+      "unit": "unit-8",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "The graph of $f$ is shown (not pictured). $f$ is continuous and positive on $[0, 4]$, with the following properties: $f$ is increasing on $[0,2]$ and decreasing on $[2,4]$, and $f(2) = 6$."
+      },
+      "question": "Which of the following statements about the average value of $f$ on $[0, 4]$ must be true?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "The average value of $f$ on $[0,4]$ is less than $6$.",
+          "is_correct": true,
+          "explanation": "The average value $= \\frac{1}{4}\\int_0^4 f(x)\\,dx$. Since $f$ achieves its maximum of $f(2) = 6$ at an interior point and is less than 6 everywhere else on $[0,4]$, the integral $< 6 \\times 4 = 24$. Therefore the average value $< \\frac{24}{4} = 6$."
+        },
+        {
+          "id": "B",
+          "text": "The average value of $f$ on $[0,4]$ equals $f(2) = 6$.",
+          "is_correct": false,
+          "explanation": "The average value equals $f$ at some point by the MVT for integrals, but that point is not necessarily the maximum. Since $f < 6$ almost everywhere on $[0,4]$, the average must be strictly less than 6."
+        },
+        {
+          "id": "C",
+          "text": "The average value of $f$ on $[0,4]$ is greater than $6$.",
+          "is_correct": false,
+          "explanation": "$f(2) = 6$ is the maximum of $f$. No function value exceeds 6, so the average (a weighted mean of all function values) cannot exceed 6."
+        },
+        {
+          "id": "D",
+          "text": "The average value of $f$ on $[0,4]$ is $3$.",
+          "is_correct": false,
+          "explanation": "Without knowing the specific form of $f$, the average cannot be determined to be exactly 3. All that can be concluded is that the average is less than 6."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Reason about the average value of a function from qualitative properties."
+    },
+    {
+      "id": "calcbc-mcq-u8-053",
+      "unit": "unit-8",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "The region enclosed by the ellipse $\\dfrac{x^2}{4} + y^2 = 1$ is revolved about the $x$-axis. The volume of the resulting solid is which of the following?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\dfrac{4\\pi}{3}$",
+          "is_correct": false,
+          "explanation": "This is the volume of a sphere of radius 1: $\\frac{4\\pi}{3}r^3 = \\frac{4\\pi}{3}$. The ellipsoid has semi-axes $a=2$, $b=1$ about the $x$-axis, giving $\\frac{4}{3}\\pi(2)(1)^2 = \\frac{8\\pi}{3}$."
+        },
+        {
+          "id": "B",
+          "text": "$\\dfrac{8\\pi}{3}$",
+          "is_correct": true,
+          "explanation": "$y^2 = 1-\\frac{x^2}{4}$. Disk method: Volume $= \\pi\\int_{-2}^{2}y^2\\,dx = \\pi\\int_{-2}^{2}\\left(1-\\frac{x^2}{4}\\right)dx = \\pi\\left[x-\\frac{x^3}{12}\\right]_{-2}^{2} = \\pi\\left[(2-\\frac{8}{12})-(-2+\\frac{8}{12})\\right] = \\pi\\cdot\\frac{8}{3} = \\frac{8\\pi}{3}$."
+        },
+        {
+          "id": "C",
+          "text": "$\\dfrac{16\\pi}{3}$",
+          "is_correct": false,
+          "explanation": "This is twice the correct answer $\\frac{8\\pi}{3}$, perhaps from computing $2\\pi\\int_0^2(1-x^2/4)\\,dx = \\pi\\cdot\\frac{8}{3}$ and incorrectly doubling. The factor of 2 symmetry has already been applied in computing $\\int_{-2}^2$."
+        },
+        {
+          "id": "D",
+          "text": "$4\\pi$",
+          "is_correct": false,
+          "explanation": "$4\\pi$ confuses area with volume. The area of the ellipse $\\frac{x^2}{4}+y^2=1$ is $\\pi ab = \\pi(2)(1) = 2\\pi$, and even that area formula does not apply to volume calculations. Volume of a solid of revolution requires integrating cross-sectional areas, giving $\\frac{8\\pi}{3}$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Compute the volume of an ellipsoid using the disk method."
+    },
+    {
+      "id": "calcbc-mcq-u8-054",
+      "unit": "unit-8",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "The arc length of the parametric curve $x = \\cos^3 t$, $y = \\sin^3 t$ (an astroid) from $t = 0$ to $t = \\dfrac{\\pi}{2}$ is which of the following? (Note: $\\cos^2 t + \\sin^2 t = 1$.)",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\dfrac{3}{2}$",
+          "is_correct": true,
+          "explanation": "$x'(t) = -3\\cos^2 t\\sin t$, $y'(t) = 3\\sin^2 t\\cos t$. $(x')^2+(y')^2 = 9\\cos^4 t\\sin^2 t + 9\\sin^4 t\\cos^2 t = 9\\sin^2 t\\cos^2 t(\\cos^2 t+\\sin^2 t) = 9\\sin^2 t\\cos^2 t$. $\\sqrt{(x')^2+(y')^2} = 3|\\sin t\\cos t| = \\frac{3}{2}|\\sin(2t)|$. Arc length $= \\int_0^{\\pi/2}\\frac{3}{2}\\sin(2t)\\,dt = \\frac{3}{2}\\left[-\\frac{\\cos(2t)}{2}\\right]_0^{\\pi/2} = \\frac{3}{2}\\cdot\\frac{1-(-1)}{2}\\cdot\\frac{1}{1} = \\frac{3}{2}$."
+        },
+        {
+          "id": "B",
+          "text": "$\\dfrac{3\\pi}{8}$",
+          "is_correct": false,
+          "explanation": "$\\int_0^{\\pi/2}\\sin^2 t\\cos^2 t\\,dt = \\frac{\\pi}{16}$. Using $\\int_0^{\\pi/2}9\\sin^2 t\\cos^2 t\\,dt$ (without the square root) gives $\\frac{9\\pi}{16}$. The arc length uses the square root, giving $\\frac{3}{2}$."
+        },
+        {
+          "id": "C",
+          "text": "$3$",
+          "is_correct": false,
+          "explanation": "The full astroid has arc length $6$ (four times $\\frac{3}{2}$), one quarter of which from $t=0$ to $t=\\pi/2$ is $\\frac{3}{2}$, not 3."
+        },
+        {
+          "id": "D",
+          "text": "$\\dfrac{3}{4}$",
+          "is_correct": false,
+          "explanation": "$\\int_0^{\\pi/2}\\frac{3}{2}\\sin(2t)\\,dt = \\frac{3}{2}\\cdot\\left[-\\frac{\\cos(2t)}{2}\\right]_0^{\\pi/2} = \\frac{3}{2}\\cdot\\frac{-(−1)+1}{2}\\cdot\\frac{1}{1} = \\frac{3}{2}\\cdot 1 = \\frac{3}{2}$. The answer is $\\frac{3}{2}$, not $\\frac{3}{4}$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Compute arc length of parametric curves using trigonometric identities (BC-only)."
+    },
+    {
+      "id": "calcbc-mcq-u8-055",
+      "unit": "unit-8",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A solid is generated by revolving the region bounded by $y = \\sqrt{1+x^3}$, $y = 0$, $x = 0$, and $x = 2$ about the $x$-axis."
+      },
+      "question": "Which of the following gives the volume of the solid, and what is its value?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\pi\\displaystyle\\int_0^2(1+x^3)\\,dx = 6\\pi$",
+          "is_correct": true,
+          "explanation": "Disk method: radius $= \\sqrt{1+x^3}$, area $= \\pi(\\sqrt{1+x^3})^2 = \\pi(1+x^3)$. Volume $= \\pi\\int_0^2(1+x^3)\\,dx = \\pi\\left[x+\\frac{x^4}{4}\\right]_0^2 = \\pi\\left(2+4\\right) = 6\\pi$."
+        },
+        {
+          "id": "B",
+          "text": "$\\pi\\displaystyle\\int_0^2\\sqrt{1+x^3}\\,dx$",
+          "is_correct": false,
+          "explanation": "The disk formula uses $\\pi r^2 = \\pi(\\sqrt{1+x^3})^2 = \\pi(1+x^3)$. Taking $\\sqrt{1+x^3}$ without squaring gives the wrong integrand."
+        },
+        {
+          "id": "C",
+          "text": "$\\pi\\displaystyle\\int_0^2(1+x^3)\\,dx = 4\\pi$",
+          "is_correct": false,
+          "explanation": "$\\int_0^2(1+x^3)\\,dx = [x+\\frac{x^4}{4}]_0^2 = 2+4 = 6$. The volume is $6\\pi$, not $4\\pi$."
+        },
+        {
+          "id": "D",
+          "text": "$2\\pi\\displaystyle\\int_0^2 x\\sqrt{1+x^3}\\,dx$",
+          "is_correct": false,
+          "explanation": "This is the shell method for revolution about the $y$-axis, not the $x$-axis. For revolution about the $x$-axis, the disk method gives $\\pi\\int_0^2(1+x^3)\\,dx = 6\\pi$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": true,
+      "unit_objective": "Apply the disk method to find volumes of revolution and evaluate the resulting integral."
+    }
+  ]
+}

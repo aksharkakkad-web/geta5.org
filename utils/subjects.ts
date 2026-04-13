@@ -89,6 +89,23 @@ const SUBJECTS: Subject[] = [
     ],
   },
   {
+    slug: 'ap-calculus-bc',
+    name: 'AP Calculus BC',
+    examDate: '2026-05-11T08:00:00',
+    units: [
+      { number: 1, name: 'Limits and Continuity' },
+      { number: 2, name: 'Differentiation: Definition and Fundamental Properties' },
+      { number: 3, name: 'Differentiation: Composite, Implicit, and Inverse Functions' },
+      { number: 4, name: 'Contextual Applications of Differentiation' },
+      { number: 5, name: 'Analytical Applications of Differentiation' },
+      { number: 6, name: 'Integration and Accumulation of Change' },
+      { number: 7, name: 'Differential Equations' },
+      { number: 8, name: 'Applications of Integration' },
+      { number: 9, name: 'Parametric Equations, Polar Coordinates, and Vector-Valued Functions' },
+      { number: 10, name: 'Infinite Sequences and Series' },
+    ],
+  },
+  {
     slug: 'ap-chemistry',
     name: 'AP Chemistry',
     examDate: '2026-05-05T08:00:00',

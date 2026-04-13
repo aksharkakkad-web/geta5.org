@@ -1,0 +1,69 @@
+{
+  "id": "calcbc-sg-unit-2",
+  "unit": "unit-2",
+  "subject": "ap-calculus-bc",
+  "theme": "The derivative captures instantaneous rate of change — defined as a limit, computed with rules, and used to find tangent lines and analyze motion.",
+  "core_concepts": [
+    {
+      "title": "Derivative as a Limit",
+      "detail": "The derivative $f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}$ is the instantaneous rate of change of $f$ at $x$. It equals the slope of the tangent line to the graph at that point."
+    },
+    {
+      "title": "Power Rule",
+      "detail": "$\\frac{d}{dx}[x^n] = nx^{n-1}$ for any real $n$. Combined with the constant multiple and sum rules, this handles all polynomial derivatives."
+    },
+    {
+      "title": "Product and Quotient Rules",
+      "detail": "Product: $\\frac{d}{dx}[fg] = f'g + fg'$. Quotient: $\\frac{d}{dx}\\left[\\frac{f}{g}\\right] = \\frac{f'g - fg'}{g^2}$. Apply when two functions are multiplied or divided."
+    },
+    {
+      "title": "Trigonometric Derivatives",
+      "detail": "$\\frac{d}{dx}[\\sin x] = \\cos x$, $\\frac{d}{dx}[\\cos x] = -\\sin x$, $\\frac{d}{dx}[\\tan x] = \\sec^2 x$, $\\frac{d}{dx}[\\sec x] = \\sec x \\tan x$, $\\frac{d}{dx}[\\csc x] = -\\csc x \\cot x$, $\\frac{d}{dx}[\\cot x] = -\\csc^2 x$."
+    },
+    {
+      "title": "Exponential and Logarithmic Derivatives",
+      "detail": "$\\frac{d}{dx}[e^x] = e^x$ and $\\frac{d}{dx}[\\ln x] = \\frac{1}{x}$. More generally, $\\frac{d}{dx}[a^x] = a^x \\ln a$ and $\\frac{d}{dx}[\\log_a x] = \\frac{1}{x \\ln a}$."
+    },
+    {
+      "title": "Differentiability and Continuity",
+      "detail": "Differentiability implies continuity, but not vice versa. A function can be continuous but not differentiable at corners, cusps, or vertical tangents."
+    },
+    {
+      "title": "Tangent Line Equation",
+      "detail": "The tangent line at $x = a$ is $y - f(a) = f'(a)(x - a)$. This is a linearization of $f$ near $a$ and provides a first-order approximation."
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Limit Definition of Derivative",
+      "katex_string": "f'(x) = \\lim_{h \\to 0} \\frac{f(x + h) - f(x)}{h}",
+      "description": "Defines the derivative as the limit of the difference quotient. This is how derivatives are rigorously defined before shortcut rules.",
+      "example": "For $f(x) = x^2$: $f'(x) = \\lim_{h \\to 0} \\frac{(x+h)^2 - x^2}{h} = \\lim_{h \\to 0} \\frac{2xh + h^2}{h} = 2x$."
+    },
+    {
+      "name": "Power Rule",
+      "katex_string": "\\frac{d}{dx}[x^n] = nx^{n-1}",
+      "description": "Bring the exponent down as a coefficient and reduce the exponent by 1. Works for any real number n, including negatives and fractions.",
+      "example": "$\\frac{d}{dx}[x^5] = 5x^4$. Also: $\\frac{d}{dx}[\\sqrt{x}] = \\frac{d}{dx}[x^{1/2}] = \\frac{1}{2}x^{-1/2} = \\frac{1}{2\\sqrt{x}}$."
+    },
+    {
+      "name": "Product Rule",
+      "katex_string": "\\frac{d}{dx}[f \\cdot g] = f'g + fg'",
+      "description": "Derivative of the first times the second, plus the first times derivative of the second. Use when two functions are multiplied.",
+      "example": "$\\frac{d}{dx}[x^2 \\sin x] = 2x \\sin x + x^2 \\cos x$."
+    },
+    {
+      "name": "Quotient Rule",
+      "katex_string": "\\frac{d}{dx}\\left[\\frac{f}{g}\\right] = \\frac{f'g - fg'}{g^2}",
+      "description": "Low d-high minus high d-low, all over low squared. Use when one function is divided by another.",
+      "example": "$\\frac{d}{dx}\\left[\\frac{\\sin x}{x}\\right] = \\frac{x\\cos x - \\sin x}{x^2}$."
+    },
+    {
+      "name": "Tangent Line",
+      "katex_string": "y - f(a) = f'(a)(x - a)",
+      "description": "Point-slope form of the tangent line at x = a. You need the point (a, f(a)) and the slope f'(a).",
+      "example": "For $f(x) = x^3$ at $x = 2$: $f(2) = 8$, $f'(2) = 12$, so tangent line is $y - 8 = 12(x - 2)$."
+    }
+  ],
+  "exam_tip": "Memorize all six trig derivative pairs — they appear frequently on both MCQ and FRQ sections. Differentiability implies continuity, but continuity does NOT imply differentiability."
+}

@@ -1,0 +1,69 @@
+{
+  "id": "calcbc-sg-unit-10",
+  "unit": "unit-10",
+  "subject": "ap-calculus-bc",
+  "theme": "Infinite series are the capstone of BC — representing functions as infinite sums of simpler terms, with convergence tests to determine when those sums are valid and error bounds to control accuracy.",
+  "core_concepts": [
+    {
+      "title": "Geometric Series",
+      "detail": "$\\sum_{n=0}^{\\infty} ar^n = \\frac{a}{1-r}$ when $|r| < 1$. This is the only series with a simple closed-form sum. Diverges when $|r| \\geq 1$."
+    },
+    {
+      "title": "Convergence Tests",
+      "detail": "nth Term Test (divergence only), Integral Test, p-Series ($p > 1$ converges), Direct and Limit Comparison, Alternating Series Test, Ratio Test. Each has specific conditions — choose the right tool for the series at hand."
+    },
+    {
+      "title": "Alternating Series and Error Bound",
+      "detail": "$\\sum(-1)^n b_n$ converges if $b_n$ is decreasing and $\\lim b_n = 0$. The error from truncating at the $n$th term is at most $|a_{n+1}|$ — the first omitted term."
+    },
+    {
+      "title": "Taylor and Maclaurin Series",
+      "detail": "$f(x) = \\sum_{n=0}^{\\infty} \\frac{f^{(n)}(a)}{n!}(x-a)^n$. Maclaurin series have $a = 0$. Must-know: $e^x$, $\\sin x$, $\\cos x$, $\\frac{1}{1-x}$, $\\ln(1+x)$."
+    },
+    {
+      "title": "Known Maclaurin Series",
+      "detail": "$e^x = \\sum \\frac{x^n}{n!}$, $\\sin x = \\sum \\frac{(-1)^n x^{2n+1}}{(2n+1)!}$, $\\cos x = \\sum \\frac{(-1)^n x^{2n}}{(2n)!}$, $\\frac{1}{1-x} = \\sum x^n$ for $|x|<1$, $\\ln(1+x) = \\sum \\frac{(-1)^{n+1}x^n}{n}$ for $-1 < x \\leq 1$."
+    },
+    {
+      "title": "Lagrange Error Bound",
+      "detail": "$|R_n(x)| \\leq \\frac{M|x-a|^{n+1}}{(n+1)!}$ where $M = \\max|f^{(n+1)}(c)|$ on the interval. Used to guarantee a Taylor polynomial approximation is within a specified accuracy."
+    },
+    {
+      "title": "Radius and Interval of Convergence",
+      "detail": "A power series $\\sum c_n(x-a)^n$ converges for $|x-a| < R$ and diverges for $|x-a| > R$. Use the Ratio Test to find $R$; check endpoints separately."
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Taylor Series",
+      "katex_string": "f(x) = \\sum_{n=0}^{\\infty} \\frac{f^{(n)}(a)}{n!}(x - a)^n",
+      "description": "Represents f as an infinite polynomial centered at a. Each coefficient requires computing the nth derivative at a. Maclaurin series is the special case a = 0.",
+      "example": "Taylor series for $e^x$ at $a = 0$: all derivatives are $e^x$, so $f^{(n)}(0) = 1$. Series: $\\sum_{n=0}^{\\infty} \\frac{x^n}{n!}$."
+    },
+    {
+      "name": "Geometric Series Sum",
+      "katex_string": "\\sum_{n=0}^{\\infty} ar^n = \\frac{a}{1 - r}, \\quad |r| < 1",
+      "description": "The only infinite series with a nice closed-form sum. Diverges when |r| ≥ 1. First term is a, common ratio is r.",
+      "example": "$\\sum_{n=0}^{\\infty} \\frac{3}{4^n} = \\frac{3}{1 - 1/4} = 4$."
+    },
+    {
+      "name": "Ratio Test",
+      "katex_string": "L = \\lim_{n \\to \\infty} \\left|\\frac{a_{n+1}}{a_n}\\right|: \\quad L < 1 \\to \\text{converges},\\; L > 1 \\to \\text{diverges},\\; L = 1 \\to \\text{inconclusive}",
+      "description": "The most versatile convergence test for series with factorials and exponentials. Also used to find the radius of convergence for power series.",
+      "example": "For $\\sum \\frac{n!}{3^n}$: $\\frac{a_{n+1}}{a_n} = \\frac{(n+1)!}{3^{n+1}} \\cdot \\frac{3^n}{n!} = \\frac{n+1}{3} \\to \\infty$. Diverges."
+    },
+    {
+      "name": "Alternating Series Error Bound",
+      "katex_string": "|S - S_n| \\leq |a_{n+1}|",
+      "description": "For a convergent alternating series, the error from using the nth partial sum is at most the absolute value of the first omitted term.",
+      "example": "Approximate $\\ln 2 = \\sum_{n=1}^{\\infty} \\frac{(-1)^{n+1}}{n}$ using 4 terms: error $\\leq |a_5| = \\frac{1}{5} = 0.2$."
+    },
+    {
+      "name": "Lagrange Error Bound",
+      "katex_string": "|R_n(x)| \\leq \\frac{M|x - a|^{n+1}}{(n+1)!}",
+      "description": "Bounds the error of an nth-degree Taylor polynomial. M is the maximum of |f^(n+1)| on the interval between a and x.",
+      "example": "Bound error of 3rd-degree Maclaurin for $\\sin(0.1)$: $|f^{(4)}| \\leq 1$, so $|R_3| \\leq \\frac{(0.1)^4}{4!} = \\frac{0.0001}{24} \\approx 4.2 \\times 10^{-6}$."
+    }
+  ],
+  "exam_tip": "On the AP exam, series questions almost always appear on FRQs. You must show which convergence test you used and verify its conditions. For Taylor series, memorize the four standard Maclaurin series — many questions ask you to derive new series by substitution, differentiation, or integration of known ones."
+}

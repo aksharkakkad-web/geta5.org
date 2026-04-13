@@ -1,0 +1,59 @@
+{
+  "id": "calcbc-sg-unit-7",
+  "unit": "unit-7",
+  "subject": "ap-calculus-bc",
+  "theme": "Differential equations model real-world growth and change — BC extends AB with Euler's method for numerical approximation and the logistic model for bounded growth.",
+  "core_concepts": [
+    {
+      "title": "Separation of Variables",
+      "detail": "Rewrite $\\frac{dy}{dx} = f(x)g(y)$ as $\\frac{1}{g(y)}\\,dy = f(x)\\,dx$, then integrate both sides. Include $+C$ on one side and solve for $y$ if possible."
+    },
+    {
+      "title": "Slope Fields",
+      "detail": "A slope field shows $\\frac{dy}{dx}$ at many points as short line segments. Solution curves follow the field; horizontal segments indicate $\\frac{dy}{dx} = 0$."
+    },
+    {
+      "title": "Exponential Growth and Decay",
+      "detail": "$\\frac{dy}{dt} = ky$ has solution $y = Ce^{kt}$. If $k > 0$, the quantity grows exponentially; if $k < 0$, it decays. The initial condition $y(0) = y_0$ gives $C = y_0$."
+    },
+    {
+      "title": "Euler's Method (BC)",
+      "detail": "Numerical approximation: $y_{n+1} = y_n + f(x_n, y_n) \\cdot \\Delta x$. Start from an initial condition and step forward by $\\Delta x$. Smaller steps give better accuracy."
+    },
+    {
+      "title": "Logistic Growth (BC)",
+      "detail": "$\\frac{dP}{dt} = kP\\left(1 - \\frac{P}{L}\\right)$ models bounded growth with carrying capacity $L$. Growth is fastest at $P = \\frac{L}{2}$. Solution: $P(t) = \\frac{L}{1 + Ae^{-kt}}$."
+    },
+    {
+      "title": "Equilibrium Solutions",
+      "detail": "Values of $y$ where $\\frac{dy}{dx} = 0$ for all $x$. These are constant solutions (horizontal lines). In logistic models, $P = 0$ and $P = L$ are equilibria."
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Exponential Growth/Decay",
+      "katex_string": "\\frac{dy}{dt} = ky \\implies y = Ce^{kt}",
+      "description": "The simplest differential equation model. k > 0 is growth, k < 0 is decay. C is determined by the initial condition.",
+      "example": "A population doubles every 3 hours: $y = y_0 e^{kt}$, $2y_0 = y_0 e^{3k}$, so $k = \\frac{\\ln 2}{3}$."
+    },
+    {
+      "name": "Euler's Method",
+      "katex_string": "y_{n+1} = y_n + f(x_n, y_n) \\cdot \\Delta x",
+      "description": "BC-only numerical method. Uses the slope at the current point to estimate the next y-value. Each step adds the slope times the step size.",
+      "example": "For $\\frac{dy}{dx} = x + y$, $y(0) = 1$, $\\Delta x = 0.5$: $y_1 = 1 + (0+1)(0.5) = 1.5$. Then $y_2 = 1.5 + (0.5+1.5)(0.5) = 2.5$."
+    },
+    {
+      "name": "Logistic Differential Equation",
+      "katex_string": "\\frac{dP}{dt} = kP\\left(1 - \\frac{P}{L}\\right)",
+      "description": "BC-only model for growth with a carrying capacity L. Growth slows as P approaches L. Maximum growth rate occurs at P = L/2.",
+      "example": "If $L = 1000$ and $k = 0.5$, at $P = 500$: $\\frac{dP}{dt} = 0.5(500)(1 - 0.5) = 125$ — the maximum rate."
+    },
+    {
+      "name": "Logistic Solution",
+      "katex_string": "P(t) = \\frac{L}{1 + Ae^{-kt}}, \\quad A = \\frac{L - P_0}{P_0}",
+      "description": "Closed-form solution to the logistic equation. A is determined by the initial population P₀. As t → ∞, P → L.",
+      "example": "If $L = 500$, $P_0 = 50$: $A = \\frac{500-50}{50} = 9$, so $P(t) = \\frac{500}{1 + 9e^{-kt}}$."
+    }
+  ],
+  "exam_tip": "On Euler's method FRQs, show each step's computation clearly — the AP grader checks intermediate values. For logistic models, the inflection point (fastest growth) always occurs at $P = \\frac{L}{2}$."
+}

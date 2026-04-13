@@ -1,0 +1,49 @@
+{
+  "id": "calcbc-sg-unit-4",
+  "unit": "unit-4",
+  "subject": "ap-calculus-bc",
+  "theme": "Derivatives become practical tools when applied to motion, rates of change in linked quantities, linear approximation, and evaluating indeterminate limits.",
+  "core_concepts": [
+    {
+      "title": "Interpreting Derivatives in Context",
+      "detail": "The derivative $f'(t)$ gives the instantaneous rate of change of $f$ at time $t$. Always include units: if $f$ is in gallons and $t$ is in minutes, then $f'(t)$ is in gallons per minute."
+    },
+    {
+      "title": "Position, Velocity, Acceleration",
+      "detail": "For motion along a line: $v(t) = s'(t)$ (velocity), $a(t) = v'(t) = s''(t)$ (acceleration), speed $= |v(t)|$. A particle slows down when $v$ and $a$ have opposite signs."
+    },
+    {
+      "title": "Related Rates",
+      "detail": "When two or more quantities change over time and are related by an equation, differentiate both sides with respect to $t$ to relate their rates. Always identify knowns and unknowns before substituting."
+    },
+    {
+      "title": "Linearization",
+      "detail": "The tangent line $L(x) = f(a) + f'(a)(x - a)$ gives a linear approximation of $f$ near $x = a$. The approximation is better when $x$ is closer to $a$."
+    },
+    {
+      "title": "L'Hôpital's Rule",
+      "detail": "If $\\lim_{x \\to c} \\frac{f(x)}{g(x)}$ is in the form $\\frac{0}{0}$ or $\\frac{\\infty}{\\infty}$, then the limit equals $\\lim_{x \\to c} \\frac{f'(x)}{g'(x)}$ (provided this limit exists). Verify the indeterminate form first."
+    }
+  ],
+  "formulas": [
+    {
+      "name": "Velocity and Acceleration",
+      "katex_string": "v(t) = s'(t), \\quad a(t) = v'(t) = s''(t), \\quad \\text{speed} = |v(t)|",
+      "description": "Velocity is the derivative of position, acceleration is the derivative of velocity. Speed is the absolute value of velocity — always non-negative.",
+      "example": "If $s(t) = t^3 - 6t$, then $v(t) = 3t^2 - 6$ and $a(t) = 6t$. At $t = 1$: $v(1) = -3$ (moving left), speed $= 3$."
+    },
+    {
+      "name": "Linearization",
+      "katex_string": "L(x) = f(a) + f'(a)(x - a)",
+      "description": "The tangent line at x = a approximates f(x) for values near a. This is the same as the first-degree Taylor polynomial.",
+      "example": "Approximate $\\sqrt{4.1}$: $f(x) = \\sqrt{x}$, $a = 4$, $f(4) = 2$, $f'(4) = \\frac{1}{4}$. So $L(4.1) = 2 + \\frac{1}{4}(0.1) = 2.025$."
+    },
+    {
+      "name": "L'Hôpital's Rule",
+      "katex_string": "\\lim_{x \\to c} \\frac{f(x)}{g(x)} = \\lim_{x \\to c} \\frac{f'(x)}{g'(x)} \\quad \\text{if } \\frac{0}{0} \\text{ or } \\frac{\\infty}{\\infty}",
+      "description": "Replaces the original limit with the ratio of derivatives. Can be applied repeatedly if the result is still indeterminate. Always verify the form before applying.",
+      "example": "$\\lim_{x \\to 0} \\frac{e^x - 1}{x} = \\frac{0}{0} \\to \\lim_{x \\to 0} \\frac{e^x}{1} = 1$."
+    }
+  ],
+  "exam_tip": "In related rates problems, draw a diagram, write an equation relating the quantities, then differentiate both sides with respect to $t$ before substituting values. Speed is $|v(t)|$, not $v(t)$ — a particle slows down when velocity and acceleration have opposite signs."
+}

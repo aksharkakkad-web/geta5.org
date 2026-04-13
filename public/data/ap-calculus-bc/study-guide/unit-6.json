@@ -1,0 +1,69 @@
+{
+  "id": "calcbc-sg-unit-6",
+  "unit": "unit-6",
+  "subject": "ap-calculus-bc",
+  "theme": "Integration reverses differentiation — the Fundamental Theorem of Calculus connects antiderivatives to definite integrals, and BC adds integration by parts, partial fractions, and improper integrals.",
+  "core_concepts": [
+    {
+      "title": "FTC Part 1 (Accumulation)",
+      "detail": "If $F(x) = \\int_a^x f(t)\\,dt$, then $F'(x) = f(x)$. With Chain Rule: $\\frac{d}{dx}\\int_a^{g(x)} f(t)\\,dt = f(g(x)) \\cdot g'(x)$."
+    },
+    {
+      "title": "FTC Part 2 (Evaluation)",
+      "detail": "$\\int_a^b f(x)\\,dx = F(b) - F(a)$ where $F$ is any antiderivative of $f$. This converts area under a curve to antiderivative evaluation."
+    },
+    {
+      "title": "u-Substitution",
+      "detail": "Reverse Chain Rule: set $u = g(x)$, $du = g'(x)\\,dx$, then $\\int f(g(x))g'(x)\\,dx = \\int f(u)\\,du$. For definite integrals, change the limits to $u$-values."
+    },
+    {
+      "title": "Integration by Parts (BC)",
+      "detail": "$\\int u\\,dv = uv - \\int v\\,du$. Choose $u$ using LIATE (Log, Inverse trig, Algebraic, Trig, Exponential). May need to apply twice for integrals like $\\int e^x \\sin x\\,dx$."
+    },
+    {
+      "title": "Partial Fractions (BC)",
+      "detail": "Decompose $\\frac{P(x)}{Q(x)}$ into simpler fractions when $Q$ factors into distinct linear terms: $\\frac{1}{(x-a)(x-b)} = \\frac{A}{x-a} + \\frac{B}{x-b}$. Then integrate each term."
+    },
+    {
+      "title": "Improper Integrals (BC)",
+      "detail": "$\\int_a^{\\infty} f(x)\\,dx = \\lim_{b \\to \\infty} \\int_a^b f(x)\\,dx$. If the limit exists (finite), the integral converges; otherwise it diverges. Also applies to integrands with vertical asymptotes."
+    },
+    {
+      "title": "Riemann Sums",
+      "detail": "Left, right, midpoint, and trapezoidal sums approximate $\\int_a^b f(x)\\,dx$. Left/right overestimate depends on monotonicity; trapezoidal overestimates when concave up."
+    }
+  ],
+  "formulas": [
+    {
+      "name": "FTC Part 1",
+      "katex_string": "\\frac{d}{dx}\\int_a^x f(t)\\,dt = f(x)",
+      "description": "The derivative of an accumulation function gives back the integrand. With a function as the upper limit, apply the Chain Rule.",
+      "example": "$\\frac{d}{dx}\\int_0^{x^2} \\sin(t)\\,dt = \\sin(x^2) \\cdot 2x$."
+    },
+    {
+      "name": "FTC Part 2",
+      "katex_string": "\\int_a^b f(x)\\,dx = F(b) - F(a)",
+      "description": "Evaluate a definite integral by finding any antiderivative F and computing the difference at the endpoints.",
+      "example": "$\\int_0^{\\pi} \\cos x\\,dx = \\sin(\\pi) - \\sin(0) = 0$."
+    },
+    {
+      "name": "Integration by Parts",
+      "katex_string": "\\int u\\,dv = uv - \\int v\\,du",
+      "description": "BC-only technique for integrating products. Choose u to be the function that simplifies when differentiated (LIATE order).",
+      "example": "$\\int x e^x\\,dx$: let $u = x$, $dv = e^x\\,dx$. Then $uv - \\int v\\,du = xe^x - \\int e^x\\,dx = xe^x - e^x + C$."
+    },
+    {
+      "name": "Improper Integral",
+      "katex_string": "\\int_a^{\\infty} f(x)\\,dx = \\lim_{b \\to \\infty} \\int_a^b f(x)\\,dx",
+      "description": "Replace the infinite bound with a variable b, evaluate the definite integral, then take the limit. If the limit is finite, the integral converges.",
+      "example": "$\\int_1^{\\infty} \\frac{1}{x^2}\\,dx = \\lim_{b \\to \\infty}\\left[-\\frac{1}{x}\\right]_1^b = \\lim_{b \\to \\infty}\\left(-\\frac{1}{b} + 1\\right) = 1$. Converges."
+    },
+    {
+      "name": "Trapezoidal Rule",
+      "katex_string": "\\frac{\\Delta x}{2}\\left[f(x_0) + 2f(x_1) + \\cdots + 2f(x_{n-1}) + f(x_n)\\right]",
+      "description": "Approximates a definite integral using trapezoids. More accurate than left/right sums for the same number of subintervals.",
+      "example": "Approximate $\\int_0^2 x^2\\,dx$ with $n = 2$: $\\frac{1}{2}[f(0) + 2f(1) + f(2)] = \\frac{1}{2}[0 + 2 + 4] = 3$. Exact value: $\\frac{8}{3} \\approx 2.667$."
+    }
+  ],
+  "exam_tip": "On BC, you must know integration by parts and partial fractions — these are tested directly. For improper integrals, always write the limit notation; jumping straight to the answer without the limit loses points on FRQs."
+}

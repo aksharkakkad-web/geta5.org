@@ -6,7 +6,7 @@ import { HeroSection } from '@/components/landing/HeroSection'
 
 export const metadata: Metadata = {
   title: 'geta5.app — Free AP Exam Prep',
-  description: 'Free AP practice questions, drills, and study guides for 7 AP subjects. Free to try, sign up to unlock unlimited practice.',
+  description: 'Free AP practice questions, drills, and study guides for 8 AP subjects. Free to try, sign up to unlock unlimited practice.',
 }
 
 export default function HomePage() {

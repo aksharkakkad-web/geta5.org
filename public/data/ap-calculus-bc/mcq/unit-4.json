@@ -1,0 +1,2132 @@
+{
+  "unit": "unit-4",
+  "subject": "ap-calculus-bc",
+  "questions": [
+    {
+      "id": "calcbc-mcq-u4-001",
+      "unit": "unit-4",
+      "difficulty": "easy",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A particle moves along a straight line. Its position at time $t$ seconds is given by $s(t) = 2t^3 - 9t^2 + 12t - 4$ meters."
+      },
+      "question": "Which of the following correctly expresses the velocity of the particle at time $t$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$v(t) = 6t^2 - 18t + 12$",
+          "is_correct": true,
+          "explanation": "Velocity is the first derivative of position: $v(t) = s'(t) = 6t^2 - 18t + 12$ by the Power Rule."
+        },
+        {
+          "id": "B",
+          "text": "$v(t) = 2t^2 - 9t + 12$",
+          "is_correct": false,
+          "explanation": "This ignores the exponents in the Power Rule. $\\frac{d}{dt}[2t^3] = 6t^2$, not $2t^2$."
+        },
+        {
+          "id": "C",
+          "text": "$v(t) = 6t^2 - 18t - 12$",
+          "is_correct": false,
+          "explanation": "Sign error: the derivative of $+12t$ is $+12$, not $-12$."
+        },
+        {
+          "id": "D",
+          "text": "$v(t) = \\frac{t^4}{2} - 3t^3 + 6t^2 - 4t$",
+          "is_correct": false,
+          "explanation": "This is the antiderivative of $s(t)$. Velocity is obtained by differentiating, not integrating, the position function."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Interpret derivatives in context; define velocity as derivative of position."
+    },
+    {
+      "id": "calcbc-mcq-u4-002",
+      "unit": "unit-4",
+      "difficulty": "easy",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A particle moves along the $x$-axis. Its velocity at time $t$ seconds is $v(t) = 3t^2 - 12t + 9$ meters per second."
+      },
+      "question": "At which of the following times is the particle at rest?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$t = 1$ and $t = 3$ only",
+          "is_correct": true,
+          "explanation": "The particle is at rest when $v(t) = 0$. Solving $3t^2 - 12t + 9 = 0$ gives $3(t-1)(t-3) = 0$, so $t = 1$ and $t = 3$."
+        },
+        {
+          "id": "B",
+          "text": "$t = 2$ only",
+          "is_correct": false,
+          "explanation": "$v(2) = 12 - 24 + 9 = -3 \\neq 0$. The particle is moving at $t = 2$, not at rest."
+        },
+        {
+          "id": "C",
+          "text": "$t = 0$ and $t = 4$ only",
+          "is_correct": false,
+          "explanation": "$v(0) = 9 \\neq 0$ and $v(4) = 48 - 48 + 9 = 9 \\neq 0$. These are not zeros of $v(t)$."
+        },
+        {
+          "id": "D",
+          "text": "$t = 3$ only",
+          "is_correct": false,
+          "explanation": "$v(1) = 3 - 12 + 9 = 0$, so the particle is also at rest at $t = 1$. Both roots must be included."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Analyze particle motion using the velocity function."
+    },
+    {
+      "id": "calcbc-mcq-u4-003",
+      "unit": "unit-4",
+      "difficulty": "easy",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "If $s(t)$ represents the position (in meters) of an object at time $t$ seconds, which of the following correctly identifies the units of $s''(t)$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "meters per second squared (m/s²)",
+          "is_correct": true,
+          "explanation": "$s''(t)$ is the second derivative of position with respect to time, giving acceleration. Its units are $\\frac{\\text{m}}{\\text{s}^2}$."
+        },
+        {
+          "id": "B",
+          "text": "meters (m)",
+          "is_correct": false,
+          "explanation": "Meters are the units of position $s(t)$, not its second derivative."
+        },
+        {
+          "id": "C",
+          "text": "meters per second (m/s)",
+          "is_correct": false,
+          "explanation": "Meters per second are the units of velocity $s'(t)$, not acceleration $s''(t)$."
+        },
+        {
+          "id": "D",
+          "text": "seconds per meter (s/m)",
+          "is_correct": false,
+          "explanation": "This is the reciprocal of velocity's units, not a standard kinematic quantity derived from position."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Interpret derivatives in context with appropriate units."
+    },
+    {
+      "id": "calcbc-mcq-u4-004",
+      "unit": "unit-4",
+      "difficulty": "easy",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "The position of a particle moving along the $x$-axis is given by $s(t) = \\sin(t) + 2t$ for $t \\geq 0$, where $s$ is measured in feet and $t$ in seconds."
+      },
+      "question": "Which of the following gives the acceleration of the particle at $t = \\frac{\\pi}{2}$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$-1$ ft/s²",
+          "is_correct": true,
+          "explanation": "$v(t) = s'(t) = \\cos(t) + 2$, so $a(t) = v'(t) = -\\sin(t)$. At $t = \\frac{\\pi}{2}$: $a = -\\sin\\!\\left(\\frac{\\pi}{2}\\right) = -1$ ft/s²."
+        },
+        {
+          "id": "B",
+          "text": "$1$ ft/s²",
+          "is_correct": false,
+          "explanation": "$a(t) = -\\sin(t)$. At $t = \\frac{\\pi}{2}$, $\\sin\\!\\left(\\frac{\\pi}{2}\\right) = 1$, so $a = -1$, not $+1$."
+        },
+        {
+          "id": "C",
+          "text": "$2$ ft/s²",
+          "is_correct": false,
+          "explanation": "The constant $2t$ contributes $0$ to acceleration (its second derivative is zero). Only the $\\sin(t)$ term matters."
+        },
+        {
+          "id": "D",
+          "text": "$0$ ft/s²",
+          "is_correct": false,
+          "explanation": "$a\\!\\left(\\frac{\\pi}{2}\\right) = -\\sin\\!\\left(\\frac{\\pi}{2}\\right) = -1 \\neq 0$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Find acceleration as the second derivative of position."
+    },
+    {
+      "id": "calcbc-mcq-u4-005",
+      "unit": "unit-4",
+      "difficulty": "easy",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "Let $f(x) = x^3 + 2x - 1$. Which of the following is the equation of the tangent line to the graph of $f$ at $x = 1$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$y = 5x - 3$",
+          "is_correct": true,
+          "explanation": "$f(1) = 1 + 2 - 1 = 2$ and $f'(x) = 3x^2 + 2$, so $f'(1) = 5$. Tangent: $y - 2 = 5(x-1) \\Rightarrow y = 5x - 3$."
+        },
+        {
+          "id": "B",
+          "text": "$y = 5x + 2$",
+          "is_correct": false,
+          "explanation": "The slope is correct ($m = 5$), but the $y$-intercept is wrong. Using point-slope with $(1, 2)$: $y = 5(x-1)+2 = 5x - 3$."
+        },
+        {
+          "id": "C",
+          "text": "$y = 3x - 1$",
+          "is_correct": false,
+          "explanation": "$f'(1) = 3(1)^2 + 2 = 5$, not 3. The slope must be evaluated at $x = 1$ using the full derivative."
+        },
+        {
+          "id": "D",
+          "text": "$y = 2x$",
+          "is_correct": false,
+          "explanation": "The value $f(1) = 2$ is the $y$-coordinate of the point, not the slope. The slope is $f'(1) = 5$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Use linearization and tangent line to approximate function values."
+    },
+    {
+      "id": "calcbc-mcq-u4-006",
+      "unit": "unit-4",
+      "difficulty": "easy",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "Which of the following expressions represents $\\lim_{x \\to 0} \\frac{\\sin(5x)}{x}$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$5$",
+          "is_correct": true,
+          "explanation": "By L'Hôpital's Rule (or the standard limit $\\lim_{x \\to 0}\\frac{\\sin(kx)}{x} = k$): $\\lim_{x \\to 0}\\frac{\\sin(5x)}{x} = \\lim_{x \\to 0}\\frac{5\\cos(5x)}{1} = 5$."
+        },
+        {
+          "id": "B",
+          "text": "$1$",
+          "is_correct": false,
+          "explanation": "$\\lim_{x\\to 0}\\frac{\\sin x}{x} = 1$, but here the argument is $5x$. The chain rule introduces a factor of 5."
+        },
+        {
+          "id": "C",
+          "text": "$0$",
+          "is_correct": false,
+          "explanation": "The numerator and denominator both approach 0, so this is $\\frac{0}{0}$ indeterminate form. L'Hôpital's Rule gives 5, not 0."
+        },
+        {
+          "id": "D",
+          "text": "The limit does not exist.",
+          "is_correct": false,
+          "explanation": "The limit exists and equals 5 by L'Hôpital's Rule: $\\lim_{x\\to 0}\\frac{5\\cos(5x)}{1} = 5$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Apply L'Hôpital's Rule to evaluate indeterminate limits."
+    },
+    {
+      "id": "calcbc-mcq-u4-007",
+      "unit": "unit-4",
+      "difficulty": "easy",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A spherical balloon is being inflated. The radius $r$ (in centimeters) is increasing at a constant rate of $2$ cm/s."
+      },
+      "question": "Which of the following expressions gives the rate of change of the volume $V = \\frac{4}{3}\\pi r^3$ with respect to time when $r = 3$ cm?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$72\\pi$ cm³/s",
+          "is_correct": true,
+          "explanation": "$\\frac{dV}{dt} = 4\\pi r^2 \\cdot \\frac{dr}{dt} = 4\\pi(9)(2) = 72\\pi$ cm³/s."
+        },
+        {
+          "id": "B",
+          "text": "$36\\pi$ cm³/s",
+          "is_correct": false,
+          "explanation": "This omits the factor of $\\frac{dr}{dt} = 2$. The chain rule requires multiplying by $\\frac{dr}{dt}$: $4\\pi r^2 \\cdot 2 = 72\\pi$."
+        },
+        {
+          "id": "C",
+          "text": "$12\\pi$ cm³/s",
+          "is_correct": false,
+          "explanation": "Using $r^2 = 9$ and $\\frac{dr}{dt} = 2$: $4\\pi(9)(2) = 72\\pi$. The answer $12\\pi$ likely results from using $r = 3$ linearly, not squaring it."
+        },
+        {
+          "id": "D",
+          "text": "$8\\pi$ cm³/s",
+          "is_correct": false,
+          "explanation": "$\\frac{dV}{dt} = 4\\pi r^2 \\frac{dr}{dt}$. At $r = 3$ with $\\frac{dr}{dt} = 2$: $4\\pi(9)(2) = 72\\pi \\neq 8\\pi$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Apply related rates to find rates of change of geometric quantities."
+    },
+    {
+      "id": "calcbc-mcq-u4-008",
+      "unit": "unit-4",
+      "difficulty": "easy",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "Let $f(x) = e^x$. The linearization of $f$ at $x = 0$ is used to estimate $e^{0.1}$. Which of the following is this linear approximation?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$1.1$",
+          "is_correct": true,
+          "explanation": "Linearization: $L(x) = f(0) + f'(0)(x - 0) = 1 + e^0 \\cdot x = 1 + x$. So $L(0.1) = 1.1$."
+        },
+        {
+          "id": "B",
+          "text": "$e^{0.1}$",
+          "is_correct": false,
+          "explanation": "This is the exact value, not the linear approximation. Linearization replaces $f$ with its tangent line at $x = 0$."
+        },
+        {
+          "id": "C",
+          "text": "$1.05$",
+          "is_correct": false,
+          "explanation": "The tangent line at $x = 0$ is $L(x) = 1 + x$, giving $L(0.1) = 1.1$, not 1.05."
+        },
+        {
+          "id": "D",
+          "text": "$0.1$",
+          "is_correct": false,
+          "explanation": "This equals $f'(0) \\cdot x = 0.1$ without the constant term $f(0) = 1$. The linearization is $L(0.1) = 1 + 0.1 = 1.1$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Construct and use linearization to approximate function values."
+    },
+    {
+      "id": "calcbc-mcq-u4-009",
+      "unit": "unit-4",
+      "difficulty": "medium",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "The velocity of a particle moving along the $x$-axis is given by $v(t) = t^3 - 6t^2 + 8t$ for $t \\geq 0$, where $v$ is in meters per second and $t$ is in seconds."
+      },
+      "question": "On which of the following intervals is the particle moving in the negative direction?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$(2, 4)$",
+          "is_correct": true,
+          "explanation": "$v(t) = t(t-2)(t-4)$. The sign of $v$ is negative on $(2, 4)$ (one positive factor, two negative: $t > 0$, $t-2 > 0$, $t-4 < 0$). Thus the particle moves left on $(2,4)$."
+        },
+        {
+          "id": "B",
+          "text": "$(0, 2)$",
+          "is_correct": false,
+          "explanation": "On $(0, 2)$: $t > 0$, $t - 2 < 0$, $t - 4 < 0$, so $v = (+)(-)(-)= (+) > 0$. The particle moves in the positive direction."
+        },
+        {
+          "id": "C",
+          "text": "$(4, \\infty)$",
+          "is_correct": false,
+          "explanation": "On $(4, \\infty)$: all three factors are positive, so $v > 0$. The particle moves in the positive direction."
+        },
+        {
+          "id": "D",
+          "text": "$(0, 4)$",
+          "is_correct": false,
+          "explanation": "$v > 0$ on $(0, 2)$. Only the sub-interval $(2, 4)$ has $v < 0$. The full interval $(0, 4)$ is not entirely negative."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Determine direction of motion from the sign of the velocity function."
+    },
+    {
+      "id": "calcbc-mcq-u4-010",
+      "unit": "unit-4",
+      "difficulty": "medium",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A ladder 10 feet long leans against a vertical wall. The bottom of the ladder slides away from the wall at a rate of $2$ ft/s."
+      },
+      "question": "Which of the following gives the rate at which the top of the ladder slides down the wall when the bottom of the ladder is 6 feet from the wall?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$-\\frac{3}{2}$ ft/s",
+          "is_correct": true,
+          "explanation": "By the Pythagorean theorem, $x^2 + y^2 = 100$. Differentiating: $2x\\frac{dx}{dt} + 2y\\frac{dy}{dt} = 0$. When $x = 6$: $y = 8$. So $\\frac{dy}{dt} = -\\frac{x}{y}\\frac{dx}{dt} = -\\frac{6}{8}(2) = -\\frac{3}{2}$ ft/s."
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{3}{2}$ ft/s",
+          "is_correct": false,
+          "explanation": "The top slides downward, so $\\frac{dy}{dt}$ is negative. The magnitude is $\\frac{3}{2}$, but the sign must be negative."
+        },
+        {
+          "id": "C",
+          "text": "$-2$ ft/s",
+          "is_correct": false,
+          "explanation": "The rate $2$ ft/s is $\\frac{dx}{dt}$. Since $\\frac{dy}{dt} = -\\frac{x}{y}\\frac{dx}{dt} = -\\frac{6}{8}(2) = -\\frac{3}{2}$, not $-2$."
+        },
+        {
+          "id": "D",
+          "text": "$-4$ ft/s",
+          "is_correct": false,
+          "explanation": "Using the Pythagorean relation and implicit differentiation: $\\frac{dy}{dt} = -\\frac{6}{8}(2) = -\\frac{3}{2}$. A common error is using $y = 6$ rather than computing $y = \\sqrt{100-36} = 8$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Solve related rates problems involving geometric constraints."
+    },
+    {
+      "id": "calcbc-mcq-u4-011",
+      "unit": "unit-4",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "Which of the following is equivalent to $\\lim_{x \\to \\infty} \\frac{3x^2 - x + 7}{5x^2 + 2x - 1}$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\frac{3}{5}$",
+          "is_correct": true,
+          "explanation": "This is a $\\frac{\\infty}{\\infty}$ indeterminate form. Applying L'Hôpital's Rule twice: $\\frac{6x-1}{10x+2} \\to \\frac{6}{10} = \\frac{3}{5}$. (Equivalently, divide by $x^2$.)"
+        },
+        {
+          "id": "B",
+          "text": "$0$",
+          "is_correct": false,
+          "explanation": "Both numerator and denominator grow as $x^2$, so the limit is the ratio of leading coefficients: $\\frac{3}{5}$, not 0."
+        },
+        {
+          "id": "C",
+          "text": "$\\infty$",
+          "is_correct": false,
+          "explanation": "Since degrees are equal, the limit is finite. It equals the ratio of leading coefficients: $\\frac{3}{5}$."
+        },
+        {
+          "id": "D",
+          "text": "$7$",
+          "is_correct": false,
+          "explanation": "$7$ is the constant in the numerator, not the limit. At infinity, the $x^2$ terms dominate and the limit equals $\\frac{3}{5}$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Apply L'Hôpital's Rule to limits at infinity of the form $\\frac{\\infty}{\\infty}$."
+    },
+    {
+      "id": "calcbc-mcq-u4-012",
+      "unit": "unit-4",
+      "difficulty": "medium",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A particle moves along a straight line with velocity $v(t) = e^{-t}(t^2 - 3t + 2)$ for $t \\geq 0$, where $t$ is in seconds and $v$ is in cm/s."
+      },
+      "question": "Which of the following best describes the speed of the particle at $t = 1$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Speed $= 0$ cm/s; the particle is instantaneously at rest.",
+          "is_correct": true,
+          "explanation": "$v(1) = e^{-1}(1 - 3 + 2) = e^{-1}(0) = 0$. Speed $= |v(1)| = 0$; the particle is momentarily at rest at $t = 1$."
+        },
+        {
+          "id": "B",
+          "text": "Speed $= e^{-1}$ cm/s; the particle moves in the positive direction.",
+          "is_correct": false,
+          "explanation": "$t^2 - 3t + 2 = (t-1)(t-2)$. At $t = 1$: $(0)(-1) = 0$, so $v(1) = 0$ and speed $= 0$."
+        },
+        {
+          "id": "C",
+          "text": "Speed $= 2e^{-1}$ cm/s; the particle moves in the negative direction.",
+          "is_correct": false,
+          "explanation": "$t^2 - 3t + 2$ evaluated at $t = 1$ equals $(1-1)(1-2) = 0$, not $2$. The $e^{-1}$ factor alone does not give the speed."
+        },
+        {
+          "id": "D",
+          "text": "Speed $= e^{-1}$ cm/s; the particle moves in the negative direction.",
+          "is_correct": false,
+          "explanation": "$v(1) = e^{-1}(1 - 3 + 2) = e^{-1} \\cdot 0 = 0$. The particle is at rest, not moving in the negative direction."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Distinguish speed from velocity and identify when a particle is at rest."
+    },
+    {
+      "id": "calcbc-mcq-u4-013",
+      "unit": "unit-4",
+      "difficulty": "medium",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "Water drains from a conical tank (vertex down) with height 12 m and radius 4 m at the top. By similar triangles, $r = \\frac{h}{3}$, so the volume of water is $V = \\frac{\\pi}{9}h^3$, where $h$ is the depth of water in meters."
+      },
+      "question": "If the water level is falling at a rate of $0.5$ m/min when the depth is $6$ m, which of the following gives the rate at which volume is decreasing at that instant?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$-6\\pi$ m³/min",
+          "is_correct": true,
+          "explanation": "Differentiating: $\\frac{dV}{dt} = \\frac{\\pi}{9} \\cdot 3h^2 \\cdot \\frac{dh}{dt} = \\frac{\\pi h^2}{3}\\frac{dh}{dt}$. At $h = 6$, $\\frac{dh}{dt} = -0.5$: $\\frac{dV}{dt} = \\frac{\\pi(36)}{3}(-0.5) = 12\\pi(-0.5) = -6\\pi$ m³/min."
+        },
+        {
+          "id": "B",
+          "text": "$-2\\pi$ m³/min",
+          "is_correct": false,
+          "explanation": "$\\frac{dV}{dt} = \\frac{\\pi h^2}{3}\\frac{dh}{dt} = \\frac{36\\pi}{3}(-0.5) = -6\\pi$ m³/min. A factor error in evaluating $h^2 = 36$ leads to $-2\\pi$."
+        },
+        {
+          "id": "C",
+          "text": "$-3\\pi$ m³/min",
+          "is_correct": false,
+          "explanation": "$\\frac{dV}{dt} = \\frac{\\pi h^2}{3}\\frac{dh}{dt}$. At $h=6$: $\\frac{36\\pi}{3}(-0.5) = -6\\pi$, not $-3\\pi$. This error comes from using $h = 6$ without squaring."
+        },
+        {
+          "id": "D",
+          "text": "$-18\\pi$ m³/min",
+          "is_correct": false,
+          "explanation": "A common error is forgetting to multiply by $\\frac{dh}{dt} = -0.5$. Without that factor, $\\frac{\\pi(36)}{3} = 12\\pi$; multiplying by $-0.5$ gives $-6\\pi$, not $-18\\pi$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Apply related rates to a conical volume problem."
+    },
+    {
+      "id": "calcbc-mcq-u4-014",
+      "unit": "unit-4",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "Let $f(x) = \\ln(x)$. The linearization of $f$ at $x = 1$ is used to approximate $\\ln(1.2)$. Which of the following is the approximation?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$0.2$",
+          "is_correct": true,
+          "explanation": "$f(1) = 0$, $f'(x) = \\frac{1}{x}$, $f'(1) = 1$. Linearization: $L(x) = 0 + 1 \\cdot (x-1) = x - 1$. So $L(1.2) = 0.2$."
+        },
+        {
+          "id": "B",
+          "text": "$\\ln(1.2) \\approx 0.182$",
+          "is_correct": false,
+          "explanation": "This is the exact value of $\\ln(1.2)$. The linearization gives $L(1.2) = 0.2$, which is an approximation."
+        },
+        {
+          "id": "C",
+          "text": "$1.2$",
+          "is_correct": false,
+          "explanation": "The linearization $L(x) = x - 1$ gives $L(1.2) = 0.2$, not $1.2$. Substituting $x = 1.2$ correctly: $1.2 - 1 = 0.2$."
+        },
+        {
+          "id": "D",
+          "text": "$-0.8$",
+          "is_correct": false,
+          "explanation": "Using $L(x) = x - 1$: $L(1.2) = 1.2 - 1 = 0.2$. The value $-0.8$ would result from subtracting 1 from 0.2 again."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Apply linearization to approximate values of transcendental functions."
+    },
+    {
+      "id": "calcbc-mcq-u4-015",
+      "unit": "unit-4",
+      "difficulty": "medium",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "table",
+        "content": "<table border='1' cellpadding='6' style='border-collapse:collapse;'><thead><tr><th>$t$ (seconds)</th><th>$v(t)$ (m/s)</th></tr></thead><tbody><tr><td>0</td><td>4</td></tr><tr><td>1</td><td>2</td></tr><tr><td>2</td><td>0</td></tr><tr><td>3</td><td>-3</td></tr><tr><td>4</td><td>-5</td></tr></tbody></table>"
+      },
+      "question": "The table above gives selected values of the velocity of a particle moving along the $x$-axis. Based on the data, which of the following best describes the particle's behavior on the interval $0 \\leq t \\leq 4$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "The particle moves in the positive direction, then changes direction to the negative direction.",
+          "is_correct": true,
+          "explanation": "$v(t) > 0$ for $0 \\leq t < 2$ and $v(t) < 0$ for $2 < t \\leq 4$. The particle moves right, stops at $t = 2$, then moves left."
+        },
+        {
+          "id": "B",
+          "text": "The particle moves in the negative direction throughout.",
+          "is_correct": false,
+          "explanation": "At $t = 0$ and $t = 1$, $v(t) > 0$, so the particle is initially moving in the positive direction."
+        },
+        {
+          "id": "C",
+          "text": "The particle is always speeding up.",
+          "is_correct": false,
+          "explanation": "Speeding up requires velocity and acceleration to have the same sign. The particle slows from $v = 4$ to $v = 0$ on $[0, 2]$, so it is decelerating there."
+        },
+        {
+          "id": "D",
+          "text": "The particle moves in the negative direction, then changes direction.",
+          "is_correct": false,
+          "explanation": "At $t = 0$, $v(0) = 4 > 0$, so the particle initially moves in the positive direction."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Interpret a velocity table to describe particle motion."
+    },
+    {
+      "id": "calcbc-mcq-u4-016",
+      "unit": "unit-4",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "Which of the following gives $\\lim_{x \\to 0} \\frac{x - \\sin x}{x^3}$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\frac{1}{6}$",
+          "is_correct": true,
+          "explanation": "This is $\\frac{0}{0}$. Applying L'Hôpital's Rule three times: $\\frac{1 - \\cos x}{3x^2} \\to \\frac{\\sin x}{6x} \\to \\frac{\\cos x}{6} = \\frac{1}{6}$."
+        },
+        {
+          "id": "B",
+          "text": "$0$",
+          "is_correct": false,
+          "explanation": "After the first application: $\\frac{1 - \\cos x}{3x^2}$, still $\\frac{0}{0}$. Further applications are needed; the final result is $\\frac{1}{6}$, not 0."
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{1}{3}$",
+          "is_correct": false,
+          "explanation": "A partial application gives $\\frac{\\sin x}{6x} \\to \\frac{1}{6}$, not $\\frac{1}{3}$. The denominator factor of 6 must be carried through all steps."
+        },
+        {
+          "id": "D",
+          "text": "$1$",
+          "is_correct": false,
+          "explanation": "After three applications of L'Hôpital's Rule: $\\frac{\\cos x}{6}\\bigg|_{x=0} = \\frac{1}{6}$. The factor of 6 in the denominator is essential."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Apply L'Hôpital's Rule repeatedly to evaluate higher-order indeterminate forms."
+    },
+    {
+      "id": "calcbc-mcq-u4-017",
+      "unit": "unit-4",
+      "difficulty": "medium",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A particle moves along the $y$-axis. Its position is $y(t) = t^3 - 12t$ for $t \\geq 0$, where $y$ is in meters and $t$ is in seconds."
+      },
+      "question": "On which time interval is the particle both moving upward and speeding up?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$t > 2\\sqrt{3}$",
+          "is_correct": false,
+          "explanation": "At $t > 2$: $v > 0$ (moving up). But the particle speeds up when $v$ and $a$ have the same sign. $a = 6t > 0$ always, so speeding up means $v > 0$, i.e., $t > 2$."
+        },
+        {
+          "id": "B",
+          "text": "$t > 2$",
+          "is_correct": true,
+          "explanation": "$v(t) = 3t^2 - 12 > 0$ when $t > 2$; $a(t) = 6t > 0$ for all $t > 0$. Both positive means the particle moves upward and speeds up on $(2, \\infty)$."
+        },
+        {
+          "id": "C",
+          "text": "$0 < t < 2$",
+          "is_correct": false,
+          "explanation": "On $(0, 2)$: $v(t) < 0$ (moving downward) and $a(t) > 0$. Different signs means the particle is slowing down, not speeding up."
+        },
+        {
+          "id": "D",
+          "text": "$0 < t < \\sqrt{12}$",
+          "is_correct": false,
+          "explanation": "$v(t) = 3(t^2 - 4) = 0$ at $t = 2$, not $\\sqrt{12}$. The crossover from negative to positive velocity occurs at $t = 2$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Identify when a particle is speeding up using velocity and acceleration signs."
+    },
+    {
+      "id": "calcbc-mcq-u4-018",
+      "unit": "unit-4",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "Two cars start from the same point and travel in perpendicular directions. Car A travels east at 60 mph and Car B travels north at 80 mph. Which of the following gives the rate at which the distance between them is increasing after 1 hour?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$100$ mph",
+          "is_correct": true,
+          "explanation": "After 1 hr: $x = 60$, $y = 80$, $d = \\sqrt{60^2 + 80^2} = 100$ mi. $\\frac{dd}{dt} = \\frac{x\\frac{dx}{dt} + y\\frac{dy}{dt}}{d} = \\frac{60(60)+80(80)}{100} = \\frac{3600+6400}{100} = 100$ mph."
+        },
+        {
+          "id": "B",
+          "text": "$140$ mph",
+          "is_correct": false,
+          "explanation": "$140 = 60 + 80$ incorrectly adds the two speeds. The rate must use the Pythagorean relation: $\\frac{dd}{dt} = \\frac{x\\dot{x} + y\\dot{y}}{d} = 100$ mph."
+        },
+        {
+          "id": "C",
+          "text": "$10$ mph",
+          "is_correct": false,
+          "explanation": "This is not a correct computation. After 1 hour: $d = 100$ mi and $\\frac{dd}{dt} = 100$ mph."
+        },
+        {
+          "id": "D",
+          "text": "$80$ mph",
+          "is_correct": false,
+          "explanation": "$80$ mph is the speed of car B alone. The rate of separation accounts for both motions: $\\frac{dd}{dt} = 100$ mph."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Solve related rates problems involving the Pythagorean theorem."
+    },
+    {
+      "id": "calcbc-mcq-u4-019",
+      "unit": "unit-4",
+      "difficulty": "medium",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "The population $P$ (in thousands) of a city is modeled by $P(t) = 50e^{0.04t}$, where $t$ is time in years."
+      },
+      "question": "Which of the following correctly states the rate of change of the population (in thousands per year) and its units when $t = 0$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$P'(0) = 2$ thousand people per year",
+          "is_correct": true,
+          "explanation": "$P'(t) = 50(0.04)e^{0.04t} = 2e^{0.04t}$. At $t = 0$: $P'(0) = 2 \\cdot e^0 = 2$ thousand people per year."
+        },
+        {
+          "id": "B",
+          "text": "$P'(0) = 50$ thousand people per year",
+          "is_correct": false,
+          "explanation": "$50$ is the initial population value $P(0)$, not the rate of change. $P'(0) = 50(0.04) = 2$."
+        },
+        {
+          "id": "C",
+          "text": "$P'(0) = 0.04$ thousand people per year",
+          "is_correct": false,
+          "explanation": "$0.04$ is the growth constant, not the derivative. $P'(0) = 50 \\times 0.04 = 2$ thousand per year."
+        },
+        {
+          "id": "D",
+          "text": "$P'(0) = 2$ years per thousand people",
+          "is_correct": false,
+          "explanation": "The value $P'(0) = 2$ is correct, but the units of a derivative of population with respect to time are thousand people per year, not years per thousand people."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Interpret derivatives in context with correct units."
+    },
+    {
+      "id": "calcbc-mcq-u4-020",
+      "unit": "unit-4",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "Which of the following is the value of $\\lim_{x \\to 0^+} x \\ln x$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$0$",
+          "is_correct": true,
+          "explanation": "Rewrite as $\\frac{\\ln x}{1/x}$, giving $\\frac{-\\infty}{+\\infty}$. By L'Hôpital's Rule: $\\frac{1/x}{-1/x^2} = -x \\to 0$ as $x \\to 0^+$."
+        },
+        {
+          "id": "B",
+          "text": "$-\\infty$",
+          "is_correct": false,
+          "explanation": "$\\ln x \\to -\\infty$ but $x \\to 0^+$, so the product is $0 \\cdot (-\\infty)$, indeterminate. L'Hôpital's Rule gives the limit as $0$."
+        },
+        {
+          "id": "C",
+          "text": "$1$",
+          "is_correct": false,
+          "explanation": "Rewriting as $\\frac{\\ln x}{1/x}$ and applying L'Hôpital's Rule: $\\frac{1/x}{-1/x^2} = -x \\to 0$, not 1."
+        },
+        {
+          "id": "D",
+          "text": "The limit does not exist.",
+          "is_correct": false,
+          "explanation": "The limit exists and equals 0. The $x$ factor drives the product to 0 faster than $\\ln x$ diverges."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Apply L'Hôpital's Rule to $0 \\cdot \\infty$ indeterminate forms."
+    },
+    {
+      "id": "calcbc-mcq-u4-021",
+      "unit": "unit-4",
+      "difficulty": "medium",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A particle moves along a curve defined parametrically by $x(t) = t^2$ and $y(t) = t^3 - 3t$ for $-2 \\leq t \\leq 2$."
+      },
+      "question": "Which of the following gives the speed of the particle at $t = 1$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$2$",
+          "is_correct": true,
+          "explanation": "$\\frac{dx}{dt} = 2t\\big|_{t=1} = 2$; $\\frac{dy}{dt} = 3t^2 - 3\\big|_{t=1} = 0$. Speed $= \\sqrt{(2)^2 + (0)^2} = 2$."
+        },
+        {
+          "id": "B",
+          "text": "$\\sqrt{5}$",
+          "is_correct": false,
+          "explanation": "$\\frac{dy}{dt}\\big|_{t=1} = 3(1)^2 - 3 = 0$, not 1. Speed $= \\sqrt{4 + 0} = 2$, not $\\sqrt{5}$."
+        },
+        {
+          "id": "C",
+          "text": "$\\sqrt{13}$",
+          "is_correct": false,
+          "explanation": "Speed $= \\sqrt{\\left(\\frac{dx}{dt}\\right)^2 + \\left(\\frac{dy}{dt}\\right)^2} = \\sqrt{4 + 0} = 2$. The value $\\sqrt{13}$ would require both components to be nonzero."
+        },
+        {
+          "id": "D",
+          "text": "$3$",
+          "is_correct": false,
+          "explanation": "The derivative $\\frac{dy}{dt}\\big|_{t=1} = 3(1) - 3 = 0$, not 3. Speed $= \\sqrt{4+0} = 2$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Compute the speed of a particle along a parametric curve."
+    },
+    {
+      "id": "calcbc-mcq-u4-022",
+      "unit": "unit-4",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "Which of the following is the value of $\\lim_{x \\to 1} \\frac{x^4 - 1}{x - 1}$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$4$",
+          "is_correct": true,
+          "explanation": "Form $\\frac{0}{0}$. By L'Hôpital's Rule: $\\lim_{x \\to 1}\\frac{4x^3}{1} = 4$. Alternatively, factor: $\\frac{(x-1)(x^3+x^2+x+1)}{x-1} = x^3+x^2+x+1 \\to 4$."
+        },
+        {
+          "id": "B",
+          "text": "$1$",
+          "is_correct": false,
+          "explanation": "Direct substitution gives $\\frac{0}{0}$. Applying L'Hôpital's Rule: $\\frac{4x^3}{1}\\big|_{x=1} = 4$."
+        },
+        {
+          "id": "C",
+          "text": "$0$",
+          "is_correct": false,
+          "explanation": "Direct substitution gives the indeterminate form $\\frac{0}{0}$, not 0. L'Hôpital's Rule is required."
+        },
+        {
+          "id": "D",
+          "text": "The limit does not exist.",
+          "is_correct": false,
+          "explanation": "After applying L'Hôpital's Rule: $\\frac{4x^3}{1}\\big|_{x=1} = 4$. The limit exists and equals 4."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Apply L'Hôpital's Rule to $\\frac{0}{0}$ polynomial limits."
+    },
+    {
+      "id": "calcbc-mcq-u4-023",
+      "unit": "unit-4",
+      "difficulty": "medium",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A function $f$ is differentiable at $x = 2$ with $f(2) = 5$ and $f'(2) = -3$."
+      },
+      "question": "Which of the following is the best linear approximation to $f(2.1)$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$4.7$",
+          "is_correct": true,
+          "explanation": "Linearization at $x = 2$: $L(x) = f(2) + f'(2)(x-2) = 5 - 3(x-2)$. At $x = 2.1$: $L(2.1) = 5 - 3(0.1) = 5 - 0.3 = 4.7$."
+        },
+        {
+          "id": "B",
+          "text": "$5.3$",
+          "is_correct": false,
+          "explanation": "The slope is $-3$, so the function is decreasing. $L(2.1) = 5 - 3(0.1) = 4.7$, not $5.3$ (which adds instead of subtracts)."
+        },
+        {
+          "id": "C",
+          "text": "$4.4$",
+          "is_correct": false,
+          "explanation": "$L(2.1) = 5 - 3(0.1) = 4.7$. A common error is using $0.3$ but then subtracting it from the wrong base."
+        },
+        {
+          "id": "D",
+          "text": "$2.0$",
+          "is_correct": false,
+          "explanation": "$L(2.1) = 5 + (-3)(2.1 - 2) = 5 - 0.3 = 4.7$. The value $2.0$ does not follow from the linearization formula."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Use local linearization to estimate function values."
+    },
+    {
+      "id": "calcbc-mcq-u4-024",
+      "unit": "unit-4",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "An object moves along a straight line. Its velocity at time $t$ is $v(t) = \\frac{t^2 - 4}{t^2 + 1}$ m/s for $t \\geq 0$."
+      },
+      "question": "Which of the following correctly describes the behavior of speed as $t \\to \\infty$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Speed approaches $1$ m/s.",
+          "is_correct": true,
+          "explanation": "$\\lim_{t \\to \\infty}\\frac{t^2-4}{t^2+1} = \\lim_{t \\to \\infty}\\frac{1 - 4/t^2}{1 + 1/t^2} = 1$. Speed $= |v(t)| \\to |1| = 1$ m/s."
+        },
+        {
+          "id": "B",
+          "text": "Speed approaches $0$ m/s.",
+          "is_correct": false,
+          "explanation": "Dividing numerator and denominator by $t^2$: $\\frac{1 - 4/t^2}{1 + 1/t^2} \\to \\frac{1}{1} = 1$. The limit is 1, not 0."
+        },
+        {
+          "id": "C",
+          "text": "Speed approaches $\\infty$.",
+          "is_correct": false,
+          "explanation": "Both numerator and denominator grow as $t^2$, so the limit is the ratio of leading coefficients: $\\frac{1}{1} = 1$, not $\\infty$."
+        },
+        {
+          "id": "D",
+          "text": "Speed approaches $4$ m/s.",
+          "is_correct": false,
+          "explanation": "$4$ is the constant in the numerator. At infinity, the $t^2$ terms dominate and the limit equals $1$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Evaluate limits at infinity to interpret long-run behavior of velocity."
+    },
+    {
+      "id": "calcbc-mcq-u4-025",
+      "unit": "unit-4",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "Which of the following gives the value of $\\lim_{x \\to 0^+} x^x$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$1$",
+          "is_correct": true,
+          "explanation": "Write $x^x = e^{x\\ln x}$. Since $\\lim_{x\\to 0^+} x\\ln x = 0$ (shown by L'Hôpital's Rule on $\\frac{\\ln x}{1/x}$), we get $e^0 = 1$."
+        },
+        {
+          "id": "B",
+          "text": "$0$",
+          "is_correct": false,
+          "explanation": "The form $0^0$ is indeterminate, not 0. Rewriting as $e^{x\\ln x}$ and applying L'Hôpital's Rule shows $x\\ln x \\to 0$, giving $e^0 = 1$."
+        },
+        {
+          "id": "C",
+          "text": "The limit does not exist.",
+          "is_correct": false,
+          "explanation": "The limit exists and equals 1. $x^x = e^{x\\ln x}$ and $\\lim_{x\\to 0^+}x\\ln x = 0$, so $e^0 = 1$."
+        },
+        {
+          "id": "D",
+          "text": "$e$",
+          "is_correct": false,
+          "explanation": "$\\lim_{x\\to 0^+} x \\ln x = 0$, so $x^x = e^{x\\ln x} \\to e^0 = 1$, not $e$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Apply L'Hôpital's Rule to $0^0$ indeterminate forms via logarithmic rewriting."
+    },
+    {
+      "id": "calcbc-mcq-u4-026",
+      "unit": "unit-4",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A particle moves along the $x$-axis with position $x(t) = t^4 - 8t^2 + 5$ for $t \\geq 0$, where $x$ is in meters and $t$ is in seconds."
+      },
+      "question": "Which of the following gives the total distance traveled by the particle on the interval $0 \\leq t \\leq 3$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$41$ meters",
+          "is_correct": true,
+          "explanation": "$v(t) = 4t^3 - 16t = 4t(t^2-4)$, so $v = 0$ at $t = 2$ on $[0,3]$. $x(0) = 5$, $x(2) = 16-32+5 = -11$, $x(3) = 81-72+5 = 14$. Total distance $= |{-11}-5| + |14-(-11)| = 16 + 25 = 41$ meters."
+        },
+        {
+          "id": "B",
+          "text": "$9$ meters",
+          "is_correct": false,
+          "explanation": "$9 = |x(3) - x(0)| = |14 - 5|$ is the net displacement, not total distance. Total distance accounts for direction changes: $16 + 25 = 41$ m."
+        },
+        {
+          "id": "C",
+          "text": "$25$ meters",
+          "is_correct": false,
+          "explanation": "This accounts for only the second sub-interval $[2,3]$. The total distance includes both $|x(2)-x(0)| = 16$ and $|x(3)-x(2)| = 25$, summing to $41$ m."
+        },
+        {
+          "id": "D",
+          "text": "$16$ meters",
+          "is_correct": false,
+          "explanation": "This accounts for only the first sub-interval $[0,2]$: $|x(2)-x(0)| = |-11-5| = 16$. The full total distance also includes the return trip $|x(3)-x(2)| = 25$, giving $41$ m."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": true,
+      "unit_objective": "Distinguish total distance from displacement using velocity sign changes."
+    },
+    {
+      "id": "calcbc-mcq-u4-027",
+      "unit": "unit-4",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "Which of the following gives the value of $\\lim_{x \\to \\infty} \\left(1 + \\frac{3}{x}\\right)^x$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$e^3$",
+          "is_correct": true,
+          "explanation": "Write $y = \\left(1+\\frac{3}{x}\\right)^x$, so $\\ln y = x\\ln\\!\\left(1+\\frac{3}{x}\\right)$. This is $\\frac{\\ln(1+3/x)}{1/x}$, a $\\frac{0}{0}$ form. By L'Hôpital's Rule: $\\frac{\\frac{-3/x^2}{1+3/x}}{-1/x^2} = \\frac{3}{1+3/x} \\to 3$. So $y \\to e^3$."
+        },
+        {
+          "id": "B",
+          "text": "$1$",
+          "is_correct": false,
+          "explanation": "The base approaches 1 but the exponent approaches $\\infty$, making this a $1^\\infty$ indeterminate form, not simply equal to 1."
+        },
+        {
+          "id": "C",
+          "text": "$e$",
+          "is_correct": false,
+          "explanation": "$e = \\lim_{x\\to\\infty}(1+1/x)^x$. Here the numerator is 3, not 1, so the limit is $e^3$."
+        },
+        {
+          "id": "D",
+          "text": "$3e$",
+          "is_correct": false,
+          "explanation": "The limit of $\\ln y$ is 3, so $y \\to e^3$, not $3e$. The logarithm of the answer (not the answer itself) equals 3."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Apply L'Hôpital's Rule to $1^\\infty$ indeterminate forms."
+    },
+    {
+      "id": "calcbc-mcq-u4-028",
+      "unit": "unit-4",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A street light hangs 20 feet above the ground. A person 6 feet tall walks away from the base of the light at a speed of 5 ft/s."
+      },
+      "question": "Which of the following gives the rate at which the length of the person's shadow is increasing?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\frac{15}{7}$ ft/s",
+          "is_correct": true,
+          "explanation": "Let $x$ be distance from pole, $s$ = shadow length. By similar triangles: $\\frac{20}{x+s} = \\frac{6}{s}$, giving $20s = 6(x+s)$, so $14s = 6x$ and $s = \\frac{3x}{7}$. Then $\\frac{ds}{dt} = \\frac{3}{7}\\frac{dx}{dt} = \\frac{3}{7}(5) = \\frac{15}{7}$ ft/s."
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{10}{7}$ ft/s",
+          "is_correct": false,
+          "explanation": "Setting up similar triangles: $\\frac{20}{x+s} = \\frac{6}{s}$ gives $s = \\frac{3x}{7}$. So $\\frac{ds}{dt} = \\frac{3}{7}(5) = \\frac{15}{7}$, not $\\frac{10}{7}$."
+        },
+        {
+          "id": "C",
+          "text": "$5$ ft/s",
+          "is_correct": false,
+          "explanation": "5 ft/s is the person's walking speed $\\frac{dx}{dt}$, not the rate of shadow growth. $\\frac{ds}{dt} = \\frac{3}{7}\\cdot 5 = \\frac{15}{7}$ ft/s."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{3}{7}$ ft/s",
+          "is_correct": false,
+          "explanation": "$\\frac{3}{7}$ is the proportionality constant $\\frac{ds}{dx}$. Multiplying by $\\frac{dx}{dt} = 5$ gives $\\frac{ds}{dt} = \\frac{15}{7}$ ft/s."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Solve related rates shadow problems using similar triangles."
+    },
+    {
+      "id": "calcbc-mcq-u4-029",
+      "unit": "unit-4",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "Let $f$ be a twice-differentiable function with $f(3) = 7$, $f'(3) = -2$, and $f''(3) = 4$. Which of the following is closest to $f(3.1)$ using a second-order approximation?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$6.82$",
+          "is_correct": true,
+          "explanation": "Second-order (quadratic) approximation: $f(x) \\approx f(a) + f'(a)(x-a) + \\frac{f''(a)}{2}(x-a)^2$. At $a=3$, $h=0.1$: $7 + (-2)(0.1) + \\frac{4}{2}(0.01) = 7 - 0.2 + 0.02 = 6.82$."
+        },
+        {
+          "id": "B",
+          "text": "$6.80$",
+          "is_correct": false,
+          "explanation": "The linear approximation gives $7 + (-2)(0.1) = 6.80$. The second-order term adds $\\frac{4}{2}(0.01) = 0.02$, giving $6.82$."
+        },
+        {
+          "id": "C",
+          "text": "$7.02$",
+          "is_correct": false,
+          "explanation": "A sign error on the linear term: $f'(3) = -2$, so $(-2)(0.1) = -0.2$. The approximation is $7 - 0.2 + 0.02 = 6.82$, not $7.02$."
+        },
+        {
+          "id": "D",
+          "text": "$6.84$",
+          "is_correct": false,
+          "explanation": "$\\frac{f''(3)}{2}(0.1)^2 = 2(0.01) = 0.02$, not $0.04$. The full approximation: $7 - 0.2 + 0.02 = 6.82$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Use a quadratic (second-order) approximation to estimate function values."
+    },
+    {
+      "id": "calcbc-mcq-u4-030",
+      "unit": "unit-4",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "The position of a particle moving along the $x$-axis is given by $x(t) = \\ln(t^2 + 1)$ for $t \\geq 0$, where $x$ is in meters and $t$ is in seconds."
+      },
+      "question": "Which of the following correctly identifies when the particle is slowing down?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "The particle is never slowing down for $t > 0$.",
+          "is_correct": false,
+          "explanation": "$v(t) = \\frac{2t}{t^2+1} > 0$ for $t > 0$. $a(t) = \\frac{2(t^2+1) - 2t(2t)}{(t^2+1)^2} = \\frac{2(1-t^2)}{(t^2+1)^2}$. For $t > 1$, $a < 0$ while $v > 0$: the particle slows down on $(1, \\infty)$."
+        },
+        {
+          "id": "B",
+          "text": "The particle slows down for $t > 1$.",
+          "is_correct": true,
+          "explanation": "$v(t) = \\frac{2t}{t^2+1} > 0$ for all $t > 0$. $a(t) = \\frac{2(1-t^2)}{(t^2+1)^2} < 0$ when $t > 1$. Since $v$ and $a$ have opposite signs for $t > 1$, the particle slows down on $(1, \\infty)$."
+        },
+        {
+          "id": "C",
+          "text": "The particle slows down for $0 < t < 1$.",
+          "is_correct": false,
+          "explanation": "For $0 < t < 1$: $v > 0$ and $a = \\frac{2(1-t^2)}{(t^2+1)^2} > 0$. Same sign means the particle is speeding up, not slowing down."
+        },
+        {
+          "id": "D",
+          "text": "The particle slows down for all $t > 0$.",
+          "is_correct": false,
+          "explanation": "On $(0,1)$, $v > 0$ and $a > 0$, so the particle speeds up. Only on $(1, \\infty)$ does $a < 0$ while $v > 0$, causing the particle to slow down."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Determine when a particle is slowing down by analyzing signs of velocity and acceleration."
+    },
+    {
+      "id": "calcbc-mcq-u4-031",
+      "unit": "unit-4",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "Which of the following gives $\\lim_{x \\to 0} \\frac{e^x - 1 - x}{x^2}$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\frac{1}{2}$",
+          "is_correct": true,
+          "explanation": "Form $\\frac{0}{0}$. Apply L'Hôpital's Rule: $\\frac{e^x - 1}{2x}$, still $\\frac{0}{0}$. Apply again: $\\frac{e^x}{2}\\bigg|_{x=0} = \\frac{1}{2}$."
+        },
+        {
+          "id": "B",
+          "text": "$0$",
+          "is_correct": false,
+          "explanation": "One application of L'Hôpital's Rule gives $\\frac{e^x-1}{2x}$, still $\\frac{0}{0}$. A second application gives $\\frac{e^x}{2}\\big|_0 = \\frac{1}{2}$."
+        },
+        {
+          "id": "C",
+          "text": "$1$",
+          "is_correct": false,
+          "explanation": "After two applications of L'Hôpital's Rule: $\\frac{e^x}{2}\\big|_{x=0} = \\frac{1}{2}$, not 1. The factor of 2 from differentiating $x^2$ is essential."
+        },
+        {
+          "id": "D",
+          "text": "The limit does not exist.",
+          "is_correct": false,
+          "explanation": "Two applications of L'Hôpital's Rule resolve the indeterminate form: $\\lim_{x\\to 0}\\frac{e^x}{2} = \\frac{1}{2}$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Apply L'Hôpital's Rule twice to resolve higher-order $\\frac{0}{0}$ forms."
+    },
+    {
+      "id": "calcbc-mcq-u4-032",
+      "unit": "unit-4",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A 10-foot ladder leans against a wall. The base slides outward at 2 ft/s. An angle $\\theta$ is formed between the ladder and the ground."
+      },
+      "question": "Which of the following gives $\\frac{d\\theta}{dt}$ when the base is 6 feet from the wall?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$-\\frac{1}{4}$ rad/s",
+          "is_correct": true,
+          "explanation": "$\\cos\\theta = \\frac{x}{10}$, so $-\\sin\\theta \\frac{d\\theta}{dt} = \\frac{1}{10}\\frac{dx}{dt}$. At $x=6$: $\\sin\\theta = \\frac{8}{10} = \\frac{4}{5}$. So $\\frac{d\\theta}{dt} = -\\frac{(1/10)(2)}{4/5} = -\\frac{1/5}{4/5} = -\\frac{1}{4}$ rad/s."
+        },
+        {
+          "id": "B",
+          "text": "$-\\frac{1}{5}$ rad/s",
+          "is_correct": false,
+          "explanation": "Using $\\cos\\theta = x/10$: $\\frac{d\\theta}{dt} = -\\frac{\\frac{dx}{dt}}{10\\sin\\theta} = -\\frac{2}{10 \\cdot (4/5)} = -\\frac{2}{8} = -\\frac{1}{4}$ rad/s, not $-\\frac{1}{5}$."
+        },
+        {
+          "id": "C",
+          "text": "$-\\frac{3}{8}$ rad/s",
+          "is_correct": false,
+          "explanation": "When $x = 6$, $y = 8$ and $\\sin\\theta = \\frac{y}{10} = \\frac{4}{5}$. The formula gives $\\frac{d\\theta}{dt} = -\\frac{1/5}{4/5} = -\\frac{1}{4}$ rad/s."
+        },
+        {
+          "id": "D",
+          "text": "$-2$ rad/s",
+          "is_correct": false,
+          "explanation": "The value $-2$ is $\\frac{dx}{dt}$, not $\\frac{d\\theta}{dt}$. Differentiating $\\cos\\theta = x/10$ with respect to time gives $\\frac{d\\theta}{dt} = -\\frac{1}{4}$ rad/s."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Apply related rates to find the rate of change of an angle."
+    },
+    {
+      "id": "calcbc-mcq-u4-033",
+      "unit": "unit-4",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "table",
+        "content": "<table border='1' cellpadding='6' style='border-collapse:collapse;'><thead><tr><th>$x$</th><th>$f(x)$</th><th>$f'(x)$</th></tr></thead><tbody><tr><td>2</td><td>5</td><td>$-3$</td></tr><tr><td>4</td><td>1</td><td>$2$</td></tr><tr><td>6</td><td>$-1$</td><td>$4$</td></tr></tbody></table>"
+      },
+      "question": "Let $g(x) = f(x^2 - 2)$. Using the table and the chain rule, which of the following gives $g'(2)$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$-12$",
+          "is_correct": true,
+          "explanation": "$g'(x) = f'(x^2-2) \\cdot 2x$. At $x=2$: $g'(2) = f'(4-2) \\cdot 4 = f'(2) \\cdot 4 = (-3)(4) = -12$."
+        },
+        {
+          "id": "B",
+          "text": "$8$",
+          "is_correct": false,
+          "explanation": "At $x=2$, $x^2-2 = 2$, so $f'(2) = -3$. Then $g'(2) = (-3)(4) = -12$, not $8$. Using $f'(4) = 2$ instead of $f'(2)$ would give $8$."
+        },
+        {
+          "id": "C",
+          "text": "$-3$",
+          "is_correct": false,
+          "explanation": "$-3 = f'(2)$ alone. The chain rule also requires multiplying by $\\frac{d}{dx}[x^2-2]\\big|_{x=2} = 4$. So $g'(2) = -12$."
+        },
+        {
+          "id": "D",
+          "text": "$20$",
+          "is_correct": false,
+          "explanation": "At $x=2$, $g'(2) = f'(x^2-2) \\cdot 2x = f'(2) \\cdot 4 = (-3)(4) = -12$. Using $f(2) = 5$ instead of $f'(2)$ leads to this error."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Apply the chain rule to composite functions using tabular derivative data."
+    },
+    {
+      "id": "calcbc-mcq-u4-034",
+      "unit": "unit-4",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "Which of the following gives the value of $\\lim_{x \\to \\infty} \\frac{\\ln x}{\\sqrt{x}}$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$0$",
+          "is_correct": true,
+          "explanation": "Form $\\frac{\\infty}{\\infty}$. L'Hôpital's Rule: $\\frac{1/x}{1/(2\\sqrt{x})} = \\frac{2\\sqrt{x}}{x} = \\frac{2}{\\sqrt{x}} \\to 0$ as $x \\to \\infty$."
+        },
+        {
+          "id": "B",
+          "text": "$\\infty$",
+          "is_correct": false,
+          "explanation": "Although both numerator and denominator diverge, $\\sqrt{x}$ grows faster than $\\ln x$. After L'Hôpital's Rule: $\\frac{2}{\\sqrt{x}} \\to 0$."
+        },
+        {
+          "id": "C",
+          "text": "$1$",
+          "is_correct": false,
+          "explanation": "Applying L'Hôpital's Rule: $\\frac{1/x}{1/(2\\sqrt{x})} = \\frac{2}{ \\sqrt{x}} \\to 0$, not 1."
+        },
+        {
+          "id": "D",
+          "text": "$2$",
+          "is_correct": false,
+          "explanation": "The expression $\\frac{2}{\\sqrt{x}}$ arises after one L'Hôpital application, and it tends to 0, not 2."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Compare growth rates of functions using L'Hôpital's Rule."
+    },
+    {
+      "id": "calcbc-mcq-u4-035",
+      "unit": "unit-4",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A particle's position at time $t$ is given parametrically by $x(t) = 2\\cos t$ and $y(t) = 3\\sin t$, with $t$ measured in seconds and position in meters."
+      },
+      "question": "Which of the following gives the speed of the particle at $t = \\frac{\\pi}{4}$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\frac{\\sqrt{26}}{2}$",
+          "is_correct": true,
+          "explanation": "$\\frac{dx}{dt} = -2\\sin t$, $\\frac{dy}{dt} = 3\\cos t$. At $t=\\frac{\\pi}{4}$: $\\frac{dx}{dt} = -\\sqrt{2}$, $\\frac{dy}{dt} = \\frac{3\\sqrt{2}}{2}$. Speed $= \\sqrt{(-\\sqrt{2})^2 + \\left(\\frac{3\\sqrt{2}}{2}\\right)^2} = \\sqrt{2 + \\frac{9}{2}} = \\sqrt{\\frac{13}{2}} = \\frac{\\sqrt{26}}{2}$ m/s."
+        },
+        {
+          "id": "B",
+          "text": "$\\sqrt{13}$",
+          "is_correct": false,
+          "explanation": "$\\sqrt{13}$ results from using $(-2)^2 + 3^2 = 13$ without substituting $t = \\frac{\\pi}{4}$. The velocity components at $t = \\frac{\\pi}{4}$ are $-\\sqrt{2}$ and $\\frac{3\\sqrt{2}}{2}$."
+        },
+        {
+          "id": "C",
+          "text": "$5$",
+          "is_correct": false,
+          "explanation": "$\\sqrt{4+9} = \\sqrt{13} \\neq 5$. Moreover, $t = \\frac{\\pi}{4}$ must be substituted into the velocity expressions. Speed $= \\frac{\\sqrt{26}}{2}$."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{\\sqrt{13}}{2}$",
+          "is_correct": false,
+          "explanation": "Speed $= \\sqrt{(-\\sqrt{2})^2 + \\left(\\frac{3\\sqrt{2}}{2}\\right)^2} = \\sqrt{2 + \\frac{9}{2}} = \\sqrt{\\frac{13}{2}} = \\frac{\\sqrt{26}}{2}$, not $\\frac{\\sqrt{13}}{2}$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Compute the speed of a particle moving along a parametric curve."
+    },
+    {
+      "id": "calcbc-mcq-u4-036",
+      "unit": "unit-4",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "Which of the following gives $\\lim_{x \\to 0} \\frac{\\tan x - x}{x^3}$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\frac{1}{3}$",
+          "is_correct": true,
+          "explanation": "Apply L'Hôpital's Rule: $\\frac{\\sec^2 x - 1}{3x^2} = \\frac{\\tan^2 x}{3x^2} \\to \\frac{1}{3}$ as $x \\to 0$ (using $\\lim\\frac{\\tan x}{x}=1$). Alternatively, L'Hôpital's twice more yields $\\frac{2\\sec^2 x\\tan x}{6x} \\to \\frac{2}{6}\\cdot\\frac{\\tan x}{x} \\to \\frac{1}{3}$."
+        },
+        {
+          "id": "B",
+          "text": "$0$",
+          "is_correct": false,
+          "explanation": "The first L'Hôpital application gives $\\frac{\\sec^2 x - 1}{3x^2} = \\frac{\\tan^2 x}{3x^2}$, which is still $\\frac{0}{0}$. Further evaluation gives $\\frac{1}{3}$, not 0."
+        },
+        {
+          "id": "C",
+          "text": "$1$",
+          "is_correct": false,
+          "explanation": "Multiple L'Hôpital applications show the limit is $\\frac{1}{3}$. The factor of 3 in the denominator's derivative is essential."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{1}{6}$",
+          "is_correct": false,
+          "explanation": "After resolving the chain of L'Hôpital applications, the limit equals $\\frac{1}{3}$, not $\\frac{1}{6}$. A common error conflates this with the limit of $\\frac{e^x-1-x}{x^2} = \\frac{1}{2}$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Apply L'Hôpital's Rule to trigonometric indeterminate forms."
+    },
+    {
+      "id": "calcbc-mcq-u4-037",
+      "unit": "unit-4",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A particle moves along the $x$-axis. At time $t = 0$, the particle is at $x = 3$. The velocity of the particle is $v(t) = 2t - 4$ ft/s for $t \\geq 0$."
+      },
+      "question": "Which of the following gives the position of the particle at $t = 5$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$8$ ft",
+          "is_correct": true,
+          "explanation": "$x(t) = \\int v(t)\\,dt = t^2 - 4t + C$. Using $x(0) = 3$: $C = 3$. So $x(t) = t^2 - 4t + 3$. At $t=5$: $x(5) = 25 - 20 + 3 = 8$ ft."
+        },
+        {
+          "id": "B",
+          "text": "$6$ ft",
+          "is_correct": false,
+          "explanation": "$x(5) = 25 - 20 + 3 = 8$ ft. A common error is forgetting the initial position: $t^2 - 4t = 5$ gives $x = 5$, not accounting for $x(0) = 3$."
+        },
+        {
+          "id": "C",
+          "text": "$5$ ft",
+          "is_correct": false,
+          "explanation": "Integrating $v$ and using the initial condition: $x(t) = t^2 - 4t + 3$. At $t=5$: $x(5) = 25 - 20 + 3 = 8$ ft."
+        },
+        {
+          "id": "D",
+          "text": "$13$ ft",
+          "is_correct": false,
+          "explanation": "$13$ comes from omitting the $-4t$ term. The full antiderivative is $t^2 - 4t + C$, giving $x(5) = 25 - 20 + 3 = 8$ ft."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Recover position from velocity using antiderivatives and initial conditions."
+    },
+    {
+      "id": "calcbc-mcq-u4-038",
+      "unit": "unit-4",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "Which of the following gives $\\lim_{x \\to \\infty} \\frac{x^{100}}{e^x}$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$0$",
+          "is_correct": true,
+          "explanation": "Exponential functions grow faster than any polynomial. Applying L'Hôpital's Rule 100 times yields $\\frac{100!}{e^x} \\to 0$. Thus $\\lim_{x\\to\\infty}\\frac{x^{100}}{e^x} = 0$."
+        },
+        {
+          "id": "B",
+          "text": "$\\infty$",
+          "is_correct": false,
+          "explanation": "$e^x$ grows faster than any power of $x$. Repeated L'Hôpital applications eventually reduce the numerator to a constant, giving $\\frac{100!}{e^x} \\to 0$."
+        },
+        {
+          "id": "C",
+          "text": "$100$",
+          "is_correct": false,
+          "explanation": "$100$ is the exponent, not the limit. After 100 L'Hôpital applications: $\\frac{100!}{e^x} \\to 0$."
+        },
+        {
+          "id": "D",
+          "text": "$100!$",
+          "is_correct": false,
+          "explanation": "$100!$ appears in the numerator after 100 L'Hôpital applications, but the denominator is still $e^x \\to \\infty$, so the full limit is 0."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Apply L'Hôpital's Rule to compare growth rates of exponential and polynomial functions."
+    },
+    {
+      "id": "calcbc-mcq-u4-039",
+      "unit": "unit-4",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "Sand is poured onto a conical pile at a rate of $3$ ft³/min. The pile always maintains the shape of a cone with height equal to twice the base radius: $h = 2r$."
+      },
+      "question": "Which of the following gives the rate at which the radius of the pile is increasing when the radius is $2$ ft?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\frac{3}{8\\pi}$ ft/min",
+          "is_correct": true,
+          "explanation": "With $h = 2r$: $V = \\frac{1}{3}\\pi r^2(2r) = \\frac{2\\pi r^3}{3}$. Differentiating: $\\frac{dV}{dt} = 2\\pi r^2 \\frac{dr}{dt}$. At $r = 2$, $\\frac{dV}{dt} = 3$: $3 = 2\\pi(4)\\frac{dr}{dt} = 8\\pi\\frac{dr}{dt}$, so $\\frac{dr}{dt} = \\frac{3}{8\\pi}$ ft/min."
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{3}{16\\pi}$ ft/min",
+          "is_correct": false,
+          "explanation": "The correct relation is $\\frac{dV}{dt} = 2\\pi r^2 \\frac{dr}{dt}$. At $r = 2$: $8\\pi \\frac{dr}{dt} = 3$, giving $\\frac{dr}{dt} = \\frac{3}{8\\pi}$. The factor of 16 in the denominator is incorrect."
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{1}{4\\pi}$ ft/min",
+          "is_correct": false,
+          "explanation": "$\\frac{1}{4\\pi} = \\frac{2}{8\\pi} \\neq \\frac{3}{8\\pi}$. The rate $\\frac{dV}{dt} = 3$, not 2, is the given constraint."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{3}{2\\pi}$ ft/min",
+          "is_correct": false,
+          "explanation": "A common error is using $V = \\frac{1}{3}\\pi r^2 h$ without substituting $h = 2r$. This gives $\\frac{dV}{dt} = \\frac{2\\pi r}{3}(h + r)\\frac{dr}{dt}$, which overcounts. With $h=2r$: $\\frac{dr}{dt} = \\frac{3}{8\\pi}$ ft/min."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Solve related rates for a cone with a geometric constraint between dimensions."
+    },
+    {
+      "id": "calcbc-mcq-u4-040",
+      "unit": "unit-4",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "Which of the following gives $\\lim_{x \\to 0} \\frac{\\cos x - 1}{x^2}$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$-\\frac{1}{2}$",
+          "is_correct": true,
+          "explanation": "Form $\\frac{0}{0}$. L'Hôpital's Rule: $\\frac{-\\sin x}{2x}$, still $\\frac{0}{0}$. Apply again: $\\frac{-\\cos x}{2}\\bigg|_{x=0} = -\\frac{1}{2}$."
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{1}{2}$",
+          "is_correct": false,
+          "explanation": "After two L'Hôpital applications: $\\frac{-\\cos x}{2}\\big|_0 = -\\frac{1}{2}$. The negative sign from differentiating $\\cos x$ must be preserved."
+        },
+        {
+          "id": "C",
+          "text": "$0$",
+          "is_correct": false,
+          "explanation": "The form $\\frac{0}{0}$ is indeterminate. Two applications of L'Hôpital's Rule give $-\\frac{1}{2}$, not 0."
+        },
+        {
+          "id": "D",
+          "text": "$1$",
+          "is_correct": false,
+          "explanation": "After the first L'Hôpital application: $\\frac{-\\sin x}{2x}$; applying again: $\\frac{-\\cos(0)}{2} = -\\frac{1}{2}$, not 1."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Apply L'Hôpital's Rule to trigonometric $\\frac{0}{0}$ forms."
+    },
+    {
+      "id": "calcbc-mcq-u4-041",
+      "unit": "unit-4",
+      "difficulty": "easy",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "The table below gives values of a differentiable function $f$ and its derivative.<br><br><table border='1' cellpadding='6' style='border-collapse:collapse;'><thead><tr><th>$x$</th><th>$f(x)$</th><th>$f'(x)$</th></tr></thead><tbody><tr><td>0</td><td>3</td><td>$-1$</td></tr><tr><td>1</td><td>1</td><td>$2$</td></tr></tbody></table>"
+      },
+      "question": "Which of the following is the best linear approximation to $f(0.5)$ using the data at $x = 0$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$2.5$",
+          "is_correct": true,
+          "explanation": "$L(x) = f(0) + f'(0)(x - 0) = 3 + (-1)(x) = 3 - x$. At $x = 0.5$: $L(0.5) = 3 - 0.5 = 2.5$."
+        },
+        {
+          "id": "B",
+          "text": "$3.5$",
+          "is_correct": false,
+          "explanation": "Adding instead of subtracting: $3 + (-1)(-0.5) = 3.5$ uses $x-0 = -0.5$, which would correspond to $x = -0.5$, not $x = 0.5$."
+        },
+        {
+          "id": "C",
+          "text": "$1.5$",
+          "is_correct": false,
+          "explanation": "Using linearization at $x = 1$: $L(x) = 1 + 2(x-1)$, so $L(0.5) = 1 + 2(-0.5) = 0$. The question asks for linearization at $x = 0$, giving $2.5$."
+        },
+        {
+          "id": "D",
+          "text": "$2$",
+          "is_correct": false,
+          "explanation": "$L(0.5) = 3 + (-1)(0.5) = 2.5$, not 2. The slope of $-1$ must be multiplied by the increment of $0.5$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Use tabular derivative data to construct and evaluate a linear approximation."
+    },
+    {
+      "id": "calcbc-mcq-u4-042",
+      "unit": "unit-4",
+      "difficulty": "easy",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "A particle moves along the $x$-axis with velocity $v(t) = 5 - 2t$ ft/s. Which of the following correctly identifies the direction of the particle at $t = 3$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Negative direction, because $v(3) = -1 < 0$.",
+          "is_correct": true,
+          "explanation": "$v(3) = 5 - 6 = -1 < 0$. A negative velocity means the particle is moving in the negative direction."
+        },
+        {
+          "id": "B",
+          "text": "Positive direction, because $v(3) = 1 > 0$.",
+          "is_correct": false,
+          "explanation": "$v(3) = 5 - 2(3) = 5 - 6 = -1$, which is negative. The particle moves in the negative direction."
+        },
+        {
+          "id": "C",
+          "text": "The particle is at rest at $t = 3$.",
+          "is_correct": false,
+          "explanation": "$v(3) = 5 - 6 = -1 \\neq 0$. The particle is at rest when $v = 0$, which occurs at $t = 2.5$."
+        },
+        {
+          "id": "D",
+          "text": "Positive direction, because acceleration is negative.",
+          "is_correct": false,
+          "explanation": "Direction is determined by the sign of velocity, not acceleration. $v(3) = -1 < 0$ means negative direction, regardless of the sign of acceleration."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Determine direction of particle motion from the sign of velocity."
+    },
+    {
+      "id": "calcbc-mcq-u4-043",
+      "unit": "unit-4",
+      "difficulty": "medium",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "The radius of a circular oil spill increases at a rate of $3$ meters per hour."
+      },
+      "question": "Which of the following gives the rate of increase of the area of the spill when the radius is $10$ meters?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$60\\pi$ m²/hr",
+          "is_correct": true,
+          "explanation": "$A = \\pi r^2$, so $\\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt} = 2\\pi(10)(3) = 60\\pi$ m²/hr."
+        },
+        {
+          "id": "B",
+          "text": "$30\\pi$ m²/hr",
+          "is_correct": false,
+          "explanation": "Omitting $\\frac{dr}{dt}$: $\\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt} = 2\\pi(10)(3) = 60\\pi$, not $30\\pi$."
+        },
+        {
+          "id": "C",
+          "text": "$6\\pi$ m²/hr",
+          "is_correct": false,
+          "explanation": "$6\\pi$ results from computing $2\\pi(3) = 6\\pi$, ignoring $r = 10$. The full rate is $2\\pi(10)(3) = 60\\pi$."
+        },
+        {
+          "id": "D",
+          "text": "$300\\pi$ m²/hr",
+          "is_correct": false,
+          "explanation": "$300\\pi$ results from using $r^2 = 100$ instead of $r = 10$: $\\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$, not $\\pi r^2 \\frac{dr}{dt}$. The correct answer is $60\\pi$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Apply related rates to find the rate of change of area."
+    },
+    {
+      "id": "calcbc-mcq-u4-044",
+      "unit": "unit-4",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "Which of the following gives the value of $\\lim_{x \\to 0} \\frac{\\sin(3x)}{\\tan(5x)}$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\frac{3}{5}$",
+          "is_correct": true,
+          "explanation": "This is $\\frac{0}{0}$. By L'Hôpital's Rule: $\\frac{3\\cos(3x)}{5\\sec^2(5x)}\\bigg|_{x=0} = \\frac{3(1)}{5(1)} = \\frac{3}{5}$."
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{5}{3}$",
+          "is_correct": false,
+          "explanation": "This inverts the ratio. L'Hôpital's Rule gives $\\frac{3\\cos(3x)}{5\\sec^2(5x)}\\big|_0 = \\frac{3}{5}$, not $\\frac{5}{3}$."
+        },
+        {
+          "id": "C",
+          "text": "$1$",
+          "is_correct": false,
+          "explanation": "Each standard limit $\\frac{\\sin(kx)}{kx} \\to 1$, but here the ratio of coefficients matters: $\\frac{3}{5}$, not 1."
+        },
+        {
+          "id": "D",
+          "text": "$0$",
+          "is_correct": false,
+          "explanation": "Both numerator and denominator approach 0 at $x=0$ (indeterminate). L'Hôpital's Rule resolves the limit to $\\frac{3}{5}$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Apply L'Hôpital's Rule to a ratio of trigonometric functions."
+    },
+    {
+      "id": "calcbc-mcq-u4-045",
+      "unit": "unit-4",
+      "difficulty": "medium",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A differentiable function $f$ has $f(4) = 10$ and $f'(4) = -\\frac{1}{2}$."
+      },
+      "question": "Using a tangent line approximation, which of the following best estimates the value of $f(3.8)$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$10.1$",
+          "is_correct": true,
+          "explanation": "$L(x) = f(4) + f'(4)(x-4) = 10 - \\frac{1}{2}(x-4)$. At $x = 3.8$: $L(3.8) = 10 - \\frac{1}{2}(-0.2) = 10 + 0.1 = 10.1$."
+        },
+        {
+          "id": "B",
+          "text": "$9.9$",
+          "is_correct": false,
+          "explanation": "The increment is $x - 4 = 3.8 - 4 = -0.2$, so $L(3.8) = 10 + (-\\frac{1}{2})(-0.2) = 10 + 0.1 = 10.1$, not $9.9$."
+        },
+        {
+          "id": "C",
+          "text": "$10.0$",
+          "is_correct": false,
+          "explanation": "$f(4) = 10$ but the tangent line has nonzero slope. $L(3.8) = 10 - \\frac{1}{2}(3.8-4) = 10.1 \\neq 10$."
+        },
+        {
+          "id": "D",
+          "text": "$9.8$",
+          "is_correct": false,
+          "explanation": "$L(3.8) = 10 - \\frac{1}{2}(-0.2) = 10.1$. Misapplying the sign gives 9.9 or 9.8, but the correct calculation yields 10.1."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Use the tangent line to approximate function values near a known point."
+    },
+    {
+      "id": "calcbc-mcq-u4-046",
+      "unit": "unit-4",
+      "difficulty": "medium",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "An object's position is given by $s(t) = \\frac{1}{3}t^3 - 4t$ meters, $t \\geq 0$. At which value of $t$ does the object first change direction?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$t = 2$",
+          "is_correct": true,
+          "explanation": "$v(t) = t^2 - 4 = 0$ when $t = 2$ (taking $t \\geq 0$). For $t < 2$: $v < 0$; for $t > 2$: $v > 0$. The object changes direction at $t = 2$."
+        },
+        {
+          "id": "B",
+          "text": "$t = \\sqrt{3}$",
+          "is_correct": false,
+          "explanation": "$v(t) = t^2 - 4 = 0$ gives $t = 2$, not $\\sqrt{3}$. Perhaps confused with $\\sqrt{4} = 2$."
+        },
+        {
+          "id": "C",
+          "text": "$t = 4$",
+          "is_correct": false,
+          "explanation": "$v(t) = t^2 - 4 = 0$ at $t = 2$, not $t = 4$. Solving $t^2 = 4$ gives $t = 2$."
+        },
+        {
+          "id": "D",
+          "text": "$t = 0$",
+          "is_correct": false,
+          "explanation": "$v(0) = -4 \\neq 0$. The object is moving at $t = 0$. The first zero of $v(t) = t^2 - 4$ occurs at $t = 2$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Find the time at which a particle changes direction using the velocity function."
+    },
+    {
+      "id": "calcbc-mcq-u4-047",
+      "unit": "unit-4",
+      "difficulty": "medium",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A rock is thrown upward from the top of a cliff. Its height above the ground (in feet) at time $t$ seconds is $h(t) = -16t^2 + 48t + 64$."
+      },
+      "question": "Which of the following gives the velocity of the rock when it reaches its maximum height?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$0$ ft/s",
+          "is_correct": true,
+          "explanation": "At the maximum height, $h'(t) = 0$. So $v(t) = -32t + 48 = 0 \\Rightarrow t = 1.5$ s, and $v(1.5) = 0$ ft/s."
+        },
+        {
+          "id": "B",
+          "text": "$48$ ft/s",
+          "is_correct": false,
+          "explanation": "$48$ is the initial velocity $v(0)$. At the maximum, velocity is 0 since $h'(t) = 0$ at that moment."
+        },
+        {
+          "id": "C",
+          "text": "$-32$ ft/s",
+          "is_correct": false,
+          "explanation": "$-32$ ft/s² is the acceleration (due to gravity), not the velocity. Velocity is 0 at the maximum height."
+        },
+        {
+          "id": "D",
+          "text": "$100$ ft",
+          "is_correct": false,
+          "explanation": "$100$ ft is the maximum height value $h(1.5) = -16(2.25)+72+64 = -36+136 = 100$ ft. The velocity at that point is $0$, not 100."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Interpret the physical meaning of zero velocity in a projectile motion problem."
+    },
+    {
+      "id": "calcbc-mcq-u4-048",
+      "unit": "unit-4",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "Which of the following gives $\\lim_{x \\to \\infty} x^{1/x}$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$1$",
+          "is_correct": true,
+          "explanation": "Let $y = x^{1/x}$, so $\\ln y = \\frac{\\ln x}{x}$. As $x \\to \\infty$: $\\frac{\\ln x}{x} \\to 0$ by L'Hôpital's Rule ($\\frac{1/x}{1} \\to 0$). Thus $y \\to e^0 = 1$."
+        },
+        {
+          "id": "B",
+          "text": "$\\infty$",
+          "is_correct": false,
+          "explanation": "The exponent $\\frac{1}{x} \\to 0$ overpowers the base growing to $\\infty$. The limit is $e^0 = 1$, not $\\infty$."
+        },
+        {
+          "id": "C",
+          "text": "$e$",
+          "is_correct": false,
+          "explanation": "$\\ln y = \\frac{\\ln x}{x} \\to 0$, so $y \\to e^0 = 1$, not $e$."
+        },
+        {
+          "id": "D",
+          "text": "$0$",
+          "is_correct": false,
+          "explanation": "Since $\\ln y = \\frac{\\ln x}{x} \\to 0$, we get $y \\to e^0 = 1 > 0$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Apply L'Hôpital's Rule to $\\infty^0$ indeterminate forms."
+    },
+    {
+      "id": "calcbc-mcq-u4-049",
+      "unit": "unit-4",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A point $P$ moves along the curve $y = x^2$. When the $x$-coordinate of $P$ is $3$ and increasing at a rate of $2$ units per second, at what rate is the distance from $P$ to the origin changing?"
+      },
+      "question": "Which of the following gives the rate at which the distance from $P$ to the origin is increasing at that instant?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\frac{78}{\\sqrt{85}}$ units/s",
+          "is_correct": true,
+          "explanation": "Distance: $D = \\sqrt{x^2 + y^2} = \\sqrt{x^2 + x^4}$. At $x=3$: $D = \\sqrt{9+81} = \\sqrt{90}$. $\\frac{dD}{dt} = \\frac{2x + 4x^3}{2\\sqrt{x^2+x^4}}\\frac{dx}{dt}$. At $x=3$, $\\frac{dx}{dt}=2$: $\\frac{(6+108)}{2\\sqrt{90}}(2) = \\frac{228}{2\\sqrt{90}} = \\frac{114}{\\sqrt{90}} = \\frac{114}{3\\sqrt{10}} = \\frac{38}{\\sqrt{10}} = \\frac{38\\sqrt{10}}{10}$. Rechecking with $y=x^2$: $\\frac{dD}{dt} = \\frac{x\\frac{dx}{dt} + y\\frac{dy}{dt}}{D}$. $\\frac{dy}{dt}=2x\\frac{dx}{dt}=12$. Numerator $= 3(2)+9(12)=6+108=114$. $D=\\sqrt{90}=3\\sqrt{10}$. $\\frac{dD}{dt}=\\frac{114}{3\\sqrt{10}}=\\frac{38}{\\sqrt{10}}=\\frac{38\\sqrt{10}}{10}$."
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{38\\sqrt{10}}{10}$ units/s",
+          "is_correct": false,
+          "explanation": "$\\frac{dD}{dt} = \\frac{x\\dot{x}+y\\dot{y}}{D} = \\frac{3(2)+9(12)}{3\\sqrt{10}} = \\frac{114}{3\\sqrt{10}} = \\frac{38}{\\sqrt{10}} = \\frac{38\\sqrt{10}}{10}$. This is the correct answer."
+        },
+        {
+          "id": "C",
+          "text": "$6$ units/s",
+          "is_correct": false,
+          "explanation": "$6 = x\\frac{dx}{dt} = 3(2)$ accounts only for the $x$-component. The $y$-component adds $y\\dot{y} = 9(12) = 108$, giving a much larger rate."
+        },
+        {
+          "id": "D",
+          "text": "$2$ units/s",
+          "is_correct": false,
+          "explanation": "$2$ is $\\frac{dx}{dt}$, not the rate of change of distance. The calculation requires the Pythagorean distance and both velocity components."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": true,
+      "unit_objective": "Apply related rates to find the rate of change of distance from a curve to a fixed point."
+    },
+    {
+      "id": "calcbc-mcq-u4-050",
+      "unit": "unit-4",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "Let $f(x) = \\sqrt{x}$. Which of the following gives the linearization of $f$ at $x = 16$, and which of the following is the best estimate for $\\sqrt{17}$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$L(x) = 4 + \\frac{1}{8}(x-16)$; estimate: $4.125$",
+          "is_correct": true,
+          "explanation": "$f(16) = 4$, $f'(x) = \\frac{1}{2\\sqrt{x}}$, $f'(16) = \\frac{1}{8}$. So $L(x) = 4 + \\frac{1}{8}(x-16)$. $L(17) = 4 + \\frac{1}{8} = 4.125$."
+        },
+        {
+          "id": "B",
+          "text": "$L(x) = 4 + \\frac{1}{4}(x-16)$; estimate: $4.25$",
+          "is_correct": false,
+          "explanation": "$f'(16) = \\frac{1}{2\\sqrt{16}} = \\frac{1}{8}$, not $\\frac{1}{4}$. The linearization slope is $\\frac{1}{8}$."
+        },
+        {
+          "id": "C",
+          "text": "$L(x) = 4 + \\frac{1}{8}(x-16)$; estimate: $4.5$",
+          "is_correct": false,
+          "explanation": "The linearization is correct, but $L(17) = 4 + \\frac{1}{8}(1) = 4.125$, not $4.5$."
+        },
+        {
+          "id": "D",
+          "text": "$L(x) = 4 + \\frac{1}{2}(x-16)$; estimate: $4.5$",
+          "is_correct": false,
+          "explanation": "$\\frac{1}{2}$ is $f'(1)$, not $f'(16)$. At $x = 16$: $f'(16) = \\frac{1}{2\\sqrt{16}} = \\frac{1}{8}$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Construct a linearization and use it to approximate square root values."
+    },
+    {
+      "id": "calcbc-mcq-u4-051",
+      "unit": "unit-4",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "Two ships leave port simultaneously. Ship A travels due north at 20 knots (nautical miles per hour) and ship B travels due east at 15 knots."
+      },
+      "question": "Which of the following gives the rate at which the distance between the two ships is increasing after 2 hours?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$25$ knots",
+          "is_correct": true,
+          "explanation": "After 2 hrs: $y = 40$ nm (north), $x = 30$ nm (east), $d = \\sqrt{40^2+30^2} = 50$ nm. $\\frac{dd}{dt} = \\frac{x\\dot{x}+y\\dot{y}}{d} = \\frac{30(15)+40(20)}{50} = \\frac{450+800}{50} = \\frac{1250}{50} = 25$ knots."
+        },
+        {
+          "id": "B",
+          "text": "$35$ knots",
+          "is_correct": false,
+          "explanation": "$35 = 20 + 15$ incorrectly adds the speeds. The rate of separation uses the formula $\\frac{dd}{dt} = 25$ knots."
+        },
+        {
+          "id": "C",
+          "text": "$20$ knots",
+          "is_correct": false,
+          "explanation": "$20$ knots is ship A's speed alone. The combined rate: $\\frac{dd}{dt} = \\frac{1250}{50} = 25$ knots."
+        },
+        {
+          "id": "D",
+          "text": "$5$ knots",
+          "is_correct": false,
+          "explanation": "The distance separates at $\\frac{dd}{dt} = \\frac{30(15)+40(20)}{50} = 25$ knots. The value $5 = 20 - 15$ is the difference of speeds, not the separation rate."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Solve related rates problems with two objects moving in perpendicular directions."
+    },
+    {
+      "id": "calcbc-mcq-u4-052",
+      "unit": "unit-4",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "Let $f$ be differentiable with $f(0) = 2$ and $f'(0) = -4$. Which of the following is the largest value of $\\delta > 0$ such that the linear approximation $L(x) = 2 - 4x$ is guaranteed to be within $0.1$ of $f(x)$ for $|x| < \\delta$, assuming $|f''(x)| \\leq 10$ for all $x$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\delta = \\sqrt{0.02} \\approx 0.141$",
+          "is_correct": true,
+          "explanation": "The error bound for linear approximation satisfies $|f(x) - L(x)| \\leq \\frac{M}{2}x^2$ where $M = \\max|f''|= 10$. Setting $\\frac{10}{2}\\delta^2 = 0.1$: $5\\delta^2 = 0.1$, $\\delta^2 = 0.02$, $\\delta = \\sqrt{0.02} \\approx 0.141$."
+        },
+        {
+          "id": "B",
+          "text": "$\\delta = 0.01$",
+          "is_correct": false,
+          "explanation": "The error bound $\\frac{M}{2}\\delta^2 \\leq 0.1$ gives $5\\delta^2 \\leq 0.1$, so $\\delta \\leq \\sqrt{0.02} \\approx 0.141$. The value $0.01$ is too conservative."
+        },
+        {
+          "id": "C",
+          "text": "$\\delta = 0.1$",
+          "is_correct": false,
+          "explanation": "$\\frac{10}{2}(0.1)^2 = 0.05 < 0.1$, so $\\delta = 0.1$ is valid but not the largest. Setting the bound equal to $0.1$ gives $\\delta = \\sqrt{0.02} \\approx 0.141$."
+        },
+        {
+          "id": "D",
+          "text": "$\\delta = 0.2$",
+          "is_correct": false,
+          "explanation": "At $\\delta = 0.2$: $\\frac{10}{2}(0.04) = 0.2 > 0.1$. This violates the error bound, so $\\delta = 0.2$ is too large."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": true,
+      "unit_objective": "Apply the linearization error bound to determine the accuracy of a tangent line approximation."
+    },
+    {
+      "id": "calcbc-mcq-u4-053",
+      "unit": "unit-4",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A particle moves along the $x$-axis. Its velocity is $v(t) = \\frac{t^2 - 5t + 6}{t + 1}$ for $t \\geq 0$, where $t$ is in seconds and $v$ is in m/s."
+      },
+      "question": "Which of the following gives $\\lim_{t \\to 2} v(t)$ and correctly identifies the particle's behavior at $t = 2$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$\\lim_{t \\to 2} v(t) = 0$; the particle is momentarily at rest.",
+          "is_correct": true,
+          "explanation": "$v(2) = \\frac{4 - 10 + 6}{3} = \\frac{0}{3} = 0$. The function is defined (not indeterminate), so the limit is simply $v(2) = 0$. The particle is momentarily at rest."
+        },
+        {
+          "id": "B",
+          "text": "$\\lim_{t \\to 2} v(t) = \\frac{0}{0}$; L'Hôpital's Rule is needed.",
+          "is_correct": false,
+          "explanation": "$t + 1 = 3 \\neq 0$ at $t = 2$, so the function is not indeterminate. Direct substitution gives $v(2) = 0$."
+        },
+        {
+          "id": "C",
+          "text": "$\\lim_{t \\to 2} v(t) = 2$; the particle moves in the positive direction.",
+          "is_correct": false,
+          "explanation": "$v(2) = \\frac{0}{3} = 0$, not 2. The numerator $t^2 - 5t + 6 = (t-2)(t-3)$ equals zero at $t = 2$."
+        },
+        {
+          "id": "D",
+          "text": "$\\lim_{t \\to 2} v(t) = -1$; the particle moves in the negative direction.",
+          "is_correct": false,
+          "explanation": "$t^2 - 5t + 6\\big|_{t=2} = 4 - 10 + 6 = 0$, so $v(2) = 0/3 = 0$. The particle is at rest, not moving in the negative direction."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Evaluate rational velocity functions at a point and interpret particle behavior."
+    },
+    {
+      "id": "calcbc-mcq-u4-054",
+      "unit": "unit-4",
+      "difficulty": "hard",
+      "has_stimulus": false,
+      "stimulus": { "type": "none" },
+      "question": "A function $f$ is approximated near $x = 0$ by the linearization $L(x) = 1 + 3x$. If $f''(0) = -8$, which of the following best describes whether $L(0.2)$ is an overestimate or underestimate of $f(0.2)$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$L(0.2)$ is an overestimate because $f$ is concave down near $x = 0$.",
+          "is_correct": true,
+          "explanation": "Since $f''(0) = -8 < 0$, the graph of $f$ is concave down near $x = 0$. For a concave-down function, the tangent line lies above the curve, so the linearization overestimates $f$."
+        },
+        {
+          "id": "B",
+          "text": "$L(0.2)$ is an underestimate because $f$ is concave down near $x = 0$.",
+          "is_correct": false,
+          "explanation": "Concave down ($f'' < 0$) means the tangent line is above the curve. This makes the linearization an overestimate, not an underestimate."
+        },
+        {
+          "id": "C",
+          "text": "$L(0.2)$ is an underestimate because $f$ is concave up near $x = 0$.",
+          "is_correct": false,
+          "explanation": "$f''(0) = -8 < 0$ means concave down, not concave up. And for concave down, the tangent line overestimates $f$."
+        },
+        {
+          "id": "D",
+          "text": "$L(0.2)$ is an overestimate because $f'(0) = 3 > 0$.",
+          "is_correct": false,
+          "explanation": "Over/underestimation is determined by concavity, not the sign of $f'$. Since $f'' < 0$ (concave down), the tangent line overestimates — but the correct reason is concavity, not the slope."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": false,
+      "unit_objective": "Use concavity to determine whether a linearization is an over- or underestimate."
+    },
+    {
+      "id": "calcbc-mcq-u4-055",
+      "unit": "unit-4",
+      "difficulty": "hard",
+      "has_stimulus": true,
+      "stimulus": {
+        "type": "text",
+        "content": "A particle moves along the $x$-axis so that its velocity at time $t$ is $v(t) = \\sin(\\pi t)$ m/s. At $t = 0$, the particle is at $x = 1$."
+      },
+      "question": "Which of the following correctly gives the position of the particle at $t = 1.5$?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$x = 1 + \\frac{2}{\\pi}$ meters",
+          "is_correct": false,
+          "explanation": "$x(t) = 1 + \\int_0^t \\sin(\\pi u)\\,du = 1 + \\left[-\\frac{\\cos(\\pi u)}{\\pi}\\right]_0^t = 1 + \\frac{1-\\cos(\\pi t)}{\\pi}$. At $t = 1.5$: $\\cos(1.5\\pi) = 0$, so $x(1.5) = 1 + \\frac{1}{\\pi}$."
+        },
+        {
+          "id": "B",
+          "text": "$x = 1 + \\frac{1}{\\pi}$ meters",
+          "is_correct": true,
+          "explanation": "$x(t) = 1 + \\int_0^t \\sin(\\pi u)\\,du = 1 - \\frac{\\cos(\\pi t) - 1}{\\pi} = 1 + \\frac{1 - \\cos(\\pi t)}{\\pi}$. At $t = 1.5$: $\\cos(1.5\\pi) = 0$, giving $x(1.5) = 1 + \\frac{1 - 0}{\\pi} = 1 + \\frac{1}{\\pi}$."
+        },
+        {
+          "id": "C",
+          "text": "$x = 1$ meters",
+          "is_correct": false,
+          "explanation": "$x(1.5) = 1 + \\frac{1-\\cos(1.5\\pi)}{\\pi} = 1 + \\frac{1}{ \\pi} \\neq 1$. The displacement from $t=0$ to $t=1.5$ is $\\frac{1}{\\pi}$ meters."
+        },
+        {
+          "id": "D",
+          "text": "$x = 1 - \\frac{1}{\\pi}$ meters",
+          "is_correct": false,
+          "explanation": "$x(t) = 1 + \\frac{1-\\cos(\\pi t)}{\\pi}$. At $t = 1.5$: $1 - \\cos(1.5\\pi) = 1 - 0 = 1 > 0$, so $x > 1$. The sign error yields $1 - \\frac{1}{\\pi}$ instead of $1 + \\frac{1}{\\pi}$."
+        }
+      ],
+      "subject": "ap-calculus-bc",
+      "calculator_allowed": true,
+      "unit_objective": "Recover position from a sinusoidal velocity function using antiderivatives and initial conditions."
+    }
+  ]
+}
+

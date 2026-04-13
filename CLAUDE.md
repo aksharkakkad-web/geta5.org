@@ -135,6 +135,7 @@ When writing any file under `/data/`, the pipeline is: Researcher → Planner �
 5. AP Precalculus
 6. AP Computer Science Principles
 7. AP Chemistry
+8. AP Calculus BC
 
 ## Content Wave Strategy (Phases 6–12)
 
