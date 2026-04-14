@@ -107,6 +107,30 @@ const ICONS: Record<string, {
       </>
     ),
   },
+  'ap-calculus-bc': {
+    colors: ['#f9a8d4', '#ec4899', '#fce7f3'],
+    glow: '#ec4899',
+    render: (c, gid) => (
+      <>
+        {/* Large Sigma */}
+        <text x="11" y="44" fill={`url(#${gid})`} fontSize="30" fontWeight="700" fontFamily="Georgia, serif">Σ</text>
+        {/* n=0 subscript */}
+        <text x="13" y="53" fill={c[0]} fontSize="7" fontFamily="Georgia, serif" opacity={0.85}>n=0</text>
+        {/* ∞ superscript */}
+        <text x="16" y="19" fill={c[0]} fontSize="8" fontFamily="Georgia, serif" opacity={0.85}>∞</text>
+        {/* Baseline */}
+        <line x1="43" y1="47" x2="72" y2="47" stroke={c[2]} strokeWidth="1" opacity={0.45} />
+        {/* Converging arches — each successive term shorter */}
+        <path d="M44 47 Q47.5 18 51 47" fill="none" stroke={`url(#${gid})`} strokeWidth="2.5" strokeLinecap="round" />
+        <path d="M52 47 Q55 27 58 47" fill="none" stroke={c[0]} strokeWidth="2" strokeLinecap="round" opacity={0.8} />
+        <path d="M59 47 Q61.5 34 64 47" fill="none" stroke={c[0]} strokeWidth="1.5" strokeLinecap="round" opacity={0.6} />
+        <path d="M65 47 Q66.5 39 68 47" fill="none" stroke={c[0]} strokeWidth="1" strokeLinecap="round" opacity={0.4} />
+        {/* Trailing dots */}
+        <circle cx="70" cy="47" r="1.2" fill={c[0]} opacity={0.35} />
+        <circle cx="73" cy="47" r="0.8" fill={c[0]} opacity={0.2} />
+      </>
+    ),
+  },
   'ap-chemistry': {
     colors: ['#fb923c', '#ea580c', '#fef3c7'],
     glow: '#ea580c',
