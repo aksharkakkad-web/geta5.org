@@ -3,7 +3,7 @@
   "subject": "ap-precalculus",
   "year": null,
   "source": "generated",
-  "title": "Exponential Decay: Medication Modeling, Competing Models & Semi-Log Linearization",
+  "title": "Exponential Decay: Medication Modeling, Half-Life & Competing Models",
   "frq_type": "multi_part_math",
   "related_units": [2],
   "calculator_allowed": true,
@@ -26,13 +26,13 @@
     },
     {
       "letter": "b",
-      "prompt": "(i) To determine whether an exponential model is more appropriate than a linear model for this data, create a semi-log linearization by computing $\\ln(Q)$ for each data point. Using the values at $t = 0$ and $t = 18$, find the slope and $y$-intercept of the line on the semi-log plot of $\\ln(Q)$ versus $t$.\n\n(ii) The researcher observes that the five computed $\\ln(Q)$ values — at $t = 0, 3, 7, 12, 18$ — all lie very close to the line found in part (i). Explain what this near-linearity implies about the appropriateness of the exponential model. Then identify the value $\\ln(Q)$ at $t = 7$ and verify it is consistent with the line from part (i).",
+      "prompt": "(i) Using the values at $t = 0$ and $t = 18$, find the slope and $y$-intercept of the line through $(0,\\ \\ln(400))$ and $(18,\\ \\ln(29))$ on a plot of $\\ln(Q)$ versus $t$. Show the computations that lead to your answer.\n\n(ii) Use the exponential model $Q(t) = 400 \\cdot b^t$ with $b$ from part (a) to estimate the amount of medication remaining at $t = 7$ hours. Then compare this estimate to the actual data value $Q = 152$ mg at $t = 7$. Express your estimate as a decimal approximation.",
       "point_value": 2,
       "rubric_criteria": [
-        "1 pt: Correct slope and intercept — slope $= \\frac{\\ln(29) - \\ln(400)}{18 - 0} = \\frac{3.367 - 5.991}{18} = \\frac{-2.624}{18} \\approx -0.1458$ (accept values in $[-0.147, -0.145]$) and $y$-intercept $= \\ln(400) \\approx 5.991$ (accept $[5.99, 5.99]$); supporting work must show the slope as a quotient of $\\ln$ values",
-        "1 pt: Two-part response — (a) near-linearity on the semi-log plot confirms the exponential model is appropriate because if $Q = 400b^t$, then $\\ln Q = \\ln 400 + t\\ln b$, which is linear in $t$; AND (b) $\\ln(Q(7)) = \\ln(152) \\approx 5.024$; from the line: $5.991 + (-0.1458)(7) = 5.991 - 1.021 = 4.970$; these values are close (difference $\\approx 0.054$), consistent with near-linearity (accept any correct computation showing $\\ln(152)$ compared to the predicted line value)"
+        "1 pt: Correct slope and intercept — slope $= \\frac{\\ln(29) - \\ln(400)}{18 - 0} = \\frac{3.367 - 5.991}{18} = \\frac{-2.624}{18} \\approx -0.1458$ (accept values in $[-0.147, -0.145]$) and $y$-intercept $= \\ln(400) \\approx 5.991$ (accept values in $[5.98, 6.00]$); supporting work must show the slope as a quotient of $\\ln$ values",
+        "1 pt: Correct estimate — $Q(7) = 400 \\cdot (0.8643)^7 \\approx 400 \\cdot 0.340 \\approx 136$ mg (accept values in $[130, 145]$, depending on $b$ value from part (a)); comparison must note that the model estimate is close to but does not exactly match the data value of $152$ mg, indicating approximate but not perfect fit"
       ],
-      "scoring_notes": "For part (i), slope $= (\\ln 29 - \\ln 400)/18 \\approx -2.624/18 \\approx -0.1458$ and $y$-intercept $= \\ln(400) \\approx 5.991$. For part (ii), the key step is showing $\\ln(ab^t)$ is linear in $t$. The verification at $t = 7$: $\\ln(152) \\approx 5.023$ vs. predicted $5.991 - 0.1458(7) = 4.970$; the small discrepancy (0.05) confirms approximate linearity. Accept any correct computation; students should note the residual is small, not zero, which reflects real data noise.",
+      "scoring_notes": "For part (i), slope $= (\\ln 29 - \\ln 400)/18 \\approx -2.624/18 \\approx -0.1458$ and $y$-intercept $= \\ln(400) \\approx 5.991$. For part (ii), $Q(7) = 400 \\cdot b^7$ where $b \\approx 0.8643$; $(0.8643)^7 \\approx 0.340$, so $Q(7) \\approx 136$ mg. This is somewhat less than the actual $152$ mg, showing the model fit is approximate. Award the point for correct substitution into $Q(t)$ and a valid comparison to $152$ mg.",
       "requires_drawing": false,
       "reference_image": null
     },
@@ -42,9 +42,9 @@
       "point_value": 2,
       "rubric_criteria": [
         "1 pt: Correct inequality and solution — $400 \\cdot b^t < 50 \\Rightarrow b^t < \\frac{1}{8} \\Rightarrow t > \\frac{\\ln(1/8)}{\\ln(b)} = \\frac{-\\ln 8}{\\ln(0.8643)} \\approx \\frac{-2.079}{-0.1458} \\approx 14.26$ hours (accept values in $[14.1, 14.5]$); supporting work must show the inequality setup with direction preserved when dividing by negative $\\ln(b)$, and the logarithm step",
-        "1 pt: Correct conclusion '$L$ overestimates $Q$ for $t > 0$ in the clinically relevant domain' with justification — $L(0) = Q(0) = 400$, but $L'(t) = -20.6$ while $Q'(0) = 400\\ln(b) \\approx -58.3$. Since $Q$ initially decreases much faster than $L$ (slope $-58.3$ vs $-20.6$), $L(t) > Q(t)$ for all $t > 0$ in the relevant range. Although $Q$ is concave up ($Q'' > 0$), $L$ is not tangent to $Q$ at $t = 0$ — it has a much gentler slope, so it lies above the curve, overestimating the medication amount"
+        "1 pt: Correct conclusion '$L$ overestimates $Q$ for $t > 0$ in the clinically relevant domain' with justification — $L(0) = Q(0) = 400$ (both start at the same value); the exponential function $Q$ is concave up (its graph curves upward), so the graph of $Q$ lies above any secant line drawn from $t = 0$; since $L$ decreases more gradually than $Q$ (the data show $Q$ drops from $400$ to $263$ in just $3$ hours, much faster than $L$ would predict), $L(t) > Q(t)$ for $t > 0$"
       ],
-      "scoring_notes": "For part (i), $\\ln(1/8)/\\ln(0.8643) = (-2.079)/(-0.1458) \\approx 14.26$ hours. The inequality direction flips when dividing by $\\ln(b) < 0$; the rubric checks for this. For part (ii), the expected answer is 'overestimates.' The linear model $L(t) = 400 - 20.6t$ has slope $-20.6$, but $Q'(0) = 400\\ln(0.8643) \\approx -58.3$. Since $L$ decreases more slowly than $Q$ initially, $L(t) > Q(t)$ for $t > 0$. Award the point for: (a) correct conclusion ('overestimates'), (b) comparison of slopes at $t = 0$, and (c) explaining that $L$ falls more slowly than $Q$. Note: for very large $t$ (past $\\approx 19$ hours), $L$ becomes negative while $Q$ stays positive, so technically $L$ eventually underestimates — but this is outside the clinically relevant domain.",
+      "scoring_notes": "For part (i), $\\ln(1/8)/\\ln(0.8643) = (-2.079)/(-0.1458) \\approx 14.26$ hours. The inequality direction flips when dividing by $\\ln(b) < 0$; the rubric checks for this. For part (ii), the expected answer is 'overestimates.' The key reasoning is that $L$ decreases more slowly than the exponential $Q$: the data show $Q$ falling from $400$ to $263$ mg in $3$ hours (a drop of $137$ mg), while $L$ would drop only $3 \\times 20.6 = 61.8$ mg over the same interval. Since the exponential is concave up and drops steeply at first, $L$ lies above the curve for small to moderate $t$. Award the point for the correct conclusion plus any justification referencing the faster-than-linear decay of $Q$ or the concave-up shape of the graph.",
       "requires_drawing": false,
       "reference_image": null
     }
