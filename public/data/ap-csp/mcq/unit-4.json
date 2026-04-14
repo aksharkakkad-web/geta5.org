@@ -194,33 +194,34 @@
       "subject": "ap-csp",
       "difficulty": "easy",
       "stimulus": {
-        "type": "none"
+        "type": "text",
+        "content": "A user types www.example.com into their browser. Before the browser can fetch the page, it asks a specialized server to translate that human-readable name into the numeric address (e.g., 93.184.216.34) that routers use to deliver the request. Once the browser has the numeric address, it can contact the correct server."
       },
-      "question": "Which of the following BEST describes what DNS (Domain Name System) does?",
+      "question": "The translation service described in the passage is best described as which of the following?",
       "choices": [
         {
           "id": "A",
-          "text": "DNS encrypts website traffic to prevent interception",
-          "is_correct": false,
-          "explanation": "Encryption is handled by TLS/HTTPS. DNS translates human-readable domain names into numeric IP addresses."
+          "text": "DNS (Domain Name System)",
+          "is_correct": true,
+          "explanation": "DNS is the internet's name-to-address translation service. When a browser needs to contact a site like example.com, it queries DNS to obtain the server's numeric IP address — exactly the lookup described in the passage."
         },
         {
           "id": "B",
-          "text": "DNS translates human-readable domain names (like example.com) into numeric IP addresses",
-          "is_correct": true,
-          "explanation": "DNS acts like a phone book for the internet. When you type 'example.com', DNS resolves it to the server's IP address so your browser can connect to the correct machine."
+          "text": "DHCP (Dynamic Host Configuration Protocol)",
+          "is_correct": false,
+          "explanation": "DHCP assigns IP addresses to devices when they first join a network — it does not translate domain names. The scenario describes looking up an existing address for a named site, which is a DNS operation."
         },
         {
           "id": "C",
-          "text": "DNS stores backup copies of websites in case the original server goes down",
+          "text": "NAT (Network Address Translation)",
           "is_correct": false,
-          "explanation": "Content delivery networks (CDNs) cache website content, not DNS. DNS only translates domain names to IP addresses."
+          "explanation": "NAT rewrites addresses on outgoing packets so that many devices can share one public IP — it does not convert human-readable names to numeric addresses. The passage describes name resolution, which is DNS."
         },
         {
           "id": "D",
-          "text": "DNS assigns unique IP addresses to devices when they join a network",
+          "text": "HTTP (HyperText Transfer Protocol)",
           "is_correct": false,
-          "explanation": "Dynamic IP address assignment is done by DHCP (Dynamic Host Configuration Protocol). DNS resolves domain names to existing IP addresses — it does not assign them."
+          "explanation": "HTTP is the protocol the browser uses to request the page after it already has the server's address. The passage specifically describes the earlier step of converting a name into an address, which is DNS."
         }
       ],
       "unit_objective": "CSN-1.D"
@@ -269,33 +270,34 @@
       "subject": "ap-csp",
       "difficulty": "easy",
       "stimulus": {
-        "type": "none"
+        "type": "text",
+        "content": "A cloud storage app uploads a 50 MB file from a laptop to a remote server. The app splits the file into many smaller chunks, numbers them, and sends them across the network. As each chunk arrives, the server sends back a confirmation. If the sender does not receive a confirmation for a particular chunk, it resends that chunk. Once every chunk has been confirmed, the server reassembles the file in order."
       },
-      "question": "Which of the following BEST describes TCP (Transmission Control Protocol)?",
+      "question": "The protocol that provides the numbered, confirmed, and retransmitted delivery behavior described in the passage is best described as which of the following?",
       "choices": [
         {
           "id": "A",
-          "text": "A protocol that encrypts internet traffic to keep it private",
-          "is_correct": false,
-          "explanation": "Encryption is provided by TLS/HTTPS. TCP ensures reliable delivery of packets — it retransmits any packets that are lost during transmission."
+          "text": "TCP (Transmission Control Protocol)",
+          "is_correct": true,
+          "explanation": "TCP is the reliable transport protocol that numbers chunks, waits for acknowledgements, retransmits lost chunks, and delivers data in order — exactly the behavior described in the passage."
         },
         {
           "id": "B",
-          "text": "A protocol that ensures reliable delivery of data by breaking messages into packets, sending them, and retransmitting any that are lost",
-          "is_correct": true,
-          "explanation": "TCP is a reliable transport protocol. It breaks data into packets, acknowledges receipt, and retransmits lost packets — ensuring all data arrives correctly and in order."
+          "text": "UDP (User Datagram Protocol)",
+          "is_correct": false,
+          "explanation": "UDP is a connectionless protocol that sends packets without confirmations or retransmissions. The passage explicitly describes confirmations and retransmission of lost chunks, which is TCP behavior, not UDP."
         },
         {
           "id": "C",
-          "text": "A protocol that assigns IP addresses to new devices when they connect to a network",
+          "text": "HTTP (HyperText Transfer Protocol)",
           "is_correct": false,
-          "explanation": "IP address assignment is handled by DHCP. TCP handles reliable packet delivery, not address assignment."
+          "explanation": "HTTP defines the format of web requests and responses. The chunking, acknowledgement, and retransmission described in the passage happen at a lower layer — TCP — even when HTTP is the application using it."
         },
         {
           "id": "D",
-          "text": "A protocol used by web browsers to request and receive web pages from servers",
+          "text": "DNS (Domain Name System)",
           "is_correct": false,
-          "explanation": "HTTP is the protocol used for web page requests and responses. TCP operates at a lower layer, providing reliable delivery for many higher-level protocols including HTTP."
+          "explanation": "DNS translates domain names into numeric IP addresses. It does not handle splitting files into chunks or retransmitting lost data, which is the reliable-delivery job that TCP performs."
         }
       ],
       "unit_objective": "CSN-1.C"
@@ -306,33 +308,34 @@
       "subject": "ap-csp",
       "difficulty": "easy",
       "stimulus": {
-        "type": "none"
+        "type": "text",
+        "content": "A network connecting two cities is built so that there are three different physical cable paths between them. When a construction crew accidentally cuts one cable, traffic between the two cities continues without interruption because data is automatically rerouted over the remaining two paths."
       },
-      "question": "Which of the following BEST describes redundancy in a computer network?",
+      "question": "The design property described in the passage is best referred to as which of the following?",
       "choices": [
         {
           "id": "A",
-          "text": "Having duplicate copies of data stored on multiple servers so that if one fails, another can serve the data",
-          "is_correct": false,
-          "explanation": "While this describes data redundancy, the question is about network redundancy. Network redundancy refers specifically to multiple paths between nodes."
+          "text": "Redundancy",
+          "is_correct": true,
+          "explanation": "Redundancy means providing multiple routing paths (or duplicate resources) so that if one path fails, data can still reach its destination via an alternative. The three-cable design and automatic rerouting after a cut is the defining example."
         },
         {
           "id": "B",
-          "text": "The existence of multiple paths between nodes so that if one path fails, data can still travel via another route",
-          "is_correct": true,
-          "explanation": "Network redundancy means building multiple routing paths between nodes. If a router or link fails, packets can be rerouted through an alternative path — this is what makes the internet fault tolerant."
+          "text": "Bandwidth",
+          "is_correct": false,
+          "explanation": "Bandwidth is the amount of data a connection can carry per unit of time. The passage is about having alternative paths when one fails, not about the capacity of any single path."
         },
         {
           "id": "C",
-          "text": "Using the same IP address for multiple devices to reduce address space usage",
+          "text": "Latency",
           "is_correct": false,
-          "explanation": "IP addresses must be unique — sharing them would cause routing failures. Redundancy refers to having multiple routing paths between nodes, not shared addresses."
+          "explanation": "Latency is the delay between sending and receiving data. It is not what allows the network to survive a cut cable — surviving a failure via alternate routes is redundancy."
         },
         {
           "id": "D",
-          "text": "Compressing packets to reduce the bandwidth required for transmission",
+          "text": "Encryption",
           "is_correct": false,
-          "explanation": "Compression reduces packet size — it is an efficiency technique, not redundancy. Redundancy specifically means multiple alternative paths or copies."
+          "explanation": "Encryption protects the confidentiality of data in transit — it does nothing to keep data flowing when a cable is cut. The ability to reroute around a failure is provided by redundancy."
         }
       ],
       "unit_objective": "CSN-1.E"
@@ -343,33 +346,34 @@
       "subject": "ap-csp",
       "difficulty": "easy",
       "stimulus": {
-        "type": "none"
+        "type": "text",
+        "content": "A streaming service runs its website on a cluster of several identical servers. During a busy evening, two of the servers crash unexpectedly. Viewers notice no interruption — the remaining servers take over the workload and continue serving video without anyone needing to intervene."
       },
-      "question": "Which of the following BEST describes a fault tolerant system?",
+      "question": "The property of the streaming service described in the passage is best referred to as which of the following?",
       "choices": [
         {
           "id": "A",
-          "text": "A system that never experiences hardware failures",
-          "is_correct": false,
-          "explanation": "No system is immune to hardware failures. Fault tolerance means the system continues to operate correctly even when some components fail — not that failures never occur."
+          "text": "Fault tolerance",
+          "is_correct": true,
+          "explanation": "Fault tolerance is the ability of a system to continue operating correctly when some of its components fail. The cluster surviving two crashed servers without user-visible disruption is the defining example."
         },
         {
           "id": "B",
-          "text": "A system that continues operating correctly even when some of its components fail",
-          "is_correct": true,
-          "explanation": "Fault tolerance means the system is designed to handle component failures gracefully — through redundancy, failover mechanisms, or other techniques — so that the overall system keeps working."
+          "text": "Abstraction",
+          "is_correct": false,
+          "explanation": "Abstraction is a design technique that hides implementation details behind simpler interfaces. It does not describe keeping a system running when components fail, which is fault tolerance."
         },
         {
           "id": "C",
-          "text": "A system that automatically repairs broken hardware components",
+          "text": "Open access",
           "is_correct": false,
-          "explanation": "Fault tolerance does not mean self-repair. It means the system continues functioning despite failures, typically by rerouting to functioning components."
+          "explanation": "Open access refers to making information freely available to users. It is unrelated to a system's ability to survive component failures, which is fault tolerance."
         },
         {
           "id": "D",
-          "text": "A system that uses encryption to protect data from unauthorized access",
+          "text": "Compression",
           "is_correct": false,
-          "explanation": "Encryption provides security. Fault tolerance provides resilience — the ability to continue operating when components fail."
+          "explanation": "Compression reduces data size to save storage or bandwidth. It has nothing to do with continuing to operate when servers crash, which is fault tolerance."
         }
       ],
       "unit_objective": "CSN-1.E"
@@ -380,33 +384,34 @@
       "subject": "ap-csp",
       "difficulty": "easy",
       "stimulus": {
-        "type": "none"
+        "type": "text",
+        "content": "A student uses her laptop's internet connection to read interlinked articles in her browser, send a message through an email app, and play a multiplayer game. Only the articles — which are hosted as HTML documents linked to one another by URLs and loaded over HTTP in her browser — belong to one specific service running on top of that connection. The email app and the game use the same underlying connection but different services."
       },
-      "question": "Which of the following BEST distinguishes the World Wide Web from the internet?",
+      "question": "The service that hosts the interlinked articles the student reads in her browser is best referred to as which of the following?",
       "choices": [
         {
           "id": "A",
-          "text": "The internet and the World Wide Web are identical — they refer to the same thing",
-          "is_correct": false,
-          "explanation": "They are distinct: the internet is the global network infrastructure; the World Wide Web is an application built on top of that infrastructure."
+          "text": "The World Wide Web",
+          "is_correct": true,
+          "explanation": "The World Wide Web is the service of interlinked HTML documents accessed via URLs over HTTP. The articles the student reads in her browser are part of the Web, which runs on top of the underlying internet."
         },
         {
           "id": "B",
-          "text": "The internet is the global network infrastructure; the World Wide Web is a system of interlinked documents accessible via the internet using HTTP",
-          "is_correct": true,
-          "explanation": "The internet is the underlying network of connected devices. The World Wide Web is one service running on the internet — a collection of web pages and resources linked by URLs, accessed via HTTP."
+          "text": "The internet itself",
+          "is_correct": false,
+          "explanation": "The internet is the global network infrastructure that carries data for many services (email, games, the Web). The passage explicitly distinguishes the article-reading service from the shared underlying connection, so the answer is the Web, not the internet."
         },
         {
           "id": "C",
-          "text": "The World Wide Web is the physical cables; the internet is the software layer",
+          "text": "A local area network (LAN)",
           "is_correct": false,
-          "explanation": "This reverses the relationship. Physical cables are part of the internet's hardware infrastructure. The World Wide Web is the collection of web documents and sites — a software application layer."
+          "explanation": "A LAN connects devices in a small geographic area like a home or office — it is not the service of interlinked web pages. The articles accessed over HTTP through a browser belong to the World Wide Web."
         },
         {
           "id": "D",
-          "text": "The internet can only be accessed wirelessly; the World Wide Web requires a wired connection",
+          "text": "The Domain Name System (DNS)",
           "is_correct": false,
-          "explanation": "Both the internet and the Web are accessible via wired or wireless connections. The distinction is that the internet is the network infrastructure and the Web is a service on it."
+          "explanation": "DNS is the lookup service that translates domain names to IP addresses. It is not the collection of interlinked documents the student is reading — that collection is the World Wide Web."
         }
       ],
       "unit_objective": "CSN-1.A"
