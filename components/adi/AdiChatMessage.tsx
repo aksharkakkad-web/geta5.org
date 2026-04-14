@@ -3,6 +3,7 @@
 import ReactMarkdown from 'react-markdown'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
+import 'katex/dist/katex.min.css'
 import type { UIMessage } from '@ai-sdk/react'
 
 interface AdiChatMessageProps {
@@ -15,6 +16,15 @@ function getTextContent(message: UIMessage): string {
     .filter((p): p is { type: 'text'; text: string } => p.type === 'text')
     .map((p) => p.text)
     .join('')
+}
+
+// GPT-4o-mini frequently emits OpenAI-style LaTeX (\( \), \[ \]) despite the
+// system prompt asking for $...$. remark-math only understands $ delimiters,
+// so normalize before rendering.
+function normalizeMath(text: string): string {
+  return text
+    .replace(/\\\[([\s\S]+?)\\\]/g, (_, body) => `$$${body}$$`)
+    .replace(/\\\(([\s\S]+?)\\\)/g, (_, body) => `$${body}$`)
 }
 
 export function AdiChatMessage({ message }: AdiChatMessageProps) {
@@ -34,7 +44,7 @@ export function AdiChatMessage({ message }: AdiChatMessageProps) {
         remarkPlugins={[remarkMath]}
         rehypePlugins={[rehypeKatex]}
       >
-        {text}
+        {normalizeMath(text)}
       </ReactMarkdown>
     </div>
   )
