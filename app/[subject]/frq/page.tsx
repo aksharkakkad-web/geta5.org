@@ -84,6 +84,7 @@ export default function FRQPage({ params }: PageProps) {
   const [showMathTutorial, setShowMathTutorial] = useState(false)
   const [remainingCalls, setRemainingCalls] = useState(30)
   const [error, setError] = useState<string | null>(null)
+  const [queuedMessage, setQueuedMessage] = useState<string>('Your answer has been saved. Adi will grade it when your daily limit resets.')
   const [desmosOpen, setDesmosOpen] = useState(false)
   const [timedMode, setTimedMode] = useState(true)
   const [timerStartedAt, setTimerStartedAt] = useState<number | null>(null)
@@ -316,6 +317,7 @@ export default function FRQPage({ params }: PageProps) {
         })
       } else if (data.status === 'queued') {
         clearFRQDraft(subject)
+        setQueuedMessage(data.message ?? 'Your answer has been saved. Adi will grade it when your daily limit resets.')
         setPhase('queued')
       } else {
         // Server returned an error shape
@@ -781,7 +783,7 @@ export default function FRQPage({ params }: PageProps) {
                     lineHeight: 1.6,
                   }}
                 >
-                  Your answer has been saved. Adi will grade it when your daily limit resets.
+                  {queuedMessage}
                 </p>
               </div>
 

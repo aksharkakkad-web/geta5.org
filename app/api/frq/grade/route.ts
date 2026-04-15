@@ -2,13 +2,19 @@ import { generateText } from 'ai'
 import { openai } from '@ai-sdk/openai'
 import { createClient } from '@/lib/supabase-server'
 import { checkAndIncrementUsage } from '@/utils/adiRateLimit'
-import { buildFRQGradingPrompt } from '@/utils/frqGradingPrompt'
-import type { FRQ, FRQGradingResult, FRQGradingPart, GradingStrictness } from '@/utils/frqSession'
+import { buildFRQGradingPrompt, buildFRQAuditorPrompt } from '@/utils/frqGradingPrompt'
+import type { FRQ, FRQGradingResult, FRQGradingPart, FRQGradingPointResult, GradingStrictness } from '@/utils/frqSession'
 import { readFile } from 'fs/promises'
 import path from 'path'
 import { createClient as createAdminClient } from '@supabase/supabase-js'
 
-const FRQ_CALL_COST = 2 // FRQ grading costs 2 calls against daily limit
+function getCallCost(strictness: GradingStrictness): number {
+  return strictness === 'strict' ? 3 : 2
+}
+
+function getModelForStrictness(strictness: GradingStrictness) {
+  return strictness === 'strict' ? openai('gpt-4o') : openai('gpt-4o-mini')
+}
 
 function isBlankResponse(text: unknown): boolean {
   if (typeof text !== 'string') return true
@@ -41,14 +47,38 @@ function sanitizeGrading(question: FRQ, raw: FRQGradingResult): FRQGradingResult
   const parts: FRQGradingPart[] = gradableParts.map(p => {
     const rp = rawByLetter.get(p.letter)
     const maxForPart = p.point_value
-    const earnedRaw = typeof rp?.earned === 'number' && Number.isFinite(rp.earned) ? rp.earned : 0
-    const earned = Math.max(0, Math.min(maxForPart, Math.round(earnedRaw)))
+
+    let earned: number
+    let pointResults: FRQGradingPointResult[] | undefined
+
+    if (Array.isArray(rp?.point_results) && rp.point_results.length > 0) {
+      pointResults = rp.point_results.map((pr: FRQGradingPointResult) => {
+        const prMax = typeof pr.max === 'number' && Number.isFinite(pr.max) ? pr.max : 1
+        const prEarned = typeof pr.earned === 'number' && Number.isFinite(pr.earned)
+          ? Math.max(0, Math.min(prMax, Math.round(pr.earned)))
+          : 0
+        return {
+          point_id: pr.point_id,
+          description: pr.description,
+          earned: prEarned,
+          max: prMax,
+          sub_results: Array.isArray(pr.sub_results) ? pr.sub_results : [],
+          reasoning: typeof pr.reasoning === 'string' ? pr.reasoning : '',
+        }
+      })
+      earned = Math.min(maxForPart, pointResults.reduce((sum, pr) => sum + pr.earned, 0))
+    } else {
+      const earnedRaw = typeof rp?.earned === 'number' && Number.isFinite(rp.earned) ? rp.earned : 0
+      earned = Math.max(0, Math.min(maxForPart, Math.round(earnedRaw)))
+    }
+
     return {
       letter: p.letter,
       earned,
       max: maxForPart,
       feedback: typeof rp?.feedback === 'string' && rp.feedback.trim() ? rp.feedback : 'No feedback provided.',
       missed: typeof rp?.missed === 'string' && rp.missed.trim() ? rp.missed : null,
+      ...(pointResults !== undefined ? { point_results: pointResults } : {}),
     }
   })
 
@@ -72,6 +102,40 @@ function sanitizeGrading(question: FRQ, raw: FRQGradingResult): FRQGradingResult
   }
 
   return { total_score, max_score, parts, takeaway }
+}
+
+function normalize(s: string): string {
+  return s.toLowerCase().replace(/\s+/g, ' ').trim()
+}
+
+// Server-verify because LLM can fabricate quotes — strip any awarded point
+// whose evidence quote is not a verbatim substring of the student's response.
+function verifyEvidence(grading: FRQGradingResult, responses: Record<string, string>): FRQGradingResult {
+  const parts = grading.parts.map(part => {
+    if (!part.point_results || part.point_results.length === 0) return part
+    const studentRaw = responses[part.letter] ?? ''
+    const studentNorm = normalize(studentRaw)
+    const pointResults = part.point_results.map(pr => {
+      const subResults = pr.sub_results.map(sr => {
+        if (!sr.met) return sr
+        const quote = sr.student_evidence_quote ?? ''
+        if (quote.trim() === '') return { ...sr, met: false }
+        const quoteNorm = normalize(quote)
+        if (!studentNorm.includes(quoteNorm)) return { ...sr, met: false }
+        return sr
+      })
+      const allMet = subResults.length > 0 && subResults.every(sr => sr.met)
+      const earned = allMet ? pr.max : 0
+      const reasoning = earned < pr.earned
+        ? `${pr.reasoning} [server: evidence not verified]`
+        : pr.reasoning
+      return { ...pr, sub_results: subResults, earned, reasoning }
+    })
+    const partEarned = pointResults.reduce((sum, pr) => sum + pr.earned, 0)
+    return { ...part, point_results: pointResults, earned: partEarned }
+  })
+  const total_score = parts.reduce((sum, p) => sum + p.earned, 0)
+  return { ...grading, parts, total_score }
 }
 
 function getSupabaseAdmin() {
@@ -182,8 +246,10 @@ export async function POST(req: Request) {
     })
   }
 
-  // 5. Check rate limit (costs 2 calls)
-  const usage = await checkAndIncrementUsage(user.id, FRQ_CALL_COST)
+  const validStrictness: GradingStrictness = ['light', 'moderate', 'strict'].includes(strictness) ? strictness : 'moderate'
+
+  // 5. Check rate limit
+  const usage = await checkAndIncrementUsage(user.id, getCallCost(validStrictness))
 
   if (!usage.allowed) {
     // Queue for later grading
@@ -200,30 +266,26 @@ export async function POST(req: Request) {
     })
   }
 
-  // 6. Grade with GPT-4o-mini
+  // 6. Grade with model routed by strictness
   try {
-    const validStrictness: GradingStrictness = ['light', 'moderate', 'strict'].includes(strictness) ? strictness : 'moderate'
     const systemPrompt = buildFRQGradingPrompt(question, responses, validStrictness)
 
     const result = await generateText({
-      model: openai('gpt-4o-mini'),
+      model: getModelForStrictness(validStrictness),
       system: systemPrompt,
       messages: [{ role: 'user', content: 'Grade this FRQ submission according to the rubric. Respond with the JSON scoring object only.' }],
       maxOutputTokens: 2048,
+      temperature: 0,
     })
 
-    // Parse the grading result
+    // Parse the primary grading result
     let grading: FRQGradingResult
     try {
-      // Strip markdown fences if present
       const cleanText = result.text.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim()
       const parsed = JSON.parse(cleanText) as FRQGradingResult
-      // Clamp scores, fill missing parts, recompute total — guards against
-      // the LLM returning out-of-range or missing data.
       grading = sanitizeGrading(question, parsed)
     } catch {
       console.error('Failed to parse FRQ grading response:', result.text)
-      // Queue for retry if parsing fails
       await admin
         .from('frq_submissions')
         .update({ grading_status: 'queued' })
@@ -235,6 +297,27 @@ export async function POST(req: Request) {
         message: 'Grading encountered an issue. Adi will retry shortly.',
       })
     }
+
+    // Two-pass grading for strict: auditor only lowers scores, never raises them.
+    if (validStrictness === 'strict') {
+      try {
+        const auditorPrompt = buildFRQAuditorPrompt(question, responses, grading, validStrictness)
+        const auditorResult = await generateText({
+          model: getModelForStrictness(validStrictness),
+          system: auditorPrompt,
+          messages: [{ role: 'user', content: 'Audit the grading result. Respond with the corrected JSON scoring object only.' }],
+          maxOutputTokens: 2048,
+          temperature: 0,
+        })
+        const cleanAuditor = auditorResult.text.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim()
+        const parsedAuditor = JSON.parse(cleanAuditor) as FRQGradingResult
+        grading = sanitizeGrading(question, parsedAuditor)
+      } catch (auditorErr) {
+        console.warn('FRQ auditor pass failed to parse, using primary grading', auditorErr)
+      }
+    }
+
+    grading = verifyEvidence(grading, responses)
 
     // 7. Save grading result
     const { error: resultError } = await admin

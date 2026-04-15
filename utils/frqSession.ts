@@ -26,11 +26,28 @@ export interface FRQDocument {
   image: string | null
 }
 
+/** One way a student can earn a scoring point — ALL required_elements must be present. */
+export interface FRQScoringAlternative {
+  required_elements: string[]  // ALL must be present to earn via this alternative
+  correct_example: string      // plain example response demonstrating this alternative
+}
+
+/** One earnable AP point with alternatives, wrong examples, and optional traps. */
+export interface FRQScoringPoint {
+  point_id: string              // e.g., "a1", "b2" — unique within the FRQ
+  point_value: number           // almost always 1 (AP points are binary)
+  description: string           // plain-English what this point tests
+  alternatives: FRQScoringAlternative[]  // any ONE earns the point
+  wrong_examples: string[]      // responses that would NOT earn the point
+  common_traps?: string[]       // optional pitfalls/misconceptions
+}
+
 export interface FRQPart {
   letter: string
   prompt: string
   point_value: number
   rubric_criteria: string[]
+  scoring_points?: FRQScoringPoint[]
   scoring_notes: string | null
   requires_drawing?: boolean
   reference_image?: string | null
@@ -52,12 +69,30 @@ export interface FRQ {
   parts: FRQPart[]
 }
 
+/** Per-element check result within one scoring alternative. */
+export interface FRQGradingSubResult {
+  element: string                // copied from required_elements
+  student_evidence_quote: string // EXACT substring of the student's response, or "" if not found
+  met: boolean
+}
+
+/** Grading outcome for one FRQScoringPoint — earned 0 or point_value. */
+export interface FRQGradingPointResult {
+  point_id: string
+  description: string
+  earned: number                 // 0 or point_value
+  max: number
+  sub_results: FRQGradingSubResult[]
+  reasoning: string              // 1-sentence grader justification
+}
+
 export interface FRQGradingPart {
   letter: string
   earned: number
   max: number
   feedback: string
   missed: string | null
+  point_results?: FRQGradingPointResult[]
 }
 
 export interface FRQGradingResult {

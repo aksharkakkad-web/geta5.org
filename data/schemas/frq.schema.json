@@ -120,6 +120,49 @@
             "items": { "type": "string" },
             "description": "One string per point — includes the correct answer/approach, e.g. '1 pt: Correct integrand: int(0,3) 2t*sin(t^2) dt'"
           },
+          "scoring_points": {
+            "type": "array",
+            "description": "Structured per-point rubric for strict grading. Each element is one earnable point with required elements, alternatives, and wrong examples.",
+            "items": {
+              "type": "object",
+              "required": ["point_id", "point_value", "description", "alternatives", "wrong_examples"],
+              "properties": {
+                "point_id": { "type": "string", "description": "Unique ID within the FRQ, e.g. 'a1', 'b2'" },
+                "point_value": { "type": "integer", "minimum": 1, "description": "Points earned (almost always 1)" },
+                "description": { "type": "string", "description": "Plain-English what this point tests" },
+                "alternatives": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "object",
+                    "required": ["required_elements", "correct_example"],
+                    "properties": {
+                      "required_elements": {
+                        "type": "array",
+                        "minItems": 1,
+                        "items": { "type": "string" },
+                        "description": "ALL must be present in the student response to earn the point via this alternative"
+                      },
+                      "correct_example": { "type": "string", "description": "Example of a response that earns via this alternative" }
+                    },
+                    "additionalProperties": false
+                  },
+                  "description": "Any ONE alternative being fully satisfied earns the point"
+                },
+                "wrong_examples": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "description": "Responses that do NOT earn the point"
+                },
+                "common_traps": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "description": "Optional: common misconceptions to watch for"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
           "scoring_notes": {
             "type": ["string", "null"],
             "description": "Qualitative guidance from scoring guidelines — what to accept/reject, alternate valid methods, common errors. Anti-hallucination anchor."
