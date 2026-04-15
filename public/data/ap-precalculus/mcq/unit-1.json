@@ -947,35 +947,35 @@
         "type": "none",
         "content": null
       },
-      "question": "A polynomial $p(x)$ has remainder $5$ when divided by $(x - 2)$. Which of the following must be true?",
+      "question": "A polynomial function $p(x)$ has $p(-3) = 0$. Which of the following must be a factor of $p(x)$?",
       "choices": [
         {
           "id": "A",
-          "text": "$p(2) = 0$",
-          "is_correct": false,
-          "explanation": "If $p(2)=0$, then the remainder would be $0$, meaning $(x-2)$ is a factor. A remainder of $5$ means $p(2)=5$, not $0$."
+          "text": "$(x + 3)$",
+          "is_correct": true,
+          "explanation": "By the Factor Theorem, if $p(c) = 0$, then $(x - c)$ is a factor. Here $p(-3) = 0$, so $c = -3$ and $(x - (-3)) = (x + 3)$ must be a factor."
         },
         {
           "id": "B",
-          "text": "$p(2) = 5$",
-          "is_correct": true,
-          "explanation": "By the Remainder Theorem: when $p(x)$ is divided by $(x-c)$, the remainder equals $p(c)$. Here $c=2$ and the remainder is $5$, so $p(2)=5$."
+          "text": "$(x - 3)$",
+          "is_correct": false,
+          "explanation": "$(x - 3)$ would be a factor if $p(3) = 0$. We are told $p(-3) = 0$, which by the Factor Theorem means $(x + 3)$ is a factor, not $(x - 3)$."
         },
         {
           "id": "C",
-          "text": "$(x - 2)$ is a factor of $p(x)$",
+          "text": "$(x + 1)$",
           "is_correct": false,
-          "explanation": "$(x-2)$ is a factor only if the remainder is $0$. The remainder is $5\\neq0$, so $(x-2)$ is not a factor."
+          "explanation": "$(x + 1)$ would be a factor if $p(-1) = 0$. The given information is $p(-3) = 0$, which only guarantees $(x + 3)$ is a factor."
         },
         {
           "id": "D",
-          "text": "$p(5) = 2$",
+          "text": "$(x - 1)$",
           "is_correct": false,
-          "explanation": "The Remainder Theorem does not imply $p(5)=2$. It states $p(2)=5$ (the remainder when dividing by $x-2$)."
+          "explanation": "$(x - 1)$ would be a factor if $p(1) = 0$. The Factor Theorem links $p(c) = 0$ to the factor $(x - c)$; since $c = -3$, the factor is $(x + 3)$."
         }
       ],
-      "unit_objective": "PCF-1.B",
-      "calculator_allowed": true
+      "unit_objective": "PCF-1.11.A",
+      "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q028",
@@ -1308,39 +1308,39 @@
       "id": "precalc-u1-q035",
       "unit": "unit-1",
       "subject": "ap-precalculus",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "stimulus": {
         "type": "none",
         "content": null
       },
-      "question": "The function $g$ is obtained from $f(x) = x^2$ by first shifting right $2$ units, then stretching vertically by factor $3$, then shifting down $5$. The function $h$ is obtained from $f(x) = x^2$ by applying the same three operations in reverse order: first shift down $5$, then stretch vertically by $3$, then shift right $2$. Which of the following gives $g(x) - h(x)$?",
+      "question": "A function $g$ is obtained from $f$ by shifting the graph right $2$ units and then stretching it vertically by a factor of $3$. Which of the following gives $g(x)$?",
       "choices": [
         {
           "id": "A",
-          "text": "$0$",
-          "is_correct": false,
-          "explanation": "Transformation order matters when a vertical stretch and a vertical shift are involved. $g(x)=3(x-2)^2-5$ and $h(x)=3(x-2)^2-15$, so $g(x)-h(x)=10\\neq 0$."
+          "text": "$g(x) = 3f(x - 2)$",
+          "is_correct": true,
+          "explanation": "Shifting right $2$ replaces $x$ with $(x-2)$, giving $f(x-2)$. Stretching vertically by $3$ multiplies the output by $3$, giving $3f(x-2)$."
         },
         {
           "id": "B",
-          "text": "$10$",
-          "is_correct": true,
-          "explanation": "Build $g$: shift right $2$: $(x-2)^2$; stretch by $3$: $3(x-2)^2$; shift down $5$: $g(x)=3(x-2)^2-5$. Build $h$: shift down $5$: $x^2-5$; stretch by $3$: $3(x^2-5)=3x^2-15$; shift right $2$: $3(x-2)^2-15$. So $h(x)=3(x-2)^2-15$. Then $g(x)-h(x)=[3(x-2)^2-5]-[3(x-2)^2-15]=10$."
+          "text": "$g(x) = 3f(x) - 2$",
+          "is_correct": false,
+          "explanation": "$3f(x) - 2$ represents a vertical stretch by $3$ followed by a downward shift of $2$, not a horizontal shift right $2$."
         },
         {
           "id": "C",
-          "text": "$-10$",
+          "text": "$g(x) = f(3x - 2)$",
           "is_correct": false,
-          "explanation": "$g(x)-h(x)=-5-(-15)=10$, not $-10$. The answer $-10$ comes from computing $h-g$ instead of $g-h$."
+          "explanation": "$f(3x-2)$ involves a horizontal compression by $\\frac{1}{3}$ and a shift, not a vertical stretch. The vertical stretch of $3$ should appear as a coefficient outside the function."
         },
         {
           "id": "D",
-          "text": "$-12x + 12$",
+          "text": "$g(x) = 3f(x + 2)$",
           "is_correct": false,
-          "explanation": "This would result from subtracting different expanded forms for $g$ and $h$ — but both share the factor $3(x-2)^2$, which cancels. The only difference is the constant: $-5$ vs $-15$, giving $g-h=10$."
+          "explanation": "$3f(x+2)$ shifts the graph left $2$ (not right) before stretching vertically. A shift right $2$ replaces $x$ with $(x-2)$, so the argument should be $(x-2)$, not $(x+2)$."
         }
       ],
-      "unit_objective": "PCF-1.E",
+      "unit_objective": "PCF-1.12.A",
       "calculator_allowed": false
     },
     {
@@ -1352,34 +1352,34 @@
         "type": "none",
         "content": null
       },
-      "question": "The graph of $f(x) = x^3$ is transformed to produce $g(x) = -\\frac{1}{2}(2x + 4)^3 + 1$. Which of the following correctly identifies all transformations?",
+      "question": "Which of the following describes all transformations applied to $f(x) = x^3$ to obtain $g(x) = -2(x - 1)^3 + 4$?",
       "choices": [
         {
           "id": "A",
-          "text": "Horizontal compression by $\\frac{1}{2}$, shift left $2$, vertical compression by $\\frac{1}{2}$, reflection over $x$-axis, shift up $1$",
+          "text": "Reflect over the $x$-axis, stretch vertically by a factor of $2$, shift right $1$, shift up $4$",
           "is_correct": true,
-          "explanation": "Read transformations from the unsimplified form $g(x) = -\\frac{1}{2}(2x+4)^3+1$. Factor the input: $2x+4 = 2(x+2)$. The factor of $2$ multiplying the input gives horizontal compression by $\\frac{1}{2}$; the $+2$ inside shifts left $2$. Outside: $-\\frac{1}{2}$ gives vertical compression by $\\frac{1}{2}$ and reflection over the $x$-axis; $+1$ shifts up. Note: simplifying first gives $-4(x+2)^3+1$, where the $-4$ is a combined vertical stretch — but the question asks for the individual transformations applied to $f(x) = x^3$."
+          "explanation": "Starting from $f(x) = x^3$: the $-2$ coefficient reflects over the $x$-axis and stretches by $2$; $(x-1)$ shifts right $1$; $+4$ shifts up $4$."
         },
         {
           "id": "B",
-          "text": "Horizontal stretch by $2$, shift left $4$, reflection over $x$-axis, shift up $1$",
+          "text": "Reflect over the $y$-axis, stretch vertically by a factor of $2$, shift left $1$, shift up $4$",
           "is_correct": false,
-          "explanation": "Adding $4$ inside the argument as $2x+4=2(x+2)$ means a horizontal compression by $\\frac{1}{2}$ and a shift left $2$, not a stretch by $2$ or shift left $4$."
+          "explanation": "A reflection over the $y$-axis would replace $x$ with $-x$, giving $f(-x)$. The $-2$ here multiplies the output (reflection over $x$-axis), and $(x-1)$ shifts right, not left."
         },
         {
           "id": "C",
-          "text": "Shift left $4$, reflection over $x$-axis, shift up $1$",
+          "text": "Reflect over the $x$-axis, compress vertically by a factor of $\\frac{1}{2}$, shift right $1$, shift up $4$",
           "is_correct": false,
-          "explanation": "This ignores the factor of $2$ inside and the factor of $\\frac{1}{2}$ outside, both of which produce dilations in addition to the shifts."
+          "explanation": "A vertical compression by $\\frac{1}{2}$ would give $\\frac{1}{2}f(x)$, not $2f(x)$. The coefficient $|-2| = 2$ means a vertical stretch by $2$, not a compression."
         },
         {
           "id": "D",
-          "text": "Shift right $2$, vertical compression by $\\frac{1}{2}$, reflection over $x$-axis, shift up $1$",
+          "text": "Reflect over the $x$-axis, stretch vertically by a factor of $2$, shift left $1$, shift down $4$",
           "is_correct": false,
-          "explanation": "$(2x+4)=2(x+2)$ means the shift is $2$ units to the left (not right), because replacing $x$ with $x+2$ shifts left."
+          "explanation": "$(x - 1)^3$ shifts the graph right $1$ (subtracting inside shifts right), and $+4$ shifts up $4$, not down. Only the sign of the inner constant and the outer constant determine direction."
         }
       ],
-      "unit_objective": "PCF-1.E",
+      "unit_objective": "PCF-1.12.A",
       "calculator_allowed": false
     },
     {
@@ -1425,39 +1425,39 @@
       "id": "precalc-u1-q038",
       "unit": "unit-1",
       "subject": "ap-precalculus",
-      "difficulty": "easy",
+      "difficulty": "medium",
       "stimulus": {
-        "type": "text",
-        "content": "A piecewise function is defined as: $f(x) = \\begin{cases} x^2 - 1 & x < 2 \\\\ 3x - 5 & x \\geq 2 \\end{cases}$"
+        "type": "none",
+        "content": null
       },
-      "question": "Which of the following gives the value of $f(3) + f(0)$?",
+      "question": "A piecewise function is defined as $h(x) = \\begin{cases} x^2 - 3 & x < 2 \\\\ 2x - 1 & x \\geq 2 \\end{cases}$. Which of the following best describes the behavior of $h$ at $x = 2$?",
       "choices": [
         {
           "id": "A",
-          "text": "$2$",
+          "text": "$h$ is continuous at $x = 2$ because both pieces give the same value at $x = 2$.",
           "is_correct": false,
-          "explanation": "$f(3)=3(3)-5=4$ and $f(0)=0^2-1=-1$, so $f(3)+f(0)=4+(-1)=3$, not $2$."
+          "explanation": "From the left piece at $x = 2$: $2^2 - 3 = 1$. From the right piece at $x = 2$: $2(2) - 1 = 3$. Since $1 \\neq 3$, the two pieces do not agree, so $h$ is not continuous at $x = 2$."
         },
         {
           "id": "B",
-          "text": "$3$",
-          "is_correct": true,
-          "explanation": "Since $3 \\geq 2$, use the second piece: $f(3)=3(3)-5=4$. Since $0<2$, use the first piece: $f(0)=0^2-1=-1$. Thus $f(3)+f(0)=4+(-1)=3$."
+          "text": "$h$ has a jump discontinuity at $x = 2$ because the left-hand limit does not equal $h(2)$.",
+          "is_correct": false,
+          "explanation": "The left-hand limit is $\\lim_{x \\to 2^-}(x^2-3) = 1$ and $h(2) = 2(2)-1 = 3$. Since $1 \\neq 3$, there is a jump discontinuity — but choice D states this more precisely and completely."
         },
         {
           "id": "C",
-          "text": "$5$",
+          "text": "$h$ is continuous at $x = 2$ because $h(2)$ is defined.",
           "is_correct": false,
-          "explanation": "$f(0)=0^2-1=-1$ (using the first piece since $0<2$) and $f(3)=4$, giving a sum of $3$, not $5$."
+          "explanation": "For continuity, $h(2)$ must be defined AND the left-hand limit must equal $h(2)$. $h(2) = 3$ is defined, but $\\lim_{x \\to 2^-}h(x) = 1 \\neq 3$, so $h$ is not continuous at $x = 2$."
         },
         {
           "id": "D",
-          "text": "$-1$",
-          "is_correct": false,
-          "explanation": "$-1=f(0)$ alone. The question asks for $f(3)+f(0)=4+(-1)=3$."
+          "text": "$h$ has a jump discontinuity at $x = 2$ because $\\lim_{x \\to 2^-} h(x) \\neq h(2)$.",
+          "is_correct": true,
+          "explanation": "Left-hand limit: $\\lim_{x \\to 2^-}(x^2 - 3) = 4 - 3 = 1$. Value at $x=2$: $h(2) = 2(2) - 1 = 3$. Since $1 \\neq 3$, the function has a jump discontinuity at $x = 2$."
         }
       ],
-      "unit_objective": "PCF-1.E",
+      "unit_objective": "PCF-1.1.B",
       "calculator_allowed": false
     },
     {
@@ -2634,37 +2634,37 @@
       "subject": "ap-precalculus",
       "difficulty": "hard",
       "stimulus": {
-        "type": "text",
-        "content": "The graph of $f$ passes through the points $(-3, 7)$, $(-1, 2)$, $(0, -4)$, and $(2, 5)$. Let $g(x) = -f(-x)$."
+        "type": "none",
+        "content": null
       },
-      "question": "Which of the following gives all points on the graph of $g$ that correspond to the given points on $f$, and which of the following correctly identifies the combined transformation?",
+      "question": "The function $f$ contains the point $(3, -5)$. The function $g$ is defined by $g(x) = -f(-x)$. Which of the following gives the corresponding point on the graph of $g$?",
       "choices": [
         {
           "id": "A",
-          "text": "$(3, -7)$, $(1, -2)$, $(0, 4)$, $(-2, -5)$; $g$ is a reflection of $f$ over the origin",
+          "text": "$(-3, 5)$",
           "is_correct": true,
-          "explanation": "Step 1: $f(-x)$ reflects over the $y$-axis, mapping $(a,b)\\to(-a,b)$. Step 2: $-f(-x)$ then reflects over the $x$-axis, mapping $(-a,b)\\to(-a,-b)$. Combined: $(a,b)\\to(-a,-b)$, which is reflection over the origin. Applying: $(-3,7)\\to(3,-7)$; $(-1,2)\\to(1,-2)$; $(0,-4)\\to(0,4)$; $(2,5)\\to(-2,-5)$."
+          "explanation": "To find the image of $(3, -5)$ under $g(x) = -f(-x)$: replace $x$ with $-x$ (reflect over $y$-axis): $x$-coordinate becomes $-3$. Then negate the output (reflect over $x$-axis): $y$-coordinate becomes $-(-5) = 5$. The image is $(-3, 5)$."
         },
         {
           "id": "B",
-          "text": "$(3, 7)$, $(1, 2)$, $(0, -4)$, $(-2, 5)$; $g$ is a reflection of $f$ over the $y$-axis",
+          "text": "$(3, 5)$",
           "is_correct": false,
-          "explanation": "Reflection over the $y$-axis gives $f(-x)$, mapping $(a,b)\\to(-a,b)$. But $g(x)=-f(-x)$ also negates the output. The $y$-axis reflection alone gives $(3,7)$, $(1,2)$, $(0,-4)$, $(-2,5)$, ignoring the additional $x$-axis reflection."
+          "explanation": "$(3, 5)$ would result from only negating the $y$-value: $g(x) = -f(x)$. But $g(x) = -f(-x)$ also reflects over the $y$-axis, changing the $x$-coordinate from $3$ to $-3$."
         },
         {
           "id": "C",
-          "text": "$(-3, -7)$, $(-1, -2)$, $(0, 4)$, $(2, -5)$; $g$ is a reflection of $f$ over the $x$-axis",
+          "text": "$(-3, -5)$",
           "is_correct": false,
-          "explanation": "Reflection over the $x$-axis gives $-f(x)$, mapping $(a,b)\\to(a,-b)$. But $g(x)=-f(-x)$ also replaces $x$ with $-x$. The $x$-axis reflection alone gives $(-3,-7)$, $(-1,-2)$, $(0,4)$, $(2,-5)$, ignoring the $y$-axis reflection."
+          "explanation": "$(-3, -5)$ results from only the horizontal reflection: $g(x) = f(-x)$. The outer negative in $-f(-x)$ also reflects vertically, changing $y = -5$ to $y = 5$."
         },
         {
           "id": "D",
-          "text": "$(3, -7)$, $(1, -2)$, $(0, 4)$, $(-2, -5)$; $g$ is a reflection of $f$ over the line $y = x$",
+          "text": "$(3, -5)$",
           "is_correct": false,
-          "explanation": "The point mapping $(a,b)\\to(-a,-b)$ is reflection over the origin, not the line $y=x$. Reflection over $y=x$ would swap coordinates: $(a,b)\\to(b,a)$. The points listed are correct but the transformation name is wrong."
+          "explanation": "$(3, -5)$ is the original point on $f$. Applying $g(x) = -f(-x)$ changes both coordinates: horizontal reflection changes $x=3$ to $x=-3$, and vertical reflection changes $y=-5$ to $y=5$."
         }
       ],
-      "unit_objective": "PCF-1.E",
+      "unit_objective": "PCF-1.12.A",
       "calculator_allowed": false
     },
     {
@@ -3129,70 +3129,109 @@
         "type": "none",
         "content": null
       },
-      "question": "Which of the following gives the solution set of $\\frac{(x+2)(x-4)}{(x-1)} \\leq 0$?",
+      "question": "Which of the following gives all values of $x$ for which $(x-1)(x+3)(x-5) > 0$?",
       "choices": [
         {
           "id": "A",
-          "text": "$x \\leq -2$ or $1 < x \\leq 4$",
+          "text": "$-3 < x < 1$ or $x > 5$",
           "is_correct": true,
-          "explanation": "Critical values: $x=-2, 1, 4$. Sign chart: on $(-\\infty,-2)$: $(-)(-)/(-)=(-)<0$ ✓; at $x=-2$: $0$ ✓ (included); on $(-2,1)$: $(+)(-)/(-)=(+)>0$ ✗; at $x=1$: undefined (excluded); on $(1,4)$: $(+)(-)/(+)=(-)<0$ ✓; at $x=4$: $0$ ✓ (included); on $(4,\\infty)$: $(+)(+)/(+)>0$ ✗. Solution: $(-\\infty,-2]\\cup(1,4]$."
+          "explanation": "The zeros are $x = -3, 1, 5$. Testing intervals: for $x \\in (-3, 1)$, choose $x = 0$: $(0-1)(0+3)(0-5) = (-1)(3)(-5) = 15 > 0$ ✓. For $x \\in (5, \\infty)$, choose $x = 6$: $(5)(9)(1) = 45 > 0$ ✓. The other two intervals give negative products."
         },
         {
           "id": "B",
-          "text": "$-2 \\leq x \\leq 4$",
+          "text": "$x < -3$ or $1 < x < 5$",
           "is_correct": false,
-          "explanation": "Test $x=0$ (in $[-2,4]$): $\\frac{(2)(-4)}{(-1)}=8>0$, not $\\leq0$. The interval $(-2,1)$ does not satisfy the inequality."
+          "explanation": "Testing $x = -4$ (in $x < -3$): $(-5)(-1)(-9) = -45 < 0$. Testing $x = 3$ (in $(1,5)$): $(2)(6)(-2) = -24 < 0$. Both intervals give negative products, so they are not in the solution set."
         },
         {
           "id": "C",
-          "text": "$x \\leq -2$ or $x \\geq 4$",
+          "text": "$x < -3$ or $x > 5$",
           "is_correct": false,
-          "explanation": "Test $x=5$: $\\frac{(7)(1)}{(4)}=\\frac{7}{4}>0$, not $\\leq0$. The interval $(4,\\infty)$ does not satisfy the inequality. Also, the interval $(1,4]$ is missing from this answer."
+          "explanation": "Testing $x = -4$: $(-5)(-1)(-9) = -45 < 0$. The interval $x < -3$ does not satisfy the inequality. Only $(-3, 1)$ and $(5, \\infty)$ give positive products."
         },
         {
           "id": "D",
-          "text": "$-2 \\leq x < 1$ or $x \\geq 4$",
+          "text": "$-3 < x < 5$",
           "is_correct": false,
-          "explanation": "Test $x=0$ in $[-2,1)$: $\\frac{(2)(-4)}{-1}=8>0$, not $\\leq0$. This interval is incorrect. The correct solution excludes $(-2,1)$ and includes $(1,4]$."
+          "explanation": "Testing $x = 3$ (inside $(-3, 5)$): $(2)(6)(-2) = -24 < 0$. Not all of $(-3, 5)$ satisfies the inequality — it is broken into two sub-intervals by the zero at $x = 1$, and only $(-3, 1)$ gives a positive product."
         }
       ],
-      "unit_objective": "PCF-1.A",
+      "unit_objective": "PCF-1.10.A",
       "calculator_allowed": false
     },
     {
       "id": "precalc-u1-q075",
       "unit": "unit-1",
       "subject": "ap-precalculus",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "stimulus": {
         "type": "text",
-        "content": "A rectangular garden is to be enclosed using $120$ meters of fencing. One side of the garden is along a barn wall and requires no fencing. The garden's length (parallel to the barn) is $\\ell$ meters and its width is $w$ meters."
+        "content": "A farmer has $120$ meters of fencing to enclose a rectangular garden. One side of the garden lies along a barn wall and requires no fencing."
       },
-      "question": "Which of the following gives the area $A$ of the garden as a function of $\\ell$ only, and what is the maximum area?",
+      "question": "Which of the following gives the area $A$ of the garden as a function of the length $\\ell$ of the side parallel to the barn?",
       "choices": [
         {
           "id": "A",
-          "text": "$A(\\ell) = \\ell(120 - \\ell)$; maximum area is $3600$ square meters",
-          "is_correct": false,
-          "explanation": "With one side along the barn, only three sides need fencing: $\\ell + 2w = 120$, so $w = \\frac{120-\\ell}{2}$, not $w=120-\\ell$. The correct area is $A(\\ell)=\\ell\\cdot\\frac{120-\\ell}{2}$."
+          "text": "$A(\\ell) = \\ell\\left(\\dfrac{120 - \\ell}{2}\\right)$",
+          "is_correct": true,
+          "explanation": "With one side along the barn, only three sides need fencing: one side of length $\\ell$ and two sides of width $w$. So $\\ell + 2w = 120$, giving $w = \\frac{120 - \\ell}{2}$. Area $= \\ell \\cdot w = \\ell \\cdot \\frac{120-\\ell}{2}$."
         },
         {
           "id": "B",
-          "text": "$A(\\ell) = \\ell \\cdot \\dfrac{120 - \\ell}{2}$; maximum area is $1800$ square meters",
-          "is_correct": true,
-          "explanation": "Constraint: one length $\\ell$ and two widths $w$ use the $120$ m of fencing: $\\ell+2w=120$, so $w=\\frac{120-\\ell}{2}$. Area: $A(\\ell)=\\ell w=\\frac{\\ell(120-\\ell)}{2}=\\frac{120\\ell-\\ell^2}{2}$. This is a downward parabola; vertex at $\\ell=\\frac{120}{2}=60$: $A(60)=\\frac{60\\cdot60}{2}=1800$ square meters."
+          "text": "$A(\\ell) = \\ell(120 - \\ell)$",
+          "is_correct": false,
+          "explanation": "$\\ell(120-\\ell)$ would apply if only two sides needed fencing, i.e. $\\ell + w = 120$. Here three sides require fencing ($\\ell + 2w = 120$), so $w = \\frac{120-\\ell}{2}$."
         },
         {
           "id": "C",
-          "text": "$A(\\ell) = \\ell \\cdot \\dfrac{120 - \\ell}{2}$; maximum area is $3600$ square meters",
+          "text": "$A(\\ell) = \\ell\\left(\\dfrac{120 - 2\\ell}{2}\\right)$",
           "is_correct": false,
-          "explanation": "The formula is correct but the maximum is wrong. At vertex $\\ell=60$: $A(60)=\\frac{60\\cdot60}{2}=\\frac{3600}{2}=1800$ square meters, not $3600$."
+          "explanation": "This incorrectly deducts $2\\ell$ rather than $\\ell$ from the total fencing. The constraint is $\\ell + 2w = 120$, so $2w = 120 - \\ell$ and $w = \\frac{120-\\ell}{2}$, not $\\frac{120-2\\ell}{2}$."
         },
         {
           "id": "D",
-          "text": "$A(\\ell) = \\dfrac{120\\ell - \\ell^2}{4}$; maximum area is $900$ square meters",
+          "text": "$A(\\ell) = \\ell\\left(60 - \\ell\\right)$",
           "is_correct": false,
-          "explanation": "This formula would result if all four sides were fenced ($\\ell+2w=120$ gives $A=\\ell\\cdot\\frac{120-\\ell}{2}$, not $\\frac{120\\ell-\\ell^2}{4}$). With three sides fenced, the correct area function is $A=\\frac{\\ell(120-\\ell)}{2}$."
+          "explanation": "$60 - \\ell$ would come from $2\\ell + 2w = 120$, i.e., a four-sided enclosure. Since one side is the barn wall, only three sides need fencing: $\\ell + 2w = 120$, giving $w = \\frac{120-\\ell}{2}$."
+        }
+      ],
+      "unit_objective": "PCF-1.14.A",
+      "calculator_allowed": false
+    },
+    {
+      "id": "precalc-u1-q075b",
+      "unit": "unit-1",
+      "subject": "ap-precalculus",
+      "difficulty": "hard",
+      "stimulus": {
+        "type": "text",
+        "content": "A farmer encloses a rectangular garden with $120$ meters of fencing along three sides (one side is a barn wall). The area function is $A(\\ell) = \\ell\\left(\\dfrac{120-\\ell}{2}\\right) = -\\dfrac{1}{2}\\ell^2 + 60\\ell$."
+      },
+      "question": "Which of the following gives the maximum area of the garden and the value of $\\ell$ at which it occurs?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Maximum area $= 1800$ m², at $\\ell = 60$ m",
+          "is_correct": true,
+          "explanation": "The vertex of $A(\\ell) = -\\frac{1}{2}\\ell^2 + 60\\ell$ occurs at $\\ell = -\\frac{60}{2(-\\frac{1}{2})} = 60$. Maximum area: $A(60) = -\\frac{1}{2}(3600) + 60(60) = -1800 + 3600 = 1800$ m²."
+        },
+        {
+          "id": "B",
+          "text": "Maximum area $= 3600$ m², at $\\ell = 60$ m",
+          "is_correct": false,
+          "explanation": "$3600$ is $\\ell^2 = 60^2$, not the maximum area. Substituting correctly: $A(60) = -\\frac{1}{2}(3600) + 3600 = -1800 + 3600 = 1800$ m²."
+        },
+        {
+          "id": "C",
+          "text": "Maximum area $= 1800$ m², at $\\ell = 30$ m",
+          "is_correct": false,
+          "explanation": "The vertex is at $\\ell = -b/(2a) = -60/(2 \\cdot (-\\frac{1}{2})) = 60$ m, not $30$ m. $\\ell = 30$ would give $A(30) = -\\frac{1}{2}(900) + 1800 = 1350$ m²."
+        },
+        {
+          "id": "D",
+          "text": "Maximum area $= 900$ m², at $\\ell = 30$ m",
+          "is_correct": false,
+          "explanation": "$A(30) = 30 \\cdot \\frac{120-30}{2} = 30 \\cdot 45 = 1350$ m², not $900$. The vertex occurs at $\\ell = 60$, not $\\ell = 30$."
         }
       ],
       "unit_objective": "PCF-1.14.A",
@@ -3205,33 +3244,33 @@
       "difficulty": "hard",
       "stimulus": {
         "type": "text",
-        "content": "A company manufactures cylindrical cans with a fixed volume of $500\\pi$ cubic centimeters. The cost of material for the top and bottom circles is $\\$0.02$ per square centimeter, and the cost of the lateral (side) surface is $\\$0.01$ per square centimeter. Let $r$ be the radius in centimeters."
+        "content": "A rancher builds two adjacent rectangular pens sharing one common wall. The total amount of fencing available is $300$ feet. Let $x$ be the length of each pen perpendicular to the shared wall."
       },
-      "question": "Which of the following gives the total cost $C(r)$ as a function of $r$ alone?",
+      "question": "Which of the following gives the total enclosed area $A$ as a function of $x$?",
       "choices": [
         {
           "id": "A",
-          "text": "$C(r) = 0.04\\pi r^2 + \\dfrac{10\\pi}{r}$",
-          "is_correct": true,
-          "explanation": "Volume: $\\pi r^2 h=500\\pi \\Rightarrow h=\\frac{500}{r^2}$. Top+bottom area $=2\\pi r^2$; cost $=0.02\\cdot2\\pi r^2=0.04\\pi r^2$. Lateral surface area $=2\\pi r h=2\\pi r\\cdot\\frac{500}{r^2}=\\frac{1000\\pi}{r}$; cost $=0.01\\cdot\\frac{1000\\pi}{r}=\\frac{10\\pi}{r}$. Total: $C(r)=0.04\\pi r^2+\\frac{10\\pi}{r}$."
+          "text": "$A(x) = x \\cdot \\dfrac{300 - 3x}{2}$",
+          "is_correct": false,
+          "explanation": "This gives only one pen's area ($x \\cdot w$), not the total. With constraint $3x + 2w = 300 \\Rightarrow w = \\frac{300-3x}{2}$, the total area of both pens is $2xw = x(300-3x)$, not $xw$."
         },
         {
           "id": "B",
-          "text": "$C(r) = 0.02\\pi r^2 + \\dfrac{10\\pi}{r}$",
-          "is_correct": false,
-          "explanation": "The top and bottom together have area $2\\pi r^2$, so the cost is $0.02\\cdot2\\pi r^2=0.04\\pi r^2$, not $0.02\\pi r^2$. Forgetting to count both circles halves the top/bottom cost."
+          "text": "$A(x) = x(300 - 3x)$",
+          "is_correct": true,
+          "explanation": "Fencing constraint with shared wall: $3x + 2w = 300 \\Rightarrow w = \\frac{300-3x}{2}$. Total area of both pens: $A = 2xw = 2x \\cdot \\frac{300-3x}{2} = x(300-3x)$."
         },
         {
           "id": "C",
-          "text": "$C(r) = 0.04\\pi r^2 + \\dfrac{5\\pi}{r}$",
+          "text": "$A(x) = x(150 - x)$",
           "is_correct": false,
-          "explanation": "The lateral cost: $2\\pi r h=\\frac{1000\\pi}{r}$, and $0.01\\cdot\\frac{1000\\pi}{r}=\\frac{10\\pi}{r}$, not $\\frac{5\\pi}{r}$. The factor $\\frac{5}{r}$ would arise from using radius $r$ instead of the full surface area formula."
+          "explanation": "$x(150-x)$ comes from a two-sided fencing constraint $2x + 2w = 300$, ignoring the shared wall. The shared wall adds a third segment of length $x$, so the correct constraint is $3x + 2w = 300$."
         },
         {
           "id": "D",
-          "text": "$C(r) = 0.04\\pi r^2 + 0.01\\cdot 2\\pi r h$",
+          "text": "$A(x) = x(300 - 2x)$",
           "is_correct": false,
-          "explanation": "This expression still contains $h$. To express $C$ as a function of $r$ alone, substitute $h=\\frac{500}{r^2}$ from the volume constraint, giving $C(r)=0.04\\pi r^2+\\frac{10\\pi}{r}$."
+          "explanation": "$300 - 2x$ would result from a constraint of $2x + w = 300$ (one width, two depths), which does not match the geometry. With a shared wall, there are three $x$-segments: $3x + 2w = 300$."
         }
       ],
       "unit_objective": "PCF-1.14.B",
@@ -3241,36 +3280,75 @@
       "id": "precalc-u1-q077",
       "unit": "unit-1",
       "subject": "ap-precalculus",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "stimulus": {
         "type": "text",
-        "content": "A soccer ball is kicked from ground level with an initial upward velocity. Its height $h$ (in feet) above the ground $t$ seconds after being kicked is modeled by $h(t) = -16t^2 + vt$, where $v$ is the initial velocity in feet per second. The ball reaches its maximum height at $t = 1.5$ seconds."
+        "content": "A ball is launched vertically from ground level. Its height in feet at time $t$ seconds is modeled by $h(t) = -16t^2 + vt$, where $v$ is the initial velocity. The ball reaches its maximum height at $t = 1.5$ seconds."
       },
-      "question": "Which of the following gives the initial velocity $v$, the maximum height of the ball, and the time when the ball lands?",
+      "question": "Which of the following gives the initial velocity $v$?",
       "choices": [
         {
           "id": "A",
-          "text": "$v = 48$ ft/s; maximum height $= 36$ feet; lands at $t = 3$ seconds",
+          "text": "$v = 48$ ft/s",
           "is_correct": true,
-          "explanation": "The vertex of $h(t)=-16t^2+vt$ is at $t=\\frac{v}{32}=1.5$, so $v=48$. Maximum height: $h(1.5)=-16(2.25)+48(1.5)=-36+72=36$ feet. Ball lands when $h(t)=0$: $-16t^2+48t=t(-16t+48)=0$, so $t=0$ (kick) or $t=3$ seconds."
+          "explanation": "The maximum occurs at $t = -b/(2a) = -v/(2 \\cdot (-16)) = v/32$. Setting $v/32 = 1.5$: $v = 48$ ft/s."
         },
         {
           "id": "B",
-          "text": "$v = 48$ ft/s; maximum height $= 36$ feet; lands at $t = 1.5$ seconds",
+          "text": "$v = 24$ ft/s",
           "is_correct": false,
-          "explanation": "$t=1.5$ is when the ball reaches its maximum, not when it lands. By symmetry, the ball lands at $t=3$ seconds (the same time after the maximum as the kick is before it)."
+          "explanation": "If $v = 24$, the vertex would be at $t = 24/32 = 0.75$ s, not $1.5$ s. Setting $v/32 = 1.5$ gives $v = 48$ ft/s."
         },
         {
           "id": "C",
-          "text": "$v = 24$ ft/s; maximum height $= 9$ feet; lands at $t = 1.5$ seconds",
+          "text": "$v = 32$ ft/s",
           "is_correct": false,
-          "explanation": "The vertex is at $t=\\frac{v}{32}=1.5$, giving $v=48$, not $24$. With $v=24$: vertex at $t=0.75\\neq1.5$."
+          "explanation": "If $v = 32$, the vertex is at $t = 32/32 = 1$ s, not $1.5$ s. Use $v = 32 \\times 1.5 = 48$ ft/s."
         },
         {
           "id": "D",
-          "text": "$v = 48$ ft/s; maximum height $= 72$ feet; lands at $t = 3$ seconds",
+          "text": "$v = 96$ ft/s",
           "is_correct": false,
-          "explanation": "Maximum height: $h(1.5)=-16(1.5)^2+48(1.5)=-36+72=36$ feet, not $72$. $72$ is the value of $vt=48(1.5)$ alone, ignoring the $-16t^2$ term."
+          "explanation": "If $v = 96$, the vertex is at $t = 96/32 = 3$ s, not $1.5$ s. The vertex formula gives $v = 32 \\times 1.5 = 48$ ft/s."
+        }
+      ],
+      "unit_objective": "PCF-1.14.A",
+      "calculator_allowed": false
+    },
+    {
+      "id": "precalc-u1-q077b",
+      "unit": "unit-1",
+      "subject": "ap-precalculus",
+      "difficulty": "hard",
+      "stimulus": {
+        "type": "text",
+        "content": "A ball launched vertically from ground level has height $h(t) = -16t^2 + 48t$ feet at time $t$ seconds."
+      },
+      "question": "Which of the following gives the time at which the ball returns to the ground?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "$t = 3$ seconds",
+          "is_correct": true,
+          "explanation": "Set $h(t) = 0$: $-16t^2 + 48t = 0 \\Rightarrow -16t(t - 3) = 0$. Solutions: $t = 0$ (launch) and $t = 3$ (landing)."
+        },
+        {
+          "id": "B",
+          "text": "$t = 1.5$ seconds",
+          "is_correct": false,
+          "explanation": "$t = 1.5$ s is when the ball reaches maximum height (the vertex), not when it lands. The ball returns to the ground at $t = 3$ s."
+        },
+        {
+          "id": "C",
+          "text": "$t = 6$ seconds",
+          "is_correct": false,
+          "explanation": "Checking: $h(6) = -16(36) + 48(6) = -576 + 288 = -288 \\neq 0$. Setting $h(t) = 0$ gives $t(t-3) = 0$, so the landing time is $t = 3$ s."
+        },
+        {
+          "id": "D",
+          "text": "$t = 48$ seconds",
+          "is_correct": false,
+          "explanation": "$t = 48$ is the initial velocity coefficient, not the landing time. Solve $-16t^2 + 48t = 0 \\Rightarrow t(t-3) = 0$, giving $t = 3$ s."
         }
       ],
       "unit_objective": "PCF-1.14.A",
@@ -3324,31 +3402,31 @@
         "type": "none",
         "content": null
       },
-      "question": "A student uses long division to rewrite $f(x) = \\frac{4x^3 + 2x^2 - 5}{x^2 + 3}$ and obtains $f(x) = 4x + 2 + \\frac{-12x - 11}{x^2 + 3}$. Which of the following best evaluates the student's work?",
+      "question": "When $p(x) = 2x^3 - 3x^2 + x - 6$ is divided by $(x - 2)$, which of the following gives the quotient and remainder?",
       "choices": [
         {
           "id": "A",
-          "text": "Correct, because the remainder $-12x - 11$ has degree less than the divisor $x^2 + 3$, which confirms the division is complete",
-          "is_correct": false,
-          "explanation": "While the remainder does have lower degree than the divisor (a necessary condition), this alone does not verify correctness. The division must also be checked by verifying $(4x+2)(x^2+3)+(-12x-11) = 4x^3+2x^2-5$, as shown in choice D."
+          "text": "Quotient: $2x^2 + x + 3$, Remainder: $0$",
+          "is_correct": true,
+          "explanation": "Synthetic division with $c = 2$: coefficients $2, -3, 1, -6$. Bring down $2$. $2 \\times 2 = 4$; $-3+4=1$. $1 \\times 2=2$; $1+2=3$. $3 \\times 2=6$; $-6+6=0$. Result: $2x^2 + x + 3$ remainder $0$."
         },
         {
           "id": "B",
-          "text": "Incorrect; the remainder should be $-12x + 1$",
+          "text": "Quotient: $2x^2 + x + 3$, Remainder: $-6$",
           "is_correct": false,
-          "explanation": "Long division: $4x^3+2x^2-5$ divided by $x^2+3$. Step 1: $4x^3\\div x^2=4x$; $4x(x^2+3)=4x^3+12x$; subtract: $2x^2-12x-5$. Step 2: $2x^2\\div x^2=2$; $2(x^2+3)=2x^2+6$; subtract: $-12x-11$. The remainder is indeed $-12x-11$, not $-12x+1$."
+          "explanation": "The remainder is the final value in synthetic division, not the constant term of $p(x)$. Carrying out the full synthetic division gives remainder $0$, not $-6$."
         },
         {
           "id": "C",
-          "text": "Incorrect; the quotient should be $4x - 2$, not $4x + 2$",
+          "text": "Quotient: $2x^2 - x - 1$, Remainder: $-8$",
           "is_correct": false,
-          "explanation": "After $4x^3\\div x^2=4x$ with subtraction, the next term is $2x^2\\div x^2=+2$. The quotient $4x+2$ is correct."
+          "explanation": "This results from an arithmetic error in synthetic division. The correct second coefficient is $-3 + (2)(2) = -3 + 4 = 1$, not $-3 - 2 = -5$."
         },
         {
           "id": "D",
-          "text": "Correct; the student's long division is valid and can be verified by checking $(4x+2)(x^2+3)+(-12x-11)=4x^3+2x^2-5$",
-          "is_correct": true,
-          "explanation": "Verify: $(4x+2)(x^2+3)=4x^3+12x+2x^2+6$. Add the remainder $-12x-11$: $4x^3+2x^2+(12x-12x)+(6-11)=4x^3+2x^2-5$ ✓. The student's answer is correct."
+          "text": "Quotient: $2x^2 + x$, Remainder: $-4$",
+          "is_correct": false,
+          "explanation": "This omits the final step of synthetic division. After the coefficient $1$, multiply by $2$ to get $2$, then $1 + 2 = 3$, giving a quotient coefficient of $3$ and remainder $0$."
         }
       ],
       "unit_objective": "PCF-1.11.B",
@@ -3358,39 +3436,156 @@
       "id": "precalc-u1-q080",
       "unit": "unit-1",
       "subject": "ap-precalculus",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "stimulus": {
         "type": "none",
         "content": null
       },
-      "question": "Which of the following rewrites $h(x) = \\frac{x^3 + x^2 - 2}{x^2 + 1}$ in the form $ax + b + \\frac{cx + d}{x^2 + 1}$?",
+      "question": "Which of the following is equivalent to $\\dfrac{x^2 - 9}{x + 3}$ for $x \\neq -3$?",
       "choices": [
         {
           "id": "A",
-          "text": "$x + 1 + \\frac{-x - 3}{x^2 + 1}$",
+          "text": "$x - 3$",
           "is_correct": true,
-          "explanation": "Long division: $x^3+x^2-2$ divided by $x^2+1$. $x^3\\div x^2=x$; $x(x^2+1)=x^3+x$; subtract: $x^2-x-2$. $x^2\\div x^2=1$; $1(x^2+1)=x^2+1$; subtract: $-x-3$. So $h(x)=x+1+\\frac{-x-3}{x^2+1}$. Verify: $(x+1)(x^2+1)+(-x-3)=x^3+x+x^2+1-x-3=x^3+x^2-2$ ✓."
+          "explanation": "Factor the numerator: $x^2 - 9 = (x+3)(x-3)$. Then $\\frac{(x+3)(x-3)}{x+3} = x - 3$ for $x \\neq -3$."
         },
         {
           "id": "B",
-          "text": "$x + 1 + \\frac{x + 3}{x^2 + 1}$",
+          "text": "$x + 3$",
           "is_correct": false,
-          "explanation": "Check: $(x+1)(x^2+1)+x+3=x^3+x^2+x+1+x+3=x^3+x^2+2x+4\\neq x^3+x^2-2$. The sign of the remainder is wrong."
+          "explanation": "Canceling $(x+3)$ from numerator and denominator leaves $(x-3)$ in the numerator, not $(x+3)$. The difference of squares is $(x+3)(x-3)$, not $(x+3)^2$."
         },
         {
           "id": "C",
-          "text": "$x - 1 + \\frac{-x - 1}{x^2 + 1}$",
+          "text": "$x - 3 + \\dfrac{9}{x+3}$",
           "is_correct": false,
-          "explanation": "Check: $(x-1)(x^2+1)+(-x-1)=x^3+x-x^2-1-x-1=x^3-x^2-2\\neq x^3+x^2-2$. The quotient's constant term is wrong."
+          "explanation": "This would result from polynomial long division of $x^2$ by $(x+3)$ without factoring. Since $x^2 - 9 = (x+3)(x-3)$ factors exactly, the division is exact: $\\frac{x^2-9}{x+3} = x - 3$ with no remainder."
         },
         {
           "id": "D",
-          "text": "$x + 1 + \\frac{-x - 1}{x^2 + 1}$",
+          "text": "$x$",
           "is_correct": false,
-          "explanation": "Check: $(x+1)(x^2+1)+(-x-1)=x^3+x+x^2+1-x-1=x^3+x^2\\neq x^3+x^2-2$. The remainder should be $-x-3$, not $-x-1$."
+          "explanation": "$\\frac{x^2-9}{x+3} = \\frac{(x+3)(x-3)}{x+3} = x-3$, not $x$. The $-3$ remains after cancellation."
         }
       ],
-      "unit_objective": "PCF-1.11.B",
+      "unit_objective": "PCF-1.11.A",
+      "calculator_allowed": false
+    },
+    {
+      "id": "precalc-u1-q081",
+      "unit": "unit-1",
+      "subject": "ap-precalculus",
+      "difficulty": "easy",
+      "stimulus": {
+        "type": "text",
+        "content": "A ball is thrown upward from the ground and follows a curved path, rising then falling back to the ground."
+      },
+      "question": "Which of the following best describes how the height of the ball changes as the horizontal distance from the starting point increases?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "The height increases, then decreases back to zero.",
+          "is_correct": true,
+          "explanation": "A ball thrown upward rises to a maximum height, then descends. As horizontal distance increases from zero, height increases to a peak and then decreases back to the ground."
+        },
+        {
+          "id": "B",
+          "text": "The height decreases at a constant rate.",
+          "is_correct": false,
+          "explanation": "A constant rate of decrease would describe a straight diagonal path, not a curved trajectory. The ball first rises before it falls."
+        },
+        {
+          "id": "C",
+          "text": "The height increases at a constant rate.",
+          "is_correct": false,
+          "explanation": "A constant rate of increase would produce a straight upward-sloping path. The ball's trajectory is curved — it rises then falls."
+        },
+        {
+          "id": "D",
+          "text": "The height stays constant, then drops suddenly.",
+          "is_correct": false,
+          "explanation": "A constant height followed by a sudden drop would describe a cliff edge, not a thrown ball. The ball follows a smooth curved arc, increasing then decreasing in height."
+        }
+      ],
+      "unit_objective": "PCF-1.1.A",
+      "calculator_allowed": false
+    },
+    {
+      "id": "precalc-u1-q082",
+      "unit": "unit-1",
+      "subject": "ap-precalculus",
+      "difficulty": "easy",
+      "stimulus": {
+        "type": "text",
+        "content": "A table of data shows that the second differences of the output values are constant and nonzero."
+      },
+      "question": "Which of the following function types best models the data?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Quadratic",
+          "is_correct": true,
+          "explanation": "Constant nonzero second differences are the signature of a quadratic function. Linear functions have constant first differences; exponential functions have constant ratios; quadratics have constant second differences."
+        },
+        {
+          "id": "B",
+          "text": "Linear",
+          "is_correct": false,
+          "explanation": "Linear functions have constant first differences. If the first differences were constant (and equal), the function would be linear. Constant second differences indicate a degree-2 (quadratic) relationship."
+        },
+        {
+          "id": "C",
+          "text": "Exponential",
+          "is_correct": false,
+          "explanation": "Exponential functions are identified by constant ratios between consecutive output values, not constant differences. Constant second differences point to a quadratic model."
+        },
+        {
+          "id": "D",
+          "text": "Logarithmic",
+          "is_correct": false,
+          "explanation": "Logarithmic functions grow increasingly slowly; their differences decrease rather than remaining constant. Constant second differences are characteristic of quadratic functions."
+        }
+      ],
+      "unit_objective": "PCF-1.13.A",
+      "calculator_allowed": false
+    },
+    {
+      "id": "precalc-u1-q083",
+      "unit": "unit-1",
+      "subject": "ap-precalculus",
+      "difficulty": "medium",
+      "stimulus": {
+        "type": "text",
+        "content": "Two data sets are described below:\n- Data Set P: Each time $x$ increases by $1$, the output increases by $5$.\n- Data Set Q: Each time $x$ increases by $1$, the output is multiplied by $5$."
+      },
+      "question": "Which of the following best identifies the appropriate model for each data set?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Data Set P is linear; Data Set Q is exponential.",
+          "is_correct": true,
+          "explanation": "Constant additive change (output increases by $5$ each step) defines a linear function. Constant multiplicative change (output multiplied by $5$ each step) defines an exponential function."
+        },
+        {
+          "id": "B",
+          "text": "Data Set P is exponential; Data Set Q is linear.",
+          "is_correct": false,
+          "explanation": "These are reversed. Exponential functions have constant multiplicative change (Data Set Q); linear functions have constant additive change (Data Set P)."
+        },
+        {
+          "id": "C",
+          "text": "Both data sets are linear.",
+          "is_correct": false,
+          "explanation": "Data Set Q has a constant multiplicative ratio of $5$, which is the defining property of an exponential function, not a linear one."
+        },
+        {
+          "id": "D",
+          "text": "Both data sets are exponential.",
+          "is_correct": false,
+          "explanation": "Data Set P has a constant additive difference of $5$, which defines a linear function. Only Data Set Q, with its constant multiplicative ratio, is exponential."
+        }
+      ],
+      "unit_objective": "PCF-1.13.B",
       "calculator_allowed": false
     }
   ]
