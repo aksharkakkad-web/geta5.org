@@ -17,4 +17,5 @@ export const AP_TEST_CONFIG: Record<string, TestConfig> = {
   'ap-precalculus':   { questionCount: 40,  durationMinutes: 120, frqDurationMinutes: 60,  frqCount: 4 },
   'ap-csp':           { questionCount: 70,  durationMinutes: 120 },
   'ap-chemistry':     { questionCount: 60,  durationMinutes: 90,  frqDurationMinutes: 105, frqCount: 7 },
+  'ap-calculus-bc':   { questionCount: 45,  durationMinutes: 105, frqDurationMinutes: 90,  frqCount: 6 },
 }
