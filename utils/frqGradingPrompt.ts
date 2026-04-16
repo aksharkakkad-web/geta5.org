@@ -58,6 +58,66 @@ GENERAL NOTES:
 - "Describe" = provide relevant characteristics (more than mentioning a term)
 - "Explain" = provide info about how or why a relationship exists
 - "Identify" = indicate or provide info without elaboration`,
+
+  'ap-calculus-ab': `## AP Calculus AB FRQ General Scoring Notes (from CED)
+6 FRQs: 2 calculator-active, 4 no-calculator. Each 9 points across 2–4 parts.
+
+GENERAL SCORING CONVENTIONS:
+- Each point is earned independently — no deductions for wrong work elsewhere
+- Must SHOW WORK: a correct answer with no supporting work earns 0 on "show work" points
+- +C requirement: any antiderivative/indefinite integral that omits +C loses 1 point (once per question, not per part)
+- UNITS: if the problem specifies units and the answer requires them, missing/wrong units loses 1 point (once per question)
+- Decimal precision: final answers must be accurate to 3+ decimal places unless stated otherwise
+- Sign analysis: for increasing/decreasing or concavity arguments, must explicitly state the sign of the derivative, not just "it's positive"
+- Equivalent expressions earn full credit (e.g., 1-cos(x) = -cos(x)+1)
+- Alternative valid methods earn full credit if mathematically sound and reach the correct answer
+- Simplification is NOT required unless the problem says "simplify"
+- Limit notation: must use proper limit notation, not just "plug in" or "as x approaches"`,
+
+  'ap-calculus-bc': `## AP Calculus BC FRQ General Scoring Notes (from CED)
+6 FRQs: 2 calculator-active, 4 no-calculator. Each 9 points across 2–4 parts.
+BC includes all AB content plus series, parametric/polar, and advanced integration.
+
+GENERAL SCORING CONVENTIONS:
+- All AP Calculus AB scoring conventions apply (show work, +C, units, decimal precision, sign analysis, equivalent expressions)
+- Series convergence: must name the test used AND show all conditions are met — "by the ratio test it converges" alone is insufficient
+- Interval of convergence: must check endpoints separately and state the interval with correct brackets/parentheses
+- Parametric/polar: must show the setup (integral bounds, integrand) not just the answer
+- Integration by parts / partial fractions: show the decomposition or u/dv choices, not just the final antiderivative
+- Taylor/Maclaurin: if asked for "first n terms," provide exactly n nonzero terms
+- Euler's method: must show the iterative steps, not just the final approximation
+- Lagrange error bound: must state and apply the bound formula with correct (n+1)th derivative bound`,
+
+  'ap-precalculus': `## AP Precalculus FRQ General Scoring Notes (from CED)
+4 FRQs across 2 sections. Questions 1-2 require graphing calculator; Questions 3-4 do not.
+
+GENERAL SCORING CONVENTIONS:
+- Each point is earned independently
+- Must SHOW WORK: correct answers without supporting reasoning earn 0 on "justify" or "show work" points
+- EXACT VALUES required on no-calculator questions — decimal approximations earn 0 unless the problem says "approximate"
+- Calculator questions: round to 3+ decimal places unless stated otherwise
+- Function notation must be used correctly — f(x) not just "the function"
+- Transformations: must describe both the type and direction (e.g., "horizontal shift left 3" not just "shift")
+- Domain restrictions: must state in interval or inequality notation, not just words
+- End behavior: must reference the function values approaching a limit, not just "goes up" or "goes down"
+- Inverse functions: verify domain/range swap is stated when required
+- Logarithmic/exponential equivalence: either form accepted if mathematically correct`,
+
+  'ap-chemistry': `## AP Chemistry FRQ General Scoring Notes (from CED)
+7 FRQs. Questions 1-3 are long (multi-part), Questions 4-7 are short. No calculator restrictions.
+
+GENERAL SCORING CONVENTIONS:
+- Each point is earned independently
+- Significant figures: answers must use correct sig figs based on given data. Wrong sig figs on a calculation loses 1 point (once per question, not per part)
+- UNITS: must include correct units on final numerical answers. Missing/wrong units loses 1 point (once per question)
+- Balanced equations: coefficients must be lowest whole-number ratios. Fractional coefficients earn 0 unless the problem specifies otherwise
+- Particulate diagrams: must show correct relative numbers AND types of particles
+- Equilibrium expressions: products over reactants, pure solids/liquids omitted
+- Thermodynamics sign conventions: exothermic = negative ΔH, endothermic = positive ΔH — reversed signs earn 0
+- "Justify" or "Explain" requires connecting the claim to specific chemical principles — restating the claim is insufficient
+- Accept reasonable equivalent chemical terminology (e.g., "dissociate" = "ionize" for strong acids in water)
+- Electron configurations: accept noble gas shorthand or full notation
+- Lewis structures: must show all lone pairs and formal charges if nonzero`,
 }
 
 // ─── Output Schema ────────────────────────────────────────────────────────────
