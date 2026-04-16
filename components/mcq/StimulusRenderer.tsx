@@ -9,11 +9,12 @@ import {
   LineElement,
   PointElement,
   ArcElement,
+  ScatterController,
   Title,
   Tooltip,
   Legend,
 } from 'chart.js'
-import { Bar, Line, Doughnut, Pie } from 'react-chartjs-2'
+import { Bar, Line, Doughnut, Pie, Scatter } from 'react-chartjs-2'
 import KatexRenderer from '@/components/KatexRenderer'
 
 // Register Chart.js components at module level (not inside component)
@@ -24,6 +25,7 @@ ChartJS.register(
   LineElement,
   PointElement,
   ArcElement,
+  ScatterController,
   Title,
   Tooltip,
   Legend
@@ -36,6 +38,15 @@ interface StimulusRendererProps {
     type: 'text' | 'table' | 'chart' | 'code' | 'none'
     content?: string | { headers: string[]; rows: string[][] } | Record<string, unknown> | null
   }
+}
+
+/** Shape of a single dataset in a polar stimulus JSON block. */
+interface PolarDataset {
+  label?: string
+  rValues: number[]
+  thetaValues: number[]
+  borderColor?: string
+  backgroundColor?: string
 }
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -212,6 +223,133 @@ export default function StimulusRenderer({ stimulus }: StimulusRendererProps) {
     const rawConfig = stimulus.content as Record<string, unknown>
     const themedConfig = applyDarkTheme(rawConfig)
     const chartType = rawConfig.type as string
+
+    // For line charts, use Fritsch-Carlson monotone cubic interpolation.
+    // This produces smooth curves through all data points without overshoot —
+    // correct for parabolas, cubics, sine waves, and other AP math functions.
+    // `tension` is intentionally omitted: it is ignored whenever cubicInterpolationMode
+    // is 'monotone' (they are mutually exclusive algorithms in Chart.js).
+    // Spread order: defaults first, dataset props second — so explicit per-dataset
+    // overrides in content JSON still win.
+    if (chartType === 'line') {
+      const chartData = themedConfig.data as { datasets?: Record<string, unknown>[] }
+      if (chartData?.datasets) {
+        chartData.datasets = chartData.datasets.map((ds) => ({
+          cubicInterpolationMode: 'monotone',
+          ...ds,
+        }))
+      }
+    }
+
+    // ── Polar coordinate branch ────────────────────────────────────────────────
+    // Converts (r, θ) pairs → Cartesian (x, y) and renders as a Scatter chart.
+    // Equal axis range keeps circles circular rather than elliptical.
+    if (chartType === 'polar') {
+      const polarData = rawConfig.data as { datasets: PolarDataset[] }
+      const titleText = (rawConfig.options as Record<string, unknown> | undefined)
+        ?.title as string | undefined
+
+      // Convert each polar dataset to Cartesian {x, y} points and find maxR.
+      let maxR = 0
+      const cartesianDatasets = (polarData?.datasets ?? []).map((ds) => {
+        const points = (ds.rValues ?? []).map((r, i) => {
+          const theta = ds.thetaValues?.[i] ?? 0
+          if (r > maxR) maxR = r
+          return { x: r * Math.cos(theta), y: r * Math.sin(theta) }
+        })
+        return {
+          label: ds.label ?? '',
+          data: points,
+          showLine: true,
+          borderColor: ds.borderColor ?? '#6366f1',
+          backgroundColor: ds.backgroundColor ?? 'transparent',
+          pointRadius: 0,
+          borderWidth: 2,
+          tension: 0,
+        }
+      })
+
+      // Crosshair lines — two invisible-label datasets through the origin.
+      const axisRange = maxR * 1.1
+      const crosshairColor = 'rgba(100,100,100,0.3)'
+      const horizontalLine = {
+        label: '',
+        data: [{ x: -axisRange, y: 0 }, { x: axisRange, y: 0 }],
+        showLine: true,
+        borderColor: crosshairColor,
+        backgroundColor: 'transparent',
+        pointRadius: 0,
+        borderWidth: 1,
+        tension: 0,
+      }
+      const verticalLine = {
+        label: '',
+        data: [{ x: 0, y: -axisRange }, { x: 0, y: axisRange }],
+        showLine: true,
+        borderColor: crosshairColor,
+        backgroundColor: 'transparent',
+        pointRadius: 0,
+        borderWidth: 1,
+        tension: 0,
+      }
+
+      const polarScatterData = {
+        datasets: [...cartesianDatasets, horizontalLine, verticalLine],
+      }
+
+      const polarOptions = {
+        responsive: true,
+        maintainAspectRatio: true,
+        animation: false as const,
+        plugins: {
+          legend: {
+            // Only show the actual curve labels — hide crosshair pseudo-datasets.
+            labels: {
+              color: '#a1a1a1',
+              filter: (item: { text: string }) => item.text !== '',
+            },
+          },
+          tooltip: { enabled: false },
+          ...(titleText
+            ? {
+                title: {
+                  display: true,
+                  text: titleText,
+                  color: '#f5f5f5',
+                  font: { size: 13 },
+                },
+              }
+            : {}),
+        },
+        scales: {
+          x: {
+            type: 'linear' as const,
+            min: -axisRange,
+            max: axisRange,
+            grid: { color: '#222222' },
+            ticks: {
+              // Hide numeric axis labels — only the curve shape matters for polar plots.
+              display: false,
+            },
+          },
+          y: {
+            type: 'linear' as const,
+            min: -axisRange,
+            max: axisRange,
+            grid: { color: '#222222' },
+            ticks: { display: false },
+          },
+        },
+      }
+
+      return (
+        <div style={{ maxWidth: 400, margin: '0 auto', padding: '16px 0' }}>
+          <Scatter data={polarScatterData} options={polarOptions} />
+        </div>
+      )
+    }
+    // ── End polar branch ───────────────────────────────────────────────────────
+
     const data = themedConfig.data as Parameters<typeof Bar>[0]['data']
     const options = themedConfig.options as Parameters<typeof Bar>[0]['options']
 
