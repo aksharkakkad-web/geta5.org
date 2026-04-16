@@ -5,7 +5,10 @@
   "source": "generated",
   "title": "Polynomial Modeling: Covariation, Finite Differences & Concentration Analysis",
   "frq_type": "multi_part_math",
-  "related_units": [1, 2],
+  "related_units": [
+    1,
+    2
+  ],
   "calculator_allowed": true,
   "total_points": 6,
   "stimulus": "After a patient takes a medication, the concentration of the drug in the bloodstream (in micrograms per milliliter) can be modeled by a polynomial function $C$ for $0 \\leq t \\leq 9$, where $t$ is time in hours after taking the medication. Selected values of $C(t)$ are given in the table below.\n\n| $t$ (hours) | $0$ | $1$ | $2$ | $3$ | $4$ | $5$ |\n|---|---|---|---|---|---|---|\n| $C(t)$ ($\\mu$g/mL) | $0.5$ | $3.5$ | $12.5$ | $25.1$ | $38.9$ | $51.5$ |",
@@ -16,37 +19,121 @@
       "letter": "a",
       "prompt": "(i) Compute the average rates of change of $C$ over the intervals $[0, 1]$, $[1, 2]$, $[2, 3]$, and $[3, 4]$. Show the computations that lead to your answer.\n\n(ii) Based on the first differences (average rates of change over unit intervals) computed in part (i), determine whether the function $C$ is better modeled by a linear function or a higher-degree polynomial on the interval $0 \\leq t \\leq 4$. Justify your answer by referring to what the first differences would look like if $C$ were linear.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: All four average rates of change correct — $\\frac{C(1)-C(0)}{1} = \\frac{3.5-0.5}{1} = 3.0$; $\\frac{C(2)-C(1)}{1} = \\frac{12.5-3.5}{1} = 9.0$; $\\frac{C(3)-C(2)}{1} = \\frac{25.1-12.5}{1} = 12.6$; $\\frac{C(4)-C(3)}{1} = \\frac{38.9-25.1}{1} = 13.8$; all four values $3.0$, $9.0$, $12.6$, $13.8$ must be present (accept $\\pm 0.05$ rounding)",
-        "1 pt: Correct conclusion with justification — the first differences $3.0, 9.0, 12.6, 13.8$ are not constant, so $C$ is not linear (a linear function would have constant first differences); the varying first differences indicate a higher-degree polynomial; the justification must explicitly state that linear functions have constant first differences and compare this to the data"
-      ],
       "scoring_notes": "For part (i), all four differences are over unit-length intervals, so average rate equals the simple difference. The values $C(0)=0.5$, $C(1)=3.5$, $C(2)=12.5$, $C(3)=25.1$, $C(4)=38.9$ give differences $3.0, 9.0, 12.6, 13.8$. For part (ii), if the function were linear, all first differences would be equal (constant). The first differences here are $3.0, 9.0, 12.6, 13.8$ — clearly not constant, so the model is not linear. A higher-degree polynomial (or non-linear model) is appropriate. A response that computes the differences correctly but does not explain what constant first differences indicate does not earn the second point.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "All four average rates of change correct — $\\frac{C(1)-C(0)}{1} = \\frac{3.5-0.5}{1} = 3.0$; $\\frac{C(2)-C(1)}{1} = \\frac{12.5-3.5}{1} = 9.0$; $\\frac{C(3)-C(2)}{1} = \\frac{25.1-12.5}{1} = 12.6$; $\\frac{C(4)-C(3)}{1} = \\frac{38.9-25.1}{1} = 13.8$; all four values $3.0$, $9.0$, $12.6$, $13.8$ must be present (accept $\\pm 0.05$ rounding)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "All four average rates of change correct — $\\frac{C(1)-C(0)}{1} = \\frac{3.5-0.5}{1} = 3.0$; $\\frac{C(2)-C(1)}{1} = \\frac{12.5-3.5}{1} = 9.0$; $\\frac{C(3)-C(2)}{1} = \\frac{25.1-12.5}{1} = 12.6$; $\\frac{C(4)-C(3)}{1} = \\frac{38.9-25.1}{1} = 13.8$; all four values $3.0$, $9.0$, $12.6$, $13.8$ must be present (accept $\\pm 0.05$ rounding)"
+              ],
+              "correct_example": "All four average rates of change correct — $\\frac{C(1)-C(0)}{1} = \\frac{3.5-0.5}{1} = 3.0$; $\\frac{C(2)-C(1)}{1} = \\frac{12.5-3.5}{1} = 9.0$; $\\frac{C(3)-C(2)}{1} = \\frac{25.1-12.5}{1} = 12.6$; $\\frac{C(4)-C(3)}{1} = \\frac{38.9-25.1}{1} = 13.8$; all four values $3.0$, $9.0$, $12.6$, $13.8$ must be present (accept $\\pm 0.05$ rounding)"
+            }
+          ],
+          "wrong_examples": [],
+          "common_traps": []
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Correct conclusion with justification — the first differences $3.0, 9.0, 12.6, 13.8$ are not constant, so $C$ is not linear (a linear function would have constant first differences); the varying first differences indicate a higher-degree polynomial; the justification must explicitly state that linear functions have constant first differences and compare this to the data",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct conclusion with justification — the first differences $3.0, 9.0, 12.6, 13.8$ are not constant, so $C$ is not linear (a linear function would have constant first differences); the varying first differences indicate a higher-degree polynomial; the justification must explicitly state that linear functions have constant first differences and compare this to the data"
+              ],
+              "correct_example": "Correct conclusion with justification — the first differences $3.0, 9.0, 12.6, 13.8$ are not constant, so $C$ is not linear (a linear function would have constant first differences); the varying first differences indicate a higher-degree polynomial; the justification must explicitly state that linear functions have constant first differences and compare this to the data"
+            }
+          ],
+          "wrong_examples": [],
+          "common_traps": []
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "(i) Compute the second differences of $C$ (the differences of consecutive first differences from part (a)). Based on the second differences, determine whether a quadratic polynomial is an appropriate model for $C$ on $0 \\leq t \\leq 4$. Justify your answer.\n\n(ii) Find the average rate of change of $C$ from $t = 1$ to $t = 5$ hours. Express your answer with appropriate units, and describe in context what this value represents about the drug concentration.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct second differences and conclusion — second differences: $9.0 - 3.0 = 6.0$; $12.6 - 9.0 = 3.6$; $13.8 - 12.6 = 1.2$; the second differences $6.0, 3.6, 1.2$ are not constant; conclusion: a quadratic model is not appropriate because a quadratic function would produce constant second differences; the data suggest a cubic or higher-degree polynomial",
-        "1 pt: Correct average rate of change — $\\frac{C(5) - C(1)}{5 - 1} = \\frac{51.5 - 3.5}{4} = \\frac{48.0}{4} = 12.0$ micrograms per milliliter per hour; contextual description must state (a) the concentration is increasing on average, (b) at a rate of $12.0$ $\\mu$g/mL per hour, and (c) over the time interval from $1$ to $5$ hours after taking the medication; all three components required"
-      ],
       "scoring_notes": "For part (i), the three second differences are $6.0, 3.6, 1.2$. These are not constant, ruling out a quadratic model. A quadratic would have constant second differences. For part (ii), $C(1) = 3.5$ and $C(5) = 51.5$ are given in the table. The exact average rate is $48.0/4 = 12.0$ $\\mu$g/mL/hr. The contextual description requires all three components: direction (increasing), rate (12.0), and time interval (1 to 5 hours). Units are required for full credit.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Correct second differences and conclusion — second differences: $9.0 - 3.0 = 6.0$; $12.6 - 9.0 = 3.6$; $13.8 - 12.6 = 1.2$; the second differences $6.0, 3.6, 1.2$ are not constant; conclusion: a quadratic model is not appropriate because a quadratic function would produce constant second differences; the data suggest a cubic or higher-degree polynomial",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct second differences and conclusion — second differences: $9.0 - 3.0 = 6.0$; $12.6 - 9.0 = 3.6$; $13.8 - 12.6 = 1.2$; the second differences $6.0, 3.6, 1.2$ are not constant; conclusion: a quadratic model is not appropriate because a quadratic function would produce constant second differences; the data suggest a cubic or higher-degree polynomial"
+              ],
+              "correct_example": "Correct second differences and conclusion — second differences: $9.0 - 3.0 = 6.0$; $12.6 - 9.0 = 3.6$; $13.8 - 12.6 = 1.2$; the second differences $6.0, 3.6, 1.2$ are not constant; conclusion: a quadratic model is not appropriate because a quadratic function would produce constant second differences; the data suggest a cubic or higher-degree polynomial"
+            }
+          ],
+          "wrong_examples": [],
+          "common_traps": []
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Correct average rate of change — $\\frac{C(5) - C(1)}{5 - 1} = \\frac{51.5 - 3.5}{4} = \\frac{48.0}{4} = 12.0$ micrograms per milliliter per hour; contextual description must state (a) the concentration is increasing on average, (b) at a rate of $12.0$ $\\mu$g/mL per hour, and (c) over the time interval from $1$ to $5$ hours after taking the medication; all three components required",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct average rate of change — $\\frac{C(5) - C(1)}{5 - 1} = \\frac{51.5 - 3.5}{4} = \\frac{48.0}{4} = 12.0$ micrograms per milliliter per hour; contextual description must state (a) the concentration is increasing on average, (b) at a rate of $12.0$ $\\mu$g/mL per hour, and (c) over the time interval from $1$ to $5$ hours after taking the medication; all three components required"
+              ],
+              "correct_example": "Correct average rate of change — $\\frac{C(5) - C(1)}{5 - 1} = \\frac{51.5 - 3.5}{4} = \\frac{48.0}{4} = 12.0$ micrograms per milliliter per hour; contextual description must state (a) the concentration is increasing on average, (b) at a rate of $12.0$ $\\mu$g/mL per hour, and (c) over the time interval from $1$ to $5$ hours after taking the medication; all three components required"
+            }
+          ],
+          "wrong_examples": [],
+          "common_traps": []
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "A doctor determines the medication is effective only when the concentration exceeds $20$ micrograms per milliliter. The complete model is given by $C(t) = -0.4t^3 + 4.2t^2 - 0.8t + 0.5$ for $0 \\leq t \\leq 9$.\n\n(i) Use technology to find all times $t$ in $0 \\leq t \\leq 9$ at which $C(t) = 20$. Express the values as decimal approximations to the nearest hundredth.\n\n(ii) State the time interval(s) during which the medication is effective. Then find the value of $C(9)$ and interpret its meaning in the context of this problem.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct times — solving $-0.4t^3 + 4.2t^2 - 0.8t + 0.5 = 20$, i.e., $-0.4t^3 + 4.2t^2 - 0.8t - 19.5 = 0$; using technology, the relevant root in $[0, 9]$ is $t \\approx 2.62$ (accept values in $[2.58, 2.66]$); $C(9) \\approx 41.9 > 20$ so the concentration stays above 20 through $t = 9$",
-        "1 pt: Correct effective interval stated as approximately $[2.62, 9]$ (or equivalent using the student's $t$-value from part (i)); AND correct value $C(9) \\approx 41.9$ micrograms per milliliter with interpretation that the concentration is still above the effective threshold at the end of the modeled period"
-      ],
       "scoring_notes": "For part (i), $C(9) = -0.4(729) + 4.2(81) - 0.8(9) + 0.5 = -291.6 + 340.2 - 7.2 + 0.5 = 41.9 > 20$. There is only one crossing in $[0, 9]$ near $t \\approx 2.62$. For part (ii), the effective interval is approximately $[2.62, 9]$. $C(9) \\approx 41.9$ means the medication remains effective at the end of the modeled period. The contextual interpretation must reference the $20$ $\\mu$g/mL threshold.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Correct times — solving $-0.4t^3 + 4.2t^2 - 0.8t + 0.5 = 20$, i.e., $-0.4t^3 + 4.2t^2 - 0.8t - 19.5 = 0$; using technology, the relevant root in $[0, 9]$ is $t \\approx 2.62$ (accept values in $[2.58, 2.66]$); $C(9) \\approx 41.9 > 20$ so the concentration stays above 20 through $t = 9$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct times — solving $-0.4t^3 + 4.2t^2 - 0.8t + 0.5 = 20$, i.e., $-0.4t^3 + 4.2t^2 - 0.8t - 19.5 = 0$; using technology, the relevant root in $[0, 9]$ is $t \\approx 2.62$ (accept values in $[2.58, 2.66]$); $C(9) \\approx 41.9 > 20$ so the concentration stays above 20 through $t = 9$"
+              ],
+              "correct_example": "Correct times — solving $-0.4t^3 + 4.2t^2 - 0.8t + 0.5 = 20$, i.e., $-0.4t^3 + 4.2t^2 - 0.8t - 19.5 = 0$; using technology, the relevant root in $[0, 9]$ is $t \\approx 2.62$ (accept values in $[2.58, 2.66]$); $C(9) \\approx 41.9 > 20$ so the concentration stays above 20 through $t = 9$"
+            }
+          ],
+          "wrong_examples": [],
+          "common_traps": []
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Correct effective interval stated as approximately $[2.62, 9]$ (or equivalent using the student's $t$-value from part (i)); AND correct value $C(9) \\approx 41.9$ micrograms per milliliter with interpretation that the concentration is still above the effective threshold at the end of the modeled period",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct effective interval stated as approximately $[2.62, 9]$ (or equivalent using the student's $t$-value from part (i)); AND correct value $C(9) \\approx 41.9$ micrograms per milliliter with interpretation that the concentration is still above the effective threshold at the end of the modeled period"
+              ],
+              "correct_example": "Correct effective interval stated as approximately $[2.62, 9]$ (or equivalent using the student's $t$-value from part (i)); AND correct value $C(9) \\approx 41.9$ micrograms per milliliter with interpretation that the concentration is still above the effective threshold at the end of the modeled period"
+            }
+          ],
+          "wrong_examples": [],
+          "common_traps": []
+        }
+      ]
     }
   ]
 }

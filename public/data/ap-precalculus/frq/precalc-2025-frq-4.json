@@ -5,7 +5,10 @@
   "source": "released",
   "title": "Symbolic Manipulations: Logarithms, Trig Identities & Exponential Equations",
   "frq_type": "multi_part_math",
-  "related_units": [2, 3],
+  "related_units": [
+    2,
+    3
+  ],
   "calculator_allowed": false,
   "total_points": 6,
   "stimulus": "Directions: Unless otherwise specified, the domain of a function $f$ is assumed to be the set of all real numbers $x$ for which $f(x)$ is a real number. Angle measures for trigonometric functions are assumed to be in radians. Solutions to equations must be real numbers — determine the exact value of any expression obtainable without a calculator. Unless otherwise specified, combine terms using algebraic methods and rules for exponents and logarithms. Show the work that leads to your answers.",
@@ -16,37 +19,113 @@
       "letter": "a",
       "prompt": "The functions $g$ and $h$ are given by:\n$$g(x) = 2\\log_3 x$$\n$$h(x) = 4\\cos^2 x$$\n\n(i) Solve $g(x) = 4$ for values of $x$ in the domain of $g$.\n\n(ii) Solve $h(x) = 3$ for values of $x$ in the interval $\\left(0, \\frac{\\pi}{2}\\right)$.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: $x = 9$; supporting work required: $2\\log_3 x = 4 \\Rightarrow \\log_3 x = 2 \\Rightarrow x = 3^2 = 9$",
-        "1 pt: $x = \\frac{\\pi}{6}$; supporting work must include $\\cos^2 x = \\frac{3}{4} \\Rightarrow \\cos x = \\pm\\frac{\\sqrt{3}}{2}$, and since $x \\in \\left(0, \\frac{\\pi}{2}\\right)$, $\\cos x = \\frac{\\sqrt{3}}{2}$, so $x = \\frac{\\pi}{6}$"
-      ],
       "scoring_notes": "Supporting work is required for both (i) and (ii). Answers not evaluated to simplest form do not earn the point. The use of \"$x =$\" is not required. A logarithmic expression that adds parentheses around the argument is eligible for (i). A response that includes correct values of $x$ outside $\\left(0, \\frac{\\pi}{2}\\right)$ (e.g., $x = \\frac{5\\pi}{6}$, $x = \\frac{7\\pi}{6}$, $x = \\frac{11\\pi}{6}$) is still eligible for the second point. The use of $\\pm$ is not required in supporting work. Partial credit (1 for A1, 0 for A2) if one criterion from each partial credit column is met.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "$x = 9$; supporting work required: $2\\log_3 x = 4 \\Rightarrow \\log_3 x = 2 \\Rightarrow x = 3^2 = 9$",
+          "alternatives": [
+            {
+              "required_elements": ["$\\log_3 x = 2$", "$x = 9$"],
+              "correct_example": "$2\\log_3 x = 4 \\Rightarrow \\log_3 x = 2 \\Rightarrow x = 3^2 = 9$"
+            }
+          ],
+          "wrong_examples": ["$x = 3^4 = 81$ (error: did not first divide both sides by 2)", "$x = 32$ (applied exponent incorrectly as $x = 3^2$... same as correct, so this is an unevaluated form — does not earn point per Directions bullet)"],
+          "common_traps": ["Supporting work is required — answer alone without work does not earn the point", "Answers not fully evaluated per the Directions do not earn the point (e.g., leaving answer as $x = 3^2$ without simplifying to $9$)"]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "$x = \\frac{\\pi}{6}$; supporting work must include $\\cos^2 x = \\frac{3}{4} \\Rightarrow \\cos x = \\pm\\frac{\\sqrt{3}}{2}$, and since $x \\in \\left(0, \\frac{\\pi}{2}\\right)$, $\\cos x = \\frac{\\sqrt{3}}{2}$, so $x = \\frac{\\pi}{6}$",
+          "alternatives": [
+            {
+              "required_elements": ["$\\cos^2 x = \\frac{3}{4}$", "$\\cos x = \\frac{\\sqrt{3}}{2}$", "$x = \\frac{\\pi}{6}$"],
+              "correct_example": "$4\\cos^2 x = 3 \\Rightarrow \\cos^2 x = \\frac{3}{4} \\Rightarrow \\cos x = \\pm\\frac{\\sqrt{3}}{2}$; since $x \\in (0, \\frac{\\pi}{2})$, $\\cos x > 0$, so $\\cos x = \\frac{\\sqrt{3}}{2}$ and $x = \\frac{\\pi}{6}$"
+            }
+          ],
+          "wrong_examples": ["$x = \\frac{\\pi}{6}$ and $x = \\frac{5\\pi}{6}$ (including values outside the interval — still eligible since adding correct extra values outside the interval is permitted)", "$x = \\arccos\\left(\\frac{\\sqrt{3}}{2}\\right)$ without evaluating (unevaluated form — does not earn point per Directions)"],
+          "common_traps": ["Supporting work is required", "Including correct values outside $(0, \\frac{\\pi}{2})$ does not disqualify the answer — only incorrect values do", "The use of $\\pm$ is not required in supporting work"]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "The functions $j$ and $k$ are given by:\n$$j(x) = \\log_2 x + 3\\log_2 2$$\n$$k(x) = \\frac{6}{\\tan x (\\csc^2 x - 1)}$$\n\n(i) Rewrite $j(x)$ as a single logarithm base 2 without negative exponents in any part of the expression. Your result should be of the form $\\log_2(\\text{expression})$.\n\n(ii) Rewrite $k(x)$ as an expression in which $\\tan x$ appears exactly once and no other trigonometric functions are involved.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: $j(x) = \\log_2(8x)$ for $x > 0$; supporting work (or correct expression without incorrect work): $\\log_2 x + 3\\log_2 2 = \\log_2 x + \\log_2 2^3 = \\log_2(x \\cdot 8) = \\log_2(8x)$",
-        "1 pt: $k(x) = 6\\tan x$; supporting work required: $\\csc^2 x - 1 = \\cot^2 x$, so $k(x) = \\frac{6}{\\tan x \\cdot \\cot^2 x} = \\frac{6}{\\cot x} = 6\\tan x$"
-      ],
       "scoring_notes": "For (i), correct expression without supporting work earns the point provided no incorrect work is included. For (ii), supporting work is required. Domain restrictions are not required and not scored. A logarithmic expression missing parentheses around its argument is still eligible for (i). If a complex fraction is presented, parentheses and fraction bars must be unambiguous. Partial credit (1 for B1, 0 for B2) available if one criterion from each column is met — e.g., $j(x)$ reported as $\\log_2 x + 3$ with no incorrect work, or $k(x)$ includes a correct Pythagorean identity application with no incorrect work.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "$j(x) = \\log_2(8x)$ for $x > 0$; supporting work (or correct expression without incorrect work): $\\log_2 x + 3\\log_2 2 = \\log_2 x + \\log_2 2^3 = \\log_2(x \\cdot 8) = \\log_2(8x)$",
+          "alternatives": [
+            {
+              "required_elements": ["$\\log_2(8x)$"],
+              "correct_example": "$\\log_2 x + 3\\log_2 2 = \\log_2 x + \\log_2 8 = \\log_2(8x)$"
+            }
+          ],
+          "wrong_examples": ["$\\log_2(x + 8)$ (incorrect log product rule — $\\log a + \\log b = \\log(ab)$, not $\\log(a+b)$)", "$\\log_2 x + 3$ (partially correct but not a single logarithm as required)"],
+          "common_traps": ["No supporting work required IF correct expression appears with no incorrect work", "Missing parentheses around the argument is still eligible ($\\log_2 8x$ is acceptable)", "Partial credit (B1=1, B2=0) if $j(x)$ is written as $\\log_2 x + 3$ with no incorrect work"]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "$k(x) = 6\\tan x$; supporting work required: $\\csc^2 x - 1 = \\cot^2 x$, so $k(x) = \\frac{6}{\\tan x \\cdot \\cot^2 x} = \\frac{6}{\\cot x} = 6\\tan x$",
+          "alternatives": [
+            {
+              "required_elements": ["$\\csc^2 x - 1 = \\cot^2 x$", "$6\\tan x$"],
+              "correct_example": "$\\csc^2 x - 1 = \\cot^2 x$, so $k(x) = \\frac{6}{\\tan x \\cdot \\cot^2 x} = \\frac{6}{\\cot x} = 6\\tan x$"
+            }
+          ],
+          "wrong_examples": ["$\\frac{6\\sin x}{\\cos x}$ (correct value but $\\tan x$ must appear exactly once and no other trig functions)", "$\\frac{6}{\\cot x}$ without simplifying further to $6\\tan x$"],
+          "common_traps": ["Supporting work is required for B2 — correct answer without showing Pythagorean identity step does not earn the point", "The Pythagorean identity $\\csc^2 x - 1 = \\cot^2 x$ must be applied explicitly"]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "The function $m$ is given by $m(x) = e^{2x} - e^x - 12$. Find all input values in the domain of $m$ that yield an output value of $0$.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Recognize quadratic form — let $y = e^x$, so $(e^x)^2 - e^x - 12 = 0$ becomes $y^2 - y - 12 = 0$, factor to $(y - 4)(y + 3) = 0$; OR present in factored form $(e^x - 4)(e^x + 3) = 0$",
-        "1 pt: $x = \\ln 4$ (only correct value); since $e^x = 4 \\Rightarrow x = \\ln 4$ and $e^x = -3$ has no real solution; no incorrect values of $x$ may be included"
-      ],
       "scoring_notes": "Supporting work is required for both points. Use of a variable other than $y$ for the substitution is acceptable. The use of \"$x =$\" is not required. To earn the first point, the substitution $y = e^x$ and factored form $(y \\pm 4)(y \\pm 3)$ must be shown, OR the factored form $(e^x \\pm 4)(e^x \\pm 3)$ must appear. To earn the second point, no incorrect values of $x$ may be included.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Recognize quadratic form — let $y = e^x$, so $(e^x)^2 - e^x - 12 = 0$ becomes $y^2 - y - 12 = 0$, factor to $(y - 4)(y + 3) = 0$; OR present in factored form $(e^x - 4)(e^x + 3) = 0$",
+          "alternatives": [
+            {
+              "required_elements": ["$y = e^x$", "$(y - 4)(y + 3) = 0$"],
+              "correct_example": "Let $y = e^x$: $y^2 - y - 12 = 0 \\Rightarrow (y-4)(y+3) = 0$"
+            },
+            {
+              "required_elements": ["$(e^x - 4)(e^x + 3) = 0$"],
+              "correct_example": "$(e^x - 4)(e^x + 3) = 0$"
+            }
+          ],
+          "wrong_examples": ["Trying to factor $e^{2x} - e^x - 12 = 0$ directly without substitution, leading to incorrect steps"],
+          "common_traps": ["Supporting work is required — the substitution $y = e^x$ and the factored form must both appear (or the direct factored form $(e^x \\pm 4)(e^x \\pm 3)$)"]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "$x = \\ln 4$ (only correct value); since $e^x = 4 \\Rightarrow x = \\ln 4$ and $e^x = -3$ has no real solution; no incorrect values of $x$ may be included",
+          "alternatives": [
+            {
+              "required_elements": ["$x = \\ln 4$"],
+              "correct_example": "$e^x = 4 \\Rightarrow x = \\ln 4$; $e^x = -3$ has no real solution (exponential function is always positive)"
+            }
+          ],
+          "wrong_examples": ["$x = \\ln 4$ and $x = \\ln(-3)$ (incorrect — $\\ln$ of a negative number is not real; including this voids the point)", "$x = 4$ (forgot to take $\\ln$)"],
+          "common_traps": ["$e^x = -3$ has NO real solution — do not include $x = \\ln(-3)$", "Including any incorrect $x$ value alongside $x = \\ln 4$ voids the second point"]
+        }
+      ]
     }
   ]
 }

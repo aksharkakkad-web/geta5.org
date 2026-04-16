@@ -5,7 +5,9 @@
   "source": "generated",
   "title": "Exponential Decay Modeling: Radioactive Isotope & Semi-Log Analysis",
   "frq_type": "multi_part_math",
-  "related_units": [2],
+  "related_units": [
+    2
+  ],
   "calculator_allowed": true,
   "total_points": 6,
   "stimulus": "A laboratory sample of a radioactive isotope initially contains $500$ milligrams. Scientists measure the remaining amount at various times (in hours) and record the following data:\n\n| Time $t$ (hours) | Amount $A$ (mg) |\n|---|---|\n| 0 | 500 |\n| 10 | 341 |\n| 25 | 191 |\n| 40 | 107 |\n| 60 | 43 |\n\nA scientist proposes the model $A(t) = a \\cdot b^t$ to represent the amount remaining, in milligrams, at time $t$ hours.",
@@ -16,37 +18,121 @@
       "letter": "a",
       "prompt": "(i) Use the data at $t = 0$ and $t = 60$ to write two equations that can be used to find the values for constants $a$ and $b$ in the expression for $A(t)$.\n\n(ii) Find the values for $a$ and $b$ as decimal approximations. Show the computations that lead to your answer.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Two correct equations: $a \\cdot b^0 = 500$ (giving $a = 500$) and $a \\cdot b^{60} = 43$; equivalently $500 \\cdot b^{60} = 43$",
-        "1 pt: Correct values $a = 500$ and $b = 0.963$ (from $b^{60} = \\frac{43}{500} = 0.086$, so $b = 0.086^{1/60} = 0.9628\\ldots$; accept values in $[0.962, 0.964]$)"
-      ],
       "scoring_notes": "Decimal approximations must be correct to three decimal places. The first equation immediately gives $a = 500$. Full credit for $b$ if supporting work shows $b = \\left(\\frac{43}{500}\\right)^{1/60}$ or equivalent logarithmic approach. Accept $b \\approx 0.963$ and $A(t) = 500 \\cdot (0.963)^t$ as a complete response for both points.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Two correct equations: $a \\cdot b^0 = 500$ (giving $a = 500$) and $a \\cdot b^{60} = 43$; equivalently $500 \\cdot b^{60} = 43$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Two correct equations: $a \\cdot b^0 = 500$ (giving $a = 500$) and $a \\cdot b^{60} = 43$; equivalently $500 \\cdot b^{60} = 43$"
+              ],
+              "correct_example": "Two correct equations: $a \\cdot b^0 = 500$ (giving $a = 500$) and $a \\cdot b^{60} = 43$; equivalently $500 \\cdot b^{60} = 43$"
+            }
+          ],
+          "wrong_examples": [],
+          "common_traps": []
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Correct values $a = 500$ and $b = 0.963$ (from $b^{60} = \\frac{43}{500} = 0.086$, so $b = 0.086^{1/60} = 0.9628\\ldots$; accept values in $[0.962, 0.964]$)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct values $a = 500$ and $b = 0.963$ (from $b^{60} = \\frac{43}{500} = 0.086$, so $b = 0.086^{1/60} = 0.9628\\ldots$; accept values in $[0.962, 0.964]$)"
+              ],
+              "correct_example": "Correct values $a = 500$ and $b = 0.963$ (from $b^{60} = \\frac{43}{500} = 0.086$, so $b = 0.086^{1/60} = 0.9628\\ldots$; accept values in $[0.962, 0.964]$)"
+            }
+          ],
+          "wrong_examples": [],
+          "common_traps": []
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "(i) Find the average rate of change of $A$, in milligrams per hour, from $t = 10$ to $t = 40$. Express your answer as a decimal approximation. Show the computations that lead to your answer.\n\n(ii) Explain what the average rate of change found in part (i) means in the context of this problem.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct average rate of change $\\frac{A(40) - A(10)}{40 - 10} = \\frac{107 - 341}{30} = \\frac{-234}{30} = -7.8$ milligrams per hour (exact); supporting work must show a quotient using the data values",
-        "1 pt: Contextual interpretation must state (a) the amount of isotope is decreasing, (b) the rate is approximately $7.8$ milligrams per hour (or the value found in (i)), and (c) the time interval from $t = 10$ to $t = 40$ hours — e.g., 'On average, the radioactive sample lost $7.8$ milligrams per hour between $10$ and $40$ hours after the start'"
-      ],
       "scoring_notes": "For part (i), the answer is exactly $-7.8$ mg/hr; accept any value from $-7.85$ to $-7.75$ if using rounded data. Units are not required in part (i) but are expected in part (ii). In part (ii), all three components (direction, rate, time interval) must be present. A response that omits the time interval or omits the decreasing nature does not earn the point.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Correct average rate of change $\\frac{A(40) - A(10)}{40 - 10} = \\frac{107 - 341}{30} = \\frac{-234}{30} = -7.8$ milligrams per hour (exact); supporting work must show a quotient using the data values",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct average rate of change $\\frac{A(40) - A(10)}{40 - 10} = \\frac{107 - 341}{30} = \\frac{-234}{30} = -7.8$ milligrams per hour (exact); supporting work must show a quotient using the data values"
+              ],
+              "correct_example": "Correct average rate of change $\\frac{A(40) - A(10)}{40 - 10} = \\frac{107 - 341}{30} = \\frac{-234}{30} = -7.8$ milligrams per hour (exact); supporting work must show a quotient using the data values"
+            }
+          ],
+          "wrong_examples": [],
+          "common_traps": []
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Contextual interpretation must state (a) the amount of isotope is decreasing, (b) the rate is approximately $7.8$ milligrams per hour (or the value found in (i)), and (c) the time interval from $t = 10$ to $t = 40$ hours — e.g., 'On average, the radioactive sample lost $7.8$ milligrams per hour between $10$ and $40$ hours after the start'",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Contextual interpretation must state (a) the amount of isotope is decreasing, (b) the rate is approximately $7.8$ milligrams per hour (or the value found in (i)), and (c) the time interval from $t = 10$ to $t = 40$ hours — e.g., 'On average, the radioactive sample lost $7.8$ milligrams per hour between $10$ and $40$ hours after the start'"
+              ],
+              "correct_example": "Contextual interpretation must state (a) the amount of isotope is decreasing, (b) the rate is approximately $7.8$ milligrams per hour (or the value found in (i)), and (c) the time interval from $t = 10$ to $t = 40$ hours — e.g., 'On average, the radioactive sample lost $7.8$ milligrams per hour between $10$ and $40$ hours after the start'"
+            }
+          ],
+          "wrong_examples": [],
+          "common_traps": []
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "(i) Use the data at $t = 0$ and $t = 60$ to find the slope of the line on a semi-log plot of $\\ln(A)$ versus $t$. Show the computations that lead to your answer.\n\n(ii) A different isotope is plotted on a similar semi-log plot of $\\ln(A)$ versus $t$, and the data appear approximately linear with a steeper negative slope. What does a steeper negative slope indicate about that isotope compared to the original?",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct slope calculation — slope $= \\frac{\\ln(43) - \\ln(500)}{60 - 0} = \\frac{3.761 - 6.215}{60} = \\frac{-2.454}{60} \\approx -0.0409$ (accept values in $[-0.042, -0.040]$); supporting work must show the quotient using $\\ln$ of the data values",
-        "1 pt: Correct interpretation — a steeper negative slope on the semi-log plot indicates a faster rate of decay; the isotope loses a larger fraction of its mass per hour, so it has a shorter half-life than the original isotope"
-      ],
       "scoring_notes": "For part (i), exact value is $\\frac{\\ln(43/500)}{60} = \\frac{\\ln(0.086)}{60} \\approx -0.0409$. Note that $\\ln(b) \\approx \\ln(0.963) \\approx -0.0377$ (from part a values); the slope from data endpoints $(-0.0409)$ may differ slightly from $\\ln(b)$ due to rounding in the data. Accept either calculation method. For part (ii), a response earns the point by connecting a more negative slope to faster decay or shorter half-life. A response that only says 'decays faster' without connecting to the semi-log slope context earns the point if it is otherwise clear.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Correct slope calculation — slope $= \\frac{\\ln(43) - \\ln(500)}{60 - 0} = \\frac{3.761 - 6.215}{60} = \\frac{-2.454}{60} \\approx -0.0409$ (accept values in $[-0.042, -0.040]$); supporting work must show the quotient using $\\ln$ of the data values",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct slope calculation — slope $= \\frac{\\ln(43) - \\ln(500)}{60 - 0} = \\frac{3.761 - 6.215}{60} = \\frac{-2.454}{60} \\approx -0.0409$ (accept values in $[-0.042, -0.040]$); supporting work must show the quotient using $\\ln$ of the data values"
+              ],
+              "correct_example": "Correct slope calculation — slope $= \\frac{\\ln(43) - \\ln(500)}{60 - 0} = \\frac{3.761 - 6.215}{60} = \\frac{-2.454}{60} \\approx -0.0409$ (accept values in $[-0.042, -0.040]$); supporting work must show the quotient using $\\ln$ of the data values"
+            }
+          ],
+          "wrong_examples": [],
+          "common_traps": []
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Correct interpretation — a steeper negative slope on the semi-log plot indicates a faster rate of decay; the isotope loses a larger fraction of its mass per hour, so it has a shorter half-life than the original isotope",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct interpretation — a steeper negative slope on the semi-log plot indicates a faster rate of decay; the isotope loses a larger fraction of its mass per hour, so it has a shorter half-life than the original isotope"
+              ],
+              "correct_example": "Correct interpretation — a steeper negative slope on the semi-log plot indicates a faster rate of decay; the isotope loses a larger fraction of its mass per hour, so it has a shorter half-life than the original isotope"
+            }
+          ],
+          "wrong_examples": [],
+          "common_traps": []
+        }
+      ]
     }
   ]
 }

@@ -5,7 +5,9 @@
   "source": "generated",
   "title": "Sinusoidal Modeling: Seasonal Temperature Variation",
   "frq_type": "multi_part_math",
-  "related_units": [3],
+  "related_units": [
+    3
+  ],
   "calculator_allowed": false,
   "total_points": 6,
   "stimulus": "The average daily high temperature in a city varies periodically throughout the year. The highest average temperature of $95^\\circ$F occurs on day $201$ (July 20) and the lowest average temperature of $35^\\circ$F occurs on day $20$ (January 20). Let $t$ represent the day of the year, where $t = 1$ is January 1. The sinusoidal function $W$ models the average daily high temperature, in degrees Fahrenheit, as a function of $t$.",
@@ -16,37 +18,121 @@
       "letter": "a",
       "prompt": "The function $W$ can be written in the form $W(t) = a\\sin(b(t - c)) + d$.\n\n(i) Find the values of constants $a$, $b$, $c$, and $d$.\n\n(ii) Using the function $W$, find the average temperature predicted on day $t = 110$. Show the computations that lead to your answer.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct parameter values — amplitude $a = 30$ (from $\\frac{95 - 35}{2} = 30$), midline $d = 65$ (from $\\frac{95 + 35}{2} = 65$), period $\\approx 365$ days (from minimum at $t = 20$ to maximum at $t = 201$, a span of $181$ days $=$ half period, so period $= 362$ days; accept period $= 365$ for simplicity), $b = \\frac{2\\pi}{365}$ (accept $\\frac{2\\pi}{362}$); the sine reaches maximum at $t = c$, so $c = 201$ when using $W(t) = 30\\sin\\left(\\frac{2\\pi}{365}(t - 201)\\right) + 65$... but this places the maximum at $t = 201 + \\frac{365}{4} \\approx 292$, not at $t = 201$; the correct phase shift for maximum at $t = 201$ is $c \\approx 110$ (since the argument reaches $\\frac{\\pi}{2}$ when $t - c = \\frac{365}{4}$, giving $c = 201 - \\frac{365}{4} \\approx 110$); accept $W(t) = 30\\sin\\left(\\frac{2\\pi}{365}(t - 110)\\right) + 65$ OR the equivalent cosine form $W(t) = -30\\cos\\left(\\frac{2\\pi}{365}(t - 20)\\right) + 65$ (minimum at $t = 20$)",
-        "1 pt: Correct temperature at $t = 110$ — using $W(t) = 30\\sin\\left(\\frac{2\\pi}{365}(t - 110)\\right) + 65$: $W(110) = 30\\sin(0) + 65 = 65^\\circ$F (the midline); the model predicts an average temperature of $65^\\circ$F on day $110$ (approximately April 20); accept any answer consistent with the correctly parameterized model, including exact form"
-      ],
       "scoring_notes": "The key insight is that in $f(t) = a\\sin(b(t-c)) + d$, the maximum occurs when the argument $b(t-c) = \\pi/2$, i.e., at $t = c + \\frac{1}{4} \\cdot \\text{period}$. For max at $t = 201$: $201 = c + 365/4$, so $c = 201 - 91.25 \\approx 109.75 \\approx 110$. The cosine form $-30\\cos(\\frac{2\\pi}{365}(t-20)) + 65$ is simpler: cosine reaches minimum ($-1$) at its argument $= 0$, so minimum at $t = 20$ and maximum one half-period later at $t = 20 + 182.5 = 202.5 \\approx 201$. Award full credit for either equivalent form. For part (ii), $t = 110$ is the midline-ascending crossing, giving $W = 65°F$ exactly (with the $c = 110$ parameterization).",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Correct parameter values — amplitude $a = 30$ (from $\\frac{95 - 35}{2} = 30$), midline $d = 65$ (from $\\frac{95 + 35}{2} = 65$), period $\\approx 365$ days (from minimum at $t = 20$ to maximum at $t = 201$, a span of $181$ days $=$ half period, so period $= 362$ days; accept period $= 365$ for simplicity), $b = \\frac{2\\pi}{365}$ (accept $\\frac{2\\pi}{362}$); the sine reaches maximum at $t = c$, so $c = 201$ when using $W(t) = 30\\sin\\left(\\frac{2\\pi}{365}(t - 201)\\right) + 65$... but this places the maximum at $t = 201 + \\frac{365}{4} \\approx 292$, not at $t = 201$; the correct phase shift for maximum at $t = 201$ is $c \\approx 110$ (since the argument reaches $\\frac{\\pi}{2}$ when $t - c = \\frac{365}{4}$, giving $c = 201 - \\frac{365}{4} \\approx 110$); accept $W(t) = 30\\sin\\left(\\frac{2\\pi}{365}(t - 110)\\right) + 65$ OR the equivalent cosine form $W(t) = -30\\cos\\left(\\frac{2\\pi}{365}(t - 20)\\right) + 65$ (minimum at $t = 20$)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct parameter values — amplitude $a = 30$ (from $\\frac{95 - 35}{2} = 30$), midline $d = 65$ (from $\\frac{95 + 35}{2} = 65$), period $\\approx 365$ days (from minimum at $t = 20$ to maximum at $t = 201$, a span of $181$ days $=$ half period, so period $= 362$ days; accept period $= 365$ for simplicity), $b = \\frac{2\\pi}{365}$ (accept $\\frac{2\\pi}{362}$); the sine reaches maximum at $t = c$, so $c = 201$ when using $W(t) = 30\\sin\\left(\\frac{2\\pi}{365}(t - 201)\\right) + 65$... but this places the maximum at $t = 201 + \\frac{365}{4} \\approx 292$, not at $t = 201$; the correct phase shift for maximum at $t = 201$ is $c \\approx 110$ (since the argument reaches $\\frac{\\pi}{2}$ when $t - c = \\frac{365}{4}$, giving $c = 201 - \\frac{365}{4} \\approx 110$); accept $W(t) = 30\\sin\\left(\\frac{2\\pi}{365}(t - 110)\\right) + 65$ OR the equivalent cosine form $W(t) = -30\\cos\\left(\\frac{2\\pi}{365}(t - 20)\\right) + 65$ (minimum at $t = 20$)"
+              ],
+              "correct_example": "Correct parameter values — amplitude $a = 30$ (from $\\frac{95 - 35}{2} = 30$), midline $d = 65$ (from $\\frac{95 + 35}{2} = 65$), period $\\approx 365$ days (from minimum at $t = 20$ to maximum at $t = 201$, a span of $181$ days $=$ half period, so period $= 362$ days; accept period $= 365$ for simplicity), $b = \\frac{2\\pi}{365}$ (accept $\\frac{2\\pi}{362}$); the sine reaches maximum at $t = c$, so $c = 201$ when using $W(t) = 30\\sin\\left(\\frac{2\\pi}{365}(t - 201)\\right) + 65$... but this places the maximum at $t = 201 + \\frac{365}{4} \\approx 292$, not at $t = 201$; the correct phase shift for maximum at $t = 201$ is $c \\approx 110$ (since the argument reaches $\\frac{\\pi}{2}$ when $t - c = \\frac{365}{4}$, giving $c = 201 - \\frac{365}{4} \\approx 110$); accept $W(t) = 30\\sin\\left(\\frac{2\\pi}{365}(t - 110)\\right) + 65$ OR the equivalent cosine form $W(t) = -30\\cos\\left(\\frac{2\\pi}{365}(t - 20)\\right) + 65$ (minimum at $t = 20$)"
+            }
+          ],
+          "wrong_examples": [],
+          "common_traps": []
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Correct temperature at $t = 110$ — using $W(t) = 30\\sin\\left(\\frac{2\\pi}{365}(t - 110)\\right) + 65$: $W(110) = 30\\sin(0) + 65 = 65^\\circ$F (the midline); the model predicts an average temperature of $65^\\circ$F on day $110$ (approximately April 20); accept any answer consistent with the correctly parameterized model, including exact form",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct temperature at $t = 110$ — using $W(t) = 30\\sin\\left(\\frac{2\\pi}{365}(t - 110)\\right) + 65$: $W(110) = 30\\sin(0) + 65 = 65^\\circ$F (the midline); the model predicts an average temperature of $65^\\circ$F on day $110$ (approximately April 20); accept any answer consistent with the correctly parameterized model, including exact form"
+              ],
+              "correct_example": "Correct temperature at $t = 110$ — using $W(t) = 30\\sin\\left(\\frac{2\\pi}{365}(t - 110)\\right) + 65$: $W(110) = 30\\sin(0) + 65 = 65^\\circ$F (the midline); the model predicts an average temperature of $65^\\circ$F on day $110$ (approximately April 20); accept any answer consistent with the correctly parameterized model, including exact form"
+            }
+          ],
+          "wrong_examples": [],
+          "common_traps": []
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "(i) Find all days $t$ where $1 \\leq t \\leq 365$ on which the model predicts an average temperature of exactly $65^\\circ$F. Express answers as exact values.\n\n(ii) On the interval $20 < t < 201$ (from the minimum to the maximum temperature), is $W$ increasing or decreasing? Describe the concavity of the graph of $W$ on this interval, noting any changes.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct days — using $W(t) = 30\\sin\\left(\\frac{2\\pi}{365}(t - 110)\\right) + 65$: setting $W(t) = 65$ gives $\\sin\\left(\\frac{2\\pi}{365}(t-110)\\right) = 0$, so $\\frac{2\\pi}{365}(t-110) = k\\pi$ for integer $k$; solutions $t = 110 + \\frac{365k}{2}$; in $[1, 365]$: $k = 0$ gives $t = 110$ and $k = 1$ gives $t = 110 + 182.5 = 292.5$; exact answers $t = 110$ and $t = \\frac{585}{2}$ (accept decimal $292.5$); both required with no incorrect extras",
-        "1 pt: Correct descriptions — $W$ is increasing throughout $(20, 201)$ (moving from minimum $35^\\circ$F to maximum $95^\\circ$F); the concavity changes: $W$ is concave up on $(20, 110)$ (rate of increase is increasing) and concave down on $(110, 201)$ (rate of increase is decreasing); the inflection point occurs at $t = 110$ where $W = 65^\\circ$F (the midline crossing)"
-      ],
       "scoring_notes": "For part (i), the midline crossings ($W = 65^\\circ$F) within one year occur at $t = 110$ (approximately April 20, ascending through midline) and $t = 292.5$ (approximately October 19, descending through midline). The exact value $t = 585/2$ is acceptable. For part (ii), the function increases from its minimum at $t=20$ to its maximum at $t=201$. The inflection point (where concavity changes) is at the midline crossing $t = 110$, which is halfway between the minimum ($t=20$) and maximum ($t=201$) in terms of function behavior. A response that says 'always concave up' or 'always concave down' without noting the change does not earn the point.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Correct days — using $W(t) = 30\\sin\\left(\\frac{2\\pi}{365}(t - 110)\\right) + 65$: setting $W(t) = 65$ gives $\\sin\\left(\\frac{2\\pi}{365}(t-110)\\right) = 0$, so $\\frac{2\\pi}{365}(t-110) = k\\pi$ for integer $k$; solutions $t = 110 + \\frac{365k}{2}$; in $[1, 365]$: $k = 0$ gives $t = 110$ and $k = 1$ gives $t = 110 + 182.5 = 292.5$; exact answers $t = 110$ and $t = \\frac{585}{2}$ (accept decimal $292.5$); both required with no incorrect extras",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct days — using $W(t) = 30\\sin\\left(\\frac{2\\pi}{365}(t - 110)\\right) + 65$: setting $W(t) = 65$ gives $\\sin\\left(\\frac{2\\pi}{365}(t-110)\\right) = 0$, so $\\frac{2\\pi}{365}(t-110) = k\\pi$ for integer $k$; solutions $t = 110 + \\frac{365k}{2}$; in $[1, 365]$: $k = 0$ gives $t = 110$ and $k = 1$ gives $t = 110 + 182.5 = 292.5$; exact answers $t = 110$ and $t = \\frac{585}{2}$ (accept decimal $292.5$); both required with no incorrect extras"
+              ],
+              "correct_example": "Correct days — using $W(t) = 30\\sin\\left(\\frac{2\\pi}{365}(t - 110)\\right) + 65$: setting $W(t) = 65$ gives $\\sin\\left(\\frac{2\\pi}{365}(t-110)\\right) = 0$, so $\\frac{2\\pi}{365}(t-110) = k\\pi$ for integer $k$; solutions $t = 110 + \\frac{365k}{2}$; in $[1, 365]$: $k = 0$ gives $t = 110$ and $k = 1$ gives $t = 110 + 182.5 = 292.5$; exact answers $t = 110$ and $t = \\frac{585}{2}$ (accept decimal $292.5$); both required with no incorrect extras"
+            }
+          ],
+          "wrong_examples": [],
+          "common_traps": []
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Correct descriptions — $W$ is increasing throughout $(20, 201)$ (moving from minimum $35^\\circ$F to maximum $95^\\circ$F); the concavity changes: $W$ is concave up on $(20, 110)$ (rate of increase is increasing) and concave down on $(110, 201)$ (rate of increase is decreasing); the inflection point occurs at $t = 110$ where $W = 65^\\circ$F (the midline crossing)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct descriptions — $W$ is increasing throughout $(20, 201)$ (moving from minimum $35^\\circ$F to maximum $95^\\circ$F); the concavity changes: $W$ is concave up on $(20, 110)$ (rate of increase is increasing) and concave down on $(110, 201)$ (rate of increase is decreasing); the inflection point occurs at $t = 110$ where $W = 65^\\circ$F (the midline crossing)"
+              ],
+              "correct_example": "Correct descriptions — $W$ is increasing throughout $(20, 201)$ (moving from minimum $35^\\circ$F to maximum $95^\\circ$F); the concavity changes: $W$ is concave up on $(20, 110)$ (rate of increase is increasing) and concave down on $(110, 201)$ (rate of increase is decreasing); the inflection point occurs at $t = 110$ where $W = 65^\\circ$F (the midline crossing)"
+            }
+          ],
+          "wrong_examples": [],
+          "common_traps": []
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "A meteorologist claims that the model $W$ is equivalent to $W(t) = -30\\cos\\left(\\frac{2\\pi}{365}(t - c_0)\\right) + 65$ for some value of $c_0$. Find the value of $c_0$ such that this cosine version has its minimum at $t = 20$. Show the trigonometric identity or reasoning used to connect the sine and cosine forms.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct identity stated and applied — $\\sin(\\theta - \\frac{\\pi}{2}) = -\\cos(\\theta)$, so $30\\sin\\left(\\frac{2\\pi}{365}(t - 110)\\right) = -30\\cos\\left(\\frac{2\\pi}{365}(t - 110) + \\frac{\\pi}{2}\\right) = -30\\cos\\left(\\frac{2\\pi}{365}\\left(t - 110 + \\frac{365}{4}\\right)\\right) = -30\\cos\\left(\\frac{2\\pi}{365}(t - 110 + 91.25)\\right)$; OR equivalently, $-\\cos(\\theta) = \\sin(\\theta - \\frac{\\pi}{2})$ connecting the forms",
-        "1 pt: Correct value $c_0 = 110 - 91.25 = 18.75 \\approx 20$ (accept exact $\\frac{75}{4}$ or $18.75$; accept $c_0 = 20$ with reasoning that the minimum of $-30\\cos(\\frac{2\\pi}{365}(t - 20))$ occurs when $\\cos = 1$, i.e., at $t = 20$, which matches the problem's minimum day); the cosine form $-30\\cos\\left(\\frac{2\\pi}{365}(t - 20)\\right) + 65$ is the standard answer"
-      ],
       "scoring_notes": "The simplest approach is direct: $-30\\cos(\\frac{2\\pi}{365}(t - c_0))$ has its minimum when $\\cos = 1$, i.e., when $\\frac{2\\pi}{365}(t - c_0) = 0$, giving $t = c_0$. For minimum at $t = 20$, $c_0 = 20$. This is the most elegant derivation. Alternatively, using the identity $-\\cos\\theta = \\sin(\\theta - \\pi/2)$ applied to the sine form connects $c_0 = 18.75 \\approx 20$. Accept $c_0 = 20$ if the student directly invokes 'minimum of $-\\cos$ occurs at argument $= 0$.' Both the identity and the direct reasoning approaches earn full credit.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Correct identity stated and applied — $\\sin(\\theta - \\frac{\\pi}{2}) = -\\cos(\\theta)$, so $30\\sin\\left(\\frac{2\\pi}{365}(t - 110)\\right) = -30\\cos\\left(\\frac{2\\pi}{365}(t - 110) + \\frac{\\pi}{2}\\right) = -30\\cos\\left(\\frac{2\\pi}{365}\\left(t - 110 + \\frac{365}{4}\\right)\\right) = -30\\cos\\left(\\frac{2\\pi}{365}(t - 110 + 91.25)\\right)$; OR equivalently, $-\\cos(\\theta) = \\sin(\\theta - \\frac{\\pi}{2})$ connecting the forms",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct identity stated and applied — $\\sin(\\theta - \\frac{\\pi}{2}) = -\\cos(\\theta)$, so $30\\sin\\left(\\frac{2\\pi}{365}(t - 110)\\right) = -30\\cos\\left(\\frac{2\\pi}{365}(t - 110) + \\frac{\\pi}{2}\\right) = -30\\cos\\left(\\frac{2\\pi}{365}\\left(t - 110 + \\frac{365}{4}\\right)\\right) = -30\\cos\\left(\\frac{2\\pi}{365}(t - 110 + 91.25)\\right)$; OR equivalently, $-\\cos(\\theta) = \\sin(\\theta - \\frac{\\pi}{2})$ connecting the forms"
+              ],
+              "correct_example": "Correct identity stated and applied — $\\sin(\\theta - \\frac{\\pi}{2}) = -\\cos(\\theta)$, so $30\\sin\\left(\\frac{2\\pi}{365}(t - 110)\\right) = -30\\cos\\left(\\frac{2\\pi}{365}(t - 110) + \\frac{\\pi}{2}\\right) = -30\\cos\\left(\\frac{2\\pi}{365}\\left(t - 110 + \\frac{365}{4}\\right)\\right) = -30\\cos\\left(\\frac{2\\pi}{365}(t - 110 + 91.25)\\right)$; OR equivalently, $-\\cos(\\theta) = \\sin(\\theta - \\frac{\\pi}{2})$ connecting the forms"
+            }
+          ],
+          "wrong_examples": [],
+          "common_traps": []
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Correct value $c_0 = 110 - 91.25 = 18.75 \\approx 20$ (accept exact $\\frac{75}{4}$ or $18.75$; accept $c_0 = 20$ with reasoning that the minimum of $-30\\cos(\\frac{2\\pi}{365}(t - 20))$ occurs when $\\cos = 1$, i.e., at $t = 20$, which matches the problem's minimum day); the cosine form $-30\\cos\\left(\\frac{2\\pi}{365}(t - 20)\\right) + 65$ is the standard answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct value $c_0 = 110 - 91.25 = 18.75 \\approx 20$ (accept exact $\\frac{75}{4}$ or $18.75$; accept $c_0 = 20$ with reasoning that the minimum of $-30\\cos(\\frac{2\\pi}{365}(t - 20))$ occurs when $\\cos = 1$, i.e., at $t = 20$, which matches the problem's minimum day); the cosine form $-30\\cos\\left(\\frac{2\\pi}{365}(t - 20)\\right) + 65$ is the standard answer"
+              ],
+              "correct_example": "Correct value $c_0 = 110 - 91.25 = 18.75 \\approx 20$ (accept exact $\\frac{75}{4}$ or $18.75$; accept $c_0 = 20$ with reasoning that the minimum of $-30\\cos(\\frac{2\\pi}{365}(t - 20))$ occurs when $\\cos = 1$, i.e., at $t = 20$, which matches the problem's minimum day); the cosine form $-30\\cos\\left(\\frac{2\\pi}{365}(t - 20)\\right) + 65$ is the standard answer"
+            }
+          ],
+          "wrong_examples": [],
+          "common_traps": []
+        }
+      ]
     }
   ]
 }

@@ -5,7 +5,9 @@
   "source": "generated",
   "title": "Exponential Decay: Medication Modeling, Half-Life & Competing Models",
   "frq_type": "multi_part_math",
-  "related_units": [2],
+  "related_units": [
+    2
+  ],
   "calculator_allowed": true,
   "total_points": 6,
   "stimulus": "A researcher is studying the elimination of a medication from the bloodstream. A patient receives a single dose and the amount of medication remaining is measured at several times after administration:\n\n| Time $t$ (hours) | Amount $Q$ (mg) |\n|---|---|\n| 0 | 400 |\n| 3 | 263 |\n| 7 | 152 |\n| 12 | 75 |\n| 18 | 29 |\n\nThe researcher proposes the exponential decay model $Q(t) = 400 \\cdot b^t$ for the amount of medication remaining, in milligrams, at time $t$ hours.",
@@ -16,37 +18,121 @@
       "letter": "a",
       "prompt": "(i) Use the data at $t = 0$ and $t = 18$ to find the value of $b$ as a decimal approximation. Show the computations that lead to your answer.\n\n(ii) Use the model to determine the half-life of the medication — the time at which the amount remaining equals half the initial dose. Express your answer as a decimal approximation. Show the computations that lead to your answer.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct value of $b$ — from $400 \\cdot b^{18} = 29$: $b^{18} = \\frac{29}{400} = 0.0725 \\Rightarrow b = (0.0725)^{1/18} = e^{\\ln(0.0725)/18} \\approx e^{-2.624/18} \\approx e^{-0.1458} \\approx 0.8643$ (accept values in $[0.862, 0.867]$); supporting work must show the root-taking or logarithm step",
-        "1 pt: Correct half-life — solving $400 \\cdot b^t = 200 \\Rightarrow b^t = 0.5 \\Rightarrow t = \\frac{\\ln(0.5)}{\\ln(b)} = \\frac{-0.6931}{\\ln(0.8643)} \\approx \\frac{-0.6931}{-0.1458} \\approx 4.753$ hours (accept values in $[4.7, 4.8]$); supporting work must show the logarithm step"
-      ],
       "scoring_notes": "For part (i), $\\ln(29/400) = \\ln(0.0725) \\approx -2.624$, so $\\ln b = -2.624/18 \\approx -0.1458$, giving $b \\approx 0.864$. For part (ii), $t_{1/2} = \\ln(0.5)/\\ln(b) = (-0.6931)/(-0.1458) \\approx 4.75$ hours. Note: students who use a different data pair from the table (e.g., $t=3$ and $t=18$) will get a slightly different $b$; award credit for correct algebra regardless. A student who writes $t = \\frac{\\ln 2}{-\\ln b}$ earns credit for the logarithm step.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Correct value of $b$ — from $400 \\cdot b^{18} = 29$: $b^{18} = \\frac{29}{400} = 0.0725 \\Rightarrow b = (0.0725)^{1/18} = e^{\\ln(0.0725)/18} \\approx e^{-2.624/18} \\approx e^{-0.1458} \\approx 0.8643$ (accept values in $[0.862, 0.867]$); supporting work must show the root-taking or logarithm step",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct value of $b$ — from $400 \\cdot b^{18} = 29$: $b^{18} = \\frac{29}{400} = 0.0725 \\Rightarrow b = (0.0725)^{1/18} = e^{\\ln(0.0725)/18} \\approx e^{-2.624/18} \\approx e^{-0.1458} \\approx 0.8643$ (accept values in $[0.862, 0.867]$); supporting work must show the root-taking or logarithm step"
+              ],
+              "correct_example": "Correct value of $b$ — from $400 \\cdot b^{18} = 29$: $b^{18} = \\frac{29}{400} = 0.0725 \\Rightarrow b = (0.0725)^{1/18} = e^{\\ln(0.0725)/18} \\approx e^{-2.624/18} \\approx e^{-0.1458} \\approx 0.8643$ (accept values in $[0.862, 0.867]$); supporting work must show the root-taking or logarithm step"
+            }
+          ],
+          "wrong_examples": [],
+          "common_traps": []
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Correct half-life — solving $400 \\cdot b^t = 200 \\Rightarrow b^t = 0.5 \\Rightarrow t = \\frac{\\ln(0.5)}{\\ln(b)} = \\frac{-0.6931}{\\ln(0.8643)} \\approx \\frac{-0.6931}{-0.1458} \\approx 4.753$ hours (accept values in $[4.7, 4.8]$); supporting work must show the logarithm step",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct half-life — solving $400 \\cdot b^t = 200 \\Rightarrow b^t = 0.5 \\Rightarrow t = \\frac{\\ln(0.5)}{\\ln(b)} = \\frac{-0.6931}{\\ln(0.8643)} \\approx \\frac{-0.6931}{-0.1458} \\approx 4.753$ hours (accept values in $[4.7, 4.8]$); supporting work must show the logarithm step"
+              ],
+              "correct_example": "Correct half-life — solving $400 \\cdot b^t = 200 \\Rightarrow b^t = 0.5 \\Rightarrow t = \\frac{\\ln(0.5)}{\\ln(b)} = \\frac{-0.6931}{\\ln(0.8643)} \\approx \\frac{-0.6931}{-0.1458} \\approx 4.753$ hours (accept values in $[4.7, 4.8]$); supporting work must show the logarithm step"
+            }
+          ],
+          "wrong_examples": [],
+          "common_traps": []
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "(i) Using the values at $t = 0$ and $t = 18$, find the slope and $y$-intercept of the line through $(0,\\ \\ln(400))$ and $(18,\\ \\ln(29))$ on a plot of $\\ln(Q)$ versus $t$. Show the computations that lead to your answer.\n\n(ii) Use the exponential model $Q(t) = 400 \\cdot b^t$ with $b$ from part (a) to estimate the amount of medication remaining at $t = 7$ hours. Then compare this estimate to the actual data value $Q = 152$ mg at $t = 7$. Express your estimate as a decimal approximation.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct slope and intercept — slope $= \\frac{\\ln(29) - \\ln(400)}{18 - 0} = \\frac{3.367 - 5.991}{18} = \\frac{-2.624}{18} \\approx -0.1458$ (accept values in $[-0.147, -0.145]$) and $y$-intercept $= \\ln(400) \\approx 5.991$ (accept values in $[5.98, 6.00]$); supporting work must show the slope as a quotient of $\\ln$ values",
-        "1 pt: Correct estimate — $Q(7) = 400 \\cdot (0.8643)^7 \\approx 400 \\cdot 0.340 \\approx 136$ mg (accept values in $[130, 145]$, depending on $b$ value from part (a)); comparison must note that the model estimate is close to but does not exactly match the data value of $152$ mg, indicating approximate but not perfect fit"
-      ],
       "scoring_notes": "For part (i), slope $= (\\ln 29 - \\ln 400)/18 \\approx -2.624/18 \\approx -0.1458$ and $y$-intercept $= \\ln(400) \\approx 5.991$. For part (ii), $Q(7) = 400 \\cdot b^7$ where $b \\approx 0.8643$; $(0.8643)^7 \\approx 0.340$, so $Q(7) \\approx 136$ mg. This is somewhat less than the actual $152$ mg, showing the model fit is approximate. Award the point for correct substitution into $Q(t)$ and a valid comparison to $152$ mg.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Correct slope and intercept — slope $= \\frac{\\ln(29) - \\ln(400)}{18 - 0} = \\frac{3.367 - 5.991}{18} = \\frac{-2.624}{18} \\approx -0.1458$ (accept values in $[-0.147, -0.145]$) and $y$-intercept $= \\ln(400) \\approx 5.991$ (accept values in $[5.98, 6.00]$); supporting work must show the slope as a quotient of $\\ln$ values",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct slope and intercept — slope $= \\frac{\\ln(29) - \\ln(400)}{18 - 0} = \\frac{3.367 - 5.991}{18} = \\frac{-2.624}{18} \\approx -0.1458$ (accept values in $[-0.147, -0.145]$) and $y$-intercept $= \\ln(400) \\approx 5.991$ (accept values in $[5.98, 6.00]$); supporting work must show the slope as a quotient of $\\ln$ values"
+              ],
+              "correct_example": "Correct slope and intercept — slope $= \\frac{\\ln(29) - \\ln(400)}{18 - 0} = \\frac{3.367 - 5.991}{18} = \\frac{-2.624}{18} \\approx -0.1458$ (accept values in $[-0.147, -0.145]$) and $y$-intercept $= \\ln(400) \\approx 5.991$ (accept values in $[5.98, 6.00]$); supporting work must show the slope as a quotient of $\\ln$ values"
+            }
+          ],
+          "wrong_examples": [],
+          "common_traps": []
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Correct estimate — $Q(7) = 400 \\cdot (0.8643)^7 \\approx 400 \\cdot 0.340 \\approx 136$ mg (accept values in $[130, 145]$, depending on $b$ value from part (a)); comparison must note that the model estimate is close to but does not exactly match the data value of $152$ mg, indicating approximate but not perfect fit",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct estimate — $Q(7) = 400 \\cdot (0.8643)^7 \\approx 400 \\cdot 0.340 \\approx 136$ mg (accept values in $[130, 145]$, depending on $b$ value from part (a)); comparison must note that the model estimate is close to but does not exactly match the data value of $152$ mg, indicating approximate but not perfect fit"
+              ],
+              "correct_example": "Correct estimate — $Q(7) = 400 \\cdot (0.8643)^7 \\approx 400 \\cdot 0.340 \\approx 136$ mg (accept values in $[130, 145]$, depending on $b$ value from part (a)); comparison must note that the model estimate is close to but does not exactly match the data value of $152$ mg, indicating approximate but not perfect fit"
+            }
+          ],
+          "wrong_examples": [],
+          "common_traps": []
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "(i) A hospital protocol requires a second dose to be administered when the amount of medication in the patient's bloodstream falls below $50$ milligrams. Using the model $Q(t) = 400 \\cdot b^t$ with $b$ from part (a), write and solve an inequality to find the earliest time $t$ at which a second dose should be given. Express your answer as a decimal approximation.\n\n(ii) A colleague suggests using a linear model $L(t) = 400 - 20.6t$ to approximate $Q(t)$ for $t \\geq 0$. Determine whether $L(t)$ overestimates or underestimates $Q(t)$ for all $t > 0$, and justify your answer using the concavity of $Q$.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct inequality and solution — $400 \\cdot b^t < 50 \\Rightarrow b^t < \\frac{1}{8} \\Rightarrow t > \\frac{\\ln(1/8)}{\\ln(b)} = \\frac{-\\ln 8}{\\ln(0.8643)} \\approx \\frac{-2.079}{-0.1458} \\approx 14.26$ hours (accept values in $[14.1, 14.5]$); supporting work must show the inequality setup with direction preserved when dividing by negative $\\ln(b)$, and the logarithm step",
-        "1 pt: Correct conclusion '$L$ overestimates $Q$ for $t > 0$ in the clinically relevant domain' with justification — $L(0) = Q(0) = 400$ (both start at the same value); the exponential function $Q$ is concave up (its graph curves upward), so the graph of $Q$ lies above any secant line drawn from $t = 0$; since $L$ decreases more gradually than $Q$ (the data show $Q$ drops from $400$ to $263$ in just $3$ hours, much faster than $L$ would predict), $L(t) > Q(t)$ for $t > 0$"
-      ],
       "scoring_notes": "For part (i), $\\ln(1/8)/\\ln(0.8643) = (-2.079)/(-0.1458) \\approx 14.26$ hours. The inequality direction flips when dividing by $\\ln(b) < 0$; the rubric checks for this. For part (ii), the expected answer is 'overestimates.' The key reasoning is that $L$ decreases more slowly than the exponential $Q$: the data show $Q$ falling from $400$ to $263$ mg in $3$ hours (a drop of $137$ mg), while $L$ would drop only $3 \\times 20.6 = 61.8$ mg over the same interval. Since the exponential is concave up and drops steeply at first, $L$ lies above the curve for small to moderate $t$. Award the point for the correct conclusion plus any justification referencing the faster-than-linear decay of $Q$ or the concave-up shape of the graph.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Correct inequality and solution — $400 \\cdot b^t < 50 \\Rightarrow b^t < \\frac{1}{8} \\Rightarrow t > \\frac{\\ln(1/8)}{\\ln(b)} = \\frac{-\\ln 8}{\\ln(0.8643)} \\approx \\frac{-2.079}{-0.1458} \\approx 14.26$ hours (accept values in $[14.1, 14.5]$); supporting work must show the inequality setup with direction preserved when dividing by negative $\\ln(b)$, and the logarithm step",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct inequality and solution — $400 \\cdot b^t < 50 \\Rightarrow b^t < \\frac{1}{8} \\Rightarrow t > \\frac{\\ln(1/8)}{\\ln(b)} = \\frac{-\\ln 8}{\\ln(0.8643)} \\approx \\frac{-2.079}{-0.1458} \\approx 14.26$ hours (accept values in $[14.1, 14.5]$); supporting work must show the inequality setup with direction preserved when dividing by negative $\\ln(b)$, and the logarithm step"
+              ],
+              "correct_example": "Correct inequality and solution — $400 \\cdot b^t < 50 \\Rightarrow b^t < \\frac{1}{8} \\Rightarrow t > \\frac{\\ln(1/8)}{\\ln(b)} = \\frac{-\\ln 8}{\\ln(0.8643)} \\approx \\frac{-2.079}{-0.1458} \\approx 14.26$ hours (accept values in $[14.1, 14.5]$); supporting work must show the inequality setup with direction preserved when dividing by negative $\\ln(b)$, and the logarithm step"
+            }
+          ],
+          "wrong_examples": [],
+          "common_traps": []
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Correct conclusion '$L$ overestimates $Q$ for $t > 0$ in the clinically relevant domain' with justification — $L(0) = Q(0) = 400$ (both start at the same value); the exponential function $Q$ is concave up (its graph curves upward), so the graph of $Q$ lies above any secant line drawn from $t = 0$; since $L$ decreases more gradually than $Q$ (the data show $Q$ drops from $400$ to $263$ in just $3$ hours, much faster than $L$ would predict), $L(t) > Q(t)$ for $t > 0$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct conclusion '$L$ overestimates $Q$ for $t > 0$ in the clinically relevant domain' with justification — $L(0) = Q(0) = 400$ (both start at the same value); the exponential function $Q$ is concave up (its graph curves upward), so the graph of $Q$ lies above any secant line drawn from $t = 0$; since $L$ decreases more gradually than $Q$ (the data show $Q$ drops from $400$ to $263$ in just $3$ hours, much faster than $L$ would predict), $L(t) > Q(t)$ for $t > 0$"
+              ],
+              "correct_example": "Correct conclusion '$L$ overestimates $Q$ for $t > 0$ in the clinically relevant domain' with justification — $L(0) = Q(0) = 400$ (both start at the same value); the exponential function $Q$ is concave up (its graph curves upward), so the graph of $Q$ lies above any secant line drawn from $t = 0$; since $L$ decreases more gradually than $Q$ (the data show $Q$ drops from $400$ to $263$ in just $3$ hours, much faster than $L$ would predict), $L(t) > Q(t)$ for $t > 0$"
+            }
+          ],
+          "wrong_examples": [],
+          "common_traps": []
+        }
+      ]
     }
   ]
 }

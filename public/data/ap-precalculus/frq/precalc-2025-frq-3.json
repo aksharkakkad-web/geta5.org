@@ -5,7 +5,9 @@
   "source": "released",
   "title": "Sinusoidal Modeling: Guitar String Vibration",
   "frq_type": "multi_part_math",
-  "related_units": [3],
+  "related_units": [
+    3
+  ],
   "calculator_allowed": false,
   "total_points": 6,
   "stimulus": "For a guitar to make a sound, the strings need to vibrate in a motion that can be modeled by a periodic function. At time $t = 0$ seconds, point $X$ on one vibrating guitar string starts at its highest position, $2$ millimeters above its resting position. Then it passes through its resting position and moves to its lowest position, $2$ millimeters below the resting position. Point $X$ then passes through its resting position and returns to $2$ millimeters above the resting position. This motion occurs $200$ times in $1$ second. The sinusoidal function $h$ models how far point $X$ is from its resting position, in millimeters, as a function of time $t$, in seconds. A positive value of $h(t)$ indicates the point is above the resting position; a negative value indicates it is below.",
@@ -16,37 +18,121 @@
       "letter": "a",
       "prompt": "The graph of $h$ and its dashed midline for two full cycles is shown. Five points, $F$, $G$, $J$, $K$, and $P$, are labeled on the graph. No scale is indicated, and no axes are presented.\n\nDetermine possible coordinates $(t, h(t))$ for the five points: $F$, $G$, $J$, $K$, and $P$.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct $h(t)$-coordinates — e.g., $F$: $2$; $G$: $0$; $J$: $-2$; $K$: $0$; $P$: $2$ (with $F$ and $P$ at the maximum, $G$ and $K$ at the midline, $J$ at the minimum)",
-        "1 pt: Correct $t$-coordinates in arithmetic sequence with $\\Delta t = \\frac{1}{800}$, e.g., $F = \\left(0, 2\\right)$, $G = \\left(\\frac{1}{800}, 0\\right)$, $J = \\left(\\frac{2}{800}, -2\\right)$, $K = \\left(\\frac{3}{800}, 0\\right)$, $P = \\left(\\frac{4}{800}, 2\\right)$; $t$-coordinates must be of the form $\\frac{0+4k}{800}$, $\\frac{1+4k}{800}$, $\\frac{2+4k}{800}$, $\\frac{3+4k}{800}$, $\\frac{4+4k}{800}$ for a specific integer $k$"
-      ],
       "scoring_notes": "No supporting work required. h(t)-coordinates and/or t-coordinates may appear in a list. Negative t-coordinates are acceptable. Fractions do not need to be reduced; equivalent fractions and exact decimal values are acceptable. The period is $\\frac{1}{200}$ second (200 full cycles per second). Partial credit (0 for A1, 1 for A2) if all 5 points have swapped coordinates (h(t), t) with correct values, or 3 out of 5 points are correct, or all 5 t-coordinates are in arithmetic sequence with $\\Delta t = \\frac{1}{800}$ and h(t)-coordinates satisfy the correct relative structure.",
       "requires_drawing": false,
-      "reference_image": "/data/ap-precalculus/frq/images/precalc-2025-frq-3-graph.png"
+      "reference_image": "/data/ap-precalculus/frq/images/precalc-2025-frq-3-graph.png",
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Correct $h(t)$-coordinates — e.g., $F$: $2$; $G$: $0$; $J$: $-2$; $K$: $0$; $P$: $2$ (with $F$ and $P$ at the maximum, $G$ and $K$ at the midline, $J$ at the minimum)",
+          "alternatives": [
+            {
+              "required_elements": ["$F$: $2$", "$G$: $0$", "$J$: $-2$", "$K$: $0$", "$P$: $2$"],
+              "correct_example": "$F = (0, 2)$, $G = (\\frac{1}{800}, 0)$, $J = (\\frac{2}{800}, -2)$, $K = (\\frac{3}{800}, 0)$, $P = (\\frac{4}{800}, 2)$"
+            }
+          ],
+          "wrong_examples": ["$J$: $2$ instead of $-2$ (forgetting $J$ is at the minimum, below midline)", "Swapping $F$ and $J$ values"],
+          "common_traps": ["Amplitude is $2$ mm — maximum is $+2$ and minimum is $-2$ (not $0$ to $2$)", "No supporting work required — coordinates may appear in a list"]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Correct $t$-coordinates in arithmetic sequence with $\\Delta t = \\frac{1}{800}$, e.g., $F = \\left(0, 2\\right)$, $G = \\left(\\frac{1}{800}, 0\\right)$, $J = \\left(\\frac{2}{800}, -2\\right)$, $K = \\left(\\frac{3}{800}, 0\\right)$, $P = \\left(\\frac{4}{800}, 2\\right)$; $t$-coordinates must be of the form $\\frac{0+4k}{800}$, $\\frac{1+4k}{800}$, $\\frac{2+4k}{800}$, $\\frac{3+4k}{800}$, $\\frac{4+4k}{800}$ for a specific integer $k$",
+          "alternatives": [
+            {
+              "required_elements": ["$\\Delta t = \\frac{1}{800}$", "$t$-coordinates in arithmetic sequence for 5 key points"],
+              "correct_example": "$t = 0, \\frac{1}{800}, \\frac{2}{800}, \\frac{3}{800}, \\frac{4}{800}$ (or equivalent with integer $k$ offset)"
+            }
+          ],
+          "wrong_examples": ["Using $\\Delta t = \\frac{1}{200}$ (one full period) instead of $\\frac{1}{800}$ (quarter period)", "Using $\\Delta t = \\frac{1}{400}$ (half period)"],
+          "common_traps": ["Period = $\\frac{1}{200}$ second; quarter-period = $\\frac{1}{800}$ second — the 5 key points are spaced by quarter-periods", "Negative $t$-coordinates are acceptable", "Fractions do not need to be reduced"]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "The function $h$ can be written in the form $h(t) = a\\sin(b(t + c)) + d$. Find values of constants $a$, $b$, $c$, and $d$.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct vertical transformation values — $a = 2$ (or $a = -2$) and $d = 0$",
-        "1 pt: Correct horizontal transformation values — $b = 400\\pi$ (from period $= \\frac{1}{200}$, so $\\frac{2\\pi}{b} = \\frac{1}{200}$) and $c = \\frac{1}{800}$ (if $a = 2$; e.g., $h(t) = 2\\sin\\left(400\\pi\\left(t + \\frac{1}{800}\\right)\\right)$) or $c = -\\frac{1}{800}$ (if $a = -2$)"
-      ],
       "scoring_notes": "No supporting work required. Points earned for correct values in a list OR in an expression for $h(t)$. Fractions do not need to be reduced. General form: for $a = 2$, $c = \\frac{1}{800} + \\frac{4k}{800}$ for any integer $k$; for $a = -2$, $c = -\\frac{1}{800} + \\frac{4k}{800}$ for any integer $k$. Full credit also available based on correctly imported coordinates from part (A) that meet criteria: $a \\neq 1$, $b \\neq 1$, $c \\neq 0$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Correct vertical transformation values — $a = 2$ (or $a = -2$) and $d = 0$",
+          "alternatives": [
+            {
+              "required_elements": ["$a = 2$", "$d = 0$"],
+              "correct_example": "$a = 2$, $d = 0$"
+            },
+            {
+              "required_elements": ["$a = -2$", "$d = 0$"],
+              "correct_example": "$a = -2$, $d = 0$"
+            }
+          ],
+          "wrong_examples": ["$a = 1$ and $d = 2$ (incorrect — midline is at $0$, not $2$)", "$d = 2$ (no vertical shift since resting position is the midline)"],
+          "common_traps": ["Point starts at maximum $+2$ — but the midline (resting position) is $0$, so $d = 0$", "No supporting work required — values in a list OR in an expression both earn the point"]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Correct horizontal transformation values — $b = 400\\pi$ (from period $= \\frac{1}{200}$, so $\\frac{2\\pi}{b} = \\frac{1}{200}$) and $c = \\frac{1}{800}$ (if $a = 2$; e.g., $h(t) = 2\\sin\\left(400\\pi\\left(t + \\frac{1}{800}\\right)\\right)$) or $c = -\\frac{1}{800}$ (if $a = -2$)",
+          "alternatives": [
+            {
+              "required_elements": ["$b = 400\\pi$", "$c = \\frac{1}{800}$"],
+              "correct_example": "$b = 400\\pi$, $c = \\frac{1}{800}$ (for $a = 2$); $h(t) = 2\\sin\\left(400\\pi\\left(t + \\frac{1}{800}\\right)\\right)$"
+            },
+            {
+              "required_elements": ["$b = 400\\pi$", "$c = -\\frac{1}{800}$"],
+              "correct_example": "$b = 400\\pi$, $c = -\\frac{1}{800}$ (for $a = -2$); $h(t) = -2\\sin\\left(400\\pi\\left(t - \\frac{1}{800}\\right)\\right)$"
+            }
+          ],
+          "wrong_examples": ["$b = 200\\pi$ (from period $= \\frac{1}{100}$, incorrect — 200 full cycles per second means period = $\\frac{1}{200}$)", "$c = 0$ (no phase shift gives maximum at $t = 0$ only for cosine, not sine; sine needs phase shift)"],
+          "common_traps": ["Period $= \\frac{1}{200}$ seconds (200 full cycles per second) gives $b = \\frac{2\\pi}{1/200} = 400\\pi$", "Phase shift $c$ depends on choice of $a$: if $a = 2$, shift right by $\\frac{1}{800}$ (use $+c$); if $a = -2$, shift left by $\\frac{1}{800}$"]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "Refer to the graph of $h$ in part A. The $t$-coordinate of $G$ is $t_1$, and the $t$-coordinate of $J$ is $t_2$.\n\n(i) On the interval $(t_1, t_2)$, which of the following is true about $h$?\na. $h$ is positive and increasing.\nb. $h$ is positive and decreasing.\nc. $h$ is negative and increasing.\nd. $h$ is negative and decreasing.\n\n(ii) On the interval $(t_1, t_2)$, describe the concavity of the graph of $h$ and determine whether the rate of change of $h$ is increasing or decreasing.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct answer — choice (d): $h$ is negative and decreasing on $(t_1, t_2)$",
-        "1 pt: Both descriptions must be correct — the graph of $h$ is concave up on $(t_1, t_2)$ AND the rate of change of $h$ is increasing on $(t_1, t_2)$"
-      ],
       "scoring_notes": "No supporting work required. For (i), if both letter choice and written description are given, the written description is scored. For (ii), both \"concave up\" AND \"increasing\" (referring to the rate of change) must be stated — either alone is insufficient. \"Concave up AND function $h$ is decreasing at an increasing rate\" is acceptable. A response with only \"the graph of $h$ is concave up\" or only \"the rate of change of $h$ is increasing\" does not earn the point. A statement that the rate of change is \"increasing at an increasing (or decreasing) rate\" does not earn the point. Point C2 cannot be earned if there are errors in part (c)(ii).",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Correct answer — choice (d): $h$ is negative and decreasing on $(t_1, t_2)$",
+          "alternatives": [
+            {
+              "required_elements": ["$h$ is negative and decreasing"],
+              "correct_example": "d. $h$ is negative and decreasing"
+            }
+          ],
+          "wrong_examples": ["Choice (c): $h$ is negative and increasing (wrong — between midline-descending $G$ and minimum $J$, $h$ is decreasing)", "Choice (b): $h$ is positive and decreasing (wrong — $h < 0$ on this interval)"],
+          "common_traps": ["$G$ is where $h$ crosses the midline ($h = 0$) going downward; $J$ is the minimum ($h = -2$); so between $G$ and $J$, $h$ is negative AND decreasing", "If both letter choice and written description are given, the written description is scored"]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Both descriptions must be correct — the graph of $h$ is concave up on $(t_1, t_2)$ AND the rate of change of $h$ is increasing on $(t_1, t_2)$",
+          "alternatives": [
+            {
+              "required_elements": ["concave up", "rate of change is increasing"],
+              "correct_example": "The graph of $h$ is concave up on $(t_1, t_2)$, and the rate of change of $h$ is increasing on $(t_1, t_2)$."
+            },
+            {
+              "required_elements": ["concave up", "decreasing at an increasing rate"],
+              "correct_example": "The graph of $h$ is concave up and $h$ is decreasing at an increasing rate on $(t_1, t_2)$."
+            }
+          ],
+          "wrong_examples": ["Only stating 'concave up' without mentioning the rate of change", "Only stating 'rate of change is increasing' without mentioning concavity", "Stating 'rate of change is increasing at an increasing rate' (requires calculus — not accepted)"],
+          "common_traps": ["BOTH 'concave up' AND 'rate of change is increasing' must appear — either alone is insufficient for the point", "Point C2 cannot be earned if there are any errors in part (c)(ii)"]
+        }
+      ]
     }
   ]
 }
