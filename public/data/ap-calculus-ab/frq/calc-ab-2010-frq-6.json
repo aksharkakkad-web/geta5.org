@@ -5,7 +5,10 @@
   "source": "released",
   "title": "dy/dx = xy³ with d²y/dx² = y³(1+3x²y²), f(1)=2 — Tangent Line, Approximation & Separation of Variables",
   "frq_type": "multi_part_math",
-  "related_units": [4, 7],
+  "related_units": [
+    4,
+    7
+  ],
   "calculator_allowed": false,
   "total_points": 9,
   "stimulus": "Solutions to the differential equation $\\frac{dy}{dx} = xy^3$ also satisfy $\\frac{d^2y}{dx^2} = y^3(1 + 3x^2y^2)$. Let $y = f(x)$ be a particular solution to the differential equation $\\frac{dy}{dx} = xy^3$ with $f(1) = 2$.",
@@ -16,40 +19,146 @@
       "letter": "a",
       "prompt": "Write an equation for the line tangent to the graph of $y = f(x)$ at $x = 1$.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Finds slope: $f'(1) = \\frac{dy}{dx}\\big|_{(1,2)} = (1)(2)^3 = 8$",
-        "1 pt: Correct tangent line equation: $y = 2 + 8(x - 1)$"
-      ],
       "scoring_notes": "From scoring key: $f'(1) = 1 \\cdot 2^3 = 8$. Tangent line: $y = 2 + 8(x-1)$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Finds slope",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Finds slope"
+              ],
+              "correct_example": "$f'(1) = \\frac{dy}{dx}\\big|_{(1,2)} = (1)(2)^3 = 8$"
+            }
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Correct tangent line equation",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct tangent line equation"
+              ],
+              "correct_example": "$y = 2 + 8(x - 1)$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "Use the tangent line equation from part (a) to approximate $f(1.1)$. Given that $f(x) > 0$ for $1 < x < 1.1$, is the approximation for $f(1.1)$ greater than or less than $f(1.1)$? Explain your reasoning.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct approximation: $f(1.1) \\approx 2 + 8(0.1) = 2.8$",
-        "1 pt: Correct conclusion with explanation: since $f(x) > 0$ on $1 < x < 1.1$, we have $\\frac{d^2y}{dx^2} = y^3(1 + 3x^2y^2) > 0$, so the graph of $y = f(x)$ is concave up; the tangent line lies below the curve, so $2.8$ is less than $f(1.1)$"
-      ],
       "scoring_notes": "From scoring key: $f(1.1) \\approx 2.8$. Since $\\frac{d^2y}{dx^2} > 0$ on the interval, the graph is concave up, so the tangent line approximation $2.8$ is less than $f(1.1)$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Correct approximation",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct approximation"
+              ],
+              "correct_example": "$f(1.1) \\approx 2 + 8(0.1) = 2.8$"
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Correct conclusion with explanation: since $f(x) > 0$ on $1 < x < 1.1$, we have $\\frac{d^2y}{dx^2} = y^3(1 + 3x^2y^2) > 0$, so the graph of $y = f(x)$ is concave up; the tangent line lies below the curve, so $2.8$ is less than $f(1.1)$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct conclusion with explanation: since $f(x) > 0$ on $1 < x < 1.1$, we have $\\frac{d^2y}{dx^2} = y^3(1 + 3x^2y^2) > 0$, so the graph of $y = f(x)$ is concave up; the tangent line lies below the curve, so $2.8$ is less than $f(1.1)$"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "Find the particular solution $y = f(x)$ with initial condition $f(1) = 2$.",
       "point_value": 5,
-      "rubric_criteria": [
-        "1 pt: Separates variables: $\\frac{dy}{y^3} = x\\, dx$, or $y^{-3}\\, dy = x\\, dx$",
-        "1 pt: Correct antiderivatives: $-\\frac{1}{2y^2} = \\frac{x^2}{2} + C$",
-        "1 pt: Includes constant of integration",
-        "1 pt: Uses initial condition $f(1) = 2$: $-\\frac{1}{2(4)} = \\frac{1}{2} + C \\Rightarrow C = -\\frac{1}{8} - \\frac{1}{2} = -\\frac{5}{8}$",
-        "1 pt: Solves for $y$: $-\\frac{1}{2y^2} = \\frac{x^2}{2} - \\frac{5}{8}$, so $y^2 = \\frac{1}{\\frac{5}{4} - x^2} = \\frac{4}{5 - 4x^2}$; $f(x) = \\frac{2}{\\sqrt{5 - 4x^2}}$, $-\\frac{\\sqrt{5}}{2} < x < \\frac{\\sqrt{5}}{2}$"
-      ],
       "scoring_notes": "From scoring key: Separation gives $-\\frac{1}{2y^2} = \\frac{x^2}{2} + C$. Using $f(1)=2$: $C = -\\frac{5}{8}$. Solution: $f(x) = \\frac{2}{\\sqrt{5-4x^2}}$, $-\\frac{\\sqrt{5}}{2} < x < \\frac{\\sqrt{5}}{2}$. Max $\\frac{2}{5}$ if no constant of integration; $0/5$ if no separation.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Separates variables",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Separates variables"
+              ],
+              "correct_example": "$\\frac{dy}{y^3} = x\\, dx$, or $y^{-3}\\, dy = x\\, dx$"
+            }
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Correct antiderivatives",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct antiderivatives"
+              ],
+              "correct_example": "$-\\frac{1}{2y^2} = \\frac{x^2}{2} + C$"
+            }
+          ]
+        },
+        {
+          "point_id": "c3",
+          "point_value": 1,
+          "description": "Includes constant of integration",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Includes constant of integration"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "c4",
+          "point_value": 1,
+          "description": "Uses initial condition $f(1) = 2$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Uses initial condition $f(1) = 2$"
+              ],
+              "correct_example": "$-\\frac{1}{2(4)} = \\frac{1}{2} + C \\Rightarrow C = -\\frac{1}{8} - \\frac{1}{2} = -\\frac{5}{8}$"
+            }
+          ]
+        },
+        {
+          "point_id": "c5",
+          "point_value": 1,
+          "description": "Solves for $y$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Solves for $y$"
+              ],
+              "correct_example": "$-\\frac{1}{2y^2} = \\frac{x^2}{2} - \\frac{5}{8}$, so $y^2 = \\frac{1}{\\frac{5}{4} - x^2} = \\frac{4}{5 - 4x^2}$; $f(x) = \\frac{2}{\\sqrt{5 - 4x^2}}$, $-\\frac{\\sqrt{5}}{2} < x < \\frac{\\sqrt{5}}{2}$"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

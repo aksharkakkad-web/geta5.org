@@ -5,7 +5,10 @@
   "source": "released",
   "title": "Landfill dW/dt = (1/25)(W-300) — Tangent Approx, Second Derivative & Separation of Variables",
   "frq_type": "multi_part_math",
-  "related_units": [4, 7],
+  "related_units": [
+    4,
+    7
+  ],
   "calculator_allowed": false,
   "total_points": 9,
   "stimulus": "At the beginning of 2010, a landfill contained 1400 tons of solid waste. The increasing function $W$ models the total amount of solid waste stored at the landfill. Planners estimate that $W$ will satisfy the differential equation $\\frac{dW}{dt} = \\frac{1}{25}(W - 300)$ for the next 20 years. $W$ is measured in tons, and $t$ is measured in years from the start of 2010.",
@@ -16,40 +19,145 @@
       "letter": "a",
       "prompt": "Use the line tangent to the graph of $W$ at $t = 0$ to approximate the amount of solid waste that the landfill contains at the end of the first 3 months of 2010 (time $t = \\frac{1}{4}$).",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Finds slope at $t=0$: $\\frac{dW}{dt}\\big|_{t=0} = \\frac{1}{25}(W(0)-300) = \\frac{1}{25}(1400-300) = \\frac{1100}{25} = 44$ tons per year",
-        "1 pt: Correct approximation: $W\\left(\\frac{1}{4}\\right) \\approx 1400 + 44 \\cdot \\frac{1}{4} = 1400 + 11 = 1411$ tons"
-      ],
       "scoring_notes": "From scoring key: Slope at $t=0$ is $44$. Tangent line: $y = 1400 + 44t$. $W(1/4) \\approx 1411$ tons.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Finds slope at $t=0$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Finds slope at $t=0$"
+              ],
+              "correct_example": "$\\frac{dW}{dt}\\big|_{t=0} = \\frac{1}{25}(W(0)-300) = \\frac{1}{25}(1400-300) = \\frac{1100}{25} = 44$ tons per year"
+            }
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Correct approximation",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct approximation"
+              ],
+              "correct_example": "$W\\left(\\frac{1}{4}\\right) \\approx 1400 + 44 \\cdot \\frac{1}{4} = 1400 + 11 = 1411$ tons"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "Find $\\frac{d^2W}{dt^2}$ in terms of $W$. Use $\\frac{d^2W}{dt^2}$ to determine whether your answer in part (a) is an underestimate or an overestimate of the amount of solid waste that the landfill contains at time $t = \\frac{1}{4}$.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Finds $\\frac{d^2W}{dt^2} = \\frac{1}{25}\\frac{dW}{dt} = \\frac{1}{25} \\cdot \\frac{1}{25}(W-300) = \\frac{1}{625}(W-300)$",
-        "1 pt: Correct conclusion: since $W \\ge 1400 > 300$, we have $\\frac{d^2W}{dt^2} = \\frac{1}{625}(W-300) > 0$; the graph of $W$ is concave up, so the tangent line lies below the graph, making part (a) an underestimate"
-      ],
       "scoring_notes": "From scoring key: $\\frac{d^2W}{dt^2} = \\frac{1}{625}(W-300) > 0$ for $W \\ge 1400$. Graph is concave up; part (a) is an underestimate.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Finds $\\frac{d^2W}{dt^2} = \\frac{1}{25}\\frac{dW}{dt} = \\frac{1}{25} \\cdot \\frac{1}{25}(W-300) = \\frac{1}{625}(W-300)$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Finds $\\frac{d^2W}{dt^2} = \\frac{1}{25}\\frac{dW}{dt} = \\frac{1}{25} \\cdot \\frac{1}{25}(W-300) = \\frac{1}{625}(W-300)$"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Correct conclusion: since $W \\ge 1400 > 300$, we have $\\frac{d^2W}{dt^2} = \\frac{1}{625}(W-300) > 0$; the graph of $W$ is concave up, so the tangent line lies below the graph, making part (a) an underestimate",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct conclusion: since $W \\ge 1400 > 300$, we have $\\frac{d^2W}{dt^2} = \\frac{1}{625}(W-300) > 0$; the graph of $W$ is concave up, so the tangent line lies below the graph, making part (a) an underestimate"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "Find the particular solution $W = W(t)$ to the differential equation $\\frac{dW}{dt} = \\frac{1}{25}(W-300)$ with initial condition $W(0) = 1400$.",
       "point_value": 5,
-      "rubric_criteria": [
-        "1 pt: Separates variables: $\\frac{dW}{W-300} = \\frac{dt}{25}$",
-        "1 pt: Correct antiderivatives: $\\ln|W-300| = \\frac{t}{25} + C$",
-        "1 pt: Includes constant of integration",
-        "1 pt: Uses initial condition: $\\ln(1400-300) = 0 + C \\Rightarrow C = \\ln(1100)$; so $W - 300 = 1100e^{t/25}$",
-        "1 pt: Solves for $W$: $W(t) = 300 + 1100e^{t/25}$, $0 \\le t \\le 20$"
-      ],
       "scoring_notes": "From scoring key: $\\ln(W-300) = \\frac{t}{25} + C$. Using $W(0) = 1400$: $C = \\ln(1100)$. $W(t) = 300 + 1100e^{t/25}$. 0/5 if no separation; max 2/5 if no constant.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Separates variables",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Separates variables"
+              ],
+              "correct_example": "$\\frac{dW}{W-300} = \\frac{dt}{25}$"
+            }
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Correct antiderivatives",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct antiderivatives"
+              ],
+              "correct_example": "$\\ln|W-300| = \\frac{t}{25} + C$"
+            }
+          ]
+        },
+        {
+          "point_id": "c3",
+          "point_value": 1,
+          "description": "Includes constant of integration",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Includes constant of integration"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "c4",
+          "point_value": 1,
+          "description": "Uses initial condition",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Uses initial condition"
+              ],
+              "correct_example": "$\\ln(1400-300) = 0 + C \\Rightarrow C = \\ln(1100)$; so $W - 300 = 1100e^{t/25}$"
+            }
+          ]
+        },
+        {
+          "point_id": "c5",
+          "point_value": 1,
+          "description": "Solves for $W$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Solves for $W$"
+              ],
+              "correct_example": "$W(t) = 300 + 1100e^{t/25}$, $0 \\le t \\le 20$"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

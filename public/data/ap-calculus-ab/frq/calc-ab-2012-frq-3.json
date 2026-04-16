@@ -5,7 +5,11 @@
   "source": "released",
   "title": "g(x) = ∫₁ˣ f(t)dt — g(2) and g(-2), g' and g'' at -3, Horizontal Tangents & Inflection Points",
   "frq_type": "multi_part_math",
-  "related_units": [2, 5, 6],
+  "related_units": [
+    2,
+    5,
+    6
+  ],
   "calculator_allowed": false,
   "total_points": 9,
   "stimulus": "Let $f$ be the continuous function defined on $[-4, 3]$ whose graph, consisting of three line segments and a semicircle centered at the origin, is given. Let $g$ be the function given by $g(x) = \\int_1^x f(t)\\, dt$.",
@@ -16,50 +20,154 @@
       "letter": "a",
       "prompt": "Find the values of $g(2)$ and $g(-2)$.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct $g(2)$: $g(2) = \\int_1^2 f(t)\\, dt = -\\frac{1}{2}(1)(1) = -\\frac{1}{2}$ (from graph geometry)",
-        "1 pt: Correct $g(-2)$: $g(-2) = -\\int_{-2}^1 f(t)\\, dt = -\\left(-\\frac{3}{2} + \\frac{\\pi}{2}\\right)$... from scoring key $g(-2) = -\\frac{3}{2} + \\frac{\\pi}{2}$ ... actually $g(-2) = \\int_1^{-2} f(t)\\, dt = -\\int_{-2}^1 f(t)\\, dt$; from key $= \\frac{3}{2} - \\frac{\\pi}{2}$... check: $g(-2) = -\\frac{3}{2} + \\frac{\\pi}{2}$... from scoring key: $g(-2) = -(3/2 - \\pi/2) = -3/2 + \\pi/2$"
-      ],
       "scoring_notes": "From scoring key: $g(2) = \\int_1^2 f(t)\\, dt = -\\frac{1}{2}(1) = -\\frac{1}{2}$ (right triangle below $x$-axis). $g(-2) = \\int_1^{-2} f(t)\\, dt = -\\int_{-2}^1 f(t)\\, dt$. The integral from $-2$ to $1$ includes the semicircle (area $\\frac{\\pi}{2}$, above) and triangle. From scoring key: $g(-2) = -\\frac{3}{2} + \\frac{\\pi}{2}$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Correct $g(2)$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct $g(2)$"
+              ],
+              "correct_example": "$g(2) = \\int_1^2 f(t)\\, dt = -\\frac{1}{2}(1)(1) = -\\frac{1}{2}$ (from graph geometry)"
+            }
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Correct $g(-2)$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct $g(-2)$"
+              ],
+              "correct_example": "$g(-2) = -\\int_{-2}^1 f(t)\\, dt = -\\left(-\\frac{3}{2} + \\frac{\\pi}{2}\\right)$... from scoring key $g(-2) = -\\frac{3}{2} + \\frac{\\pi}{2}$ ... actually $g(-2) = \\int_1^{-2} f(t)\\, dt = -\\int_{-2}^1 f(t)\\, dt$; from key $= \\frac{3}{2} - \\frac{\\pi}{2}$... check: $g(-2) = -\\frac{3}{2} + \\frac{\\pi}{2}$... from scoring key: $g(-2) = -(3/2 - \\pi/2) = -3/2 + \\pi/2$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "For each of $g'(-3)$ and $g''(-3)$, find the value or state that it does not exist.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: $g'(-3) = f(-3) = 2$ (reading from the graph at $x = -3$)",
-        "1 pt: $g''(-3) = f'(-3) = 1$ (slope of the line segment of $f$ at $x = -3$)"
-      ],
       "scoring_notes": "From scoring key: $g'(x) = f(x)$, so $g'(-3) = f(-3) = 2$. $g''(x) = f'(x)$, so $g''(-3) = f'(-3) = 1$ (slope of the left line segment).",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "$g'(-3) = f(-3) = 2$ (reading from the graph at $x = -3$)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$g'(-3) = f(-3) = 2$ (reading from the graph at $x = -3$)"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "$g''(-3) = f'(-3) = 1$ (slope of the line segment of $f$ at $x = -3$)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$g''(-3) = f'(-3) = 1$ (slope of the line segment of $f$ at $x = -3$)"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "Find the $x$-coordinate of each point at which the graph of $g$ has a horizontal tangent line. For each of these points, determine whether $g$ has a relative minimum, relative maximum, or neither a minimum nor a maximum at the point. Justify your answers.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Considers $g'(x) = f(x) = 0$; zeros at $x = -1$ and $x = 1$",
-        "1 pt: $g'$ changes from positive to negative at $x = -1$: relative maximum at $x = -1$",
-        "1 pt: $g'$ does not change sign at $x = 1$ (remains negative on both sides): neither minimum nor maximum at $x = 1$"
-      ],
       "scoring_notes": "From scoring key: Horizontal tangents at $x = -1$ and $x = 1$ (where $f(x) = 0$). At $x=-1$: $f$ changes from $+$ to $-$, so relative maximum. At $x=1$: $f$ does not change sign, so neither.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Considers $g'(x) = f(x) = 0$; zeros at $x = -1$ and $x = 1$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Considers $g'(x) = f(x) = 0$; zeros at $x = -1$",
+                "$x = 1$"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "$g'$ changes from positive to negative at $x = -1$: relative maximum at $x = -1$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$g'$ changes from positive to negative at $x = -1$: relative maximum at $x = -1$"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "c3",
+          "point_value": 1,
+          "description": "$g'$ does not change sign at $x = 1$ (remains negative on both sides): neither minimum nor maximum at $x = 1$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$g'$ does not change sign at $x = 1$ (remains negative on both sides): neither minimum nor maximum at $x = 1$"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "d",
       "prompt": "For $-4 < x < 3$, find all values of $x$ for which the graph of $g$ has a point of inflection. Explain your reasoning.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct answer: inflection points at $x = -2$, $x = 0$, and $x = 1$",
-        "1 pt: Explanation: $g''(x) = f'(x)$ changes sign at $x = -2$, $x = 0$, and $x = 1$ (where the slope of $f$ changes sign)"
-      ],
       "scoring_notes": "From scoring key: $g''(x) = f'(x)$ changes sign at $x = -2$, $x = 0$, and $x = 1$, giving inflection points at each of these $x$-values.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "d1",
+          "point_value": 1,
+          "description": "Correct answer: inflection points at $x = -2$, $x = 0$, and $x = 1$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer: inflection points at $x = -2$, $x = 0$,",
+                "$x = 1$"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "d2",
+          "point_value": 1,
+          "description": "Explanation",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Explanation"
+              ],
+              "correct_example": "$g''(x) = f'(x)$ changes sign at $x = -2$, $x = 0$, and $x = 1$ (where the slope of $f$ changes sign)"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

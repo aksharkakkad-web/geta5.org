@@ -5,7 +5,11 @@
   "source": "released",
   "title": "Particle on x-axis — Acceleration, Position, Displacement vs Distance & Matching Velocities",
   "frq_type": "multi_part_math",
-  "related_units": [4, 6, 8],
+  "related_units": [
+    4,
+    6,
+    8
+  ],
   "calculator_allowed": true,
   "total_points": 9,
   "stimulus": "A particle moves along the $x$-axis with velocity given by $v(t) = \\frac{10\\sin(0.4t^2)}{2t^2 - t + 3}$ for time $0 \\le t \\le 3.5$. The particle is at position $x = 5$ at time $t = 0$.",
@@ -16,50 +20,154 @@
       "letter": "a",
       "prompt": "Find the acceleration of the particle at time $t = 3$.",
       "point_value": 1,
-      "rubric_criteria": [
-        "1 pt: Correct answer: $v'(3) \\approx -2.118$ (or $-2.117$)"
-      ],
       "scoring_notes": "From scoring key: $v'(3) \\approx -2.118$. The acceleration of the particle at $t = 3$ is approximately $-2.118$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer"
+              ],
+              "correct_example": "$v'(3) \\approx -2.118$ (or $-2.117$)"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "Find the position of the particle at time $t = 3$.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Sets up integral: $x(3) = x(0) + \\int_0^3 v(t)\\, dt$",
-        "1 pt: Uses initial condition $x(0) = 5$",
-        "1 pt: Correct answer: $x(3) = 5 + \\int_0^3 v(t)\\, dt \\approx 5 + (-1.760) \\approx -1.760$"
-      ],
       "scoring_notes": "From scoring key: $x(3) = 5 + \\int_0^3 v(t)\\, dt \\approx 5 + (-6.760) = -1.760$. (The integral $\\int_0^3 v(t)\\, dt \\approx -6.760$.)",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Sets up integral",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Sets up integral"
+              ],
+              "correct_example": "$x(3) = x(0) + \\int_0^3 v(t)\\, dt$"
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Uses initial condition $x(0) = 5$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Uses initial condition $x(0) = 5$"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "b3",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer"
+              ],
+              "correct_example": "$x(3) = 5 + \\int_0^3 v(t)\\, dt \\approx 5 + (-1.760) \\approx -1.760$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "Evaluate $\\int_0^{3.5} v(t)\\, dt$ and $\\int_0^{3.5} |v(t)|\\, dt$. Interpret the meaning of each integral in the context of the problem.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Correct values: $\\int_0^{3.5} v(t)\\, dt \\approx 2.844$ (or $2.843$) and $\\int_0^{3.5} |v(t)|\\, dt \\approx 3.737$",
-        "1 pt: Correct interpretation of $\\int_0^{3.5} v(t)\\, dt$: the displacement (change in position) of the particle over $0 \\le t \\le 3.5$",
-        "1 pt: Correct interpretation of $\\int_0^{3.5} |v(t)|\\, dt$: the total distance traveled by the particle over $0 \\le t \\le 3.5$"
-      ],
       "scoring_notes": "From scoring key: $\\int_0^{3.5} v(t)\\, dt \\approx 2.844$ is the displacement; $\\int_0^{3.5} |v(t)|\\, dt \\approx 3.737$ is the total distance traveled, over $0 \\le t \\le 3.5$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Correct values",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct values"
+              ],
+              "correct_example": "$\\int_0^{3.5} v(t)\\, dt \\approx 2.844$ (or $2.843$) and $\\int_0^{3.5} |v(t)|\\, dt \\approx 3.737$"
+            }
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Correct interpretation of $\\int_0^{3.5} v(t)\\, dt$: the displacement (change in position) of the particle over $0 \\le t \\le 3.5$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct interpretation of $\\int_0^{3.5} v(t)\\, dt$: the displacement (change in position) of the particle over $0 \\le t \\le 3.5$"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "c3",
+          "point_value": 1,
+          "description": "Correct interpretation of $\\int_0^{3.5} |v(t)|\\, dt$: the total distance traveled by the particle over $0 \\le t \\le 3.5$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct interpretation of $\\int_0^{3.5} |v(t)|\\, dt$: the total distance traveled by the particle over $0 \\le t \\le 3.5$"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "d",
       "prompt": "A second particle moves along the $x$-axis with position given by $x_2(t) = t^2 - t$ for $0 \\le t \\le 3.5$. At what time $t$ are the two particles moving with the same velocity?",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Sets $v(t) = x_2'(t) = 2t - 1$",
-        "1 pt: Correct answer: $t \\approx 1.571$ (or $1.570$)"
-      ],
       "scoring_notes": "From scoring key: $v(t) = 2t - 1 \\Rightarrow t \\approx 1.571$ (or $1.570$). The two particles move with the same velocity at $t \\approx 1.571$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "d1",
+          "point_value": 1,
+          "description": "Sets $v(t) = x_2'(t) = 2t - 1$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Sets $v(t) = x_2'(t) = 2t - 1$"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "d2",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer"
+              ],
+              "correct_example": "$t \\approx 1.571$ (or $1.570$)"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

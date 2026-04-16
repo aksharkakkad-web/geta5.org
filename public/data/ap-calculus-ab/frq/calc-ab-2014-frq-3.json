@@ -5,7 +5,12 @@
   "source": "released",
   "title": "Piecewise Linear f — g(3) from FTC, Increasing/Concave Down, h'(3) Quotient Rule & Chain Rule p'(-1)",
   "frq_type": "multi_part_math",
-  "related_units": [2, 3, 5, 6],
+  "related_units": [
+    2,
+    3,
+    5,
+    6
+  ],
   "calculator_allowed": false,
   "total_points": 9,
   "stimulus": "The function $f$ is defined on the closed interval $[-5, 4]$. The graph of $f$ consists of three line segments. Let $g$ be the function defined by $g(x) = \\int_{-3}^x f(t)\\, dt$.",
@@ -16,50 +21,157 @@
       "letter": "a",
       "prompt": "Find $g(3)$.",
       "point_value": 1,
-      "rubric_criteria": [
-        "1 pt: Correct answer using geometric areas: $g(3) = \\int_{-3}^3 f(t)\\, dt = 6 + 4 - 1 = 9$ (from graph geometry)"
-      ],
       "scoring_notes": "From scoring key: $g(3) = \\int_{-3}^3 f(t)\\, dt = 9$ (computed via signed areas of the three line segments).",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Correct answer using geometric areas",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer using geometric areas"
+              ],
+              "correct_example": "$g(3) = \\int_{-3}^3 f(t)\\, dt = 6 + 4 - 1 = 9$ (from graph geometry)"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "On what open intervals contained in $-5 < x < 4$ is the graph of $g$ both increasing and concave down? Give a reason for your answer.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct intervals: $(-5, -3)$ and $(0, 2)$",
-        "1 pt: Reason: $g'(x) = f(x)$; $g$ is increasing and concave down where $f$ is positive and decreasing"
-      ],
       "scoring_notes": "From scoring key: $g'(x) = f(x)$. $g$ is increasing and concave down on $(-5,-3)$ and $(0,2)$ because $f$ is positive and decreasing on these intervals.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Correct intervals",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct intervals"
+              ],
+              "correct_example": "$(-5, -3)$ and $(0, 2)$"
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Reason",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Reason"
+              ],
+              "correct_example": "$g'(x) = f(x)$; $g$ is increasing and concave down where $f$ is positive and decreasing"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "The function $h$ is defined by $h(x) = \\frac{g(x)}{5x}$. Find $h'(3)$.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Applies quotient rule: $h'(x) = \\frac{5x \\cdot g'(x) - g(x) \\cdot 5}{(5x)^2} = \\frac{5x g'(x) - 5g(x)}{25x^2}$",
-        "1 pt: Substitutes values: $g'(3) = f(3) = -2$, $g(3) = 9$",
-        "1 pt: Correct answer: $h'(3) = \\frac{5(3)(-2) - 5(9)}{25(9)} = \\frac{-30 - 45}{225} = \\frac{-75}{225} = -\\frac{1}{3}$"
-      ],
       "scoring_notes": "From scoring key: $h'(3) = \\frac{15(-2) - 5(9)}{225} = \\frac{-75}{225} = -\\frac{1}{3}$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Applies quotient rule",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Applies quotient rule"
+              ],
+              "correct_example": "$h'(x) = \\frac{5x \\cdot g'(x) - g(x) \\cdot 5}{(5x)^2} = \\frac{5x g'(x) - 5g(x)}{25x^2}$"
+            }
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Substitutes values",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Substitutes values"
+              ],
+              "correct_example": "$g'(3) = f(3) = -2$, $g(3) = 9$"
+            }
+          ]
+        },
+        {
+          "point_id": "c3",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer"
+              ],
+              "correct_example": "$h'(3) = \\frac{5(3)(-2) - 5(9)}{25(9)} = \\frac{-30 - 45}{225} = \\frac{-75}{225} = -\\frac{1}{3}$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "d",
       "prompt": "The function $p$ is defined by $p(x) = f(x^2 - x)$. Find the slope of the line tangent to the graph of $p$ at the point where $x = -1$.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Applies chain rule: $p'(x) = f'(x^2 - x) \\cdot (2x - 1)$",
-        "1 pt: Evaluates at $x = -1$: $x^2 - x = 1 - (-1) = 2$; $p'(-1) = f'(2) \\cdot (2(-1) - 1) = f'(2) \\cdot (-3)$",
-        "1 pt: Correct answer: reads $f'(2) = -2$ from graph; $p'(-1) = (-2)(-3) = 6$"
-      ],
       "scoring_notes": "From scoring key: $p'(-1) = f'(x^2-x) \\cdot (2x-1)\\big|_{x=-1} = f'(2)(-3) = (-2)(-3) = 6$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "d1",
+          "point_value": 1,
+          "description": "Applies chain rule",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Applies chain rule"
+              ],
+              "correct_example": "$p'(x) = f'(x^2 - x) \\cdot (2x - 1)$"
+            }
+          ]
+        },
+        {
+          "point_id": "d2",
+          "point_value": 1,
+          "description": "Evaluates at $x = -1$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Evaluates at $x = -1$"
+              ],
+              "correct_example": "$x^2 - x = 1 - (-1) = 2$; $p'(-1) = f'(2) \\cdot (2(-1) - 1) = f'(2) \\cdot (-3)$"
+            }
+          ]
+        },
+        {
+          "point_id": "d3",
+          "point_value": 1,
+          "description": "Correct answer: reads $f'(2) = -2$ from graph; $p'(-1) = (-2)(-3) = 6$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer: reads $f'(2) = -2$ from graph; $p'(-1) = (-2)(-3) = 6$"
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

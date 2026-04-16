@@ -5,7 +5,10 @@
   "source": "released",
   "title": "Escalator Line — Entry Rate, People in Line & Minimum (Table/Rate)",
   "frq_type": "multi_part_math",
-  "related_units": [6, 8],
+  "related_units": [
+    6,
+    8
+  ],
   "calculator_allowed": true,
   "total_points": 9,
   "stimulus": "People enter a line for an escalator at a rate modeled by the function $r$ given by\n$$r(t) = \\begin{cases} 44\\left(\\frac{t}{100}\\right)^3\\left(1 - \\frac{t}{300}\\right)^7 & \\text{for } 0 \\le t \\le 300 \\\\ 0 & \\text{for } t > 300 \\end{cases}$$\nwhere $r(t)$ is measured in people per second and $t$ is measured in seconds. As people get on the escalator, they exit the line at a constant rate of $0.7$ person per second. There are $20$ people in line at time $t = 0$.",
@@ -16,50 +19,154 @@
       "letter": "a",
       "prompt": "How many people enter the line for the escalator during the time interval $0 \\le t \\le 300$?",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Sets up the integral: $\\int_0^{300} r(t)\\, dt$",
-        "1 pt: Correct answer: $\\int_0^{300} r(t)\\, dt = 270$ people"
-      ],
       "scoring_notes": "From scoring key: $\\int_0^{300} r(t)\\, dt = 270$. According to the model, 270 people enter the line during $0 \\le t \\le 300$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Sets up the integral",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Sets up the integral"
+              ],
+              "correct_example": "$\\int_0^{300} r(t)\\, dt$"
+            }
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer"
+              ],
+              "correct_example": "$\\int_0^{300} r(t)\\, dt = 270$ people"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "During the time interval $0 \\le t \\le 300$, there are always people in line for the escalator. How many people are in line at time $t = 300$?",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Considers rate out: accounts for $0.7$ person per second exiting; $20 + \\int_0^{300} r(t)\\, dt - 0.7 \\cdot 300$",
-        "1 pt: Correct answer: $20 + 270 - 210 = 80$ people"
-      ],
       "scoring_notes": "From scoring key: $20 + \\int_0^{300}(r(t) - 0.7)\\, dt = 20 + 270 - 0.7 \\cdot 300 = 20 + 270 - 210 = 80$ people in line at $t = 300$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Considers rate out: accounts for $0.7$ person per second exiting; $20 + \\int_0^{300} r(t)\\, dt - 0.7 \\cdot 300$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Considers rate out: accounts for $0.7$ person per second exiting; $20 + \\int_0^{300} r(t)\\, dt - 0.7 \\cdot 300$"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer"
+              ],
+              "correct_example": "$20 + 270 - 210 = 80$ people"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "For $t > 300$, what is the first time $t$ that there are no people in line for the escalator?",
       "point_value": 1,
-      "rubric_criteria": [
-        "1 pt: Correct answer: $t = 300 + \\frac{80}{0.7} \\approx 414.286$ seconds (or $414.285$)"
-      ],
       "scoring_notes": "From scoring key: After $t = 300$, $r(t) = 0$ and people leave at $0.7$ per second. With $80$ people at $t = 300$, the line empties at $t = 300 + \\frac{80}{0.7} \\approx 414.286$ seconds.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer"
+              ],
+              "correct_example": "$t = 300 + \\frac{80}{0.7} \\approx 414.286$ seconds (or $414.285$)"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "d",
       "prompt": "For $0 \\le t \\le 300$, at what time $t$ is the number of people in line a minimum? To the nearest whole number, find the number of people in line at this time. Justify your answer.",
       "point_value": 4,
-      "rubric_criteria": [
-        "1 pt: Considers $r(t) - 0.7 = 0$ to find critical points",
-        "1 pt: Identifies $t \\approx 33.013$ as the critical point (and $t_2 \\approx 166.575$); the number of people in line at $t_1$ is a minimum",
-        "1 pt: Correct answer: minimum of approximately $4$ people at $t \\approx 33.013$ seconds",
-        "1 pt: Justification: tests critical points and endpoints; values are $20$ (at $t=0$), $\\approx 3.803$ (at $t_1$), $\\approx 158.070$ (at $t_2$), $80$ (at $t=300$); minimum is at $t \\approx 33.013$"
-      ],
       "scoring_notes": "From scoring key: $r(t) - 0.7 = 0$ gives $t_1 \\approx 33.013$ and $t_2 \\approx 166.575$. Values: $t=0 \\to 20$, $t_1 \\to \\approx 3.803$, $t_2 \\to \\approx 158.070$, $t=300 \\to 80$. Minimum at $t \\approx 33.013$ seconds with approximately $4$ people (rounded to nearest whole number).",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "d1",
+          "point_value": 1,
+          "description": "Considers $r(t) - 0.7 = 0$ to find critical points",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Considers $r(t) - 0.7 = 0$ to find critical points"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "d2",
+          "point_value": 1,
+          "description": "Identifies $t \\approx 33.013$ as the critical point (and $t_2 \\approx 166.575$); the number of people in line at $t_1$ is a minimum",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Identifies $t \\approx 33.013$ as the critical point (and $t_2 \\approx 166.575$); the number of people in line at $t_1$ is a minimum"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "d3",
+          "point_value": 1,
+          "description": "Correct answer: minimum of approximately $4$ people at $t \\approx 33.013$ seconds",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer: minimum of approximately $4$ people at $t \\approx 33.013$ seconds"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "d4",
+          "point_value": 1,
+          "description": "Justification: tests critical points and endpoints; values are $20$ (at $t=0$), $\\approx 3.803$ (at $t_1$), $\\approx 158.070$ (at $t_2$), $80$ (at $t=300$); minimum is at $t \\approx 33.013$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Justification: tests critical points",
+                "endpoints; values are $20$ (at $t=0$), $\\approx 3.803$ (at $t_1$), $\\approx 158.070$ (at $t_2$), $80$ (at $t=300$); minimum is at $t \\approx 33.013$"
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

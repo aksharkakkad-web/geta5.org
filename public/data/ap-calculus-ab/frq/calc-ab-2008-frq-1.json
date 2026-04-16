@@ -5,7 +5,10 @@
   "source": "released",
   "title": "Region R: y=sin(πx) and y=x³-4x — Area, Horizontal Split (Write Only), Square Cross Sections & Pond Volume",
   "frq_type": "multi_part_math",
-  "related_units": [6, 8],
+  "related_units": [
+    6,
+    8
+  ],
   "calculator_allowed": true,
   "total_points": 9,
   "stimulus": "Let $R$ be the region bounded by the graphs of $y = \\sin(\\pi x)$ and $y = x^3 - 4x$, as shown in the figure above.",
@@ -16,50 +19,158 @@
       "letter": "a",
       "prompt": "Find the area of $R$.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Correct limits: $\\sin(\\pi x) = x^3 - 4x$ at $x = 0$ and $x = 2$",
-        "1 pt: Correct integrand: $\\int_0^2 (\\sin(\\pi x) - (x^3 - 4x))\\, dx$",
-        "1 pt: Correct answer: $4$"
-      ],
       "scoring_notes": "From scoring key: Area $= \\int_0^2 (\\sin(\\pi x) - (x^3-4x))\\, dx = 4$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Correct limits",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct limits"
+              ],
+              "correct_example": "$\\sin(\\pi x) = x^3 - 4x$ at $x = 0$ and $x = 2$"
+            }
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Correct integrand",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct integrand"
+              ],
+              "correct_example": "$\\int_0^2 (\\sin(\\pi x) - (x^3 - 4x))\\, dx$"
+            }
+          ]
+        },
+        {
+          "point_id": "a3",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer"
+              ],
+              "correct_example": "$4$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "The horizontal line $y = -2$ splits the region $R$ into two parts. Write, but do not evaluate, an integral expression for the area of the part of $R$ that is below this horizontal line.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct limits: $x^3 - 4x = -2$ at $r \\approx 0.539$ and $s \\approx 1.675$",
-        "1 pt: Correct integrand: $\\int_r^s (-2 - (x^3 - 4x))\\, dx$"
-      ],
       "scoring_notes": "From scoring key: $x^3-4x = -2$ at $r \\approx 0.5392$ and $s \\approx 1.6751$. Area below $y=-2$ is $\\int_r^s (-2-(x^3-4x))\\, dx$ (do not evaluate).",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Correct limits",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct limits"
+              ],
+              "correct_example": "$x^3 - 4x = -2$ at $r \\approx 0.539$ and $s \\approx 1.675$"
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Correct integrand",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct integrand"
+              ],
+              "correct_example": "$\\int_r^s (-2 - (x^3 - 4x))\\, dx$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "The region $R$ is the base of a solid. For this solid, each cross section perpendicular to the $x$-axis is a square. Find the volume of this solid.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct integrand: $\\int_0^2 (\\sin(\\pi x) - (x^3 - 4x))^2\\, dx$",
-        "1 pt: Correct answer: $\\approx 9.978$"
-      ],
       "scoring_notes": "From scoring key: Volume $= \\int_0^2 (\\sin(\\pi x)-(x^3-4x))^2\\, dx \\approx 9.978$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Correct integrand",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct integrand"
+              ],
+              "correct_example": "$\\int_0^2 (\\sin(\\pi x) - (x^3 - 4x))^2\\, dx$"
+            }
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer"
+              ],
+              "correct_example": "$\\approx 9.978$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "d",
       "prompt": "The region $R$ models the surface of a small pond. At all points in $R$ at a distance $x$ from the $y$-axis, the depth of the water is given by $h(x) = 3 - x$. Find the volume of water in the pond.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct integrand: $\\int_0^2 (3-x)(\\sin(\\pi x) - (x^3 - 4x))\\, dx$",
-        "1 pt: Correct answer: $\\approx 8.369$ or $8.370$"
-      ],
       "scoring_notes": "From scoring key: Volume $= \\int_0^2 (3-x)(\\sin(\\pi x)-(x^3-4x))\\, dx \\approx 8.369$ or $8.370$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "d1",
+          "point_value": 1,
+          "description": "Correct integrand",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct integrand"
+              ],
+              "correct_example": "$\\int_0^2 (3-x)(\\sin(\\pi x) - (x^3 - 4x))\\, dx$"
+            }
+          ]
+        },
+        {
+          "point_id": "d2",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer"
+              ],
+              "correct_example": "$\\approx 8.369$ or $8.370$"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

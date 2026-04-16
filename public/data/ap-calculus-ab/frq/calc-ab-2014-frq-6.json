@@ -5,7 +5,10 @@
   "source": "released",
   "title": "dy/dx = (3-y)cos x — Slope Field, Tangent Line Approx & Separation of Variables",
   "frq_type": "multi_part_math",
-  "related_units": [3, 7],
+  "related_units": [
+    3,
+    7
+  ],
   "calculator_allowed": false,
   "total_points": 9,
   "stimulus": "Consider the differential equation $\\frac{dy}{dx} = (3-y)\\cos x$. Let $y = f(x)$ be the particular solution to the differential equation with the initial condition $f(0) = 1$. The function $f$ is defined for all real numbers.",
@@ -16,40 +19,148 @@
       "letter": "a",
       "prompt": "A portion of the slope field of the differential equation is given. Sketch the solution curve through the point $(0, 1)$.",
       "point_value": 1,
-      "rubric_criteria": [
-        "1 pt: Solution curve passes through $(0, 1)$, follows slope field lines, and approaches $y = 3$ asymptotically"
-      ],
       "scoring_notes": "From scoring key: Curve must pass through $(0,1)$ and follow slope field. The equilibrium solution is $y = 3$; curves starting below $y = 3$ approach it from below.",
       "requires_drawing": true,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Solution curve passes through $(0, 1)$, follows slope field lines, and approaches $y = 3$ asymptotically",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Solution curve passes through $(0, 1)$, follows slope field lines,",
+                "approaches $y = 3$ asymptotically"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "Write an equation for the line tangent to the solution curve in part (a) at the point $(0, 1)$. Use the equation to approximate $f(0.2)$.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct tangent line: $\\frac{dy}{dx}\\big|_{(0,1)} = (3-1)\\cos(0) = 2$; equation: $y = 1 + 2x$",
-        "1 pt: Correct approximation: $f(0.2) \\approx 1 + 2(0.2) = 1.4$"
-      ],
       "scoring_notes": "From scoring key: Slope $= (3-1)\\cos(0) = 2$. Tangent line: $y = 2x + 1$. Approximation: $f(0.2) \\approx 1.4$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Correct tangent line",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct tangent line"
+              ],
+              "correct_example": "$\\frac{dy}{dx}\\big|_{(0,1)} = (3-1)\\cos(0) = 2$; equation: $y = 1 + 2x$"
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Correct approximation",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct approximation"
+              ],
+              "correct_example": "$f(0.2) \\approx 1 + 2(0.2) = 1.4$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "Find $y = f(x)$, the particular solution to the differential equation with the initial condition $f(0) = 1$.",
       "point_value": 6,
-      "rubric_criteria": [
-        "1 pt: Separates variables: $\\frac{dy}{3-y} = \\cos x\\, dx$",
-        "1 pt: Correct antiderivatives: $-\\ln|3-y| = \\sin x + C$",
-        "1 pt: Correct antiderivatives (both sides correct)",
-        "1 pt: Includes constant of integration and uses initial condition $f(0) = 1$: $-\\ln(2) = 0 + C \\Rightarrow C = -\\ln 2$",
-        "1 pt: Solves for $y$: $-\\ln|3-y| = \\sin x - \\ln 2$; $\\ln|3-y| = -\\sin x + \\ln 2$; $|3-y| = 2e^{-\\sin x}$; since $f(0) = 1 < 3$: $3-y = 2e^{-\\sin x}$",
-        "1 pt: Final answer: $y = f(x) = 3 - 2e^{-\\sin x}$"
-      ],
       "scoring_notes": "From scoring key: $\\frac{dy}{3-y} = \\cos x\\, dx$. $-\\ln|3-y| = \\sin x + C$. Using $f(0)=1$: $C = -\\ln 2$. Since $y < 3$: $3 - y = 2e^{-\\sin x}$, so $y = 3 - 2e^{-\\sin x}$. Valid for all real $x$. 0/6 if no separation; max 3/6 if no constant of integration.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Separates variables",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Separates variables"
+              ],
+              "correct_example": "$\\frac{dy}{3-y} = \\cos x\\, dx$"
+            }
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Correct antiderivatives",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct antiderivatives"
+              ],
+              "correct_example": "$-\\ln|3-y| = \\sin x + C$"
+            }
+          ]
+        },
+        {
+          "point_id": "c3",
+          "point_value": 1,
+          "description": "Correct antiderivatives (both sides correct)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct antiderivatives (both sides correct)"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "c4",
+          "point_value": 1,
+          "description": "Includes constant of integration and uses initial condition $f(0) = 1$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Includes constant of integration",
+                "uses initial condition $f(0) = 1$"
+              ],
+              "correct_example": "$-\\ln(2) = 0 + C \\Rightarrow C = -\\ln 2$"
+            }
+          ]
+        },
+        {
+          "point_id": "c5",
+          "point_value": 1,
+          "description": "Solves for $y$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Solves for $y$"
+              ],
+              "correct_example": "$-\\ln|3-y| = \\sin x - \\ln 2$; $\\ln|3-y| = -\\sin x + \\ln 2$; $|3-y| = 2e^{-\\sin x}$; since $f(0) = 1 < 3$: $3-y = 2e^{-\\sin x}$"
+            }
+          ]
+        },
+        {
+          "point_id": "c6",
+          "point_value": 1,
+          "description": "Final answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Final answer"
+              ],
+              "correct_example": "$y = f(x) = 3 - 2e^{-\\sin x}$"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

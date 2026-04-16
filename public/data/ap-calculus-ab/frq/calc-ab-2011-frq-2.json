@@ -5,7 +5,10 @@
   "source": "released",
   "title": "Tea Cooling Table H(t) — Rate Approximation, Avg Temp, FTC & Biscuit Temperature Difference",
   "frq_type": "multi_part_math",
-  "related_units": [4, 6],
+  "related_units": [
+    4,
+    6
+  ],
   "calculator_allowed": true,
   "total_points": 9,
   "stimulus": "As a pot of tea cools, the temperature of the tea is modeled by a differentiable function $H$ for $0 \\le t \\le 10$, where time $t$ is measured in minutes and temperature $H(t)$ is measured in degrees Celsius. Values of $H(t)$ at selected values of time $t$ are shown in the table.\n\n| $t$ (minutes) | 0 | 2 | 5 | 9 | 10 |\n|---|---|---|---|---|---|\n| $H(t)$ (°C) | 66 | 60 | 52 | 44 | 43 |",
@@ -16,50 +19,157 @@
       "letter": "a",
       "prompt": "Use the data in the table to approximate the rate at which the temperature of the tea is changing at time $t = 3.5$. Show the computations that lead to your answer.",
       "point_value": 1,
-      "rubric_criteria": [
-        "1 pt: Correct approximation: $H'(3.5) \\approx \\frac{H(5) - H(2)}{5 - 2} = \\frac{52 - 60}{3} = -\\frac{8}{3} \\approx -2.667$ (or $-2.666$) degrees Celsius per minute"
-      ],
       "scoring_notes": "From scoring key: $H'(3.5) \\approx \\frac{52-60}{3} \\approx -2.667$ °C/min.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Correct approximation",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct approximation"
+              ],
+              "correct_example": "$H'(3.5) \\approx \\frac{H(5) - H(2)}{5 - 2} = \\frac{52 - 60}{3} = -\\frac{8}{3} \\approx -2.667$ (or $-2.666$) degrees Celsius per minute"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "Using correct units, explain the meaning of $\\frac{1}{10}\\int_0^{10} H(t)\\, dt$ in the context of this problem. Use a trapezoidal sum with the four subintervals indicated by the table to estimate $\\frac{1}{10}\\int_0^{10} H(t)\\, dt$.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Correct meaning with units: $\\frac{1}{10}\\int_0^{10} H(t)\\, dt$ is the average temperature of the tea, in degrees Celsius, over the 10 minutes",
-        "1 pt: Correct trapezoidal sum: $\\frac{1}{10}\\left[2 \\cdot \\frac{66+60}{2} + 3 \\cdot \\frac{60+52}{2} + 4 \\cdot \\frac{52+44}{2} + 1 \\cdot \\frac{44+43}{2}\\right]$",
-        "1 pt: Correct estimate: $\\frac{1}{10}(126 + 168 + 192 + 43.5) = \\frac{529.5}{10} = 52.95$ °C"
-      ],
       "scoring_notes": "From scoring key: Average temperature = $\\frac{1}{10}[2 \\cdot \\frac{66+60}{2} + 3 \\cdot \\frac{60+52}{2} + 4 \\cdot \\frac{52+44}{2} + 1 \\cdot \\frac{44+43}{2}] = 52.95$ °C.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Correct meaning with units",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct meaning with units"
+              ],
+              "correct_example": "$\\frac{1}{10}\\int_0^{10} H(t)\\, dt$ is the average temperature of the tea, in degrees Celsius, over the 10 minutes"
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Correct trapezoidal sum",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct trapezoidal sum"
+              ],
+              "correct_example": "$\\frac{1}{10}\\left[2 \\cdot \\frac{66+60}{2} + 3 \\cdot \\frac{60+52}{2} + 4 \\cdot \\frac{52+44}{2} + 1 \\cdot \\frac{44+43}{2}\\right]$"
+            }
+          ]
+        },
+        {
+          "point_id": "b3",
+          "point_value": 1,
+          "description": "Correct estimate",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct estimate"
+              ],
+              "correct_example": "$\\frac{1}{10}(126 + 168 + 192 + 43.5) = \\frac{529.5}{10} = 52.95$ °C"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "Evaluate $\\int_0^{10} H'(t)\\, dt$. Using correct units, explain the meaning of the expression in the context of this problem.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct value by FTC: $\\int_0^{10} H'(t)\\, dt = H(10) - H(0) = 43 - 66 = -23$ degrees Celsius",
-        "1 pt: Correct meaning with units: the temperature of the tea drops 23 degrees Celsius from $t = 0$ to $t = 10$ minutes"
-      ],
       "scoring_notes": "From scoring key: $\\int_0^{10} H'(t)\\, dt = H(10)-H(0) = -23$ °C. The tea's temperature decreases by 23°C over 10 minutes.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Correct value by FTC",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct value by FTC"
+              ],
+              "correct_example": "$\\int_0^{10} H'(t)\\, dt = H(10) - H(0) = 43 - 66 = -23$ degrees Celsius"
+            }
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Correct meaning with units: the temperature of the tea drops 23 degrees Celsius from $t = 0$ to $t = 10$ minutes",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct meaning with units: the temperature of the tea drops 23 degrees Celsius from $t = 0$ to $t = 10$ minutes"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "d",
       "prompt": "At time $t = 0$, biscuits with temperature 100°C were removed from an oven. The temperature of the biscuits at time $t$ is modeled by a differentiable function $B$ for which it is known that $B'(t) = -13.84e^{-0.173t}$. Using the given models, at time $t = 10$, how much cooler are the biscuits than the tea?",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Correct integrand for biscuit temperature: $\\int_0^{10} B'(t)\\, dt$",
-        "1 pt: Uses initial condition $B(0) = 100$: $B(10) = 100 + \\int_0^{10} (-13.84e^{-0.173t})\\, dt \\approx 34.183$",
-        "1 pt: Correct answer: $H(10) - B(10) = 43 - 34.183 \\approx 8.817$ degrees Celsius cooler"
-      ],
       "scoring_notes": "From scoring key: $B(10) = 100 + \\int_0^{10} B'(t)\\, dt \\approx 34.183$. $H(10) - B(10) = 43 - 34.183 \\approx 8.817$ °C. Biscuits are approximately 8.817°C cooler.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "d1",
+          "point_value": 1,
+          "description": "Correct integrand for biscuit temperature",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct integrand for biscuit temperature"
+              ],
+              "correct_example": "$\\int_0^{10} B'(t)\\, dt$"
+            }
+          ]
+        },
+        {
+          "point_id": "d2",
+          "point_value": 1,
+          "description": "Uses initial condition $B(0) = 100$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Uses initial condition $B(0) = 100$"
+              ],
+              "correct_example": "$B(10) = 100 + \\int_0^{10} (-13.84e^{-0.173t})\\, dt \\approx 34.183$"
+            }
+          ]
+        },
+        {
+          "point_id": "d3",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer"
+              ],
+              "correct_example": "$H(10) - B(10) = 43 - 34.183 \\approx 8.817$ degrees Celsius cooler"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

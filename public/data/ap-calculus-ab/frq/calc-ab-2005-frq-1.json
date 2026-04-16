@@ -20,36 +20,144 @@
       "letter": "a",
       "prompt": "Find the area of $R$.",
       "point_value": 1,
-      "rubric_criteria": [
-        "Find the area of $R$."
-      ],
       "scoring_notes": null,
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Correct limits of integration",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct lower bound $x = a \\approx 0.178$ and upper bound $x = 0$ for region R"
+              ],
+              "correct_example": "$\\int_0^a [g(x) - f(x)]\\, dx$ with correct bounds"
+            }
+          ],
+          "common_traps": [
+            "Using limits for region S instead of region R"
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Correct integrand",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Integrand is $g(x) - f(x)$ for the region above $g$ and below $f$ (or correct orientation)"
+              ],
+              "correct_example": "$g(x) - f(x) = 4^{-x} - (1 + \\sin(\\pi x))$"
+            }
+          ]
+        },
+        {
+          "point_id": "a3",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct numerical answer"
+              ],
+              "correct_example": "$\\approx 0.064$ or $0.065$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "Find the area of $S$.",
       "point_value": 1,
-      "rubric_criteria": [
-        "Find the area of $S$."
-      ],
       "scoring_notes": null,
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Correct limits of integration for region S",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Lower limit $x = a \\approx 0.178$, upper limit $x = 1$"
+              ],
+              "correct_example": "$\\int_a^1 [f(x) - g(x)]\\, dx$"
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Correct integrand for region S",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Integrand $f(x) - g(x)$ on $[a, 1]$"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "b3",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct numerical area of S"
+              ],
+              "correct_example": "$\\approx 0.410$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "Find the volume of the solid generated when $S$ is revolved about the horizontal line $y = -1$.",
       "point_value": 1,
-      "rubric_criteria": [
-        "Find the volume of the solid generated when $S$ is revolved about the horizontal line $y = -1$.",
-        "$f(x) = g(x)$ when $1 + \\sin(\\pi x) = 4^{-x}$.",
-        "$f$ and $g$ intersect when $x \\approx 0.178218$ and when $x = 1$."
-      ],
       "scoring_notes": null,
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 2,
+          "description": "Correct integrand for volume (washer method about $y = -1$)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Washer method: $\\pi[(f(x)+1)^2 - (g(x)+1)^2]$",
+                "Outer radius $f(x)+1$, inner radius $g(x)+1$"
+              ],
+              "correct_example": "$\\pi \\int_a^1 [(f(x)+1)^2 - (g(x)+1)^2]\\, dx$"
+            }
+          ],
+          "common_traps": [
+            "Forgetting to shift by +1 for the axis $y = -1$",
+            "Using disk instead of washer method"
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Correct limits, constant $\\pi$, and answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Limits from $a$ to $1$",
+                "Factor of $\\pi$",
+                "Correct numerical answer"
+              ],
+              "correct_example": "$\\approx 4.558$ or $4.559$"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

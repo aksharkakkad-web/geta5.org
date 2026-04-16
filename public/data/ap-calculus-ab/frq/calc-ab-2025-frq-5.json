@@ -5,7 +5,11 @@
   "source": "released",
   "title": "Two Particles on x-axis — Velocity, Opposite Directions & Position",
   "frq_type": "multi_part_math",
-  "related_units": [4, 6, 8],
+  "related_units": [
+    4,
+    6,
+    8
+  ],
   "calculator_allowed": false,
   "total_points": 9,
   "stimulus": "Two particles, $H$ and $J$, are moving along the $x$-axis. For $0 \\le t \\le 5$, the position of particle $H$ at time $t$ is given by $x_H(t) = e^{t^2 - 4t}$ and the velocity of particle $J$ at time $t$ is given by $v_J(t) = 2t(t^2-1)^3$.",
@@ -16,50 +20,158 @@
       "letter": "a",
       "prompt": "Find the velocity of particle $H$ at time $t = 1$. Show the work that leads to your answer.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Computes $x_H'(t) = v_H(t) = (2t-4)e^{t^2-4t}$ (or evaluates at $t=1$: $(2\\cdot1-4)e^{1-4}$)",
-        "1 pt: Correct answer: $v_H(1) = (2-4)e^{-3} = -2e^{-3}$"
-      ],
       "scoring_notes": "P1 earned for $x_H'(t)$, $x_H'(1)$, or $(2t-4)e^{t^2-4t}$ or $(2\\cdot1-4)e^{1-4}$. P2 earned for $-2e^{-3}$ or equivalent. An unsupported answer of $-2e^{-3}$ earns P2 but not P1.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Computes $x_H'(t) = v_H(t) = (2t-4)e^{t^2-4t}$ (or evaluates at $t=1$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Computes $x_H'(t) = v_H(t) = (2t-4)e^{t^2-4t}$ (or evaluates at $t=1$"
+              ],
+              "correct_example": "$(2\\cdot1-4)e^{1-4}$)"
+            }
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer"
+              ],
+              "correct_example": "$v_H(1) = (2-4)e^{-3} = -2e^{-3}$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "During what open intervals of time $t$, for $0 < t < 5$, are particles $H$ and $J$ moving in opposite directions? Give a reason for your answer.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Considers signs of $v_H(t)$ or $v_J(t)$: $v_H(t) = (2t-4)e^{t^2-4t} = 0 \\Rightarrow t = 2$; $v_J(t) = 2t(t^2-1)^3 = 0 \\Rightarrow t = 1$ for $0 < t < 5$",
-        "1 pt: Analyzes direction for one particle: $v_H < 0$ for $0 < t < 2$, $v_H > 0$ for $2 < t < 5$; or $v_J < 0$ for $0 < t < 1$, $v_J > 0$ for $1 < t < 5$",
-        "1 pt: Correct answer with complete reasoning: particles move in opposite directions for $1 < t < 2$ (H moves left, J moves right)"
-      ],
       "scoring_notes": "Particle H: $v_H < 0$ for $0 < t < 2$ (moving left), $v_H > 0$ for $2 < t < 5$ (moving right). Particle J: $v_J < 0$ for $0 < t < 1$ (moving left), $v_J > 0$ for $1 < t < 5$ (moving right). Opposite directions only when one is positive and the other negative: $1 < t < 2$. Must analyze both particles for P5.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Considers signs of $v_H(t)$ or $v_J(t)$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Considers signs of $v_H(t)$ or $v_J(t)$"
+              ],
+              "correct_example": "$v_H(t) = (2t-4)e^{t^2-4t} = 0 \\Rightarrow t = 2$; $v_J(t) = 2t(t^2-1)^3 = 0 \\Rightarrow t = 1$ for $0 < t < 5$"
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Analyzes direction for one particle",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Analyzes direction for one particle"
+              ],
+              "correct_example": "$v_H < 0$ for $0 < t < 2$, $v_H > 0$ for $2 < t < 5$; or $v_J < 0$ for $0 < t < 1$, $v_J > 0$ for $1 < t < 5$"
+            }
+          ]
+        },
+        {
+          "point_id": "b3",
+          "point_value": 1,
+          "description": "Correct answer with complete reasoning: particles move in opposite directions for $1 < t < 2$ (H moves left, J moves right)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer with complete reasoning: particles move in opposite directions for $1 < t < 2$ (H moves left, J moves right)"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "It can be shown that $v_J'(2) > 0$. Is the speed of particle $J$ increasing, decreasing, or neither at time $t = 2$? Give a reason for your answer.",
       "point_value": 1,
-      "rubric_criteria": [
-        "1 pt: Speed is increasing at $t = 2$ because $v_J(2) = 2(2)(3)^3 = 108 > 0$ and $v_J'(2) > 0$ (given), so velocity and acceleration have the same sign"
-      ],
       "scoring_notes": "Since $v_J(2) = 108 > 0$ and $v_J'(2) > 0$ (same sign), speed is increasing. Can import sign of $v_J(2)$ from part (b). An evaluation of $v_J(2)$ is not required; stating $v_J(2) > 0$ (consistent with part b analysis) suffices.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Speed is increasing at $t = 2$ because $v_J(2) = 2(2)(3)^3 = 108 > 0$ and $v_J'(2) > 0$ (given), so velocity and acceleration have the same sign",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Speed is increasing at $t = 2$ because $v_J(2) = 2(2)(3)^3 = 108 > 0$",
+                "$v_J'(2) > 0$ (given), so velocity",
+                "acceleration have the same sign"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "d",
       "prompt": "Particle $J$ is at position $x = 7$ at time $t = 0$. Find the position of particle $J$ at time $t = 2$. Show the work that leads to your answer.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Correct integrand: $\\int_0^2 v_J(t)\\, dt = \\int_0^2 2t(t^2-1)^3\\, dt$",
-        "1 pt: Correct antiderivative: $\\frac{1}{4}(t^2-1)^4 + C$ (using $u = t^2-1$, $du = 2t\\, dt$)",
-        "1 pt: Correct answer: $x_J(2) = 7 + \\int_0^2 2t(t^2-1)^3\\, dt = 7 + \\frac{1}{4}\\left[(3)^4 - (-1)^4\\right] = 7 + \\frac{1}{4}(80) = 7 + 20 = 27$"
-      ],
       "scoring_notes": "$x_J(2) = x_J(0) + \\int_0^2 v_J(t)\\, dt = 7 + \\int_0^2 2t(t^2-1)^3\\, dt$. Using $u = t^2-1$: $\\int 2t(t^2-1)^3\\, dt = \\frac{(t^2-1)^4}{4}$. Evaluated: $\\frac{(4-1)^4}{4} - \\frac{(0-1)^4}{4} = \\frac{81}{4} - \\frac{1}{4} = 20$. Position $= 7 + 20 = 27$. P8 requires $k(t^2-1)^4$ with $k = \\frac{1}{4}$; wrong $k$ loses P9.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "d1",
+          "point_value": 1,
+          "description": "Correct integrand",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct integrand"
+              ],
+              "correct_example": "$\\int_0^2 v_J(t)\\, dt = \\int_0^2 2t(t^2-1)^3\\, dt$"
+            }
+          ]
+        },
+        {
+          "point_id": "d2",
+          "point_value": 1,
+          "description": "Correct antiderivative",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct antiderivative"
+              ],
+              "correct_example": "$\\frac{1}{4}(t^2-1)^4 + C$ (using $u = t^2-1$, $du = 2t\\, dt$)"
+            }
+          ]
+        },
+        {
+          "point_id": "d3",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer"
+              ],
+              "correct_example": "$x_J(2) = 7 + \\int_0^2 2t(t^2-1)^3\\, dt = 7 + \\frac{1}{4}\\left[(3)^4 - (-1)^4\\right] = 7 + \\frac{1}{4}(80) = 7 + 20 = 27$"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

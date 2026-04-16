@@ -19,50 +19,156 @@
       "letter": "a",
       "prompt": "Use the data in the table to estimate $H'(6)$. Using correct units, interpret the meaning of $H'(6)$ in the context of the problem.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct estimate using symmetric difference: $H'(6) \\approx \\frac{H(7) - H(5)}{7 - 5} = \\frac{11 - 6}{2} = \\frac{5}{2}$ meters per year",
-        "1 pt: Interpretation with units: $H'(6)$ is the rate at which the height of the tree is changing, in meters per year, at time $t = 6$ years"
-      ],
       "scoring_notes": "From scoring key: $H'(6) \\approx \\frac{H(7) - H(5)}{2} = \\frac{5}{2}$ meters per year. Interpretation must include rate of change, units (meters per year), and context (height of tree at $t = 6$).",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Correct estimate using symmetric difference",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct estimate using symmetric difference"
+              ],
+              "correct_example": "$H'(6) \\approx \\frac{H(7) - H(5)}{7 - 5} = \\frac{11 - 6}{2} = \\frac{5}{2}$ meters per year"
+            }
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Interpretation with units",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Interpretation with units"
+              ],
+              "correct_example": "$H'(6)$ is the rate at which the height of the tree is changing, in meters per year, at time $t = 6$ years"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "Explain why there must be at least one time $t$, for $2 < t < 10$, such that $H'(t) = 2$.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Computes average rate of change over $[3, 5]$: $\\frac{H(5) - H(3)}{5 - 3} = \\frac{6 - 2}{2} = 2$",
-        "1 pt: Applies Mean Value Theorem: since $H$ is differentiable on $[3, 5]$ (hence continuous), by MVT there exists $c \\in (3, 5) \\subset (2, 10)$ such that $H'(c) = 2$"
-      ],
       "scoring_notes": "From scoring key: $\\frac{H(5) - H(3)}{5 - 3} = 2$. Since $H$ is differentiable (and continuous) on $[3, 5]$, by MVT there exists $c \\in (3, 5)$ with $H'(c) = 2$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Computes average rate of change over $[3, 5]$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Computes average rate of change over $[3, 5]$"
+              ],
+              "correct_example": "$\\frac{H(5) - H(3)}{5 - 3} = \\frac{6 - 2}{2} = 2$"
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Applies Mean Value Theorem: since $H$ is differentiable on $[3, 5]$ (hence continuous), by MVT there exists $c \\in (3, 5) \\subset (2, 10)$ such that $H'(c) = 2$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Applies Mean Value Theorem: since $H$ is differentiable on $[3, 5]$ (hence continuous), by MVT there exists $c \\in (3, 5) \\subset (2, 10)$ such that $H'(c) = 2$"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "Use a trapezoidal sum with the four subintervals indicated by the data in the table to approximate the average height of the tree over the time interval $2 \\le t \\le 10$.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Sets up trapezoidal sum: $\\frac{1}{10-2}\\int_2^{10} H(t)\\, dt \\approx \\frac{1}{8} \\cdot \\left[\\frac{1.5+2}{2}(1) + \\frac{2+6}{2}(2) + \\frac{6+11}{2}(2) + \\frac{11+15}{2}(3)\\right]$",
-        "1 pt: Correct trapezoidal sum evaluation: $\\frac{1}{8}(1.75 + 8 + 17 + 39) = \\frac{1}{8}(65.75) = \\frac{263}{32}$",
-        "1 pt: Correct answer: approximately $\\frac{263}{32}$ meters"
-      ],
       "scoring_notes": "From scoring key: $\\frac{1}{8}\\left[\\frac{1.5+2}{2}(1) + \\frac{2+6}{2}(2) + \\frac{6+11}{2}(2) + \\frac{11+15}{2}(3)\\right] = \\frac{1}{8}(65.75) = \\frac{263}{32}$ meters.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Sets up trapezoidal sum",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Sets up trapezoidal sum"
+              ],
+              "correct_example": "$\\frac{1}{10-2}\\int_2^{10} H(t)\\, dt \\approx \\frac{1}{8} \\cdot \\left[\\frac{1.5+2}{2}(1) + \\frac{2+6}{2}(2) + \\frac{6+11}{2}(2) + \\frac{11+15}{2}(3)\\right]$"
+            }
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Correct trapezoidal sum evaluation",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct trapezoidal sum evaluation"
+              ],
+              "correct_example": "$\\frac{1}{8}(1.75 + 8 + 17 + 39) = \\frac{1}{8}(65.75) = \\frac{263}{32}$"
+            }
+          ]
+        },
+        {
+          "point_id": "c3",
+          "point_value": 1,
+          "description": "Correct answer: approximately $\\frac{263}{32}$ meters",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer: approximately $\\frac{263}{32}$ meters"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "d",
       "prompt": "The height of the tree, in meters, can also be modeled by the function $G$, given by $G(x) = \\frac{100x}{1+x}$, where $x$ is the diameter of the base of the tree, in meters. When the tree is 50 meters tall, the diameter of the base of the tree is increasing at a rate of $0.03$ meter per year. According to this model, what is the rate of change of the height of the tree with respect to time, in meters per year, at the time when the tree is 50 meters tall?",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Differentiates $G(x)$ with respect to $t$ using chain rule: $\\frac{d}{dt}G(x) = G'(x) \\cdot \\frac{dx}{dt} = \\frac{(1+x)(100) - 100x(1)}{(1+x)^2} \\cdot \\frac{dx}{dt} = \\frac{100}{(1+x)^2} \\cdot \\frac{dx}{dt}$",
-        "1 pt: Finds $x = 1$ when $G(x) = 50$; evaluates: $\\frac{dG}{dt}\\big|_{x=1} = \\frac{100}{(1+1)^2} \\cdot 0.03 = \\frac{100}{4} \\cdot 0.03 = \\frac{3}{4}$ meters per year"
-      ],
       "scoring_notes": "From scoring key: $G(x) = 50 \\Rightarrow x = 1$. $\\frac{d}{dt}G(x) = \\frac{100}{(1+x)^2} \\cdot \\frac{dx}{dt}\\bigg|_{x=1} = \\frac{100}{4} \\cdot 0.03 = \\frac{3}{4}$ meters per year.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "d1",
+          "point_value": 1,
+          "description": "Differentiates $G(x)$ with respect to $t$ using chain rule",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Differentiates $G(x)$ with respect to $t$ using chain rule"
+              ],
+              "correct_example": "$\\frac{d}{dt}G(x) = G'(x) \\cdot \\frac{dx}{dt} = \\frac{(1+x)(100) - 100x(1)}{(1+x)^2} \\cdot \\frac{dx}{dt} = \\frac{100}{(1+x)^2} \\cdot \\frac{dx}{dt}$"
+            }
+          ]
+        },
+        {
+          "point_id": "d2",
+          "point_value": 1,
+          "description": "Finds $x = 1$ when $G(x) = 50$; evaluates",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Finds $x = 1$ when $G(x) = 50$; evaluates"
+              ],
+              "correct_example": "$\\frac{dG}{dt}\\big|_{x=1} = \\frac{100}{(1+1)^2} \\cdot 0.03 = \\frac{100}{4} \\cdot 0.03 = \\frac{3}{4}$ meters per year"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

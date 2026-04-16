@@ -21,45 +21,157 @@
       "letter": "a",
       "prompt": "Find $\\int_0^{24} v(t)\\, dt$. Using correct units, explain the meaning of $\\int_0^{24} v(t)\\, dt$.",
       "point_value": 1,
-      "rubric_criteria": [
-        "Find $\\int_0^{24} v(t)\\, dt$. Using correct units, explain the meaning of $\\int_0^{24} v(t)\\, dt$."
-      ],
       "scoring_notes": null,
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Correct value of $\\int_0^{24} v(t)\\, dt$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct area calculation using triangles/trapezoids"
+              ],
+              "correct_example": "$\\int_0^{24} v(t)\\, dt = \\frac{1}{2}(4)(20) + 12(20) + \\frac{1}{2}(8)(20) = 40 + 240 + 80 = 360$ meters"
+            }
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Correct meaning with units",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Displacement/distance of 360 meters in 24 seconds"
+              ],
+              "correct_example": "The car travels 360 meters in these 24 seconds"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "For each of $v'(4)$ and $v'(20)$, find the value or explain why it does not exist. Indicate units of measure.",
       "point_value": 1,
-      "rubric_criteria": [
-        "For each of $v'(4)$ and $v'(20)$, find the value or explain why it does not exist. Indicate units of measure."
-      ],
       "scoring_notes": null,
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "$v'(4)$ does not exist with explanation",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Left and right limits of difference quotient are unequal at $t=4$"
+              ],
+              "correct_example": "$v'(4)$ does not exist because $\\lim_{t\\to 4^-}\\frac{v(t)-v(4)}{t-4} = 5 \\neq 0 = \\lim_{t\\to 4^+}\\frac{v(t)-v(4)}{t-4}$"
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Correct value of $v'(20)$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$v'(20) = -5/2$ m/sec²"
+              ],
+              "correct_example": "$v'(20) = \\frac{0-20}{24-16} = \\frac{-20}{8} = -\\frac{5}{2}$ m/sec²"
+            }
+          ]
+        },
+        {
+          "point_id": "b3",
+          "point_value": 1,
+          "description": "Units given",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Units: meters per second per second (m/sec²)"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "Let $a(t)$ be the car's acceleration at time $t$, in meters per second per second. For $0 < t < 24$, write a piecewise-defined function for $a(t)$.",
       "point_value": 1,
-      "rubric_criteria": [
-        "Let $a(t)$ be the car's acceleration at time $t$, in meters per second per second. For $0 < t < 24$, write a piecewise-defined function for $a(t)$."
-      ],
       "scoring_notes": null,
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Correct acceleration values ($5, 0, -5/2$)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Values: $5$ on $(0,4)$, $0$ on $(4,16)$, $-5/2$ on $(16,24)$"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Correct piecewise function with correct intervals",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Three pieces with correct domain intervals"
+              ],
+              "correct_example": "$a(t) = \\begin{cases} 5 & 0 < t < 4 \\\\ 0 & 4 < t < 16 \\\\ -5/2 & 16 < t < 24 \\end{cases}$, does not exist at $t=4, 16$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "d",
       "prompt": "Find the average rate of change of $v$ over the interval $8 \\le t \\le 20$. Does the Mean Value Theorem guarantee a value of $c$, for $8 < c < 20$, such that $v'(c)$ is equal to this average rate of change? Why or why not?",
       "point_value": 1,
-      "rubric_criteria": [
-        "Find the average rate of change of $v$ over the interval $8 \\le t \\le 20$. Does the Mean Value Theorem guarantee a value of $c$, for $8 < c < 20$, such that $v'(c)$ is equal to this average rate of change? Why or why not?"
-      ],
       "scoring_notes": null,
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "d1",
+          "point_value": 1,
+          "description": "Correct average rate of change of $v$ on $[8, 20]$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$\\frac{v(20)-v(8)}{20-8}$"
+              ],
+              "correct_example": "$\\frac{v(20)-v(8)}{20-8} = \\frac{0-20}{12} = -\\frac{5}{3}$ m/sec²"
+            }
+          ]
+        },
+        {
+          "point_id": "d2",
+          "point_value": 1,
+          "description": "Correct answer: MVT does NOT apply, with explanation",
+          "alternatives": [
+            {
+              "required_elements": [
+                "MVT does not apply",
+                "Because $v$ is not differentiable at $t = 16$"
+              ],
+              "correct_example": "No. MVT does not guarantee such a $c$ because $v$ is not differentiable at $t=16 \\in [8,20]$"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

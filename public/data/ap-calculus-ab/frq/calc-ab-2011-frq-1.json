@@ -5,7 +5,10 @@
   "source": "released",
   "title": "Particle v(t) = 2sin(e^(t/4))+1 — Speed Increasing, Avg Velocity, Total Distance & Position at Direction Change",
   "frq_type": "multi_part_math",
-  "related_units": [4, 8],
+  "related_units": [
+    4,
+    8
+  ],
   "calculator_allowed": true,
   "total_points": 9,
   "stimulus": "For $0 \\le t \\le 6$, a particle is moving along the $x$-axis. The particle's position, $x(t)$, is not explicitly given. The velocity of the particle is given by $v(t) = 2\\sin(e^{t/4}) + 1$. The acceleration of the particle is given by $a(t) = \\frac{1}{2}e^{t/4}\\cos(e^{t/4})$ and $x(0) = 2$.",
@@ -16,50 +19,158 @@
       "letter": "a",
       "prompt": "Is the speed of the particle increasing or decreasing at time $t = 5.5$? Give a reason for your answer.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Evaluates $v(5.5) \\approx -0.453$ and $a(5.5) \\approx -1.359$: both negative",
-        "1 pt: Correct conclusion with reason: speed is increasing at $t = 5.5$ because velocity and acceleration have the same sign"
-      ],
       "scoring_notes": "From scoring key: $v(5.5) \\approx -0.453 < 0$ and $a(5.5) \\approx -1.359 < 0$. Same sign (both negative), so speed is increasing.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Evaluates $v(5.5) \\approx -0.453$ and $a(5.5) \\approx -1.359$: both negative",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Evaluates $v(5.5) \\approx -0.453$",
+                "$a(5.5) \\approx -1.359$: both negative"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Correct conclusion with reason: speed is increasing at $t = 5.5$ because velocity and acceleration have the same sign",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct conclusion with reason: speed is increasing at $t = 5.5$ because velocity",
+                "acceleration have the same sign"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "Find the average velocity of the particle for the time period $0 \\le t \\le 6$.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Sets up average velocity: $\\frac{1}{6}\\int_0^6 v(t)\\, dt$",
-        "1 pt: Correct answer: $\\frac{1}{6}\\int_0^6 v(t)\\, dt \\approx 1.949$"
-      ],
       "scoring_notes": "From scoring key: Average velocity $= \\frac{1}{6}\\int_0^6 v(t)\\, dt \\approx 1.949$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Sets up average velocity",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Sets up average velocity"
+              ],
+              "correct_example": "$\\frac{1}{6}\\int_0^6 v(t)\\, dt$"
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer"
+              ],
+              "correct_example": "$\\frac{1}{6}\\int_0^6 v(t)\\, dt \\approx 1.949$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "Find the total distance traveled by the particle from time $t = 0$ to $t = 6$.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Sets up total distance: $\\int_0^6 |v(t)|\\, dt$",
-        "1 pt: Correct answer: $\\int_0^6 |v(t)|\\, dt \\approx 12.573$"
-      ],
       "scoring_notes": "From scoring key: Distance $= \\int_0^6 |v(t)|\\, dt \\approx 12.573$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Sets up total distance",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Sets up total distance"
+              ],
+              "correct_example": "$\\int_0^6 |v(t)|\\, dt$"
+            }
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer"
+              ],
+              "correct_example": "$\\int_0^6 |v(t)|\\, dt \\approx 12.573$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "d",
       "prompt": "For $0 \\le t \\le 6$, the particle changes direction exactly once. Find the position of the particle at that time.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Finds $v(t) = 0$: $t \\approx 5.196$ (where $v$ changes from positive to negative)",
-        "1 pt: Sets up position integral: $x(b) = 2 + \\int_0^b v(t)\\, dt$ where $b \\approx 5.196$",
-        "1 pt: Correct answer: $x(b) \\approx 14.134$ (or $14.135$)"
-      ],
       "scoring_notes": "From scoring key: $v(t) = 0$ at $b \\approx 5.196$. $x(b) = 2 + \\int_0^b v(t)\\, dt \\approx 14.134$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "d1",
+          "point_value": 1,
+          "description": "Finds $v(t) = 0$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Finds $v(t) = 0$"
+              ],
+              "correct_example": "$t \\approx 5.196$ (where $v$ changes from positive to negative)"
+            }
+          ]
+        },
+        {
+          "point_id": "d2",
+          "point_value": 1,
+          "description": "Sets up position integral",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Sets up position integral"
+              ],
+              "correct_example": "$x(b) = 2 + \\int_0^b v(t)\\, dt$ where $b \\approx 5.196$"
+            }
+          ]
+        },
+        {
+          "point_id": "d3",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer"
+              ],
+              "correct_example": "$x(b) \\approx 14.134$ (or $14.135$)"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

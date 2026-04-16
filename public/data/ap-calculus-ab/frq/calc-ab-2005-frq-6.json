@@ -21,35 +21,157 @@
       "letter": "a",
       "prompt": "On the axes provided, sketch a slope field for the given differential equation at the twelve points indicated. (Note: Use the axes provided in the pink test booklet.)",
       "point_value": 1,
-      "rubric_criteria": [
-        "On the axes provided, sketch a slope field for the given differential equation at the twelve points indicated.",
-        "(Note: Use the axes provided in the pink test booklet.)"
-      ],
       "scoring_notes": null,
       "requires_drawing": true,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Correct zero slopes on slope field",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Horizontal slopes where $x = 0$"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Correct nonzero slopes (direction correct in each quadrant)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Slopes are negative in Q1 (where $x>0, y>0$)",
+                "Slopes are positive in Q2 (where $x<0, y>0$)"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "Let $y = f(x)$ be the particular solution to the differential equation with the initial condition $f(1) = -1$. Write an equation for the line tangent to the graph of $f$ at $(1, -1)$ and use it to approximate $f(1.1)$.",
       "point_value": 1,
-      "rubric_criteria": [
-        "Initial condition $f(1) = -1$. Write an equation for the line tangent to the graph of $f$ at $(1, -1)$ and use it to approximate $f(1.1)$."
-      ],
       "scoring_notes": null,
       "requires_drawing": true,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Correct equation of tangent line at $(1, -1)$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Slope $= -x/y = -1/(-1) = 1$ at $(1,-1)$",
+                "Point-slope form"
+              ],
+              "correct_example": "$y + 1 = 1(x-1)$ or $y = x - 2$"
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Correct linear approximation for $f(1.1)$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$f(1.1) \\approx -1 + 1(0.1) = -0.9$"
+              ],
+              "correct_example": "$f(1.1) \\approx -0.9$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "Find the particular solution $y = f(x)$ to the given differential equation with the initial condition $f(1) = -1$.",
       "point_value": 1,
-      "rubric_criteria": [
-        "Initial condition $f(1) = -1$."
-      ],
       "scoring_notes": null,
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Separates variables correctly",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$y\\, dy = -x\\, dx$"
+              ],
+              "correct_example": "$y\\, dy = -x\\, dx$"
+            }
+          ],
+          "common_traps": [
+            "Not separating variables: answers score 0 if separation is absent"
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Correct antiderivatives of both sides",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$\\frac{y^2}{2} = -\\frac{x^2}{2} + C$"
+              ],
+              "correct_example": "$\\frac{y^2}{2} = -\\frac{x^2}{2} + C$"
+            }
+          ]
+        },
+        {
+          "point_id": "c3",
+          "point_value": 1,
+          "description": "Includes constant of integration",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$+C$ present on one side"
+              ],
+              "correct_example": "$y^2 = -x^2 + C$"
+            }
+          ],
+          "common_traps": [
+            "Missing +C: max 2/5 points if no constant of integration"
+          ]
+        },
+        {
+          "point_id": "c4",
+          "point_value": 1,
+          "description": "Uses initial condition $f(1) = -1$ to find $C$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Substitutes $x=1, y=-1$ to find $C = 2$"
+              ],
+              "correct_example": "$(-1)^2 = -(1)^2 + C \\Rightarrow C = 2$"
+            }
+          ]
+        },
+        {
+          "point_id": "c5",
+          "point_value": 1,
+          "description": "Solves for $y$ and selects negative branch",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$y = -\\sqrt{2 - x^2}$ (negative branch since $y(1) = -1 < 0$)"
+              ],
+              "correct_example": "$y = -\\sqrt{2-x^2}$"
+            }
+          ],
+          "common_traps": [
+            "Forgetting to choose the negative branch consistent with initial condition $y(1)=-1$"
+          ]
+        }
+      ]
     }
   ]
 }

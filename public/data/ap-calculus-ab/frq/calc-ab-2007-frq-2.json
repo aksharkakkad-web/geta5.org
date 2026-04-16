@@ -20,34 +20,120 @@
       "letter": "a",
       "prompt": "How many gallons of water enter the tank during the time interval $0 \\le t \\le 7$? Round your answer to the nearest gallon.",
       "point_value": 1,
-      "rubric_criteria": [
-        "How many gallons of water enter the tank during the time interval $0 \\le t \\le 7$? Round your answer to the nearest gallon."
-      ],
       "scoring_notes": null,
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Correct setup and answer: total water entering",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$\\int_0^7 f(t)\\, dt$"
+              ],
+              "correct_example": "$\\int_0^7 f(t)\\, dt = \\int_0^7 100t^2\\sin t\\, dt \\approx 964$ gallons"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "For $0 \\le t \\le 7$, find the time intervals during which the amount of water in the tank is decreasing. Give a reason for each answer.",
       "point_value": 1,
-      "rubric_criteria": [
-        "For $0 \\le t \\le 7$, find the time intervals during which the amount of water in the tank is decreasing. Give a reason for each answer."
-      ],
       "scoring_notes": null,
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Correct time intervals when water decreasing",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Water decreases when $g(t) > f(t)$",
+                "$(0, 1.617)$ and $(5.076, 7)$"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Correct reason for each interval",
+          "alternatives": [
+            {
+              "required_elements": [
+                "The rate leaving exceeds the rate entering on those intervals"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "b3",
+          "point_value": 1,
+          "description": "Complete answer with both intervals and reasons",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Both intervals identified",
+                "Both reasons given"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "For $0 \\le t \\le 7$, at what time $t$ is the amount of water in the tank greatest? To the nearest gallon, compute the amount of water at this time. Justify your answer.",
       "point_value": 1,
-      "rubric_criteria": [
-        "For $0 \\le t \\le 7$, at what time $t$ is the amount of water in the tank greatest? To the nearest gallon, compute the amount of water at this time. Justify your answer."
-      ],
       "scoring_notes": null,
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Identifies $t = 5.076$ as location of maximum",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Maximum at $t \\approx 5.076$"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Correct amount at that time",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Evaluates $W(5.076) = 5000 + \\int_0^{5.076}[f(t)-g(t)]\\, dt$"
+              ],
+              "correct_example": "$W(5.076) \\approx 4976$ gallons"
+            }
+          ]
+        },
+        {
+          "point_id": "c3",
+          "point_value": 1,
+          "description": "Justification (global comparison or sign change of $W'$)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$W'(t) = f(t) - g(t)$ changes from positive to negative at $t = 5.076$",
+                "Or: compare values at $t=0, 5.076, 7$"
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

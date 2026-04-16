@@ -21,50 +21,156 @@
       "letter": "a",
       "prompt": "Justify why there must be at least one time $t$, for $0.3 \\le t \\le 2.8$, at which $v_P'(t)$, the acceleration of particle $P$, equals $0$ meters per hour per hour.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: $v_P(0.3) = 55 = v_P(2.8)$, so $v_P(2.8) - v_P(0.3) = 0$, i.e., $\\frac{v_P(2.8) - v_P(0.3)}{2.8-0.3} = 0$",
-        "1 pt: Since $v_P$ is differentiable (hence continuous) on $[0.3, 2.8]$, by the Mean Value Theorem there exists $c \\in (0.3, 2.8)$ such that $v_P'(c) = 0$"
-      ],
       "scoring_notes": "Alternate justification using Extreme Value Theorem: $v_P(0.3) = 55 > 29 = v_P(1.7)$ and $v_P(1.7) = 29 < 55 = v_P(2.8)$, so $v_P$ has a minimum in $(0.3, 2.8)$; since $v_P$ is differentiable, $v_P' = 0$ at that minimum.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "$v_P(0.3) = 55 = v_P(2.8)$, so $v_P(2.8) - v_P(0.3) = 0$, i.e., $\\frac{v_P(2.8) - v_P(0.3)}{2.8-0.3} = 0$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$v_P(0.3) = 55 = v_P(2.8)$, so $v_P(2.8) - v_P(0.3) = 0$, i.e., $\\frac{v_P(2.8) - v_P(0.3)}{2.8-0.3} = 0$"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Since $v_P$ is differentiable (hence continuous) on $[0.3, 2.8]$, by the Mean Value Theorem there exists $c \\in (0.3, 2.8)$ such that $v_P'(c) = 0$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Since $v_P$ is differentiable (hence continuous) on $[0.3, 2.8]$, by the Mean Value Theorem there exists $c \\in (0.3, 2.8)$ such that $v_P'(c) = 0$"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "Use a trapezoidal sum with the three subintervals $[0, 0.3]$, $[0.3, 1.7]$, and $[1.7, 2.8]$ to approximate the value of $\\int_0^{2.8} v_P(t)\\, dt$.",
       "point_value": 1,
-      "rubric_criteria": [
-        "1 pt: Correct trapezoidal sum: $0.3\\cdot\\frac{v_P(0)+v_P(0.3)}{2} + 1.4\\cdot\\frac{v_P(0.3)+v_P(1.7)}{2} + 1.1\\cdot\\frac{v_P(1.7)+v_P(2.8)}{2} = 0.3\\cdot\\frac{0+55}{2} + 1.4\\cdot\\frac{55+29}{2} + 1.1\\cdot\\frac{29+55}{2} = 8.25 + 58.8 - \\ldots = 40.75$"
-      ],
       "scoring_notes": "From scoring key: $0.3\\left(\\frac{0+55}{2}\\right) + 1.4\\left(\\frac{55+29}{2}\\right) + 1.1\\left(\\frac{29+55}{2}\\right) = 8.25 + 58.8 - 26.3 = 40.75$. Answer: $40.75$ meters.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Correct trapezoidal sum",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct trapezoidal sum"
+              ],
+              "correct_example": "$0.3\\cdot\\frac{v_P(0)+v_P(0.3)}{2} + 1.4\\cdot\\frac{v_P(0.3)+v_P(1.7)}{2} + 1.1\\cdot\\frac{v_P(1.7)+v_P(2.8)}{2} = 0.3\\cdot\\frac{0+55}{2} + 1.4\\cdot\\frac{55+29}{2} + 1.1\\cdot\\frac{29+55}{2} = 8.25 + 58.8 - \\ldots = 40.75$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "A second particle, $Q$, also moves along the $x$-axis so that its velocity for $0 \\le t \\le 4$ is given by $v_Q(t) = 45t\\cos(0.063t^2)$ meters per hour. Find the time interval during which the velocity of particle $Q$ is at least 60 meters per hour. Find the distance traveled by particle $Q$ during the interval when the velocity of particle $Q$ is at least 60 meters per hour.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Correct time interval: $v_Q(t) \\ge 60$ for $A \\le t \\le B$ where $A \\approx 1.866$ and $B \\approx 3.519$",
-        "1 pt: Correct integral setup: $\\int_A^B v_Q(t)\\, dt$",
-        "1 pt: Correct distance: $\\int_A^B v_Q(t)\\, dt \\approx 106.109$ (or $106.108$) meters"
-      ],
       "scoring_notes": "Find $t$ values where $v_Q(t) = 60$: $A \\approx 1.866$ and $B \\approx 3.519$. Distance $= \\int_A^B v_Q(t)\\, dt \\approx 106.109$ meters (velocity is positive throughout).",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Correct time interval",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct time interval"
+              ],
+              "correct_example": "$v_Q(t) \\ge 60$ for $A \\le t \\le B$ where $A \\approx 1.866$ and $B \\approx 3.519$"
+            }
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Correct integral setup",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct integral setup"
+              ],
+              "correct_example": "$\\int_A^B v_Q(t)\\, dt$"
+            }
+          ]
+        },
+        {
+          "point_id": "c3",
+          "point_value": 1,
+          "description": "Correct distance",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct distance"
+              ],
+              "correct_example": "$\\int_A^B v_Q(t)\\, dt \\approx 106.109$ (or $106.108$) meters"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "d",
       "prompt": "At time $t = 0$, particle $Q$ is at position $x = -90$. Using the result from part (b) and the function $v_Q$ from part (c), approximate the distance between particles $P$ and $Q$ at time $t = 2.8$.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Uses result from part (b): $x_P(2.8) \\approx 40.75$ (from trapezoidal sum)",
-        "1 pt: Position of $Q$: $x_Q(2.8) = -90 + \\int_0^{2.8} v_Q(t)\\, dt = -90 + 135.938 \\approx 45.938$",
-        "1 pt: Correct distance: $|x_Q(2.8) - x_P(2.8)| \\approx |45.938 - 40.75| \\approx 5.188$ (or $5.187$) meters"
-      ],
       "scoring_notes": "$x_P(2.8) \\approx 0 + 40.75 = 40.75$. $x_Q(2.8) = -90 + \\int_0^{2.8} v_Q(t)\\, dt \\approx -90 + 135.938 = 45.938$. Distance $\\approx 5.188$ meters.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "d1",
+          "point_value": 1,
+          "description": "Uses result from part (b)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Uses result from part (b)"
+              ],
+              "correct_example": "$x_P(2.8) \\approx 40.75$ (from trapezoidal sum)"
+            }
+          ]
+        },
+        {
+          "point_id": "d2",
+          "point_value": 1,
+          "description": "Position of $Q$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Position of $Q$"
+              ],
+              "correct_example": "$x_Q(2.8) = -90 + \\int_0^{2.8} v_Q(t)\\, dt = -90 + 135.938 \\approx 45.938$"
+            }
+          ]
+        },
+        {
+          "point_id": "d3",
+          "point_value": 1,
+          "description": "Correct distance",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct distance"
+              ],
+              "correct_example": "$|x_Q(2.8) - x_P(2.8)| \\approx |45.938 - 40.75| \\approx 5.188$ (or $5.187$) meters"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

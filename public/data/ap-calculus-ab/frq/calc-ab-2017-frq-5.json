@@ -5,7 +5,10 @@
   "source": "released",
   "title": "Two Particles P and Q — Direction, Same Direction, Speed & Position at Direction Change",
   "frq_type": "multi_part_math",
-  "related_units": [4, 8],
+  "related_units": [
+    4,
+    8
+  ],
   "calculator_allowed": false,
   "total_points": 9,
   "stimulus": "Two particles move along the $x$-axis. For $0 \\le t \\le 8$, the position of particle $P$ at time $t$ is given by $x_P(t) = \\ln(t^2 - 2t + 10)$, while the velocity of particle $Q$ at time $t$ is given by $v_Q(t) = t^2 - 8t + 15$. Particle $Q$ is at position $x = 5$ at time $t = 0$.",
@@ -16,50 +19,157 @@
       "letter": "a",
       "prompt": "For $0 \\le t \\le 8$, when is particle $P$ moving to the left?",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Finds $x_P'(t) = v_P(t) = \\frac{2t-2}{t^2-2t+10}$; sets numerator equal to zero: $t = 1$; checks sign: $v_P(t) < 0$ for $0 \\le t < 1$",
-        "1 pt: Correct answer with interval: particle $P$ is moving to the left for $0 \\le t < 1$"
-      ],
       "scoring_notes": "From scoring key: $x_P'(t) = \\frac{2(t-1)}{t^2-2t+10}$. Since $t^2-2t+10 > 0$ for all $t$, $v_P(t) < 0$ for $0 \\le t < 1$. Particle $P$ moves to the left for $0 \\le t < 1$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Finds $x_P'(t) = v_P(t) = \\frac{2t-2}{t^2-2t+10}$; sets numerator equal to zero",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Finds $x_P'(t) = v_P(t) = \\frac{2t-2}{t^2-2t+10}$; sets numerator equal to zero"
+              ],
+              "correct_example": "$t = 1$; checks sign: $v_P(t) < 0$ for $0 \\le t < 1$"
+            }
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Correct answer with interval: particle $P$ is moving to the left for $0 \\le t < 1$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer with interval: particle $P$ is moving to the left for $0 \\le t < 1$"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "For $0 \\le t \\le 8$, find all times $t$ during which the two particles travel in the same direction.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Finds $v_Q(t) = 0$ at $t = 3$ and $t = 5$; analyzes signs of $v_P(t)$ and $v_Q(t)$",
-        "1 pt: Correct answer with analysis: both particles move in the same direction for $1 < t < 3$ (both positive) and $5 < t \\le 8$ (both positive)"
-      ],
       "scoring_notes": "From scoring key: $v_Q(t) = (t-3)(t-5)$; $v_Q(t) > 0$ for $0 \\le t < 3$ and $5 < t \\le 8$; $v_Q(t) < 0$ for $3 < t < 5$. $v_P(t) > 0$ for $t > 1$. Same direction: both positive on $(1,3)$ and $(5,8]$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Finds $v_Q(t) = 0$ at $t = 3$ and $t = 5$; analyzes signs of $v_P(t)$ and $v_Q(t)$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Finds $v_Q(t) = 0$ at $t = 3$",
+                "$t = 5$; analyzes signs of $v_P(t)$",
+                "$v_Q(t)$"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Correct answer with analysis: both particles move in the same direction for $1 < t < 3$ (both positive) and $5 < t \\le 8$ (both positive)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer with analysis: both particles move in the same direction for $1 < t < 3$ (both positive)",
+                "$5 < t \\le 8$ (both positive)"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "Find the acceleration of particle $Q$ at time $t = 2$. Is the speed of particle $Q$ increasing, decreasing, or neither at time $t = 2$? Explain your reasoning.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: $a_Q(2) = v_Q'(2) = 2(2) - 8 = -4$",
-        "1 pt: Checks signs: $a_Q(2) = -4 < 0$ and $v_Q(2) = 4 - 16 + 15 = 3 > 0$",
-        "1 pt: Correct conclusion with reason: speed is decreasing at $t = 2$ because velocity and acceleration have opposite signs"
-      ],
       "scoring_notes": "From scoring key: $a_Q(t) = v_Q'(t) = 2t - 8$; $a_Q(2) = -4$. $v_Q(2) = 3 > 0$ and $a_Q(2) = -4 < 0$: opposite signs, so speed is decreasing at $t = 2$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "$a_Q(2) = v_Q'(2) = 2(2) - 8 = -4$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$a_Q(2) = v_Q'(2) = 2(2) - 8 = -4$"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Checks signs",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Checks signs"
+              ],
+              "correct_example": "$a_Q(2) = -4 < 0$ and $v_Q(2) = 4 - 16 + 15 = 3 > 0$"
+            }
+          ]
+        },
+        {
+          "point_id": "c3",
+          "point_value": 1,
+          "description": "Correct conclusion with reason: speed is decreasing at $t = 2$ because velocity and acceleration have opposite signs",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct conclusion with reason: speed is decreasing at $t = 2$ because velocity",
+                "acceleration have opposite signs"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "d",
       "prompt": "Find the position of particle $Q$ the first time it changes direction.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Identifies first direction change at $t = 3$; sets up position: $x_Q(3) = x_Q(0) + \\int_0^3 v_Q(t)\\, dt = 5 + \\int_0^3 (t^2 - 8t + 15)\\, dt$",
-        "1 pt: Correct answer: $x_Q(3) = 5 + \\left[\\frac{t^3}{3} - 4t^2 + 15t\\right]_0^3 = 5 + (9 - 36 + 45) = 5 + 18 = 23$"
-      ],
       "scoring_notes": "From scoring key: Particle $Q$ first changes direction at $t = 3$. $x_Q(3) = 5 + \\int_0^3(t^2 - 8t + 15)\\, dt = 5 + \\left[\\frac{1}{3}t^3 - 4t^2 + 15t\\right]_0^3 = 5 + 18 = 23$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "d1",
+          "point_value": 1,
+          "description": "Identifies first direction change at $t = 3$; sets up position",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Identifies first direction change at $t = 3$; sets up position"
+              ],
+              "correct_example": "$x_Q(3) = x_Q(0) + \\int_0^3 v_Q(t)\\, dt = 5 + \\int_0^3 (t^2 - 8t + 15)\\, dt$"
+            }
+          ]
+        },
+        {
+          "point_id": "d2",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer"
+              ],
+              "correct_example": "$x_Q(3) = 5 + \\left[\\frac{t^3}{3} - 4t^2 + 15t\\right]_0^3 = 5 + (9 - 36 + 45) = 5 + 18 = 23$"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

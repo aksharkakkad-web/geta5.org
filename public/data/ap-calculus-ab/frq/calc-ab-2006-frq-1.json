@@ -21,34 +21,134 @@
       "letter": "a",
       "prompt": "Find the area of $R$.",
       "point_value": 1,
-      "rubric_criteria": [
-        "Find the area of $R$."
-      ],
       "scoring_notes": null,
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Correct integrand $\\ln x - (x-2)$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Integrand is $\\ln x - (x-2)$"
+              ],
+              "correct_example": "$\\int_S^T [\\ln x - (x-2)]\\, dx$"
+            }
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Correct limits of integration",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$S \\approx 0.159$ and $T \\approx 3.146$"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "a3",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct numerical area"
+              ],
+              "correct_example": "$\\approx 1.949$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "Find the volume of the solid generated when $R$ is rotated about the horizontal line $y = -3$.",
       "point_value": 1,
-      "rubric_criteria": [
-        "Find the volume of the solid generated when $R$ is rotated about the horizontal line $y = -3$."
-      ],
       "scoring_notes": null,
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 2,
+          "description": "Correct integrand for volume (washer method about $y = -3$)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Outer radius $(\\ln x + 3)$, inner radius $(x - 2 + 3) = (x+1)$",
+                "Washer integrand $\\pi[(\\ln x + 3)^2 - (x+1)^2]$"
+              ],
+              "correct_example": "$\\pi \\int_S^T [(\\ln x + 3)^2 - (x+1)^2]\\, dx$"
+            }
+          ],
+          "common_traps": [
+            "Wrong radii (not shifting by 3)",
+            "Using disk instead of washer"
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Correct limits, constant $\\pi$, and answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Factor of $\\pi$",
+                "Correct limits $S$ to $T$",
+                "Correct answer"
+              ],
+              "correct_example": "$\\approx 34.198$ or $34.199$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "Write, but do not evaluate, an integral expression that can be used to find the volume of the solid generated when $R$ is rotated about the $y$-axis.",
       "point_value": 1,
-      "rubric_criteria": [
-        "$\\ln(x) = x - 2$ when $x \\approx 0.15859$ and $x \\approx 3.14619$."
-      ],
       "scoring_notes": null,
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 2,
+          "description": "Correct integrand for rotation about $y$-axis (shell or washer in terms of $y$)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Shell method: $2\\pi x (\\ln x - (x-2))$"
+              ],
+              "correct_example": "$2\\pi \\int_S^T x(\\ln x - (x+2))\\, dx$"
+            },
+            {
+              "required_elements": [
+                "Washer in $y$: inner radius $(y+2)$, outer radius $e^y$"
+              ],
+              "correct_example": "$\\pi \\int_{-2}^T [(e^y)^2 - (y+2)^2]\\, dy$"
+            }
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Correct limits and constant",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct limits",
+                "Factor of $\\pi$ or $2\\pi$"
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

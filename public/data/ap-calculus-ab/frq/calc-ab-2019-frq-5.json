@@ -19,50 +19,158 @@
       "letter": "a",
       "prompt": "Write, but do not evaluate, an integral expression that gives the area of region $R$.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct integrand: $h(x) - g(x)$ (h is on top in region R)",
-        "1 pt: Correct limits and expression: $\\int_{-1}^{2.414} \\left[h(x) - g(x)\\right]\\, dx$"
-      ],
       "scoring_notes": "From scoring key: Area $= \\int_{-1}^{2.414} [h(x) - g(x)]\\, dx$. Must identify $h$ as the top function (greater values) over $[-1, 2.414]$. Accept $2.414$ or exact equivalent for upper limit.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Correct integrand",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct integrand"
+              ],
+              "correct_example": "$h(x) - g(x)$ (h is on top in region R)"
+            }
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Correct limits and expression",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct limits",
+                "expression"
+              ],
+              "correct_example": "$\\int_{-1}^{2.414} \\left[h(x) - g(x)\\right]\\, dx$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "Region $R$ is the base of a solid. For this solid, each cross section perpendicular to the $x$-axis is a square with one side in region $R$. Write, but do not evaluate, an integral expression that gives the volume of the solid.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct cross-sectional area: side length = $h(x) - g(x)$, so area of square cross section = $[h(x) - g(x)]^2$",
-        "1 pt: Correct integral expression: $\\int_{-1}^{2.414} \\left[h(x) - g(x)\\right]^2\\, dx$"
-      ],
       "scoring_notes": "From scoring key: Volume $= \\int_{-1}^{2.414} [h(x) - g(x)]^2\\, dx$. Cross section area = (side)² where side = $h(x) - g(x)$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Correct cross-sectional area: side length = $h(x) - g(x)$, so area of square cross section = $[h(x) - g(x)]^2$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct cross-sectional area: side length = $h(x) - g(x)$, so area of square cross section = $[h(x) - g(x)]^2$"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Correct integral expression",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct integral expression"
+              ],
+              "correct_example": "$\\int_{-1}^{2.414} \\left[h(x) - g(x)\\right]^2\\, dx$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "Write, but do not evaluate, an integral expression that gives the volume of the solid generated when region $R$ is rotated about the horizontal line $y = 6$.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Uses washer method with outer radius $= 6 - g(x)$ and inner radius $= 6 - h(x)$",
-        "1 pt: Correct integrand: $\\pi\\left[(6 - g(x))^2 - (6 - h(x))^2\\right]$",
-        "1 pt: Correct integral expression: $\\pi \\int_{-1}^{2.414} \\left[(6 - g(x))^2 - (6 - h(x))^2\\right]\\, dx$"
-      ],
       "scoring_notes": "From scoring key: Since $y = 6$ is above the region, outer radius $= 6 - g(x)$ (distance from line to lower curve) and inner radius $= 6 - h(x)$ (distance from line to upper curve). Volume $= \\pi \\int_{-1}^{2.414} [(6-g(x))^2 - (6-h(x))^2]\\, dx$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Uses washer method with outer radius $= 6 - g(x)$ and inner radius $= 6 - h(x)$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Uses washer method with outer radius $= 6 - g(x)$",
+                "inner radius $= 6 - h(x)$"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Correct integrand",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct integrand"
+              ],
+              "correct_example": "$\\pi\\left[(6 - g(x))^2 - (6 - h(x))^2\\right]$"
+            }
+          ]
+        },
+        {
+          "point_id": "c3",
+          "point_value": 1,
+          "description": "Correct integral expression",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct integral expression"
+              ],
+              "correct_example": "$\\pi \\int_{-1}^{2.414} \\left[(6 - g(x))^2 - (6 - h(x))^2\\right]\\, dx$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "d",
       "prompt": "The function $k$ is defined by $k(x) = \\frac{g(x)}{h(x)}$. Find the value of $k'(-1)$.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Applies quotient rule: $k'(x) = \\frac{g'(x)h(x) - g(x)h'(x)}{[h(x)]^2}$",
-        "1 pt: Correct evaluation at $x = -1$: $g(-1) = -2 + 3\\cos(-\\pi/2) = -2$; $h(-1) = 6 - 2(-2)^2 - 2\\sqrt{1} = 6 - 8 - 2 = -4$; $g'(-1) = -\\frac{3\\pi}{2}\\sin(-\\pi/2) = \\frac{3\\pi}{2}$; $h'(-1) = -4(-2) - \\frac{1}{\\sqrt{1}} = 8 - 1 = 7$ (or per scoring key); $k'(-1) = \\frac{(3\\pi/2)(-4) - (-2)(7)}{(-4)^2} = \\frac{-6\\pi + 14}{16} = \\frac{14 - 6\\pi}{16} = \\frac{7 - 3\\pi}{8}$"
-      ],
       "scoring_notes": "From scoring key: $g(-1) = -2$, $h(-1) = -4$. $g'(x) = -\\frac{3\\pi}{2}\\sin(\\frac{\\pi x}{2})$, $g'(-1) = \\frac{3\\pi}{2}$. $h'(x) = -4(x-1) - \\frac{x}{|x|\\sqrt{|x|}}$ (for $x \\ne 0$), $h'(-1) = -4(-2) - 1 = 7$. $k'(-1) = \\frac{(3\\pi/2)(-4) - (-2)(7)}{16} = \\frac{-6\\pi + 14}{16} = \\frac{7-3\\pi}{8}$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "d1",
+          "point_value": 1,
+          "description": "Applies quotient rule",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Applies quotient rule"
+              ],
+              "correct_example": "$k'(x) = \\frac{g'(x)h(x) - g(x)h'(x)}{[h(x)]^2}$"
+            }
+          ]
+        },
+        {
+          "point_id": "d2",
+          "point_value": 1,
+          "description": "Correct evaluation at $x = -1$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct evaluation at $x = -1$"
+              ],
+              "correct_example": "$g(-1) = -2 + 3\\cos(-\\pi/2) = -2$; $h(-1) = 6 - 2(-2)^2 - 2\\sqrt{1} = 6 - 8 - 2 = -4$; $g'(-1) = -\\frac{3\\pi}{2}\\sin(-\\pi/2) = \\frac{3\\pi}{2}$; $h'(-1) = -4(-2) - \\frac{1}{\\sqrt{1}} = 8 - 1 = 7$ (or per scoring key); $k'(-1) = \\frac{(3\\pi/2)(-4) - (-2)(7)}{(-4)^2} = \\frac{-6\\pi + 14}{16} = \\frac{14 - 6\\pi}{16} = \\frac{7 - 3\\pi}{8}$"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

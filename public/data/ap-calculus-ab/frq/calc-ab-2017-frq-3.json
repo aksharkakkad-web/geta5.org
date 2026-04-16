@@ -5,7 +5,11 @@
   "source": "released",
   "title": "Graph of f' — FTC Values, Increasing Intervals, Abs Min & Second Derivative Existence",
   "frq_type": "multi_part_math",
-  "related_units": [2, 5, 6],
+  "related_units": [
+    2,
+    5,
+    6
+  ],
   "calculator_allowed": false,
   "total_points": 9,
   "stimulus": "The function $f$ is differentiable on the closed interval $[-6, 5]$ and satisfies $f(-2) = 7$. The graph of $f'$, the derivative of $f$, consists of a semicircle and three line segments, as shown.",
@@ -16,50 +20,157 @@
       "letter": "a",
       "prompt": "Find the values of $f(-6)$ and $f(5)$.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Uses FTC with initial condition: $f(-6) = f(-2) + \\int_{-2}^{-6} f'(x)\\, dx = 7 - \\int_{-6}^{-2} f'(x)\\, dx$",
-        "1 pt: Correct value $f(-6)$: from graph geometry $\\int_{-6}^{-2} f'(x)\\, dx = 4$ (e.g., area of triangle); $f(-6) = 7 - 4 = 3$",
-        "1 pt: Correct value $f(5)$: $f(5) = f(-2) + \\int_{-2}^{5} f'(x)\\, dx = 7 + (-2\\pi + 3) = 10 - 2\\pi$"
-      ],
       "scoring_notes": "From scoring key: $f(-6) = f(-2) - \\int_{-6}^{-2} f'(x)\\, dx = 7 - 4 = 3$. $f(5) = f(-2) + \\int_{-2}^{5} f'(x)\\, dx = 7 + (-2\\pi + 3) = 10 - 2\\pi$. The integral $\\int_{-2}^{5} f'(x)\\, dx = -2\\pi + 3$ from the graph (semicircle area $= -2\\pi$ plus triangle/trapezoid area).",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Uses FTC with initial condition",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Uses FTC with initial condition"
+              ],
+              "correct_example": "$f(-6) = f(-2) + \\int_{-2}^{-6} f'(x)\\, dx = 7 - \\int_{-6}^{-2} f'(x)\\, dx$"
+            }
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Correct value $f(-6)$: from graph geometry $\\int_{-6}^{-2} f'(x)\\, dx = 4$ (e.g., area of triangle); $f(-6) = 7 - 4 = 3$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct value $f(-6)$: from graph geometry $\\int_{-6}^{-2} f'(x)\\, dx = 4$ (e.g., area of triangle); $f(-6) = 7 - 4 = 3$"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "a3",
+          "point_value": 1,
+          "description": "Correct value $f(5)$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct value $f(5)$"
+              ],
+              "correct_example": "$f(5) = f(-2) + \\int_{-2}^{5} f'(x)\\, dx = 7 + (-2\\pi + 3) = 10 - 2\\pi$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "On what intervals is $f$ increasing? Justify your answer.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct intervals: $[-6, -2]$ and $[2, 5]$",
-        "1 pt: Justification: $f$ is increasing where $f'(x) > 0$; from the graph, $f'(x) > 0$ on $(-6, -2)$ and $(2, 5)$"
-      ],
       "scoring_notes": "From scoring key: $f'(x) > 0$ on $(-6, -2)$ and $(2, 5)$, so $f$ is increasing on $[-6, -2]$ and $[2, 5]$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Correct intervals",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct intervals"
+              ],
+              "correct_example": "$[-6, -2]$ and $[2, 5]$"
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Justification",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Justification"
+              ],
+              "correct_example": "$f$ is increasing where $f'(x) > 0$; from the graph, $f'(x) > 0$ on $(-6, -2)$ and $(2, 5)$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "Find the absolute minimum value of $f$ on the closed interval $[-6, 5]$. Justify your answer.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Considers candidates: critical points where $f'(x) = 0$ ($x = -2$ and $x = 2$) and endpoints $x = -6$ and $x = 5$",
-        "1 pt: Correct answer with justification: evaluates $f$ at all candidates; $f(-6) = 3$, $f(-2) = 7$, $f(2) = 7 - 2\\pi$, $f(5) = 10 - 2\\pi$; absolute minimum value is $f(2) = 7 - 2\\pi$"
-      ],
       "scoring_notes": "From scoring key: $f(2) = f(-2) + \\int_{-2}^{2} f'(x)\\, dx = 7 + (-2\\pi) = 7 - 2\\pi$ (semicircle with diameter 4 centered at origin, area $= -2\\pi$). Values: $f(-6)=3$, $f(-2)=7$, $f(2)=7-2\\pi \\approx 0.717$, $f(5)=10-2\\pi \\approx 3.717$. Absolute minimum value is $7 - 2\\pi$ at $x = 2$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Considers candidates: critical points where $f'(x) = 0$ ($x = -2$ and $x = 2$) and endpoints $x = -6$ and $x = 5$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Considers candidates: critical points where $f'(x) = 0$ ($x = -2$",
+                "$x = 2$)",
+                "endpoints $x = -6$",
+                "$x = 5$"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Correct answer with justification: evaluates $f$ at all candidates; $f(-6) = 3$, $f(-2) = 7$, $f(2) = 7 - 2\\pi$, $f(5) = 10 - 2\\pi$; absolute minimum value is $f(2) = 7 - 2\\pi$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer with justification: evaluates $f$ at all candidates; $f(-6) = 3$, $f(-2) = 7$, $f(2) = 7 - 2\\pi$, $f(5) = 10 - 2\\pi$; absolute minimum value is $f(2) = 7 - 2\\pi$"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "d",
       "prompt": "For each of $f''(-5)$ and $f''(3)$, find the value or explain why it does not exist.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: $f''(-5) = -\\frac{1}{2}$ (slope of the linear segment of $f'$ on $(-6, -2)$ is computed from the graph)",
-        "1 pt: $f''(3)$ does not exist because the one-sided limits of $\\frac{f'(x) - f'(3)}{x - 3}$ are not equal: $\\lim_{x \\to 3^-} \\frac{f'(x) - f'(3)}{x-3} = 2 \\ne -1 = \\lim_{x \\to 3^+} \\frac{f'(x) - f'(3)}{x-3}$"
-      ],
       "scoring_notes": "From scoring key: $f''(-5) = \\frac{2-0}{-2-(-6)} = \\frac{2}{4} = \\frac{1}{2}$... scoring key says $\\frac{2-0}{-2-(-6)} = \\frac{1}{2}$... actually $f''(-5) = -\\frac{1}{2}$ from slope of $f'$ on $(-6,-2)$ = $\\frac{0-2}{-2-(-6)} = \\frac{-2}{4} = -\\frac{1}{2}$. For $f''(3)$: left-hand limit is $2$, right-hand limit is $-1$; they differ, so $f''(3)$ does not exist.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "d1",
+          "point_value": 1,
+          "description": "$f''(-5) = -\\frac{1}{2}$ (slope of the linear segment of $f'$ on $(-6, -2)$ is computed from the graph)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$f''(-5) = -\\frac{1}{2}$ (slope of the linear segment of $f'$ on $(-6, -2)$ is computed from the graph)"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "d2",
+          "point_value": 1,
+          "description": "$f''(3)$ does not exist because the one-sided limits of $\\frac{f'(x) - f'(3)}{x - 3}$ are not equal",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$f''(3)$ does not exist because the one-sided limits of $\\frac{f'(x) - f'(3)}{x - 3}$ are not equal"
+              ],
+              "correct_example": "$\\lim_{x \\to 3^-} \\frac{f'(x) - f'(3)}{x-3} = 2 \\ne -1 = \\lim_{x \\to 3^+} \\frac{f'(x) - f'(3)}{x-3}$"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

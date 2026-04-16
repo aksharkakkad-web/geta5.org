@@ -5,7 +5,12 @@
   "source": "released",
   "title": "Invasive Species — Average Value, MVT for Derivatives, Limits & Optimization",
   "frq_type": "multi_part_math",
-  "related_units": [1, 4, 5, 6],
+  "related_units": [
+    1,
+    4,
+    5,
+    6
+  ],
   "calculator_allowed": true,
   "total_points": 9,
   "stimulus": "An invasive species of plant appears in a fruit grove at time $t = 0$ and begins to spread. The function $C$ defined by $C(t) = 7.6\\arctan(0.2t)$ models the number of acres in the fruit grove affected by the species $t$ weeks after the species appears. It can be shown that $C'(t) = \\frac{38}{25 + t^2}$.",
@@ -16,50 +21,161 @@
       "letter": "a",
       "prompt": "Find the average number of acres affected by the invasive species from time $t = 0$ to time $t = 4$ weeks. Show the setup for your calculations.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct average value formula and setup: $\\frac{1}{4-0}\\int_0^4 C(t)\\, dt$",
-        "1 pt: Correct answer: $\\frac{1}{4}\\int_0^4 C(t)\\, dt = \\frac{1}{4}(11.112896) \\approx 2.778$ acres"
-      ],
       "scoring_notes": "Must present the correct integral with evidence of division by 4. $\\int_0^4 C(t)\\, dt \\approx 11.113$, so average $\\approx 2.778$ acres. Accept $2.778$ or $2.777$. The correct answer alone (with the correct integral) suffices as evidence of division by 4.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Correct average value formula and setup",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct average value formula",
+                "setup"
+              ],
+              "correct_example": "$\\frac{1}{4-0}\\int_0^4 C(t)\\, dt$"
+            }
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer"
+              ],
+              "correct_example": "$\\frac{1}{4}\\int_0^4 C(t)\\, dt = \\frac{1}{4}(11.112896) \\approx 2.778$ acres"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "Find the time $t$ when the instantaneous rate of change of $C$ equals the average rate of change of $C$ over the time interval $0 \\le t \\le 4$. Show the setup for your calculations.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Computes the average rate of change: $\\frac{C(4) - C(0)}{4 - 0} = \\frac{5.128 - 0}{4} \\approx 1.282$",
-        "1 pt: Sets $C'(t) = 1.282$ and solves: $\\frac{38}{25 + t^2} = 1.282 \\Rightarrow t \\approx 2.154$ weeks"
-      ],
       "scoring_notes": "Average rate of change $= \\frac{C(4)-C(0)}{4} \\approx 1.282$. Must set up equation $C'(t) = \\text{avg rate}$ and solve for $t$. Answer $t \\approx 2.154$ (or $2.153$). P3 is earned for presenting the expression or value of the average rate of change; P4 requires the correct answer with the equation.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Computes the average rate of change",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Computes the average rate of change"
+              ],
+              "correct_example": "$\\frac{C(4) - C(0)}{4 - 0} = \\frac{5.128 - 0}{4} \\approx 1.282$"
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Sets $C'(t) = 1.282$ and solves",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Sets $C'(t) = 1.282$",
+                "solves"
+              ],
+              "correct_example": "$\\frac{38}{25 + t^2} = 1.282 \\Rightarrow t \\approx 2.154$ weeks"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "Assume that the invasive species continues to spread according to the given model for all times $t > 0$. Write a limit expression that describes the end behavior of the rate of change in the number of acres affected by the species. Evaluate this limit expression.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct limit expression: $\\lim_{t \\to \\infty} C'(t) = \\lim_{t \\to \\infty} \\frac{38}{25 + t^2}$",
-        "1 pt: Correct evaluation: $\\lim_{t \\to \\infty} \\frac{38}{25+t^2} = 0$"
-      ],
       "scoring_notes": "P5 is earned for $\\lim_{t\\to\\infty} C'(t)$ or equivalently $\\lim_{t\\to\\infty} \\frac{38}{25+t^2}$. P6 is the value $0$. A response writing $\\lim_{t\\to\\infty} C(t)$ instead is eligible for P5 but not P6. Arithmetic with infinity (e.g., $\\frac{38}{25+\\infty^2} = 0$) is treated as scratch work.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Correct limit expression",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct limit expression"
+              ],
+              "correct_example": "$\\lim_{t \\to \\infty} C'(t) = \\lim_{t \\to \\infty} \\frac{38}{25 + t^2}$"
+            }
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Correct evaluation",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct evaluation"
+              ],
+              "correct_example": "$\\lim_{t \\to \\infty} \\frac{38}{25+t^2} = 0$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "d",
       "prompt": "At time $t = 4$ weeks after the invasive species appears in the fruit grove, measures are taken to counter the spread of the species. The function $A$, defined by $A(t) = C(t) - \\int_4^t 0.1 \\cdot \\ln(x)\\, dx$, models the number of acres affected by the species over the time interval $4 \\le t \\le 36$. At what time $t$, for $4 \\le t \\le 36$, does $A$ attain its maximum value? Justify your answer.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Considers $A'(t) = 0$: $A'(t) = C'(t) - 0.1\\ln(t) = 0$, i.e., $C'(t) = 0.1\\ln(t)$",
-        "1 pt: Correct justification (global argument): evaluates $A$ at critical point $t \\approx 11.442$ and endpoints $t = 4$ and $t = 36$; $A(4) \\approx 5.128$, $A(11.442) \\approx 7.317$, $A(36) \\approx 1.743$",
-        "1 pt: Correct answer: $A$ attains its maximum at $t \\approx 11.442$ (or $11.441$) weeks"
-      ],
       "scoring_notes": "Must set $A'(t) = 0$ or discuss sign change of $A'$. Candidates test: must evaluate $A$ at $t = 4$, $t \\approx 11.442$, and $t = 36$. Alternate: $A'(t) > 0$ for $4 < t < 11.442$ and $A'(t) < 0$ for $11.442 < t < 36$. A local argument (First or Second Derivative Test) earns only the setup point (P7) but not P8; P9 can still be earned with the correct answer.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "d1",
+          "point_value": 1,
+          "description": "Considers $A'(t) = 0$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Considers $A'(t) = 0$"
+              ],
+              "correct_example": "$A'(t) = C'(t) - 0.1\\ln(t) = 0$, i.e., $C'(t) = 0.1\\ln(t)$"
+            }
+          ]
+        },
+        {
+          "point_id": "d2",
+          "point_value": 1,
+          "description": "Correct justification (global argument): evaluates $A$ at critical point $t \\approx 11.442$ and endpoints $t = 4$ and $t = 36$; $A(4) \\approx 5.128$, $A(11.442) \\approx 7.317$, $A(36) \\approx 1.743$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct justification (global argument): evaluates $A$ at critical point $t \\approx 11.442$",
+                "endpoints $t = 4$",
+                "$t = 36$; $A(4) \\approx 5.128$, $A(11.442) \\approx 7.317$, $A(36) \\approx 1.743$"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "d3",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer"
+              ],
+              "correct_example": "$A$ attains its maximum at $t \\approx 11.442$ (or $11.441$) weeks"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

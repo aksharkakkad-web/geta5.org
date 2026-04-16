@@ -5,7 +5,12 @@
   "source": "released",
   "title": "Chain Rule, Product Rule & FTC with Table of Values",
   "frq_type": "multi_part_math",
-  "related_units": [2, 3, 5, 6],
+  "related_units": [
+    2,
+    3,
+    5,
+    6
+  ],
   "calculator_allowed": false,
   "total_points": 9,
   "stimulus": "The functions $f$ and $g$ are twice differentiable. The table shown gives values of the functions and their first derivatives at selected values of $x$.\n\n| $x$ | 0 | 2 | 4 | 7 |\n|---|---|---|---|---|\n| $f(x)$ | 10 | 7 | 4 | 5 |\n| $f'(x)$ | $\\frac{3}{2}$ | $-8$ | 3 | 6 |\n| $g(x)$ | 1 | 2 | $-3$ | 0 |\n| $g'(x)$ | 5 | 4 | 2 | 8 |",
@@ -16,50 +21,171 @@
       "letter": "a",
       "prompt": "Let $h$ be the function defined by $h(x) = f(g(x))$. Find $h'(7)$. Show the work that leads to your answer.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Applies chain rule: $h'(x) = f'(g(x)) \\cdot g'(x)$",
-        "1 pt: Correct answer: $h'(7) = f'(g(7)) \\cdot g'(7) = f'(0) \\cdot 8 = \\frac{3}{2} \\cdot 8 = 12$"
-      ],
       "scoring_notes": "Chain rule form earns first point. Answer of $12$ earns second point only if chain rule was applied. Without chain rule setup, second point requires showing $f'(0) \\cdot 8 = 12$ or $\\frac{3}{2} \\cdot 8$. Unsupported answer of $12$ earns no points.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Applies chain rule",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Applies chain rule"
+              ],
+              "correct_example": "$h'(x) = f'(g(x)) \\cdot g'(x)$"
+            }
+          ],
+          "wrong_examples": [
+            "earns no points"
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer"
+              ],
+              "correct_example": "$h'(7) = f'(g(7)) \\cdot g'(7) = f'(0) \\cdot 8 = \\frac{3}{2} \\cdot 8 = 12$"
+            }
+          ],
+          "wrong_examples": [
+            "earns no points"
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "Let $k$ be a differentiable function such that $k'(x) = (f(x))^2 \\cdot g(x)$. Is the graph of $k$ concave up or concave down at the point where $x = 4$? Give a reason for your answer.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Applies product rule (and chain rule): $k''(x) = 2f(x) \\cdot f'(x) \\cdot g(x) + (f(x))^2 \\cdot g'(x)$",
-        "1 pt: Correct value: $k''(4) = 2(4)(3)(-3) + (4)^2(2) = -72 + 32 = -40$",
-        "1 pt: Concave down at $x = 4$ because $k''(4) = -40 < 0$"
-      ],
       "scoring_notes": "First point earned for correct differentiation form (product + chain rule). A single error in applying product or chain rule still earns first point, but prevents second point. Third point consistent with any declared nonzero value of $k''(4)$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Applies product rule (and chain rule)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Applies product rule (and chain rule)"
+              ],
+              "correct_example": "$k''(x) = 2f(x) \\cdot f'(x) \\cdot g(x) + (f(x))^2 \\cdot g'(x)$"
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Correct value",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct value"
+              ],
+              "correct_example": "$k''(4) = 2(4)(3)(-3) + (4)^2(2) = -72 + 32 = -40$"
+            }
+          ]
+        },
+        {
+          "point_id": "b3",
+          "point_value": 1,
+          "description": "Concave down at $x = 4$ because $k''(4) = -40 < 0$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Concave down at $x = 4$ because $k''(4) = -40 < 0$"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "Let $m$ be the function defined by $m(x) = 5x^3 + \\int_0^x f'(t)\\, dt$. Find $m(2)$. Show the work that leads to your answer.",
       "point_value": 1,
-      "rubric_criteria": [
-        "1 pt: Correct answer with supporting work: $m(2) = 5(8) + \\int_0^2 f'(t)\\, dt = 40 + (f(2) - f(0)) = 40 + (7 - 10) = 37$"
-      ],
       "scoring_notes": "Must show supporting work equivalent to $5 \\cdot 8 + (f(2) - f(0))$ or $40 + (7 - 10)$. Unsupported answer of $37$ earns no credit. Uses FTC: $\\int_0^2 f'(t)\\, dt = f(2) - f(0) = 7 - 10 = -3$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Correct answer with supporting work",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer with supporting work"
+              ],
+              "correct_example": "$m(2) = 5(8) + \\int_0^2 f'(t)\\, dt = 40 + (f(2) - f(0)) = 40 + (7 - 10) = 37$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "d",
       "prompt": "Is the function $m$ defined in part (c) increasing, decreasing, or neither at $x = 2$? Justify your answer.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Considers $m'(x)$ or $m'(2)$: $m'(x) = 15x^2 + f'(x)$",
-        "1 pt: Correct computation: $m'(2) = 15(4) + f'(2) = 60 + (-8) = 52$",
-        "1 pt: $m$ is increasing at $x = 2$ because $m'(2) = 52 > 0$"
-      ],
       "scoring_notes": "First point earned for considering $m'$. Second point requires $m'(2) = 60 + f'(2)$ or $60 + (-8)$ with work; unsupported $m'(2) = 52$ does not earn. Third point consistent with any declared value of $m'(2)$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "d1",
+          "point_value": 1,
+          "description": "Considers $m'(x)$ or $m'(2)$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Considers $m'(x)$ or $m'(2)$"
+              ],
+              "correct_example": "$m'(x) = 15x^2 + f'(x)$"
+            }
+          ],
+          "wrong_examples": [
+            "does not earn"
+          ]
+        },
+        {
+          "point_id": "d2",
+          "point_value": 1,
+          "description": "Correct computation",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct computation"
+              ],
+              "correct_example": "$m'(2) = 15(4) + f'(2) = 60 + (-8) = 52$"
+            }
+          ],
+          "wrong_examples": [
+            "does not earn"
+          ]
+        },
+        {
+          "point_id": "d3",
+          "point_value": 1,
+          "description": "$m$ is increasing at $x = 2$ because $m'(2) = 52 > 0$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$m$ is increasing at $x = 2$ because $m'(2) = 52 > 0$"
+              ]
+            }
+          ],
+          "wrong_examples": [
+            "does not earn"
+          ]
+        }
+      ]
     }
   ]
 }

@@ -5,7 +5,11 @@
   "source": "released",
   "title": "Average Rate of Change, Riemann Sums & Differential Equations (Table)",
   "frq_type": "multi_part_math",
-  "related_units": [4, 6, 7],
+  "related_units": [
+    4,
+    6,
+    7
+  ],
   "calculator_allowed": true,
   "total_points": 9,
   "stimulus": "The temperature of coffee in a cup at time $t$ minutes is modeled by a decreasing differentiable function $C$, where $C(t)$ is measured in degrees Celsius. For $0 \\le t \\le 12$, selected values of $C(t)$ are given in the table:\n\n| $t$ (minutes) | 0 | 3 | 7 | 12 |\n|---|---|---|---|---|\n| $C(t)$ (degrees Celsius) | 100 | 85 | 69 | 55 |",
@@ -16,50 +20,183 @@
       "letter": "a",
       "prompt": "Approximate $C'(5)$ using the average rate of change of $C$ over the interval $3 \\le t \\le 7$. Show the work that leads to your answer and include units of measure.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct estimate with supporting work: $C'(5) \\approx \\frac{C(7) - C(3)}{7-3} = \\frac{69-85}{4} = -4$ degrees Celsius per minute",
-        "1 pt: Correct units (degrees Celsius per minute)"
-      ],
       "scoring_notes": "Accept equivalent forms such as $\\frac{-16}{4}$, $\\frac{69-85}{7-3}$, or $\\frac{69-85}{4}$. The estimate point requires supporting work showing a difference quotient using table values. Units must be degrees Celsius per minute (or equivalent).",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Correct estimate with supporting work",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct estimate with supporting work"
+              ],
+              "correct_example": "$C'(5) \\approx \\frac{C(7) - C(3)}{7-3} = \\frac{69-85}{4} = -4$ degrees Celsius per minute"
+            }
+          ],
+          "common_traps": [
+            "Omitting units from the answer"
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Correct units (degrees Celsius per minute)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct units (degrees Celsius per minute)"
+              ]
+            }
+          ],
+          "common_traps": [
+            "Omitting units from the answer"
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "Use a left Riemann sum with the three subintervals indicated by the data in the table to approximate the value of $\\int_0^{12} C(t)\\, dt$. Interpret the meaning of $\\frac{1}{12}\\int_0^{12} C(t)\\, dt$ in the context of the problem.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Correct form of left Riemann sum: $(3-0)C(0) + (7-3)C(3) + (12-7)C(7)$",
-        "1 pt: Correct estimate using table values: $3(100) + 4(85) + 5(69) = 300 + 340 + 345 = 985$",
-        "1 pt: Correct interpretation: $\\frac{1}{12}\\int_0^{12} C(t)\\, dt$ is the average temperature of the coffee (in degrees Celsius) over the time interval from $t = 0$ to $t = 12$ minutes"
-      ],
       "scoring_notes": "The setup point requires showing the form $(3-0)C(0) + (7-3)C(3) + (12-7)C(7)$. Values must be pulled from the table to earn the estimate point. The interpretation must reference average temperature over the interval; must include units or context.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Correct form of left Riemann sum",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct form of left Riemann sum"
+              ],
+              "correct_example": "$(3-0)C(0) + (7-3)C(3) + (12-7)C(7)$"
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Correct estimate using table values",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct estimate using table values"
+              ],
+              "correct_example": "$3(100) + 4(85) + 5(69) = 300 + 340 + 345 = 985$"
+            }
+          ]
+        },
+        {
+          "point_id": "b3",
+          "point_value": 1,
+          "description": "Correct interpretation",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct interpretation"
+              ],
+              "correct_example": "$\\frac{1}{12}\\int_0^{12} C(t)\\, dt$ is the average temperature of the coffee (in degrees Celsius) over the time interval from $t = 0$ to $t = 12$ minutes"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "For $12 \\le t \\le 20$, the rate of change of the temperature of the coffee is modeled by $C'(t) = \\frac{-4.55e^{0.01t}}{t}$, where $C'(t)$ is measured in degrees Celsius per minute. Find the temperature of the coffee at time $t = 20$. Show the setup for your calculations.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Correct integral setup: $C(20) = C(12) + \\int_{12}^{20} C'(t)\\, dt$",
-        "1 pt: Correct use of initial condition $C(12) = 55$",
-        "1 pt: Correct answer: $C(20) = 55 + \\int_{12}^{20} \\frac{-4.55e^{0.01t}}{t}\\, dt \\approx 55 - 14.671 = 40.329$ degrees Celsius"
-      ],
       "scoring_notes": "Must show the integral setup using the Fundamental Theorem of Calculus with $C(12) = 55$ as the initial condition. The integral $\\int_{12}^{20} C'(t)\\, dt \\approx -14.671$. Accept $C(20) \\approx 40.329$ or $40.328$. Incorrect initial condition ($C(12) \\ne 55$) loses the initial condition point but may still earn the setup and answer points if consistent.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Correct integral setup",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct integral setup"
+              ],
+              "correct_example": "$C(20) = C(12) + \\int_{12}^{20} C'(t)\\, dt$"
+            }
+          ],
+          "wrong_examples": [
+            "Incorrect initial condition ($C(12) \\ne 55$) loses the initial condition point but may still earn the setup and answer points if consistent"
+          ],
+          "common_traps": [
+            "Using an incorrect initial condition"
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Correct use of initial condition $C(12) = 55$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct use of initial condition $C(12) = 55$"
+              ]
+            }
+          ],
+          "wrong_examples": [
+            "Incorrect initial condition ($C(12) \\ne 55$) loses the initial condition point but may still earn the setup and answer points if consistent"
+          ],
+          "common_traps": [
+            "Using an incorrect initial condition"
+          ]
+        },
+        {
+          "point_id": "c3",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer"
+              ],
+              "correct_example": "$C(20) = 55 + \\int_{12}^{20} \\frac{-4.55e^{0.01t}}{t}\\, dt \\approx 55 - 14.671 = 40.329$ degrees Celsius"
+            }
+          ],
+          "wrong_examples": [
+            "Incorrect initial condition ($C(12) \\ne 55$) loses the initial condition point but may still earn the setup and answer points if consistent"
+          ],
+          "common_traps": [
+            "Using an incorrect initial condition"
+          ]
+        }
+      ]
     },
     {
       "letter": "d",
       "prompt": "For the model defined in part (c), it can be shown that $C''(t) = \\frac{0.2455e^{0.01t}(100-t)}{t^2}$. For $12 < t < 20$, determine whether the temperature of the coffee is changing at a decreasing rate or at an increasing rate. Give a reason for your answer.",
       "point_value": 1,
-      "rubric_criteria": [
-        "1 pt: The temperature is changing at an increasing rate, with correct reason: Because $C''(t) > 0$ on the interval $12 < t < 20$ (since $100 - t > 0$ for $t < 20$, $e^{0.01t} > 0$, and $t^2 > 0$), the rate of change $C'(t)$ is increasing on this interval"
-      ],
       "scoring_notes": "Must state 'increasing rate' AND give a reason based on $C''(t) > 0$. A response saying 'decreasing rate' earns no points. May also earn the point by noting $C'(t)$ is increasing (becoming less negative) on $12 < t < 20$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "d1",
+          "point_value": 1,
+          "description": "The temperature is changing at an increasing rate, with correct reason",
+          "alternatives": [
+            {
+              "required_elements": [
+                "The temperature is changing at an increasing rate, with correct reason"
+              ],
+              "correct_example": "Because $C''(t) > 0$ on the interval $12 < t < 20$ (since $100 - t > 0$ for $t < 20$, $e^{0.01t} > 0$, and $t^2 > 0$), the rate of change $C'(t)$ is increasing on this interval"
+            }
+          ],
+          "wrong_examples": [
+            "earns no points"
+          ]
+        }
+      ]
     }
   ]
 }

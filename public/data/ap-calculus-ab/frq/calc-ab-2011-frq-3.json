@@ -5,7 +5,11 @@
   "source": "released",
   "title": "Region R: f(x)=8x³ and g(x)=sin(πx) — Tangent Line, Area & Rotation Volume (Write Only)",
   "frq_type": "multi_part_math",
-  "related_units": [2, 6, 8],
+  "related_units": [
+    2,
+    6,
+    8
+  ],
   "calculator_allowed": false,
   "total_points": 9,
   "stimulus": "Let $R$ be the region in the first quadrant enclosed by the graphs of $f(x) = 8x^3$ and $g(x) = \\sin(\\pi x)$, as shown in the figure.",
@@ -16,40 +20,147 @@
       "letter": "a",
       "prompt": "Write an equation for the line tangent to the graph of $f$ at $x = \\frac{1}{2}$.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Finds $f'(x) = 24x^2$; $f'\\left(\\frac{1}{2}\\right) = 24 \\cdot \\frac{1}{4} = 6$ (slope)",
-        "1 pt: Correct tangent line: $f\\left(\\frac{1}{2}\\right) = 8 \\cdot \\frac{1}{8} = 1$; equation: $y = 1 + 6\\left(x - \\frac{1}{2}\\right)$"
-      ],
       "scoring_notes": "From scoring key: $f'(1/2) = 6$ and $f(1/2) = 1$. Tangent line: $y = 1 + 6(x - \\frac{1}{2})$ or equivalent.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Finds $f'(x) = 24x^2$; $f'\\left(\\frac{1}{2}\\right) = 24 \\cdot \\frac{1}{4} = 6$ (slope)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Finds $f'(x) = 24x^2$; $f'\\left(\\frac{1}{2}\\right) = 24 \\cdot \\frac{1}{4} = 6$ (slope)"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Correct tangent line",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct tangent line"
+              ],
+              "correct_example": "$f\\left(\\frac{1}{2}\\right) = 8 \\cdot \\frac{1}{8} = 1$; equation: $y = 1 + 6\\left(x - \\frac{1}{2}\\right)$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "Find the area of $R$.",
       "point_value": 4,
-      "rubric_criteria": [
-        "1 pt: Correct integrand: $g(x) - f(x) = \\sin(\\pi x) - 8x^3$ on $[0, \\frac{1}{2}]$",
-        "1 pt: Correct antiderivative (left term): $-\\frac{1}{\\pi}\\cos(\\pi x)$",
-        "1 pt: Correct antiderivative (right term): $-2x^4$",
-        "1 pt: Correct answer: $\\left[-\\frac{1}{\\pi}\\cos(\\pi x) - 2x^4\\right]_0^{1/2} = -\\frac{1}{\\pi}(0) - 2 \\cdot \\frac{1}{16} - (-\\frac{1}{\\pi} - 0) = \\frac{1}{\\pi} - \\frac{1}{8}$"
-      ],
       "scoring_notes": "From scoring key: Area $= \\int_0^{1/2}(\\sin(\\pi x) - 8x^3)\\, dx = \\left[-\\frac{1}{\\pi}\\cos(\\pi x) - 2x^4\\right]_0^{1/2} = \\frac{1}{\\pi} - \\frac{1}{8}$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Correct integrand",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct integrand"
+              ],
+              "correct_example": "$g(x) - f(x) = \\sin(\\pi x) - 8x^3$ on $[0, \\frac{1}{2}]$"
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Correct antiderivative (left term)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct antiderivative (left term)"
+              ],
+              "correct_example": "$-\\frac{1}{\\pi}\\cos(\\pi x)$"
+            }
+          ]
+        },
+        {
+          "point_id": "b3",
+          "point_value": 1,
+          "description": "Correct antiderivative (right term)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct antiderivative (right term)"
+              ],
+              "correct_example": "$-2x^4$"
+            }
+          ]
+        },
+        {
+          "point_id": "b4",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer"
+              ],
+              "correct_example": "$\\left[-\\frac{1}{\\pi}\\cos(\\pi x) - 2x^4\\right]_0^{1/2} = -\\frac{1}{\\pi}(0) - 2 \\cdot \\frac{1}{16} - (-\\frac{1}{\\pi} - 0) = \\frac{1}{\\pi} - \\frac{1}{8}$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "Write, but do not evaluate, an integral expression for the volume of the solid generated when $R$ is rotated about the horizontal line $y = 1$.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Correct limits ($0$ to $\\frac{1}{2}$) and constant $\\pi$",
-        "1 pt: Correct outer radius: $1 - f(x) = 1 - 8x^3$; correct inner radius: $1 - g(x) = 1 - \\sin(\\pi x)$",
-        "1 pt: Correct expression: $\\pi\\int_0^{1/2}\\left[(1-f(x))^2 - (1-g(x))^2\\right]\\, dx = \\pi\\int_0^{1/2}\\left[(1-8x^3)^2 - (1-\\sin(\\pi x))^2\\right]\\, dx$"
-      ],
       "scoring_notes": "From scoring key: Volume $= \\pi\\int_0^{1/2}\\left[(1-8x^3)^2 - (1-\\sin(\\pi x))^2\\right]\\, dx$ (do not evaluate).",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Correct limits ($0$ to $\\frac{1}{2}$) and constant $\\pi$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct limits ($0$ to $\\frac{1}{2}$)",
+                "constant $\\pi$"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Correct outer radius",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct outer radius"
+              ],
+              "correct_example": "$1 - f(x) = 1 - 8x^3$; correct inner radius: $1 - g(x) = 1 - \\sin(\\pi x)$"
+            }
+          ]
+        },
+        {
+          "point_id": "c3",
+          "point_value": 1,
+          "description": "Correct expression",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct expression"
+              ],
+              "correct_example": "$\\pi\\int_0^{1/2}\\left[(1-f(x))^2 - (1-g(x))^2\\right]\\, dx = \\pi\\int_0^{1/2}\\left[(1-8x^3)^2 - (1-\\sin(\\pi x))^2\\right]\\, dx$"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

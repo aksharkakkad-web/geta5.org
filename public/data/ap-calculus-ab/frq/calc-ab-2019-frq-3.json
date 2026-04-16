@@ -5,7 +5,11 @@
   "source": "released",
   "title": "Piecewise Graph of f — FTC, Absolute Max of Accumulation Function & L'Hopital",
   "frq_type": "multi_part_math",
-  "related_units": [1, 5, 6],
+  "related_units": [
+    1,
+    5,
+    6
+  ],
   "calculator_allowed": false,
   "total_points": 9,
   "stimulus": "The continuous function $f$ is defined on the closed interval $-6 \\le x \\le 5$. The figure shows a portion of the graph of $f$, consisting of two line segments and a quarter of a circle centered at the point $(5, 3)$. It is known that the point $(3, 3-\\sqrt{5})$ is on the graph of $f$.",
@@ -16,50 +20,157 @@
       "letter": "a",
       "prompt": "If $\\int_{-6}^5 f(x)\\, dx = 7$, find the value of $\\int_{-6}^{-2} f(x)\\, dx$. Show the work that leads to your answer.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Sets up the relationship: $\\int_{-6}^5 f(x)\\, dx = \\int_{-6}^{-2} f(x)\\, dx + \\int_{-2}^5 f(x)\\, dx$",
-        "1 pt: Evaluates $\\int_{-2}^5 f(x)\\, dx$ using geometry from the graph: the region from $x = -2$ to $x = 5$ consists of areas that can be computed from the graph (quarter circle $+ \\ldots$); from scoring key: $\\int_{-2}^5 f(x)\\, dx = \\frac{9\\pi}{4} - \\frac{9}{2}$ (quarter circle of radius 3 centered at $(5,3)$ from $x = 2$ to $x = 5$... or direct computation gives $\\frac{9}{4}$... from scoring key $= -\\frac{9}{4}$)",
-        "1 pt: Correct answer: $\\int_{-6}^{-2} f(x)\\, dx = 7 - \\int_{-2}^5 f(x)\\, dx = 7 - (-\\frac{9}{4}) = 7 + \\frac{9}{4} = \\frac{37}{4}$... from scoring key $= 7 - (-\\frac{9}{4}) = \\frac{37}{4}$"
-      ],
       "scoring_notes": "From scoring key: $\\int_{-6}^5 = \\int_{-6}^{-2} + \\int_{-2}^5$; $\\int_{-2}^5 f(x)\\, dx = -\\frac{9}{4}$ (from graph geometry); so $\\int_{-6}^{-2} = 7 - (-\\frac{9}{4}) = 7 + \\frac{9}{4} = \\frac{37}{4}$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Sets up the relationship",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Sets up the relationship"
+              ],
+              "correct_example": "$\\int_{-6}^5 f(x)\\, dx = \\int_{-6}^{-2} f(x)\\, dx + \\int_{-2}^5 f(x)\\, dx$"
+            }
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Evaluates $\\int_{-2}^5 f(x)\\, dx$ using geometry from the graph: the region from $x = -2$ to $x = 5$ consists of areas that can be computed from the graph (quarter circle $+ \\ldots$); from scoring key",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Evaluates $\\int_{-2}^5 f(x)\\, dx$ using geometry from the graph: the region from $x = -2$ to $x = 5$ consists of areas that can be computed from the graph (quarter circle $+ \\ldots$); from scoring key"
+              ],
+              "correct_example": "$\\int_{-2}^5 f(x)\\, dx = \\frac{9\\pi}{4} - \\frac{9}{2}$ (quarter circle of radius 3 centered at $(5,3)$ from $x = 2$ to $x = 5$... or direct computation gives $\\frac{9}{4}$... from scoring key $= -\\frac{9}{4}$)"
+            }
+          ]
+        },
+        {
+          "point_id": "a3",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer"
+              ],
+              "correct_example": "$\\int_{-6}^{-2} f(x)\\, dx = 7 - \\int_{-2}^5 f(x)\\, dx = 7 - (-\\frac{9}{4}) = 7 + \\frac{9}{4} = \\frac{37}{4}$... from scoring key $= 7 - (-\\frac{9}{4}) = \\frac{37}{4}$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "Evaluate $\\int_3^5 (2f'(x) + 4)\\, dx$.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Applies FTC: $\\int_3^5 2f'(x)\\, dx = 2(f(5) - f(3))$",
-        "1 pt: Correct answer: $2(f(5) - f(3)) + \\int_3^5 4\\, dx = 2(3 - (3-\\sqrt{5})) + 4(2) = 2\\sqrt{5} + 8$"
-      ],
       "scoring_notes": "From the graph: $f(5) = 3$ (center of quarter circle) and $f(3) = 3 - \\sqrt{5}$ (given). $\\int_3^5 4\\, dx = 8$. Answer: $2\\sqrt{5} + 8$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Applies FTC",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Applies FTC"
+              ],
+              "correct_example": "$\\int_3^5 2f'(x)\\, dx = 2(f(5) - f(3))$"
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer"
+              ],
+              "correct_example": "$2(f(5) - f(3)) + \\int_3^5 4\\, dx = 2(3 - (3-\\sqrt{5})) + 4(2) = 2\\sqrt{5} + 8$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "The function $g$ is given by $g(x) = \\int_{-2}^x f(t)\\, dt$. Find the absolute maximum value of $g$ on the interval $-2 \\le x \\le 5$. Justify your answer.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: By FTC, $g'(x) = f(x)$; finds critical points where $f(x) = 0$: from graph, $f(x) = 0$ at $x = -2, x = 1/2, x = 5$ (or wherever $f = 0$ per graph)",
-        "1 pt: Evaluates $g$ at critical points and endpoints; from scoring key: $g(-2) = 0$, max at $x = 5$ gives $g(5) = \\frac{9}{4} + \\frac{9\\pi}{4}$... from scoring key $g(5) = \\frac{11 - \\pi}{4}$... checking: $g(x)$ max value $= \\frac{11}{4}$ from scoring key... accept $\\frac{11}{4}$ per scoring key",
-        "1 pt: Correct answer with justification: absolute maximum value of $g$ is $g(5) = \\frac{11}{4}$"
-      ],
       "scoring_notes": "From scoring key: candidates at $x = -2$ ($g = 0$), $x = 1/2$ ($g = 1/4$), $x = 5$ ($g = 11/4$). Absolute maximum is $\\frac{11}{4}$ at $x = 5$. Must justify by checking all critical points and endpoints.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "By FTC, $g'(x) = f(x)$; finds critical points where $f(x) = 0$: from graph, $f(x) = 0$ at $x = -2, x = 1/2, x = 5$ (or wherever $f = 0$ per graph)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "By FTC, $g'(x) = f(x)$; finds critical points where $f(x) = 0$: from graph, $f(x) = 0$ at $x = -2, x = 1/2, x = 5$ (or wherever $f = 0$ per graph)"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Evaluates $g$ at critical points and endpoints; from scoring key",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Evaluates $g$ at critical points",
+                "endpoints; from scoring key"
+              ],
+              "correct_example": "$g(-2) = 0$, max at $x = 5$ gives $g(5) = \\frac{9}{4} + \\frac{9\\pi}{4}$... from scoring key $g(5) = \\frac{11 - \\pi}{4}$... checking: $g(x)$ max value $= \\frac{11}{4}$ from scoring key... accept $\\frac{11}{4}$ per scoring key"
+            }
+          ]
+        },
+        {
+          "point_id": "c3",
+          "point_value": 1,
+          "description": "Correct answer with justification: absolute maximum value of $g$ is $g(5) = \\frac{11}{4}$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer with justification: absolute maximum value of $g$ is $g(5) = \\frac{11}{4}$"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "d",
       "prompt": "Find $\\lim_{x \\to 1} \\frac{10x - 3f'(x)}{f(x) - \\arctan x}$.",
       "point_value": 1,
-      "rubric_criteria": [
-        "1 pt: Correct answer: $\\frac{10(1) - 3f'(1)}{f(1) - \\arctan 1} = \\frac{10 - 3f'(1)}{f(1) - \\pi/4}$; from graph $f(1) = 0$ and... from scoring key: limit $= \\frac{10-3f'(1)}{f(1) - \\arctan 1}$; if $f(1) = 0$ and $f'(1) = 2$: $\\frac{10-6}{0-\\pi/4} = \\frac{4}{-\\pi/4} = -\\frac{16}{\\pi}$"
-      ],
       "scoring_notes": "From scoring key: $\\lim_{x\\to 1} \\frac{10x - 3f'(x)}{f(x) - \\arctan x} = \\frac{10-3f'(1)}{f(1) - \\pi/4}$. With $f(1) = 0$, $f'(1) = 2$ (slope from graph), answer $= \\frac{4}{-\\pi/4} = -\\frac{16}{\\pi}$. This limit is direct substitution (not L'Hopital needed) since denominator $\\ne 0$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "d1",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer"
+              ],
+              "correct_example": "$\\frac{10(1) - 3f'(1)}{f(1) - \\arctan 1} = \\frac{10 - 3f'(1)}{f(1) - \\pi/4}$; from graph $f(1) = 0$ and... from scoring key: limit $= \\frac{10-3f'(1)}{f(1) - \\arctan 1}$; if $f(1) = 0$ and $f'(1) = 2$: $\\frac{10-6}{0-\\pi/4} = \\frac{4}{-\\pi/4} = -\\frac{16}{\\pi}$"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -5,7 +5,10 @@
   "source": "released",
   "title": "Particle v(t) = -2 + (t²+3t)^(6/5) - t³ — Speed=2, Position, Direction Changes & Speed Increasing",
   "frq_type": "multi_part_math",
-  "related_units": [4, 8],
+  "related_units": [
+    4,
+    8
+  ],
   "calculator_allowed": true,
   "total_points": 9,
   "stimulus": "A particle moves along a straight line. For $0 \\le t \\le 5$, the velocity of the particle is given by $v(t) = -2 + (t^2 + 3t)^{6/5} - t^3$, and the position of the particle is given by $s(t)$. It is known that $s(0) = 10$.",
@@ -16,50 +19,158 @@
       "letter": "a",
       "prompt": "Find all values of $t$ in the interval $2 \\le t \\le 4$ for which the speed of the particle is 2.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Considers both $v(t) = 2$ and $v(t) = -2$ (speed $= |v(t)| = 2$)",
-        "1 pt: Correct answer: $t \\approx 3.128$ (or $3.127$) and $t \\approx 3.473$"
-      ],
       "scoring_notes": "From scoring key: Solve $|v(t)| = 2$ on $[2, 4]$; solutions are $t \\approx 3.128$ and $t \\approx 3.473$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Considers both $v(t) = 2$ and $v(t) = -2$ (speed $= |v(t)| = 2$)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Considers both $v(t) = 2$",
+                "$v(t) = -2$ (speed $= |v(t)| = 2$)"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer"
+              ],
+              "correct_example": "$t \\approx 3.128$ (or $3.127$) and $t \\approx 3.473$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "Write an expression involving an integral that gives the position $s(t)$. Use this expression to find the position of the particle at time $t = 5$.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct expression: $s(t) = 10 + \\int_0^t v(x)\\, dx$",
-        "1 pt: Correct answer: $s(5) = 10 + \\int_0^5 v(x)\\, dx \\approx -9.207$"
-      ],
       "scoring_notes": "From scoring key: $s(t) = 10 + \\int_0^t v(x)\\, dx$; $s(5) \\approx -9.207$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Correct expression",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct expression"
+              ],
+              "correct_example": "$s(t) = 10 + \\int_0^t v(x)\\, dx$"
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer"
+              ],
+              "correct_example": "$s(5) = 10 + \\int_0^5 v(x)\\, dx \\approx -9.207$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "Find all times $t$ in the interval $0 \\le t \\le 5$ at which the particle changes direction. Justify your answer.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Considers $v(t) = 0$ to find candidates for direction change",
-        "1 pt: Correct times: $t \\approx 0.536$ and $t \\approx 3.318$ (or $3.317$)",
-        "1 pt: Justification: $v(t)$ changes sign from negative to positive at $t \\approx 0.536$ and from positive to negative at $t \\approx 3.318$"
-      ],
       "scoring_notes": "From scoring key: $v(t) = 0$ at $t \\approx 0.536$ and $t \\approx 3.318$. Sign changes at both values confirm direction changes.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Considers $v(t) = 0$ to find candidates for direction change",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Considers $v(t) = 0$ to find candidates for direction change"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Correct times",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct times"
+              ],
+              "correct_example": "$t \\approx 0.536$ and $t \\approx 3.318$ (or $3.317$)"
+            }
+          ]
+        },
+        {
+          "point_id": "c3",
+          "point_value": 1,
+          "description": "Justification",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Justification"
+              ],
+              "correct_example": "$v(t)$ changes sign from negative to positive at $t \\approx 0.536$ and from positive to negative at $t \\approx 3.318$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "d",
       "prompt": "Is the speed of the particle increasing or decreasing at time $t = 4$? Give a reason for your answer.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Evaluates $v(4)$ and $a(4) = v'(4)$: $v(4) \\approx -11.476 < 0$ and $a(4) \\approx -22.296 < 0$",
-        "1 pt: Correct conclusion with reason: speed is increasing at $t = 4$ because velocity and acceleration have the same sign (both negative)"
-      ],
       "scoring_notes": "From scoring key: $v(4) \\approx -11.476$ and $a(4) = v'(4) \\approx -22.296$; both negative (same sign), so speed is increasing.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "d1",
+          "point_value": 1,
+          "description": "Evaluates $v(4)$ and $a(4) = v'(4)$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Evaluates $v(4)$",
+                "$a(4) = v'(4)$"
+              ],
+              "correct_example": "$v(4) \\approx -11.476 < 0$ and $a(4) \\approx -22.296 < 0$"
+            }
+          ]
+        },
+        {
+          "point_id": "d2",
+          "point_value": 1,
+          "description": "Correct conclusion with reason: speed is increasing at $t = 4$ because velocity and acceleration have the same sign (both negative)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct conclusion with reason: speed is increasing at $t = 4$ because velocity",
+                "acceleration have the same sign (both negative)"
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -21,45 +21,174 @@
       "letter": "a",
       "prompt": "Estimate $T'(7)$. Show the work that leads to your answer. Indicate units of measure.",
       "point_value": 1,
-      "rubric_criteria": [
-        "Estimate $T'(7)$ using a difference quotient from the table. Indicate units of measure (degrees Celsius per centimeter)."
-      ],
       "scoring_notes": null,
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Correct estimate of $T'(7)$ with supporting work and units",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Difference quotient using table values at $x=6$ and $x=8$",
+                "Units of $°C/cm$"
+              ],
+              "correct_example": "$T'(7) \\approx \\frac{T(8)-T(6)}{8-6} = \\frac{55-62}{2} = -3.5 °C/cm$"
+            }
+          ],
+          "common_traps": [
+            "Omitting units ($°C/cm$)"
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "Write an integral expression in terms of $T(x)$ for the average temperature of the wire. Estimate the average temperature of the wire using a trapezoidal sum with the four subintervals indicated by the data in the table. Indicate units of measure.",
       "point_value": 1,
-      "rubric_criteria": [
-        "Write $\\frac{1}{8}\\int_0^8 T(x)\\, dx$ for the average temperature. Estimate using a trapezoidal sum with the four subintervals indicated by the table. Indicate units of measure (degrees Celsius)."
-      ],
       "scoring_notes": null,
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Correct integral expression for average temperature",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$\\frac{1}{8}\\int_0^8 T(x)\\, dx$"
+              ],
+              "correct_example": "$\\frac{1}{8}\\int_0^8 T(x)\\, dx$"
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Correct trapezoidal sum setup",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Four trapezoids using subintervals from table",
+                "Correct coefficients $\\frac{1}{2}(width)(f_1+f_2)$"
+              ],
+              "correct_example": "$\\frac{1}{2}[(100+93)(1) + (93+70)(4) + (70+62)(1) + (62+55)(2)]$"
+            }
+          ]
+        },
+        {
+          "point_id": "b3",
+          "point_value": 1,
+          "description": "Correct average temperature answer with units",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct numerical answer",
+                "Units of $°C$"
+              ],
+              "correct_example": "$\\approx 175.6875/8 \\approx 175.688/8$ ... actually the trapezoid sum $A \\approx 1405.5$, average $= A/8 \\approx 175.688$ °C"
+            }
+          ],
+          "common_traps": [
+            "Forgetting to divide by the length 8"
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "Find $\\int_0^8 T'(x)\\, dx$, and indicate units of measure. Explain the meaning of $\\int_0^8 T'(x)\\, dx$ in terms of the temperature of the wire.",
       "point_value": 1,
-      "rubric_criteria": [
-        "Find $\\int_0^8 T'(x)\\, dx$ and indicate units of measure. Explain the meaning of $\\int_0^8 T'(x)\\, dx$ in terms of the temperature of the wire."
-      ],
       "scoring_notes": null,
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Correct value of $\\int_0^8 T'(x)\\, dx$ with units",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Applies Fundamental Theorem of Calculus",
+                "FTC: $T(8) - T(0)$"
+              ],
+              "correct_example": "$\\int_0^8 T'(x)\\, dx = T(8) - T(0) = 55 - 100 = -45$ °C"
+            }
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Correct meaning with units",
+          "alternatives": [
+            {
+              "required_elements": [
+                "States temperature drops/decreases by 45°C from one end to the other"
+              ],
+              "correct_example": "The temperature drops $45°C$ from the heated end to the other end of the wire"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "d",
       "prompt": "Are the data in the table consistent with the assertion that $T''(x) > 0$ for every $x$ in the interval $0 < x < 8$? Explain your answer.",
       "point_value": 1,
-      "rubric_criteria": [
-        "Are the data in the table consistent with the assertion that $T''(x) > 0$ for every $x$ in the interval $0 < x < 8$? Explain your answer."
-      ],
       "scoring_notes": null,
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "d1",
+          "point_value": 1,
+          "description": "Computes two slopes of secant lines to compare rates",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Average rate of change on $[1,5]$",
+                "Average rate of change on $[5,6]$"
+              ],
+              "correct_example": "On $[1,5]$: $\\frac{70-93}{4} = -5.75$; on $[5,6]$: $\\frac{62-70}{1} = -8$"
+            }
+          ]
+        },
+        {
+          "point_id": "d2",
+          "point_value": 1,
+          "description": "Correct answer: No, with valid MVT-based explanation",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Answer: No",
+                "By MVT, $T'$ takes value $-5.75$ on $(1,5)$ and $-8$ on $(5,6)$",
+                "So $T'$ must decrease somewhere, meaning $T'' < 0$ somewhere"
+              ],
+              "correct_example": "No. By MVT, $T'(c_1) = -5.75$ for some $c_1 \\in (1,5)$ and $T'(c_2) = -8$ for some $c_2 \\in (5,6)$. So $T'$ decreases, meaning $T'' < 0$ somewhere in $(c_1, c_2)$."
+            }
+          ],
+          "common_traps": [
+            "Stating 'yes' without checking all intervals"
+          ]
+        },
+        {
+          "point_id": "d3",
+          "point_value": 1,
+          "description": "Units correct throughout (a), (b), (c)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Units: °C/cm in part (a)",
+                "Units: °C in parts (b) and (c)"
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

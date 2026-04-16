@@ -19,34 +19,110 @@
       "letter": "a",
       "prompt": "Find the average acceleration of rocket A over the time interval $0 \\le t \\le 80$ seconds. Indicate units of measure.",
       "point_value": 1,
-      "rubric_criteria": [
-        "Find the average acceleration of rocket A over the time interval $0 \\le t \\le 80$ seconds. Indicate units of measure."
-      ],
       "scoring_notes": null,
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Correct average acceleration with units",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$\\frac{v(80)-v(0)}{80-0}$",
+                "Units ft/sec²"
+              ],
+              "correct_example": "$\\frac{49-5}{80} = \\frac{44}{80} = \\frac{11}{20}$ ft/sec²"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "Using correct units, explain the meaning of $\\int_{10}^{70} v(t)\\, dt$ in terms of the rocket's flight. Use a midpoint Riemann sum with 3 subintervals of equal length to approximate $\\int_{10}^{70} v(t)\\, dt$.",
       "point_value": 1,
-      "rubric_criteria": [
-        "Using correct units, explain the meaning of $\\int_{10}^{70} v(t)\\, dt$ in terms of the rocket's flight. Use a midpoint Riemann sum with 3 subintervals of equal length to approximate $\\int_{10}^{70} v(t)\\, dt$."
-      ],
       "scoring_notes": null,
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Correct meaning of $\\int_{10}^{70} v(t)\\, dt$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Distance (in feet) traveled by rocket A from $t=10$ to $t=70$ seconds"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Uses correct midpoint values $v(20), v(40), v(60)$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Midpoints: $t = 20, 40, 60$",
+                "Values: $v(20)=22, v(40)=35, v(60)=44$"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "b3",
+          "point_value": 1,
+          "description": "Correct Riemann sum value",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$20(22 + 35 + 44) = 20(101) = 2020$ feet"
+              ],
+              "correct_example": "$20 \\cdot [v(20) + v(40) + v(60)] = 20(22+35+44) = 2020$ ft"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "Rocket B is launched upward with an acceleration of $a(t) = \\dfrac{3}{\\sqrt{t+1}}$ feet per second per second. At time $t = 0$ seconds, the initial height of the rocket is 0 feet, and the initial velocity is 2 feet per second. Which of the two rockets is traveling faster at time $t = 80$ seconds? Explain your answer.",
       "point_value": 1,
-      "rubric_criteria": [
-        "Rocket B is launched upward with an acceleration of $a(t) = \\dfrac{3}{\\sqrt{t+1}}$ feet per second per second. At time $t = 0$ seconds, the initial height of the rocket is 0 feet, and the initial velocity is 2 feet per second. Which of the two rockets is traveling faster at time $t = 80$ seconds? Explain your answer."
-      ],
       "scoring_notes": null,
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Sets up correct integral for Rocket B's velocity",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$v_B(t) = 2 + \\int_0^t a(s)\\, ds = 2 + \\int_0^t \\frac{3}{\\sqrt{1+s}}\\, ds$"
+              ],
+              "correct_example": "$v_B(t) = 2 + \\int_0^t \\frac{3}{\\sqrt{1+s}}\\, ds$"
+            }
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Correct value $v_B(80)$ and comparison",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$v_B(80) = 2 + [6\\sqrt{1+t}]_0^{80} = 2 + 6(9-1) = 50$",
+                "$v_A(80) = 49 < v_B(80) = 50$, so rocket B is faster"
+              ],
+              "correct_example": "$v_B(80) = 2 + 6(\\sqrt{81}-1) = 2 + 48 = 50 > 49 = v_A(80)$; Rocket B is faster"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

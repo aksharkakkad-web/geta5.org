@@ -5,7 +5,11 @@
   "source": "released",
   "title": "Implicit Differentiation, Linear Approximation & Related Rates",
   "frq_type": "multi_part_math",
-  "related_units": [2, 3, 4],
+  "related_units": [
+    2,
+    3,
+    4
+  ],
   "calculator_allowed": false,
   "total_points": 9,
   "stimulus": "Consider the curve $G$ defined by the equation $y^3 - y^2 - y + \\frac{1}{4}x^2 = 0$.",
@@ -16,50 +20,158 @@
       "letter": "a",
       "prompt": "Show that $\\frac{dy}{dx} = \\frac{-x}{2(3y^2 - 2y - 1)}$.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correctly implicitly differentiates $y^3 - y^2 - y + \\frac{1}{4}x^2 = 0$ with respect to $x$: $3y^2\\frac{dy}{dx} - 2y\\frac{dy}{dx} - \\frac{dy}{dx} + \\frac{x}{2} = 0$",
-        "1 pt: Correctly solves for $\\frac{dy}{dx}$ to verify the given expression: $(3y^2 - 2y - 1)\\frac{dy}{dx} = -\\frac{x}{2}$, so $\\frac{dy}{dx} = \\frac{-x}{2(3y^2-2y-1)}$"
-      ],
       "scoring_notes": "This is a 'show' problem — must show all work. P1 earned for correct implicit differentiation (may use $y'$ notation). P2 requires isolating $\\frac{dy}{dx}$ and arriving at the given expression with no errors. Must earn P1 to be eligible for P2.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Correctly implicitly differentiates $y^3 - y^2 - y + \\frac{1}{4}x^2 = 0$ with respect to $x$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correctly implicitly differentiates $y^3 - y^2 - y + \\frac{1}{4}x^2 = 0$ with respect to $x$"
+              ],
+              "correct_example": "$3y^2\\frac{dy}{dx} - 2y\\frac{dy}{dx} - \\frac{dy}{dx} + \\frac{x}{2} = 0$"
+            }
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Correctly solves for $\\frac{dy}{dx}$ to verify the given expression",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correctly solves for $\\frac{dy}{dx}$ to verify the given expression"
+              ],
+              "correct_example": "$(3y^2 - 2y - 1)\\frac{dy}{dx} = -\\frac{x}{2}$, so $\\frac{dy}{dx} = \\frac{-x}{2(3y^2-2y-1)}$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "There is a point $P$ on the curve $G$ near $(2, -1)$ with $x$-coordinate $1.6$. Use the line tangent to the curve at $(2, -1)$ to approximate the $y$-coordinate of point $P$.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct slope at $(2, -1)$: $\\frac{dy}{dx}\\big|_{(2,-1)} = \\frac{-2}{2(3(1)+2+(-1))} = \\frac{-2}{2(4)} = -\\frac{1}{4}$",
-        "1 pt: Correct linear approximation: $y \\approx -1 - \\frac{1}{4}(1.6 - 2) = -1 + \\frac{1}{4}(0.4) = -1 + 0.1 = -0.9$"
-      ],
       "scoring_notes": "Slope $= \\frac{-2}{2(3(1)-2(-1)-1)} = \\frac{-2}{2(3+2-1)} = \\frac{-2}{8} = -\\frac{1}{4}$. Linear approximation: $y \\approx -1 - \\frac{1}{4}(1.6-2) = -1 + 0.1 = -0.9$. A response with a different declared slope earns P4 for the consistent linear approximation.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Correct slope at $(2, -1)$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct slope at $(2, -1)$"
+              ],
+              "correct_example": "$\\frac{dy}{dx}\\big|_{(2,-1)} = \\frac{-2}{2(3(1)+2+(-1))} = \\frac{-2}{2(4)} = -\\frac{1}{4}$"
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Correct linear approximation",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct linear approximation"
+              ],
+              "correct_example": "$y \\approx -1 - \\frac{1}{4}(1.6 - 2) = -1 + \\frac{1}{4}(0.4) = -1 + 0.1 = -0.9$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "For $x > 0$ and $y > 0$, there is a point $S$ on the curve $G$ at which the line tangent to the curve at that point is vertical. Find the $y$-coordinate of point $S$. Show the work that leads to your answer.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Sets denominator of $\\frac{dy}{dx}$ equal to zero: $2(3y^2 - 2y - 1) = 0 \\Rightarrow (3y+1)(y-1) = 0$",
-        "1 pt: Correct $y$-coordinate: since $y > 0$, the answer is $y = 1$"
-      ],
       "scoring_notes": "Vertical tangent requires denominator $= 0$: $3y^2 - 2y - 1 = 0 \\Rightarrow (3y+1)(y-1) = 0 \\Rightarrow y = -\\frac{1}{3}$ or $y = 1$. Since $y > 0$, $y = 1$. Must clearly identify $y = 1$ as the only solution satisfying the constraint.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Sets denominator of $\\frac{dy}{dx}$ equal to zero",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Sets denominator of $\\frac{dy}{dx}$ equal to zero"
+              ],
+              "correct_example": "$2(3y^2 - 2y - 1) = 0 \\Rightarrow (3y+1)(y-1) = 0$"
+            }
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Correct $y$-coordinate: since $y > 0$, the answer is $y = 1$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct $y$-coordinate: since $y > 0$, the answer is $y = 1$"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "d",
       "prompt": "A particle moves along the curve $H$ defined by the equation $2xy + \\ln y = 8$. At the instant when the particle is at the point $(4, 1)$, $\\frac{dx}{dt} = 3$. Find $\\frac{dy}{dt}$ at that instant. Show the work that leads to your answer.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Attempts implicit differentiation of $2xy + \\ln y = 8$ with respect to $t$: $2y\\frac{dx}{dt} + 2x\\frac{dy}{dt} + \\frac{1}{y}\\frac{dy}{dt} = 0$",
-        "1 pt: Correct differentiation result: $2y\\frac{dx}{dt} + 2x\\frac{dy}{dt} + \\frac{1}{y}\\frac{dy}{dt} = 0$",
-        "1 pt: Correct answer: substituting $(x,y) = (4,1)$ and $\\frac{dx}{dt} = 3$: $2(1)(3) + 2(4)\\frac{dy}{dt} + \\frac{1}{1}\\frac{dy}{dt} = 0 \\Rightarrow 6 + 9\\frac{dy}{dt} = 0 \\Rightarrow \\frac{dy}{dt} = -\\frac{2}{3}$"
-      ],
       "scoring_notes": "Implicit differentiation w.r.t. $t$: $2\\frac{dx}{dt}y + 2x\\frac{dy}{dt} + \\frac{1}{y}\\frac{dy}{dt} = 0$. Substituting $(4,1)$ and $\\frac{dx}{dt} = 3$: $6 + 8\\frac{dy}{dt} + \\frac{dy}{dt} = 0 \\Rightarrow 6 + 9\\frac{dy}{dt} = 0 \\Rightarrow \\frac{dy}{dt} = -\\frac{2}{3}$. Must earn P7 and P8 to be eligible for P9.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "d1",
+          "point_value": 1,
+          "description": "Attempts implicit differentiation of $2xy + \\ln y = 8$ with respect to $t$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Attempts implicit differentiation of $2xy + \\ln y = 8$ with respect to $t$"
+              ],
+              "correct_example": "$2y\\frac{dx}{dt} + 2x\\frac{dy}{dt} + \\frac{1}{y}\\frac{dy}{dt} = 0$"
+            }
+          ]
+        },
+        {
+          "point_id": "d2",
+          "point_value": 1,
+          "description": "Correct differentiation result",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct differentiation result"
+              ],
+              "correct_example": "$2y\\frac{dx}{dt} + 2x\\frac{dy}{dt} + \\frac{1}{y}\\frac{dy}{dt} = 0$"
+            }
+          ]
+        },
+        {
+          "point_id": "d3",
+          "point_value": 1,
+          "description": "Correct answer: substituting $(x,y) = (4,1)$ and $\\frac{dx}{dt} = 3$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer: substituting $(x,y) = (4,1)$",
+                "$\\frac{dx}{dt} = 3$"
+              ],
+              "correct_example": "$2(1)(3) + 2(4)\\frac{dy}{dt} + \\frac{1}{1}\\frac{dy}{dt} = 0 \\Rightarrow 6 + 9\\frac{dy}{dt} = 0 \\Rightarrow \\frac{dy}{dt} = -\\frac{2}{3}$"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

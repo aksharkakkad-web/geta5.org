@@ -5,7 +5,10 @@
   "source": "released",
   "title": "Particle v(t) Graph with Areas 8, 3, 2 on [0,3],[3,5],[5,6], x(0)=-2 — Farthest Left, IVT Count, Speed & Acceleration",
   "frq_type": "multi_part_math",
-  "related_units": [4, 8],
+  "related_units": [
+    4,
+    8
+  ],
   "calculator_allowed": false,
   "total_points": 9,
   "stimulus": "A particle moves along the $x$-axis so that its velocity at time $t$, for $0 \\le t \\le 6$, is given by a differentiable function $v$ whose graph is shown above. The velocity is $0$ at $t = 0$, $t = 3$, and $t = 5$, and the graph has horizontal tangents at $t = 1$ and $t = 4$. The areas of the regions bounded by the $t$-axis and the graph of $v$ on the intervals $[0,3]$, $[3,5]$, and $[5,6]$ are $8$, $3$, and $2$, respectively. At time $t = 0$, the particle is at $x = -2$.",
@@ -16,50 +19,156 @@
       "letter": "a",
       "prompt": "For $0 \\le t \\le 6$, find both the time and the position of the particle when the particle is farthest to the left. Justify your answer.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Identifies $t = 3$ as a candidate (since $v < 0$ on $(0,3)$ and $v > 0$ on $(3,5)$, position is minimized at $t = 3$)",
-        "1 pt: Considers all candidates: $x(3) = -2 + \\int_0^3 v(t)\\, dt = -2 - 8 = -10$; $x(6) = -2 - 8 + 3 - 2 = -9$",
-        "1 pt: Correct conclusion: the particle is farthest left at time $t = 3$ when its position is $x = -10$"
-      ],
       "scoring_notes": "From scoring key: $x(3) = -2 - 8 = -10$; $x(6) = -9$. Farthest left at $t = 3$, position $x = -10$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Identifies $t = 3$ as a candidate (since $v < 0$ on $(0,3)$ and $v > 0$ on $(3,5)$, position is minimized at $t = 3$)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Identifies $t = 3$ as a candidate (since $v < 0$ on $(0,3)$",
+                "$v > 0$ on $(3,5)$, position is minimized at $t = 3$)"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Considers all candidates",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Considers all candidates"
+              ],
+              "correct_example": "$x(3) = -2 + \\int_0^3 v(t)\\, dt = -2 - 8 = -10$; $x(6) = -2 - 8 + 3 - 2 = -9$"
+            }
+          ]
+        },
+        {
+          "point_id": "a3",
+          "point_value": 1,
+          "description": "Correct conclusion: the particle is farthest left at time $t = 3$ when its position is $x = -10$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct conclusion: the particle is farthest left at time $t = 3$ when its position is $x = -10$"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "For how many values of $t$, where $0 \\le t \\le 6$, is the particle at $x = -8$? Explain your reasoning.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Determines key positions: $x(0) = -2$, $x(3) = -10$, $x(5) = -7$, $x(6) = -9$",
-        "1 pt: Describes motion: particle moves continuously from $-2$ to $-10$ (passing $-8$), then $-10$ to $-7$ (passing $-8$), then $-7$ to $-9$ (passing $-8$)",
-        "1 pt: Correct conclusion: by the Intermediate Value Theorem, the particle is at $x = -8$ for exactly $3$ values of $t$"
-      ],
       "scoring_notes": "From scoring key: $x(0)=-2$, $x(3)=-10$, $x(5)=-7$, $x(6)=-9$. IVT gives 3 values of $t$ where $x(t) = -8$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Determines key positions",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Determines key positions"
+              ],
+              "correct_example": "$x(0) = -2$, $x(3) = -10$, $x(5) = -7$, $x(6) = -9$"
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Describes motion: particle moves continuously from $-2$ to $-10$ (passing $-8$), then $-10$ to $-7$ (passing $-8$), then $-7$ to $-9$ (passing $-8$)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Describes motion: particle moves continuously from $-2$ to $-10$ (passing $-8$), then $-10$ to $-7$ (passing $-8$), then $-7$ to $-9$ (passing $-8$)"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "b3",
+          "point_value": 1,
+          "description": "Correct conclusion: by the Intermediate Value Theorem, the particle is at $x = -8$ for exactly $3$ values of $t$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct conclusion: by the Intermediate Value Theorem, the particle is at $x = -8$ for exactly $3$ values of $t$"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "On the interval $2 < t < 3$, is the speed of the particle increasing or decreasing? Give a reason for your answer.",
       "point_value": 1,
-      "rubric_criteria": [
-        "1 pt: Correct answer with reason: speed is decreasing on $2 < t < 3$ because on this interval $v(t) < 0$ and $v$ is increasing (i.e., $v$ and $a$ have opposite signs)"
-      ],
       "scoring_notes": "From scoring key: Speed is decreasing because $v < 0$ and $v$ is increasing (acceleration and velocity have opposite signs) on $(2,3)$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Correct answer with reason: speed is decreasing on $2 < t < 3$ because on this interval $v(t) < 0$ and $v$ is increasing (i.e., $v$ and $a$ have opposite signs)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer with reason: speed is decreasing on $2 < t < 3$ because on this interval $v(t) < 0$",
+                "$v$ is increasing (i.e., $v$",
+                "$a$ have opposite signs)"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "d",
       "prompt": "During what time intervals, if any, is the acceleration of the particle negative? Justify your answer.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct answer: acceleration is negative on $(0,1)$ and $(4,6)$",
-        "1 pt: Justification: velocity is decreasing on these intervals (horizontal tangents at $t=1$ and $t=4$ confirm sign changes of $v'$)"
-      ],
       "scoring_notes": "From scoring key: Acceleration is negative on $0 < t < 1$ and $4 < t < 6$ because velocity is decreasing on these intervals.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "d1",
+          "point_value": 1,
+          "description": "Correct answer: acceleration is negative on $(0,1)$ and $(4,6)$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer: acceleration is negative on $(0,1)$",
+                "$(4,6)$"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "d2",
+          "point_value": 1,
+          "description": "Justification: velocity is decreasing on these intervals (horizontal tangents at $t=1$ and $t=4$ confirm sign changes of $v'$)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Justification: velocity is decreasing on these intervals (horizontal tangents at $t=1$",
+                "$t=4$ confirm sign changes of $v'$)"
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

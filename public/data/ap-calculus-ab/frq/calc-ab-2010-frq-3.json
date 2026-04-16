@@ -5,7 +5,11 @@
   "source": "released",
   "title": "Amusement Park Line r(t) Graph — Arrivals, Increasing/Decreasing Line, Longest Line & Equation",
   "frq_type": "multi_part_math",
-  "related_units": [4, 6, 8],
+  "related_units": [
+    4,
+    6,
+    8
+  ],
   "calculator_allowed": true,
   "total_points": 9,
   "stimulus": "There are 700 people in line for a popular amusement-park ride when the ride begins operation in the morning. Once it begins operation, the ride accepts passengers until the park closes 8 hours later. While there is a line, people move onto the ride at a rate of 800 people per hour. The graph of $r(t)$ shows the rate at which people arrive at the ride throughout the day. Time $t$ is measured in hours from the time the ride begins operation. From the graph: $r(t)$ is piecewise linear with $r(0) = 1000$, $r(1) = 1200$, $r(3) = 800$, and $r(t) < 800$ for $3 < t \\le 8$.",
@@ -16,50 +20,157 @@
       "letter": "a",
       "prompt": "How many people arrive at the ride between $t = 0$ and $t = 3$? Show the computations that lead to your answer.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Sets up integral using trapezoidal areas from the graph: $\\int_0^3 r(t)\\, dt$",
-        "1 pt: Correct answer using the graph: $\\int_0^3 r(t)\\, dt = 2 \\cdot \\frac{1000+1200}{2} + 1 \\cdot \\frac{1200+800}{2} = 2200 + 1000 = 3200$ people"
-      ],
       "scoring_notes": "From scoring key: $\\int_0^3 r(t)\\, dt = 2\\cdot\\frac{1000+1200}{2} + \\frac{1200+800}{2} = 3200$ people.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Sets up integral using trapezoidal areas from the graph",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Sets up integral using trapezoidal areas from the graph"
+              ],
+              "correct_example": "$\\int_0^3 r(t)\\, dt$"
+            }
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Correct answer using the graph",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer using the graph"
+              ],
+              "correct_example": "$\\int_0^3 r(t)\\, dt = 2 \\cdot \\frac{1000+1200}{2} + 1 \\cdot \\frac{1200+800}{2} = 2200 + 1000 = 3200$ people"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "Is the number of people waiting in line to get on the ride increasing or decreasing between $t = 2$ and $t = 3$? Justify your answer.",
       "point_value": 1,
-      "rubric_criteria": [
-        "1 pt: Correct answer with reason: the number of people waiting in line is increasing because people move onto the ride at 800 people per hour, and for $2 < t < 3$, $r(t) > 800$"
-      ],
       "scoring_notes": "From scoring key: Increasing because $r(t) > 800$ for $2 < t < 3$, so the arrival rate exceeds the boarding rate.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Correct answer with reason: the number of people waiting in line is increasing because people move onto the ride at 800 people per hour, and for $2 < t < 3$, $r(t) > 800$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer with reason: the number of people waiting in line is increasing because people move onto the ride at 800 people per hour,",
+                "for $2 < t < 3$, $r(t) > 800$"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "At what time $t$ is the line for the ride the longest? How many people are in line at that time? Justify your answers.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Identifies $t = 3$ as the time when the line is longest: $r(t) > 800$ for $0 \\le t < 3$ (line growing) and $r(t) < 800$ for $3 < t \\le 8$ (line shrinking)",
-        "1 pt: Correct number of people in line: $700 + 3200 - 800 \\cdot 3 = 700 + 3200 - 2400 = 1500$ people",
-        "1 pt: Correct justification: $r(t) = 800$ only at $t = 3$; for $0 \\le t < 3$, $r(t) > 800$ so line increases; for $3 < t \\le 8$, $r(t) < 800$ so line decreases"
-      ],
       "scoring_notes": "From scoring key: Line is longest at $t = 3$. Number of people in line: $700 + 3200 - 800 \\cdot 3 = 1500$ people.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Identifies $t = 3$ as the time when the line is longest",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Identifies $t = 3$ as the time when the line is longest"
+              ],
+              "correct_example": "$r(t) > 800$ for $0 \\le t < 3$ (line growing) and $r(t) < 800$ for $3 < t \\le 8$ (line shrinking)"
+            }
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Correct number of people in line",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct number of people in line"
+              ],
+              "correct_example": "$700 + 3200 - 800 \\cdot 3 = 700 + 3200 - 2400 = 1500$ people"
+            }
+          ]
+        },
+        {
+          "point_id": "c3",
+          "point_value": 1,
+          "description": "Correct justification",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct justification"
+              ],
+              "correct_example": "$r(t) = 800$ only at $t = 3$; for $0 \\le t < 3$, $r(t) > 800$ so line increases; for $3 < t \\le 8$, $r(t) < 800$ so line decreases"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "d",
       "prompt": "Write, but do not solve, an equation involving an integral expression of $r$ whose solution gives the earliest time $t$ at which there is no longer a line for the ride.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Correct expression involving $800t$",
-        "1 pt: Correct integral expression: $\\int_0^t r(s)\\, ds$",
-        "1 pt: Correct equation: $700 + \\int_0^t r(s)\\, ds - 800t = 0$"
-      ],
       "scoring_notes": "From scoring key: $700 + \\int_0^t r(s)\\, ds = 800t$, or equivalently $700 + \\int_0^t r(s)\\, ds - 800t = 0$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "d1",
+          "point_value": 1,
+          "description": "Correct expression involving $800t$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct expression involving $800t$"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "d2",
+          "point_value": 1,
+          "description": "Correct integral expression",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct integral expression"
+              ],
+              "correct_example": "$\\int_0^t r(s)\\, ds$"
+            }
+          ]
+        },
+        {
+          "point_id": "d3",
+          "point_value": 1,
+          "description": "Correct equation",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct equation"
+              ],
+              "correct_example": "$700 + \\int_0^t r(s)\\, ds - 800t = 0$"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

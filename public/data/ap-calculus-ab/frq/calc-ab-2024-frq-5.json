@@ -5,7 +5,11 @@
   "source": "released",
   "title": "Implicit Differentiation & Related Rates",
   "frq_type": "multi_part_math",
-  "related_units": [2, 3, 4],
+  "related_units": [
+    2,
+    3,
+    4
+  ],
   "calculator_allowed": false,
   "total_points": 9,
   "stimulus": "Consider the curve defined by the equation $x^2 + 3y + 2y^2 = 48$. It can be shown that $\\frac{dy}{dx} = \\frac{-2x}{3 + 4y}$.",
@@ -16,50 +20,154 @@
       "letter": "a",
       "prompt": "There is a point on the curve near $(2, 4)$ with $x$-coordinate $3$. Use the line tangent to the curve at $(2, 4)$ to approximate the $y$-coordinate of this point.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct slope of tangent line at $(2, 4)$: $\\frac{dy}{dx}\\big|_{(2,4)} = \\frac{-2(2)}{3+4(4)} = \\frac{-4}{19}$",
-        "1 pt: Correct linear approximation: $y \\approx 4 + \\frac{-4}{19}(3-2) = 4 - \\frac{4}{19} = \\frac{72}{19}$"
-      ],
       "scoring_notes": "Accept $y \\approx \\frac{72}{19}$ or equivalent decimal. The slope point is earned even if the student makes an error substituting, as long as the form is correct. A response that uses the wrong slope still earns P2 if it correctly applies a linear approximation with that (stated) slope.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Correct slope of tangent line at $(2, 4)$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct slope of tangent line at $(2, 4)$"
+              ],
+              "correct_example": "$\\frac{dy}{dx}\\big|_{(2,4)} = \\frac{-2(2)}{3+4(4)} = \\frac{-4}{19}$"
+            }
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Correct linear approximation",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct linear approximation"
+              ],
+              "correct_example": "$y \\approx 4 + \\frac{-4}{19}(3-2) = 4 - \\frac{4}{19} = \\frac{72}{19}$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "Is the horizontal line $y = 1$ tangent to the curve? Give a reason for your answer.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Sets $\\frac{dy}{dx} = 0$ to find where horizontal tangent occurs, leading to $x = 0$, so the point of tangency would need to be $(0, 1)$",
-        "1 pt: Correct conclusion with reason: The point $(0, 1)$ is not on the curve because $0^2 + 3(1) + 2(1)^2 = 5 \\ne 48$; therefore $y = 1$ is NOT tangent to the curve"
-      ],
       "scoring_notes": "First point: must set $\\frac{dy}{dx} = 0 \\Rightarrow -2x = 0 \\Rightarrow x = 0$. Alternate approach: find points where $y = 1$ intersects the curve ($x = \\pm\\sqrt{43}$), then check $\\frac{dy}{dx}$ there — it equals $\\frac{-2\\sqrt{43}}{7} \\ne 0$, so not horizontal. Either approach earns full credit. Must answer 'No' with valid reason.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Sets $\\frac{dy}{dx} = 0$ to find where horizontal tangent occurs, leading to $x = 0$, so the point of tangency would need to be $(0, 1)$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Sets $\\frac{dy}{dx} = 0$ to find where horizontal tangent occurs, leading to $x = 0$, so the point of tangency would need to be $(0, 1)$"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Correct conclusion with reason",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct conclusion with reason"
+              ],
+              "correct_example": "The point $(0, 1)$ is not on the curve because $0^2 + 3(1) + 2(1)^2 = 5 \\ne 48$; therefore $y = 1$ is NOT tangent to the curve"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "The curve intersects the positive $x$-axis at the point $(\\sqrt{48}, 0)$. Is the line tangent to the curve at this point vertical? Give a reason for your answer.",
       "point_value": 1,
-      "rubric_criteria": [
-        "1 pt: No, the tangent line is not vertical; at $(\\sqrt{48}, 0)$, the denominator $3 + 4(0) = 3 \\ne 0$, so $\\frac{dy}{dx} = \\frac{-2\\sqrt{48}}{3}$ is defined (not undefined); therefore the tangent is not vertical"
-      ],
       "scoring_notes": "Must clearly demonstrate the denominator $3 + 4y = 3 \\ne 0$ at the given point and conclude the slope is defined. Must answer 'No.' Simply computing a finite slope value is sufficient.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "No, the tangent line is not vertical; at $(\\sqrt{48}, 0)$, the denominator $3 + 4(0) = 3 \\ne 0$, so $\\frac{dy}{dx} = \\frac{-2\\sqrt{48}}{3}$ is defined (not undefined); therefore the tangent is not vertical",
+          "alternatives": [
+            {
+              "required_elements": [
+                "No, the tangent line is not vertical; at $(\\sqrt{48}, 0)$, the denominator $3 + 4(0) = 3 \\ne 0$, so $\\frac{dy}{dx} = \\frac{-2\\sqrt{48}}{3}$ is defined (not undefined); therefore the tangent is not vertical"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "d",
       "prompt": "For time $t \\ge 0$, a particle is moving along another curve defined by the equation $y^3 + 2xy = 24$. At the instant the particle is at the point $(4, 2)$, the $y$-coordinate of the particle's position is decreasing at a rate of $2$ units per second. At that instant, what is the rate of change of the $x$-coordinate of the particle's position with respect to time?",
       "point_value": 4,
-      "rubric_criteria": [
-        "1 pt: Correctly differentiates implicitly with respect to $t$: $3y^2 \\frac{dy}{dt} + 2x \\frac{dy}{dt} + 2y \\frac{dx}{dt} = 0$",
-        "1 pt: Correct differentiation result (all three terms correct)",
-        "1 pt: Substitutes $\\frac{dy}{dt} = -2$ correctly",
-        "1 pt: Correct answer: $\\frac{dx}{dt} = 10$ units per second; from $3(4)(-2) + 2(4)(-2) + 2(2)\\frac{dx}{dt} = 0 \\Rightarrow -24 - 16 + 4\\frac{dx}{dt} = 0 \\Rightarrow \\frac{dx}{dt} = 10$"
-      ],
       "scoring_notes": "Implicit differentiation of $y^3 + 2xy = 24$ with respect to $t$ gives $3y^2\\frac{dy}{dt} + 2\\frac{dx}{dt}y + 2x\\frac{dy}{dt} = 0$. Substituting $(x,y) = (4,2)$ and $\\frac{dy}{dt} = -2$: $3(4)(-2) + 2(4)(-2) + 2(2)\\frac{dx}{dt} = 0 \\Rightarrow -24 - 16 + 4\\frac{dx}{dt} = 0 \\Rightarrow \\frac{dx}{dt} = 10$. The rate of change is 10 units per second.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "d1",
+          "point_value": 1,
+          "description": "Correctly differentiates implicitly with respect to $t$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correctly differentiates implicitly with respect to $t$"
+              ],
+              "correct_example": "$3y^2 \\frac{dy}{dt} + 2x \\frac{dy}{dt} + 2y \\frac{dx}{dt} = 0$"
+            }
+          ]
+        },
+        {
+          "point_id": "d2",
+          "point_value": 1,
+          "description": "Correct differentiation result (all three terms correct)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct differentiation result (all three terms correct)"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "d3",
+          "point_value": 1,
+          "description": "Substitutes $\\frac{dy}{dt} = -2$ correctly",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Substitutes $\\frac{dy}{dt} = -2$ correctly"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "d4",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer"
+              ],
+              "correct_example": "$\\frac{dx}{dt} = 10$ units per second; from $3(4)(-2) + 2(4)(-2) + 2(2)\\frac{dx}{dt} = 0 \\Rightarrow -24 - 16 + 4\\frac{dx}{dt} = 0 \\Rightarrow \\frac{dx}{dt} = 10$"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

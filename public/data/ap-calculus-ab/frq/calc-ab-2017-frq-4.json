@@ -19,40 +19,150 @@
       "letter": "a",
       "prompt": "Write an equation for the line tangent to the graph of $H$ at $t = 0$. Use this equation to approximate the internal temperature of the potato at time $t = 3$.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Finds slope at $t=0$: $H'(0) = -\\frac{1}{4}(H(0) - 27) = -\\frac{1}{4}(91 - 27) = -\\frac{1}{4}(64) = -16$",
-        "1 pt: Tangent line equation: $y = 91 - 16t$",
-        "1 pt: Correct approximation: $H(3) \\approx 91 - 16(3) = 43$ degrees Celsius"
-      ],
       "scoring_notes": "From scoring key: Slope $= -\\frac{1}{4}(91-27) = -16$. Tangent line: $y = 91 - 16t$. Approximation at $t = 3$: $91 - 48 = 43$ degrees Celsius.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Finds slope at $t=0$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Finds slope at $t=0$"
+              ],
+              "correct_example": "$H'(0) = -\\frac{1}{4}(H(0) - 27) = -\\frac{1}{4}(91 - 27) = -\\frac{1}{4}(64) = -16$"
+            }
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Tangent line equation",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Tangent line equation"
+              ],
+              "correct_example": "$y = 91 - 16t$"
+            }
+          ]
+        },
+        {
+          "point_id": "a3",
+          "point_value": 1,
+          "description": "Correct approximation",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct approximation"
+              ],
+              "correct_example": "$H(3) \\approx 91 - 16(3) = 43$ degrees Celsius"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "Use $\\frac{d^2H}{dt^2}$ to determine whether your answer in part (a) is an underestimate or an overestimate of the internal temperature of the potato at time $t = 3$.",
       "point_value": 1,
-      "rubric_criteria": [
-        "1 pt: Underestimate with reason: $\\frac{d^2H}{dt^2} = -\\frac{1}{4} \\cdot \\frac{dH}{dt} = -\\frac{1}{4} \\cdot \\left(-\\frac{1}{4}(H-27)\\right) = \\frac{1}{16}(H-27) > 0$ for $H > 27$; since $\\frac{d^2H}{dt^2} > 0$, the graph of $H$ is concave up, so the tangent line lies below the graph, making the estimate an underestimate"
-      ],
       "scoring_notes": "From scoring key: $\\frac{d^2H}{dt^2} = \\frac{1}{16}(H-27) > 0$ for $H > 27$. The graph of $H$ is concave up, so the tangent line is below the curve, making part (a) an underestimate.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Underestimate with reason",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Underestimate with reason"
+              ],
+              "correct_example": "$\\frac{d^2H}{dt^2} = -\\frac{1}{4} \\cdot \\frac{dH}{dt} = -\\frac{1}{4} \\cdot \\left(-\\frac{1}{4}(H-27)\\right) = \\frac{1}{16}(H-27) > 0$ for $H > 27$; since $\\frac{d^2H}{dt^2} > 0$, the graph of $H$ is concave up, so the tangent line lies below the graph, making the estimate an underestimate"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "For $t < 10$, an alternate model for the internal temperature of the potato at time $t$ minutes is the function $G$ that satisfies the differential equation $\\frac{dG}{dt} = -(G - 27)^{2/3}$, where $G(t)$ is measured in degrees Celsius and $G(0) = 91$. Find an expression for $G(t)$. Based on this model, what is the internal temperature of the potato at time $t = 3$?",
       "point_value": 5,
-      "rubric_criteria": [
-        "1 pt: Separates variables: $\\frac{dG}{(G-27)^{2/3}} = -\\, dt$",
-        "1 pt: Correct antiderivatives: $3(G-27)^{1/3} = -t + C$",
-        "1 pt: Includes constant of integration and uses initial condition $G(0) = 91$: $3(91-27)^{1/3} = 0 + C \\Rightarrow C = 3(64)^{1/3} = 3 \\cdot 4 = 12$",
-        "1 pt: Equation involving $G$ and $t$: $3(G-27)^{1/3} = 12 - t$",
-        "1 pt: Solves for $G(t)$ and finds $G(3)$: $G(t) = 27 + \\left(\\frac{12-t}{3}\\right)^3$; $G(3) = 27 + \\left(\\frac{9}{3}\\right)^3 = 27 + 27 = 54$ degrees Celsius"
-      ],
       "scoring_notes": "From scoring key: Separation $\\Rightarrow$ $3(G-27)^{1/3} = -t + C$. $C = 12$ from $G(0)=91$. $G(t) = 27 + \\left(\\frac{12-t}{3}\\right)^3$. $G(3) = 27 + (9/3)^3 = 54$ degrees Celsius. 0/5 if no separation of variables; max 2/5 if no constant of integration.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Separates variables",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Separates variables"
+              ],
+              "correct_example": "$\\frac{dG}{(G-27)^{2/3}} = -\\, dt$"
+            }
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Correct antiderivatives",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct antiderivatives"
+              ],
+              "correct_example": "$3(G-27)^{1/3} = -t + C$"
+            }
+          ]
+        },
+        {
+          "point_id": "c3",
+          "point_value": 1,
+          "description": "Includes constant of integration and uses initial condition $G(0) = 91$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Includes constant of integration",
+                "uses initial condition $G(0) = 91$"
+              ],
+              "correct_example": "$3(91-27)^{1/3} = 0 + C \\Rightarrow C = 3(64)^{1/3} = 3 \\cdot 4 = 12$"
+            }
+          ]
+        },
+        {
+          "point_id": "c4",
+          "point_value": 1,
+          "description": "Equation involving $G$ and $t$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Equation involving $G$"
+              ],
+              "correct_example": "$3(G-27)^{1/3} = 12 - t$"
+            }
+          ]
+        },
+        {
+          "point_id": "c5",
+          "point_value": 1,
+          "description": "Solves for $G(t)$ and finds $G(3)$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Solves for $G(t)$",
+                "finds $G(3)$"
+              ],
+              "correct_example": "$G(t) = 27 + \\left(\\frac{12-t}{3}\\right)^3$; $G(3) = 27 + \\left(\\frac{9}{3}\\right)^3 = 27 + 27 = 54$ degrees Celsius"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -5,7 +5,12 @@
   "source": "released",
   "title": "Functions g, h, f — Tangent Line, Product Rule, L'Hopital & Squeeze Theorem",
   "frq_type": "multi_part_math",
-  "related_units": [1, 2, 3, 4],
+  "related_units": [
+    1,
+    2,
+    3,
+    4
+  ],
   "calculator_allowed": false,
   "total_points": 9,
   "stimulus": "Functions $g$ and $h$ are twice differentiable. The table below gives values of $g$, $g'$, $h$, and $h'$ at selected values of $x$.\n\n| $x$ | $g(x)$ | $g'(x)$ | $h(x)$ | $h'(x)$ |\n|---|---|---|---|---|\n| $-1$ | $3$ | $-4$ | $3$ | $2$ |\n| $0$ | $2$ | $-3$ | $0$ | $1$ |\n| $1$ | $-2$ | $2$ | $5$ | $0$ |\n| $2$ | $4$ | $6$ | $4$ | $\\frac{2}{3}$ |\n| $3$ | $-2$ | $1$ | $7$ | $\\frac{1}{3}$ |",
@@ -16,50 +21,156 @@
       "letter": "a",
       "prompt": "The line tangent to the graph of $h$ at $x = 2$ is $y = 4 + \\frac{2}{3}(x-2)$. Find $h^{-1}(4)$ and $(h^{-1})'(4)$.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: $h^{-1}(4) = 2$ (since $h(2) = 4$)",
-        "1 pt: Uses inverse derivative formula: $(h^{-1})'(4) = \\frac{1}{h'(h^{-1}(4))} = \\frac{1}{h'(2)}$",
-        "1 pt: Correct answer: $(h^{-1})'(4) = \\frac{1}{h'(2)} = \\frac{1}{2/3} = \\frac{3}{2}$"
-      ],
       "scoring_notes": "From table: $h(2) = 4$, so $h^{-1}(4) = 2$. For the derivative of the inverse: $(h^{-1})'(4) = \\frac{1}{h'(2)} = \\frac{1}{2/3} = \\frac{3}{2}$. Alternatively, the slope of the tangent line to $h^{-1}$ at $x = 4$ is $\\frac{3}{2}$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "$h^{-1}(4) = 2$ (since $h(2) = 4$)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$h^{-1}(4) = 2$ (since $h(2) = 4$)"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Uses inverse derivative formula",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Uses inverse derivative formula"
+              ],
+              "correct_example": "$(h^{-1})'(4) = \\frac{1}{h'(h^{-1}(4))} = \\frac{1}{h'(2)}$"
+            }
+          ]
+        },
+        {
+          "point_id": "a3",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer"
+              ],
+              "correct_example": "$(h^{-1})'(4) = \\frac{1}{h'(2)} = \\frac{1}{2/3} = \\frac{3}{2}$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "Let $a$ be the function defined by $a(x) = 3x^3 \\cdot h(x)$. Find $a'(2)$.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Applies product rule: $a'(x) = 9x^2 \\cdot h(x) + 3x^3 \\cdot h'(x)$",
-        "1 pt: Correct evaluation: $a'(2) = 9(4)(4) + 3(8)(2/3) = 144 + 16 = 160$"
-      ],
       "scoring_notes": "From scoring key: $a'(x) = 9x^2 h(x) + 3x^3 h'(x)$. At $x = 2$: $a'(2) = 9(4)(4) + 3(8)(2/3) = 144 + 16 = 160$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Applies product rule",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Applies product rule"
+              ],
+              "correct_example": "$a'(x) = 9x^2 \\cdot h(x) + 3x^3 \\cdot h'(x)$"
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Correct evaluation",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct evaluation"
+              ],
+              "correct_example": "$a'(2) = 9(4)(4) + 3(8)(2/3) = 144 + 16 = 160$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "Let $f$ be a twice-differentiable function satisfying $f(2) = g(2)$ and $\\lim_{x \\to 2} \\frac{f(x) - g(x)}{x - 2} = 5$. Find $f(2)$ and $f'(2)$.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: $f(2) = g(2) = 4$ (from table)",
-        "1 pt: Recognizes limit as derivative definition or applies L'Hopital (since form is $0/0$ with $f(2)=g(2)$): $\\lim_{x \\to 2} \\frac{f(x) - g(x)}{x - 2} = f'(2) - g'(2) = 5$; so $f'(2) = 5 + g'(2) = 5 + 6 = 11$"
-      ],
       "scoring_notes": "From scoring key: $f(2) = g(2) = 4$. The limit $\\lim_{x \\to 2} \\frac{f(x)-g(x)}{x-2}$ equals $f'(2) - g'(2)$ (difference of derivative definitions). So $f'(2) - g'(2) = 5$, giving $f'(2) = 5 + 6 = 11$. (Or apply L'Hopital since numerator and denominator both $\\to 0$.)",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "$f(2) = g(2) = 4$ (from table)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$f(2) = g(2) = 4$ (from table)"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Recognizes limit as derivative definition or applies L'Hopital (since form is $0/0$ with $f(2)=g(2)$)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Recognizes limit as derivative definition or applies L'Hopital (since form is $0/0$ with $f(2)=g(2)$)"
+              ],
+              "correct_example": "$\\lim_{x \\to 2} \\frac{f(x) - g(x)}{x - 2} = f'(2) - g'(2) = 5$; so $f'(2) = 5 + g'(2) = 5 + 6 = 11$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "d",
       "prompt": "Let $k$ be a function satisfying $|k(x) - h(x)| \\le 3(x-2)^2$ for all $x$. Show that $k$ is continuous at $x = 2$.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Notes $h(2) = 4$; uses Squeeze Theorem: $-3(x-2)^2 \\le k(x) - h(x) \\le 3(x-2)^2$ implies $h(x) - 3(x-2)^2 \\le k(x) \\le h(x) + 3(x-2)^2$; as $x \\to 2$, both bounds $\\to h(2) = 4$",
-        "1 pt: Concludes $\\lim_{x \\to 2} k(x) = 4 = k(2)$ (need to verify $k(2) = h(2) = 4$ from the inequality at $x=2$: $|k(2) - 4| \\le 0$ so $k(2) = 4$); therefore $k$ is continuous at $x = 2$"
-      ],
       "scoring_notes": "From scoring key: The inequality gives $h(x) - 3(x-2)^2 \\le k(x) \\le h(x) + 3(x-2)^2$. Both bounds approach $h(2) = 4$ as $x \\to 2$ (since $h$ is continuous and $(x-2)^2 \\to 0$). By Squeeze Theorem, $\\lim_{x \\to 2} k(x) = 4$. At $x = 2$: $|k(2) - 4| \\le 0$ implies $k(2) = 4$. Since $\\lim_{x \\to 2} k(x) = 4 = k(2)$, $k$ is continuous at $x = 2$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "d1",
+          "point_value": 1,
+          "description": "Notes $h(2) = 4$; uses Squeeze Theorem",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Notes $h(2) = 4$; uses Squeeze Theorem"
+              ],
+              "correct_example": "$-3(x-2)^2 \\le k(x) - h(x) \\le 3(x-2)^2$ implies $h(x) - 3(x-2)^2 \\le k(x) \\le h(x) + 3(x-2)^2$; as $x \\to 2$, both bounds $\\to h(2) = 4$"
+            }
+          ]
+        },
+        {
+          "point_id": "d2",
+          "point_value": 1,
+          "description": "Concludes $\\lim_{x \\to 2} k(x) = 4 = k(2)$ (need to verify $k(2) = h(2) = 4$ from the inequality at $x=2$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Concludes $\\lim_{x \\to 2} k(x) = 4 = k(2)$ (need to verify $k(2) = h(2) = 4$ from the inequality at $x=2$"
+              ],
+              "correct_example": "$|k(2) - 4| \\le 0$ so $k(2) = 4$); therefore $k$ is continuous at $x = 2$"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

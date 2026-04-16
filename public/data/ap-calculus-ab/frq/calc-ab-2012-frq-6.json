@@ -5,7 +5,11 @@
   "source": "released",
   "title": "Particle v(t) = cos(πt/6) — Moving Left, Distance Integral, Acceleration/Speed & Position at t=4",
   "frq_type": "multi_part_math",
-  "related_units": [4, 6, 8],
+  "related_units": [
+    4,
+    6,
+    8
+  ],
   "calculator_allowed": false,
   "total_points": 9,
   "stimulus": "For $0 \\le t \\le 12$, a particle moves along the $x$-axis. The velocity of the particle at time $t$ is given by $v(t) = \\cos\\left(\\frac{\\pi}{6}t\\right)$. The particle is at position $x = -2$ at time $t = 0$.",
@@ -16,50 +20,157 @@
       "letter": "a",
       "prompt": "For $0 \\le t \\le 12$, when is the particle moving to the left?",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Finds $v(t) = 0$: $\\cos(\\frac{\\pi t}{6}) = 0 \\Rightarrow t = 3$ and $t = 9$ on $[0, 12]$",
-        "1 pt: Correct interval: the particle moves to the left when $v(t) < 0$, which is $3 < t < 9$"
-      ],
       "scoring_notes": "From scoring key: $v(t) = 0$ at $t = 3$ and $t = 9$. $v(t) < 0$ for $3 < t < 9$. Particle moves left on $(3, 9)$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Finds $v(t) = 0$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Finds $v(t) = 0$"
+              ],
+              "correct_example": "$\\cos(\\frac{\\pi t}{6}) = 0 \\Rightarrow t = 3$ and $t = 9$ on $[0, 12]$"
+            }
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Correct interval: the particle moves to the left when $v(t) < 0$, which is $3 < t < 9$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct interval: the particle moves to the left when $v(t) < 0$, which is $3 < t < 9$"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "Write, but do not evaluate, an integral expression that gives the total distance traveled by the particle from time $t = 0$ to time $t = 6$.",
       "point_value": 1,
-      "rubric_criteria": [
-        "1 pt: Correct expression: $\\int_0^6 |v(t)|\\, dt = \\int_0^6 \\left|\\cos\\left(\\frac{\\pi t}{6}\\right)\\right|\\, dt$"
-      ],
       "scoring_notes": "From scoring key: Total distance $= \\int_0^6 |v(t)|\\, dt$ (do not evaluate).",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Correct expression",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct expression"
+              ],
+              "correct_example": "$\\int_0^6 |v(t)|\\, dt = \\int_0^6 \\left|\\cos\\left(\\frac{\\pi t}{6}\\right)\\right|\\, dt$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "Find the acceleration of the particle at time $t$. Is the speed of the particle increasing, decreasing, or neither at time $t = 4$? Explain your reasoning.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Correct acceleration: $a(t) = v'(t) = -\\frac{\\pi}{6}\\sin\\left(\\frac{\\pi t}{6}\\right)$",
-        "1 pt: Evaluates at $t = 4$: $v(4) = \\cos\\left(\\frac{2\\pi}{3}\\right) = -\\frac{1}{2} < 0$ and $a(4) = -\\frac{\\pi}{6}\\sin\\left(\\frac{2\\pi}{3}\\right) = -\\frac{\\pi}{6} \\cdot \\frac{\\sqrt{3}}{2} = -\\frac{\\sqrt{3}\\pi}{12} < 0$",
-        "1 pt: Correct conclusion: speed is increasing at $t = 4$ because velocity and acceleration have the same sign (both negative)"
-      ],
       "scoring_notes": "From scoring key: $a(t) = -\\frac{\\pi}{6}\\sin(\\frac{\\pi t}{6})$. At $t=4$: $v(4) = -\\frac{1}{2}$ and $a(4) = -\\frac{\\sqrt{3}\\pi}{12}$; both negative (same sign), so speed increasing.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Correct acceleration",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct acceleration"
+              ],
+              "correct_example": "$a(t) = v'(t) = -\\frac{\\pi}{6}\\sin\\left(\\frac{\\pi t}{6}\\right)$"
+            }
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Evaluates at $t = 4$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Evaluates at $t = 4$"
+              ],
+              "correct_example": "$v(4) = \\cos\\left(\\frac{2\\pi}{3}\\right) = -\\frac{1}{2} < 0$ and $a(4) = -\\frac{\\pi}{6}\\sin\\left(\\frac{2\\pi}{3}\\right) = -\\frac{\\pi}{6} \\cdot \\frac{\\sqrt{3}}{2} = -\\frac{\\sqrt{3}\\pi}{12} < 0$"
+            }
+          ]
+        },
+        {
+          "point_id": "c3",
+          "point_value": 1,
+          "description": "Correct conclusion: speed is increasing at $t = 4$ because velocity and acceleration have the same sign (both negative)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct conclusion: speed is increasing at $t = 4$ because velocity",
+                "acceleration have the same sign (both negative)"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "d",
       "prompt": "Find the position of the particle at time $t = 4$.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Sets up integral: $x(4) = -2 + \\int_0^4 \\cos\\left(\\frac{\\pi t}{6}\\right)\\, dt$",
-        "1 pt: Correct antiderivative: $\\frac{6}{\\pi}\\sin\\left(\\frac{\\pi t}{6}\\right)$",
-        "1 pt: Correct answer: $x(4) = -2 + \\frac{6}{\\pi}\\left[\\sin\\left(\\frac{2\\pi}{3}\\right) - \\sin(0)\\right] = -2 + \\frac{6}{\\pi} \\cdot \\frac{\\sqrt{3}}{2} = -2 + \\frac{3\\sqrt{3}}{\\pi}$"
-      ],
       "scoring_notes": "From scoring key: $x(4) = -2 + \\left[\\frac{6}{\\pi}\\sin\\left(\\frac{\\pi t}{6}\\right)\\right]_0^4 = -2 + \\frac{6}{\\pi}\\sin\\frac{2\\pi}{3} = -2 + \\frac{6}{\\pi} \\cdot \\frac{\\sqrt{3}}{2} = -2 + \\frac{3\\sqrt{3}}{\\pi}$.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "d1",
+          "point_value": 1,
+          "description": "Sets up integral",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Sets up integral"
+              ],
+              "correct_example": "$x(4) = -2 + \\int_0^4 \\cos\\left(\\frac{\\pi t}{6}\\right)\\, dt$"
+            }
+          ]
+        },
+        {
+          "point_id": "d2",
+          "point_value": 1,
+          "description": "Correct antiderivative",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct antiderivative"
+              ],
+              "correct_example": "$\\frac{6}{\\pi}\\sin\\left(\\frac{\\pi t}{6}\\right)$"
+            }
+          ]
+        },
+        {
+          "point_id": "d3",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer"
+              ],
+              "correct_example": "$x(4) = -2 + \\frac{6}{\\pi}\\left[\\sin\\left(\\frac{2\\pi}{3}\\right) - \\sin(0)\\right] = -2 + \\frac{6}{\\pi} \\cdot \\frac{\\sqrt{3}}{2} = -2 + \\frac{3\\sqrt{3}}{\\pi}$"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

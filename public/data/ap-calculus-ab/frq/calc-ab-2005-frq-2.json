@@ -19,45 +19,168 @@
       "letter": "a",
       "prompt": "How much sand will the tide remove from the beach during this 6-hour period? Indicate units of measure.",
       "point_value": 1,
-      "rubric_criteria": [
-        "How much sand will the tide remove from the beach during this 6-hour period? Indicate units of measure."
-      ],
       "scoring_notes": null,
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Correct integral setup for sand removed",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Integral of $R(t)$ from $0$ to $6$"
+              ],
+              "correct_example": "$\\int_0^6 R(t)\\, dt$"
+            }
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Correct answer with units",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct numerical answer",
+                "Units of cubic yards"
+              ],
+              "correct_example": "$\\approx 31.815$ or $31.816$ cubic yards"
+            }
+          ],
+          "common_traps": [
+            "Omitting units (cubic yards)"
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "Write an expression for $Y(t)$, the total number of cubic yards of sand on the beach at time $t$.",
       "point_value": 1,
-      "rubric_criteria": [
-        "Write an expression for $Y(t)$, the total number of cubic yards of sand on the beach at time $t$."
-      ],
       "scoring_notes": null,
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Correct integrand $S(x) - R(x)$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Net rate: $S(t) - R(t)$"
+              ],
+              "correct_example": "$Y(t) = 2500 + \\int_0^t [S(x) - R(x)]\\, dx$"
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Correct limits (from 0 to $t$)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Variable upper limit $t$",
+                "Lower limit $0$"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "b3",
+          "point_value": 1,
+          "description": "Correct complete expression for $Y(t)$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Initial condition 2500",
+                "Accumulation integral"
+              ],
+              "correct_example": "$Y(t) = 2500 + \\int_0^t [S(x) - R(x)]\\, dx$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "Find the rate at which the total amount of sand on the beach is changing at time $t = 4$.",
       "point_value": 1,
-      "rubric_criteria": [
-        "Find the rate at which the total amount of sand on the beach is changing at time $t = 4$."
-      ],
       "scoring_notes": null,
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Correct rate of change and answer at $t = 4$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$Y'(t) = S(t) - R(t)$",
+                "Evaluate at $t = 4$"
+              ],
+              "correct_example": "$Y'(4) = S(4) - R(4) \\approx -1.908$ or $-1.909$ cubic yards per hour"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "d",
       "prompt": "For $0 \\le t \\le 6$, at what time $t$ is the amount of sand on the beach a minimum? What is the minimum value? Justify your answers.",
       "point_value": 1,
-      "rubric_criteria": [
-        "For $0 \\le t \\le 6$, at what time $t$ is the amount of sand on the beach a minimum? What is the minimum value? Justify your answers."
-      ],
       "scoring_notes": null,
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "d1",
+          "point_value": 1,
+          "description": "Sets $Y'(t) = 0$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Sets $S(t) - R(t) = 0$"
+              ],
+              "correct_example": "$Y'(t) = 0$ when $S(t) = R(t)$"
+            }
+          ]
+        },
+        {
+          "point_id": "d2",
+          "point_value": 1,
+          "description": "Correct critical $t$-value",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Solves $S(t) = R(t)$ on $[0,6]$"
+              ],
+              "correct_example": "$t \\approx 5.117$ or $5.118$ hours"
+            }
+          ]
+        },
+        {
+          "point_id": "d3",
+          "point_value": 1,
+          "description": "Correct minimum value with justification",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Evaluates $Y$ at critical point and endpoints",
+                "States minimum value"
+              ],
+              "correct_example": "$Y(5.117) \\approx 2492.369$ cubic yards; justification by comparing $Y(0) = 2500$, $Y(5.117) \\approx 2492.369$, $Y(6) \\approx 2493.277$"
+            }
+          ],
+          "common_traps": [
+            "Not comparing with endpoints to confirm global minimum"
+          ]
+        }
+      ]
     }
   ]
 }

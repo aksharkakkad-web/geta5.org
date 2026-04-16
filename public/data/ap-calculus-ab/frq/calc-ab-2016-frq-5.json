@@ -20,40 +20,149 @@
       "letter": "a",
       "prompt": "Find the average value of the radius of the funnel.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Sets up correct average value integral: $\\frac{1}{10}\\int_0^{10} \\frac{1}{20}(3 + h^2)\\, dh$",
-        "1 pt: Correct antiderivative: $\\frac{1}{200}\\left[3h + \\frac{h^3}{3}\\right]_0^{10}$",
-        "1 pt: Correct answer: $\\frac{1}{200}\\left(30 + \\frac{1000}{3}\\right) = \\frac{1}{200} \\cdot \\frac{1090}{3} = \\frac{109}{60}$ inches"
-      ],
       "scoring_notes": "From scoring key: Average radius $= \\frac{1}{10}\\int_0^{10} \\frac{1}{20}(3+h^2)\\, dh = \\frac{1}{200}\\left[3h + \\frac{h^3}{3}\\right]_0^{10} = \\frac{1}{200}\\left(30 + \\frac{1000}{3}\\right) = \\frac{109}{60}$ inches.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Sets up correct average value integral",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Sets up correct average value integral"
+              ],
+              "correct_example": "$\\frac{1}{10}\\int_0^{10} \\frac{1}{20}(3 + h^2)\\, dh$"
+            }
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Correct antiderivative",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct antiderivative"
+              ],
+              "correct_example": "$\\frac{1}{200}\\left[3h + \\frac{h^3}{3}\\right]_0^{10}$"
+            }
+          ]
+        },
+        {
+          "point_id": "a3",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer"
+              ],
+              "correct_example": "$\\frac{1}{200}\\left(30 + \\frac{1000}{3}\\right) = \\frac{1}{200} \\cdot \\frac{1090}{3} = \\frac{109}{60}$ inches"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "Find the volume of the funnel.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Correct integrand for volume using disk method: $\\pi r^2 = \\pi \\left(\\frac{1}{20}(3+h^2)\\right)^2 = \\frac{\\pi}{400}(9 + 6h^2 + h^4)$",
-        "1 pt: Correct antiderivative: $\\frac{\\pi}{400}\\left[9h + 2h^3 + \\frac{h^5}{5}\\right]_0^{10}$",
-        "1 pt: Correct answer: $\\frac{\\pi}{400}(90 + 2000 + 20000) = \\frac{\\pi}{400} \\cdot \\frac{110900}{5}$... from scoring key $= \\frac{2209\\pi}{40}$ cubic inches"
-      ],
       "scoring_notes": "From scoring key: Volume $= \\pi \\int_0^{10} \\left(\\frac{3+h^2}{20}\\right)^2 dh = \\frac{\\pi}{400}\\int_0^{10}(9+6h^2+h^4)\\, dh = \\frac{\\pi}{400}\\left[9h+2h^3+\\frac{h^5}{5}\\right]_0^{10} = \\frac{\\pi}{400}(90+2000+20000) = \\frac{2209\\pi}{40}$ cubic inches.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Correct integrand for volume using disk method",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct integrand for volume using disk method"
+              ],
+              "correct_example": "$\\pi r^2 = \\pi \\left(\\frac{1}{20}(3+h^2)\\right)^2 = \\frac{\\pi}{400}(9 + 6h^2 + h^4)$"
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Correct antiderivative",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct antiderivative"
+              ],
+              "correct_example": "$\\frac{\\pi}{400}\\left[9h + 2h^3 + \\frac{h^5}{5}\\right]_0^{10}$"
+            }
+          ]
+        },
+        {
+          "point_id": "b3",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer"
+              ],
+              "correct_example": "$\\frac{\\pi}{400}(90 + 2000 + 20000) = \\frac{\\pi}{400} \\cdot \\frac{110900}{5}$... from scoring key $= \\frac{2209\\pi}{40}$ cubic inches"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "The funnel contains liquid that is draining from the bottom. At the instant when the height of the liquid is $h = 3$ inches, the radius of the surface of the liquid is decreasing at a rate of $\\frac{1}{5}$ inch per second. At this instant, what is the rate of change of the height of the liquid with respect to time?",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Differentiates $r = \\frac{1}{20}(3 + h^2)$ with respect to $t$: $\\frac{dr}{dt} = \\frac{1}{20}(2h) \\frac{dh}{dt} = \\frac{h}{10} \\frac{dh}{dt}$",
-        "1 pt: Substitutes $h = 3$ and $\\frac{dr}{dt} = -\\frac{1}{5}$: $-\\frac{1}{5} = \\frac{3}{10} \\frac{dh}{dt}$",
-        "1 pt: Correct answer: $\\frac{dh}{dt} = -\\frac{2}{3}$ inches per second"
-      ],
       "scoring_notes": "From scoring key: $\\frac{dr}{dt} = \\frac{h}{10}\\frac{dh}{dt}$. At $h=3$: $-\\frac{1}{5} = \\frac{3}{10}\\frac{dh}{dt}$, so $\\frac{dh}{dt} = -\\frac{2}{3}$ inches per second.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Differentiates $r = \\frac{1}{20}(3 + h^2)$ with respect to $t$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Differentiates $r = \\frac{1}{20}(3 + h^2)$ with respect to $t$"
+              ],
+              "correct_example": "$\\frac{dr}{dt} = \\frac{1}{20}(2h) \\frac{dh}{dt} = \\frac{h}{10} \\frac{dh}{dt}$"
+            }
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Substitutes $h = 3$ and $\\frac{dr}{dt} = -\\frac{1}{5}$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Substitutes $h = 3$",
+                "$\\frac{dr}{dt} = -\\frac{1}{5}$"
+              ],
+              "correct_example": "$-\\frac{1}{5} = \\frac{3}{10} \\frac{dh}{dt}$"
+            }
+          ]
+        },
+        {
+          "point_id": "c3",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer"
+              ],
+              "correct_example": "$\\frac{dh}{dt} = -\\frac{2}{3}$ inches per second"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

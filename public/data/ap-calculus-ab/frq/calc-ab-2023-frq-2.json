@@ -5,7 +5,11 @@
   "source": "released",
   "title": "Swimming Particle — Direction Change, Acceleration & Distance",
   "frq_type": "multi_part_math",
-  "related_units": [4, 6, 8],
+  "related_units": [
+    4,
+    6,
+    8
+  ],
   "calculator_allowed": true,
   "total_points": 9,
   "stimulus": "Stephen swims back and forth along a straight path in a 50-meter-long pool for 90 seconds. Stephen's velocity is modeled by $v(t) = 2.38e^{-0.02t}\\sin\\left(\\frac{\\pi t}{56}\\right)$, where $t$ is measured in seconds and $v(t)$ is measured in meters per second.",
@@ -16,50 +20,162 @@
       "letter": "a",
       "prompt": "Find all times $t$ in the interval $0 < t < 90$ at which Stephen changes direction. Give a reason for your answer.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Considers sign of $v(t)$: sets $v(t) = 0$ and finds $t = 56$ in the interval $0 < t < 90$",
-        "1 pt: Stephen changes direction at $t = 56$ seconds because his velocity changes sign at that time"
-      ],
       "scoring_notes": "Must consider $v(t) = 0$ or the sign of $v(t)$ for first point. The only zero in $(0, 90)$ is $t = 56$ (since $\\sin(\\pi t/56) = 0 \\Rightarrow t = 56$ in this interval). An answer of $t = 56$ with no supporting work earns no points.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Considers sign of $v(t)$: sets $v(t) = 0$ and finds $t = 56$ in the interval $0 < t < 90$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Considers sign of $v(t)$: sets $v(t) = 0$",
+                "finds $t = 56$ in the interval $0 < t < 90$"
+              ]
+            }
+          ],
+          "wrong_examples": [
+            "earns no points"
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Stephen changes direction at $t = 56$ seconds because his velocity changes sign at that time",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Stephen changes direction at $t = 56$ seconds because his velocity changes sign at that time"
+              ]
+            }
+          ],
+          "wrong_examples": [
+            "earns no points"
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "Find Stephen's acceleration at time $t = 60$ seconds. Show the setup for your calculations, and indicate units of measure. Is Stephen speeding up or slowing down at time $t = 60$ seconds? Give a reason for your answer.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Correct acceleration with setup: $a(60) = v'(60) \\approx -0.036$ meters per second per second",
-        "1 pt: Correct units: meters per second per second (or m/s$^2$)",
-        "1 pt: Stephen is speeding up at $t = 60$ seconds because $v(60) \\approx -0.160 < 0$ and $a(60) \\approx -0.036 < 0$ have the same sign"
-      ],
       "scoring_notes": "Must explicitly show $v'(60) = a(60)$ connection for setup point. Units are required. For the speed question: $v(60) < 0$ and $a(60) < 0$ (same sign) means speeding up. A response does not need to find the exact value of $v(60)$; stating $v(60) < 0$ (implied from $t = 60 > 56$) is sufficient.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Correct acceleration with setup",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct acceleration with setup"
+              ],
+              "correct_example": "$a(60) = v'(60) \\approx -0.036$ meters per second per second"
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Correct units: meters per second per second (or m/s$^2$)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct units: meters per second per second (or m/s$^2$)"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "b3",
+          "point_value": 1,
+          "description": "Stephen is speeding up at $t = 60$ seconds because $v(60) \\approx -0.160 < 0$ and $a(60) \\approx -0.036 < 0$ have the same sign",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Stephen is speeding up at $t = 60$ seconds because $v(60) \\approx -0.160 < 0$",
+                "$a(60) \\approx -0.036 < 0$ have the same sign"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "Find the distance between Stephen's position at time $t = 20$ seconds and his position at time $t = 80$ seconds. Show the setup for your calculations.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct integral setup: $\\left|\\int_{20}^{80} v(t)\\, dt\\right|$ or equivalently $\\left|x(80) - x(20)\\right|$",
-        "1 pt: Correct answer: $\\approx 23.384$ (or $23.383$) meters"
-      ],
       "scoring_notes": "The integral $\\int_{20}^{80} v(t)\\, dt$ gives displacement. The distance between positions is the absolute value. Answer $\\approx 23.384$ meters. Only $\\int_{20}^{80} v(t)\\, dt$ earns the integral point (not $\\int_{20}^{80} |v(t)|\\, dt$ which would give total distance).",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Correct integral setup",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct integral setup"
+              ],
+              "correct_example": "$\\left|\\int_{20}^{80} v(t)\\, dt\\right|$ or equivalently $\\left|x(80) - x(20)\\right|$"
+            }
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer"
+              ],
+              "correct_example": "$\\approx 23.384$ (or $23.383$) meters"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "d",
       "prompt": "Find the total distance Stephen swims over the time interval $0 \\le t \\le 90$ seconds. Show the setup for your calculations.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct integral setup: $\\int_0^{90} |v(t)|\\, dt$ or equivalent split: $\\int_0^{56} v(t)\\, dt - \\int_{56}^{90} v(t)\\, dt$",
-        "1 pt: Correct answer: $\\approx 62.164$ meters"
-      ],
       "scoring_notes": "Total distance requires integrating $|v(t)|$ or splitting at $t = 56$. Answer $\\approx 62.164$ meters. The answer point is earned for $62.164$ regardless of whether the setup point was earned.",
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "d1",
+          "point_value": 1,
+          "description": "Correct integral setup",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct integral setup"
+              ],
+              "correct_example": "$\\int_0^{90} |v(t)|\\, dt$ or equivalent split: $\\int_0^{56} v(t)\\, dt - \\int_{56}^{90} v(t)\\, dt$"
+            }
+          ]
+        },
+        {
+          "point_id": "d2",
+          "point_value": 1,
+          "description": "Correct answer",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct answer"
+              ],
+              "correct_example": "$\\approx 62.164$ meters"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
