@@ -21,21 +21,21 @@
         },
         {
           "id": "B",
+          "text": "$f'(a) = \\lim_{x \\to a} f(x)$",
+          "is_correct": false,
+          "explanation": "This is the limit of $f$ at $a$, which equals $f(a)$ for continuous functions. It does not capture the rate of change and is not the derivative."
+        },
+        {
+          "id": "C",
           "text": "$f'(a) = \\dfrac{f(a+h) - f(a)}{h}$",
           "is_correct": false,
           "explanation": "This expression is the difference quotient itself, which gives the average rate of change over $[a, a+h]$. The limit as $h \\to 0$ is required to define the derivative."
         },
         {
-          "id": "C",
+          "id": "D",
           "text": "$f'(a) = \\lim_{h \\to 0} \\dfrac{f(a) - f(a-h)}{h}$",
           "is_correct": false,
           "explanation": "Although this expression is algebraically equivalent to the standard definition (substituting $t = -h$ transforms it into $\\lim_{t \\to 0}\\frac{f(a+t)-f(a)}{t}$), it is not the standard form. The College Board definition of the derivative uses $f(a+h) - f(a)$ in the numerator, and choice A presents that canonical form directly."
-        },
-        {
-          "id": "D",
-          "text": "$f'(a) = \\lim_{x \\to a} f(x)$",
-          "is_correct": false,
-          "explanation": "This is the limit of $f$ at $a$, which equals $f(a)$ for continuous functions. It does not capture the rate of change and is not the derivative."
         }
       ],
       "unit_objective": "CHA-2.B: Represent the derivative of a function as the limit of a difference quotient.",
@@ -61,21 +61,21 @@
         },
         {
           "id": "B",
-          "text": "$7$",
-          "is_correct": false,
-          "explanation": "Using only the right interval: $\\frac{f(4)-f(3)}{4-3} = \\frac{21-13}{1} = 8$. This is the right-side approximation, not the symmetric one."
+          "text": "$\\dfrac{f(4)-f(2)}{4-2} = 7$",
+          "is_correct": true,
+          "explanation": "The symmetric difference quotient $\\frac{f(4)-f(2)}{4-2} = \\frac{21-7}{2} = \\frac{14}{2} = 7$ provides the best approximation of $f'(3)$ when equal-spaced table values are available."
         },
         {
           "id": "C",
           "text": "$7$",
           "is_correct": false,
-          "explanation": "This value does not come from a standard difference quotient approximation using the given table values."
+          "explanation": "Using only the right interval: $\\frac{f(4)-f(3)}{4-3} = \\frac{21-13}{1} = 8$. This is the right-side approximation, not the symmetric one."
         },
         {
           "id": "D",
-          "text": "$\\dfrac{f(4)-f(2)}{4-2} = 7$",
-          "is_correct": true,
-          "explanation": "The symmetric difference quotient $\\frac{f(4)-f(2)}{4-2} = \\frac{21-7}{2} = \\frac{14}{2} = 7$ provides the best approximation of $f'(3)$ when equal-spaced table values are available."
+          "text": "$7$",
+          "is_correct": false,
+          "explanation": "This value does not come from a standard difference quotient approximation using the given table values."
         }
       ],
       "unit_objective": "CHA-2.B: Approximate a derivative value using a difference quotient.",
@@ -94,27 +94,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$7x^6$",
-          "is_correct": true,
-          "explanation": "By the Power Rule, $\\frac{d}{dx}[x^n] = nx^{n-1}$. With $n=7$: $f'(x) = 7x^{7-1} = 7x^6$."
-        },
-        {
-          "id": "B",
           "text": "$x^6$",
           "is_correct": false,
           "explanation": "This omits the coefficient from the Power Rule. The correct result requires multiplying by the original exponent: $7x^6$."
         },
         {
-          "id": "C",
-          "text": "$7x^7$",
-          "is_correct": false,
-          "explanation": "The Power Rule decreases the exponent by 1. The exponent should be $7-1=6$, not 7."
+          "id": "B",
+          "text": "$7x^6$",
+          "is_correct": true,
+          "explanation": "By the Power Rule, $\\frac{d}{dx}[x^n] = nx^{n-1}$. With $n=7$: $f'(x) = 7x^{7-1} = 7x^6$."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$6x^7$",
           "is_correct": false,
           "explanation": "Both the coefficient and exponent are incorrect. The Power Rule gives $7x^6$, not $6x^7$."
+        },
+        {
+          "id": "D",
+          "text": "$7x^7$",
+          "is_correct": false,
+          "explanation": "The Power Rule decreases the exponent by 1. The exponent should be $7-1=6$, not 7."
         }
       ],
       "unit_objective": "FUN-3.A: Apply the Power Rule to find derivatives of polynomial functions.",
@@ -133,27 +133,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\cos x$",
-          "is_correct": true,
-          "explanation": "The derivative of $\\sin x$ is $\\cos x$. This is a fundamental trigonometric derivative that follows from the limit definition."
-        },
-        {
-          "id": "B",
-          "text": "$-\\cos x$",
-          "is_correct": false,
-          "explanation": "$-\\cos x$ is the derivative of $-\\sin x$, not $\\sin x$. The sign is incorrect."
-        },
-        {
-          "id": "C",
           "text": "$-\\sin x$",
           "is_correct": false,
           "explanation": "$-\\sin x$ is the derivative of $\\cos x$, not $\\sin x$. The functions are swapped and the sign is wrong."
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "$\\cos x$",
+          "is_correct": true,
+          "explanation": "The derivative of $\\sin x$ is $\\cos x$. This is a fundamental trigonometric derivative that follows from the limit definition."
+        },
+        {
+          "id": "C",
           "text": "$\\sec^2 x$",
           "is_correct": false,
           "explanation": "$\\sec^2 x$ is the derivative of $\\tan x$, not $\\sin x$."
+        },
+        {
+          "id": "D",
+          "text": "$-\\cos x$",
+          "is_correct": false,
+          "explanation": "$-\\cos x$ is the derivative of $-\\sin x$, not $\\sin x$. The sign is incorrect."
         }
       ],
       "unit_objective": "FUN-3.A: Apply rules for derivatives of trigonometric functions.",
@@ -172,21 +172,21 @@
       "choices": [
         {
           "id": "A",
-          "text": "$e^x$",
-          "is_correct": true,
-          "explanation": "The natural exponential function $e^x$ is its own derivative. This is a fundamental property: $\\frac{d}{dx}[e^x] = e^x$."
-        },
-        {
-          "id": "B",
           "text": "$xe^{x-1}$",
           "is_correct": false,
           "explanation": "This incorrectly applies the Power Rule to $e^x$. The Power Rule applies to $x^n$, not $e^x$. The exponential function has a special derivative."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "$e^{x-1}$",
           "is_correct": false,
           "explanation": "Reducing the exponent by 1 is the Power Rule for $x^n$, not the correct rule for $e^x$. The derivative of $e^x$ is $e^x$ itself."
+        },
+        {
+          "id": "C",
+          "text": "$e^x$",
+          "is_correct": true,
+          "explanation": "The natural exponential function $e^x$ is its own derivative. This is a fundamental property: $\\frac{d}{dx}[e^x] = e^x$."
         },
         {
           "id": "D",
@@ -211,27 +211,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$12x^2 - 7$",
-          "is_correct": true,
-          "explanation": "Applying the Power Rule term by term: $\\frac{d}{dx}[4x^3] = 12x^2$, $\\frac{d}{dx}[-7x] = -7$, $\\frac{d}{dx}[2] = 0$. So $g'(x) = 12x^2 - 7$."
-        },
-        {
-          "id": "B",
           "text": "$12x^2 - 7x$",
           "is_correct": false,
           "explanation": "The derivative of $-7x$ is $-7$, not $-7x$. The $x$ should not appear in the constant term's derivative."
         },
         {
-          "id": "C",
-          "text": "$4x^2 - 7$",
-          "is_correct": false,
-          "explanation": "The coefficient on the first term is wrong. $\\frac{d}{dx}[4x^3] = 3 \\cdot 4x^2 = 12x^2$, not $4x^2$."
-        },
-        {
-          "id": "D",
+          "id": "B",
           "text": "$12x^2 - 7 + 2$",
           "is_correct": false,
           "explanation": "The derivative of the constant $2$ is $0$, not $2$. Constants disappear when differentiated."
+        },
+        {
+          "id": "C",
+          "text": "$12x^2 - 7$",
+          "is_correct": true,
+          "explanation": "Applying the Power Rule term by term: $\\frac{d}{dx}[4x^3] = 12x^2$, $\\frac{d}{dx}[-7x] = -7$, $\\frac{d}{dx}[2] = 0$. So $g'(x) = 12x^2 - 7$."
+        },
+        {
+          "id": "D",
+          "text": "$4x^2 - 7$",
+          "is_correct": false,
+          "explanation": "The coefficient on the first term is wrong. $\\frac{d}{dx}[4x^3] = 3 \\cdot 4x^2 = 12x^2$, not $4x^2$."
         }
       ],
       "unit_objective": "FUN-3.A: Apply the Sum Rule and Power Rule to differentiate polynomial functions.",
@@ -251,21 +251,21 @@
       "choices": [
         {
           "id": "A",
-          "text": "$0$ m/s",
-          "is_correct": true,
-          "explanation": "$v(t) = s'(t) = 6t - 12$. At $t=2$: $v(2) = 6(2) - 12 = 12 - 12 = 0$ m/s. The particle is momentarily at rest at $t = 2$."
-        },
-        {
-          "id": "B",
           "text": "$-1$ m/s",
           "is_correct": false,
           "explanation": "$s(2) = 3(4) - 12(2) + 5 = 12 - 24 + 5 = -7$. This is the position, not the velocity. Velocity is found by differentiating the position function."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "$6$ m/s",
           "is_correct": false,
           "explanation": "$v'(t) = 6$ is the acceleration, not the velocity. The velocity at $t=2$ requires evaluating $s'(2) = 6(2) - 12 = 0$."
+        },
+        {
+          "id": "C",
+          "text": "$0$ m/s",
+          "is_correct": true,
+          "explanation": "$v(t) = s'(t) = 6t - 12$. At $t=2$: $v(2) = 6(2) - 12 = 12 - 12 = 0$ m/s. The particle is momentarily at rest at $t = 2$."
         },
         {
           "id": "D",
@@ -296,21 +296,21 @@
         },
         {
           "id": "B",
+          "text": "$\\ln x \\cdot x$",
+          "is_correct": false,
+          "explanation": "This has the wrong form entirely. The derivative of $\\ln x$ is $\\frac{1}{x}$, a simple rational expression."
+        },
+        {
+          "id": "C",
           "text": "$\\dfrac{1}{x^2}$",
           "is_correct": false,
           "explanation": "$\\frac{1}{x^2} = x^{-2}$ is the derivative of $-x^{-1} = -\\frac{1}{x}$, not $\\ln x$."
         },
         {
-          "id": "C",
+          "id": "D",
           "text": "$e^x$",
           "is_correct": false,
           "explanation": "$e^x$ is the derivative of $e^x$, not $\\ln x$. The derivative of $\\ln x$ is the rational function $\\frac{1}{x}$."
-        },
-        {
-          "id": "D",
-          "text": "$\\ln x \\cdot x$",
-          "is_correct": false,
-          "explanation": "This has the wrong form entirely. The derivative of $\\ln x$ is $\\frac{1}{x}$, a simple rational expression."
         }
       ],
       "unit_objective": "FUN-3.A: Apply the rule for the derivative of the natural logarithm function.",
@@ -329,15 +329,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$f$ is continuous at $x = c$",
-          "is_correct": true,
-          "explanation": "Differentiability implies continuity. If $\\lim_{h \\to 0} \\frac{f(c+h)-f(c)}{h}$ exists, then $\\lim_{x \\to c} f(x) = f(c)$."
-        },
-        {
-          "id": "B",
           "text": "$f$ has a local maximum or minimum at $x = c$",
           "is_correct": false,
           "explanation": "A differentiable function need not have an extremum at every point. For example, $f(x) = x$ is differentiable everywhere with no local extrema."
+        },
+        {
+          "id": "B",
+          "text": "$f$ is continuous at $x = c$ and $f'(c) = 0$",
+          "is_correct": false,
+          "explanation": "While continuity is implied, $f'(c) = 0$ is not required for differentiability. Only continuity is guaranteed."
         },
         {
           "id": "C",
@@ -347,9 +347,9 @@
         },
         {
           "id": "D",
-          "text": "$f$ is continuous at $x = c$ and $f'(c) = 0$",
-          "is_correct": false,
-          "explanation": "While continuity is implied, $f'(c) = 0$ is not required for differentiability. Only continuity is guaranteed."
+          "text": "$f$ is continuous at $x = c$",
+          "is_correct": true,
+          "explanation": "Differentiability implies continuity. If $\\lim_{h \\to 0} \\frac{f(c+h)-f(c)}{h}$ exists, then $\\lim_{x \\to c} f(x) = f(c)$."
         }
       ],
       "unit_objective": "FUN-2.A: Relate differentiability and continuity of a function.",
@@ -374,21 +374,21 @@
         },
         {
           "id": "B",
+          "text": "$15$",
+          "is_correct": false,
+          "explanation": "$f(4) - f(1) = 19 - 4 = 15$ is the change in output, but this must be divided by the change in input $4-1=3$ to get the average rate of change."
+        },
+        {
+          "id": "C",
           "text": "$2.5$",
           "is_correct": false,
           "explanation": "This would be the slope of a secant line over a different interval. The correct computation gives $\\frac{15}{3} = 5$."
         },
         {
-          "id": "C",
+          "id": "D",
           "text": "$8$",
           "is_correct": false,
           "explanation": "$f'(4) = 2(4) = 8$ is the instantaneous rate of change at $x=4$, not the average rate of change over $[1,4]$."
-        },
-        {
-          "id": "D",
-          "text": "$15$",
-          "is_correct": false,
-          "explanation": "$f(4) - f(1) = 19 - 4 = 15$ is the change in output, but this must be divided by the change in input $4-1=3$ to get the average rate of change."
         }
       ],
       "unit_objective": "CHA-2.A: Determine the average rate of change of a function using difference quotients.",
@@ -407,21 +407,21 @@
       "choices": [
         {
           "id": "A",
-          "text": "$0$",
-          "is_correct": true,
-          "explanation": "The Constant Rule states that the derivative of any constant function is 0. The graph of $h(x) = 5$ is a horizontal line with slope 0."
-        },
-        {
-          "id": "B",
           "text": "$5$",
           "is_correct": false,
           "explanation": "The derivative of a constant is 0, not the constant itself. $h(x) = 5$ has no change in output as $x$ changes."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "$5x$",
           "is_correct": false,
           "explanation": "This would be the antiderivative of 5, not the derivative of 5. The derivative of a constant is always 0."
+        },
+        {
+          "id": "C",
+          "text": "$0$",
+          "is_correct": true,
+          "explanation": "The Constant Rule states that the derivative of any constant function is 0. The graph of $h(x) = 5$ is a horizontal line with slope 0."
         },
         {
           "id": "D",
@@ -452,21 +452,21 @@
         },
         {
           "id": "B",
+          "text": "$2x \\sin x - x^2 \\cos x$",
+          "is_correct": false,
+          "explanation": "The sign of the second term is wrong. The derivative of $\\sin x$ is $+\\cos x$, so the second term should be $+x^2\\cos x$."
+        },
+        {
+          "id": "C",
           "text": "$2x \\cos x$",
           "is_correct": false,
           "explanation": "This incorrectly differentiates both factors as if they were a single composed function. The Product Rule requires: $(uv)' = u'v + uv'$."
         },
         {
-          "id": "C",
+          "id": "D",
           "text": "$x^2 \\cos x$",
           "is_correct": false,
           "explanation": "This only differentiates the $\\sin x$ factor while leaving $x^2$ undifferentiated. The Product Rule requires differentiating both factors."
-        },
-        {
-          "id": "D",
-          "text": "$2x \\sin x - x^2 \\cos x$",
-          "is_correct": false,
-          "explanation": "The sign of the second term is wrong. The derivative of $\\sin x$ is $+\\cos x$, so the second term should be $+x^2\\cos x$."
         }
       ],
       "unit_objective": "FUN-3.B: Apply the Product Rule to find derivatives of products of differentiable functions.",
@@ -485,27 +485,27 @@
       "choices": [
         {
           "id": "A",
+          "text": "$\\dfrac{-x^2 \\sin x - 2x \\cos x}{x^2}$",
+          "is_correct": false,
+          "explanation": "The denominator of the Quotient Rule is $v^2 = (x^2)^2 = x^4$, not $x^2$."
+        },
+        {
+          "id": "B",
           "text": "$\\dfrac{-x^2 \\sin x - 2x \\cos x}{x^4}$",
           "is_correct": true,
           "explanation": "By the Quotient Rule: $g'(x) = \\frac{(\\cos x)'x^2 - \\cos x(x^2)'}{x^4} = \\frac{-x^2\\sin x - 2x\\cos x}{x^4}$."
         },
         {
-          "id": "B",
+          "id": "C",
           "text": "$\\dfrac{-\\sin x}{2x}$",
           "is_correct": false,
           "explanation": "This attempts to differentiate numerator and denominator separately, which is not the Quotient Rule. The rule is $\\frac{u'v - uv'}{v^2}$."
         },
         {
-          "id": "C",
+          "id": "D",
           "text": "$\\dfrac{x^2 \\sin x + 2x \\cos x}{x^4}$",
           "is_correct": false,
           "explanation": "The sign is reversed. The numerator should be $-x^2\\sin x - 2x\\cos x$ since $(\\cos x)' = -\\sin x$."
-        },
-        {
-          "id": "D",
-          "text": "$\\dfrac{-x^2 \\sin x - 2x \\cos x}{x^2}$",
-          "is_correct": false,
-          "explanation": "The denominator of the Quotient Rule is $v^2 = (x^2)^2 = x^4$, not $x^2$."
         }
       ],
       "unit_objective": "FUN-3.B: Apply the Quotient Rule to find derivatives of quotients of differentiable functions.",
@@ -524,15 +524,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\sec^2 x$",
-          "is_correct": true,
-          "explanation": "Writing $\\tan x = \\frac{\\sin x}{\\cos x}$ and applying the Quotient Rule gives $\\frac{\\cos^2 x + \\sin^2 x}{\\cos^2 x} = \\frac{1}{\\cos^2 x} = \\sec^2 x$."
-        },
-        {
-          "id": "B",
           "text": "$\\sec x \\tan x$",
           "is_correct": false,
           "explanation": "$\\sec x \\tan x$ is the derivative of $\\sec x$, not $\\tan x$."
+        },
+        {
+          "id": "B",
+          "text": "$\\sec^2 x$",
+          "is_correct": true,
+          "explanation": "Writing $\\tan x = \\frac{\\sin x}{\\cos x}$ and applying the Quotient Rule gives $\\frac{\\cos^2 x + \\sin^2 x}{\\cos^2 x} = \\frac{1}{\\cos^2 x} = \\sec^2 x$."
         },
         {
           "id": "C",
@@ -564,27 +564,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$f$ is differentiable at $x = 2$ because $f$ is continuous there.",
-          "is_correct": false,
-          "explanation": "Continuity is necessary but not sufficient for differentiability. Both one-sided derivatives must also be equal."
-        },
-        {
-          "id": "B",
-          "text": "$f$ is not differentiable at $x = 2$ because $f$ is not continuous there.",
-          "is_correct": false,
-          "explanation": "$f$ is continuous at $x = 2$: $\\lim_{x \\to 2^-} f(x) = 5$, $\\lim_{x \\to 2^+} f(x) = 5$, and $f(2) = 5$. So continuity is not the reason."
-        },
-        {
-          "id": "C",
           "text": "$f$ is differentiable at $x = 2$ because both one-sided derivatives equal $4$.",
           "is_correct": true,
           "explanation": "Left derivative: $\\lim_{x \\to 2^-} (x^2+1)' = 2x|_{x=2} = 4$. Right derivative: $(4x-3)' = 4$. Both equal $4$, so $f'(2) = 4$."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "$f$ is not differentiable at $x = 2$ because the one-sided derivatives are unequal.",
           "is_correct": false,
           "explanation": "The left derivative is $2(2) = 4$ and the right derivative is also $4$. The one-sided derivatives are equal, so $f$ is differentiable at $x = 2$."
+        },
+        {
+          "id": "C",
+          "text": "$f$ is differentiable at $x = 2$ because $f$ is continuous there.",
+          "is_correct": false,
+          "explanation": "Continuity is necessary but not sufficient for differentiability. Both one-sided derivatives must also be equal."
+        },
+        {
+          "id": "D",
+          "text": "$f$ is not differentiable at $x = 2$ because $f$ is not continuous there.",
+          "is_correct": false,
+          "explanation": "$f$ is continuous at $x = 2$: $\\lim_{x \\to 2^-} f(x) = 5$, $\\lim_{x \\to 2^+} f(x) = 5$, and $f(2) = 5$. So continuity is not the reason."
         }
       ],
       "unit_objective": "FUN-2.A: Determine the differentiability of a piecewise-defined function at a point.",
@@ -603,15 +603,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\sec x \\tan x$",
-          "is_correct": true,
-          "explanation": "Writing $\\sec x = \\frac{1}{\\cos x}$ and applying the Quotient Rule: $\\frac{0 \\cdot \\cos x - 1 \\cdot (-\\sin x)}{\\cos^2 x} = \\frac{\\sin x}{\\cos^2 x} = \\sec x \\tan x$."
-        },
-        {
-          "id": "B",
           "text": "$-\\csc x \\cot x$",
           "is_correct": false,
           "explanation": "$-\\csc x \\cot x$ is the derivative of $\\csc x$, not $\\sec x$."
+        },
+        {
+          "id": "B",
+          "text": "$\\sec x \\tan x$",
+          "is_correct": true,
+          "explanation": "Writing $\\sec x = \\frac{1}{\\cos x}$ and applying the Quotient Rule: $\\frac{0 \\cdot \\cos x - 1 \\cdot (-\\sin x)}{\\cos^2 x} = \\frac{\\sin x}{\\cos^2 x} = \\sec x \\tan x$."
         },
         {
           "id": "C",
@@ -643,27 +643,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$y - 5 = -3(x - 2)$",
-          "is_correct": true,
-          "explanation": "The tangent line at $(2, 5)$ has slope $f'(2) = -3$. Using point-slope form: $y - 5 = -3(x - 2)$."
-        },
-        {
-          "id": "B",
           "text": "$y - 2 = -3(x - 5)$",
           "is_correct": false,
           "explanation": "The point and slope are correct but the coordinates are swapped. The point on the graph is $(2, 5)$, so the form should be $y - 5 = -3(x - 2)$."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "$y - 5 = 3(x - 2)$",
           "is_correct": false,
           "explanation": "The slope is $f'(2) = -3$, not $+3$. The slope of the tangent line must match the derivative value."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$y = -3x$",
           "is_correct": false,
           "explanation": "This line passes through the origin, not through the point $(2, 5)$. The correct tangent line is $y - 5 = -3(x-2)$, or equivalently $y = -3x + 11$."
+        },
+        {
+          "id": "D",
+          "text": "$y - 5 = -3(x - 2)$",
+          "is_correct": true,
+          "explanation": "The tangent line at $(2, 5)$ has slope $f'(2) = -3$. Using point-slope form: $y - 5 = -3(x - 2)$."
         }
       ],
       "unit_objective": "CHA-2.D: Determine the equation of the line tangent to a function at a given point.",
@@ -682,27 +682,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\dfrac{7x^{5/2}}{2}$",
-          "is_correct": true,
-          "explanation": "$f(x)g(x) = x^{1/2} \\cdot x^3 = x^{7/2}$. Then $(fg)'(x) = \\frac{7}{2}x^{5/2}$. Alternatively, Product Rule: $\\frac{1}{2}x^{-1/2} \\cdot x^3 + x^{1/2} \\cdot 3x^2 = \\frac{x^{5/2}}{2} + 3x^{5/2} = \\frac{7x^{5/2}}{2}$."
+          "text": "$\\dfrac{1}{2\\sqrt{x}} \\cdot 3x^2$",
+          "is_correct": false,
+          "explanation": "This multiplies the derivatives of each factor, which is incorrect. The Product Rule adds the terms: $f'g + fg'$."
         },
         {
           "id": "B",
-          "text": "$\\dfrac{3x^{5/2}}{2}$",
-          "is_correct": false,
-          "explanation": "This only accounts for the term from differentiating $x^3$. Both terms of the Product Rule must be included: $f'g + fg' = \\frac{x^{5/2}}{2} + 3x^{5/2} = \\frac{7x^{5/2}}{2}$."
-        },
-        {
-          "id": "C",
           "text": "$\\dfrac{x^{5/2}}{2} \\cdot 3x^2$",
           "is_correct": false,
           "explanation": "The Product Rule requires adding the two terms, not multiplying them. $(fg)' = f'g + fg'$, not $f' \\cdot g'$."
         },
         {
-          "id": "D",
-          "text": "$\\dfrac{1}{2\\sqrt{x}} \\cdot 3x^2$",
+          "id": "C",
+          "text": "$\\dfrac{3x^{5/2}}{2}$",
           "is_correct": false,
-          "explanation": "This multiplies the derivatives of each factor, which is incorrect. The Product Rule adds the terms: $f'g + fg'$."
+          "explanation": "This only accounts for the term from differentiating $x^3$. Both terms of the Product Rule must be included: $f'g + fg' = \\frac{x^{5/2}}{2} + 3x^{5/2} = \\frac{7x^{5/2}}{2}$."
+        },
+        {
+          "id": "D",
+          "text": "$\\dfrac{7x^{5/2}}{2}$",
+          "is_correct": true,
+          "explanation": "$f(x)g(x) = x^{1/2} \\cdot x^3 = x^{7/2}$. Then $(fg)'(x) = \\frac{7}{2}x^{5/2}$. Alternatively, Product Rule: $\\frac{1}{2}x^{-1/2} \\cdot x^3 + x^{1/2} \\cdot 3x^2 = \\frac{x^{5/2}}{2} + 3x^{5/2} = \\frac{7x^{5/2}}{2}$."
         }
       ],
       "unit_objective": "FUN-3.B: Apply the Product Rule to find derivatives of products of differentiable functions.",
@@ -721,15 +721,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$-\\csc^2 x$",
-          "is_correct": true,
-          "explanation": "Writing $\\cot x = \\frac{\\cos x}{\\sin x}$ and applying the Quotient Rule: $\\frac{-\\sin^2 x - \\cos^2 x}{\\sin^2 x} = \\frac{-1}{\\sin^2 x} = -\\csc^2 x$."
-        },
-        {
-          "id": "B",
           "text": "$\\csc^2 x$",
           "is_correct": false,
           "explanation": "$\\csc^2 x$ has the wrong sign. The derivative of $\\cot x$ is $-\\csc^2 x$, not $+\\csc^2 x$."
+        },
+        {
+          "id": "B",
+          "text": "$-\\csc^2 x$",
+          "is_correct": true,
+          "explanation": "Writing $\\cot x = \\frac{\\cos x}{\\sin x}$ and applying the Quotient Rule: $\\frac{-\\sin^2 x - \\cos^2 x}{\\sin^2 x} = \\frac{-1}{\\sin^2 x} = -\\csc^2 x$."
         },
         {
           "id": "C",
@@ -761,15 +761,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$f$ is differentiable at $x = 3$ with $f'(3) = 3.5$.",
+          "text": "$f$ is differentiable at $x = 3$ because the left-hand slope and right-hand slope both exist.",
           "is_correct": false,
-          "explanation": "A corner means the left and right derivatives differ. The average of the two slopes is not the derivative; in fact, the derivative does not exist."
+          "explanation": "For differentiability, the one-sided derivatives must exist AND be equal. Having two different finite one-sided derivatives is not sufficient — they must agree."
         },
         {
           "id": "B",
-          "text": "$f$ is not differentiable at $x = 3$ because $f$ is not continuous there.",
+          "text": "$f$ is differentiable at $x = 3$ with $f'(3) = 3.5$.",
           "is_correct": false,
-          "explanation": "A corner is a point of continuity — the function value exists and the limit equals it. The issue is that the one-sided derivatives differ, not continuity."
+          "explanation": "A corner means the left and right derivatives differ. The average of the two slopes is not the derivative; in fact, the derivative does not exist."
         },
         {
           "id": "C",
@@ -779,9 +779,9 @@
         },
         {
           "id": "D",
-          "text": "$f$ is differentiable at $x = 3$ because the left-hand slope and right-hand slope both exist.",
+          "text": "$f$ is not differentiable at $x = 3$ because $f$ is not continuous there.",
           "is_correct": false,
-          "explanation": "For differentiability, the one-sided derivatives must exist AND be equal. Having two different finite one-sided derivatives is not sufficient — they must agree."
+          "explanation": "A corner is a point of continuity — the function value exists and the limit equals it. The issue is that the one-sided derivatives differ, not continuity."
         }
       ],
       "unit_objective": "FUN-2.A: Identify points where a function is not differentiable and explain why.",
@@ -800,9 +800,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$e^x(\\cos x - \\sin x)$",
-          "is_correct": true,
-          "explanation": "By the Product Rule: $f'(x) = e^x \\cos x + e^x(-\\sin x) = e^x(\\cos x - \\sin x)$."
+          "text": "$-e^x \\sin x$",
+          "is_correct": false,
+          "explanation": "This only includes the term from differentiating $\\cos x$. The Product Rule requires both terms: $e^x \\cos x + e^x(-\\sin x)$."
         },
         {
           "id": "B",
@@ -812,15 +812,15 @@
         },
         {
           "id": "C",
-          "text": "$-e^x \\sin x$",
-          "is_correct": false,
-          "explanation": "This only includes the term from differentiating $\\cos x$. The Product Rule requires both terms: $e^x \\cos x + e^x(-\\sin x)$."
-        },
-        {
-          "id": "D",
           "text": "$e^x \\cos x$",
           "is_correct": false,
           "explanation": "This is the original function $f(x)$, not its derivative. The Product Rule must be applied to find $f'$."
+        },
+        {
+          "id": "D",
+          "text": "$e^x(\\cos x - \\sin x)$",
+          "is_correct": true,
+          "explanation": "By the Product Rule: $f'(x) = e^x \\cos x + e^x(-\\sin x) = e^x(\\cos x - \\sin x)$."
         }
       ],
       "unit_objective": "FUN-3.B: Apply the Product Rule to products involving exponential and trigonometric functions.",
@@ -846,21 +846,21 @@
         },
         {
           "id": "B",
+          "text": "$1$",
+          "is_correct": false,
+          "explanation": "The correct computation is $f'(1)g(1) + f(1)g'(1) = -12 + 10 = -2$, not 1."
+        },
+        {
+          "id": "C",
           "text": "$-20$",
           "is_correct": false,
           "explanation": "This incorrectly multiplies $f'(1) \\cdot g'(1) = (-4)(5) = -20$. The Product Rule adds $f'g + fg'$, not multiplies the derivatives."
         },
         {
-          "id": "C",
+          "id": "D",
           "text": "$6$",
           "is_correct": false,
           "explanation": "This appears to compute $f(1) \\cdot g(1) = 2 \\cdot 3 = 6$, which is the product of the functions, not the derivative of the product."
-        },
-        {
-          "id": "D",
-          "text": "$1$",
-          "is_correct": false,
-          "explanation": "The correct computation is $f'(1)g(1) + f(1)g'(1) = -12 + 10 = -2$, not 1."
         }
       ],
       "unit_objective": "FUN-3.B: Apply the Product Rule using tabulated function and derivative values.",
@@ -885,9 +885,9 @@
         },
         {
           "id": "B",
-          "text": "$\\csc x \\cot x$",
+          "text": "$-\\csc^2 x$",
           "is_correct": false,
-          "explanation": "The sign is wrong. The derivative of $\\csc x$ is $-\\csc x \\cot x$, not $+\\csc x \\cot x$."
+          "explanation": "$-\\csc^2 x$ is the derivative of $\\cot x$, not $\\csc x$."
         },
         {
           "id": "C",
@@ -897,9 +897,9 @@
         },
         {
           "id": "D",
-          "text": "$-\\csc^2 x$",
+          "text": "$\\csc x \\cot x$",
           "is_correct": false,
-          "explanation": "$-\\csc^2 x$ is the derivative of $\\cot x$, not $\\csc x$."
+          "explanation": "The sign is wrong. The derivative of $\\csc x$ is $-\\csc x \\cot x$, not $+\\csc x \\cot x$."
         }
       ],
       "unit_objective": "FUN-3.A: Apply the rule for the derivative of $\\csc x$.",
@@ -918,27 +918,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\dfrac{(x+3)(2x) - (x^2-1)(1)}{(x+3)^2}$",
-          "is_correct": true,
-          "explanation": "By the Quotient Rule with $u = x^2-1$ and $v = x+3$: $f'(x) = \\frac{u'v - uv'}{v^2} = \\frac{2x(x+3)-(x^2-1)(1)}{(x+3)^2}$."
-        },
-        {
-          "id": "B",
-          "text": "$\\dfrac{2x}{1}$",
-          "is_correct": false,
-          "explanation": "This differentiates only the numerator and ignores the denominator entirely. The Quotient Rule must be applied."
-        },
-        {
-          "id": "C",
           "text": "$\\dfrac{(x^2-1)(1) - (x+3)(2x)}{(x+3)^2}$",
           "is_correct": false,
           "explanation": "The numerator terms are reversed. The Quotient Rule is $\\frac{u'v - uv'}{v^2}$, with $u'v$ first, not $uv' - u'v$."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "$\\dfrac{2x(x+3) - (x^2-1)}{(x+3)}$",
           "is_correct": false,
           "explanation": "The denominator should be $(x+3)^2$, not $(x+3)$. The Quotient Rule squares the denominator."
+        },
+        {
+          "id": "C",
+          "text": "$\\dfrac{(x+3)(2x) - (x^2-1)(1)}{(x+3)^2}$",
+          "is_correct": true,
+          "explanation": "By the Quotient Rule with $u = x^2-1$ and $v = x+3$: $f'(x) = \\frac{u'v - uv'}{v^2} = \\frac{2x(x+3)-(x^2-1)(1)}{(x+3)^2}$."
+        },
+        {
+          "id": "D",
+          "text": "$\\dfrac{2x}{1}$",
+          "is_correct": false,
+          "explanation": "This differentiates only the numerator and ignores the denominator entirely. The Quotient Rule must be applied."
         }
       ],
       "unit_objective": "FUN-3.B: Apply the Quotient Rule to rational functions.",
@@ -958,27 +958,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$f$ is continuous but not differentiable at $x = 1$.",
-          "is_correct": true,
-          "explanation": "A vertical tangent means $\\lim_{h \\to 0} \\frac{f(1+h)-f(1)}{h} = \\pm \\infty$. Since the derivative is infinite (not a finite number), $f$ is not differentiable at $x=1$, even though $f$ is continuous there."
+          "text": "$f$ is neither continuous nor differentiable at $x = 1$.",
+          "is_correct": false,
+          "explanation": "The problem states $f$ is continuous on $[-3, 5]$, which includes $x = 1$. Continuity holds; only differentiability fails due to the vertical tangent."
         },
         {
           "id": "B",
-          "text": "$f$ is both continuous and differentiable at $x = 1$.",
-          "is_correct": false,
-          "explanation": "A vertical tangent implies the derivative limit is $\\pm \\infty$, so the derivative does not exist as a real number. $f$ is continuous but not differentiable."
-        },
-        {
-          "id": "C",
           "text": "$f$ is differentiable but not continuous at $x = 1$.",
           "is_correct": false,
           "explanation": "Differentiability implies continuity, so a function cannot be differentiable but not continuous. Additionally, a vertical tangent prevents differentiability."
         },
         {
+          "id": "C",
+          "text": "$f$ is continuous but not differentiable at $x = 1$.",
+          "is_correct": true,
+          "explanation": "A vertical tangent means $\\lim_{h \\to 0} \\frac{f(1+h)-f(1)}{h} = \\pm \\infty$. Since the derivative is infinite (not a finite number), $f$ is not differentiable at $x=1$, even though $f$ is continuous there."
+        },
+        {
           "id": "D",
-          "text": "$f$ is neither continuous nor differentiable at $x = 1$.",
+          "text": "$f$ is both continuous and differentiable at $x = 1$.",
           "is_correct": false,
-          "explanation": "The problem states $f$ is continuous on $[-3, 5]$, which includes $x = 1$. Continuity holds; only differentiability fails due to the vertical tangent."
+          "explanation": "A vertical tangent implies the derivative limit is $\\pm \\infty$, so the derivative does not exist as a real number. $f$ is continuous but not differentiable."
         }
       ],
       "unit_objective": "FUN-2.A: Identify points where a function is continuous but not differentiable.",
@@ -1003,21 +1003,21 @@
         },
         {
           "id": "B",
+          "text": "$e^x \\csc x$",
+          "is_correct": false,
+          "explanation": "While $\\frac{e^x}{\\sin x} = e^x \\csc x$, differentiating this product still requires the Product Rule and gives $\\frac{e^x(\\sin x - \\cos x)}{\\sin^2 x}$, not $e^x \\csc x$."
+        },
+        {
+          "id": "C",
           "text": "$\\dfrac{e^x \\sin x + e^x \\cos x}{\\sin^2 x}$",
           "is_correct": false,
           "explanation": "The derivative of $\\sin x$ in the denominator contributes $-\\cos x$ (from the Quotient Rule's $-uv'$ term). The sign of the $e^x \\cos x$ term should be negative."
         },
         {
-          "id": "C",
+          "id": "D",
           "text": "$\\dfrac{e^x}{\\cos x}$",
           "is_correct": false,
           "explanation": "This incorrectly divides the derivative of $e^x$ by the derivative of $\\sin x$. The Quotient Rule is required: $\\frac{u'v - uv'}{v^2}$."
-        },
-        {
-          "id": "D",
-          "text": "$e^x \\csc x$",
-          "is_correct": false,
-          "explanation": "While $\\frac{e^x}{\\sin x} = e^x \\csc x$, differentiating this product still requires the Product Rule and gives $\\frac{e^x(\\sin x - \\cos x)}{\\sin^2 x}$, not $e^x \\csc x$."
         }
       ],
       "unit_objective": "FUN-3.B: Apply the Quotient Rule to functions involving exponential and trigonometric expressions.",
@@ -1042,15 +1042,15 @@
         },
         {
           "id": "B",
-          "text": "$12x^3 - 4x^{-3} + \\dfrac{5}{3}x^{-2/3}$",
-          "is_correct": false,
-          "explanation": "The derivative of $-2x^{-2}$ is $(-2)(-2)x^{-3} = +4x^{-3}$, not $-4x^{-3}$. Two negatives multiply to give a positive."
-        },
-        {
-          "id": "C",
           "text": "$12x^3 + 4x^{-3} + 5x^{-2/3}$",
           "is_correct": false,
           "explanation": "The coefficient on the last term is incorrect. $\\frac{d}{dx}[5x^{1/3}] = 5 \\cdot \\frac{1}{3} x^{-2/3} = \\frac{5}{3}x^{-2/3}$, not $5x^{-2/3}$."
+        },
+        {
+          "id": "C",
+          "text": "$12x^3 - 4x^{-3} + \\dfrac{5}{3}x^{-2/3}$",
+          "is_correct": false,
+          "explanation": "The derivative of $-2x^{-2}$ is $(-2)(-2)x^{-3} = +4x^{-3}$, not $-4x^{-3}$. Two negatives multiply to give a positive."
         },
         {
           "id": "D",
@@ -1082,9 +1082,9 @@
         },
         {
           "id": "B",
-          "text": "$4$ at $t = 2$",
+          "text": "$-3$ at $t = 2$",
           "is_correct": false,
-          "explanation": "$v(2) = 3(4) - 12(2) + 9 = 12 - 24 + 9 = -3 \\neq 0$. The particle is not at rest at $t = 2$."
+          "explanation": "$v(2) = -3$ is the velocity at $t = 2$, but the particle is not at rest there. Momentarily at rest means $v(t) = 0$."
         },
         {
           "id": "C",
@@ -1094,9 +1094,9 @@
         },
         {
           "id": "D",
-          "text": "$-3$ at $t = 2$",
+          "text": "$4$ at $t = 2$",
           "is_correct": false,
-          "explanation": "$v(2) = -3$ is the velocity at $t = 2$, but the particle is not at rest there. Momentarily at rest means $v(t) = 0$."
+          "explanation": "$v(2) = 3(4) - 12(2) + 9 = 12 - 24 + 9 = -3 \\neq 0$. The particle is not at rest at $t = 2$."
         }
       ],
       "unit_objective": "CHA-2.D: Interpret the derivative as instantaneous rate of change in a motion context.",
@@ -1115,9 +1115,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\cos x$",
-          "is_correct": true,
-          "explanation": "By definition, the expression is the derivative of $\\sin x$, which equals $\\cos x$. This follows from $\\lim_{h \\to 0} \\frac{\\sin(x+h)-\\sin x}{h} = \\frac{d}{dx}[\\sin x] = \\cos x$."
+          "text": "$\\cos(x+h)$",
+          "is_correct": false,
+          "explanation": "After taking the limit as $h \\to 0$, the parameter $h$ disappears. The result is $\\cos x$, not $\\cos(x+h)$."
         },
         {
           "id": "B",
@@ -1133,9 +1133,9 @@
         },
         {
           "id": "D",
-          "text": "$\\cos(x+h)$",
-          "is_correct": false,
-          "explanation": "After taking the limit as $h \\to 0$, the parameter $h$ disappears. The result is $\\cos x$, not $\\cos(x+h)$."
+          "text": "$\\cos x$",
+          "is_correct": true,
+          "explanation": "By definition, the expression is the derivative of $\\sin x$, which equals $\\cos x$. This follows from $\\lim_{h \\to 0} \\frac{\\sin(x+h)-\\sin x}{h} = \\frac{d}{dx}[\\sin x] = \\cos x$."
         }
       ],
       "unit_objective": "CHA-2.B: Connect the limit definition of the derivative to known derivative formulas.",
@@ -1194,21 +1194,21 @@
       "choices": [
         {
           "id": "A",
-          "text": "$k = 4$, $c = -3$",
-          "is_correct": false,
-          "explanation": "Continuity requires $k + 3 = 4 + c$, i.e., $k - c = 1$. With $k=4$, $c=-3$: $4-(-3)=7 \\neq 1$. Continuity fails, so $f$ is not differentiable at $x=1$."
-        },
-        {
-          "id": "B",
           "text": "$k = 2$, $c = -3$",
           "is_correct": false,
           "explanation": "Continuity requires $k+3 = 4+c \\Rightarrow 2+3=5$ but $4+(-3)=1$. Since $5 \\neq 1$, continuity fails at $x=1$, so $f$ cannot be differentiable there."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "$k = 2$, $c = 1$",
           "is_correct": true,
           "explanation": "Differentiability requires: (1) Continuity: $k+3 = 4+c \\Rightarrow k-c=1$. (2) Equal one-sided derivatives: $2k(1) = 4 \\Rightarrow k=2$. Then $c = k-1 = 1$. Verify: $f(1^-) = 5 = f(1^+)$ and both derivatives equal $4$."
+        },
+        {
+          "id": "C",
+          "text": "$k = 4$, $c = -3$",
+          "is_correct": false,
+          "explanation": "Continuity requires $k + 3 = 4 + c$, i.e., $k - c = 1$. With $k=4$, $c=-3$: $4-(-3)=7 \\neq 1$. Continuity fails, so $f$ is not differentiable at $x=1$."
         },
         {
           "id": "D",
@@ -1245,15 +1245,15 @@
         },
         {
           "id": "C",
-          "text": "$\\dfrac{\\sin x + x\\cos x - x\\sin x}{e^x}$",
-          "is_correct": false,
-          "explanation": "This is the simplified form of the correct answer divided by $e^x$ instead of $e^{2x}$ in the denominator. The full expression before simplification has $e^{2x}$ in the denominator."
-        },
-        {
-          "id": "D",
           "text": "$\\dfrac{\\cos x}{e^x}$",
           "is_correct": false,
           "explanation": "This only differentiates $\\sin x$ and completely ignores the factors $x$ and $e^x$. Both the Product Rule and Quotient Rule must be applied."
+        },
+        {
+          "id": "D",
+          "text": "$\\dfrac{\\sin x + x\\cos x - x\\sin x}{e^x}$",
+          "is_correct": false,
+          "explanation": "This is the simplified form of the correct answer divided by $e^x$ instead of $e^{2x}$ in the denominator. The full expression before simplification has $e^{2x}$ in the denominator."
         }
       ],
       "unit_objective": "FUN-3.B: Apply the Quotient Rule and Product Rule in combination.",
@@ -1273,27 +1273,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\lim_{x \\to 0} f(x) = 2$ and $f'(0)$ does not exist.",
-          "is_correct": true,
-          "explanation": "A corner means $f$ is continuous (the limit equals the function value: $\\lim_{x \\to 0} f(x) = f(0) = 2$) but not differentiable (the left and right derivatives differ at a corner)."
+          "text": "$f'(0) = 2$.",
+          "is_correct": false,
+          "explanation": "At a corner, the derivative does not exist because the one-sided derivatives are unequal. No single value, including $2$, can be $f'(0)$."
         },
         {
           "id": "B",
-          "text": "$\\lim_{x \\to 0} f(x) = 2$ and $f'(0) = 0$.",
-          "is_correct": false,
-          "explanation": "A corner means the derivative does not exist at that point because the left and right derivatives differ. $f'(0)$ cannot be $0$ or any other real number."
-        },
-        {
-          "id": "C",
           "text": "$\\lim_{x \\to 0} f(x)$ does not exist and $f'(0)$ does not exist.",
           "is_correct": false,
           "explanation": "A corner is a point of continuity, so the two-sided limit exists and equals $f(0) = 2$. Only differentiability fails at a corner."
         },
         {
-          "id": "D",
-          "text": "$f'(0) = 2$.",
+          "id": "C",
+          "text": "$\\lim_{x \\to 0} f(x) = 2$ and $f'(0) = 0$.",
           "is_correct": false,
-          "explanation": "At a corner, the derivative does not exist because the one-sided derivatives are unequal. No single value, including $2$, can be $f'(0)$."
+          "explanation": "A corner means the derivative does not exist at that point because the left and right derivatives differ. $f'(0)$ cannot be $0$ or any other real number."
+        },
+        {
+          "id": "D",
+          "text": "$\\lim_{x \\to 0} f(x) = 2$ and $f'(0)$ does not exist.",
+          "is_correct": true,
+          "explanation": "A corner means $f$ is continuous (the limit equals the function value: $\\lim_{x \\to 0} f(x) = f(0) = 2$) but not differentiable (the left and right derivatives differ at a corner)."
         }
       ],
       "unit_objective": "FUN-2.A: Analyze continuity and differentiability at a corner point.",
@@ -1318,21 +1318,21 @@
         },
         {
           "id": "B",
+          "text": "$2x^2 + 3$",
+          "is_correct": false,
+          "explanation": "The differentiation of $x^2$ gives $2x$ (not $2x^2$). The Power Rule reduces the exponent by one."
+        },
+        {
+          "id": "C",
           "text": "$2x$",
           "is_correct": false,
           "explanation": "This omits the $+3$ term. Differentiating $3x$ gives $3$, which must be included: $f'(x) = 2x + 3$."
         },
         {
-          "id": "C",
+          "id": "D",
           "text": "$x + 3$",
           "is_correct": false,
           "explanation": "The coefficient on $x$ is wrong. The Power Rule gives $\\frac{d}{dx}[x^2] = 2x$, not $x$."
-        },
-        {
-          "id": "D",
-          "text": "$2x^2 + 3$",
-          "is_correct": false,
-          "explanation": "The differentiation of $x^2$ gives $2x$ (not $2x^2$). The Power Rule reduces the exponent by one."
         }
       ],
       "unit_objective": "CHA-2.B: Use the limit definition to compute derivatives of polynomial functions.",
@@ -1352,9 +1352,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\dfrac{5(-2) - 1(3)}{(-2)^2} = -\\dfrac{13}{4}$",
-          "is_correct": true,
-          "explanation": "By the Quotient Rule at $x=0$: $\\frac{f'(0)g(0)-f(0)g'(0)}{[g(0)]^2} = \\frac{(5)(-2)-(1)(3)}{(-2)^2} = \\frac{-10-3}{4} = -\\frac{13}{4}$."
+          "text": "$\\dfrac{1(-2) - 5(3)}{(-2)^2} = -\\dfrac{17}{4}$",
+          "is_correct": false,
+          "explanation": "The numerator of the Quotient Rule is $f'g - fg'$, not $fg' - f'g$. The order matters: $f'$ goes with $g$ and $f$ goes with $g'$."
         },
         {
           "id": "B",
@@ -1364,9 +1364,9 @@
         },
         {
           "id": "C",
-          "text": "$\\dfrac{1(-2) - 5(3)}{(-2)^2} = -\\dfrac{17}{4}$",
-          "is_correct": false,
-          "explanation": "The numerator of the Quotient Rule is $f'g - fg'$, not $fg' - f'g$. The order matters: $f'$ goes with $g$ and $f$ goes with $g'$."
+          "text": "$\\dfrac{5(-2) - 1(3)}{(-2)^2} = -\\dfrac{13}{4}$",
+          "is_correct": true,
+          "explanation": "By the Quotient Rule at $x=0$: $\\frac{f'(0)g(0)-f(0)g'(0)}{[g(0)]^2} = \\frac{(5)(-2)-(1)(3)}{(-2)^2} = \\frac{-10-3}{4} = -\\frac{13}{4}$."
         },
         {
           "id": "D",
@@ -1391,21 +1391,21 @@
       "choices": [
         {
           "id": "A",
-          "text": "$2x\\tan x + x^2\\sec^2 x - 3e^x\\sin x - 3e^x\\cos x$",
-          "is_correct": true,
-          "explanation": "Using Product Rule on each term: $\\frac{d}{dx}[x^2 \\tan x] = 2x\\tan x + x^2\\sec^2 x$; $\\frac{d}{dx}[3e^x\\sin x] = 3e^x\\sin x + 3e^x\\cos x$. So the result is $2x\\tan x + x^2\\sec^2 x - 3e^x\\sin x - 3e^x\\cos x$."
-        },
-        {
-          "id": "B",
           "text": "$2x\\sec^2 x - 3e^x\\cos x$",
           "is_correct": false,
           "explanation": "This only partially differentiates each term. The Product Rule requires two terms per product, not one."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "$2x\\tan x + x^2\\sec^2 x - 3e^x\\cos x$",
           "is_correct": false,
           "explanation": "The second product $3e^x\\sin x$ requires the Product Rule: $3e^x\\sin x + 3e^x\\cos x$. The first part $-3e^x\\sin x$ is missing."
+        },
+        {
+          "id": "C",
+          "text": "$2x\\tan x + x^2\\sec^2 x - 3e^x\\sin x - 3e^x\\cos x$",
+          "is_correct": true,
+          "explanation": "Using Product Rule on each term: $\\frac{d}{dx}[x^2 \\tan x] = 2x\\tan x + x^2\\sec^2 x$; $\\frac{d}{dx}[3e^x\\sin x] = 3e^x\\sin x + 3e^x\\cos x$. So the result is $2x\\tan x + x^2\\sec^2 x - 3e^x\\sin x - 3e^x\\cos x$."
         },
         {
           "id": "D",
@@ -1431,27 +1431,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$f'(0) = 7$",
-          "is_correct": true,
-          "explanation": "The given limit $\\lim_{h \\to 0} \\frac{f(h)-f(0)}{h} = \\lim_{h \\to 0} \\frac{f(h)-1}{h} = 7$ is precisely the limit definition of $f'(0)$. Hence $f'(0) = 7$."
-        },
-        {
-          "id": "B",
-          "text": "$f(7) = 1$",
-          "is_correct": false,
-          "explanation": "The limit tells us the derivative at $x=0$, not the function value at $x=7$. There is no information about $f(7)$."
-        },
-        {
-          "id": "C",
           "text": "$f'(7) = 0$",
           "is_correct": false,
           "explanation": "The limit provides information about the derivative at $x = 0$, not at $x = 7$. No conclusion about $f'(7)$ can be drawn."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "$f(0) = 7$",
           "is_correct": false,
           "explanation": "The problem states $f(0) = 1$. The value $7$ is the derivative $f'(0)$, not the function value $f(0)$."
+        },
+        {
+          "id": "C",
+          "text": "$f(7) = 1$",
+          "is_correct": false,
+          "explanation": "The limit tells us the derivative at $x=0$, not the function value at $x=7$. There is no information about $f(7)$."
+        },
+        {
+          "id": "D",
+          "text": "$f'(0) = 7$",
+          "is_correct": true,
+          "explanation": "The given limit $\\lim_{h \\to 0} \\frac{f(h)-f(0)}{h} = \\lim_{h \\to 0} \\frac{f(h)-1}{h} = 7$ is precisely the limit definition of $f'(0)$. Hence $f'(0) = 7$."
         }
       ],
       "unit_objective": "CHA-2.B: Interpret a limit as the derivative using the limit definition.",
@@ -1470,15 +1470,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\dfrac{1 - \\ln x}{x^2}$",
-          "is_correct": true,
-          "explanation": "By the Quotient Rule: $f'(x) = \\frac{\\frac{1}{x} \\cdot x - \\ln x \\cdot 1}{x^2} = \\frac{1 - \\ln x}{x^2}$."
-        },
-        {
-          "id": "B",
           "text": "$\\dfrac{1}{x^2}$",
           "is_correct": false,
           "explanation": "This only accounts for differentiating $\\ln x$ in the numerator while ignoring the denominator $x$ via the Quotient Rule. The correct result is $\\frac{1-\\ln x}{x^2}$."
+        },
+        {
+          "id": "B",
+          "text": "$\\dfrac{1 - \\ln x}{x^2}$",
+          "is_correct": true,
+          "explanation": "By the Quotient Rule: $f'(x) = \\frac{\\frac{1}{x} \\cdot x - \\ln x \\cdot 1}{x^2} = \\frac{1 - \\ln x}{x^2}$."
         },
         {
           "id": "C",
@@ -1510,9 +1510,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\dfrac{2(-1)(5) - 2(3)(4)}{25} = -\\dfrac{34}{25}$",
-          "is_correct": true,
-          "explanation": "Using the Quotient Rule: $\\frac{2f'(2)g(2)-2f(2)g'(2)}{[g(2)]^2} = \\frac{2(-1)(5)-2(3)(4)}{5^2} = \\frac{-10-24}{25} = -\\frac{34}{25}$."
+          "text": "$\\dfrac{-2}{5} = -\\dfrac{2}{5}$",
+          "is_correct": false,
+          "explanation": "This only computes $\\frac{2f'(2)}{g(2)}$ and ignores the $-2f(2)g'(2)$ term from the Quotient Rule."
         },
         {
           "id": "B",
@@ -1528,9 +1528,9 @@
         },
         {
           "id": "D",
-          "text": "$\\dfrac{-2}{5} = -\\dfrac{2}{5}$",
-          "is_correct": false,
-          "explanation": "This only computes $\\frac{2f'(2)}{g(2)}$ and ignores the $-2f(2)g'(2)$ term from the Quotient Rule."
+          "text": "$\\dfrac{2(-1)(5) - 2(3)(4)}{25} = -\\dfrac{34}{25}$",
+          "is_correct": true,
+          "explanation": "Using the Quotient Rule: $\\frac{2f'(2)g(2)-2f(2)g'(2)}{[g(2)]^2} = \\frac{2(-1)(5)-2(3)(4)}{5^2} = \\frac{-10-24}{25} = -\\frac{34}{25}$."
         }
       ],
       "unit_objective": "FUN-3.B: Apply the Quotient Rule using given function and derivative values.",
@@ -1549,27 +1549,27 @@
       "choices": [
         {
           "id": "A",
+          "text": "$-\\cos x$",
+          "is_correct": false,
+          "explanation": "$-\\cos x$ is the second derivative of $\\cos x$, not $\\sin x$. The second derivative of $\\sin x$ is $-\\sin x$."
+        },
+        {
+          "id": "B",
           "text": "$-\\sin x$",
           "is_correct": true,
           "explanation": "$\\frac{d}{dx}[\\sin x] = \\cos x$. Then $\\frac{d}{dx}[\\cos x] = -\\sin x$. So $\\frac{d^2}{dx^2}[\\sin x] = -\\sin x$."
         },
         {
-          "id": "B",
+          "id": "C",
           "text": "$\\sin x$",
           "is_correct": false,
           "explanation": "$\\sin x$ is the original function, not its second derivative. Two differentiations of $\\sin x$ give $-\\sin x$."
         },
         {
-          "id": "C",
+          "id": "D",
           "text": "$\\cos x$",
           "is_correct": false,
           "explanation": "$\\cos x$ is the first derivative of $\\sin x$, not the second. Differentiating $\\cos x$ gives $-\\sin x$."
-        },
-        {
-          "id": "D",
-          "text": "$-\\cos x$",
-          "is_correct": false,
-          "explanation": "$-\\cos x$ is the second derivative of $\\cos x$, not $\\sin x$. The second derivative of $\\sin x$ is $-\\sin x$."
         }
       ],
       "unit_objective": "FUN-3.A: Apply differentiation rules repeatedly to find higher-order derivatives.",
@@ -1595,15 +1595,15 @@
         },
         {
           "id": "B",
-          "text": "$f$ is differentiable at $x = 3$ with $f'(3) = 0$.",
-          "is_correct": false,
-          "explanation": "At $x = 3$, the function has a corner. The left derivative is $-1$ and the right derivative is $1$. Since they differ, $f'(3)$ does not exist."
-        },
-        {
-          "id": "C",
           "text": "$f$ is not differentiable at $x = 3$ because $f$ is not continuous there.",
           "is_correct": false,
           "explanation": "$f(x) = |x-3|$ is continuous everywhere including $x = 3$ (since $f(3) = 0$ and $\\lim_{x \\to 3} |x-3| = 0$). The issue is the corner, not continuity."
+        },
+        {
+          "id": "C",
+          "text": "$f$ is differentiable at $x = 3$ with $f'(3) = 0$.",
+          "is_correct": false,
+          "explanation": "At $x = 3$, the function has a corner. The left derivative is $-1$ and the right derivative is $1$. Since they differ, $f'(3)$ does not exist."
         },
         {
           "id": "D",
@@ -1628,27 +1628,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$f'(x)g(x)h(x) + f(x)g'(x)h(x) + f(x)g(x)h'(x)$",
-          "is_correct": true,
-          "explanation": "Applying the Product Rule repeatedly (or using the generalized product rule for three factors): $p'(x) = f'gh + fg'h + fgh'$, where each term differentiates exactly one factor while the others remain unchanged."
-        },
-        {
-          "id": "B",
-          "text": "$f'(x)g'(x)h'(x)$",
-          "is_correct": false,
-          "explanation": "The Product Rule does not multiply the derivatives. For a product of three functions, $p'$ is the sum of three terms, each differentiating one factor."
-        },
-        {
-          "id": "C",
           "text": "$[f'(x) + g'(x) + h'(x)]$",
           "is_correct": false,
           "explanation": "This would be the derivative of $f(x) + g(x) + h(x)$ by the Sum Rule, not the derivative of a product."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "$f'(x)g(x) + f(x)g'(x)h(x)$",
           "is_correct": false,
           "explanation": "This only applies the Product Rule to two of the three factors. A third term $f(x)g(x)h'(x)$ is missing."
+        },
+        {
+          "id": "C",
+          "text": "$f'(x)g(x)h(x) + f(x)g'(x)h(x) + f(x)g(x)h'(x)$",
+          "is_correct": true,
+          "explanation": "Applying the Product Rule repeatedly (or using the generalized product rule for three factors): $p'(x) = f'gh + fg'h + fgh'$, where each term differentiates exactly one factor while the others remain unchanged."
+        },
+        {
+          "id": "D",
+          "text": "$f'(x)g'(x)h'(x)$",
+          "is_correct": false,
+          "explanation": "The Product Rule does not multiply the derivatives. For a product of three functions, $p'$ is the sum of three terms, each differentiating one factor."
         }
       ],
       "unit_objective": "FUN-3.B: Extend the Product Rule to products of three differentiable functions.",
@@ -1668,27 +1668,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$8$",
-          "is_correct": true,
-          "explanation": "Since the line is tangent to $f$ at $(2,5)$: $f(2) = 5$ (the point is on the graph) and $f'(2) = 3$ (the slope of the tangent line is the derivative). Thus $f(2) + f'(2) = 5 + 3 = 8$."
-        },
-        {
-          "id": "B",
           "text": "$6$",
           "is_correct": false,
           "explanation": "This may confuse $f(2) = 5$ with the line value or the slope. The correct sum is $f(2) + f'(2) = 5 + 3 = 8$."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "$2$",
           "is_correct": false,
           "explanation": "This may mistake $f(2) = 2$ (confusing the $x$-coordinate with the $y$-coordinate). $f(2) = 5$ since $(2,5)$ is on the graph."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$-1$",
           "is_correct": false,
           "explanation": "$-1$ is the $y$-intercept of the tangent line, not a function value or derivative. $f(2) = 5$ and $f'(2) = 3$ gives a sum of $8$."
+        },
+        {
+          "id": "D",
+          "text": "$8$",
+          "is_correct": true,
+          "explanation": "Since the line is tangent to $f$ at $(2,5)$: $f(2) = 5$ (the point is on the graph) and $f'(2) = 3$ (the slope of the tangent line is the derivative). Thus $f(2) + f'(2) = 5 + 3 = 8$."
         }
       ],
       "unit_objective": "CHA-2.D: Relate the equation of a tangent line to function values and derivatives.",
@@ -1707,27 +1707,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\dfrac{2x\\cos x + (x^2+1)\\sin x}{\\cos^2 x}$",
-          "is_correct": true,
-          "explanation": "By the Quotient Rule: $\\frac{(2x)(\\cos x)-(x^2+1)(-\\sin x)}{\\cos^2 x} = \\frac{2x\\cos x + (x^2+1)\\sin x}{\\cos^2 x}$."
-        },
-        {
-          "id": "B",
           "text": "$\\dfrac{2x\\cos x - (x^2+1)\\sin x}{\\cos^2 x}$",
           "is_correct": false,
           "explanation": "The derivative of $\\cos x$ is $-\\sin x$, so $-uv' = -(x^2+1)(-\\sin x) = +(x^2+1)\\sin x$. The second term should be positive, not negative."
         },
         {
-          "id": "C",
-          "text": "$\\dfrac{2x}{-\\sin x}$",
-          "is_correct": false,
-          "explanation": "This incorrectly differentiates numerator and denominator separately. The Quotient Rule must be applied."
+          "id": "B",
+          "text": "$\\dfrac{2x\\cos x + (x^2+1)\\sin x}{\\cos^2 x}$",
+          "is_correct": true,
+          "explanation": "By the Quotient Rule: $\\frac{(2x)(\\cos x)-(x^2+1)(-\\sin x)}{\\cos^2 x} = \\frac{2x\\cos x + (x^2+1)\\sin x}{\\cos^2 x}$."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$\\dfrac{2x\\cos x + (x^2+1)\\sin x}{\\cos x}$",
           "is_correct": false,
           "explanation": "The denominator should be $\\cos^2 x$, not $\\cos x$. The Quotient Rule squares the denominator."
+        },
+        {
+          "id": "D",
+          "text": "$\\dfrac{2x}{-\\sin x}$",
+          "is_correct": false,
+          "explanation": "This incorrectly differentiates numerator and denominator separately. The Quotient Rule must be applied."
         }
       ],
       "unit_objective": "FUN-3.B: Apply the Quotient Rule to a rational-trigonometric expression.",
@@ -1747,27 +1747,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$f$ is not differentiable at $x = 1$ because $f$ is not continuous there.",
+          "text": "$f$ is differentiable at $x = 1$ with $f'(1) = -\\pi$.",
           "is_correct": false,
-          "explanation": "$\\lim_{x \\to 1^-} \\sin(\\pi x) = \\sin(\\pi) = 0$ and $f(1) = 1-1 = 0$. So $f$ is continuous at $x=1$. Continuity is not the issue."
+          "explanation": "$-\\pi$ is only the left-hand derivative. The right-hand derivative is $2 \\neq -\\pi$, so the derivative does not exist at $x = 1$."
         },
         {
           "id": "B",
-          "text": "$f$ is differentiable at $x = 1$ with $f'(1) = 2$.",
-          "is_correct": false,
-          "explanation": "Left derivative: $\\pi\\cos(\\pi \\cdot 1) = \\pi(-1) = -\\pi \\approx -3.14$. Right derivative: $2(1) = 2$. Since $-\\pi \\neq 2$, $f$ is not differentiable at $x = 1$."
-        },
-        {
-          "id": "C",
           "text": "$f$ is not differentiable at $x = 1$ because the left and right derivatives are unequal.",
           "is_correct": true,
           "explanation": "Left derivative at $x=1$: $\\frac{d}{dx}[\\sin(\\pi x)]|_{x=1} = \\pi\\cos(\\pi) = -\\pi$. Right derivative: $\\frac{d}{dx}[x^2-1]|_{x=1} = 2$. Since $-\\pi \\neq 2$, $f'(1)$ does not exist."
         },
         {
-          "id": "D",
-          "text": "$f$ is differentiable at $x = 1$ with $f'(1) = -\\pi$.",
+          "id": "C",
+          "text": "$f$ is not differentiable at $x = 1$ because $f$ is not continuous there.",
           "is_correct": false,
-          "explanation": "$-\\pi$ is only the left-hand derivative. The right-hand derivative is $2 \\neq -\\pi$, so the derivative does not exist at $x = 1$."
+          "explanation": "$\\lim_{x \\to 1^-} \\sin(\\pi x) = \\sin(\\pi) = 0$ and $f(1) = 1-1 = 0$. So $f$ is continuous at $x=1$. Continuity is not the issue."
+        },
+        {
+          "id": "D",
+          "text": "$f$ is differentiable at $x = 1$ with $f'(1) = 2$.",
+          "is_correct": false,
+          "explanation": "Left derivative: $\\pi\\cos(\\pi \\cdot 1) = \\pi(-1) = -\\pi \\approx -3.14$. Right derivative: $2(1) = 2$. Since $-\\pi \\neq 2$, $f$ is not differentiable at $x = 1$."
         }
       ],
       "unit_objective": "FUN-2.A: Determine differentiability of a piecewise function using one-sided derivatives.",
@@ -1792,21 +1792,21 @@
         },
         {
           "id": "B",
+          "text": "$x = \\sqrt{e}$",
+          "is_correct": false,
+          "explanation": "At $x=\\sqrt{e}$: $f'(\\sqrt{e}) = \\sqrt{e}(2 \\cdot \\frac{1}{2} + 1) = \\sqrt{e}(2) = 2\\sqrt{e} \\neq 0$. The horizontal tangent occurs at $x = \\frac{1}{\\sqrt{e}}$, not $x = \\sqrt{e}$."
+        },
+        {
+          "id": "C",
           "text": "$x = \\dfrac{1}{\\sqrt{e}}$",
           "is_correct": true,
           "explanation": "By the Product Rule: $f'(x) = 2x \\ln x + x^2 \\cdot \\frac{1}{x} = 2x\\ln x + x = x(2\\ln x + 1)$. Setting $f'(x) = 0$ with $x > 0$: $2\\ln x + 1 = 0 \\Rightarrow \\ln x = -\\frac{1}{2} \\Rightarrow x = e^{-1/2} = \\frac{1}{\\sqrt{e}}$."
         },
         {
-          "id": "C",
+          "id": "D",
           "text": "$x = 1$",
           "is_correct": false,
           "explanation": "At $x=1$: $f'(1) = 1(2\\ln 1 + 1) = 1(0+1) = 1 \\neq 0$. The tangent line at $x=1$ has slope $1$, not $0$."
-        },
-        {
-          "id": "D",
-          "text": "$x = \\sqrt{e}$",
-          "is_correct": false,
-          "explanation": "At $x=\\sqrt{e}$: $f'(\\sqrt{e}) = \\sqrt{e}(2 \\cdot \\frac{1}{2} + 1) = \\sqrt{e}(2) = 2\\sqrt{e} \\neq 0$. The horizontal tangent occurs at $x = \\frac{1}{\\sqrt{e}}$, not $x = \\sqrt{e}$."
         }
       ],
       "unit_objective": "CHA-2.D: Use the Product Rule and set the derivative to zero to locate horizontal tangent lines.",
@@ -1831,21 +1831,21 @@
         },
         {
           "id": "B",
+          "text": "$(n-1)x^n$",
+          "is_correct": false,
+          "explanation": "Both the coefficient and the exponent are wrong. The Power Rule gives $nx^{n-1}$: the coefficient is $n$ (not $n-1$) and the exponent is $n-1$ (not $n$)."
+        },
+        {
+          "id": "C",
           "text": "$x^n$",
           "is_correct": false,
           "explanation": "$x^n$ is the original function, not its derivative. The limit of the difference quotient gives the derivative $nx^{n-1}$."
         },
         {
-          "id": "C",
+          "id": "D",
           "text": "$n(x+h)^{n-1}$",
           "is_correct": false,
           "explanation": "After taking the limit as $h \\to 0$, the $h$ in $x+h$ disappears. The result is $nx^{n-1}$, not $n(x+h)^{n-1}$."
-        },
-        {
-          "id": "D",
-          "text": "$(n-1)x^n$",
-          "is_correct": false,
-          "explanation": "Both the coefficient and the exponent are wrong. The Power Rule gives $nx^{n-1}$: the coefficient is $n$ (not $n-1$) and the exponent is $n-1$ (not $n$)."
         }
       ],
       "unit_objective": "CHA-2.B: Connect the limit definition of the derivative to the Power Rule.",
@@ -1910,15 +1910,15 @@
         },
         {
           "id": "B",
-          "text": "$3x^2 \\csc x + x^3 \\csc x \\cot x$",
-          "is_correct": false,
-          "explanation": "The sign of the second term is wrong. The derivative of $\\csc x$ is $-\\csc x \\cot x$, so the second term should be $-x^3 \\csc x \\cot x$."
-        },
-        {
-          "id": "C",
           "text": "$-3x^2 \\csc x \\cot x$",
           "is_correct": false,
           "explanation": "This only differentiates $\\csc x$ and ignores the term from differentiating $x^3$. The Product Rule requires both terms."
+        },
+        {
+          "id": "C",
+          "text": "$3x^2 \\csc x + x^3 \\csc x \\cot x$",
+          "is_correct": false,
+          "explanation": "The sign of the second term is wrong. The derivative of $\\csc x$ is $-\\csc x \\cot x$, so the second term should be $-x^3 \\csc x \\cot x$."
         },
         {
           "id": "D",
@@ -1944,21 +1944,21 @@
       "choices": [
         {
           "id": "A",
+          "text": "$15$",
+          "is_correct": false,
+          "explanation": "Setting $f(3)+f(1) = 4 \\cdot 2$ incorrectly adds rather than subtracts. The definition uses $f(3) - f(1)$ in the numerator."
+        },
+        {
+          "id": "B",
           "text": "$-1$",
           "is_correct": true,
           "explanation": "Average rate of change on $[1,3]$: $\\frac{f(3)-f(1)}{3-1} = 4 \\Rightarrow \\frac{7-f(1)}{2} = 4 \\Rightarrow 7-f(1) = 8 \\Rightarrow f(1) = -1$."
         },
         {
-          "id": "B",
+          "id": "C",
           "text": "$3$",
           "is_correct": false,
           "explanation": "Solving $\\frac{7-f(1)}{2} = 4$ gives $f(1) = 7-8 = -1$, not $3$."
-        },
-        {
-          "id": "C",
-          "text": "$15$",
-          "is_correct": false,
-          "explanation": "Setting $f(3)+f(1) = 4 \\cdot 2$ incorrectly adds rather than subtracts. The definition uses $f(3) - f(1)$ in the numerator."
         },
         {
           "id": "D",
@@ -1983,27 +1983,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\dfrac{e^{\\pi/4}(\\pi/4 \\cdot \\tan(\\pi/4) + \\pi/4 \\cdot \\sec^2(\\pi/4) - 2\\tan(\\pi/4))}{(\\pi/4)^2}$",
-          "is_correct": false,
-          "explanation": "The structure is close, but the correct numerator from the Quotient Rule is $(e^x\\tan x + e^x\\sec^2 x)(x^2) - e^x\\tan x(2x)$, all divided by $x^4$. This simplification needs verification at $x = \\pi/4$."
-        },
-        {
-          "id": "B",
-          "text": "$\\dfrac{e^{\\pi/4}(\\tan(\\pi/4) + \\sec^2(\\pi/4))}{(\\pi/4)^2} - \\dfrac{2e^{\\pi/4}\\tan(\\pi/4)}{(\\pi/4)^3}$",
-          "is_correct": true,
-          "explanation": "By the Quotient Rule: numerator $= e^x(\\tan x + \\sec^2 x) \\cdot x^2 - e^x \\tan x \\cdot 2x$, divided by $x^4$. At $x=\\pi/4$ with $\\tan(\\pi/4)=1$ and $\\sec^2(\\pi/4)=2$: $= \\frac{e^{\\pi/4}(1+2)}{(\\pi/4)^2} - \\frac{2e^{\\pi/4}}{(\\pi/4)^3}$, which matches choice B."
-        },
-        {
-          "id": "C",
           "text": "$\\dfrac{e^{\\pi/4}(1 + 2)}{(\\pi/4)^2}$",
           "is_correct": false,
           "explanation": "This omits the $-\\frac{2e^{\\pi/4}\\tan(\\pi/4)}{(\\pi/4)^3}$ term that arises from differentiating the denominator $x^2$. The full Quotient Rule must be applied."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "$e^{\\pi/4} \\cdot \\sec^2(\\pi/4) \\cdot \\dfrac{1}{2\\pi/4}$",
           "is_correct": false,
           "explanation": "This incorrectly differentiates each factor separately and divides rather than applying the Quotient Rule. All three factors ($e^x$, $\\tan x$, $x^{-2}$) require the full Product/Quotient Rule treatment."
+        },
+        {
+          "id": "C",
+          "text": "$\\dfrac{e^{\\pi/4}(\\pi/4 \\cdot \\tan(\\pi/4) + \\pi/4 \\cdot \\sec^2(\\pi/4) - 2\\tan(\\pi/4))}{(\\pi/4)^2}$",
+          "is_correct": false,
+          "explanation": "The structure is close, but the correct numerator from the Quotient Rule is $(e^x\\tan x + e^x\\sec^2 x)(x^2) - e^x\\tan x(2x)$, all divided by $x^4$. This simplification needs verification at $x = \\pi/4$."
+        },
+        {
+          "id": "D",
+          "text": "$\\dfrac{e^{\\pi/4}(\\tan(\\pi/4) + \\sec^2(\\pi/4))}{(\\pi/4)^2} - \\dfrac{2e^{\\pi/4}\\tan(\\pi/4)}{(\\pi/4)^3}$",
+          "is_correct": true,
+          "explanation": "By the Quotient Rule: numerator $= e^x(\\tan x + \\sec^2 x) \\cdot x^2 - e^x \\tan x \\cdot 2x$, divided by $x^4$. At $x=\\pi/4$ with $\\tan(\\pi/4)=1$ and $\\sec^2(\\pi/4)=2$: $= \\frac{e^{\\pi/4}(1+2)}{(\\pi/4)^2} - \\frac{2e^{\\pi/4}}{(\\pi/4)^3}$, which matches choice B."
         }
       ],
       "unit_objective": "FUN-3.B: Apply the Quotient Rule and Product Rule in multi-function compositions.",
@@ -2034,15 +2034,15 @@
         },
         {
           "id": "C",
-          "text": "$\\dfrac{-12}{x^5}$",
-          "is_correct": false,
-          "explanation": "The sign is wrong. $f''(x) = (-3)(-4)x^{-5} = +12x^{-5}$. Two negatives multiply to give a positive coefficient."
-        },
-        {
-          "id": "D",
           "text": "$\\dfrac{6}{x^4}$",
           "is_correct": false,
           "explanation": "Both the coefficient and exponent are wrong. The correct second derivative is $12x^{-5} = \\frac{12}{x^5}$."
+        },
+        {
+          "id": "D",
+          "text": "$\\dfrac{-12}{x^5}$",
+          "is_correct": false,
+          "explanation": "The sign is wrong. $f''(x) = (-3)(-4)x^{-5} = +12x^{-5}$. Two negatives multiply to give a positive coefficient."
         }
       ],
       "unit_objective": "FUN-3.A: Apply the Power Rule repeatedly to compute higher-order derivatives.",
@@ -2062,15 +2062,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$x = -1$",
+          "text": "$x = 1$",
           "is_correct": false,
-          "explanation": "$x = -1$ is in the interior of $[-2, 0]$ where $f$ is linear, hence differentiable with $f'(-1) = 3$."
+          "explanation": "$x = 1$ is in the interior of $[0, 2]$ where $f$ is linear with slope $-1$, so $f$ is differentiable there."
         },
         {
           "id": "B",
-          "text": "$x = 0$",
-          "is_correct": true,
-          "explanation": "At $x = 0$, the graph has a cusp. The left derivative is $3$ and the right derivative is $-1$. Since $3 \\neq -1$, $f'(0)$ does not exist, so $f$ is not differentiable at $x = 0$."
+          "text": "$x = -1$",
+          "is_correct": false,
+          "explanation": "$x = -1$ is in the interior of $[-2, 0]$ where $f$ is linear, hence differentiable with $f'(-1) = 3$."
         },
         {
           "id": "C",
@@ -2080,9 +2080,9 @@
         },
         {
           "id": "D",
-          "text": "$x = 1$",
-          "is_correct": false,
-          "explanation": "$x = 1$ is in the interior of $[0, 2]$ where $f$ is linear with slope $-1$, so $f$ is differentiable there."
+          "text": "$x = 0$",
+          "is_correct": true,
+          "explanation": "At $x = 0$, the graph has a cusp. The left derivative is $3$ and the right derivative is $-1$. Since $3 \\neq -1$, $f'(0)$ does not exist, so $f$ is not differentiable at $x = 0$."
         }
       ],
       "unit_objective": "FUN-2.A: Identify points of non-differentiability from a piecewise-linear or cusped graph.",
@@ -2101,27 +2101,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$e^x\\sin x(2x + x^2) + x^2 e^x \\cos x$",
-          "is_correct": true,
-          "explanation": "Using the generalized Product Rule for three factors: $\\frac{d}{dx}[x^2 e^x \\sin x] = 2x \\cdot e^x \\sin x + x^2 \\cdot e^x \\sin x + x^2 \\cdot e^x \\cos x = e^x\\sin x(2x+x^2) + x^2 e^x \\cos x$."
-        },
-        {
-          "id": "B",
           "text": "$2x \\cdot e^x \\cdot \\cos x$",
           "is_correct": false,
           "explanation": "This multiplies the derivatives of all three factors, which is incorrect. The Product Rule for three factors sums three terms, each differentiating one factor at a time."
         },
         {
-          "id": "C",
-          "text": "$x^2 e^x \\cos x$",
-          "is_correct": false,
-          "explanation": "This only includes the term from differentiating $\\sin x$. Two additional terms arise from differentiating $x^2$ and $e^x$."
-        },
-        {
-          "id": "D",
+          "id": "B",
           "text": "$2xe^x \\sin x + x^2 e^x \\sin x$",
           "is_correct": false,
           "explanation": "This omits the term from differentiating $\\sin x$, which contributes $x^2 e^x \\cos x$. All three terms of the extended Product Rule are needed."
+        },
+        {
+          "id": "C",
+          "text": "$e^x\\sin x(2x + x^2) + x^2 e^x \\cos x$",
+          "is_correct": true,
+          "explanation": "Using the generalized Product Rule for three factors: $\\frac{d}{dx}[x^2 e^x \\sin x] = 2x \\cdot e^x \\sin x + x^2 \\cdot e^x \\sin x + x^2 \\cdot e^x \\cos x = e^x\\sin x(2x+x^2) + x^2 e^x \\cos x$."
+        },
+        {
+          "id": "D",
+          "text": "$x^2 e^x \\cos x$",
+          "is_correct": false,
+          "explanation": "This only includes the term from differentiating $\\sin x$. Two additional terms arise from differentiating $x^2$ and $e^x$."
         }
       ],
       "unit_objective": "FUN-3.B: Apply the Product Rule to a triple product of differentiable functions.",
@@ -2147,21 +2147,21 @@
         },
         {
           "id": "B",
-          "text": "$7$",
-          "is_correct": false,
-          "explanation": "$7 = \\frac{f(3)-f(2)}{1}$ is the right-sided difference quotient approximation. The symmetric average $\\frac{f(3)-f(1)}{2} = \\frac{16-4}{2} = 6$ is a better approximation."
-        },
-        {
-          "id": "C",
           "text": "$5$",
           "is_correct": false,
           "explanation": "$5 = \\frac{f(2)-f(1)}{1}$ is the left-sided difference quotient. The symmetric approximation $\\frac{f(3)-f(1)}{2} = 6$ is better."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$9$",
           "is_correct": false,
           "explanation": "$f(2) = 9$ is the function value, not the derivative. The derivative at $x=2$ is $f'(2) = 6$."
+        },
+        {
+          "id": "D",
+          "text": "$7$",
+          "is_correct": false,
+          "explanation": "$7 = \\frac{f(3)-f(2)}{1}$ is the right-sided difference quotient approximation. The symmetric average $\\frac{f(3)-f(1)}{2} = \\frac{16-4}{2} = 6$ is a better approximation."
         }
       ],
       "unit_objective": "CHA-2.A: Approximate and interpret instantaneous rate of change using symmetric difference quotients.",

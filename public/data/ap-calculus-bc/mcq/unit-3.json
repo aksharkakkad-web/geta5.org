@@ -14,21 +14,21 @@
       "choices": [
         {
           "id": "A",
-          "text": "$-\\sin(3x^2)$",
-          "is_correct": false,
-          "explanation": "This applies the outer derivative correctly but omits the chain rule factor. The derivative of the inner function $3x^2$ is $6x$ and must be multiplied."
-        },
-        {
-          "id": "B",
           "text": "$-6x\\sin(3x^2)$",
           "is_correct": true,
           "explanation": "By the chain rule: $\\frac{d}{dx}[\\cos(u)] = -\\sin(u) \\cdot u'$ where $u = 3x^2$ and $u' = 6x$, giving $-6x\\sin(3x^2)$."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "$6x\\sin(3x^2)$",
           "is_correct": false,
           "explanation": "The derivative of $\\cos(u)$ is $-\\sin(u)$, not $+\\sin(u)$. The negative sign is required."
+        },
+        {
+          "id": "C",
+          "text": "$-\\sin(3x^2)$",
+          "is_correct": false,
+          "explanation": "This applies the outer derivative correctly but omits the chain rule factor. The derivative of the inner function $3x^2$ is $6x$ and must be multiplied."
         },
         {
           "id": "D",
@@ -92,21 +92,21 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{1}{\\sqrt{1-x^2}}$",
-          "is_correct": false,
-          "explanation": "This is the derivative of $\\arcsin(x)$, not $\\arctan(x)$. The two inverse trig derivatives are distinct."
-        },
-        {
-          "id": "B",
           "text": "$\\frac{1}{1+x^2}$",
           "is_correct": true,
           "explanation": "The derivative of $\\arctan(x)$ is $\\frac{1}{1+x^2}$. This is a standard result derived by implicitly differentiating $\\tan(y) = x$."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "$\\sec^2(x)$",
           "is_correct": false,
           "explanation": "$\\sec^2(x)$ is the derivative of $\\tan(x)$, not its inverse. The derivative of $\\arctan(x)$ involves $1+x^2$ in the denominator."
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{1}{\\sqrt{1-x^2}}$",
+          "is_correct": false,
+          "explanation": "This is the derivative of $\\arcsin(x)$, not $\\arctan(x)$. The two inverse trig derivatives are distinct."
         },
         {
           "id": "D",
@@ -137,21 +137,21 @@
         },
         {
           "id": "B",
+          "text": "$-\\frac{1}{\\sqrt{1-x^2}}$",
+          "is_correct": false,
+          "explanation": "The negative form is the derivative of $\\arccos(x)$, not $\\arcsin(x)$. The derivatives of $\\arcsin$ and $\\arccos$ differ by a sign."
+        },
+        {
+          "id": "C",
           "text": "$\\cos(x)$",
           "is_correct": false,
           "explanation": "$\\cos(x)$ is the derivative of $\\sin(x)$, not its inverse function $\\arcsin(x)$."
         },
         {
-          "id": "C",
+          "id": "D",
           "text": "$\\frac{1}{\\sqrt{1-x^2}}$",
           "is_correct": true,
           "explanation": "Implicitly differentiating $\\sin(y) = x$ gives $\\cos(y) \\cdot y' = 1$, so $y' = \\frac{1}{\\cos(y)} = \\frac{1}{\\sqrt{1-x^2}}$."
-        },
-        {
-          "id": "D",
-          "text": "$-\\frac{1}{\\sqrt{1-x^2}}$",
-          "is_correct": false,
-          "explanation": "The negative form is the derivative of $\\arccos(x)$, not $\\arcsin(x)$. The derivatives of $\\arcsin$ and $\\arccos$ differ by a sign."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -170,27 +170,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$e^{\\cos x}$",
-          "is_correct": false,
-          "explanation": "The chain rule does not replace the exponent with its derivative; rather, the exponential function is kept and multiplied by the derivative of the exponent."
-        },
-        {
-          "id": "B",
-          "text": "$e^{\\sin x} \\cdot \\sin x$",
-          "is_correct": false,
-          "explanation": "The derivative of $\\sin x$ is $\\cos x$, not $\\sin x$. The chain rule requires multiplying by $\\frac{d}{dx}[\\sin x] = \\cos x$."
-        },
-        {
-          "id": "C",
           "text": "$\\cos x \\cdot e^{\\sin x}$",
           "is_correct": true,
           "explanation": "Chain rule: $\\frac{d}{dx}[e^u] = e^u \\cdot u'$ with $u = \\sin x$ and $u' = \\cos x$, giving $e^{\\sin x} \\cdot \\cos x$."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "$e^{\\cos x} \\cdot \\cos x$",
           "is_correct": false,
           "explanation": "The exponential base keeps its original exponent $\\sin x$, not the derivative $\\cos x$. Only $e^{\\sin x}$ is multiplied by $\\cos x$."
+        },
+        {
+          "id": "C",
+          "text": "$e^{\\sin x} \\cdot \\sin x$",
+          "is_correct": false,
+          "explanation": "The derivative of $\\sin x$ is $\\cos x$, not $\\sin x$. The chain rule requires multiplying by $\\frac{d}{dx}[\\sin x] = \\cos x$."
+        },
+        {
+          "id": "D",
+          "text": "$e^{\\cos x}$",
+          "is_correct": false,
+          "explanation": "The chain rule does not replace the exponent with its derivative; rather, the exponential function is kept and multiplied by the derivative of the exponent."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -209,27 +209,27 @@
       "choices": [
         {
           "id": "A",
+          "text": "$\\ln(5)$",
+          "is_correct": false,
+          "explanation": "$\\ln(5)$ is a constant. The derivative of $\\ln(5x)$ is $\\frac{1}{x}$, not a constant."
+        },
+        {
+          "id": "B",
           "text": "$\\frac{1}{5x}$",
           "is_correct": false,
           "explanation": "This omits the chain rule factor. $\\frac{d}{dx}[\\ln(5x)] = \\frac{1}{5x} \\cdot 5 = \\frac{1}{x}$."
         },
         {
-          "id": "B",
+          "id": "C",
           "text": "$\\frac{5}{x}$",
           "is_correct": false,
           "explanation": "Applying the chain rule: $\\frac{d}{dx}[\\ln(5x)] = \\frac{1}{5x} \\cdot 5 = \\frac{1}{x}$, not $\\frac{5}{x}$."
         },
         {
-          "id": "C",
+          "id": "D",
           "text": "$\\frac{1}{x}$",
           "is_correct": true,
           "explanation": "Chain rule: $\\frac{d}{dx}[\\ln(u)] = \\frac{u'}{u}$ with $u = 5x$, $u' = 5$, giving $\\frac{5}{5x} = \\frac{1}{x}$. Equivalently, $\\ln(5x) = \\ln 5 + \\ln x$, whose derivative is $\\frac{1}{x}$."
-        },
-        {
-          "id": "D",
-          "text": "$\\ln(5)$",
-          "is_correct": false,
-          "explanation": "$\\ln(5)$ is a constant. The derivative of $\\ln(5x)$ is $\\frac{1}{x}$, not a constant."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -248,9 +248,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{x}{y}$",
+          "text": "$\\frac{y}{x}$",
           "is_correct": false,
-          "explanation": "Differentiating: $2x + 2y\\frac{dy}{dx} = 0$ gives $\\frac{dy}{dx} = -\\frac{x}{y}$. The negative sign is missing."
+          "explanation": "The ratio is inverted. From $2x + 2y\\frac{dy}{dx} = 0$, isolating $\\frac{dy}{dx}$ gives $-\\frac{x}{y}$."
         },
         {
           "id": "B",
@@ -260,15 +260,15 @@
         },
         {
           "id": "C",
-          "text": "$\\frac{y}{x}$",
-          "is_correct": false,
-          "explanation": "The ratio is inverted. From $2x + 2y\\frac{dy}{dx} = 0$, isolating $\\frac{dy}{dx}$ gives $-\\frac{x}{y}$."
-        },
-        {
-          "id": "D",
           "text": "$-\\frac{y}{x}$",
           "is_correct": false,
           "explanation": "The $x$ and $y$ are in the wrong positions. Implicit differentiation of $x^2 + y^2 = 25$ yields $\\frac{dy}{dx} = -\\frac{x}{y}$."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{x}{y}$",
+          "is_correct": false,
+          "explanation": "Differentiating: $2x + 2y\\frac{dy}{dx} = 0$ gives $\\frac{dy}{dx} = -\\frac{x}{y}$. The negative sign is missing."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -332,21 +332,21 @@
         },
         {
           "id": "B",
+          "text": "$\\frac{1}{1+3x^2}$",
+          "is_correct": false,
+          "explanation": "Both the chain rule factor and the squaring of the inner function are incorrect. The result is $\\frac{3}{1+9x^2}$."
+        },
+        {
+          "id": "C",
           "text": "$\\frac{3}{1+9x^2}$",
           "is_correct": true,
           "explanation": "Chain rule with $u = 3x$: $\\frac{d}{dx}[\\arctan(u)] = \\frac{u'}{1+u^2} = \\frac{3}{1+(3x)^2} = \\frac{3}{1+9x^2}$."
         },
         {
-          "id": "C",
+          "id": "D",
           "text": "$\\frac{3}{1+3x^2}$",
           "is_correct": false,
           "explanation": "The inner function is $3x$, so $u^2 = (3x)^2 = 9x^2$, not $3x^2$. The denominator must be $1 + 9x^2$."
-        },
-        {
-          "id": "D",
-          "text": "$\\frac{1}{1+3x^2}$",
-          "is_correct": false,
-          "explanation": "Both the chain rule factor and the squaring of the inner function are incorrect. The result is $\\frac{3}{1+9x^2}$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -365,27 +365,27 @@
       "choices": [
         {
           "id": "A",
+          "text": "$3x^2 - \\cos y$",
+          "is_correct": false,
+          "explanation": "The implicit differentiation of $\\sin y$ with respect to $x$ produces $\\cos(y)\\frac{dy}{dx}$, which must be moved to the left side before solving, yielding $\\frac{3x^2}{1-\\cos y}$."
+        },
+        {
+          "id": "B",
           "text": "$3x^2 + \\cos y$",
           "is_correct": false,
           "explanation": "Differentiating $\\sin y$ with respect to $x$ gives $\\cos(y) \\cdot \\frac{dy}{dx}$, not just $\\cos y$. The equation must then be solved for $\\frac{dy}{dx}$."
         },
         {
-          "id": "B",
+          "id": "C",
           "text": "$\\frac{3x^2}{1 - \\cos y}$",
           "is_correct": true,
           "explanation": "Differentiating: $\\frac{dy}{dx} = 3x^2 + \\cos(y)\\frac{dy}{dx}$. Solving: $\\frac{dy}{dx}(1 - \\cos y) = 3x^2$, so $\\frac{dy}{dx} = \\frac{3x^2}{1-\\cos y}$."
         },
         {
-          "id": "C",
+          "id": "D",
           "text": "$\\frac{3x^2}{1 + \\cos y}$",
           "is_correct": false,
           "explanation": "Rearranging $\\frac{dy}{dx} = 3x^2 + \\cos(y)\\frac{dy}{dx}$ gives $\\frac{dy}{dx}(1 - \\cos y) = 3x^2$, so the denominator is $1 - \\cos y$, not $1 + \\cos y$."
-        },
-        {
-          "id": "D",
-          "text": "$3x^2 - \\cos y$",
-          "is_correct": false,
-          "explanation": "The implicit differentiation of $\\sin y$ with respect to $x$ produces $\\cos(y)\\frac{dy}{dx}$, which must be moved to the left side before solving, yielding $\\frac{3x^2}{1-\\cos y}$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -404,27 +404,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$3\\sin^2(4x) \\cdot \\cos(4x)$",
-          "is_correct": false,
-          "explanation": "The chain rule must be applied to the innermost function $4x$ as well. The derivative of $4x$ is $4$, giving an additional factor of $4$."
-        },
-        {
-          "id": "B",
-          "text": "$12\\sin^2(4x) \\cdot \\cos(4x)$",
-          "is_correct": true,
-          "explanation": "Two applications of the chain rule: outer $u^3$ gives $3u^2 \\cdot u'$ with $u = \\sin(4x)$, and $\\frac{d}{dx}[\\sin(4x)] = 4\\cos(4x)$. Result: $3\\sin^2(4x) \\cdot 4\\cos(4x) = 12\\sin^2(4x)\\cos(4x)$."
-        },
-        {
-          "id": "C",
           "text": "$4\\sin^2(4x) \\cdot \\cos(4x)$",
           "is_correct": false,
           "explanation": "The power rule factor of $3$ is missing. The correct coefficient is $3 \\cdot 4 = 12$."
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "$3\\sin^2(4x) \\cdot \\cos(4x)$",
+          "is_correct": false,
+          "explanation": "The chain rule must be applied to the innermost function $4x$ as well. The derivative of $4x$ is $4$, giving an additional factor of $4$."
+        },
+        {
+          "id": "C",
           "text": "$12\\cos^2(4x)$",
           "is_correct": false,
           "explanation": "The outer power rule produces $\\sin^2(4x)$, not $\\cos^2(4x)$. The $\\cos$ term comes from differentiating $\\sin(4x)$ and remains as a separate factor."
+        },
+        {
+          "id": "D",
+          "text": "$12\\sin^2(4x) \\cdot \\cos(4x)$",
+          "is_correct": true,
+          "explanation": "Two applications of the chain rule: outer $u^3$ gives $3u^2 \\cdot u'$ with $u = \\sin(4x)$, and $\\frac{d}{dx}[\\sin(4x)] = 4\\cos(4x)$. Result: $3\\sin^2(4x) \\cdot 4\\cos(4x) = 12\\sin^2(4x)\\cos(4x)$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -443,27 +443,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$-\\frac{4}{13}$",
-          "is_correct": true,
-          "explanation": "Implicit differentiation: $2xy + x^2\\frac{dy}{dx} + 3y^2\\frac{dy}{dx} = 0$. At $(1,2)$: $4 + \\frac{dy}{dx}(1 + 12) = 0$, so $\\frac{dy}{dx} = -\\frac{4}{13}$."
+          "text": "$-\\frac{2}{13}$",
+          "is_correct": false,
+          "explanation": "The numerator should be $2xy = 2(1)(2) = 4$ evaluated at $(1,2)$, not $2$. The slope is $-\\frac{4}{13}$."
         },
         {
           "id": "B",
-          "text": "$-\\frac{4}{7}$",
-          "is_correct": false,
-          "explanation": "Check the coefficient on $\\frac{dy}{dx}$: at $(1,2)$ it is $x^2 + 3y^2 = 1 + 12 = 13$, not $7$. The slope is $-\\frac{4}{13}$."
-        },
-        {
-          "id": "C",
           "text": "$\\frac{4}{13}$",
           "is_correct": false,
           "explanation": "The slope is negative. Moving the constant term $2xy = 4$ to the other side gives a negative $\\frac{dy}{dx}$."
         },
         {
+          "id": "C",
+          "text": "$-\\frac{4}{13}$",
+          "is_correct": true,
+          "explanation": "Implicit differentiation: $2xy + x^2\\frac{dy}{dx} + 3y^2\\frac{dy}{dx} = 0$. At $(1,2)$: $4 + \\frac{dy}{dx}(1 + 12) = 0$, so $\\frac{dy}{dx} = -\\frac{4}{13}$."
+        },
+        {
           "id": "D",
-          "text": "$-\\frac{2}{13}$",
+          "text": "$-\\frac{4}{7}$",
           "is_correct": false,
-          "explanation": "The numerator should be $2xy = 2(1)(2) = 4$ evaluated at $(1,2)$, not $2$. The slope is $-\\frac{4}{13}$."
+          "explanation": "Check the coefficient on $\\frac{dy}{dx}$: at $(1,2)$ it is $x^2 + 3y^2 = 1 + 12 = 13$, not $7$. The slope is $-\\frac{4}{13}$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -482,27 +482,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{1}{\\sqrt{4-x^2}}$",
-          "is_correct": true,
-          "explanation": "Chain rule with $u = \\frac{x}{2}$: $\\frac{1}{\\sqrt{1-u^2}} \\cdot \\frac{1}{2} = \\frac{1}{2\\sqrt{1-\\frac{x^2}{4}}} = \\frac{1}{2 \\cdot \\frac{\\sqrt{4-x^2}}{2}} = \\frac{1}{\\sqrt{4-x^2}}$."
+          "text": "$\\frac{1}{2\\sqrt{1-x^2}}$",
+          "is_correct": false,
+          "explanation": "The inner function $u = \\frac{x}{2}$ requires $u^2 = \\frac{x^2}{4}$ under the radical. Simplifying $\\frac{1}{2}\\cdot\\frac{1}{\\sqrt{1-x^2/4}}$ gives $\\frac{1}{\\sqrt{4-x^2}}$."
         },
         {
           "id": "B",
-          "text": "$\\frac{2}{\\sqrt{4-x^2}}$",
-          "is_correct": false,
-          "explanation": "The chain rule factor is $\\frac{1}{2}$ (derivative of $\\frac{x}{2}$), not $2$. This gives $\\frac{1}{\\sqrt{4-x^2}}$, not $\\frac{2}{\\sqrt{4-x^2}}$."
-        },
-        {
-          "id": "C",
           "text": "$\\frac{1}{\\sqrt{1-x^2}}$",
           "is_correct": false,
           "explanation": "The chain rule is applied to $u = \\frac{x}{2}$, so the $1$ inside the radical becomes $1 - \\frac{x^2}{4} = \\frac{4-x^2}{4}$, not $1-x^2$."
         },
         {
+          "id": "C",
+          "text": "$\\frac{1}{\\sqrt{4-x^2}}$",
+          "is_correct": true,
+          "explanation": "Chain rule with $u = \\frac{x}{2}$: $\\frac{1}{\\sqrt{1-u^2}} \\cdot \\frac{1}{2} = \\frac{1}{2\\sqrt{1-\\frac{x^2}{4}}} = \\frac{1}{2 \\cdot \\frac{\\sqrt{4-x^2}}{2}} = \\frac{1}{\\sqrt{4-x^2}}$."
+        },
+        {
           "id": "D",
-          "text": "$\\frac{1}{2\\sqrt{1-x^2}}$",
+          "text": "$\\frac{2}{\\sqrt{4-x^2}}$",
           "is_correct": false,
-          "explanation": "The inner function $u = \\frac{x}{2}$ requires $u^2 = \\frac{x^2}{4}$ under the radical. Simplifying $\\frac{1}{2}\\cdot\\frac{1}{\\sqrt{1-x^2/4}}$ gives $\\frac{1}{\\sqrt{4-x^2}}$."
+          "explanation": "The chain rule factor is $\\frac{1}{2}$ (derivative of $\\frac{x}{2}$), not $2$. This gives $\\frac{1}{\\sqrt{4-x^2}}$, not $\\frac{2}{\\sqrt{4-x^2}}$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -528,9 +528,9 @@
         },
         {
           "id": "B",
-          "text": "$-10$",
+          "text": "$-3$",
           "is_correct": false,
-          "explanation": "This would result from incorrectly evaluating $f'(1) \\cdot g'(1) = 2 \\cdot (-1) = -2$, but the chain rule requires $f'$ evaluated at $g(1) = 5$, not at $1$."
+          "explanation": "This is the value of $f'(5)$ alone. The chain rule requires multiplying by $g'(1) = -1$, giving $(-3)(-1) = 3$."
         },
         {
           "id": "C",
@@ -540,9 +540,9 @@
         },
         {
           "id": "D",
-          "text": "$-3$",
+          "text": "$-10$",
           "is_correct": false,
-          "explanation": "This is the value of $f'(5)$ alone. The chain rule requires multiplying by $g'(1) = -1$, giving $(-3)(-1) = 3$."
+          "explanation": "This would result from incorrectly evaluating $f'(1) \\cdot g'(1) = 2 \\cdot (-1) = -2$, but the chain rule requires $f'$ evaluated at $g(1) = 5$, not at $1$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -561,21 +561,21 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{2y - x^2}{y^2 - 2x}$",
-          "is_correct": true,
-          "explanation": "Differentiating: $3x^2 + 3y^2\\frac{dy}{dx} = 6y + 6x\\frac{dy}{dx}$. Collecting: $\\frac{dy}{dx}(3y^2 - 6x) = 6y - 3x^2$, so $\\frac{dy}{dx} = \\frac{6y - 3x^2}{3y^2 - 6x} = \\frac{2y-x^2}{y^2-2x}$."
-        },
-        {
-          "id": "B",
           "text": "$\\frac{y^2 - 2x}{2y - x^2}$",
           "is_correct": false,
           "explanation": "The numerator and denominator are inverted. Solving $\\frac{dy}{dx}(3y^2 - 6x) = 6y - 3x^2$ gives $\\frac{dy}{dx} = \\frac{6y-3x^2}{3y^2-6x} = \\frac{2y-x^2}{y^2-2x}$."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "$\\frac{2y + x^2}{y^2 + 2x}$",
           "is_correct": false,
           "explanation": "The signs are incorrect. The product rule on $6xy$ gives $6y + 6x\\frac{dy}{dx}$; moving $6x\\frac{dy}{dx}$ to the left introduces a negative, not a positive, in the denominator."
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{2y - x^2}{y^2 - 2x}$",
+          "is_correct": true,
+          "explanation": "Differentiating: $3x^2 + 3y^2\\frac{dy}{dx} = 6y + 6x\\frac{dy}{dx}$. Collecting: $\\frac{dy}{dx}(3y^2 - 6x) = 6y - 3x^2$, so $\\frac{dy}{dx} = \\frac{6y - 3x^2}{3y^2 - 6x} = \\frac{2y-x^2}{y^2-2x}$."
         },
         {
           "id": "D",
@@ -601,27 +601,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$4$",
-          "is_correct": false,
-          "explanation": "$p'(4) = g'(f(4)) \\cdot f'(4)$. From the table: $f(4) = 2$, $g'(2) = -2$, $f'(4) = -1$. So $p'(4) = (-2)(-1) = 2$, not $4$."
-        },
-        {
-          "id": "B",
-          "text": "$-4$",
-          "is_correct": false,
-          "explanation": "Verify: $f(4) = 2$, $g'(2) = -2$, $f'(4) = -1$. The product $(-2)(-1) = 2$, not $-4$."
-        },
-        {
-          "id": "C",
           "text": "$2$",
           "is_correct": true,
           "explanation": "Chain rule: $p'(4) = g'(f(4)) \\cdot f'(4) = g'(2) \\cdot f'(4) = (-2)(-1) = 2$."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "$-2$",
           "is_correct": false,
           "explanation": "This is the value of $g'(2)$ alone. The chain rule requires multiplying by $f'(4) = -1$, giving $(-2)(-1) = 2$."
+        },
+        {
+          "id": "C",
+          "text": "$-4$",
+          "is_correct": false,
+          "explanation": "Verify: $f(4) = 2$, $g'(2) = -2$, $f'(4) = -1$. The product $(-2)(-1) = 2$, not $-4$."
+        },
+        {
+          "id": "D",
+          "text": "$4$",
+          "is_correct": false,
+          "explanation": "$p'(4) = g'(f(4)) \\cdot f'(4)$. From the table: $f(4) = 2$, $g'(2) = -2$, $f'(4) = -1$. So $p'(4) = (-2)(-1) = 2$, not $4$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -640,27 +640,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{1}{1+e^{2x}}$",
-          "is_correct": false,
-          "explanation": "The chain rule factor of $e^x$ (the derivative of $e^x$) is missing. The result is $\\frac{e^x}{1+e^{2x}}$."
-        },
-        {
-          "id": "B",
-          "text": "$\\frac{e^x}{1+e^{2x}}$",
-          "is_correct": true,
-          "explanation": "Chain rule with $u = e^x$: $\\frac{d}{dx}[\\arctan(u)] = \\frac{u'}{1+u^2} = \\frac{e^x}{1+(e^x)^2} = \\frac{e^x}{1+e^{2x}}$."
-        },
-        {
-          "id": "C",
           "text": "$\\frac{e^x}{1+e^x}$",
           "is_correct": false,
           "explanation": "The denominator requires $u^2 = (e^x)^2 = e^{2x}$, not $e^x$. The correct denominator is $1 + e^{2x}$."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "$\\frac{1}{(1+e^x)^2}$",
           "is_correct": false,
           "explanation": "The formula for $\\frac{d}{dx}[\\arctan(u)]$ is $\\frac{u'}{1+u^2}$, not $\\frac{1}{(1+u)^2}$. Apply the correct inverse tangent derivative formula."
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{e^x}{1+e^{2x}}$",
+          "is_correct": true,
+          "explanation": "Chain rule with $u = e^x$: $\\frac{d}{dx}[\\arctan(u)] = \\frac{u'}{1+u^2} = \\frac{e^x}{1+(e^x)^2} = \\frac{e^x}{1+e^{2x}}$."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{1}{1+e^{2x}}$",
+          "is_correct": false,
+          "explanation": "The chain rule factor of $e^x$ (the derivative of $e^x$) is missing. The result is $\\frac{e^x}{1+e^{2x}}$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -691,15 +691,15 @@
         },
         {
           "id": "C",
-          "text": "$9x^2 e^{3x}$",
-          "is_correct": false,
-          "explanation": "This is not the correct second derivative. The product rule must be applied twice, and both the $x^2$ and the $e^{3x}$ factors contribute terms to $f''(x)$."
-        },
-        {
-          "id": "D",
           "text": "$e^{3x}(9x^2 + 12x)$",
           "is_correct": false,
           "explanation": "The constant term $+2$ is missing. When differentiating $2xe^{3x}$, the product rule yields $2e^{3x}$ as a constant contribution to $f''(x)$."
+        },
+        {
+          "id": "D",
+          "text": "$9x^2 e^{3x}$",
+          "is_correct": false,
+          "explanation": "This is not the correct second derivative. The product rule must be applied twice, and both the $x^2$ and the $e^{3x}$ factors contribute terms to $f''(x)$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -719,27 +719,27 @@
       "choices": [
         {
           "id": "A",
+          "text": "$2$ m/s",
+          "is_correct": false,
+          "explanation": "The derivative $s'(t) = \\frac{2t}{1+t^4}$. At $t=1$ this equals $\\frac{2}{2} = 1$, not $2$. The denominator $1 + t^4 = 2$ at $t = 1$."
+        },
+        {
+          "id": "B",
           "text": "$\\frac{1}{2}$ m/s",
           "is_correct": false,
           "explanation": "$v(t) = s'(t) = \\frac{2t}{1+t^4}$. At $t = 1$: $v(1) = \\frac{2}{1+1} = 1$, not $\\frac{1}{2}$."
         },
         {
-          "id": "B",
+          "id": "C",
           "text": "$1$ m/s",
           "is_correct": true,
           "explanation": "Chain rule: $s'(t) = \\frac{2t}{1+t^4}$. At $t = 1$: $s'(1) = \\frac{2(1)}{1+(1)^4} = \\frac{2}{2} = 1$ m/s."
         },
         {
-          "id": "C",
+          "id": "D",
           "text": "$\\frac{\\pi}{4}$ m/s",
           "is_correct": false,
           "explanation": "$\\frac{\\pi}{4}$ is the position $s(1) = \\arctan(1)$, not the velocity. Velocity requires differentiating $s(t)$."
-        },
-        {
-          "id": "D",
-          "text": "$2$ m/s",
-          "is_correct": false,
-          "explanation": "The derivative $s'(t) = \\frac{2t}{1+t^4}$. At $t=1$ this equals $\\frac{2}{2} = 1$, not $2$. The denominator $1 + t^4 = 2$ at $t = 1$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -758,27 +758,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{1 - y\\cos(xy)}{x\\cos(xy)}$",
-          "is_correct": true,
-          "explanation": "Differentiating: $\\cos(xy)(y + x\\frac{dy}{dx}) = 1$. So $y\\cos(xy) + x\\cos(xy)\\frac{dy}{dx} = 1$, giving $\\frac{dy}{dx} = \\frac{1 - y\\cos(xy)}{x\\cos(xy)}$."
-        },
-        {
-          "id": "B",
-          "text": "$\\frac{1 + y\\cos(xy)}{x\\cos(xy)}$",
-          "is_correct": false,
-          "explanation": "The $y\\cos(xy)$ term moves to the right side with a negative sign: $\\frac{dy}{dx} = \\frac{1 - y\\cos(xy)}{x\\cos(xy)}$. The sign in the numerator is $-$, not $+$."
-        },
-        {
-          "id": "C",
           "text": "$\\frac{1}{\\cos(xy)} - y$",
           "is_correct": false,
           "explanation": "Division by $x\\cos(xy)$ is required, not just $\\cos(xy)$. The correct expression is $\\frac{1 - y\\cos(xy)}{x\\cos(xy)}$."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "$\\frac{1}{x\\cos(xy)}$",
           "is_correct": false,
           "explanation": "The product rule on $xy$ gives $y + x\\frac{dy}{dx}$, so $y\\cos(xy)$ must be moved to the numerator as a subtracted term. The full answer is $\\frac{1 - y\\cos(xy)}{x\\cos(xy)}$."
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{1 + y\\cos(xy)}{x\\cos(xy)}$",
+          "is_correct": false,
+          "explanation": "The $y\\cos(xy)$ term moves to the right side with a negative sign: $\\frac{dy}{dx} = \\frac{1 - y\\cos(xy)}{x\\cos(xy)}$. The sign in the numerator is $-$, not $+$."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{1 - y\\cos(xy)}{x\\cos(xy)}$",
+          "is_correct": true,
+          "explanation": "Differentiating: $\\cos(xy)(y + x\\frac{dy}{dx}) = 1$. So $y\\cos(xy) + x\\cos(xy)\\frac{dy}{dx} = 1$, giving $\\frac{dy}{dx} = \\frac{1 - y\\cos(xy)}{x\\cos(xy)}$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -798,21 +798,21 @@
       "choices": [
         {
           "id": "A",
-          "text": "$3$",
-          "is_correct": false,
-          "explanation": "$g'(5) = \\frac{1}{f'(g(5))}$. Since $f(2) = 5$, $g(5) = 2$. So $g'(5) = \\frac{1}{f'(2)} = \\frac{1}{3}$, not $3$."
-        },
-        {
-          "id": "B",
           "text": "$\\frac{1}{3}$",
           "is_correct": true,
           "explanation": "Inverse function derivative: $g'(5) = \\frac{1}{f'(f^{-1}(5))} = \\frac{1}{f'(2)} = \\frac{1}{3}$, since $f(2) = 5$."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "$\\frac{1}{5}$",
           "is_correct": false,
           "explanation": "$\\frac{1}{5}$ is not a value derivable from the given data. The correct answer uses $f'(2) = 3$, giving $g'(5) = \\frac{1}{3}$."
+        },
+        {
+          "id": "C",
+          "text": "$3$",
+          "is_correct": false,
+          "explanation": "$g'(5) = \\frac{1}{f'(g(5))}$. Since $f(2) = 5$, $g(5) = 2$. So $g'(5) = \\frac{1}{f'(2)} = \\frac{1}{3}$, not $3$."
         },
         {
           "id": "D",
@@ -837,9 +837,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{2}{x^2+1}$",
+          "text": "$\\frac{-4x}{(x^2+1)^2}$",
           "is_correct": false,
-          "explanation": "This is the first derivative $y' = \\frac{2x}{x^2+1}$ is wrong — actually $y' = \\frac{2x}{x^2+1}$. Differentiating again by the quotient rule is needed."
+          "explanation": "This is not the correct quotient-rule application. The numerator is $(2)(x^2+1) - (2x)(2x) = 2 - 2x^2$, giving $\\frac{2-2x^2}{(x^2+1)^2}$."
         },
         {
           "id": "B",
@@ -855,9 +855,9 @@
         },
         {
           "id": "D",
-          "text": "$\\frac{-4x}{(x^2+1)^2}$",
+          "text": "$\\frac{2}{x^2+1}$",
           "is_correct": false,
-          "explanation": "This is not the correct quotient-rule application. The numerator is $(2)(x^2+1) - (2x)(2x) = 2 - 2x^2$, giving $\\frac{2-2x^2}{(x^2+1)^2}$."
+          "explanation": "This is the first derivative $y' = \\frac{2x}{x^2+1}$ is wrong — actually $y' = \\frac{2x}{x^2+1}$. Differentiating again by the quotient rule is needed."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -877,27 +877,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$2$",
-          "is_correct": true,
-          "explanation": "$f'(x) = \\frac{2}{\\sqrt{1-(2x-1)^2}}$. At $x = \\frac{1}{2}$: $(2(\\frac{1}{2})-1)^2 = 0$, so $f'(\\frac{1}{2}) = \\frac{2}{\\sqrt{1}} = 2$."
-        },
-        {
-          "id": "B",
           "text": "$1$",
           "is_correct": false,
           "explanation": "The chain rule factor of $2$ (derivative of $2x-1$) must be included in the numerator. $f'(\\frac{1}{2}) = \\frac{2}{\\ \\sqrt{1-0}} = 2$."
         },
         {
-          "id": "C",
-          "text": "$\\frac{1}{2}$",
-          "is_correct": false,
-          "explanation": "The chain rule for $\\arcsin(2x-1)$ gives $\\frac{2}{\\sqrt{1-(2x-1)^2}}$. At $x = \\frac{1}{2}$ the radical equals $1$, so $f'(\\frac{1}{2}) = 2$."
+          "id": "B",
+          "text": "$2$",
+          "is_correct": true,
+          "explanation": "$f'(x) = \\frac{2}{\\sqrt{1-(2x-1)^2}}$. At $x = \\frac{1}{2}$: $(2(\\frac{1}{2})-1)^2 = 0$, so $f'(\\frac{1}{2}) = \\frac{2}{\\sqrt{1}} = 2$."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$\\frac{2}{\\sqrt{3}}$",
           "is_correct": false,
           "explanation": "This would occur at a different $x$-value. At $x = \\frac{1}{2}$, $(2x-1) = 0$ so $(2x-1)^2 = 0$ and $\\sqrt{1-0} = 1$, giving $f' = 2$."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{1}{2}$",
+          "is_correct": false,
+          "explanation": "The chain rule for $\\arcsin(2x-1)$ gives $\\frac{2}{\\sqrt{1-(2x-1)^2}}$. At $x = \\frac{1}{2}$ the radical equals $1$, so $f'(\\frac{1}{2}) = 2$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -929,15 +929,15 @@
         },
         {
           "id": "C",
-          "text": "$-1$",
-          "is_correct": false,
-          "explanation": "The coefficient on $\\frac{dy}{dx}$ at $(0,1)$ is $e^y + x = e + 0 = e$, not $1$. So $\\frac{dy}{dx} = -\\frac{1}{e}$, not $-1$."
-        },
-        {
-          "id": "D",
           "text": "$-e$",
           "is_correct": false,
           "explanation": "The numerator (from the $y$ term) is $1$ and the coefficient on $\\frac{dy}{dx}$ is $e$. Dividing gives $-\\frac{1}{e}$, not $-e$. The ratio is inverted."
+        },
+        {
+          "id": "D",
+          "text": "$-1$",
+          "is_correct": false,
+          "explanation": "The coefficient on $\\frac{dy}{dx}$ at $(0,1)$ is $e^y + x = e + 0 = e$, not $1$. So $\\frac{dy}{dx} = -\\frac{1}{e}$, not $-1$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -968,15 +968,15 @@
         },
         {
           "id": "C",
-          "text": "$-\\frac{x^2+y^2}{y^3}$",
-          "is_correct": false,
-          "explanation": "This simplifies to $-\\frac{r^2}{y^3}$ since $x^2 + y^2 = r^2$, so this expression is equivalent — but the answer given in (A) is the more simplified form expected on the AP exam."
-        },
-        {
-          "id": "D",
           "text": "$\\frac{1}{y^3}$",
           "is_correct": false,
           "explanation": "The sign is wrong and $r^2$ is missing. Correctly applying the quotient rule to $-\\frac{x}{y}$ and substituting $x^2 + y^2 = r^2$ gives $-\\frac{r^2}{y^3}$."
+        },
+        {
+          "id": "D",
+          "text": "$-\\frac{x^2+y^2}{y^3}$",
+          "is_correct": false,
+          "explanation": "This simplifies to $-\\frac{r^2}{y^3}$ since $x^2 + y^2 = r^2$, so this expression is equivalent — but the answer given in (A) is the more simplified form expected on the AP exam."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -996,9 +996,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$-\\frac{2}{9}$",
+          "text": "$-\\frac{1}{4}$",
           "is_correct": false,
-          "explanation": "Verify step by step. At $(-1,1)$: $\\frac{dy}{dx} = \\frac{y}{y-x} = \\frac{1}{2}$. Then $\\frac{d^2y}{dx^2} = \\frac{(y-x)\\frac{dy}{dx} - y(\\frac{dy}{dx} - 1)}{(y-x)^2}$. At $(-1,1)$: $\\frac{2 \\cdot \\frac{1}{2} - 1(\\frac{1}{2}-1)}{4} = \\frac{1+\\frac{1}{2}}{4} = \\frac{3}{8}$."
+          "explanation": "The second derivative is positive at this point. Careful application of the quotient rule to $\\frac{y}{y-x}$ and substitution of $(-1,1)$ gives $+\\frac{3}{8}$."
         },
         {
           "id": "B",
@@ -1014,9 +1014,9 @@
         },
         {
           "id": "D",
-          "text": "$-\\frac{1}{4}$",
+          "text": "$-\\frac{2}{9}$",
           "is_correct": false,
-          "explanation": "The second derivative is positive at this point. Careful application of the quotient rule to $\\frac{y}{y-x}$ and substitution of $(-1,1)$ gives $+\\frac{3}{8}$."
+          "explanation": "Verify step by step. At $(-1,1)$: $\\frac{dy}{dx} = \\frac{y}{y-x} = \\frac{1}{2}$. Then $\\frac{d^2y}{dx^2} = \\frac{(y-x)\\frac{dy}{dx} - y(\\frac{dy}{dx} - 1)}{(y-x)^2}$. At $(-1,1)$: $\\frac{2 \\cdot \\frac{1}{2} - 1(\\frac{1}{2}-1)}{4} = \\frac{1+\\frac{1}{2}}{4} = \\frac{3}{8}$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -1035,27 +1035,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$-\\frac{1}{1+x^2}$",
-          "is_correct": true,
-          "explanation": "Let $u = \\frac{1-x}{1+x}$. By the chain rule: $f'(x) = \\frac{u'}{1+u^2}$. $u' = \\frac{-(1+x)-(1-x)}{(1+x)^2} = \\frac{-2}{(1+x)^2}$. Also $1 + u^2 = \\frac{(1+x)^2+(1-x)^2}{(1+x)^2} = \\frac{2+2x^2}{(1+x)^2}$. So $f'(x) = \\frac{-2/(1+x)^2}{(2+2x^2)/(1+x)^2} = \\frac{-2}{2(1+x^2)} = -\\frac{1}{1+x^2}$."
+          "text": "$\\frac{-2}{1+(1-x)^2}$",
+          "is_correct": false,
+          "explanation": "The denominator $1 + u^2$ must use $u = \\frac{1-x}{1+x}$, not $1-x$ directly. After correct computation, $1 + u^2$ simplifies to $\\frac{2(1+x^2)}{(1+x)^2}$, and the final answer is $-\\frac{1}{1+x^2}$."
         },
         {
           "id": "B",
-          "text": "$\\frac{1}{1+x^2}$",
-          "is_correct": false,
-          "explanation": "The sign is wrong. The derivative of $u = \\frac{1-x}{1+x}$ via the quotient rule is $u' = \\frac{-2}{(1+x)^2} < 0$, making $f'(x) = -\\frac{1}{1+x^2}$."
-        },
-        {
-          "id": "C",
           "text": "$\\frac{-2}{(1+x)^2}$",
           "is_correct": false,
           "explanation": "This is $u'$, the derivative of the inner function only. After applying the chain rule and simplifying $1+u^2$, the complete expression simplifies to $-\\frac{1}{1+x^2}$."
         },
         {
-          "id": "D",
-          "text": "$\\frac{-2}{1+(1-x)^2}$",
+          "id": "C",
+          "text": "$\\frac{1}{1+x^2}$",
           "is_correct": false,
-          "explanation": "The denominator $1 + u^2$ must use $u = \\frac{1-x}{1+x}$, not $1-x$ directly. After correct computation, $1 + u^2$ simplifies to $\\frac{2(1+x^2)}{(1+x)^2}$, and the final answer is $-\\frac{1}{1+x^2}$."
+          "explanation": "The sign is wrong. The derivative of $u = \\frac{1-x}{1+x}$ via the quotient rule is $u' = \\frac{-2}{(1+x)^2} < 0$, making $f'(x) = -\\frac{1}{1+x^2}$."
+        },
+        {
+          "id": "D",
+          "text": "$-\\frac{1}{1+x^2}$",
+          "is_correct": true,
+          "explanation": "Let $u = \\frac{1-x}{1+x}$. By the chain rule: $f'(x) = \\frac{u'}{1+u^2}$. $u' = \\frac{-(1+x)-(1-x)}{(1+x)^2} = \\frac{-2}{(1+x)^2}$. Also $1 + u^2 = \\frac{(1+x)^2+(1-x)^2}{(1+x)^2} = \\frac{2+2x^2}{(1+x)^2}$. So $f'(x) = \\frac{-2/(1+x)^2}{(2+2x^2)/(1+x)^2} = \\frac{-2}{2(1+x^2)} = -\\frac{1}{1+x^2}$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -1074,15 +1074,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{1}{5}$",
-          "is_correct": true,
-          "explanation": "Need $f(a) = 3$. Testing $a = 1$: $f(1) = 1 + 2 = 3$. So $g(3) = 1$. By the inverse derivative formula: $g'(3) = \\frac{1}{f'(1)}$. $f'(x) = 3x^2 + 2$, so $f'(1) = 5$. Thus $g'(3) = \\frac{1}{5}$."
+          "text": "$3$",
+          "is_correct": false,
+          "explanation": "The inverse derivative formula is $g'(3) = \\frac{1}{f'(g(3))}$. First find $g(3)$: $f(1) = 3$ so $g(3) = 1$. Then $g'(3) = \\frac{1}{f'(1)} = \\frac{1}{5}$."
         },
         {
           "id": "B",
-          "text": "$5$",
-          "is_correct": false,
-          "explanation": "$5 = f'(1)$, not the inverse function derivative. The formula gives $g'(3) = \\frac{1}{f'(g(3))} = \\frac{1}{f'(1)} = \\frac{1}{5}$."
+          "text": "$\\frac{1}{5}$",
+          "is_correct": true,
+          "explanation": "Need $f(a) = 3$. Testing $a = 1$: $f(1) = 1 + 2 = 3$. So $g(3) = 1$. By the inverse derivative formula: $g'(3) = \\frac{1}{f'(1)}$. $f'(x) = 3x^2 + 2$, so $f'(1) = 5$. Thus $g'(3) = \\frac{1}{5}$."
         },
         {
           "id": "C",
@@ -1092,9 +1092,9 @@
         },
         {
           "id": "D",
-          "text": "$3$",
+          "text": "$5$",
           "is_correct": false,
-          "explanation": "The inverse derivative formula is $g'(3) = \\frac{1}{f'(g(3))}$. First find $g(3)$: $f(1) = 3$ so $g(3) = 1$. Then $g'(3) = \\frac{1}{f'(1)} = \\frac{1}{5}$."
+          "explanation": "$5 = f'(1)$, not the inverse function derivative. The formula gives $g'(3) = \\frac{1}{f'(g(3))} = \\frac{1}{f'(1)} = \\frac{1}{5}$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -1120,21 +1120,21 @@
         },
         {
           "id": "B",
-          "text": "$4[f(2)]^3 f''(2) + 12[f(2)]^2[f'(2)]^2$",
-          "is_correct": true,
-          "explanation": "$h'(x) = 4[f(x)]^3 f'(x)$. Product rule: $h''(x) = 12[f(x)]^2[f'(x)]^2 + 4[f(x)]^3 f''(x)$. Rearranged: $4[f(2)]^3 f''(2) + 12[f(2)]^2[f'(2)]^2$."
-        },
-        {
-          "id": "C",
           "text": "$4[f'(2)]^3$",
           "is_correct": false,
           "explanation": "This incorrectly treats $[f(x)]^4$ as if $f$ were just $x$. Both the chain rule and the product rule must be applied to find $h''$."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$12[f'(2)]^2 f''(2)$",
           "is_correct": false,
           "explanation": "The powers are confused. $h'(x) = 4[f(x)]^3 f'(x)$, so $h''(x)$ involves $[f(x)]^3 f''(x)$ and $[f(x)]^2 [f'(x)]^2$, not just $[f'(x)]^2 f''(x)$."
+        },
+        {
+          "id": "D",
+          "text": "$4[f(2)]^3 f''(2) + 12[f(2)]^2[f'(2)]^2$",
+          "is_correct": true,
+          "explanation": "$h'(x) = 4[f(x)]^3 f'(x)$. Product rule: $h''(x) = 12[f(x)]^2[f'(x)]^2 + 4[f(x)]^3 f''(x)$. Rearranged: $4[f(2)]^3 f''(2) + 12[f(2)]^2[f'(2)]^2$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -1160,15 +1160,15 @@
         },
         {
           "id": "B",
-          "text": "$35$",
-          "is_correct": false,
-          "explanation": "This omits the first term from the product rule. $k'(x)$ requires two terms: $f'(g(x))g'(x)g(x)$ and $f(g(x))g'(x)$. The first term gives $-15$, so $k'(1) = -15 + 35 = 20$."
-        },
-        {
-          "id": "C",
           "text": "$20$",
           "is_correct": true,
           "explanation": "Product rule + chain rule: $k'(1) = f'(g(1)) \\cdot g'(1) \\cdot g(1) + f(g(1)) \\cdot g'(1) = f'(3) \\cdot 5 \\cdot 3 + f(3) \\cdot 5 = (-1)(15) + (7)(5) = -15 + 35 = 20$."
+        },
+        {
+          "id": "C",
+          "text": "$35$",
+          "is_correct": false,
+          "explanation": "This omits the first term from the product rule. $k'(x)$ requires two terms: $f'(g(x))g'(x)g(x)$ and $f(g(x))g'(x)$. The first term gives $-15$, so $k'(1) = -15 + 35 = 20$."
         },
         {
           "id": "D",
@@ -1193,9 +1193,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{y(1-x)}{x(y-1)}$",
-          "is_correct": true,
-          "explanation": "Differentiating: $\\frac{y + x\\frac{dy}{dx}}{xy} = 1 + \\frac{dy}{dx}$. So $\\frac{1}{x} + \\frac{1}{y}\\frac{dy}{dx} = 1 + \\frac{dy}{dx}$. Collecting: $\\frac{dy}{dx}(\\frac{1}{y}-1) = 1 - \\frac{1}{x}$, giving $\\frac{dy}{dx} = \\frac{(1-1/x)}{(1/y-1)} = \\frac{y(1-x)/x}{(1-y)/y} \\cdot \\frac{y}{y}$. Simplifying: $\\frac{y(1-x)}{x(y-1)}$... after careful signs: $\\frac{dy}{dx} = \\frac{y(x-1)}{x(1-y)}$. Actually rearranging $\\frac{1}{y}\\frac{dy}{dx} - \\frac{dy}{dx} = 1 - \\frac{1}{x}$: $\\frac{dy}{dx} \\cdot \\frac{1-y}{y} = \\frac{x-1}{x}$, so $\\frac{dy}{dx} = \\frac{y(x-1)}{x(1-y)} = \\frac{y(1-x)}{x(y-1)}$ (multiplying numerator and denominator by $-1$)."
+          "text": "$\\frac{x(y-1)}{y(1-x)}$",
+          "is_correct": false,
+          "explanation": "The $x$ and $y$ roles are inverted. Solving for $\\frac{dy}{dx}$ gives $\\frac{y(1-x)}{x(y-1)}$, not the reciprocal."
         },
         {
           "id": "B",
@@ -1205,9 +1205,9 @@
         },
         {
           "id": "C",
-          "text": "$\\frac{x(y-1)}{y(1-x)}$",
-          "is_correct": false,
-          "explanation": "The $x$ and $y$ roles are inverted. Solving for $\\frac{dy}{dx}$ gives $\\frac{y(1-x)}{x(y-1)}$, not the reciprocal."
+          "text": "$\\frac{y(1-x)}{x(y-1)}$",
+          "is_correct": true,
+          "explanation": "Differentiating: $\\frac{y + x\\frac{dy}{dx}}{xy} = 1 + \\frac{dy}{dx}$. So $\\frac{1}{x} + \\frac{1}{y}\\frac{dy}{dx} = 1 + \\frac{dy}{dx}$. Collecting: $\\frac{dy}{dx}(\\frac{1}{y}-1) = 1 - \\frac{1}{x}$, giving $\\frac{dy}{dx} = \\frac{(1-1/x)}{(1/y-1)} = \\frac{y(1-x)/x}{(1-y)/y} \\cdot \\frac{y}{y}$. Simplifying: $\\frac{y(1-x)}{x(y-1)}$... after careful signs: $\\frac{dy}{dx} = \\frac{y(x-1)}{x(1-y)}$. Actually rearranging $\\frac{1}{y}\\frac{dy}{dx} - \\frac{dy}{dx} = 1 - \\frac{1}{x}$: $\\frac{dy}{dx} \\cdot \\frac{1-y}{y} = \\frac{x-1}{x}$, so $\\frac{dy}{dx} = \\frac{y(x-1)}{x(1-y)} = \\frac{y(1-x)}{x(y-1)}$ (multiplying numerator and denominator by $-1$)."
         },
         {
           "id": "D",
@@ -1232,15 +1232,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{1}{(1+x)\\sqrt{x^2-1}}$",
-          "is_correct": false,
-          "explanation": "This choice uses $(1+x)$ in the denominator instead of $2x$. Setting $u = \\sqrt{\\frac{x-1}{x+1}}$, the full chain rule simplification yields $\\frac{1}{2x\\sqrt{x^2-1}}$. The factor $(1+x)$ does not survive after combining $u'$ with $\\frac{1}{1+u^2}$."
-        },
-        {
-          "id": "B",
           "text": "$\\frac{1}{2x\\sqrt{x^2-1}}$",
           "is_correct": true,
           "explanation": "Let $u = \\sqrt{\\frac{x-1}{x+1}}$. Then $u^2 = \\frac{x-1}{x+1}$ and $1+u^2 = \\frac{2x}{x+1}$. Also $u' = \\frac{1}{(x+1)\\sqrt{\\frac{x-1}{x+1}}} \\cdot \\frac{1}{2} \\cdot \\frac{2}{(x+1)} = \\frac{1}{(x+1)^{3/2}\\sqrt{x-1}}$. Then $\\frac{u'}{1+u^2} = \\frac{(x+1)}{2x} \\cdot \\frac{1}{(x+1)\\sqrt{x^2-1}/(x+1)} = \\frac{1}{2x\\sqrt{x^2-1}}$."
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{1}{2(x+1)^2}$",
+          "is_correct": false,
+          "explanation": "This does not correctly simplify the composite derivative. The correct denominator after full simplification is $2x\\sqrt{x^2-1}$."
         },
         {
           "id": "C",
@@ -1250,9 +1250,9 @@
         },
         {
           "id": "D",
-          "text": "$\\frac{1}{2(x+1)^2}$",
+          "text": "$\\frac{1}{(1+x)\\sqrt{x^2-1}}$",
           "is_correct": false,
-          "explanation": "This does not correctly simplify the composite derivative. The correct denominator after full simplification is $2x\\sqrt{x^2-1}$."
+          "explanation": "This choice uses $(1+x)$ in the denominator instead of $2x$. Setting $u = \\sqrt{\\frac{x-1}{x+1}}$, the full chain rule simplification yields $\\frac{1}{2x\\sqrt{x^2-1}}$. The factor $(1+x)$ does not survive after combining $u'$ with $\\frac{1}{1+u^2}$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -1278,15 +1278,15 @@
         },
         {
           "id": "B",
-          "text": "$\\frac{1}{4}$",
-          "is_correct": false,
-          "explanation": "The chain rule factor of $2$ (from the inner function $2x-1$) is missing from the numerator. $h'(1) = \\frac{2}{f'(0)} = \\frac{2}{4} = \\frac{1}{2}$."
-        },
-        {
-          "id": "C",
           "text": "$\\frac{1}{2}$",
           "is_correct": true,
           "explanation": "Chain rule: $h'(x) = \\frac{1}{f'(f^{-1}(2x-1))} \\cdot 2$. At $x=1$: $2(1)-1=1$, $f^{-1}(1) = 0$ (since $f(0)=1$), so $h'(1) = \\frac{2}{f'(0)} = \\frac{2}{4} = \\frac{1}{2}$."
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{1}{4}$",
+          "is_correct": false,
+          "explanation": "The chain rule factor of $2$ (from the inner function $2x-1$) is missing from the numerator. $h'(1) = \\frac{2}{f'(0)} = \\frac{2}{4} = \\frac{1}{2}$."
         },
         {
           "id": "D",
@@ -1311,27 +1311,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{\\cos(\\arctan(x))}{1+x^2}$",
-          "is_correct": false,
-          "explanation": "While this is the unsimplified chain rule result, it can be further simplified. Since $\\arctan(x) = \\theta$ implies $\\cos\\theta = \\frac{1}{\\sqrt{1+x^2}}$, the expression simplifies to $\\frac{1}{(1+x^2)^{3/2}}$."
-        },
-        {
-          "id": "B",
           "text": "$\\frac{1}{(1+x^2)^{3/2}}$",
           "is_correct": true,
           "explanation": "Chain rule: $f'(x) = \\cos(\\arctan x) \\cdot \\frac{1}{1+x^2}$. Let $\\theta = \\arctan x$, so $\\tan\\theta = x$ and $\\cos\\theta = \\frac{1}{\\sqrt{1+x^2}}$. Thus $f'(x) = \\frac{1}{\\sqrt{1+x^2}} \\cdot \\frac{1}{1+x^2} = \\frac{1}{(1+x^2)^{3/2}}$."
         },
         {
-          "id": "C",
-          "text": "$\\frac{x}{(1+x^2)^{3/2}}$",
+          "id": "B",
+          "text": "$\\frac{\\cos(\\arctan(x))}{1+x^2}$",
           "is_correct": false,
-          "explanation": "The factor of $x$ in the numerator is incorrect. $\\cos(\\arctan x) = \\frac{1}{\\sqrt{1+x^2}}$ (not $\\frac{x}{\\sqrt{1+x^2}}$, which would be $\\sin(\\arctan x)$)."
+          "explanation": "While this is the unsimplified chain rule result, it can be further simplified. Since $\\arctan(x) = \\theta$ implies $\\cos\\theta = \\frac{1}{\\sqrt{1+x^2}}$, the expression simplifies to $\\frac{1}{(1+x^2)^{3/2}}$."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$\\frac{1}{1+x^2}$",
           "is_correct": false,
           "explanation": "This omits the $\\cos(\\arctan x)$ factor. The chain rule gives $\\cos(\\arctan x) \\cdot \\frac{1}{1+x^2} = \\frac{1}{\\sqrt{1+x^2}} \\cdot \\frac{1}{1+x^2} = \\frac{1}{(1+x^2)^{3/2}}$."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{x}{(1+x^2)^{3/2}}$",
+          "is_correct": false,
+          "explanation": "The factor of $x$ in the numerator is incorrect. $\\cos(\\arctan x) = \\frac{1}{\\sqrt{1+x^2}}$ (not $\\frac{x}{\\sqrt{1+x^2}}$, which would be $\\sin(\\arctan x)$)."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -1357,15 +1357,15 @@
         },
         {
           "id": "B",
-          "text": "$x = \\pm\\sqrt{\\frac{7}{3}}$",
-          "is_correct": true,
-          "explanation": "Implicit diff: $2x - y - x\\frac{dy}{dx} + 2y\\frac{dy}{dx} = 0$, so $\\frac{dy}{dx} = \\frac{2x-y}{x-2y}$. For horizontal tangents: $2x - y = 0 \\Rightarrow y = 2x$. Substituting: $x^2 - 2x^2 + 4x^2 = 7 \\Rightarrow x = \\pm\\sqrt{7/3}$."
-        },
-        {
-          "id": "C",
           "text": "$x = \\pm\\sqrt{7}$",
           "is_correct": false,
           "explanation": "After substituting $y = 2x$ into the curve equation, $3x^2 = 7$ gives $x^2 = \\frac{7}{3}$, not $x^2 = 7$."
+        },
+        {
+          "id": "C",
+          "text": "$x = \\pm\\sqrt{\\frac{7}{3}}$",
+          "is_correct": true,
+          "explanation": "Implicit diff: $2x - y - x\\frac{dy}{dx} + 2y\\frac{dy}{dx} = 0$, so $\\frac{dy}{dx} = \\frac{2x-y}{x-2y}$. For horizontal tangents: $2x - y = 0 \\Rightarrow y = 2x$. Substituting: $x^2 - 2x^2 + 4x^2 = 7 \\Rightarrow x = \\pm\\sqrt{7/3}$."
         },
         {
           "id": "D",
@@ -1390,27 +1390,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$f''(g(x)) \\cdot [g'(x)]^2 + f'(g(x)) \\cdot g''(x)$",
-          "is_correct": true,
-          "explanation": "Let $h(x) = f(g(x))$. Then $h'(x) = f'(g(x)) g'(x)$. Applying the product rule and chain rule: $h''(x) = f''(g(x)) \\cdot g'(x) \\cdot g'(x) + f'(g(x)) \\cdot g''(x) = f''(g(x))[g'(x)]^2 + f'(g(x))g''(x)$."
+          "text": "$[f'(g(x))]^2 \\cdot g''(x)$",
+          "is_correct": false,
+          "explanation": "This is not the correct formula. The second derivative of a composite function is $f''(g(x))[g'(x)]^2 + f'(g(x))g''(x)$, known as the generalized chain rule (Faà di Bruno's formula for $n=2$)."
         },
         {
           "id": "B",
-          "text": "$f''(g(x)) \\cdot g''(x)$",
-          "is_correct": false,
-          "explanation": "The product rule on $h'(x) = f'(g(x)) g'(x)$ gives two terms; this answer omits the $[g'(x)]^2$ factor in the first term."
-        },
-        {
-          "id": "C",
           "text": "$f''(g(x)) \\cdot g'(x) + f'(g(x)) \\cdot g''(x)$",
           "is_correct": false,
           "explanation": "The first term is missing a factor of $g'(x)$. Differentiating $f'(g(x)) \\cdot g'(x)$ by the product rule: the chain rule on $f'(g(x))$ gives $f''(g(x)) \\cdot g'(x)$, then this multiplies another $g'(x)$, yielding $f''(g(x))[g'(x)]^2$."
         },
         {
+          "id": "C",
+          "text": "$f''(g(x)) \\cdot [g'(x)]^2 + f'(g(x)) \\cdot g''(x)$",
+          "is_correct": true,
+          "explanation": "Let $h(x) = f(g(x))$. Then $h'(x) = f'(g(x)) g'(x)$. Applying the product rule and chain rule: $h''(x) = f''(g(x)) \\cdot g'(x) \\cdot g'(x) + f'(g(x)) \\cdot g''(x) = f''(g(x))[g'(x)]^2 + f'(g(x))g''(x)$."
+        },
+        {
           "id": "D",
-          "text": "$[f'(g(x))]^2 \\cdot g''(x)$",
+          "text": "$f''(g(x)) \\cdot g''(x)$",
           "is_correct": false,
-          "explanation": "This is not the correct formula. The second derivative of a composite function is $f''(g(x))[g'(x)]^2 + f'(g(x))g''(x)$, known as the generalized chain rule (Faà di Bruno's formula for $n=2$)."
+          "explanation": "The product rule on $h'(x) = f'(g(x)) g'(x)$ gives two terms; this answer omits the $[g'(x)]^2$ factor in the first term."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -1436,15 +1436,15 @@
         },
         {
           "id": "B",
-          "text": "$\\frac{1}{3}$ m/s²",
-          "is_correct": false,
-          "explanation": "$\\frac{1}{3}$ is the velocity $v(0)$, not the acceleration. The acceleration $a(t) = \\frac{t}{(9-t^2)^{3/2}}$, which equals $0$ at $t=0$."
-        },
-        {
-          "id": "C",
           "text": "$\\frac{1}{9}$ m/s²",
           "is_correct": false,
           "explanation": "Differentiating the velocity $v(t) = (9-t^2)^{-1/2}$ by the chain rule gives $a(t) = \\frac{t}{(9-t^2)^{3/2}}$, which is $0$ at $t = 0$."
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{1}{3}$ m/s²",
+          "is_correct": false,
+          "explanation": "$\\frac{1}{3}$ is the velocity $v(0)$, not the acceleration. The acceleration $a(t) = \\frac{t}{(9-t^2)^{3/2}}$, which equals $0$ at $t=0$."
         },
         {
           "id": "D",
@@ -1475,15 +1475,15 @@
         },
         {
           "id": "B",
-          "text": "$\\frac{1}{x(1+x^2)}$",
-          "is_correct": false,
-          "explanation": "The quotient rule requires subtracting $\\arctan(x) \\cdot 1$ in the numerator. This answer incorrectly treats $\\arctan(x)$ as a constant."
-        },
-        {
-          "id": "C",
           "text": "$\\frac{x + (1+x^2)\\arctan(x)}{x^2(1+x^2)}$",
           "is_correct": false,
           "explanation": "The sign between terms in the numerator is wrong. The quotient rule gives $\\frac{d}{dx}[\\arctan x] \\cdot x - \\arctan(x) \\cdot 1$, which results in a minus sign."
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{1}{x(1+x^2)}$",
+          "is_correct": false,
+          "explanation": "The quotient rule requires subtracting $\\arctan(x) \\cdot 1$ in the numerator. This answer incorrectly treats $\\arctan(x)$ as a constant."
         },
         {
           "id": "D",
@@ -1515,21 +1515,21 @@
         },
         {
           "id": "B",
-          "text": "Because $p(2) = 6$ and $q(6) = 2$ confirm the input-output reversal, but the derivative condition $q'(6) = \\frac{1}{p'(2)}$ is not satisfied.",
-          "is_correct": true,
-          "explanation": "For inverse functions: $q'(6) = \\frac{1}{p'(2)} = \\frac{1}{-3} = -\\frac{1}{3}$. Since $q'(6) = \\frac{1}{5} \\neq -\\frac{1}{3}$, while the value condition is met, the derivative condition for inverse functions fails, so $p$ and $q$ are not inverses."
-        },
-        {
-          "id": "C",
           "text": "Because $p'(2) \\cdot q'(6) = 1$ is the required condition, and $(-3) \\cdot \\frac{1}{5} \\neq 1$ shows they are not inverses.",
           "is_correct": false,
           "explanation": "The condition $p'(a) \\cdot q'(b) = 1$ is not the correct inverse derivative relationship. The correct condition is $q'(b) = \\frac{1}{p'(a)}$ (equivalently $p'(a) \\cdot q'(b) = 1$ only when $p'(a) > 0$). Here the conclusion is correct but the stated condition's framing is imprecise."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "Because $p(2) = 6$ and $q(6) = 2$, the functions are inverses since the outputs are swapped.",
           "is_correct": false,
           "explanation": "Swapping inputs and outputs at one point is necessary but not sufficient. The derivative condition must also be satisfied: $q'(6) = \\frac{1}{p'(2)} = -\\frac{1}{3}$. Since $q'(6) = \\frac{1}{5}$, this fails, and the functions are not inverses."
+        },
+        {
+          "id": "D",
+          "text": "Because $p(2) = 6$ and $q(6) = 2$ confirm the input-output reversal, but the derivative condition $q'(6) = \\frac{1}{p'(2)}$ is not satisfied.",
+          "is_correct": true,
+          "explanation": "For inverse functions: $q'(6) = \\frac{1}{p'(2)} = \\frac{1}{-3} = -\\frac{1}{3}$. Since $q'(6) = \\frac{1}{5} \\neq -\\frac{1}{3}$, while the value condition is met, the derivative condition for inverse functions fails, so $p$ and $q$ are not inverses."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -1548,27 +1548,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{-3x^2}{\\sqrt{1-x^6}}$",
-          "is_correct": true,
-          "explanation": "Chain rule with $u = x^3$: $\\frac{d}{dx}[\\arccos(u)] = -\\frac{u'}{\\sqrt{1-u^2}} = -\\frac{3x^2}{\\sqrt{1-x^6}}$."
-        },
-        {
-          "id": "B",
           "text": "$\\frac{3x^2}{\\sqrt{1-x^6}}$",
           "is_correct": false,
           "explanation": "The derivative of $\\arccos(u)$ is $-\\frac{u'}{\\sqrt{1-u^2}}$; the negative sign is required. Only $\\arcsin(u)$ has a positive derivative."
         },
         {
-          "id": "C",
-          "text": "$\\frac{-3x^2}{\\sqrt{1-x^3}}$",
-          "is_correct": false,
-          "explanation": "The expression under the radical requires $u^2 = (x^3)^2 = x^6$, not $x^3$. The denominator must be $\\sqrt{1-x^6}$."
+          "id": "B",
+          "text": "$\\frac{-3x^2}{\\sqrt{1-x^6}}$",
+          "is_correct": true,
+          "explanation": "Chain rule with $u = x^3$: $\\frac{d}{dx}[\\arccos(u)] = -\\frac{u'}{\\sqrt{1-u^2}} = -\\frac{3x^2}{\\sqrt{1-x^6}}$."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$\\frac{-1}{\\sqrt{1-x^6}}$",
           "is_correct": false,
           "explanation": "The chain rule factor $u' = 3x^2$ is missing. The complete derivative is $-\\frac{3x^2}{\\sqrt{1-x^6}}$."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{-3x^2}{\\sqrt{1-x^3}}$",
+          "is_correct": false,
+          "explanation": "The expression under the radical requires $u^2 = (x^3)^2 = x^6$, not $x^3$. The denominator must be $\\sqrt{1-x^6}$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -1588,21 +1588,21 @@
       "choices": [
         {
           "id": "A",
+          "text": "$(2, \\sqrt{3})$ only after correcting the formula",
+          "is_correct": false,
+          "explanation": "The correct slope formula from implicit differentiation is $\\frac{dy}{dx} = -\\frac{x}{4y}$. Set $-\\frac{x}{4y} = -\\frac{1}{2}$, giving $x = 2y$. Substitute into ellipse: $4y^2 + 4y^2 = 16$, so $y = \\sqrt{2}$ and $x = 2\\sqrt{2}$."
+        },
+        {
+          "id": "B",
           "text": "$(2, \\sqrt{3})$",
           "is_correct": false,
           "explanation": "Verify: $\\frac{dy}{dx} = -\\frac{x}{4y}$. At $(2,\\sqrt{3})$: slope $= -\\frac{2}{4\\sqrt{3}} = -\\frac{1}{2\\sqrt{3}} \\neq -\\frac{1}{2}$."
         },
         {
-          "id": "B",
+          "id": "C",
           "text": "$(2, 1)$",
           "is_correct": false,
           "explanation": "Check if $(2,1)$ is on the ellipse: $4 + 4 = 8 \\neq 16$. This point is not on $C$."
-        },
-        {
-          "id": "C",
-          "text": "$(2, \\sqrt{3})$ only after correcting the formula",
-          "is_correct": false,
-          "explanation": "The correct slope formula from implicit differentiation is $\\frac{dy}{dx} = -\\frac{x}{4y}$. Set $-\\frac{x}{4y} = -\\frac{1}{2}$, giving $x = 2y$. Substitute into ellipse: $4y^2 + 4y^2 = 16$, so $y = \\sqrt{2}$ and $x = 2\\sqrt{2}$."
         },
         {
           "id": "D",
@@ -1627,15 +1627,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$(\\ln x)^{\\sin x}\\left(\\cos x \\cdot \\ln(\\ln x) + \\frac{\\sin x}{x \\ln x}\\right)$",
-          "is_correct": true,
-          "explanation": "Logarithmic differentiation: $\\ln y = \\sin x \\cdot \\ln(\\ln x)$. Differentiating: $\\frac{y'}{y} = \\cos x \\cdot \\ln(\\ln x) + \\sin x \\cdot \\frac{1}{x\\ln x}$. Multiplying by $y$: $y' = (\\ln x)^{\\sin x}\\!\\left(\\cos x \\ln(\\ln x) + \\frac{\\sin x}{x\\ln x}\\right)$."
+          "text": "$(\\ln x)^{\\sin x} \\cdot \\cos x \\cdot \\ln(\\ln x)$",
+          "is_correct": false,
+          "explanation": "The second term from the product rule — $\\sin x \\cdot \\frac{1}{x\\ln x}$ — is missing. Both terms must be included: $\\cos x \\ln(\\ln x) + \\frac{\\sin x}{x\\ln x}$."
         },
         {
           "id": "B",
-          "text": "$\\sin x \\cdot (\\ln x)^{\\sin x - 1} \\cdot \\frac{1}{x}$",
-          "is_correct": false,
-          "explanation": "This applies the power rule treating $\\sin x$ as a constant exponent, but the exponent $\\sin x$ is itself a function of $x$. Logarithmic differentiation is required."
+          "text": "$(\\ln x)^{\\sin x}\\left(\\cos x \\cdot \\ln(\\ln x) + \\frac{\\sin x}{x \\ln x}\\right)$",
+          "is_correct": true,
+          "explanation": "Logarithmic differentiation: $\\ln y = \\sin x \\cdot \\ln(\\ln x)$. Differentiating: $\\frac{y'}{y} = \\cos x \\cdot \\ln(\\ln x) + \\sin x \\cdot \\frac{1}{x\\ln x}$. Multiplying by $y$: $y' = (\\ln x)^{\\sin x}\\!\\left(\\cos x \\ln(\\ln x) + \\frac{\\sin x}{x\\ln x}\\right)$."
         },
         {
           "id": "C",
@@ -1645,9 +1645,9 @@
         },
         {
           "id": "D",
-          "text": "$(\\ln x)^{\\sin x} \\cdot \\cos x \\cdot \\ln(\\ln x)$",
+          "text": "$\\sin x \\cdot (\\ln x)^{\\sin x - 1} \\cdot \\frac{1}{x}$",
           "is_correct": false,
-          "explanation": "The second term from the product rule — $\\sin x \\cdot \\frac{1}{x\\ln x}$ — is missing. Both terms must be included: $\\cos x \\ln(\\ln x) + \\frac{\\sin x}{x\\ln x}$."
+          "explanation": "This applies the power rule treating $\\sin x$ as a constant exponent, but the exponent $\\sin x$ is itself a function of $x$. Logarithmic differentiation is required."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -1667,27 +1667,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{4}{9}$",
-          "is_correct": false,
-          "explanation": "Verify: implicit diff gives $3y^2 y' + 3y + 3xy' = 2x$. At $(2,1)$: $3y' + 3 + 6y' = 4$, so $9y' = 1$, $y' = \\frac{1}{9}$. For $y''$, differentiate again and substitute — the result is not $\\frac{4}{9}$."
-        },
-        {
-          "id": "B",
-          "text": "$\\frac{1}{9}$",
-          "is_correct": false,
-          "explanation": "$\\frac{1}{9}$ is the value of $y'$ at $(2,1)$, not $y''$. A second implicit differentiation is needed to find $y''$."
-        },
-        {
-          "id": "C",
           "text": "$\\frac{34}{243}$",
           "is_correct": true,
           "explanation": "From $3y^2y' + 3y + 3xy' = 2x$, differentiating at $(2,1)$ gives $9y' = 1$, so $y' = \\frac{1}{9}$. Differentiating again: $6y(y')^2 + 3y^2y'' + 6y' + 3xy'' = 2$. At $(2,1)$ with $y' = \\frac{1}{9}$: $6\\cdot\\frac{1}{81} + 3y'' + \\frac{6}{9} + 6y'' = 2$, so $\\frac{2}{27} + 9y'' + \\frac{2}{3} = 2$. Converting to 27ths: $9y'' = \\frac{54-18-2}{27} = \\frac{34}{27}$, giving $y'' = \\frac{34}{243}$."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "$\\frac{2}{81}$",
           "is_correct": false,
           "explanation": "This is not the result of correctly differentiating the implicit equation a second time. Differentiating $3y^2y' + 3y + 3xy' = 2x$ produces $6y(y')^2 + 3y^2y'' + 6y' + 3xy'' = 2$. Substituting $(2,1)$ and $y' = \\frac{1}{9}$ and solving gives $9y'' = \\frac{34}{27}$, so $y'' = \\frac{34}{243}$, not $\\frac{2}{81}$."
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{4}{9}$",
+          "is_correct": false,
+          "explanation": "Verify: implicit diff gives $3y^2 y' + 3y + 3xy' = 2x$. At $(2,1)$: $3y' + 3 + 6y' = 4$, so $9y' = 1$, $y' = \\frac{1}{9}$. For $y''$, differentiate again and substitute — the result is not $\\frac{4}{9}$."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{1}{9}$",
+          "is_correct": false,
+          "explanation": "$\\frac{1}{9}$ is the value of $y'$ at $(2,1)$, not $y''$. A second implicit differentiation is needed to find $y''$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -1718,15 +1718,15 @@
         },
         {
           "id": "C",
-          "text": "$2f'(1)$",
-          "is_correct": true,
-          "explanation": "Chain rule: $g'(0) = f'(f(0)) \\cdot f'(0) = f'(1) \\cdot 2 = 2f'(1)$. Since $f'(1)$ is not specified, the answer cannot be simplified further."
-        },
-        {
-          "id": "D",
           "text": "$[f'(0)]^2 = 4$",
           "is_correct": false,
           "explanation": "The chain rule gives $g'(0) = f'(f(0)) \\cdot f'(0)$. This requires $f'$ evaluated at $f(0) = 1$, not at $0$. The result is $2f'(1)$, not $[f'(0)]^2$."
+        },
+        {
+          "id": "D",
+          "text": "$2f'(1)$",
+          "is_correct": true,
+          "explanation": "Chain rule: $g'(0) = f'(f(0)) \\cdot f'(0) = f'(1) \\cdot 2 = 2f'(1)$. Since $f'(1)$ is not specified, the answer cannot be simplified further."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -1746,15 +1746,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$0$",
-          "is_correct": true,
-          "explanation": "Implicit diff: $\\sec^2(y) \\cdot \\frac{dy}{dx} = 2x + \\frac{dy}{dx}$. So $\\frac{dy}{dx}(\\sec^2 y - 1) = 2x$, giving $\\frac{dy}{dx} = \\frac{2x}{\\sec^2 y - 1} = \\frac{2x}{\\tan^2 y}$. At $(0,0)$: numerator $= 0$, so $\\frac{dy}{dx} = 0$."
-        },
-        {
-          "id": "B",
           "text": "$2$",
           "is_correct": false,
           "explanation": "Substituting $(0,0)$: $\\frac{dy}{dx}(\\sec^2 0 - 1) = 0$, giving $0 \\cdot \\frac{dy}{dx} = 0$. This is indeterminate in this form; using $\\frac{2x}{\\tan^2 y}$ and L'Hôpital near the origin reveals the slope is $0$ (numerator dominates as $x \\to 0$)."
+        },
+        {
+          "id": "B",
+          "text": "Undefined",
+          "is_correct": false,
+          "explanation": "While the formula $\\frac{2x}{\\tan^2 y}$ is $\\frac{0}{0}$ at the origin, inspection of the implicit equation shows that $y = 0$ when $x = 0$, and expanding near the origin confirms the slope is $0$."
         },
         {
           "id": "C",
@@ -1764,9 +1764,9 @@
         },
         {
           "id": "D",
-          "text": "Undefined",
-          "is_correct": false,
-          "explanation": "While the formula $\\frac{2x}{\\tan^2 y}$ is $\\frac{0}{0}$ at the origin, inspection of the implicit equation shows that $y = 0$ when $x = 0$, and expanding near the origin confirms the slope is $0$."
+          "text": "$0$",
+          "is_correct": true,
+          "explanation": "Implicit diff: $\\sec^2(y) \\cdot \\frac{dy}{dx} = 2x + \\frac{dy}{dx}$. So $\\frac{dy}{dx}(\\sec^2 y - 1) = 2x$, giving $\\frac{dy}{dx} = \\frac{2x}{\\sec^2 y - 1} = \\frac{2x}{\\tan^2 y}$. At $(0,0)$: numerator $= 0$, so $\\frac{dy}{dx} = 0$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -1791,9 +1791,9 @@
         },
         {
           "id": "B",
-          "text": "$2xe^{x^2} \\cdot \\frac{1}{1+x^2}$",
+          "text": "$2xe^{x^2}\\arctan(x)$",
           "is_correct": false,
-          "explanation": "The product rule requires two terms: one from differentiating $e^{x^2}$ (giving $2xe^{x^2}\\arctan x$) and one from differentiating $\\arctan x$. This answer multiplies the two derivative results instead."
+          "explanation": "The term from differentiating $\\arctan(x)$ — which is $e^{x^2} \\cdot \\frac{1}{1+x^2}$ — is missing. The full product rule gives both terms."
         },
         {
           "id": "C",
@@ -1803,9 +1803,9 @@
         },
         {
           "id": "D",
-          "text": "$2xe^{x^2}\\arctan(x)$",
+          "text": "$2xe^{x^2} \\cdot \\frac{1}{1+x^2}$",
           "is_correct": false,
-          "explanation": "The term from differentiating $\\arctan(x)$ — which is $e^{x^2} \\cdot \\frac{1}{1+x^2}$ — is missing. The full product rule gives both terms."
+          "explanation": "The product rule requires two terms: one from differentiating $e^{x^2}$ (giving $2xe^{x^2}\\arctan x$) and one from differentiating $\\arctan x$. This answer multiplies the two derivative results instead."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -1837,15 +1837,15 @@
         },
         {
           "id": "C",
-          "text": "$f(x) = \\arctan(4x^2) + \\frac{\\pi}{4}$",
-          "is_correct": false,
-          "explanation": "$\\frac{d}{dx}[\\arctan(4x^2)] = \\frac{8x}{1+16x^4}$, which does not match $\\frac{2}{1+4x^2}$."
-        },
-        {
-          "id": "D",
           "text": "$f(x) = \\arctan(x) + \\frac{\\pi}{4}$",
           "is_correct": false,
           "explanation": "$\\frac{d}{dx}[\\arctan(x)] = \\frac{1}{1+x^2}$, not $\\frac{2}{1+4x^2}$. The inner function $2x$ is needed to produce the coefficient $2$ and the $4x^2$ in the denominator."
+        },
+        {
+          "id": "D",
+          "text": "$f(x) = \\arctan(4x^2) + \\frac{\\pi}{4}$",
+          "is_correct": false,
+          "explanation": "$\\frac{d}{dx}[\\arctan(4x^2)] = \\frac{8x}{1+16x^4}$, which does not match $\\frac{2}{1+4x^2}$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -1870,15 +1870,15 @@
         },
         {
           "id": "B",
-          "text": "$\\frac{1}{2\\sqrt{x^2 + \\arcsin(x)}}$",
-          "is_correct": false,
-          "explanation": "The chain rule factor $u' = 2x + \\frac{1}{\\sqrt{1-x^2}}$ is missing in the numerator. The full derivative must include $u'$."
-        },
-        {
-          "id": "C",
           "text": "$\\frac{2x}{2\\sqrt{x^2 + \\arcsin(x)}}$",
           "is_correct": false,
           "explanation": "The derivative of $\\arcsin(x)$ — which is $\\frac{1}{\\sqrt{1-x^2}}$ — must also appear in the numerator. The derivative of $u$ is $2x + \\frac{1}{\\sqrt{1-x^2}}$."
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{1}{2\\sqrt{x^2 + \\arcsin(x)}}$",
+          "is_correct": false,
+          "explanation": "The chain rule factor $u' = 2x + \\frac{1}{\\sqrt{1-x^2}}$ is missing in the numerator. The full derivative must include $u'$."
         },
         {
           "id": "D",
@@ -1906,25 +1906,25 @@
           "id": "A",
           "text": "$-27$",
           "is_correct": false,
-          "explanation": "$h'(x) = 3[f(x)]^2 f'(x) - f'(x^3) \\cdot 3x^2$. At $x=1$: $h'(1) = 3(4)(-3) - f'(1) \\cdot 3 = -36 - (-9) = -27$. Actually this IS $-27$."
+          "explanation": "While the calculation yields $-36 + 9 = -27$, let's recheck: $3[f(1)]^2 f'(1) = 3(4)(-3) = -36$ and $f'(1^3) \\cdot 3(1)^2 = f'(1) \\cdot 3 = (-3)(3) = -9$. So $h'(1) = -36 - (-9) = -36 + 9 = -27$."
         },
         {
           "id": "B",
           "text": "$-27$",
           "is_correct": false,
-          "explanation": "While the calculation yields $-36 + 9 = -27$, let's recheck: $3[f(1)]^2 f'(1) = 3(4)(-3) = -36$ and $f'(1^3) \\cdot 3(1)^2 = f'(1) \\cdot 3 = (-3)(3) = -9$. So $h'(1) = -36 - (-9) = -36 + 9 = -27$."
+          "explanation": "$h'(x) = 3[f(x)]^2 f'(x) - f'(x^3) \\cdot 3x^2$. At $x=1$: $h'(1) = 3(4)(-3) - f'(1) \\cdot 3 = -36 - (-9) = -27$. Actually this IS $-27$."
         },
         {
           "id": "C",
-          "text": "$-27$",
-          "is_correct": true,
-          "explanation": "$h'(x) = 3[f(x)]^2 f'(x) - f'(x^3) \\cdot 3x^2$. At $x=1$: $h'(1) = 3[f(1)]^2 f'(1) - f'(1) \\cdot 3 = 3(4)(-3) - (-3)(3) = -36 + 9 = -27$."
-        },
-        {
-          "id": "D",
           "text": "$-45$",
           "is_correct": false,
           "explanation": "$h'(1) = 3[f(1)]^2 f'(1) - f'(1^3) \\cdot 3 = 3(4)(-3) - 3(-3) = -36 + 9 = -27$, not $-45$. Check that $f(1) = 2$ so $[f(1)]^2 = 4$."
+        },
+        {
+          "id": "D",
+          "text": "$-27$",
+          "is_correct": true,
+          "explanation": "$h'(x) = 3[f(x)]^2 f'(x) - f'(x^3) \\cdot 3x^2$. At $x=1$: $h'(1) = 3[f(1)]^2 f'(1) - f'(1) \\cdot 3 = 3(4)(-3) - (-3)(3) = -36 + 9 = -27$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -1944,15 +1944,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$t = e$",
-          "is_correct": false,
-          "explanation": "$v(t) = \\frac{1}{t(1+(\\ln t)^2)}$. At $t = e$: $v(e) = \\frac{1}{e(1+1)} = \\frac{1}{2e} \\neq \\frac{1}{2}$."
-        },
-        {
-          "id": "B",
           "text": "$t = 1$",
           "is_correct": true,
           "explanation": "$v(t) = \\frac{1}{t(1+(\\ln t)^2)}$. At $t = 1$: $\\ln 1 = 0$, so $v(1) = \\frac{1}{1 \\cdot (1+0)} = 1 \\neq \\frac{1}{2}$. Actually let's recheck: $v(1) = 1$, so $t = 1$ gives velocity $1$, not $\\frac{1}{2}$."
+        },
+        {
+          "id": "B",
+          "text": "$t$ such that $t(1 + (\\ln t)^2) = 2$",
+          "is_correct": true,
+          "explanation": "$v(t) = \\frac{d}{dt}[\\arctan(\\ln t)] = \\frac{1/t}{1+(\\ ln t)^2} = \\frac{1}{t(1+(\\ln t)^2)}$. Setting $v(t) = \\frac{1}{2}$: $t(1+(\\ln t)^2) = 2$, which is the defining equation for the answer."
         },
         {
           "id": "C",
@@ -1962,9 +1962,9 @@
         },
         {
           "id": "D",
-          "text": "$t$ such that $t(1 + (\\ln t)^2) = 2$",
-          "is_correct": true,
-          "explanation": "$v(t) = \\frac{d}{dt}[\\arctan(\\ln t)] = \\frac{1/t}{1+(\\ ln t)^2} = \\frac{1}{t(1+(\\ln t)^2)}$. Setting $v(t) = \\frac{1}{2}$: $t(1+(\\ln t)^2) = 2$, which is the defining equation for the answer."
+          "text": "$t = e$",
+          "is_correct": false,
+          "explanation": "$v(t) = \\frac{1}{t(1+(\\ln t)^2)}$. At $t = e$: $v(e) = \\frac{1}{e(1+1)} = \\frac{1}{2e} \\neq \\frac{1}{2}$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -1989,21 +1989,21 @@
         },
         {
           "id": "B",
-          "text": "$x^x \\ln x$",
-          "is_correct": false,
-          "explanation": "This omits the $+1$ term. Logarithmic differentiation: $\\ln f = x \\ln x$, so $\\frac{f'}{f} = \\ln x + 1$, giving $f'(x) = x^x(\\ln x + 1)$."
-        },
-        {
-          "id": "C",
           "text": "$x^x(\\ln x + 1)$",
           "is_correct": true,
           "explanation": "Logarithmic differentiation: $\\ln f = x \\ln x$. Differentiating: $\\frac{f'}{f} = \\ln x + x \\cdot \\frac{1}{x} = \\ln x + 1$. Therefore $f'(x) = x^x(\\ln x + 1)$."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$x^x \\cdot \\frac{1}{x}$",
           "is_correct": false,
           "explanation": "This incorrectly differentiates only $x \\ln x$ as $\\frac{1}{x}$. The product rule on $x \\ln x$ gives $\\ln x + 1$, so $f'(x) = x^x(\\ln x + 1)$."
+        },
+        {
+          "id": "D",
+          "text": "$x^x \\ln x$",
+          "is_correct": false,
+          "explanation": "This omits the $+1$ term. Logarithmic differentiation: $\\ln f = x \\ln x$, so $\\frac{f'}{f} = \\ln x + 1$, giving $f'(x) = x^x(\\ln x + 1)$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -2029,15 +2029,15 @@
         },
         {
           "id": "B",
-          "text": "$\\frac{1 + ye^{xy}}{xe^{xy} + 1}$",
-          "is_correct": false,
-          "explanation": "The signs are wrong. Moving $ye^{xy}$ to the right side gives $-ye^{xy}$ in the numerator, and moving $\\frac{dy}{dx}$ gives $-1$ coefficient, so the denominator has $xe^{xy} - 1$."
-        },
-        {
-          "id": "C",
           "text": "$\\frac{ye^{xy} - 1}{1 - xe^{xy}}$",
           "is_correct": false,
           "explanation": "This is the negative reciprocal of the correct answer. Collecting $\\frac{dy}{dx}$ from $ye^{xy} + xe^{xy}\\frac{dy}{dx} = 1 + \\frac{dy}{dx}$ yields $\\frac{1-ye^{xy}}{xe^{xy}-1}$."
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{1 + ye^{xy}}{xe^{xy} + 1}$",
+          "is_correct": false,
+          "explanation": "The signs are wrong. Moving $ye^{xy}$ to the right side gives $-ye^{xy}$ in the numerator, and moving $\\frac{dy}{dx}$ gives $-1$ coefficient, so the denominator has $xe^{xy} - 1$."
         },
         {
           "id": "D",
@@ -2068,9 +2068,9 @@
         },
         {
           "id": "B",
-          "text": "$\\sqrt{28}$",
+          "text": "$\\frac{1}{3}$",
           "is_correct": false,
-          "explanation": "$(f^{-1})'(3) = \\frac{1}{f'(2)}$, which is the reciprocal of $f'(2) = \\sqrt{28}$. The answer is $\\frac{1}{\\sqrt{28}}$, not $\\sqrt{28}$."
+          "explanation": "The formula requires evaluating $f'$ using $f'(x) = \\sqrt{1+[f(x)]^3}$ at $x=2$, giving $\\sqrt{28}$. The answer is $\\frac{1}{\\ sqrt{28}}$, not $\\frac{1}{3}$."
         },
         {
           "id": "C",
@@ -2080,9 +2080,9 @@
         },
         {
           "id": "D",
-          "text": "$\\frac{1}{3}$",
+          "text": "$\\sqrt{28}$",
           "is_correct": false,
-          "explanation": "The formula requires evaluating $f'$ using $f'(x) = \\sqrt{1+[f(x)]^3}$ at $x=2$, giving $\\sqrt{28}$. The answer is $\\frac{1}{\\ sqrt{28}}$, not $\\frac{1}{3}$."
+          "explanation": "$(f^{-1})'(3) = \\frac{1}{f'(2)}$, which is the reciprocal of $f'(2) = \\sqrt{28}$. The answer is $\\frac{1}{\\sqrt{28}}$, not $\\sqrt{28}$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -2102,9 +2102,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{x}{(1-x^2)^{3/2}}$",
-          "is_correct": true,
-          "explanation": "Since $x = \\sin y$, $y = \\arcsin x$, so $\\frac{dy}{dx} = \\frac{1}{\\sqrt{1-x^2}}$. Then $\\frac{d^2y}{dx^2} = \\frac{x}{(1-x^2)^{3/2}}$ (chain rule applied to $\\frac{d}{dx}[(1-x^2)^{-1/2}]$)."
+          "text": "$\\frac{1}{(1-x^2)}$",
+          "is_correct": false,
+          "explanation": "This is not the correct second derivative. Applying the chain rule to $\\frac{dy}{dx} = (1-x^2)^{-1/2}$ gives $\\frac{d^2y}{dx^2} = x(1-x^2)^{-3/2} = \\frac{x}{(1-x^2)^{3/2}}$."
         },
         {
           "id": "B",
@@ -2114,15 +2114,15 @@
         },
         {
           "id": "C",
-          "text": "$-\\sin y$",
-          "is_correct": false,
-          "explanation": "The choice $-\\sin y$ is the correct expression only if $\\frac{d^2y}{dx^2} = -\\sin y$, which is not the case. Differentiating $\\frac{dy}{dx} = \\frac{1}{\\cos y}$ with respect to $x$ gives $\\frac{d^2y}{dx^2} = \\frac{\\sin y}{\\cos^2 y} \\cdot \\frac{1}{\\cos y} = \\frac{\\sin y}{\\cos^3 y}$. Converting back to $x$ using $\\sin y = x$ and $\\cos y = \\sqrt{1-x^2}$ yields $\\frac{x}{(1-x^2)^{3/2}}$, which is positive, not $-\\sin y$."
+          "text": "$\\frac{x}{(1-x^2)^{3/2}}$",
+          "is_correct": true,
+          "explanation": "Since $x = \\sin y$, $y = \\arcsin x$, so $\\frac{dy}{dx} = \\frac{1}{\\sqrt{1-x^2}}$. Then $\\frac{d^2y}{dx^2} = \\frac{x}{(1-x^2)^{3/2}}$ (chain rule applied to $\\frac{d}{dx}[(1-x^2)^{-1/2}]$)."
         },
         {
           "id": "D",
-          "text": "$\\frac{1}{(1-x^2)}$",
+          "text": "$-\\sin y$",
           "is_correct": false,
-          "explanation": "This is not the correct second derivative. Applying the chain rule to $\\frac{dy}{dx} = (1-x^2)^{-1/2}$ gives $\\frac{d^2y}{dx^2} = x(1-x^2)^{-3/2} = \\frac{x}{(1-x^2)^{3/2}}$."
+          "explanation": "The choice $-\\sin y$ is the correct expression only if $\\frac{d^2y}{dx^2} = -\\sin y$, which is not the case. Differentiating $\\frac{dy}{dx} = \\frac{1}{\\cos y}$ with respect to $x$ gives $\\frac{d^2y}{dx^2} = \\frac{\\sin y}{\\cos^2 y} \\cdot \\frac{1}{\\cos y} = \\frac{\\sin y}{\\cos^3 y}$. Converting back to $x$ using $\\sin y = x$ and $\\cos y = \\sqrt{1-x^2}$ yields $\\frac{x}{(1-x^2)^{3/2}}$, which is positive, not $-\\sin y$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -2148,9 +2148,9 @@
         },
         {
           "id": "B",
-          "text": "$\\frac{3}{144} + \\frac{5}{864}$",
-          "is_correct": true,
-          "explanation": "$g'(x) = \\frac{f'(\\sqrt{x})}{2\\sqrt{x}}$. Product/chain rule: $g''(x) = \\frac{f''(\\sqrt{x}) \\cdot \\frac{1}{2\\sqrt{x}} \\cdot 2\\sqrt{x} - f'(\\sqrt{x}) \\cdot \\frac{1}{\\sqrt{x}}}{4x}$. Simplifying at $x=36$: $g''(36) = \\frac{f''(6)}{144} - \\frac{f'(6)}{4 \\cdot 216} = \\frac{3}{144} - \\frac{-5}{864} = \\frac{3}{144} + \\frac{5}{864}$."
+          "text": "$\\frac{3}{144} - \\frac{5}{864}$",
+          "is_correct": false,
+          "explanation": "The sign of the second term is wrong. Since $f'(6) = -5$, subtracting $\\frac{f'(6)}{864}$ means subtracting $-\\frac{5}{864}$, which adds $\\frac{5}{864}$. The correct answer is $\\frac{3}{144} + \\frac{5}{864}$."
         },
         {
           "id": "C",
@@ -2160,9 +2160,9 @@
         },
         {
           "id": "D",
-          "text": "$\\frac{3}{144} - \\frac{5}{864}$",
-          "is_correct": false,
-          "explanation": "The sign of the second term is wrong. Since $f'(6) = -5$, subtracting $\\frac{f'(6)}{864}$ means subtracting $-\\frac{5}{864}$, which adds $\\frac{5}{864}$. The correct answer is $\\frac{3}{144} + \\frac{5}{864}$."
+          "text": "$\\frac{3}{144} + \\frac{5}{864}$",
+          "is_correct": true,
+          "explanation": "$g'(x) = \\frac{f'(\\sqrt{x})}{2\\sqrt{x}}$. Product/chain rule: $g''(x) = \\frac{f''(\\sqrt{x}) \\cdot \\frac{1}{2\\sqrt{x}} \\cdot 2\\sqrt{x} - f'(\\sqrt{x}) \\cdot \\frac{1}{\\sqrt{x}}}{4x}$. Simplifying at $x=36$: $g''(36) = \\frac{f''(6)}{144} - \\frac{f'(6)}{4 \\cdot 216} = \\frac{3}{144} - \\frac{-5}{864} = \\frac{3}{144} + \\frac{5}{864}$."
         }
       ],
       "subject": "ap-calculus-bc",

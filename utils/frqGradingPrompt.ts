@@ -2,7 +2,7 @@
 // Builds system prompts for FRQ grading and auditing.
 // Two passes in strict mode: grader → auditor (downgrades weak credits only).
 
-import type { FRQ, FRQPart, FRQScoringPoint, GradingStrictness } from '@/utils/frqSession'
+import type { FRQ, FRQDocument, FRQPart, FRQScoringPoint, GradingStrictness } from '@/utils/frqSession'
 
 // ─── Per-Subject General Rubric Blocks ────────────────────────────────────────
 // Math subjects have no general rubric — scoring is entirely question-specific.
@@ -135,6 +135,13 @@ function renderStudentBlock(parts: FRQPart[], responses: Record<string, string>)
   return `STUDENT RESPONSES (grade these — not the reference answers):\n${lines.join('\n')}`
 }
 
+function renderDocumentsBlock(documents: FRQDocument[]): string {
+  const docs = documents.map(doc => {
+    return `Document ${doc.doc_number}\nSource: ${doc.source}\nContent: ${doc.content}`
+  }).join('\n\n')
+  return `DOCUMENTS (the student wrote their response using these sources):\n\n${docs}`
+}
+
 // ─── Strict Mode Blocks ───────────────────────────────────────────────────────
 
 const STRICT_MODE_BLOCK = `STRICT MODE: You are grading as a rigorous AP reader preparing a student for the real exam. Do not award sympathy points. Do not credit vague or hand-wavy answers. Do not accept "the student probably meant X" — grade what they literally wrote. If the student's words match the required elements but are in the wrong context (e.g., they defined a term without applying it to the scenario), award 0.`
@@ -196,7 +203,7 @@ export function buildFRQGradingPrompt(
 - total_score MUST equal the sum of parts[].earned.`
 
   const questionBlock = `QUESTION: ${question.title}
-Total Gradable Points: ${gradablePoints}${question.stimulus ? `\n\nSTIMULUS:\n${question.stimulus}` : ''}
+Total Gradable Points: ${gradablePoints}${question.stimulus ? `\n\nSTIMULUS:\n${question.stimulus}` : ''}${question.documents?.length ? `\n\n${renderDocumentsBlock(question.documents)}` : ''}
 
 SCORING RUBRIC (per part):
 ${gradableParts.map(renderPartBlock).join('\n\n')}`
@@ -249,10 +256,15 @@ ${gradableParts.map(renderPartBlock).join('\n\n')}`
 
   const outputInstruction = `OUTPUT the corrected grading using the SAME JSON schema as the first pass. Raw JSON only, no markdown fences. Recalculate earned, total_score, and update feedback/missed/takeaway only if a downgrade changes them.`
 
+  const documentsBlock = question.documents?.length
+    ? renderDocumentsBlock(question.documents)
+    : ''
+
   return [
     role,
     auditInstructions,
     studentBlock,
+    documentsBlock,
     rubricBlock,
     firstPassBlock,
     OUTPUT_SCHEMA,

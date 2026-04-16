@@ -11,9 +11,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\cos(x^2)$",
+          "text": "$-2x\\cos(x^2)$",
           "is_correct": false,
-          "explanation": "This omits the chain rule factor. The derivative of the outer function $\\sin(u)$ at $u = x^2$ must be multiplied by $\\frac{d}{dx}[x^2] = 2x$."
+          "explanation": "The derivative of $\\sin(u)$ is $+\\cos(u)$, not $-\\cos(u)$. The negative sign would appear if differentiating $\\cos(x^2)$."
         },
         {
           "id": "B",
@@ -23,15 +23,15 @@
         },
         {
           "id": "C",
-          "text": "$-2x\\cos(x^2)$",
-          "is_correct": false,
-          "explanation": "The derivative of $\\sin(u)$ is $+\\cos(u)$, not $-\\cos(u)$. The negative sign would appear if differentiating $\\cos(x^2)$."
-        },
-        {
-          "id": "D",
           "text": "$2x\\sin(x^2)$",
           "is_correct": false,
           "explanation": "The outer function $\\sin$ becomes $\\cos$ when differentiated, not $\\sin$. Apply the chain rule: $\\cos(x^2) \\cdot 2x$."
+        },
+        {
+          "id": "D",
+          "text": "$\\cos(x^2)$",
+          "is_correct": false,
+          "explanation": "This omits the chain rule factor. The derivative of the outer function $\\sin(u)$ at $u = x^2$ must be multiplied by $\\frac{d}{dx}[x^2] = 2x$."
         }
       ],
       "stimulus": {
@@ -49,9 +49,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$5(3x+1)^4$",
+          "text": "$5(3x+1)^5$",
           "is_correct": false,
-          "explanation": "This applies the Power Rule but omits the chain rule factor. The derivative of the inner function $3x+1$ is $3$, which must be multiplied."
+          "explanation": "Power Rule reduces the exponent by 1 (from 5 to 4), and the chain rule factor 3 must be included: $15(3x+1)^4$."
         },
         {
           "id": "B",
@@ -61,9 +61,9 @@
         },
         {
           "id": "C",
-          "text": "$5(3x+1)^5$",
+          "text": "$5(3x+1)^4$",
           "is_correct": false,
-          "explanation": "Power Rule reduces the exponent by 1 (from 5 to 4), and the chain rule factor 3 must be included: $15(3x+1)^4$."
+          "explanation": "This applies the Power Rule but omits the chain rule factor. The derivative of the inner function $3x+1$ is $3$, which must be multiplied."
         },
         {
           "id": "D",
@@ -87,9 +87,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{1}{\\sqrt{1-x^2}}$",
+          "text": "$\\sec^2(x)$",
           "is_correct": false,
-          "explanation": "That is the derivative of $\\arcsin(x)$. The derivative of $\\arctan(x)$ uses $1 + x^2$ in the denominator."
+          "explanation": "$\\sec^2(x)$ is the derivative of $\\tan(x)$, not $\\arctan(x)$. Inverse trig derivatives are algebraic fractions, not trig functions."
         },
         {
           "id": "B",
@@ -99,15 +99,15 @@
         },
         {
           "id": "C",
-          "text": "$\\frac{-1}{1+x^2}$",
+          "text": "$\\frac{1}{\\sqrt{1-x^2}}$",
           "is_correct": false,
-          "explanation": "The derivative of $\\arctan(x)$ is positive: $\\frac{1}{1+x^2}$. The sign is always positive because $\\arctan$ is a strictly increasing function."
+          "explanation": "That is the derivative of $\\arcsin(x)$. The derivative of $\\arctan(x)$ uses $1 + x^2$ in the denominator."
         },
         {
           "id": "D",
-          "text": "$\\sec^2(x)$",
+          "text": "$\\frac{-1}{1+x^2}$",
           "is_correct": false,
-          "explanation": "$\\sec^2(x)$ is the derivative of $\\tan(x)$, not $\\arctan(x)$. Inverse trig derivatives are algebraic fractions, not trig functions."
+          "explanation": "The derivative of $\\arctan(x)$ is positive: $\\frac{1}{1+x^2}$. The sign is always positive because $\\arctan$ is a strictly increasing function."
         }
       ],
       "stimulus": {
@@ -125,27 +125,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{1}{\\sqrt{1-x^2}}$",
-          "is_correct": true,
-          "explanation": "The standard derivative: $\\frac{d}{dx}[\\arcsin(x)] = \\frac{1}{\\sqrt{1-x^2}}$, valid for $-1 < x < 1$."
-        },
-        {
-          "id": "B",
-          "text": "$\\frac{1}{1+x^2}$",
-          "is_correct": false,
-          "explanation": "That is the derivative of $\\arctan(x)$. For $\\arcsin(x)$, the denominator is $\\sqrt{1-x^2}$, not $1+x^2$."
-        },
-        {
-          "id": "C",
           "text": "$\\cos(x)$",
           "is_correct": false,
           "explanation": "$\\cos(x)$ is the derivative of $\\sin(x)$, not $\\arcsin(x)$. Inverse trig derivatives yield algebraic expressions."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "$\\frac{-1}{\\sqrt{1-x^2}}$",
           "is_correct": false,
           "explanation": "The derivative of $\\arcsin(x)$ is positive. The negative version is the derivative of $\\arccos(x)$."
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{1}{1+x^2}$",
+          "is_correct": false,
+          "explanation": "That is the derivative of $\\arctan(x)$. For $\\arcsin(x)$, the denominator is $\\sqrt{1-x^2}$, not $1+x^2$."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{1}{\\sqrt{1-x^2}}$",
+          "is_correct": true,
+          "explanation": "The standard derivative: $\\frac{d}{dx}[\\arcsin(x)] = \\frac{1}{\\sqrt{1-x^2}}$, valid for $-1 < x < 1$."
         }
       ],
       "stimulus": {
@@ -163,27 +163,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$e^{5x}$",
-          "is_correct": false,
-          "explanation": "This omits the chain rule. The inner function $5x$ has derivative $5$, which must be multiplied: $5e^{5x}$."
-        },
-        {
-          "id": "B",
           "text": "$5e^{4x}$",
           "is_correct": false,
           "explanation": "The Power Rule does not apply to exponentials. The exponent $5x$ stays unchanged; only the chain factor $5$ is multiplied outside."
         },
         {
-          "id": "C",
-          "text": "$5e^{5x}$",
-          "is_correct": true,
-          "explanation": "Chain rule: $\\frac{d}{dx}[e^u] = e^u \\cdot u'$. With $u = 5x$, $u' = 5$, so the answer is $5e^{5x}$."
-        },
-        {
-          "id": "D",
+          "id": "B",
           "text": "$e^{5x+1}$",
           "is_correct": false,
           "explanation": "Adding 1 to the exponent is not a derivative rule. The chain rule gives $e^{5x} \\cdot 5 = 5e^{5x}$."
+        },
+        {
+          "id": "C",
+          "text": "$e^{5x}$",
+          "is_correct": false,
+          "explanation": "This omits the chain rule. The inner function $5x$ has derivative $5$, which must be multiplied: $5e^{5x}$."
+        },
+        {
+          "id": "D",
+          "text": "$5e^{5x}$",
+          "is_correct": true,
+          "explanation": "Chain rule: $\\frac{d}{dx}[e^u] = e^u \\cdot u'$. With $u = 5x$, $u' = 5$, so the answer is $5e^{5x}$."
         }
       ],
       "stimulus": {
@@ -201,21 +201,21 @@
       "choices": [
         {
           "id": "A",
+          "text": "Differentiate only the left side with respect to $x$",
+          "is_correct": false,
+          "explanation": "Both sides of an equation must be differentiated. The right side $25$ is a constant, so its derivative is $0$."
+        },
+        {
+          "id": "B",
           "text": "Solve for $y$ first, then differentiate",
           "is_correct": false,
           "explanation": "Implicit differentiation avoids solving for $y$. Differentiate both sides with respect to $x$ directly, treating $y$ as a function of $x$."
         },
         {
-          "id": "B",
+          "id": "C",
           "text": "Differentiate both sides with respect to $x$, applying the chain rule to the $y^2$ term",
           "is_correct": true,
           "explanation": "Implicit differentiation differentiates both sides: $\\frac{d}{dx}[x^2] + \\frac{d}{dx}[y^2] = 0$. The $y^2$ term requires the chain rule: $2y\\frac{dy}{dx}$."
-        },
-        {
-          "id": "C",
-          "text": "Differentiate only the left side with respect to $x$",
-          "is_correct": false,
-          "explanation": "Both sides of an equation must be differentiated. The right side $25$ is a constant, so its derivative is $0$."
         },
         {
           "id": "D",
@@ -240,15 +240,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$g'(x^3)$",
+          "text": "$g'(3x^2)$",
           "is_correct": false,
-          "explanation": "This omits the chain rule factor. The derivative of the inner function $x^3$ is $3x^2$, which must multiply $g'(x^3)$."
+          "explanation": "$g'(3x^2)$ evaluates $g'$ at the wrong input. The correct form is $g'(x^3) \\cdot 3x^2$ — $g'$ is still evaluated at $x^3$."
         },
         {
           "id": "B",
-          "text": "$3x^2 \\cdot g(x^3)$",
+          "text": "$g'(x^3)$",
           "is_correct": false,
-          "explanation": "The outer function $g$ must be differentiated (giving $g'$), not left as $g$. Apply the chain rule: $g'(x^3) \\cdot 3x^2$."
+          "explanation": "This omits the chain rule factor. The derivative of the inner function $x^3$ is $3x^2$, which must multiply $g'(x^3)$."
         },
         {
           "id": "C",
@@ -258,9 +258,9 @@
         },
         {
           "id": "D",
-          "text": "$g'(3x^2)$",
+          "text": "$3x^2 \\cdot g(x^3)$",
           "is_correct": false,
-          "explanation": "$g'(3x^2)$ evaluates $g'$ at the wrong input. The correct form is $g'(x^3) \\cdot 3x^2$ — $g'$ is still evaluated at $x^3$."
+          "explanation": "The outer function $g$ must be differentiated (giving $g'$), not left as $g$. Apply the chain rule: $g'(x^3) \\cdot 3x^2$."
         }
       ],
       "stimulus": {
@@ -279,15 +279,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$g'(a)$",
+          "text": "$-g'(f(a))$",
           "is_correct": false,
-          "explanation": "The inverse function derivative requires evaluating $g'$ at $g^{-1}(a) = f(a)$, not at $a$ itself."
+          "explanation": "The inverse function derivative uses a reciprocal, not a negative sign. The correct formula is $f'(a) = \\frac{1}{g'(f(a))}$."
         },
         {
           "id": "B",
-          "text": "$\\frac{1}{g'(a)}$",
+          "text": "$g'(a)$",
           "is_correct": false,
-          "explanation": "$g'$ must be evaluated at $f(a)$ (the output of $f$ at $a$), not at $a$. The formula is $f'(a) = \\frac{1}{g'(f(a))}$."
+          "explanation": "The inverse function derivative requires evaluating $g'$ at $g^{-1}(a) = f(a)$, not at $a$ itself."
         },
         {
           "id": "C",
@@ -297,9 +297,9 @@
         },
         {
           "id": "D",
-          "text": "$-g'(f(a))$",
+          "text": "$\\frac{1}{g'(a)}$",
           "is_correct": false,
-          "explanation": "The inverse function derivative uses a reciprocal, not a negative sign. The correct formula is $f'(a) = \\frac{1}{g'(f(a))}$."
+          "explanation": "$g'$ must be evaluated at $f(a)$ (the output of $f$ at $a$), not at $a$. The formula is $f'(a) = \\frac{1}{g'(f(a))}$."
         }
       ],
       "stimulus": {
@@ -318,27 +318,27 @@
       "choices": [
         {
           "id": "A",
+          "text": "$\\frac{4x^3}{x}$",
+          "is_correct": false,
+          "explanation": "The chain rule gives $\\frac{4x^3}{x^4}$, and simplifying gives $\\frac{4}{x}$, not $\\frac{4x^3}{x}$."
+        },
+        {
+          "id": "B",
           "text": "$\\frac{1}{x^4}$",
           "is_correct": false,
           "explanation": "This omits the chain rule factor. $\\frac{d}{dx}[\\ln(u)] = \\frac{1}{u} \\cdot u'$. With $u = x^4$, $u' = 4x^3$, giving $\\frac{4x^3}{x^4} = \\frac{4}{x}$."
         },
         {
-          "id": "B",
+          "id": "C",
           "text": "$\\frac{4}{x}$",
           "is_correct": true,
           "explanation": "Chain rule: $\\frac{1}{x^4} \\cdot 4x^3 = \\frac{4x^3}{x^4} = \\frac{4}{x}$. Alternatively, $\\ln(x^4) = 4\\ln(x)$, so derivative is $\\frac{4}{x}$."
         },
         {
-          "id": "C",
+          "id": "D",
           "text": "$4x^3 \\cdot \\ln(x^4)$",
           "is_correct": false,
           "explanation": "This multiplies the inner derivative by the original function, not the derivative of the outer function. The derivative of $\\ln(u)$ is $\\frac{1}{u}$."
-        },
-        {
-          "id": "D",
-          "text": "$\\frac{4x^3}{x}$",
-          "is_correct": false,
-          "explanation": "The chain rule gives $\\frac{4x^3}{x^4}$, and simplifying gives $\\frac{4}{x}$, not $\\frac{4x^3}{x}$."
         }
       ],
       "stimulus": {
@@ -356,21 +356,21 @@
       "choices": [
         {
           "id": "A",
+          "text": "$3\\sin(3x)$",
+          "is_correct": false,
+          "explanation": "The derivative of $\\cos$ is $-\\sin$, not $+\\sin$. Include the negative: $-3\\sin(3x)$."
+        },
+        {
+          "id": "B",
           "text": "$\\sin(3x)$",
           "is_correct": false,
           "explanation": "Two errors: the derivative of $\\cos$ is $-\\sin$ (not $+\\sin$), and the chain rule factor $3$ is missing: $-3\\sin(3x)$."
         },
         {
-          "id": "B",
+          "id": "C",
           "text": "$-\\sin(3x)$",
           "is_correct": false,
           "explanation": "This omits the chain rule factor. The inner function $3x$ has derivative $3$, giving $-\\sin(3x) \\cdot 3 = -3\\sin(3x)$."
-        },
-        {
-          "id": "C",
-          "text": "$3\\sin(3x)$",
-          "is_correct": false,
-          "explanation": "The derivative of $\\cos$ is $-\\sin$, not $+\\sin$. Include the negative: $-3\\sin(3x)$."
         },
         {
           "id": "D",
@@ -435,15 +435,15 @@
         },
         {
           "id": "B",
-          "text": "$24$",
-          "is_correct": false,
-          "explanation": "A common error is using $f'(1) \\cdot g'(1) = 4 \\cdot 5 = 20$ or mixing up which $x$-value to evaluate $f'$ at. The chain rule requires $f'(g(1)) = f'(3) = 7$."
-        },
-        {
-          "id": "C",
           "text": "$35$",
           "is_correct": true,
           "explanation": "Chain rule: $h'(1) = f'(g(1)) \\cdot g'(1)$. $g(1) = 3$, $f'(3) = 7$, $g'(1) = 5$. So $h'(1) = 7 \\cdot 5 = 35$."
+        },
+        {
+          "id": "C",
+          "text": "$24$",
+          "is_correct": false,
+          "explanation": "A common error is using $f'(1) \\cdot g'(1) = 4 \\cdot 5 = 20$ or mixing up which $x$-value to evaluate $f'$ at. The chain rule requires $f'(g(1)) = f'(3) = 7$."
         },
         {
           "id": "D",
@@ -499,9 +499,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$6$",
-          "is_correct": false,
-          "explanation": "This uses $g'(0) \\cdot f'(0) = 3 \\cdot 2 = 6$, evaluating $g'$ at $x = 0$ instead of at $f(0)$. The chain rule requires $g'(f(0))$, not $g'(0)$."
+          "text": "$14$",
+          "is_correct": true,
+          "explanation": "Chain rule: $k'(0) = g'(f(0)) \\cdot f'(0)$. From the table: $f(0) = 2$, so $g'(f(0)) = g'(2) = 7$, and $f'(0) = 2$. Therefore $k'(0) = 7 \\cdot 2 = 14$."
         },
         {
           "id": "B",
@@ -511,15 +511,15 @@
         },
         {
           "id": "C",
-          "text": "$21$",
+          "text": "$6$",
           "is_correct": false,
-          "explanation": "This multiplies $g'(0) \\cdot f'(2) = 3 \\cdot 6 = 18$ or $g'(2) \\cdot g'(0) = 7 \\cdot 3 = 21$, mixing up function values in the chain rule."
+          "explanation": "This uses $g'(0) \\cdot f'(0) = 3 \\cdot 2 = 6$, evaluating $g'$ at $x = 0$ instead of at $f(0)$. The chain rule requires $g'(f(0))$, not $g'(0)$."
         },
         {
           "id": "D",
-          "text": "$14$",
-          "is_correct": true,
-          "explanation": "Chain rule: $k'(0) = g'(f(0)) \\cdot f'(0)$. From the table: $f(0) = 2$, so $g'(f(0)) = g'(2) = 7$, and $f'(0) = 2$. Therefore $k'(0) = 7 \\cdot 2 = 14$."
+          "text": "$21$",
+          "is_correct": false,
+          "explanation": "This multiplies $g'(0) \\cdot f'(2) = 3 \\cdot 6 = 18$ or $g'(2) \\cdot g'(0) = 7 \\cdot 3 = 21$, mixing up function values in the chain rule."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -569,21 +569,21 @@
       "choices": [
         {
           "id": "A",
-          "text": "$21$",
-          "is_correct": false,
-          "explanation": "$h'(2) = f'(g(2)) \\cdot g'(2)$. $g(2) = 1$, $f'(1) = 4$, $g'(2) = 7$. So $h'(2) = 4 \\cdot 7 = 28$, not 21."
-        },
-        {
-          "id": "B",
           "text": "$28$",
           "is_correct": true,
           "explanation": "Chain rule: $h'(2) = f'(g(2)) \\cdot g'(2)$. From the table: $g(2) = 1$, $f'(1) = 4$, $g'(2) = 7$. So $h'(2) = 4 \\cdot 7 = 28$."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "$15$",
           "is_correct": false,
           "explanation": "Using $f'(2) \\cdot g'(2) = 3 \\cdot 7 = 21$ or misreading $g(2)$. The chain rule requires evaluating $f'$ at $g(2) = 1$, not at $x = 2$."
+        },
+        {
+          "id": "C",
+          "text": "$21$",
+          "is_correct": false,
+          "explanation": "$h'(2) = f'(g(2)) \\cdot g'(2)$. $g(2) = 1$, $f'(1) = 4$, $g'(2) = 7$. So $h'(2) = 4 \\cdot 7 = 28$, not 21."
         },
         {
           "id": "D",
@@ -610,21 +610,21 @@
         },
         {
           "id": "B",
+          "text": "$\\frac{2x + 2y}{x}$",
+          "is_correct": false,
+          "explanation": "This does not follow from correct implicit differentiation. The product rule on $xy$ and chain rule on $y^2$ both contribute to the $\\frac{dy}{dx}$ terms."
+        },
+        {
+          "id": "C",
           "text": "$\\frac{2x + y}{x + 2y}$",
           "is_correct": false,
           "explanation": "The sign is wrong. After isolating $\\frac{dy}{dx}$, the numerator is $-(2x+y)$, giving a negative fraction for most values of $x$ and $y$."
         },
         {
-          "id": "C",
+          "id": "D",
           "text": "$\\frac{-2x}{2y}$",
           "is_correct": false,
           "explanation": "This ignores the $xy$ term. Differentiating $xy$ by the product rule gives $y + x\\frac{dy}{dx}$, contributing both to the constant and $\\frac{dy}{dx}$ terms."
-        },
-        {
-          "id": "D",
-          "text": "$\\frac{2x + 2y}{x}$",
-          "is_correct": false,
-          "explanation": "This does not follow from correct implicit differentiation. The product rule on $xy$ and chain rule on $y^2$ both contribute to the $\\frac{dy}{dx}$ terms."
         }
       ],
       "stimulus": {
@@ -682,15 +682,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$4$",
-          "is_correct": false,
-          "explanation": "$g'(3) = \\frac{1}{f'(g(3))}$. Since $f(2) = 3$, $g(3) = 2$. So $g'(3) = \\frac{1}{f'(2)} = \\frac{1}{4}$, not $4$."
-        },
-        {
-          "id": "B",
           "text": "$\\frac{1}{3}$",
           "is_correct": false,
           "explanation": "Using $f(3)$ or $f'(3)$ instead of $f'(2)$. Since $g(3) = 2$ (because $f(2) = 3$), the correct evaluation is $\\frac{1}{f'(2)} = \\frac{1}{4}$."
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{3}{4}$",
+          "is_correct": false,
+          "explanation": "There is no reason to involve $f(2) = 3$ in the numerator. The inverse function formula is $g'(3) = \\frac{1}{f'(g(3))} = \\frac{1}{f'(2)} = \\frac{1}{4}$."
         },
         {
           "id": "C",
@@ -700,9 +700,9 @@
         },
         {
           "id": "D",
-          "text": "$\\frac{3}{4}$",
+          "text": "$4$",
           "is_correct": false,
-          "explanation": "There is no reason to involve $f(2) = 3$ in the numerator. The inverse function formula is $g'(3) = \\frac{1}{f'(g(3))} = \\frac{1}{f'(2)} = \\frac{1}{4}$."
+          "explanation": "$g'(3) = \\frac{1}{f'(g(3))}$. Since $f(2) = 3$, $g(3) = 2$. So $g'(3) = \\frac{1}{f'(2)} = \\frac{1}{4}$, not $4$."
         }
       ],
       "stimulus": {
@@ -750,21 +750,21 @@
         },
         {
           "id": "B",
+          "text": "$\\frac{1}{1+2x}$",
+          "is_correct": false,
+          "explanation": "The denominator of $\\arctan'$ requires squaring the argument: $1+(2x)^2 = 1+4x^2$. Also, the chain factor $2$ must be in the numerator."
+        },
+        {
+          "id": "C",
           "text": "$\\frac{2}{1+4x^2}$",
           "is_correct": true,
           "explanation": "Chain rule: $\\frac{d}{dx}[\\arctan(2x)] = \\frac{1}{1+(2x)^2} \\cdot 2 = \\frac{2}{1+4x^2}$."
         },
         {
-          "id": "C",
+          "id": "D",
           "text": "$\\frac{2}{1+2x^2}$",
           "is_correct": false,
           "explanation": "The denominator should be $1 + (2x)^2 = 1 + 4x^2$. Squaring $2x$ gives $4x^2$, not $2x^2$."
-        },
-        {
-          "id": "D",
-          "text": "$\\frac{1}{1+2x}$",
-          "is_correct": false,
-          "explanation": "The denominator of $\\arctan'$ requires squaring the argument: $1+(2x)^2 = 1+4x^2$. Also, the chain factor $2$ must be in the numerator."
         }
       ],
       "stimulus": {
@@ -783,9 +783,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$-4x^2\\sin(x^2)$",
+          "text": "$-2x\\sin(x^2)$",
           "is_correct": false,
-          "explanation": "This is the $-4x^2\\sin(x^2)$ part of the second derivative but omits the $2\\cos(x^2)$ term from differentiating the $2x$ factor."
+          "explanation": "This differentiates only the $\\cos$ part of $y'$ without applying the product rule. $y' = 2x\\cos(x^2)$ requires the product rule: differentiate $2x$ times $\\cos(x^2)$ plus $2x$ times the derivative of $\\cos(x^2)$."
         },
         {
           "id": "B",
@@ -795,15 +795,15 @@
         },
         {
           "id": "C",
-          "text": "$-2x\\sin(x^2)$",
-          "is_correct": false,
-          "explanation": "This differentiates only the $\\cos$ part of $y'$ without applying the product rule. $y' = 2x\\cos(x^2)$ requires the product rule: differentiate $2x$ times $\\cos(x^2)$ plus $2x$ times the derivative of $\\cos(x^2)$."
-        },
-        {
-          "id": "D",
           "text": "$4x^2\\cos(x^2) + 2\\sin(x^2)$",
           "is_correct": false,
           "explanation": "The sign is wrong on the trig term. The derivative of $\\cos(x^2)$ is $-\\sin(x^2) \\cdot 2x$, giving $-4x^2\\sin(x^2)$, not $+$."
+        },
+        {
+          "id": "D",
+          "text": "$-4x^2\\sin(x^2)$",
+          "is_correct": false,
+          "explanation": "This is the $-4x^2\\sin(x^2)$ part of the second derivative but omits the $2\\cos(x^2)$ term from differentiating the $2x$ factor."
         }
       ],
       "stimulus": {
@@ -822,21 +822,21 @@
       "choices": [
         {
           "id": "A",
-          "text": "$2x \\cdot \\sin(3x) + 3x^2\\cos(3x)$",
-          "is_correct": true,
-          "explanation": "Product rule then chain rule: $\\frac{d}{dx}[x^2] \\cdot \\sin(3x) + x^2 \\cdot \\frac{d}{dx}[\\sin(3x)] = 2x\\sin(3x) + x^2 \\cdot 3\\cos(3x) = 2x\\sin(3x) + 3x^2\\cos(3x)$."
-        },
-        {
-          "id": "B",
           "text": "$2x \\cdot 3\\cos(3x)$",
           "is_correct": false,
           "explanation": "This multiplies the two derivatives together instead of applying the product rule. Product rule: $(uv)' = u'v + uv'$."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "$2x\\sin(3x) - 3x^2\\cos(3x)$",
           "is_correct": false,
           "explanation": "The chain rule gives $\\frac{d}{dx}[\\sin(3x)] = 3\\cos(3x)$ (positive). The second term should be $+3x^2\\cos(3x)$, not negative."
+        },
+        {
+          "id": "C",
+          "text": "$2x \\cdot \\sin(3x) + 3x^2\\cos(3x)$",
+          "is_correct": true,
+          "explanation": "Product rule then chain rule: $\\frac{d}{dx}[x^2] \\cdot \\sin(3x) + x^2 \\cdot \\frac{d}{dx}[\\sin(3x)] = 2x\\sin(3x) + x^2 \\cdot 3\\cos(3x) = 2x\\sin(3x) + 3x^2\\cos(3x)$."
         },
         {
           "id": "D",
@@ -861,27 +861,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{e^x\\cos(x) + e^x\\sin(x)}{\\cos^2(x)}$",
-          "is_correct": true,
-          "explanation": "Quotient rule: $\\frac{e^x \\cdot \\cos(x) - e^x \\cdot (-\\sin(x))}{\\cos^2(x)} = \\frac{e^x\\cos(x) + e^x\\sin(x)}{\\cos^2(x)}$."
-        },
-        {
-          "id": "B",
-          "text": "$\\frac{e^x\\cos(x) - e^x\\sin(x)}{\\cos^2(x)}$",
-          "is_correct": false,
-          "explanation": "The sign error comes from the derivative of $\\cos(x)$: $\\frac{d}{dx}[\\cos(x)] = -\\sin(x)$. The quotient rule gives $-e^x(-\\sin x) = +e^x\\sin x$ in the numerator."
-        },
-        {
-          "id": "C",
           "text": "$\\frac{e^x}{-\\sin(x)}$",
           "is_correct": false,
           "explanation": "This is not the quotient rule. Differentiating only the denominator (incorrectly) doesn't give the derivative of the quotient."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "$e^x \\cdot \\tan(x)$",
           "is_correct": false,
           "explanation": "Multiplying $\\frac{e^x}{\\cos x}$ by $\\frac{\\sin x}{\\cos x}$ is not differentiation. The quotient rule must be applied."
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{e^x\\cos(x) + e^x\\sin(x)}{\\cos^2(x)}$",
+          "is_correct": true,
+          "explanation": "Quotient rule: $\\frac{e^x \\cdot \\cos(x) - e^x \\cdot (-\\sin(x))}{\\cos^2(x)} = \\frac{e^x\\cos(x) + e^x\\sin(x)}{\\cos^2(x)}$."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{e^x\\cos(x) - e^x\\sin(x)}{\\cos^2(x)}$",
+          "is_correct": false,
+          "explanation": "The sign error comes from the derivative of $\\cos(x)$: $\\frac{d}{dx}[\\cos(x)] = -\\sin(x)$. The quotient rule gives $-e^x(-\\sin x) = +e^x\\sin x$ in the numerator."
         }
       ],
       "stimulus": {
@@ -900,27 +900,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{1}{\\sqrt{1-9x^2}}$",
-          "is_correct": false,
-          "explanation": "This omits the chain rule factor. $\\frac{d}{dx}[\\arcsin(u)] = \\frac{1}{\\sqrt{1-u^2}} \\cdot u'$. With $u = 3x$, $u' = 3$, giving $\\frac{3}{\\sqrt{1-9x^2}}$."
-        },
-        {
-          "id": "B",
-          "text": "$\\frac{3}{\\sqrt{1-9x^2}}$",
-          "is_correct": true,
-          "explanation": "Chain rule: $\\frac{d}{dx}[\\arcsin(3x)] = \\frac{1}{\\sqrt{1-(3x)^2}} \\cdot 3 = \\frac{3}{\\sqrt{1-9x^2}}$."
-        },
-        {
-          "id": "C",
           "text": "$\\frac{3}{\\sqrt{1-3x^2}}$",
           "is_correct": false,
           "explanation": "The expression under the radical should be $1 - (3x)^2 = 1 - 9x^2$, not $1 - 3x^2$. Squaring $3x$ gives $9x^2$."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "$\\frac{1}{\\sqrt{1-3x}}$",
           "is_correct": false,
           "explanation": "Two errors: the argument must be squared ($1-(3x)^2 = 1-9x^2$), and the chain factor 3 must appear in the numerator."
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{1}{\\sqrt{1-9x^2}}$",
+          "is_correct": false,
+          "explanation": "This omits the chain rule factor. $\\frac{d}{dx}[\\arcsin(u)] = \\frac{1}{\\sqrt{1-u^2}} \\cdot u'$. With $u = 3x$, $u' = 3$, giving $\\frac{3}{\\sqrt{1-9x^2}}$."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{3}{\\sqrt{1-9x^2}}$",
+          "is_correct": true,
+          "explanation": "Chain rule: $\\frac{d}{dx}[\\arcsin(3x)] = \\frac{1}{\\sqrt{1-(3x)^2}} \\cdot 3 = \\frac{3}{\\sqrt{1-9x^2}}$."
         }
       ],
       "stimulus": {
@@ -939,9 +939,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{1 - y\\cos(xy)}{x\\cos(xy)}$",
-          "is_correct": true,
-          "explanation": "Differentiate both sides: $\\cos(xy)\\cdot(y + x\\frac{dy}{dx}) = 1$. Expanding: $y\\cos(xy) + x\\cos(xy)\\frac{dy}{dx} = 1$. Solving: $\\frac{dy}{dx} = \\frac{1 - y\\cos(xy)}{x\\cos(xy)}$."
+          "text": "$\\frac{1}{x\\cos(xy) - y}$",
+          "is_correct": false,
+          "explanation": "This does not follow from correct implicit differentiation. After applying chain rule and product rule, the correct answer is $\\frac{1-y\\cos(xy)}{x\\cos(xy)}$."
         },
         {
           "id": "B",
@@ -957,9 +957,9 @@
         },
         {
           "id": "D",
-          "text": "$\\frac{1}{x\\cos(xy) - y}$",
-          "is_correct": false,
-          "explanation": "This does not follow from correct implicit differentiation. After applying chain rule and product rule, the correct answer is $\\frac{1-y\\cos(xy)}{x\\cos(xy)}$."
+          "text": "$\\frac{1 - y\\cos(xy)}{x\\cos(xy)}$",
+          "is_correct": true,
+          "explanation": "Differentiate both sides: $\\cos(xy)\\cdot(y + x\\frac{dy}{dx}) = 1$. Expanding: $y\\cos(xy) + x\\cos(xy)\\frac{dy}{dx} = 1$. Solving: $\\frac{dy}{dx} = \\frac{1 - y\\cos(xy)}{x\\cos(xy)}$."
         }
       ],
       "stimulus": {
@@ -978,27 +978,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\sec^2(x^3)$",
-          "is_correct": false,
-          "explanation": "This omits the chain rule factor. The inner function $x^3$ has derivative $3x^2$, giving $3x^2\\sec^2(x^3)$."
-        },
-        {
-          "id": "B",
-          "text": "$3x^2\\sec^2(x^3)$",
-          "is_correct": true,
-          "explanation": "Chain rule: $\\frac{d}{dx}[\\tan(u)] = \\sec^2(u) \\cdot u'$. With $u = x^3$, $u' = 3x^2$: result is $3x^2\\sec^2(x^3)$."
-        },
-        {
-          "id": "C",
           "text": "$3x^2\\sec(x^3)\\tan(x^3)$",
           "is_correct": false,
           "explanation": "$\\sec(u)\\tan(u)$ is the derivative of $\\sec(u)$, not $\\tan(u)$. The derivative of $\\tan(u)$ is $\\sec^2(u)$."
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "$\\sec^2(x^3)$",
+          "is_correct": false,
+          "explanation": "This omits the chain rule factor. The inner function $x^3$ has derivative $3x^2$, giving $3x^2\\sec^2(x^3)$."
+        },
+        {
+          "id": "C",
           "text": "$3x^2\\tan^2(x^3)$",
           "is_correct": false,
           "explanation": "The derivative of $\\tan(u)$ is $\\sec^2(u)$, not $\\tan^2(u)$. Do not confuse the function with its derivative."
+        },
+        {
+          "id": "D",
+          "text": "$3x^2\\sec^2(x^3)$",
+          "is_correct": true,
+          "explanation": "Chain rule: $\\frac{d}{dx}[\\tan(u)] = \\sec^2(u) \\cdot u'$. With $u = x^3$, $u' = 3x^2$: result is $3x^2\\sec^2(x^3)$."
         }
       ],
       "stimulus": {
@@ -1017,21 +1017,21 @@
       "choices": [
         {
           "id": "A",
+          "text": "$1$",
+          "is_correct": false,
+          "explanation": "Using $f(0) = 1$ in the numerator is incorrect. The inverse function derivative formula is $g'(1) = \\frac{1}{f'(g(1))} = \\frac{1}{5}$."
+        },
+        {
+          "id": "B",
           "text": "$\\frac{1}{5}$",
           "is_correct": true,
           "explanation": "Inverse function derivative: $g'(b) = \\frac{1}{f'(g(b))}$. Since $f(0) = 1$, $g(1) = 0$. So $g'(1) = \\frac{1}{f'(0)} = \\frac{1}{5}$."
         },
         {
-          "id": "B",
+          "id": "C",
           "text": "$5$",
           "is_correct": false,
           "explanation": "$g'(1) = \\frac{1}{f'(g(1))} = \\frac{1}{f'(0)} = \\frac{1}{5}$, which is the reciprocal of 5, not 5 itself."
-        },
-        {
-          "id": "C",
-          "text": "$1$",
-          "is_correct": false,
-          "explanation": "Using $f(0) = 1$ in the numerator is incorrect. The inverse function derivative formula is $g'(1) = \\frac{1}{f'(g(1))} = \\frac{1}{5}$."
         },
         {
           "id": "D",
@@ -1079,15 +1079,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$e^{\\sin(x)}$",
+          "text": "$e^{\\cos(x)}$",
           "is_correct": false,
-          "explanation": "This omits the chain rule factor. The inner function $\\sin(x)$ has derivative $\\cos(x)$, which must multiply: $e^{\\sin(x)} \\cdot \\cos(x)$."
+          "explanation": "The exponent does not become $\\cos(x)$. The outer function $e^u$ remains $e^u$ (evaluated at $u = \\sin x$), and the chain factor $\\cos(x)$ multiplies outside."
         },
         {
           "id": "B",
-          "text": "$\\cos(x) \\cdot e^{\\sin(x)}$",
-          "is_correct": true,
-          "explanation": "Chain rule: $\\frac{d}{dx}[e^u] = e^u \\cdot u'$. With $u = \\sin(x)$, $u' = \\cos(x)$: result is $\\cos(x)e^{\\sin(x)}$."
+          "text": "$e^{\\sin(x)}$",
+          "is_correct": false,
+          "explanation": "This omits the chain rule factor. The inner function $\\sin(x)$ has derivative $\\cos(x)$, which must multiply: $e^{\\sin(x)} \\cdot \\cos(x)$."
         },
         {
           "id": "C",
@@ -1097,9 +1097,9 @@
         },
         {
           "id": "D",
-          "text": "$e^{\\cos(x)}$",
-          "is_correct": false,
-          "explanation": "The exponent does not become $\\cos(x)$. The outer function $e^u$ remains $e^u$ (evaluated at $u = \\sin x$), and the chain factor $\\cos(x)$ multiplies outside."
+          "text": "$\\cos(x) \\cdot e^{\\sin(x)}$",
+          "is_correct": true,
+          "explanation": "Chain rule: $\\frac{d}{dx}[e^u] = e^u \\cdot u'$. With $u = \\sin(x)$, $u' = \\cos(x)$: result is $\\cos(x)e^{\\sin(x)}$."
         }
       ],
       "stimulus": {
@@ -1118,15 +1118,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{1}{x}$",
-          "is_correct": true,
-          "explanation": "First: $y' = \\ln(x) + x \\cdot \\frac{1}{x} = \\ln(x) + 1$. Second: $y'' = \\frac{1}{x}$."
-        },
-        {
-          "id": "B",
           "text": "$\\ln(x) + 1$",
           "is_correct": false,
           "explanation": "That is $y' = \\frac{dy}{dx}$, the first derivative. Differentiating again: $\\frac{d}{dx}[\\ln(x) + 1] = \\frac{1}{x}$."
+        },
+        {
+          "id": "B",
+          "text": "$-\\frac{1}{x^2}$",
+          "is_correct": false,
+          "explanation": "$-\\frac{1}{x^2}$ is the derivative of $\\frac{1}{x}$ or $-\\frac{1}{x}$. The second derivative of $x\\ln(x)$ is $\\frac{d}{dx}[\\ln x + 1] = \\frac{1}{x}$."
         },
         {
           "id": "C",
@@ -1136,9 +1136,9 @@
         },
         {
           "id": "D",
-          "text": "$-\\frac{1}{x^2}$",
-          "is_correct": false,
-          "explanation": "$-\\frac{1}{x^2}$ is the derivative of $\\frac{1}{x}$ or $-\\frac{1}{x}$. The second derivative of $x\\ln(x)$ is $\\frac{d}{dx}[\\ln x + 1] = \\frac{1}{x}$."
+          "text": "$\\frac{1}{x}$",
+          "is_correct": true,
+          "explanation": "First: $y' = \\ln(x) + x \\cdot \\frac{1}{x} = \\ln(x) + 1$. Second: $y'' = \\frac{1}{x}$."
         }
       ],
       "stimulus": {
@@ -1163,9 +1163,9 @@
         },
         {
           "id": "B",
-          "text": "$1$",
+          "text": "$3$",
           "is_correct": false,
-          "explanation": "A sign error likely occurred. Rearranging: $(3y^2 - 6x)\\frac{dy}{dx} = 6y - 3x^2$. At $(3,3)$: $(27-18)\\frac{dy}{dx} = 18-27$, so $9\\frac{dy}{dx} = -9$, giving $-1$."
+          "explanation": "Using the point coordinates directly or incorrectly simplifying. After implicit differentiation and substituting $(3,3)$: $\\frac{dy}{dx} = \\frac{6(3)-3(3)^2}{3(3)^2 - 6(3)} = \\frac{18-27}{27-18} = \\frac{-9}{9} = -1$."
         },
         {
           "id": "C",
@@ -1175,9 +1175,9 @@
         },
         {
           "id": "D",
-          "text": "$3$",
+          "text": "$1$",
           "is_correct": false,
-          "explanation": "Using the point coordinates directly or incorrectly simplifying. After implicit differentiation and substituting $(3,3)$: $\\frac{dy}{dx} = \\frac{6(3)-3(3)^2}{3(3)^2 - 6(3)} = \\frac{18-27}{27-18} = \\frac{-9}{9} = -1$."
+          "explanation": "A sign error likely occurred. Rearranging: $(3y^2 - 6x)\\frac{dy}{dx} = 6y - 3x^2$. At $(3,3)$: $(27-18)\\frac{dy}{dx} = 18-27$, so $9\\frac{dy}{dx} = -9$, giving $-1$."
         }
       ],
       "stimulus": {
@@ -1202,21 +1202,21 @@
         },
         {
           "id": "B",
+          "text": "$-\\frac{\\sin(x)}{\\ln(\\cos(x))}$",
+          "is_correct": false,
+          "explanation": "This is not a result of any calculus rule. The chain rule on $\\ln(\\cos x)$ gives $\\frac{-\\sin x}{\\cos x} = -\\tan(x)$."
+        },
+        {
+          "id": "C",
           "text": "$-\\tan(x)$",
           "is_correct": true,
           "explanation": "Chain rule: $\\frac{d}{dx}[\\ln(\\cos x)] = \\frac{-\\sin(x)}{\\cos(x)} = -\\tan(x)$."
         },
         {
-          "id": "C",
+          "id": "D",
           "text": "$\\tan(x)$",
           "is_correct": false,
           "explanation": "The sign is wrong. The derivative of $\\cos(x)$ is $-\\sin(x)$, giving $\\frac{-\\sin(x)}{\\cos(x)} = -\\tan(x)$."
-        },
-        {
-          "id": "D",
-          "text": "$-\\frac{\\sin(x)}{\\ln(\\cos(x))}$",
-          "is_correct": false,
-          "explanation": "This is not a result of any calculus rule. The chain rule on $\\ln(\\cos x)$ gives $\\frac{-\\sin x}{\\cos x} = -\\tan(x)$."
         }
       ],
       "stimulus": {
@@ -1235,27 +1235,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$-e^x\\sin(e^x)$",
+          "text": "$e^x\\cos(e^x)$",
           "is_correct": false,
-          "explanation": "That is $f'(x)$, the first derivative. A second differentiation is needed."
+          "explanation": "Sign errors and missing terms. $f'(x) = -e^x\\sin(e^x)$, and applying the product rule again yields $-e^x\\sin(e^x) - e^{2x}\\cos(e^x)$."
         },
         {
           "id": "B",
-          "text": "$-e^x\\sin(e^x) - e^{2x}\\cos(e^x)$",
-          "is_correct": true,
-          "explanation": "$f'(x) = -e^x\\sin(e^x)$. Differentiating again (product rule + chain): $f''(x) = -e^x\\sin(e^x) + (-e^x)\\cos(e^x)\\cdot e^x = -e^x\\sin(e^x) - e^{2x}\\cos(e^x)$."
-        },
-        {
-          "id": "C",
           "text": "$e^{2x}\\cos(e^x)$",
           "is_correct": false,
           "explanation": "The second derivative requires the product rule on $-e^x\\sin(e^x)$, yielding two terms. This answer omits the $-e^x\\sin(e^x)$ term."
         },
         {
-          "id": "D",
-          "text": "$e^x\\cos(e^x)$",
+          "id": "C",
+          "text": "$-e^x\\sin(e^x)$",
           "is_correct": false,
-          "explanation": "Sign errors and missing terms. $f'(x) = -e^x\\sin(e^x)$, and applying the product rule again yields $-e^x\\sin(e^x) - e^{2x}\\cos(e^x)$."
+          "explanation": "That is $f'(x)$, the first derivative. A second differentiation is needed."
+        },
+        {
+          "id": "D",
+          "text": "$-e^x\\sin(e^x) - e^{2x}\\cos(e^x)$",
+          "is_correct": true,
+          "explanation": "$f'(x) = -e^x\\sin(e^x)$. Differentiating again (product rule + chain): $f''(x) = -e^x\\sin(e^x) + (-e^x)\\cos(e^x)\\cdot e^x = -e^x\\sin(e^x) - e^{2x}\\cos(e^x)$."
         }
       ],
       "stimulus": {
@@ -1274,27 +1274,27 @@
       "choices": [
         {
           "id": "A",
+          "text": "$\\frac{1}{2}\\sec^2(x)\\cdot(1+\\tan(x))^{1/2}$",
+          "is_correct": false,
+          "explanation": "The power of $u$ should be $-1/2$ (in the denominator as $\\sqrt{u}$), not $+1/2$. The derivative gives $\\frac{1}{2}(1+\\tan x)^{-1/2} \\cdot \\sec^2(x)$."
+        },
+        {
+          "id": "B",
           "text": "$\\frac{\\sec^2(x)}{2\\sqrt{1+\\tan(x)}}$",
           "is_correct": true,
           "explanation": "Chain rule with $u = 1+\\tan(x)$: $\\frac{d}{dx}[\\sqrt{u}] = \\frac{1}{2\\sqrt{u}} \\cdot u'$. Here $u' = \\sec^2(x)$, giving $\\frac{\\sec^2(x)}{2\\sqrt{1+\\tan(x)}}$."
         },
         {
-          "id": "B",
+          "id": "C",
           "text": "$\\frac{1}{2\\sqrt{1+\\tan(x)}}$",
           "is_correct": false,
           "explanation": "This omits the chain rule factor $u' = \\sec^2(x)$. The full derivative is $\\frac{\\sec^2(x)}{2\\sqrt{1+\\tan(x)}}$."
         },
         {
-          "id": "C",
+          "id": "D",
           "text": "$\\frac{\\sec^2(x)}{\\sqrt{1+\\tan(x)}}$",
           "is_correct": false,
           "explanation": "Missing the factor of 2 in the denominator from the power rule on $\\sqrt{u} = u^{1/2}$: $\\frac{d}{dx}[u^{1/2}] = \\frac{1}{2}u^{-1/2} \\cdot u'$."
-        },
-        {
-          "id": "D",
-          "text": "$\\frac{1}{2}\\sec^2(x)\\cdot(1+\\tan(x))^{1/2}$",
-          "is_correct": false,
-          "explanation": "The power of $u$ should be $-1/2$ (in the denominator as $\\sqrt{u}$), not $+1/2$. The derivative gives $\\frac{1}{2}(1+\\tan x)^{-1/2} \\cdot \\sec^2(x)$."
         }
       ],
       "stimulus": {
@@ -1313,27 +1313,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$2xe^{-x} + x^2e^{-x}$",
+          "text": "$-2xe^{-x}$",
           "is_correct": false,
-          "explanation": "The derivative of $e^{-x}$ is $-e^{-x}$, not $+e^{-x}$. The product rule gives $2xe^{-x} + x^2(-e^{-x}) = 2xe^{-x} - x^2e^{-x}$."
+          "explanation": "This ignores the $x^2 \\cdot (-e^{-x})$ term. The full product rule gives $2xe^{-x} - x^2e^{-x}$."
         },
         {
           "id": "B",
-          "text": "$2xe^{-x} - x^2e^{-x}$",
-          "is_correct": true,
-          "explanation": "Product rule: $(x^2)' \\cdot e^{-x} + x^2 \\cdot (e^{-x})' = 2xe^{-x} + x^2(-e^{-x}) = 2xe^{-x} - x^2e^{-x}$."
-        },
-        {
-          "id": "C",
           "text": "$2x \\cdot (-e^{-x})$",
           "is_correct": false,
           "explanation": "This multiplies the two individual derivatives but doesn't use the product rule. Product rule: $u'v + uv'$ requires both terms."
         },
         {
+          "id": "C",
+          "text": "$2xe^{-x} - x^2e^{-x}$",
+          "is_correct": true,
+          "explanation": "Product rule: $(x^2)' \\cdot e^{-x} + x^2 \\cdot (e^{-x})' = 2xe^{-x} + x^2(-e^{-x}) = 2xe^{-x} - x^2e^{-x}$."
+        },
+        {
           "id": "D",
-          "text": "$-2xe^{-x}$",
+          "text": "$2xe^{-x} + x^2e^{-x}$",
           "is_correct": false,
-          "explanation": "This ignores the $x^2 \\cdot (-e^{-x})$ term. The full product rule gives $2xe^{-x} - x^2e^{-x}$."
+          "explanation": "The derivative of $e^{-x}$ is $-e^{-x}$, not $+e^{-x}$. The product rule gives $2xe^{-x} + x^2(-e^{-x}) = 2xe^{-x} - x^2e^{-x}$."
         }
       ],
       "stimulus": {
@@ -1432,21 +1432,21 @@
         },
         {
           "id": "B",
-          "text": "$14$",
-          "is_correct": true,
-          "explanation": "$h'(2) = f'(g(f(2))) \\cdot g'(f(2)) \\cdot f'(2)$. From inside out: $f(2) = 4$, $g(f(2)) = g(4) = 3$, $f'(g(f(2))) = f'(3) = 7$. Then $g'(f(2)) = g'(4) = 2$ and $f'(2) = 1$. So $h'(2) = 7 \\cdot 2 \\cdot 1 = 14$."
-        },
-        {
-          "id": "C",
           "text": "$42$",
           "is_correct": false,
           "explanation": "This uses $f'(3) \\cdot g'(2) \\cdot f'(2)$ or similar, mixing up which row to evaluate $g'$ at. The chain rule requires $g'(f(2)) = g'(4)$, not $g'(2)$."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$7$",
           "is_correct": false,
           "explanation": "This reads only $f'(g(f(2))) = f'(3) = 7$ without multiplying by the remaining chain rule factors $g'(f(2)) \\cdot f'(2) = 2 \\cdot 1 = 2$."
+        },
+        {
+          "id": "D",
+          "text": "$14$",
+          "is_correct": true,
+          "explanation": "$h'(2) = f'(g(f(2))) \\cdot g'(f(2)) \\cdot f'(2)$. From inside out: $f(2) = 4$, $g(f(2)) = g(4) = 3$, $f'(g(f(2))) = f'(3) = 7$. Then $g'(f(2)) = g'(4) = 2$ and $f'(2) = 1$. So $h'(2) = 7 \\cdot 2 \\cdot 1 = 14$."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -1461,27 +1461,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$3\\sin^2(\\cos(x))\\cos(\\cos(x))$",
-          "is_correct": false,
-          "explanation": "This omits the chain rule factor from the innermost function $\\cos(x)$. Its derivative $-\\sin(x)$ must multiply: $-3\\sin(x)\\sin^2(\\cos(x))\\cos(\\cos(x))$."
-        },
-        {
-          "id": "B",
-          "text": "$-3\\sin(x)\\sin^2(\\cos(x))\\cos(\\cos(x))$",
-          "is_correct": true,
-          "explanation": "Triple chain rule: outer $u^3$ gives $3u^2$; middle $\\sin(v)$ gives $\\cos(v)$; inner $\\cos(x)$ gives $-\\sin(x)$. Product: $3\\sin^2(\\cos x) \\cdot \\cos(\\cos x) \\cdot (-\\sin x)$."
-        },
-        {
-          "id": "C",
           "text": "$3\\sin^2(\\cos(x))\\sin(\\cos(x))$",
           "is_correct": false,
           "explanation": "The derivative of $\\sin(v)$ is $\\cos(v)$, not $\\sin(v)$. Also, the inner chain factor $-\\sin(x)$ is missing."
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "$3\\sin^2(\\cos(x))\\cos(\\cos(x))$",
+          "is_correct": false,
+          "explanation": "This omits the chain rule factor from the innermost function $\\cos(x)$. Its derivative $-\\sin(x)$ must multiply: $-3\\sin(x)\\sin^2(\\cos(x))\\cos(\\cos(x))$."
+        },
+        {
+          "id": "C",
           "text": "$3\\cos^2(\\cos(x)) \\cdot (-\\sin(x))$",
           "is_correct": false,
           "explanation": "The outer function is $u^3$ where $u = \\sin(\\cos x)$, not $u = \\cos(\\cos x)$. The first chain step gives $3\\sin^2(\\cos x)$, then $\\cos(\\cos x)$, then $-\\sin x$."
+        },
+        {
+          "id": "D",
+          "text": "$-3\\sin(x)\\sin^2(\\cos(x))\\cos(\\cos(x))$",
+          "is_correct": true,
+          "explanation": "Triple chain rule: outer $u^3$ gives $3u^2$; middle $\\sin(v)$ gives $\\cos(v)$; inner $\\cos(x)$ gives $-\\sin(x)$. Product: $3\\sin^2(\\cos x) \\cdot \\cos(\\cos x) \\cdot (-\\sin x)$."
         }
       ],
       "stimulus": {
@@ -1498,22 +1498,22 @@
       "choices": [
         {
           "id": "A",
-          "text": "$-\\frac{10}{27}$",
-          "is_correct": true
-        },
-        {
-          "id": "B",
-          "text": "$-\\frac{4}{9}$",
-          "is_correct": false
-        },
-        {
-          "id": "C",
           "text": "$\\frac{2}{9}$",
           "is_correct": false
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "$-\\frac{10}{27}$",
+          "is_correct": true
+        },
+        {
+          "id": "C",
           "text": "$-\\frac{2}{3}$",
+          "is_correct": false
+        },
+        {
+          "id": "D",
+          "text": "$-\\frac{4}{9}$",
           "is_correct": false
         }
       ],
@@ -1540,15 +1540,15 @@
         },
         {
           "id": "B",
-          "text": "$1$",
-          "is_correct": false,
-          "explanation": "Substituting $(0,1)$ into $\\frac{dy}{dx} = -\\frac{x}{y}$ gives $-\\frac{0}{1} = 0$, not $1$."
-        },
-        {
-          "id": "C",
           "text": "$-1$",
           "is_correct": false,
           "explanation": "The formula is $\\frac{dy}{dx} = -\\frac{x}{y}$. At $(0, 1)$ the numerator $x = 0$, so the slope is $0$, not $-1$."
+        },
+        {
+          "id": "C",
+          "text": "$1$",
+          "is_correct": false,
+          "explanation": "Substituting $(0,1)$ into $\\frac{dy}{dx} = -\\frac{x}{y}$ gives $-\\frac{0}{1} = 0$, not $1$."
         },
         {
           "id": "D",
@@ -1573,21 +1573,21 @@
       "choices": [
         {
           "id": "A",
+          "text": "$6$",
+          "is_correct": false,
+          "explanation": "Using only $2g(1) \\cdot g'(1) = 2 \\cdot 2 \\cdot 3 = 12$ omits the outer $2x$ factor from the chain rule on $x^2$ inside $g$. The full derivative includes all three chain factors."
+        },
+        {
+          "id": "B",
           "text": "$12$",
           "is_correct": false,
           "explanation": "Applying only one level of chain rule. The full derivative is $2g(x^2) \\cdot g'(x^2) \\cdot 2x$. At $x=1$: $2 \\cdot g(1) \\cdot g'(1) \\cdot 2 = 2 \\cdot 2 \\cdot 3 \\cdot 2 = 24$."
         },
         {
-          "id": "B",
+          "id": "C",
           "text": "$24$",
           "is_correct": true,
           "explanation": "Chain rule: $\\frac{d}{dx}[g(x^2)]^2 = 2g(x^2) \\cdot g'(x^2) \\cdot 2x$. At $x=1$: $2 \\cdot g(1) \\cdot g'(1) \\cdot 2(1) = 2 \\cdot 2 \\cdot 3 \\cdot 2 = 24$."
-        },
-        {
-          "id": "C",
-          "text": "$6$",
-          "is_correct": false,
-          "explanation": "Using only $2g(1) \\cdot g'(1) = 2 \\cdot 2 \\cdot 3 = 12$ omits the outer $2x$ factor from the chain rule on $x^2$ inside $g$. The full derivative includes all three chain factors."
         },
         {
           "id": "D",
@@ -1647,15 +1647,15 @@
         },
         {
           "id": "C",
-          "text": "$\\frac{1}{\\sec^2(x+y)}$",
-          "is_correct": false,
-          "explanation": "That equals $\\cos^2(x+y)$, which is $1 + \\frac{dy}{dx}$, not $\\frac{dy}{dx}$. Subtract 1: $\\frac{dy}{dx} = \\cos^2(x+y) - 1$."
-        },
-        {
-          "id": "D",
           "text": "$1 - \\sec^2(x+y)$",
           "is_correct": false,
           "explanation": "The sign is inverted. From $\\sec^2(x+y)(1+\\frac{dy}{dx}) = 1$: $1+\\frac{dy}{dx} = \\cos^2(x+y)$, so $\\frac{dy}{dx} = \\cos^2(x+y) - 1$."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{1}{\\sec^2(x+y)}$",
+          "is_correct": false,
+          "explanation": "That equals $\\cos^2(x+y)$, which is $1 + \\frac{dy}{dx}$, not $\\frac{dy}{dx}$. Subtract 1: $\\frac{dy}{dx} = \\cos^2(x+y) - 1$."
         }
       ],
       "stimulus": {
@@ -1680,21 +1680,21 @@
         },
         {
           "id": "B",
-          "text": "$4$",
-          "is_correct": false,
-          "explanation": "Using $(f'(3))^2 = 4$ applies the chain rule incorrectly by squaring $f'(3)$ instead of evaluating $f'$ at $f(3) = 5$."
-        },
-        {
-          "id": "C",
           "text": "$35$",
           "is_correct": false,
           "explanation": "Using $f(3) \\cdot f'(3) = 5 \\cdot 7 = 35$ mixes the function value with derivatives. The chain rule is $f'(f(3)) \\cdot f'(3) = 7 \\cdot 2 = 14$."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$10$",
           "is_correct": false,
           "explanation": "Using $f(3) \\cdot f'(3) = 5 \\cdot 2 = 10$ uses the function value instead of $f'$ evaluated at $f(3)$. The chain rule gives $f'(5) \\cdot f'(3) = 7 \\cdot 2 = 14$."
+        },
+        {
+          "id": "D",
+          "text": "$4$",
+          "is_correct": false,
+          "explanation": "Using $(f'(3))^2 = 4$ applies the chain rule incorrectly by squaring $f'(3)$ instead of evaluating $f'$ at $f(3) = 5$."
         }
       ],
       "stimulus": {
@@ -1746,27 +1746,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$y - 2 = -\\frac{1}{4}(x-1)$",
-          "is_correct": true,
-          "explanation": "Implicit differentiation: $2x + 4y\\frac{dy}{dx} = 0 \\Rightarrow \\frac{dy}{dx} = -\\frac{x}{2y}$. At $(1,2)$: slope $= -\\frac{1}{4}$. Tangent: $y - 2 = -\\frac{1}{4}(x-1)$."
-        },
-        {
-          "id": "B",
           "text": "$y - 2 = \\frac{1}{4}(x-1)$",
           "is_correct": false,
           "explanation": "The slope sign is wrong. From $2x + 4y\\frac{dy}{dx} = 0$: $\\frac{dy}{dx} = -\\frac{x}{2y} = -\\frac{1}{4}$ at $(1,2)$. The slope is negative."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "$y - 2 = -4(x-1)$",
           "is_correct": false,
           "explanation": "The slope $-4$ is the negative reciprocal of $-\\frac{1}{4}$, which would give the normal line, not the tangent line."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$y - 2 = -\\frac{1}{2}(x-1)$",
           "is_correct": false,
           "explanation": "A slope of $-\\frac{1}{2}$ forgets the $y$ in the denominator. From $\\frac{dy}{dx} = -\\frac{x}{2y}$: at $(1,2)$, $-\\frac{1}{2 \\cdot 2} = -\\frac{1}{4}$, not $-\\frac{1}{2}$."
+        },
+        {
+          "id": "D",
+          "text": "$y - 2 = -\\frac{1}{4}(x-1)$",
+          "is_correct": true,
+          "explanation": "Implicit differentiation: $2x + 4y\\frac{dy}{dx} = 0 \\Rightarrow \\frac{dy}{dx} = -\\frac{x}{2y}$. At $(1,2)$: slope $= -\\frac{1}{4}$. Tangent: $y - 2 = -\\frac{1}{4}(x-1)$."
         }
       ],
       "stimulus": {
@@ -1785,9 +1785,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{1}{6}$",
-          "is_correct": true,
-          "explanation": "$g'(-1) = \\frac{1}{f'(g(-1))}$. Since $f(2) = -1$, $g(-1) = 2$. So $g'(-1) = \\frac{1}{f'(2)} = \\frac{1}{6}$."
+          "text": "$-\\frac{1}{6}$",
+          "is_correct": false,
+          "explanation": "The formula gives $\\frac{1}{f'(g(-1))} = \\frac{1}{f'(2)} = \\frac{1}{6}$, which is positive. The sign of $f(2) = -1$ does not make $g'(-1)$ negative."
         },
         {
           "id": "B",
@@ -1797,15 +1797,15 @@
         },
         {
           "id": "C",
-          "text": "$6$",
-          "is_correct": false,
-          "explanation": "$g'(-1) = \\frac{1}{f'(2)} = \\frac{1}{6}$, not $6$. The derivative of an inverse is the reciprocal of $f'$ at the corresponding input."
+          "text": "$\\frac{1}{6}$",
+          "is_correct": true,
+          "explanation": "$g'(-1) = \\frac{1}{f'(g(-1))}$. Since $f(2) = -1$, $g(-1) = 2$. So $g'(-1) = \\frac{1}{f'(2)} = \\frac{1}{6}$."
         },
         {
           "id": "D",
-          "text": "$-\\frac{1}{6}$",
+          "text": "$6$",
           "is_correct": false,
-          "explanation": "The formula gives $\\frac{1}{f'(g(-1))} = \\frac{1}{f'(2)} = \\frac{1}{6}$, which is positive. The sign of $f(2) = -1$ does not make $g'(-1)$ negative."
+          "explanation": "$g'(-1) = \\frac{1}{f'(2)} = \\frac{1}{6}$, not $6$. The derivative of an inverse is the reciprocal of $f'$ at the corresponding input."
         }
       ],
       "stimulus": {
@@ -1897,15 +1897,15 @@
         },
         {
           "id": "B",
-          "text": "$\\left(\\sin x\\right)^{\\cos x}\\left(-\\sin(x)\\ln(\\sin x) + \\frac{\\cos^2(x)}{\\sin(x)}\\right)$",
-          "is_correct": true,
-          "explanation": "Take $\\ln$: $\\ln y = \\cos(x)\\ln(\\sin x)$. Differentiate: $\\frac{y'}{y} = -\\sin(x)\\ln(\\sin x) + \\cos(x)\\cdot\\frac{\\cos x}{\\sin x}$. Multiply by $y$: $y' = (\\sin x)^{\\cos x}\\left(-\\sin x \\ln(\\sin x) + \\frac{\\cos^2 x}{\\sin x}\\right)$."
-        },
-        {
-          "id": "C",
           "text": "$\\cos(x)\\cdot\\left(\\sin x\\right)^{\\cos(x)-1}\\cdot\\cos(x) - \\sin(x)\\ln(\\sin(x))$",
           "is_correct": false,
           "explanation": "This incorrectly applies the Power Rule while partially incorporating logarithmic differentiation. The correct result multiplies the entire expression by $y = (\\sin x)^{\\cos x}$."
+        },
+        {
+          "id": "C",
+          "text": "$\\left(\\sin x\\right)^{\\cos x}\\left(-\\sin(x)\\ln(\\sin x) + \\frac{\\cos^2(x)}{\\sin(x)}\\right)$",
+          "is_correct": true,
+          "explanation": "Take $\\ln$: $\\ln y = \\cos(x)\\ln(\\sin x)$. Differentiate: $\\frac{y'}{y} = -\\sin(x)\\ln(\\sin x) + \\cos(x)\\cdot\\frac{\\cos x}{\\sin x}$. Multiply by $y$: $y' = (\\sin x)^{\\cos x}\\left(-\\sin x \\ln(\\sin x) + \\frac{\\cos^2 x}{\\sin x}\\right)$."
         },
         {
           "id": "D",
@@ -1930,27 +1930,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{-(3x^2 + y)}{x + 2y}$",
-          "is_correct": true,
-          "explanation": "Differentiate both sides with respect to $x$: $3x^2 + (y + x\\frac{dy}{dx}) + 2y\\frac{dy}{dx} = 0$. Collect $\\frac{dy}{dx}$ terms: $\\frac{dy}{dx}(x + 2y) = -(3x^2 + y)$. Divide: $\\frac{dy}{dx} = \\frac{-(3x^2+y)}{x+2y}$."
+          "text": "$\\frac{-3x^2}{x + 2y}$",
+          "is_correct": false,
+          "explanation": "This omits the $y$ term that comes from differentiating $xy$: $(xy)' = y + x\\frac{dy}{dx}$, so the $y$ from $y'$ of $xy$ must appear in the numerator: $-(3x^2 + y)$."
         },
         {
           "id": "B",
-          "text": "$\\frac{3x^2 + y}{x + 2y}$",
-          "is_correct": false,
-          "explanation": "Sign error. Differentiating $x^3 + xy + y^2 = 7$ gives $3x^2 + y + x\\frac{dy}{dx} + 2y\\frac{dy}{dx} = 0$, so $\\frac{dy}{dx} = \\frac{-(3x^2+y)}{x+2y}$ (negative numerator)."
-        },
-        {
-          "id": "C",
           "text": "$\\frac{-(3x^2 + y)}{2y}$",
           "is_correct": false,
           "explanation": "This omits the $x\\frac{dy}{dx}$ term from differentiating $xy$ by the Product Rule. The product rule gives $(xy)' = y + x\\frac{dy}{dx}$, so $x$ must appear in the denominator."
         },
         {
-          "id": "D",
-          "text": "$\\frac{-3x^2}{x + 2y}$",
+          "id": "C",
+          "text": "$\\frac{3x^2 + y}{x + 2y}$",
           "is_correct": false,
-          "explanation": "This omits the $y$ term that comes from differentiating $xy$: $(xy)' = y + x\\frac{dy}{dx}$, so the $y$ from $y'$ of $xy$ must appear in the numerator: $-(3x^2 + y)$."
+          "explanation": "Sign error. Differentiating $x^3 + xy + y^2 = 7$ gives $3x^2 + y + x\\frac{dy}{dx} + 2y\\frac{dy}{dx} = 0$, so $\\frac{dy}{dx} = \\frac{-(3x^2+y)}{x+2y}$ (negative numerator)."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{-(3x^2 + y)}{x + 2y}$",
+          "is_correct": true,
+          "explanation": "Differentiate both sides with respect to $x$: $3x^2 + (y + x\\frac{dy}{dx}) + 2y\\frac{dy}{dx} = 0$. Collect $\\frac{dy}{dx}$ terms: $\\frac{dy}{dx}(x + 2y) = -(3x^2 + y)$. Divide: $\\frac{dy}{dx} = \\frac{-(3x^2+y)}{x+2y}$."
         }
       ],
       "stimulus": {
@@ -1969,21 +1969,21 @@
       "choices": [
         {
           "id": "A",
+          "text": "$-\\frac{x^2+y^2}{y^3}$",
+          "is_correct": false,
+          "explanation": "That is the intermediate form. Using $x^2 + y^2 = r^2$ simplifies this to $-\\frac{r^2}{y^3}$."
+        },
+        {
+          "id": "B",
           "text": "$-\\frac{1}{y}$",
           "is_correct": false,
           "explanation": "This is only part of the second derivative. First: $\\frac{dy}{dx} = -\\frac{x}{y}$. Second: differentiating $-x/y$ implicitly gives $-\\frac{y - x \\cdot (-x/y)}{y^2} = -\\frac{y^2 + x^2}{y^3} = -\\frac{r^2}{y^3}$."
         },
         {
-          "id": "B",
+          "id": "C",
           "text": "$-\\frac{r^2}{y^3}$",
           "is_correct": true,
           "explanation": "First: $\\frac{dy}{dx} = -\\frac{x}{y}$. Second: $\\frac{d^2y}{dx^2} = -\\frac{y - x(dy/dx)}{y^2} = -\\frac{y + x^2/y}{y^2} = -\\frac{y^2+x^2}{y^3} = -\\frac{r^2}{y^3}$."
-        },
-        {
-          "id": "C",
-          "text": "$-\\frac{x^2+y^2}{y^3}$",
-          "is_correct": false,
-          "explanation": "That is the intermediate form. Using $x^2 + y^2 = r^2$ simplifies this to $-\\frac{r^2}{y^3}$."
         },
         {
           "id": "D",
@@ -2020,15 +2020,15 @@
         },
         {
           "id": "C",
-          "text": "$\\frac{2x\\cos(x^2)}{3e^{3x}}$",
-          "is_correct": false,
-          "explanation": "This divides by $3$ rather than subtracting the $3\\sin(x^2)$ term. The quotient rule requires both $u'v$ and $uv'$ terms in the numerator."
-        },
-        {
-          "id": "D",
           "text": "$2x\\cos(x^2) \\cdot e^{-3x} + \\sin(x^2) \\cdot 3e^{-3x}$",
           "is_correct": false,
           "explanation": "Rewriting as $\\sin(x^2) \\cdot e^{-3x}$ and using the product rule gives $2x\\cos(x^2)e^{-3x} + \\sin(x^2)(-3e^{-3x})$, which is $\\frac{2x\\cos(x^2)-3\\sin(x^2)}{e^{3x}}$. The sign on the second term here is wrong."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{2x\\cos(x^2)}{3e^{3x}}$",
+          "is_correct": false,
+          "explanation": "This divides by $3$ rather than subtracting the $3\\sin(x^2)$ term. The quotient rule requires both $u'v$ and $uv'$ terms in the numerator."
         }
       ],
       "stimulus": {
@@ -2047,9 +2047,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{1}{1+x^2} + \\arctan(x)$",
+          "text": "$\\frac{2+x}{1+x^2}$",
           "is_correct": false,
-          "explanation": "This differentiates the first term correctly but applies only part of the product rule to $x\\arctan(x)$. The product rule gives $\\arctan(x) + \\frac{x}{1+x^2}$, not just $\\arctan(x)$."
+          "explanation": "This omits the $\\arctan(x)$ term from the product rule on $x\\arctan(x)$. Full derivative: $\\frac{1}{1+x^2} + \\arctan(x) + \\frac{x}{1+x^2} = \\arctan(x) + \\frac{1+x}{1+x^2}$."
         },
         {
           "id": "B",
@@ -2059,9 +2059,9 @@
         },
         {
           "id": "C",
-          "text": "$\\frac{2+x}{1+x^2}$",
+          "text": "$\\frac{1}{1+x^2} + \\arctan(x)$",
           "is_correct": false,
-          "explanation": "This omits the $\\arctan(x)$ term from the product rule on $x\\arctan(x)$. Full derivative: $\\frac{1}{1+x^2} + \\arctan(x) + \\frac{x}{1+x^2} = \\arctan(x) + \\frac{1+x}{1+x^2}$."
+          "explanation": "This differentiates the first term correctly but applies only part of the product rule to $x\\arctan(x)$. The product rule gives $\\arctan(x) + \\frac{x}{1+x^2}$, not just $\\arctan(x)$."
         },
         {
           "id": "D",
@@ -2086,27 +2086,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{2x(x^3-1) - 3x^2(x^2+1)}{(x^2+1)(x^3-1)}$",
-          "is_correct": true,
-          "explanation": "Using $\\ln(a/b) = \\ln a - \\ln b$: $\\frac{2x}{x^2+1} - \\frac{3x^2}{x^3-1} = \\frac{2x(x^3-1) - 3x^2(x^2+1)}{(x^2+1)(x^3-1)}$."
+          "text": "$\\frac{1}{x^2+1} - \\frac{1}{x^3-1}$",
+          "is_correct": false,
+          "explanation": "This differentiates $\\ln(x^2+1)$ and $\\ln(x^3-1)$ as if they were $\\ln(x)$, forgetting the chain rule factors $2x$ and $3x^2$."
         },
         {
           "id": "B",
-          "text": "$\\frac{x^3-1}{x^2+1} \\cdot \\frac{2x(x^3-1) - 3x^2(x^2+1)}{(x^3-1)^2}$",
-          "is_correct": false,
-          "explanation": "This applies the chain rule with an extra factor. The derivative of $\\ln(u)$ is $\\frac{u'}{u}$, which simplifies cleanly without leaving $\\frac{x^3-1}{x^2+1}$ as a multiplier."
-        },
-        {
-          "id": "C",
           "text": "$\\frac{2x}{x^2+1} + \\frac{3x^2}{x^3-1}$",
           "is_correct": false,
           "explanation": "A sign error: $\\ln(a/b) = \\ln a - \\ln b$, so the second term must be subtracted. The correct expression has $\\frac{2x}{x^2+1} - \\frac{3x^2}{x^3-1}$."
         },
         {
+          "id": "C",
+          "text": "$\\frac{2x(x^3-1) - 3x^2(x^2+1)}{(x^2+1)(x^3-1)}$",
+          "is_correct": true,
+          "explanation": "Using $\\ln(a/b) = \\ln a - \\ln b$: $\\frac{2x}{x^2+1} - \\frac{3x^2}{x^3-1} = \\frac{2x(x^3-1) - 3x^2(x^2+1)}{(x^2+1)(x^3-1)}$."
+        },
+        {
           "id": "D",
-          "text": "$\\frac{1}{x^2+1} - \\frac{1}{x^3-1}$",
+          "text": "$\\frac{x^3-1}{x^2+1} \\cdot \\frac{2x(x^3-1) - 3x^2(x^2+1)}{(x^3-1)^2}$",
           "is_correct": false,
-          "explanation": "This differentiates $\\ln(x^2+1)$ and $\\ln(x^3-1)$ as if they were $\\ln(x)$, forgetting the chain rule factors $2x$ and $3x^2$."
+          "explanation": "This applies the chain rule with an extra factor. The derivative of $\\ln(u)$ is $\\frac{u'}{u}$, which simplifies cleanly without leaving $\\frac{x^3-1}{x^2+1}$ as a multiplier."
         }
       ],
       "stimulus": {
@@ -2125,9 +2125,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{1}{2\\sqrt{x(1-x)}}$",
-          "is_correct": true,
-          "explanation": "Chain rule: $\\frac{d}{dx}[\\arcsin(u)] = \\frac{u'}{\\sqrt{1-u^2}}$. With $u = \\sqrt{x}$, $u' = \\frac{1}{2\\sqrt{x}}$: $\\frac{1/2\\sqrt{x}}{\\sqrt{1-x}} = \\frac{1}{2\\sqrt{x}\\sqrt{1-x}} = \\frac{1}{2\\sqrt{x(1-x)}}$."
+          "text": "$\\frac{\\sqrt{x}}{\\sqrt{1-x}}$",
+          "is_correct": false,
+          "explanation": "This uses $\\sqrt{x}$ as the chain factor instead of $\\frac{1}{2\\sqrt{x}}$. The derivative of $\\sqrt{x}$ is $\\frac{1}{2\\sqrt{x}}$."
         },
         {
           "id": "B",
@@ -2143,9 +2143,9 @@
         },
         {
           "id": "D",
-          "text": "$\\frac{\\sqrt{x}}{\\sqrt{1-x}}$",
-          "is_correct": false,
-          "explanation": "This uses $\\sqrt{x}$ as the chain factor instead of $\\frac{1}{2\\sqrt{x}}$. The derivative of $\\sqrt{x}$ is $\\frac{1}{2\\sqrt{x}}$."
+          "text": "$\\frac{1}{2\\sqrt{x(1-x)}}$",
+          "is_correct": true,
+          "explanation": "Chain rule: $\\frac{d}{dx}[\\arcsin(u)] = \\frac{u'}{\\sqrt{1-u^2}}$. With $u = \\sqrt{x}$, $u' = \\frac{1}{2\\sqrt{x}}$: $\\frac{1/2\\sqrt{x}}{\\sqrt{1-x}} = \\frac{1}{2\\sqrt{x}\\sqrt{1-x}} = \\frac{1}{2\\sqrt{x(1-x)}}$."
         }
       ],
       "stimulus": {
@@ -2164,27 +2164,27 @@
       "choices": [
         {
           "id": "A",
+          "text": "$3$",
+          "is_correct": false,
+          "explanation": "Using only part of the product rule on the right side. Correctly differentiating $3xy$: $3y + 3x\\frac{dy}{dx}$. At $(1,1)$: $\\frac{dy}{dx} = -1$, not 3."
+        },
+        {
+          "id": "B",
           "text": "$\\frac{1-3}{3-1}$",
           "is_correct": false,
           "explanation": "At $(1,1)$: $\\frac{1}{x} + \\frac{1}{y}\\frac{dy}{dx} = 3y + 3x\\frac{dy}{dx}$. Substituting: $1 + \\frac{dy}{dx} = 3 + 3\\frac{dy}{dx}$, giving $-2 = 2\\frac{dy}{dx}$, so $\\frac{dy}{dx} = -1$."
         },
         {
-          "id": "B",
+          "id": "C",
           "text": "$-1$",
           "is_correct": true,
           "explanation": "Differentiating implicitly: $\\frac{1}{x} + \\frac{1}{y}\\frac{dy}{dx} = 3y + 3x\\frac{dy}{dx}$. At $(1,1)$: $1 + \\frac{dy}{dx} = 3 + 3\\frac{dy}{dx}$. So $-2 = 2\\frac{dy}{dx}$, giving $\\frac{dy}{dx} = -1$."
         },
         {
-          "id": "C",
+          "id": "D",
           "text": "$1$",
           "is_correct": false,
           "explanation": "A sign error. Rearranging: $(\\frac{1}{y} - 3x)\\frac{dy}{dx} = 3y - \\frac{1}{x}$. At $(1,1)$: $(1-3)\\frac{dy}{dx} = 3-1$, so $-2\\frac{dy}{dx} = 2$, giving $\\frac{dy}{dx} = -1$."
-        },
-        {
-          "id": "D",
-          "text": "$3$",
-          "is_correct": false,
-          "explanation": "Using only part of the product rule on the right side. Correctly differentiating $3xy$: $3y + 3x\\frac{dy}{dx}$. At $(1,1)$: $\\frac{dy}{dx} = -1$, not 3."
         }
       ],
       "stimulus": {

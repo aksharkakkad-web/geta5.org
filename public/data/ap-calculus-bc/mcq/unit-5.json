@@ -7,7 +7,9 @@
       "unit": "unit-5",
       "difficulty": "easy",
       "has_stimulus": false,
-      "stimulus": { "type": "none" },
+      "stimulus": {
+        "type": "none"
+      },
       "question": "Which of the following best states the Mean Value Theorem for a function $f$ that is continuous on $[a, b]$ and differentiable on $(a, b)$?",
       "choices": [
         {
@@ -24,15 +26,15 @@
         },
         {
           "id": "C",
-          "text": "There exists $c \\in [a, b]$ such that $f(c) = \\dfrac{f(a) + f(b)}{2}$.",
-          "is_correct": false,
-          "explanation": "This is an application of the Intermediate Value Theorem to find a point where $f$ equals its average value, not the Mean Value Theorem."
-        },
-        {
-          "id": "D",
           "text": "There exists $c \\in (a, b)$ such that $f'(c) = f(b) - f(a)$.",
           "is_correct": false,
           "explanation": "The correct MVT formula divides by the length of the interval: $f'(c) = \\frac{f(b)-f(a)}{b-a}$. Omitting the denominator $b - a$ is incorrect."
+        },
+        {
+          "id": "D",
+          "text": "There exists $c \\in [a, b]$ such that $f(c) = \\dfrac{f(a) + f(b)}{2}$.",
+          "is_correct": false,
+          "explanation": "This is an application of the Intermediate Value Theorem to find a point where $f$ equals its average value, not the Mean Value Theorem."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -44,32 +46,34 @@
       "unit": "unit-5",
       "difficulty": "easy",
       "has_stimulus": false,
-      "stimulus": { "type": "none" },
+      "stimulus": {
+        "type": "none"
+      },
       "question": "The Extreme Value Theorem guarantees that a continuous function $f$ on a closed interval $[a, b]$ must have which of the following?",
       "choices": [
         {
           "id": "A",
+          "text": "At least one critical point in the interior $(a, b)$",
+          "is_correct": false,
+          "explanation": "The EVT does not address critical points. It guarantees the existence of absolute extreme values, which may occur at endpoints."
+        },
+        {
+          "id": "B",
           "text": "Both an absolute maximum value and an absolute minimum value on $[a, b]$",
           "is_correct": true,
           "explanation": "The EVT states that if $f$ is continuous on a closed, bounded interval $[a,b]$, then $f$ attains both an absolute maximum and absolute minimum on that interval."
         },
         {
-          "id": "B",
+          "id": "C",
           "text": "An absolute maximum value, but not necessarily an absolute minimum value",
           "is_correct": false,
           "explanation": "The EVT guarantees both an absolute maximum and an absolute minimum — not just one of them."
         },
         {
-          "id": "C",
+          "id": "D",
           "text": "A local maximum and a local minimum, but not necessarily absolute extrema",
           "is_correct": false,
           "explanation": "The EVT guarantees absolute (global) extrema, which are stronger than local extrema."
-        },
-        {
-          "id": "D",
-          "text": "At least one critical point in the interior $(a, b)$",
-          "is_correct": false,
-          "explanation": "The EVT does not address critical points. It guarantees the existence of absolute extreme values, which may occur at endpoints."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -81,32 +85,34 @@
       "unit": "unit-5",
       "difficulty": "easy",
       "has_stimulus": false,
-      "stimulus": { "type": "none" },
+      "stimulus": {
+        "type": "none"
+      },
       "question": "Let $f(x) = x^3 - 6x^2 + 9x + 1$. Which of the following correctly identifies all critical points of $f$?",
       "choices": [
         {
           "id": "A",
-          "text": "$x = 1$ and $x = 3$",
-          "is_correct": true,
-          "explanation": "$f'(x) = 3x^2 - 12x + 9 = 3(x^2 - 4x + 3) = 3(x-1)(x-3) = 0$ at $x = 1$ and $x = 3$. Both are critical points."
-        },
-        {
-          "id": "B",
           "text": "$x = 2$ only",
           "is_correct": false,
           "explanation": "$f'(2) = 3(4) - 12(2) + 9 = 12 - 24 + 9 = -3 \\neq 0$. Critical points occur where $f'(x) = 0$: $x = 1$ and $x = 3$."
         },
         {
-          "id": "C",
-          "text": "$x = 0$ and $x = 4$",
-          "is_correct": false,
-          "explanation": "$f'(0) = 9 \\neq 0$ and $f'(4) = 48 - 48 + 9 = 9 \\neq 0$. The critical points are $x = 1$ and $x = 3$."
-        },
-        {
-          "id": "D",
+          "id": "B",
           "text": "$x = 3$ only",
           "is_correct": false,
           "explanation": "$f'(1) = 3 - 12 + 9 = 0$, so $x = 1$ is also a critical point. Both $x = 1$ and $x = 3$ must be identified."
+        },
+        {
+          "id": "C",
+          "text": "$x = 1$ and $x = 3$",
+          "is_correct": true,
+          "explanation": "$f'(x) = 3x^2 - 12x + 9 = 3(x^2 - 4x + 3) = 3(x-1)(x-3) = 0$ at $x = 1$ and $x = 3$. Both are critical points."
+        },
+        {
+          "id": "D",
+          "text": "$x = 0$ and $x = 4$",
+          "is_correct": false,
+          "explanation": "$f'(0) = 9 \\neq 0$ and $f'(4) = 48 - 48 + 9 = 9 \\neq 0$. The critical points are $x = 1$ and $x = 3$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -121,15 +127,39 @@
       "stimulus": {
         "type": "table",
         "content": {
-          "headers": ["$x$", "$f'(x)$"],
+          "headers": [
+            "$x$",
+            "$f'(x)$"
+          ],
           "rows": [
-            ["0", "4"],
-            ["1", "2"],
-            ["2", "0"],
-            ["3", "-3"],
-            ["4", "-1"],
-            ["5", "0"],
-            ["6", "2"]
+            [
+              "0",
+              "4"
+            ],
+            [
+              "1",
+              "2"
+            ],
+            [
+              "2",
+              "0"
+            ],
+            [
+              "3",
+              "-3"
+            ],
+            [
+              "4",
+              "-1"
+            ],
+            [
+              "5",
+              "0"
+            ],
+            [
+              "6",
+              "2"
+            ]
           ]
         }
       },
@@ -137,27 +167,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$(2, 5)$",
-          "is_correct": true,
-          "explanation": "$f'(x) < 0$ for $x = 3$ and $x = 4$ (between $x=2$ and $x=5$ where $f'$ changes sign from positive to negative). This indicates $f$ is decreasing on $(2,5)$."
+          "text": "$(0, 6)$",
+          "is_correct": false,
+          "explanation": "$f' > 0$ on $(0,2)$ and $(5,6)$, so $f$ is not decreasing on all of $(0,6)$."
         },
         {
           "id": "B",
-          "text": "$(0, 2)$",
-          "is_correct": false,
-          "explanation": "$f'(0) = 4 > 0$ and $f'(1) = 2 > 0$, so $f$ is increasing on $(0,2)$, not decreasing."
-        },
-        {
-          "id": "C",
           "text": "$(5, 6)$",
           "is_correct": false,
           "explanation": "$f'(6) = 2 > 0$ indicates $f$ is increasing on $(5, 6)$."
         },
         {
+          "id": "C",
+          "text": "$(2, 5)$",
+          "is_correct": true,
+          "explanation": "$f'(x) < 0$ for $x = 3$ and $x = 4$ (between $x=2$ and $x=5$ where $f'$ changes sign from positive to negative). This indicates $f$ is decreasing on $(2,5)$."
+        },
+        {
           "id": "D",
-          "text": "$(0, 6)$",
+          "text": "$(0, 2)$",
           "is_correct": false,
-          "explanation": "$f' > 0$ on $(0,2)$ and $(5,6)$, so $f$ is not decreasing on all of $(0,6)$."
+          "explanation": "$f'(0) = 4 > 0$ and $f'(1) = 2 > 0$, so $f$ is increasing on $(0,2)$, not decreasing."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -169,32 +199,34 @@
       "unit": "unit-5",
       "difficulty": "easy",
       "has_stimulus": false,
-      "stimulus": { "type": "none" },
+      "stimulus": {
+        "type": "none"
+      },
       "question": "Let $f$ be a function with $f'(x) = (x-2)^2(x+1)$. Which of the following best describes the behavior of $f$ at $x = 2$?",
       "choices": [
         {
           "id": "A",
-          "text": "$f$ has neither a local maximum nor a local minimum at $x = 2$.",
-          "is_correct": true,
-          "explanation": "$f'(x) = (x-2)^2(x+1)$. Near $x=2$, $(x-2)^2 \\geq 0$. For $x$ near 2 (and $x > -1$), $(x+1) > 0$, so $f'$ does not change sign at $x=2$. The First Derivative Test confirms no local extremum."
-        },
-        {
-          "id": "B",
           "text": "$f$ has a local minimum at $x = 2$.",
           "is_correct": false,
           "explanation": "A local minimum requires $f'$ to change from negative to positive. Since $(x-2)^2 \\geq 0$, $f'$ stays non-negative near $x=2$, so there is no sign change and no local minimum."
         },
         {
-          "id": "C",
-          "text": "$f$ has a local maximum at $x = 2$.",
-          "is_correct": false,
-          "explanation": "A local maximum requires $f'$ to change from positive to negative at $x=2$. The factor $(x-2)^2 \\geq 0$ prevents a sign change, so $x=2$ is not a local maximum."
+          "id": "B",
+          "text": "$f$ has neither a local maximum nor a local minimum at $x = 2$.",
+          "is_correct": true,
+          "explanation": "$f'(x) = (x-2)^2(x+1)$. Near $x=2$, $(x-2)^2 \\geq 0$. For $x$ near 2 (and $x > -1$), $(x+1) > 0$, so $f'$ does not change sign at $x=2$. The First Derivative Test confirms no local extremum."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$f$ is not differentiable at $x = 2$.",
           "is_correct": false,
           "explanation": "$f'(2) = (2-2)^2(2+1) = 0$, so $f$ is differentiable at $x = 2$ with a zero derivative. The issue is whether a local extremum exists, not differentiability."
+        },
+        {
+          "id": "D",
+          "text": "$f$ has a local maximum at $x = 2$.",
+          "is_correct": false,
+          "explanation": "A local maximum requires $f'$ to change from positive to negative at $x=2$. The factor $(x-2)^2 \\geq 0$ prevents a sign change, so $x=2$ is not a local maximum."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -206,32 +238,34 @@
       "unit": "unit-5",
       "difficulty": "easy",
       "has_stimulus": false,
-      "stimulus": { "type": "none" },
+      "stimulus": {
+        "type": "none"
+      },
       "question": "Which of the following is a correct statement about a function $f$ that is twice differentiable on an open interval?",
       "choices": [
         {
           "id": "A",
-          "text": "If $f''(c) > 0$, then $f$ is concave up near $x = c$.",
-          "is_correct": true,
-          "explanation": "When $f''(c) > 0$, the second derivative is positive, meaning $f'$ is increasing, which corresponds to the graph being concave up (opening upward) near $x = c$."
-        },
-        {
-          "id": "B",
-          "text": "If $f''(c) = 0$, then $f$ has an inflection point at $x = c$.",
-          "is_correct": false,
-          "explanation": "$f''(c) = 0$ is a necessary but not sufficient condition for an inflection point. The concavity must actually change at $c$. For example, $f(x) = x^4$ has $f''(0) = 0$ but no inflection point at $x=0$."
-        },
-        {
-          "id": "C",
           "text": "If $f'(c) = 0$ and $f''(c) = 0$, then $f$ has neither a local maximum nor minimum at $x = c$.",
           "is_correct": false,
           "explanation": "When both $f'(c) = 0$ and $f''(c) = 0$, the Second Derivative Test is inconclusive — the function could have a local max, local min, or neither."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "If $f''(c) < 0$, then $f$ has a local maximum at $x = c$.",
           "is_correct": false,
           "explanation": "$f''(c) < 0$ alone is insufficient to guarantee a local maximum. We also need $f'(c) = 0$. The Second Derivative Test requires both conditions."
+        },
+        {
+          "id": "C",
+          "text": "If $f''(c) > 0$, then $f$ is concave up near $x = c$.",
+          "is_correct": true,
+          "explanation": "When $f''(c) > 0$, the second derivative is positive, meaning $f'$ is increasing, which corresponds to the graph being concave up (opening upward) near $x = c$."
+        },
+        {
+          "id": "D",
+          "text": "If $f''(c) = 0$, then $f$ has an inflection point at $x = c$.",
+          "is_correct": false,
+          "explanation": "$f''(c) = 0$ is a necessary but not sufficient condition for an inflection point. The concavity must actually change at $c$. For example, $f(x) = x^4$ has $f''(0) = 0$ but no inflection point at $x=0$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -251,9 +285,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "There exists $c \\in (-3, 3)$ such that $f'(c) = 1$.",
-          "is_correct": true,
-          "explanation": "By the MVT, $f'(c) = \\frac{f(3)-f(-3)}{3-(-3)} = \\frac{7-1}{6} = \\frac{6}{6} = 1$. The MVT guarantees at least one such $c$."
+          "text": "There exists $c \\in (-3, 3)$ such that $f'(c) = 0$.",
+          "is_correct": false,
+          "explanation": "$f'(c) = 0$ would require $f(-3) = f(3)$ (Rolle's Theorem). Here $f(-3) = 1 \\neq 7 = f(3)$, so the MVT gives $f'(c) = 1$, not 0."
         },
         {
           "id": "B",
@@ -269,9 +303,9 @@
         },
         {
           "id": "D",
-          "text": "There exists $c \\in (-3, 3)$ such that $f'(c) = 0$.",
-          "is_correct": false,
-          "explanation": "$f'(c) = 0$ would require $f(-3) = f(3)$ (Rolle's Theorem). Here $f(-3) = 1 \\neq 7 = f(3)$, so the MVT gives $f'(c) = 1$, not 0."
+          "text": "There exists $c \\in (-3, 3)$ such that $f'(c) = 1$.",
+          "is_correct": true,
+          "explanation": "By the MVT, $f'(c) = \\frac{f(3)-f(-3)}{3-(-3)} = \\frac{7-1}{6} = \\frac{6}{6} = 1$. The MVT guarantees at least one such $c$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -283,32 +317,34 @@
       "unit": "unit-5",
       "difficulty": "easy",
       "has_stimulus": false,
-      "stimulus": { "type": "none" },
+      "stimulus": {
+        "type": "none"
+      },
       "question": "Let $f(x) = x^4 - 8x^2$. Using the Second Derivative Test, which of the following correctly classifies the critical point at $x = 2$?",
       "choices": [
         {
           "id": "A",
-          "text": "Local minimum",
-          "is_correct": true,
-          "explanation": "$f'(x) = 4x^3 - 16x = 4x(x^2-4)$. $f'(2) = 0$, confirming a critical point. $f''(x) = 12x^2 - 16$. $f''(2) = 48-16 = 32 > 0$, so the Second Derivative Test classifies $x=2$ as a local minimum."
-        },
-        {
-          "id": "B",
-          "text": "Local maximum",
-          "is_correct": false,
-          "explanation": "$f''(2) = 32 > 0$ indicates concave up, which corresponds to a local minimum, not a local maximum."
-        },
-        {
-          "id": "C",
           "text": "Neither a local maximum nor minimum — the Second Derivative Test is inconclusive",
           "is_correct": false,
           "explanation": "The test is inconclusive only when $f''(c) = 0$. Since $f''(2) = 32 \\neq 0$, the Second Derivative Test is conclusive: $x = 2$ is a local minimum."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Inflection point",
           "is_correct": false,
           "explanation": "An inflection point requires a sign change in $f''$, not a critical point of $f$. $f'(2) = 0$ makes $x=2$ a critical point, and $f''(2) > 0$ classifies it as a local minimum."
+        },
+        {
+          "id": "C",
+          "text": "Local maximum",
+          "is_correct": false,
+          "explanation": "$f''(2) = 32 > 0$ indicates concave up, which corresponds to a local minimum, not a local maximum."
+        },
+        {
+          "id": "D",
+          "text": "Local minimum",
+          "is_correct": true,
+          "explanation": "$f'(x) = 4x^3 - 16x = 4x(x^2-4)$. $f'(2) = 0$, confirming a critical point. $f''(x) = 12x^2 - 16$. $f''(2) = 48-16 = 32 > 0$, so the Second Derivative Test classifies $x=2$ as a local minimum."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -323,12 +359,37 @@
       "stimulus": {
         "type": "table",
         "content": {
-          "headers": ["$x$", "$f(x)$", "$f'(x)$", "$f''(x)$"],
+          "headers": [
+            "$x$",
+            "$f(x)$",
+            "$f'(x)$",
+            "$f''(x)$"
+          ],
           "rows": [
-            ["1", "5", "0", "-2"],
-            ["2", "3", "-1", "0"],
-            ["3", "2", "0", "3"],
-            ["4", "6", "2", "1"]
+            [
+              "1",
+              "5",
+              "0",
+              "-2"
+            ],
+            [
+              "2",
+              "3",
+              "-1",
+              "0"
+            ],
+            [
+              "3",
+              "2",
+              "0",
+              "3"
+            ],
+            [
+              "4",
+              "6",
+              "2",
+              "1"
+            ]
           ]
         }
       },
@@ -336,9 +397,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$x = 3$",
-          "is_correct": true,
-          "explanation": "At $x = 3$: $f'(3) = 0$ (critical point) and $f''(3) = 3 > 0$ (concave up). By the Second Derivative Test, $f$ has a local minimum at $x = 3$."
+          "text": "$x = 4$",
+          "is_correct": false,
+          "explanation": "$f'(4) = 2 \\neq 0$, so $x = 4$ is not a critical point. Extrema can only occur where the derivative is zero or undefined."
         },
         {
           "id": "B",
@@ -348,15 +409,15 @@
         },
         {
           "id": "C",
-          "text": "$x = 2$",
-          "is_correct": false,
-          "explanation": "$f'(2) = -1 \\neq 0$, so $x = 2$ is not a critical point. It cannot be a local extremum for a differentiable function."
+          "text": "$x = 3$",
+          "is_correct": true,
+          "explanation": "At $x = 3$: $f'(3) = 0$ (critical point) and $f''(3) = 3 > 0$ (concave up). By the Second Derivative Test, $f$ has a local minimum at $x = 3$."
         },
         {
           "id": "D",
-          "text": "$x = 4$",
+          "text": "$x = 2$",
           "is_correct": false,
-          "explanation": "$f'(4) = 2 \\neq 0$, so $x = 4$ is not a critical point. Extrema can only occur where the derivative is zero or undefined."
+          "explanation": "$f'(2) = -1 \\neq 0$, so $x = 2$ is not a critical point. It cannot be a local extremum for a differentiable function."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -382,21 +443,21 @@
         },
         {
           "id": "B",
+          "text": "$12$",
+          "is_correct": false,
+          "explanation": "$12 = g(6) - g(0)$ is the net change, not the average rate of change. The MVT gives $g'(c) = \\frac{12}{6} = 2$."
+        },
+        {
+          "id": "C",
           "text": "$3$",
           "is_correct": false,
           "explanation": "$\\frac{g(6)-g(0)}{6-0} = 2$, not 3. The MVT applied on $[0,6]$ guarantees $g'(c) = 2$."
         },
         {
-          "id": "C",
+          "id": "D",
           "text": "$\\dfrac{1}{2}$",
           "is_correct": false,
           "explanation": "The average rate of change over $[0,6]$ is $\\frac{16-4}{6} = 2$. The MVT guarantees $g'(c) = 2$, not $\\frac{1}{2}$."
-        },
-        {
-          "id": "D",
-          "text": "$12$",
-          "is_correct": false,
-          "explanation": "$12 = g(6) - g(0)$ is the net change, not the average rate of change. The MVT gives $g'(c) = \\frac{12}{6} = 2$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -408,26 +469,28 @@
       "unit": "unit-5",
       "difficulty": "medium",
       "has_stimulus": false,
-      "stimulus": { "type": "none" },
+      "stimulus": {
+        "type": "none"
+      },
       "question": "Let $f(x) = 2x^3 - 9x^2 + 12x - 4$. On which of the following intervals is $f$ both increasing and concave down?",
       "choices": [
         {
           "id": "A",
-          "text": "$(1, \\frac{3}{2})$",
-          "is_correct": true,
-          "explanation": "$f'(x) = 6x^2 - 18x + 12 = 6(x-1)(x-2)$. $f' > 0$ on $(-\\infty,1) \\cup (2,\\infty)$ and $f' < 0$ on $(1,2)$. $f''(x) = 12x - 18$. $f'' < 0$ when $x < \\frac{3}{2}$. Both conditions hold on $(1, \\frac{3}{2})$."
-        },
-        {
-          "id": "B",
           "text": "$(2, 3)$",
           "is_correct": false,
           "explanation": "On $(2,3)$: $f' > 0$ (increasing), but $f''(x) = 12x-18 > 0$ for $x > \\frac{3}{2}$, so $f$ is concave up there, not concave down."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "$(\\frac{3}{2}, 2)$",
           "is_correct": false,
           "explanation": "On $(\\frac{3}{2}, 2)$: $f'' > 0$ (concave up) and $f' < 0$ (decreasing). Neither condition matches."
+        },
+        {
+          "id": "C",
+          "text": "$(1, \\frac{3}{2})$",
+          "is_correct": true,
+          "explanation": "$f'(x) = 6x^2 - 18x + 12 = 6(x-1)(x-2)$. $f' > 0$ on $(-\\infty,1) \\cup (2,\\infty)$ and $f' < 0$ on $(1,2)$. $f''(x) = 12x - 18$. $f'' < 0$ when $x < \\frac{3}{2}$. Both conditions hold on $(1, \\frac{3}{2})$."
         },
         {
           "id": "D",
@@ -453,9 +516,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$f$ has a local maximum at $x = 1$.",
-          "is_correct": true,
-          "explanation": "$f'$ changes sign from positive (on $(-2,1)$) to negative (on $(1,4)$) at $x = 1$. By the First Derivative Test, $f$ has a local maximum at $x = 1$."
+          "text": "$f$ has an inflection point at $x = 1$.",
+          "is_correct": false,
+          "explanation": "An inflection point corresponds to a sign change in $f''$, equivalently where $f'$ has a local extremum. At $x = 1$, $f'$ changes sign (zero crossing), not a local max/min of $f'$."
         },
         {
           "id": "B",
@@ -465,15 +528,15 @@
         },
         {
           "id": "C",
-          "text": "$f$ has an inflection point at $x = 1$.",
-          "is_correct": false,
-          "explanation": "An inflection point corresponds to a sign change in $f''$, equivalently where $f'$ has a local extremum. At $x = 1$, $f'$ changes sign (zero crossing), not a local max/min of $f'$."
-        },
-        {
-          "id": "D",
           "text": "$f$ is neither increasing nor decreasing at $x = 1$.",
           "is_correct": false,
           "explanation": "While $f'(1) = 0$, the First Derivative Test shows $f'$ changes from positive to negative, so $f$ has a local maximum at $x = 1$, not an indeterminate behavior."
+        },
+        {
+          "id": "D",
+          "text": "$f$ has a local maximum at $x = 1$.",
+          "is_correct": true,
+          "explanation": "$f'$ changes sign from positive (on $(-2,1)$) to negative (on $(1,4)$) at $x = 1$. By the First Derivative Test, $f$ has a local maximum at $x = 1$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -485,7 +548,9 @@
       "unit": "unit-5",
       "difficulty": "medium",
       "has_stimulus": false,
-      "stimulus": { "type": "none" },
+      "stimulus": {
+        "type": "none"
+      },
       "question": "The function $f(x) = x^3 - 3x^2 - 9x + 5$ has an inflection point at $x = c$. What is the value of $c$?",
       "choices": [
         {
@@ -496,21 +561,21 @@
         },
         {
           "id": "B",
-          "text": "$c = 3$",
-          "is_correct": false,
-          "explanation": "$f''(3) = 18 - 6 = 12 \\neq 0$. The inflection point occurs where $f'' = 0$ with a sign change: $f''(x) = 6x - 6 = 0$ gives $x = 1$."
-        },
-        {
-          "id": "C",
           "text": "$c = -1$",
           "is_correct": false,
           "explanation": "$f''(-1) = -6 - 6 = -12 \\neq 0$. The second derivative equals zero at $x = 1$."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$c = 0$",
           "is_correct": false,
           "explanation": "$f''(0) = 0 - 6 = -6 \\neq 0$. The inflection point is at $x = 1$ where $f''$ changes sign."
+        },
+        {
+          "id": "D",
+          "text": "$c = 3$",
+          "is_correct": false,
+          "explanation": "$f''(3) = 18 - 6 = 12 \\neq 0$. The inflection point occurs where $f'' = 0$ with a sign change: $f''(x) = 6x - 6 = 0$ gives $x = 1$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -525,9 +590,23 @@
       "stimulus": {
         "type": "table",
         "content": {
-          "headers": ["$x$", "$0$", "$1$", "$2$", "$3$", "$4$"],
+          "headers": [
+            "$x$",
+            "$0$",
+            "$1$",
+            "$2$",
+            "$3$",
+            "$4$"
+          ],
           "rows": [
-            ["$f(x)$", "3", "7", "8", "6", "2"]
+            [
+              "$f(x)$",
+              "3",
+              "7",
+              "8",
+              "6",
+              "2"
+            ]
           ]
         }
       },
@@ -535,9 +614,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$8$",
-          "is_correct": true,
-          "explanation": "The Candidates Test evaluates $f$ at all critical points in $(0,4)$ and at the endpoints $x=0$ and $x=4$. From the table: $f(0)=3$, $f(1)=7$, $f(2)=8$, $f(3)=6$, $f(4)=2$. The largest value is $f(2) = 8$."
+          "text": "$3$",
+          "is_correct": false,
+          "explanation": "$f(0) = 3$ is the value at the left endpoint but not the maximum. Comparing all values: $3, 7, 8, 6, 2$ — the maximum is $8$."
         },
         {
           "id": "B",
@@ -547,9 +626,9 @@
         },
         {
           "id": "C",
-          "text": "$3$",
-          "is_correct": false,
-          "explanation": "$f(0) = 3$ is the value at the left endpoint but not the maximum. Comparing all values: $3, 7, 8, 6, 2$ — the maximum is $8$."
+          "text": "$8$",
+          "is_correct": true,
+          "explanation": "The Candidates Test evaluates $f$ at all critical points in $(0,4)$ and at the endpoints $x=0$ and $x=4$. From the table: $f(0)=3$, $f(1)=7$, $f(2)=8$, $f(3)=6$, $f(4)=2$. The largest value is $f(2) = 8$."
         },
         {
           "id": "D",
@@ -567,20 +646,22 @@
       "unit": "unit-5",
       "difficulty": "medium",
       "has_stimulus": false,
-      "stimulus": { "type": "none" },
+      "stimulus": {
+        "type": "none"
+      },
       "question": "A particle moves along the $x$-axis with position $x(t) = t^3 - 6t^2 + 9t$ for $t \\geq 0$. At which time $t$ does the particle first change direction?",
       "choices": [
         {
           "id": "A",
-          "text": "$t = 1$",
-          "is_correct": true,
-          "explanation": "$x'(t) = 3t^2 - 12t + 9 = 3(t-1)(t-3)$. $x'(t) = 0$ at $t = 1$ and $t = 3$. For $t \\in (0,1)$, $x' > 0$; for $t \\in (1,3)$, $x' < 0$. The sign change at $t=1$ indicates the particle first reverses direction there."
+          "text": "$t = 0$",
+          "is_correct": false,
+          "explanation": "$x'(0) = 9 > 0$, so the particle is moving in the positive direction at $t = 0$ and has not changed direction yet."
         },
         {
           "id": "B",
-          "text": "$t = 3$",
-          "is_correct": false,
-          "explanation": "The particle also changes direction at $t = 3$, but the first direction change occurs at $t = 1$ (smaller $t$)."
+          "text": "$t = 1$",
+          "is_correct": true,
+          "explanation": "$x'(t) = 3t^2 - 12t + 9 = 3(t-1)(t-3)$. $x'(t) = 0$ at $t = 1$ and $t = 3$. For $t \\in (0,1)$, $x' > 0$; for $t \\in (1,3)$, $x' < 0$. The sign change at $t=1$ indicates the particle first reverses direction there."
         },
         {
           "id": "C",
@@ -590,9 +671,9 @@
         },
         {
           "id": "D",
-          "text": "$t = 0$",
+          "text": "$t = 3$",
           "is_correct": false,
-          "explanation": "$x'(0) = 9 > 0$, so the particle is moving in the positive direction at $t = 0$ and has not changed direction yet."
+          "explanation": "The particle also changes direction at $t = 3$, but the first direction change occurs at $t = 1$ (smaller $t$)."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -612,9 +693,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$5000 \\text{ m}^2$",
-          "is_correct": true,
-          "explanation": "Constraint: $x + 2y = 200$, so $x = 200 - 2y$. Area: $A = xy = (200-2y)y = 200y - 2y^2$. $\\frac{dA}{dy} = 200 - 4y = 0 \\Rightarrow y = 50$. Then $x = 100$. $A = 100 \\cdot 50 = 5000\\text{ m}^2$. $\\frac{d^2A}{dy^2} = -4 < 0$ confirms a maximum."
+          "text": "$2500 \\text{ m}^2$",
+          "is_correct": false,
+          "explanation": "This corresponds to a square enclosure with $x = y = 50$, but here fencing on only 3 sides means the optimal is $x = 100$, $y = 50$, giving $A = 5000$."
         },
         {
           "id": "B",
@@ -624,15 +705,15 @@
         },
         {
           "id": "C",
-          "text": "$2500 \\text{ m}^2$",
-          "is_correct": false,
-          "explanation": "This corresponds to a square enclosure with $x = y = 50$, but here fencing on only 3 sides means the optimal is $x = 100$, $y = 50$, giving $A = 5000$."
-        },
-        {
-          "id": "D",
           "text": "$7500 \\text{ m}^2$",
           "is_correct": false,
           "explanation": "Setting $A = 7500$ with the constraint $x + 2y = 200$ gives $y(200-2y) = 7500 \\Rightarrow 2y^2 - 200y + 7500 = 0 \\Rightarrow y^2 - 100y + 3750 = 0$, with discriminant $< 0$. This area is not achievable."
+        },
+        {
+          "id": "D",
+          "text": "$5000 \\text{ m}^2$",
+          "is_correct": true,
+          "explanation": "Constraint: $x + 2y = 200$, so $x = 200 - 2y$. Area: $A = xy = (200-2y)y = 200y - 2y^2$. $\\frac{dA}{dy} = 200 - 4y = 0 \\Rightarrow y = 50$. Then $x = 100$. $A = 100 \\cdot 50 = 5000\\text{ m}^2$. $\\frac{d^2A}{dy^2} = -4 < 0$ confirms a maximum."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -644,7 +725,9 @@
       "unit": "unit-5",
       "difficulty": "medium",
       "has_stimulus": false,
-      "stimulus": { "type": "none" },
+      "stimulus": {
+        "type": "none"
+      },
       "question": "Let $f(x) = xe^{-x}$. Which of the following correctly identifies the interval(s) on which $f$ is concave down?",
       "choices": [
         {
@@ -684,12 +767,27 @@
       "stimulus": {
         "type": "table",
         "content": {
-          "headers": ["$x$", "$f(x)$"],
+          "headers": [
+            "$x$",
+            "$f(x)$"
+          ],
           "rows": [
-            ["$-2$", "$4$"],
-            ["$0$", "$2$"],
-            ["$3$", "$5$"],
-            ["$5$", "$1$"]
+            [
+              "$-2$",
+              "$4$"
+            ],
+            [
+              "$0$",
+              "$2$"
+            ],
+            [
+              "$3$",
+              "$5$"
+            ],
+            [
+              "$5$",
+              "$1$"
+            ]
           ]
         }
       },
@@ -697,27 +795,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$1$",
-          "is_correct": true,
-          "explanation": "The Candidates Test evaluates $f$ at the endpoints and all critical points: $f(-2)=4$, $f(3)=5$, $f(5)=1$. The smallest value is $f(5) = 1$, which is the absolute minimum."
-        },
-        {
-          "id": "B",
-          "text": "$2$",
-          "is_correct": false,
-          "explanation": "$f(0) = 2$, but $x = 0$ is not a critical point ($f'(0) \\neq 0$) and not an endpoint. The Candidates Test only checks critical points and endpoints. The absolute minimum is $f(5) = 1$."
-        },
-        {
-          "id": "C",
           "text": "$4$",
           "is_correct": false,
           "explanation": "$f(-2) = 4$ is the value at the left endpoint, but $f(5) = 1 < 4$. The absolute minimum is $1$."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "$5$",
           "is_correct": false,
           "explanation": "$f(3) = 5$ is the largest among the candidate values, making it the absolute maximum, not the minimum."
+        },
+        {
+          "id": "C",
+          "text": "$2$",
+          "is_correct": false,
+          "explanation": "$f(0) = 2$, but $x = 0$ is not a critical point ($f'(0) \\neq 0$) and not an endpoint. The Candidates Test only checks critical points and endpoints. The absolute minimum is $f(5) = 1$."
+        },
+        {
+          "id": "D",
+          "text": "$1$",
+          "is_correct": true,
+          "explanation": "The Candidates Test evaluates $f$ at the endpoints and all critical points: $f(-2)=4$, $f(3)=5$, $f(5)=1$. The smallest value is $f(5) = 1$, which is the absolute minimum."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -729,32 +827,34 @@
       "unit": "unit-5",
       "difficulty": "medium",
       "has_stimulus": false,
-      "stimulus": { "type": "none" },
+      "stimulus": {
+        "type": "none"
+      },
       "question": "For a twice-differentiable function $f$, suppose $f'(x) > 0$ and $f''(x) < 0$ for all $x$ in an interval $I$. Which of the following best describes $f$ on $I$?",
       "choices": [
         {
           "id": "A",
-          "text": "$f$ is increasing at a decreasing rate.",
-          "is_correct": true,
-          "explanation": "$f'(x) > 0$ means $f$ is increasing. $f''(x) < 0$ means $f'$ is decreasing, so the rate of increase is slowing down. Together: $f$ is increasing at a decreasing rate (concave down)."
-        },
-        {
-          "id": "B",
           "text": "$f$ is decreasing at an increasing rate.",
           "is_correct": false,
           "explanation": "$f'(x) > 0$ means $f$ is increasing, not decreasing. The concavity ($f'' < 0$) affects the rate of change, not whether $f$ increases or decreases."
         },
         {
-          "id": "C",
-          "text": "$f$ is increasing at an increasing rate.",
-          "is_correct": false,
-          "explanation": "Increasing at an increasing rate would require $f'' > 0$ (concave up). Here $f'' < 0$, so the rate of increase is decreasing."
+          "id": "B",
+          "text": "$f$ is increasing at a decreasing rate.",
+          "is_correct": true,
+          "explanation": "$f'(x) > 0$ means $f$ is increasing. $f''(x) < 0$ means $f'$ is decreasing, so the rate of increase is slowing down. Together: $f$ is increasing at a decreasing rate (concave down)."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$f$ is decreasing at a decreasing rate.",
           "is_correct": false,
           "explanation": "This would require $f' < 0$ and $f'' > 0$. Here $f' > 0$, so $f$ is increasing, not decreasing."
+        },
+        {
+          "id": "D",
+          "text": "$f$ is increasing at an increasing rate.",
+          "is_correct": false,
+          "explanation": "Increasing at an increasing rate would require $f'' > 0$ (concave up). Here $f'' < 0$, so the rate of increase is decreasing."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -774,21 +874,21 @@
       "choices": [
         {
           "id": "A",
-          "text": "$r = 5$ cm",
-          "is_correct": true,
-          "explanation": "Volume: $\\pi r^2 h = 250\\pi \\Rightarrow h = \\frac{250}{r^2}$. $S = 2\\pi r^2 + 2\\pi r \\cdot \\frac{250}{r^2} = 2\\pi r^2 + \\frac{500\\pi}{r}$. $\\frac{dS}{dr} = 4\\pi r - \\frac{500\\pi}{r^2} = 0 \\Rightarrow 4r^3 = 500 \\Rightarrow r^3 = 125 \\Rightarrow r = 5$. $\\frac{d^2S}{dr^2} > 0$ confirms minimum."
-        },
-        {
-          "id": "B",
           "text": "$r = 10$ cm",
           "is_correct": false,
           "explanation": "$\\frac{dS}{dr}\\big|_{r=10} = 40\\pi - 5\\pi = 35\\pi \\neq 0$. Setting derivative to zero gives $r = 5$, not $r = 10$."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "$r = \\sqrt[3]{125\\pi}$ cm",
           "is_correct": false,
           "explanation": "Solving $4r^3 = 500$ gives $r^3 = 125$, so $r = 5$, not $\\sqrt[3]{125\\pi}$. The factor of $\\pi$ does not appear in the critical point calculation."
+        },
+        {
+          "id": "C",
+          "text": "$r = 5$ cm",
+          "is_correct": true,
+          "explanation": "Volume: $\\pi r^2 h = 250\\pi \\Rightarrow h = \\frac{250}{r^2}$. $S = 2\\pi r^2 + 2\\pi r \\cdot \\frac{250}{r^2} = 2\\pi r^2 + \\frac{500\\pi}{r}$. $\\frac{dS}{dr} = 4\\pi r - \\frac{500\\pi}{r^2} = 0 \\Rightarrow 4r^3 = 500 \\Rightarrow r^3 = 125 \\Rightarrow r = 5$. $\\frac{d^2S}{dr^2} > 0$ confirms minimum."
         },
         {
           "id": "D",
@@ -806,7 +906,9 @@
       "unit": "unit-5",
       "difficulty": "hard",
       "has_stimulus": false,
-      "stimulus": { "type": "none" },
+      "stimulus": {
+        "type": "none"
+      },
       "question": "Let $f$ be twice differentiable for all real numbers and suppose $f'(x) = \\frac{x^2 - 4}{x^2 + 1}$. How many inflection points does the graph of $f$ have?",
       "choices": [
         {
@@ -817,15 +919,15 @@
         },
         {
           "id": "B",
-          "text": "Two",
-          "is_correct": false,
-          "explanation": "$f''(x) = \\frac{10x}{(x^2+1)^2}$ has only one zero at $x = 0$, with a sign change there. There is only one inflection point, not two."
-        },
-        {
-          "id": "C",
           "text": "Zero",
           "is_correct": false,
           "explanation": "$f''$ changes sign at $x = 0$: negative for $x < 0$, positive for $x > 0$. This sign change confirms one inflection point."
+        },
+        {
+          "id": "C",
+          "text": "Two",
+          "is_correct": false,
+          "explanation": "$f''(x) = \\frac{10x}{(x^2+1)^2}$ has only one zero at $x = 0$, with a sign change there. There is only one inflection point, not two."
         },
         {
           "id": "D",
@@ -846,13 +948,37 @@
       "stimulus": {
         "type": "table",
         "content": {
-          "headers": ["$x$", "$f'(x)$", "$f''(x)$"],
+          "headers": [
+            "$x$",
+            "$f'(x)$",
+            "$f''(x)$"
+          ],
           "rows": [
-            ["$-2$", "$+$", "$-$"],
-            ["$-1$", "$0$", "$-$"],
-            ["$0$", "$-$", "$0$"],
-            ["$1$", "$-$", "$+$"],
-            ["$2$", "$0$", "$+$"]
+            [
+              "$-2$",
+              "$+$",
+              "$-$"
+            ],
+            [
+              "$-1$",
+              "$0$",
+              "$-$"
+            ],
+            [
+              "$0$",
+              "$-$",
+              "$0$"
+            ],
+            [
+              "$1$",
+              "$-$",
+              "$+$"
+            ],
+            [
+              "$2$",
+              "$0$",
+              "$+$"
+            ]
           ]
         }
       },
@@ -866,21 +992,21 @@
         },
         {
           "id": "B",
-          "text": "$f$ has a local minimum at $x = 0$.",
-          "is_correct": false,
-          "explanation": "$f'(0) \\neq 0$ ($f'$ is negative), so $x = 0$ is not a critical point. Local extrema require $f'(c) = 0$ or $f'$ undefined."
-        },
-        {
-          "id": "C",
           "text": "$f$ has a local maximum at $x = 0$.",
           "is_correct": false,
           "explanation": "$f'(0) < 0 \\neq 0$, so $x = 0$ is not a critical point and cannot be a local extremum."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "The Second Derivative Test is inconclusive at $x = 0$.",
           "is_correct": false,
           "explanation": "The Second Derivative Test applies only at critical points where $f'(c) = 0$. Since $f'(0) \\neq 0$, the test does not apply. The correct description is that $x = 0$ is an inflection point (sign change in $f''$)."
+        },
+        {
+          "id": "D",
+          "text": "$f$ has a local minimum at $x = 0$.",
+          "is_correct": false,
+          "explanation": "$f'(0) \\neq 0$ ($f'$ is negative), so $x = 0$ is not a critical point. Local extrema require $f'(c) = 0$ or $f'$ undefined."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -892,14 +1018,16 @@
       "unit": "unit-5",
       "difficulty": "hard",
       "has_stimulus": false,
-      "stimulus": { "type": "none" },
+      "stimulus": {
+        "type": "none"
+      },
       "question": "Let $f(x) = \\sqrt{x + 1}$ on the interval $[0, 8]$. Which of the following is the value of $c$ in $(0, 8)$ guaranteed by the Mean Value Theorem?",
       "choices": [
         {
           "id": "A",
-          "text": "$c = 2$",
+          "text": "$c = 8$",
           "is_correct": false,
-          "explanation": "$f'(c) = \\frac{1}{2\\sqrt{c+1}}$. Average rate of change: $\\frac{f(8)-f(0)}{8} = \\frac{3-1}{8} = \\frac{1}{4}$. Setting $\\frac{1}{2\\sqrt{c+1}} = \\frac{1}{4}$: $2\\sqrt{c+1} = 4 \\Rightarrow \\sqrt{c+1} = 2 \\Rightarrow c = 3$. So $c = 2$ is incorrect."
+          "explanation": "$c = 8$ is the right endpoint, not in the open interval $(0, 8)$. The MVT requires $c$ in the open interior. The correct value is $c = 3$."
         },
         {
           "id": "B",
@@ -915,9 +1043,9 @@
         },
         {
           "id": "D",
-          "text": "$c = 8$",
+          "text": "$c = 2$",
           "is_correct": false,
-          "explanation": "$c = 8$ is the right endpoint, not in the open interval $(0, 8)$. The MVT requires $c$ in the open interior. The correct value is $c = 3$."
+          "explanation": "$f'(c) = \\frac{1}{2\\sqrt{c+1}}$. Average rate of change: $\\frac{f(8)-f(0)}{8} = \\frac{3-1}{8} = \\frac{1}{4}$. Setting $\\frac{1}{2\\sqrt{c+1}} = \\frac{1}{4}$: $2\\sqrt{c+1} = 4 \\Rightarrow \\sqrt{c+1} = 2 \\Rightarrow c = 3$. So $c = 2$ is incorrect."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -943,21 +1071,21 @@
         },
         {
           "id": "B",
-          "text": "$f'(c) = 0$",
-          "is_correct": false,
-          "explanation": "Rolle's Theorem requires $f(-4) = f(4)$, but $f(-4)=-6 \\neq 7 = f(4)$. The MVT alone does not guarantee $f'(c) = 0$."
-        },
-        {
-          "id": "C",
           "text": "$f'(c) = 3$",
           "is_correct": false,
           "explanation": "The MVT on $[-4,4]$ gives $f'(c) = \\frac{13}{8}$, not $3$. $f'(c) = 3$ could be guaranteed by the MVT on $[-2, 2]$: $\\frac{f(2)-f(-2)}{4} = \\frac{5}{4}$. Neither interval gives $f'(c) = 3$."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$f''(c) = \\dfrac{13}{8}$",
           "is_correct": false,
           "explanation": "The MVT applies to $f'$, not $f''$ directly. We can only conclude $f'(c) = \\frac{13}{8}$, not $f''(c) = \\frac{13}{8}$."
+        },
+        {
+          "id": "D",
+          "text": "$f'(c) = 0$",
+          "is_correct": false,
+          "explanation": "Rolle's Theorem requires $f(-4) = f(4)$, but $f(-4)=-6 \\neq 7 = f(4)$. The MVT alone does not guarantee $f'(c) = 0$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -969,32 +1097,34 @@
       "unit": "unit-5",
       "difficulty": "hard",
       "has_stimulus": false,
-      "stimulus": { "type": "none" },
+      "stimulus": {
+        "type": "none"
+      },
       "question": "Let $f(x) = \\dfrac{x^2}{x^2 - 4}$. On which of the following intervals is $f$ concave up?",
       "choices": [
         {
           "id": "A",
-          "text": "$(-\\infty, -2)$ and $(2, \\infty)$ only",
-          "is_correct": true,
-          "explanation": "$f'(x) = \\frac{-8x}{(x^2-4)^2}$. $f''(x) = \\frac{-8(x^2-4)^2 - (-8x) \\cdot 2(x^2-4)(2x)}{(x^2-4)^4} = \\frac{-8(x^2-4) + 32x^2}{(x^2-4)^3} = \\frac{24x^2 + 32}{(x^2-4)^3} = \\frac{8(3x^2+4)}{(x^2-4)^3}$. Numerator $8(3x^2+4) > 0$ always. So $f'' > 0$ iff $(x^2-4)^3 > 0$ iff $x^2 > 4$ iff $|x| > 2$. Concave up on $(-\\infty,-2) \\cup (2,\\infty)$."
-        },
-        {
-          "id": "B",
-          "text": "$(-2, 2)$ only",
-          "is_correct": false,
-          "explanation": "$(x^2-4)^3 < 0$ when $|x| < 2$, making $f'' < 0$ on $(-2,2)$. So $f$ is concave down on $(-2,2)$, not concave up."
-        },
-        {
-          "id": "C",
           "text": "All real numbers except $x = \\pm 2$",
           "is_correct": false,
           "explanation": "On $(-2,2)$, $f'' < 0$, so $f$ is concave down there. Concave up occurs only where $|x| > 2$."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "$(0, \\infty)$ only",
           "is_correct": false,
           "explanation": "Concavity is symmetric: $f''(-x) = f''(x)$ since $f''$ involves only even powers. The concave-up region is $|x| > 2$, which is symmetric about the $y$-axis."
+        },
+        {
+          "id": "C",
+          "text": "$(-\\infty, -2)$ and $(2, \\infty)$ only",
+          "is_correct": true,
+          "explanation": "$f'(x) = \\frac{-8x}{(x^2-4)^2}$. $f''(x) = \\frac{-8(x^2-4)^2 - (-8x) \\cdot 2(x^2-4)(2x)}{(x^2-4)^4} = \\frac{-8(x^2-4) + 32x^2}{(x^2-4)^3} = \\frac{24x^2 + 32}{(x^2-4)^3} = \\frac{8(3x^2+4)}{(x^2-4)^3}$. Numerator $8(3x^2+4) > 0$ always. So $f'' > 0$ iff $(x^2-4)^3 > 0$ iff $x^2 > 4$ iff $|x| > 2$. Concave up on $(-\\infty,-2) \\cup (2,\\infty)$."
+        },
+        {
+          "id": "D",
+          "text": "$(-2, 2)$ only",
+          "is_correct": false,
+          "explanation": "$(x^2-4)^3 < 0$ when $|x| < 2$, making $f'' < 0$ on $(-2,2)$. So $f$ is concave down on $(-2,2)$, not concave up."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -1020,15 +1150,15 @@
         },
         {
           "id": "B",
-          "text": "There exists $c \\in (1, 9)$ such that $f'(c) = 4$.",
-          "is_correct": false,
-          "explanation": "The MVT gives $f'(c) = \\frac{4}{8} = \\frac{1}{2}$, not 4. Also, $|f'(x)| \\leq 1$ means $f'(c) = 4$ is impossible."
-        },
-        {
-          "id": "C",
           "text": "There exists $c \\in (1, 9)$ such that $f'(c) = 0$.",
           "is_correct": false,
           "explanation": "The MVT guarantees $f'(c) = \\frac{1}{2}$, not necessarily $0$. $f'(c) = 0$ would follow from Rolle's Theorem, which requires $f(1) = f(9)$."
+        },
+        {
+          "id": "C",
+          "text": "There exists $c \\in (1, 9)$ such that $f'(c) = 4$.",
+          "is_correct": false,
+          "explanation": "The MVT gives $f'(c) = \\frac{4}{8} = \\frac{1}{2}$, not 4. Also, $|f'(x)| \\leq 1$ means $f'(c) = 4$ is impossible."
         },
         {
           "id": "D",
@@ -1046,32 +1176,34 @@
       "unit": "unit-5",
       "difficulty": "hard",
       "has_stimulus": false,
-      "stimulus": { "type": "none" },
+      "stimulus": {
+        "type": "none"
+      },
       "question": "Let $h(x) = x^{2/3}(x - 5)$. Which of the following correctly identifies all critical points of $h$?",
       "choices": [
         {
           "id": "A",
-          "text": "$x = 0$ and $x = 2$",
-          "is_correct": true,
-          "explanation": "$h'(x) = \\frac{2}{3}x^{-1/3}(x-5) + x^{2/3} = \\frac{2(x-5)}{3x^{1/3}} + x^{2/3} = \\frac{2(x-5) + 3x}{3x^{1/3}} = \\frac{5x - 10}{3x^{1/3}} = \\frac{5(x-2)}{3x^{1/3}}$. $h'(x) = 0$ at $x = 2$; $h'$ is undefined at $x = 0$ (but $h(0) = 0$ is defined). Both $x = 0$ and $x = 2$ are critical points."
-        },
-        {
-          "id": "B",
-          "text": "$x = 2$ only",
-          "is_correct": false,
-          "explanation": "$h'(0)$ is undefined because $x^{-1/3}$ is undefined at $x=0$. Since $h(0)$ is defined but $h'(0)$ is not, $x=0$ is also a critical point."
-        },
-        {
-          "id": "C",
           "text": "$x = 5$ only",
           "is_correct": false,
           "explanation": "$h'(5) = \\frac{5(5-2)}{3 \\cdot 5^{1/3}} = \\frac{15}{3 \\cdot 5^{1/3}} \\neq 0$. The critical points are $x = 0$ and $x = 2$."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "$x = 0$ and $x = 5$",
           "is_correct": false,
           "explanation": "$h'(5) \\neq 0$, so $x = 5$ is not a critical point. The critical points are $x = 0$ (where $h'$ is undefined) and $x = 2$ (where $h' = 0$)."
+        },
+        {
+          "id": "C",
+          "text": "$x = 0$ and $x = 2$",
+          "is_correct": true,
+          "explanation": "$h'(x) = \\frac{2}{3}x^{-1/3}(x-5) + x^{2/3} = \\frac{2(x-5)}{3x^{1/3}} + x^{2/3} = \\frac{2(x-5) + 3x}{3x^{1/3}} = \\frac{5x - 10}{3x^{1/3}} = \\frac{5(x-2)}{3x^{1/3}}$. $h'(x) = 0$ at $x = 2$; $h'$ is undefined at $x = 0$ (but $h(0) = 0$ is defined). Both $x = 0$ and $x = 2$ are critical points."
+        },
+        {
+          "id": "D",
+          "text": "$x = 2$ only",
+          "is_correct": false,
+          "explanation": "$h'(0)$ is undefined because $x^{-1/3}$ is undefined at $x=0$. Since $h(0)$ is defined but $h'(0)$ is not, $x=0$ is also a critical point."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -1091,27 +1223,27 @@
       "choices": [
         {
           "id": "A",
+          "text": "$96$ cubic inches",
+          "is_correct": false,
+          "explanation": "If $V = 96$, then with $x = 4$: $x^2 h = 96 \\Rightarrow h = 6$. Check surface area: $2(16)+4(4)(6)=32+96=128 \\neq 96$. This violates the constraint."
+        },
+        {
+          "id": "B",
           "text": "$64$ cubic inches",
           "is_correct": true,
           "explanation": "Surface area: $2x^2 + 4xh = 96 \\Rightarrow h = \\frac{96-2x^2}{4x} = \\frac{24-\\frac{x^2}{2}}{x}$. $V = x^2 \\cdot \\frac{24-x^2/2}{x} = x(24 - x^2/2) = 24x - \\frac{x^3}{2}$. $\\frac{dV}{dx} = 24 - \\frac{3x^2}{2} = 0 \\Rightarrow x^2 = 16 \\Rightarrow x = 4$. $h = \\frac{24 - 8}{4} = 4$. $V = 4^2 \\cdot 4 = 64$ in$^3$. $V'' = -3x < 0$ confirms maximum."
         },
         {
-          "id": "B",
+          "id": "C",
           "text": "$128$ cubic inches",
           "is_correct": false,
           "explanation": "At $x = 4$, $V = 64$ in$^3$. Check $x = 4$: $2(16) + 4(4)(4) = 32 + 64 = 96$ ✓. The maximum volume is 64, not 128."
         },
         {
-          "id": "C",
+          "id": "D",
           "text": "$48$ cubic inches",
           "is_correct": false,
           "explanation": "This would require different dimensions. The optimization gives $x = 4$, $h = 4$, and $V = 64$ in$^3$."
-        },
-        {
-          "id": "D",
-          "text": "$96$ cubic inches",
-          "is_correct": false,
-          "explanation": "If $V = 96$, then with $x = 4$: $x^2 h = 96 \\Rightarrow h = 6$. Check surface area: $2(16)+4(4)(6)=32+96=128 \\neq 96$. This violates the constraint."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -1123,20 +1255,22 @@
       "unit": "unit-5",
       "difficulty": "hard",
       "has_stimulus": false,
-      "stimulus": { "type": "none" },
+      "stimulus": {
+        "type": "none"
+      },
       "question": "Let $f$ be continuous on $[-2, 4]$ with $f'(x) = \\sin\\!\\left(\\dfrac{\\pi x}{2}\\right)$ for $-2 < x < 4$. On which interval is $f$ both increasing and concave up?",
       "choices": [
         {
           "id": "A",
-          "text": "$(0, 1)$",
-          "is_correct": true,
-          "explanation": "$f'(x) = \\sin(\\pi x/2)$. On $(0,1)$: $\\pi x/2 \\in (0, \\pi/2)$, so $\\sin > 0 \\Rightarrow f' > 0$ (increasing). $f''(x) = \\frac{\\pi}{2}\\cos(\\pi x/2)$. On $(0,1)$: $\\pi x/2 \\in (0,\\pi/2)$, so $\\cos > 0 \\Rightarrow f'' > 0$ (concave up). Both conditions hold on $(0,1)$."
-        },
-        {
-          "id": "B",
           "text": "$(-2, -1)$",
           "is_correct": false,
           "explanation": "On $(-2,-1)$: $\\pi x/2 \\in (-\\pi, -\\pi/2)$, so $\\sin(\\pi x/2) < 0$, giving $f' < 0$. $f$ is decreasing there, not increasing."
+        },
+        {
+          "id": "B",
+          "text": "$(0, 1)$",
+          "is_correct": true,
+          "explanation": "$f'(x) = \\sin(\\pi x/2)$. On $(0,1)$: $\\pi x/2 \\in (0, \\pi/2)$, so $\\sin > 0 \\Rightarrow f' > 0$ (increasing). $f''(x) = \\frac{\\pi}{2}\\cos(\\pi x/2)$. On $(0,1)$: $\\pi x/2 \\in (0,\\pi/2)$, so $\\cos > 0 \\Rightarrow f'' > 0$ (concave up). Both conditions hold on $(0,1)$."
         },
         {
           "id": "C",
@@ -1163,13 +1297,37 @@
       "stimulus": {
         "type": "table",
         "content": {
-          "headers": ["$x$", "$f(x)$", "$f'(x)$"],
+          "headers": [
+            "$x$",
+            "$f(x)$",
+            "$f'(x)$"
+          ],
           "rows": [
-            ["$0$", "$5$", "$-3$"],
-            ["$2$", "$1$", "$0$"],
-            ["$4$", "$3$", "$2$"],
-            ["$6$", "$8$", "$0$"],
-            ["$8$", "$4$", "$-1$"]
+            [
+              "$0$",
+              "$5$",
+              "$-3$"
+            ],
+            [
+              "$2$",
+              "$1$",
+              "$0$"
+            ],
+            [
+              "$4$",
+              "$3$",
+              "$2$"
+            ],
+            [
+              "$6$",
+              "$8$",
+              "$0$"
+            ],
+            [
+              "$8$",
+              "$4$",
+              "$-1$"
+            ]
           ]
         }
       },
@@ -1177,27 +1335,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "Between $x = 2$ and $x = 4$",
-          "is_correct": false,
-          "explanation": "$f'$ increases from $0$ at $x=2$ to $2$ at $x=4$, suggesting $f'' > 0$ there (concave up). If $f'$ was decreasing before $x=2$, an inflection may occur near $x=2$."
-        },
-        {
-          "id": "B",
-          "text": "Between $x = 4$ and $x = 6$",
-          "is_correct": false,
-          "explanation": "$f'$ increases from $2$ at $x=4$ to a peak, then reaches $0$ at $x=6$. This means $f'$ is increasing then decreasing — an inflection in $f$ occurs where $f'$ has its maximum, which is between $x=4$ and $x=6$, but we need more precision."
-        },
-        {
-          "id": "C",
           "text": "Near $x = 2$",
           "is_correct": true,
           "explanation": "$f'$ is negative before and at $x=0$ ($f'(0) = -3$), then reaches $0$ at $x=2$ and becomes positive ($f'(4) = 2$). $f'$ is increasing through $x=2$, suggesting $f'' > 0$ near $x=2$. Before $x=0$, if $f'$ was decreasing, a sign change in $f''$ (inflection of $f$) occurred near $x=2$ where $f'$ transitioned from decreasing to increasing."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Near $x = 6$",
           "is_correct": false,
           "explanation": "At $x=6$, $f'=0$ (critical point of $f$), and $f'$ transitions from positive to negative, indicating a local maximum of $f$. An inflection of $f$ corresponds to a local extremum of $f'$, not a zero of $f'$."
+        },
+        {
+          "id": "C",
+          "text": "Between $x = 4$ and $x = 6$",
+          "is_correct": false,
+          "explanation": "$f'$ increases from $2$ at $x=4$ to a peak, then reaches $0$ at $x=6$. This means $f'$ is increasing then decreasing — an inflection in $f$ occurs where $f'$ has its maximum, which is between $x=4$ and $x=6$, but we need more precision."
+        },
+        {
+          "id": "D",
+          "text": "Between $x = 2$ and $x = 4$",
+          "is_correct": false,
+          "explanation": "$f'$ increases from $0$ at $x=2$ to $2$ at $x=4$, suggesting $f'' > 0$ there (concave up). If $f'$ was decreasing before $x=2$, an inflection may occur near $x=2$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -1209,7 +1367,9 @@
       "unit": "unit-5",
       "difficulty": "medium",
       "has_stimulus": false,
-      "stimulus": { "type": "none" },
+      "stimulus": {
+        "type": "none"
+      },
       "question": "A function $f$ has $f'(x) = 3x^2 - 12$. On which interval is $f$ decreasing?",
       "choices": [
         {
@@ -1226,15 +1386,15 @@
         },
         {
           "id": "C",
-          "text": "$(0, 2)$ only",
-          "is_correct": false,
-          "explanation": "$f'(x) < 0$ on the entire interval $(-2,2)$, not just $(0,2)$. The sign of $f'$ is negative for all $x$ between $-2$ and $2$."
-        },
-        {
-          "id": "D",
           "text": "$(2, \\infty)$",
           "is_correct": false,
           "explanation": "$f'(3) = 27 - 12 = 15 > 0$, so $f$ is increasing on $(2,\\infty)$, not decreasing."
+        },
+        {
+          "id": "D",
+          "text": "$(0, 2)$ only",
+          "is_correct": false,
+          "explanation": "$f'(x) < 0$ on the entire interval $(-2,2)$, not just $(0,2)$. The sign of $f'$ is negative for all $x$ between $-2$ and $2$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -1254,9 +1414,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "Rolle's Theorem",
-          "is_correct": true,
-          "explanation": "Rolle's Theorem applies when $f$ is continuous on $[a,b]$, differentiable on $(a,b)$, and $f(a) = f(b)$. Here $g(1) = g(5) = 4$, so all conditions are met. The theorem guarantees $g'(c) = 0$ for some $c \\in (1,5)$."
+          "text": "The Mean Value Theorem alone",
+          "is_correct": false,
+          "explanation": "The MVT gives $g'(c) = \\frac{g(5)-g(1)}{5-1} = \\frac{0}{4} = 0$, so it also works here — but Rolle's Theorem is the more specific theorem that directly applies when $g(a) = g(b)$."
         },
         {
           "id": "B",
@@ -1266,15 +1426,15 @@
         },
         {
           "id": "C",
-          "text": "The Intermediate Value Theorem",
-          "is_correct": false,
-          "explanation": "The IVT guarantees a function value between $g(1)$ and $g(5)$, not a zero of the derivative. The conclusion $g'(c) = 0$ comes from Rolle's Theorem."
+          "text": "Rolle's Theorem",
+          "is_correct": true,
+          "explanation": "Rolle's Theorem applies when $f$ is continuous on $[a,b]$, differentiable on $(a,b)$, and $f(a) = f(b)$. Here $g(1) = g(5) = 4$, so all conditions are met. The theorem guarantees $g'(c) = 0$ for some $c \\in (1,5)$."
         },
         {
           "id": "D",
-          "text": "The Mean Value Theorem alone",
+          "text": "The Intermediate Value Theorem",
           "is_correct": false,
-          "explanation": "The MVT gives $g'(c) = \\frac{g(5)-g(1)}{5-1} = \\frac{0}{4} = 0$, so it also works here — but Rolle's Theorem is the more specific theorem that directly applies when $g(a) = g(b)$."
+          "explanation": "The IVT guarantees a function value between $g(1)$ and $g(5)$, not a zero of the derivative. The conclusion $g'(c) = 0$ comes from Rolle's Theorem."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -1286,32 +1446,34 @@
       "unit": "unit-5",
       "difficulty": "medium",
       "has_stimulus": false,
-      "stimulus": { "type": "none" },
+      "stimulus": {
+        "type": "none"
+      },
       "question": "The function $p(x) = x^3 - 3x^2 + 4$ is defined on $[-1, 3]$. Using the Candidates Test, what is the absolute minimum value of $p$ on $[-1, 3]$?",
       "choices": [
         {
           "id": "A",
-          "text": "$-2$",
+          "text": "$-4$",
           "is_correct": false,
-          "explanation": "$p(-1) = -1-3+4 = 0$. Check all candidates: $p'(x) = 3x^2-6x = 3x(x-2) = 0$ at $x=0,2$. $p(0)=4$, $p(2)=8-12+4=0$, $p(-1)=0$, $p(3)=27-27+4=4$. Minimum is $0$, not $-2$."
+          "explanation": "This value does not appear in the Candidates Test evaluation. The minimum on $[-1,3]$ is $0$, achieved at $x=-1$ and $x=2$."
         },
         {
           "id": "B",
-          "text": "$0$",
-          "is_correct": true,
-          "explanation": "Candidates: $x = -1$, $x = 0$, $x = 2$ (critical points from $p'(x)=0$), $x = 3$. Values: $p(-1)=0$, $p(0)=4$, $p(2)=0$, $p(3)=4$. The smallest value is $0$, attained at $x=-1$ and $x=2$."
-        },
-        {
-          "id": "C",
           "text": "$4$",
           "is_correct": false,
           "explanation": "$p(0) = 4$ and $p(3) = 4$ are the maximum values, not the minimum. The minimum is $0$."
         },
         {
-          "id": "D",
-          "text": "$-4$",
+          "id": "C",
+          "text": "$-2$",
           "is_correct": false,
-          "explanation": "This value does not appear in the Candidates Test evaluation. The minimum on $[-1,3]$ is $0$, achieved at $x=-1$ and $x=2$."
+          "explanation": "$p(-1) = -1-3+4 = 0$. Check all candidates: $p'(x) = 3x^2-6x = 3x(x-2) = 0$ at $x=0,2$. $p(0)=4$, $p(2)=8-12+4=0$, $p(-1)=0$, $p(3)=27-27+4=4$. Minimum is $0$, not $-2$."
+        },
+        {
+          "id": "D",
+          "text": "$0$",
+          "is_correct": true,
+          "explanation": "Candidates: $x = -1$, $x = 0$, $x = 2$ (critical points from $p'(x)=0$), $x = 3$. Values: $p(-1)=0$, $p(0)=4$, $p(2)=0$, $p(3)=4$. The smallest value is $0$, attained at $x=-1$ and $x=2$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -1323,32 +1485,34 @@
       "unit": "unit-5",
       "difficulty": "medium",
       "has_stimulus": false,
-      "stimulus": { "type": "none" },
+      "stimulus": {
+        "type": "none"
+      },
       "question": "Let $f(x) = \\ln(x^2 + 1)$. Which of the following correctly identifies all inflection points of $f$?",
       "choices": [
         {
           "id": "A",
-          "text": "$x = 0$ only",
-          "is_correct": false,
-          "explanation": "$f'(x) = \\frac{2x}{x^2+1}$. $f''(x) = \\frac{2(x^2+1) - 2x(2x)}{(x^2+1)^2} = \\frac{2-2x^2}{(x^2+1)^2}$. $f''=0$ at $x=\\pm 1$. Sign: $f''>0$ on $(-1,1)$, $f''<0$ outside. Inflection points at $x=\\pm 1$, not $x=0$."
-        },
-        {
-          "id": "B",
           "text": "$x = 1$ and $x = -1$",
           "is_correct": true,
           "explanation": "$f''(x) = \\frac{2(1-x^2)}{(x^2+1)^2}$. $f'' = 0$ at $x = \\pm 1$. For $|x|<1$: $f''>0$ (concave up). For $|x|>1$: $f''<0$ (concave down). Concavity changes at both $x=-1$ and $x=1$, confirming two inflection points."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "$x = 0$ and $x = 1$",
           "is_correct": false,
           "explanation": "$f''(0) = \\frac{2(1-0)}{1} = 2 \\neq 0$, so $x=0$ is not an inflection point. The inflection points are at $x = \\pm 1$."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "There are no inflection points.",
           "is_correct": false,
           "explanation": "$f''(x) = \\frac{2(1-x^2)}{(x^2+1)^2}$ changes sign at $x = \\pm 1$. Both are inflection points."
+        },
+        {
+          "id": "D",
+          "text": "$x = 0$ only",
+          "is_correct": false,
+          "explanation": "$f'(x) = \\frac{2x}{x^2+1}$. $f''(x) = \\frac{2(x^2+1) - 2x(2x)}{(x^2+1)^2} = \\frac{2-2x^2}{(x^2+1)^2}$. $f''=0$ at $x=\\pm 1$. Sign: $f''>0$ on $(-1,1)$, $f''<0$ outside. Inflection points at $x=\\pm 1$, not $x=0$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -1368,15 +1532,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "Car A's instantaneous velocity equals $4$ at some time $t \\in (0, 3)$.",
-          "is_correct": true,
-          "explanation": "By the MVT applied to $f$ on $[0,3]$: $f'(c) = \\frac{f(3)-f(0)}{3-0} = \\frac{12}{3} = 4$ for some $c \\in (0,3)$. Car A's instantaneous velocity is $4$ at that moment."
+          "text": "Car A's velocity is constant at $4$ throughout $(0, 3)$.",
+          "is_correct": false,
+          "explanation": "The MVT only guarantees that $f'(c) = 4$ for at least one $c$. It does not imply $f'$ is constant — Car A could be accelerating or decelerating."
         },
         {
           "id": "B",
-          "text": "Car A's instantaneous velocity equals $6$ at some time $t \\in (0, 3)$.",
-          "is_correct": false,
-          "explanation": "$\\frac{f(3)-f(0)}{3} = 4$. The MVT guarantees velocity $= 4$, not $6$. The value $6$ is Car B's average velocity."
+          "text": "Car A's instantaneous velocity equals $4$ at some time $t \\in (0, 3)$.",
+          "is_correct": true,
+          "explanation": "By the MVT applied to $f$ on $[0,3]$: $f'(c) = \\frac{f(3)-f(0)}{3-0} = \\frac{12}{3} = 4$ for some $c \\in (0,3)$. Car A's instantaneous velocity is $4$ at that moment."
         },
         {
           "id": "C",
@@ -1386,9 +1550,9 @@
         },
         {
           "id": "D",
-          "text": "Car A's velocity is constant at $4$ throughout $(0, 3)$.",
+          "text": "Car A's instantaneous velocity equals $6$ at some time $t \\in (0, 3)$.",
           "is_correct": false,
-          "explanation": "The MVT only guarantees that $f'(c) = 4$ for at least one $c$. It does not imply $f'$ is constant — Car A could be accelerating or decelerating."
+          "explanation": "$\\frac{f(3)-f(0)}{3} = 4$. The MVT guarantees velocity $= 4$, not $6$. The value $6$ is Car B's average velocity."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -1400,14 +1564,16 @@
       "unit": "unit-5",
       "difficulty": "easy",
       "has_stimulus": false,
-      "stimulus": { "type": "none" },
+      "stimulus": {
+        "type": "none"
+      },
       "question": "Which of the following is a necessary condition for $x = c$ to be an inflection point of a twice-differentiable function $f$?",
       "choices": [
         {
           "id": "A",
-          "text": "$f''(c) = 0$",
+          "text": "$f$ has a local extremum at $x = c$",
           "is_correct": false,
-          "explanation": "$f''(c) = 0$ is necessary for a twice-differentiable inflection point, but the additional requirement is that $f''$ must change sign at $c$. $f''(c)=0$ alone is not sufficient (e.g., $f(x)=x^4$ at $x=0$)."
+          "explanation": "Inflection points are where concavity changes, not where $f$ has a local max or min. At a local extremum, $f' = 0$ or undefined. An inflection point may or may not coincide with $f' = 0$."
         },
         {
           "id": "B",
@@ -1423,9 +1589,9 @@
         },
         {
           "id": "D",
-          "text": "$f$ has a local extremum at $x = c$",
+          "text": "$f''(c) = 0$",
           "is_correct": false,
-          "explanation": "Inflection points are where concavity changes, not where $f$ has a local max or min. At a local extremum, $f' = 0$ or undefined. An inflection point may or may not coincide with $f' = 0$."
+          "explanation": "$f''(c) = 0$ is necessary for a twice-differentiable inflection point, but the additional requirement is that $f''$ must change sign at $c$. $f''(c)=0$ alone is not sufficient (e.g., $f(x)=x^4$ at $x=0$)."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -1440,13 +1606,31 @@
       "stimulus": {
         "type": "table",
         "content": {
-          "headers": ["$x$", "$f(x)$"],
+          "headers": [
+            "$x$",
+            "$f(x)$"
+          ],
           "rows": [
-            ["$1$", "$-3$"],
-            ["$2$", "$0$"],
-            ["$4$", "$5$"],
-            ["$6$", "$5$"],
-            ["$8$", "$2$"]
+            [
+              "$1$",
+              "$-3$"
+            ],
+            [
+              "$2$",
+              "$0$"
+            ],
+            [
+              "$4$",
+              "$5$"
+            ],
+            [
+              "$6$",
+              "$5$"
+            ],
+            [
+              "$8$",
+              "$2$"
+            ]
           ]
         }
       },
@@ -1454,15 +1638,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$f$ attains both an absolute maximum and absolute minimum on $[1, 8]$.",
-          "is_correct": true,
-          "explanation": "The EVT guarantees that a function continuous on a closed, bounded interval attains its absolute maximum and minimum. Since $f$ is continuous on $[1,8]$, both extrema are guaranteed."
-        },
-        {
-          "id": "B",
           "text": "The absolute maximum of $f$ is $5$.",
           "is_correct": false,
           "explanation": "The table suggests $f$ may reach $5$, but the EVT does not pin down the exact maximum value — it only guarantees the maximum exists. The actual maximum could be higher if $f$ exceeds $5$ between tabulated points."
+        },
+        {
+          "id": "B",
+          "text": "$f$ has a critical point in $(1, 8)$.",
+          "is_correct": false,
+          "explanation": "The EVT guarantees extreme values exist, not that interior critical points exist. Critical points in the interior follow from Fermat's theorem if the extremum is interior — but the EVT itself makes no such claim."
         },
         {
           "id": "C",
@@ -1472,9 +1656,9 @@
         },
         {
           "id": "D",
-          "text": "$f$ has a critical point in $(1, 8)$.",
-          "is_correct": false,
-          "explanation": "The EVT guarantees extreme values exist, not that interior critical points exist. Critical points in the interior follow from Fermat's theorem if the extremum is interior — but the EVT itself makes no such claim."
+          "text": "$f$ attains both an absolute maximum and absolute minimum on $[1, 8]$.",
+          "is_correct": true,
+          "explanation": "The EVT guarantees that a function continuous on a closed, bounded interval attains its absolute maximum and minimum. Since $f$ is continuous on $[1,8]$, both extrema are guaranteed."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -1486,32 +1670,34 @@
       "unit": "unit-5",
       "difficulty": "easy",
       "has_stimulus": false,
-      "stimulus": { "type": "none" },
+      "stimulus": {
+        "type": "none"
+      },
       "question": "Let $f(x) = -x^2 + 6x - 5$. Using the First Derivative Test, which of the following best describes $f$ at $x = 3$?",
       "choices": [
         {
           "id": "A",
-          "text": "$f$ has a local maximum at $x = 3$.",
-          "is_correct": true,
-          "explanation": "$f'(x) = -2x + 6 = -2(x-3)$. $f'(x) > 0$ for $x < 3$ and $f'(x) < 0$ for $x > 3$. The sign changes from positive to negative, so $f$ has a local maximum at $x = 3$ by the First Derivative Test."
-        },
-        {
-          "id": "B",
           "text": "$f$ has a local minimum at $x = 3$.",
           "is_correct": false,
           "explanation": "A local minimum requires $f'$ to change from negative to positive. Here $f'$ goes from positive to negative at $x=3$, indicating a local maximum."
         },
         {
-          "id": "C",
-          "text": "$f$ has neither a local maximum nor local minimum at $x = 3$.",
-          "is_correct": false,
-          "explanation": "$f'$ changes sign at $x = 3$ (positive to negative), confirming a local maximum by the First Derivative Test."
-        },
-        {
-          "id": "D",
+          "id": "B",
           "text": "$f$ is not differentiable at $x = 3$.",
           "is_correct": false,
           "explanation": "$f'(3) = -6 + 6 = 0$, so $f$ is differentiable at $x = 3$. The critical point exists with $f'(3) = 0$."
+        },
+        {
+          "id": "C",
+          "text": "$f$ has a local maximum at $x = 3$.",
+          "is_correct": true,
+          "explanation": "$f'(x) = -2x + 6 = -2(x-3)$. $f'(x) > 0$ for $x < 3$ and $f'(x) < 0$ for $x > 3$. The sign changes from positive to negative, so $f$ has a local maximum at $x = 3$ by the First Derivative Test."
+        },
+        {
+          "id": "D",
+          "text": "$f$ has neither a local maximum nor local minimum at $x = 3$.",
+          "is_correct": false,
+          "explanation": "$f'$ changes sign at $x = 3$ (positive to negative), confirming a local maximum by the First Derivative Test."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -1523,32 +1709,34 @@
       "unit": "unit-5",
       "difficulty": "medium",
       "has_stimulus": false,
-      "stimulus": { "type": "none" },
+      "stimulus": {
+        "type": "none"
+      },
       "question": "The function $f(x) = x^4 - 4x^3$ has a local minimum at $x = 3$. Which of the following confirms this using the Second Derivative Test?",
       "choices": [
         {
           "id": "A",
-          "text": "$f'(3) = 0$ and $f''(3) = 36 > 0$",
-          "is_correct": true,
-          "explanation": "$f'(x) = 4x^3 - 12x^2 = 4x^2(x-3)$. $f'(3) = 4(9)(0) = 0$ ✓. $f''(x) = 12x^2 - 24x$. $f''(3) = 108 - 72 = 36 > 0$. Since $f'(3)=0$ and $f''(3)>0$, the Second Derivative Test confirms a local minimum at $x=3$."
-        },
-        {
-          "id": "B",
           "text": "$f'(3) = 0$ and $f''(3) = -36 < 0$",
           "is_correct": false,
           "explanation": "$f''(3) = 36 > 0$, not negative. A negative second derivative would indicate a local maximum, not a minimum."
         },
         {
-          "id": "C",
-          "text": "$f'(3) = 36$ and $f''(3) = 0$",
-          "is_correct": false,
-          "explanation": "$f'(3) = 0$, not 36. For a critical point, we need $f'(c) = 0$. The value 36 belongs to $f''(3)$, not $f'(3)$."
+          "id": "B",
+          "text": "$f'(3) = 0$ and $f''(3) = 36 > 0$",
+          "is_correct": true,
+          "explanation": "$f'(x) = 4x^3 - 12x^2 = 4x^2(x-3)$. $f'(3) = 4(9)(0) = 0$ ✓. $f''(x) = 12x^2 - 24x$. $f''(3) = 108 - 72 = 36 > 0$. Since $f'(3)=0$ and $f''(3)>0$, the Second Derivative Test confirms a local minimum at $x=3$."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$f'(3) = 0$ and $f''(3) = 0$",
           "is_correct": false,
           "explanation": "$f''(3) = 36 \\neq 0$. When $f''(c) = 0$, the Second Derivative Test is inconclusive, but here $f''(3) = 36 > 0$ gives a conclusive local minimum."
+        },
+        {
+          "id": "D",
+          "text": "$f'(3) = 36$ and $f''(3) = 0$",
+          "is_correct": false,
+          "explanation": "$f'(3) = 0$, not 36. For a critical point, we need $f'(c) = 0$. The value 36 belongs to $f''(3)$, not $f'(3)$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -1568,9 +1756,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$f$ is increasing and concave down on $(0, 4)$.",
-          "is_correct": true,
-          "explanation": "Since $f'$ has zeros at $x=0$ and $x=4$ and vertex $(2,4)$ with the parabola opening down, $f'(x) > 0$ for $x \\in (0,4)$, so $f$ is increasing. $f'' = (f')'$, the derivative of $f'$: since $f'$ is a downward parabola, $f''$ is a negative-leading-coefficient linear function — negative on $(0,4)$. Therefore $f$ is concave down on $(0,4)$."
+          "text": "$f$ is decreasing and concave down on $(0, 4)$.",
+          "is_correct": false,
+          "explanation": "$f'(x) > 0$ on $(0,4)$ (the parabola is above the $x$-axis), so $f$ is increasing, not decreasing."
         },
         {
           "id": "B",
@@ -1580,15 +1768,15 @@
         },
         {
           "id": "C",
-          "text": "$f$ is decreasing and concave down on $(0, 4)$.",
-          "is_correct": false,
-          "explanation": "$f'(x) > 0$ on $(0,4)$ (the parabola is above the $x$-axis), so $f$ is increasing, not decreasing."
-        },
-        {
-          "id": "D",
           "text": "$f$ is decreasing and concave up on $(0, 4)$.",
           "is_correct": false,
           "explanation": "$f' > 0$ on $(0,4)$, so $f$ is increasing, not decreasing. Additionally, $f'' < 0$ there, so $f$ is concave down."
+        },
+        {
+          "id": "D",
+          "text": "$f$ is increasing and concave down on $(0, 4)$.",
+          "is_correct": true,
+          "explanation": "Since $f'$ has zeros at $x=0$ and $x=4$ and vertex $(2,4)$ with the parabola opening down, $f'(x) > 0$ for $x \\in (0,4)$, so $f$ is increasing. $f'' = (f')'$, the derivative of $f'$: since $f'$ is a downward parabola, $f''$ is a negative-leading-coefficient linear function — negative on $(0,4)$. Therefore $f$ is concave down on $(0,4)$."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -1600,32 +1788,34 @@
       "unit": "unit-5",
       "difficulty": "hard",
       "has_stimulus": false,
-      "stimulus": { "type": "none" },
+      "stimulus": {
+        "type": "none"
+      },
       "question": "Let $f(x) = \\dfrac{e^x}{x}$ for $x > 0$. Which of the following is true about the absolute minimum of $f$ on $(0, \\infty)$?",
       "choices": [
         {
           "id": "A",
-          "text": "$f$ has an absolute minimum of $e$ at $x = 1$.",
-          "is_correct": true,
-          "explanation": "$f'(x) = \\frac{e^x \\cdot x - e^x}{x^2} = \\frac{e^x(x-1)}{x^2}$. Since $e^x > 0$ and $x^2 > 0$, $f'(x) = 0$ only at $x=1$. For $x < 1$: $f' < 0$; for $x > 1$: $f' > 0$. Local (and absolute) minimum at $x=1$: $f(1) = e^1/1 = e$. As $x \\to 0^+$ or $x \\to \\infty$, $f \\to \\infty$."
-        },
-        {
-          "id": "B",
           "text": "$f$ has an absolute minimum of $1$ at $x = e$.",
           "is_correct": false,
           "explanation": "The critical point is at $x = 1$ (where $f'=0$), giving $f(1) = e$. At $x = e$: $f(e) = e^e/e = e^{e-1} > e$, which is not the minimum."
         },
         {
-          "id": "C",
-          "text": "$f$ has no absolute minimum on $(0, \\infty)$ because the domain is open.",
-          "is_correct": false,
-          "explanation": "Although the domain is open, $f$ still attains its minimum value at $x=1$: $f$ approaches infinity at both ends of the domain, so the interior critical point gives an absolute minimum."
-        },
-        {
-          "id": "D",
+          "id": "B",
           "text": "$f$ has an absolute minimum of $0$ at some point in $(0, \\infty)$.",
           "is_correct": false,
           "explanation": "$f(x) = e^x/x > 0$ for all $x > 0$, so $f$ never equals $0$. The minimum value is $e > 0$."
+        },
+        {
+          "id": "C",
+          "text": "$f$ has an absolute minimum of $e$ at $x = 1$.",
+          "is_correct": true,
+          "explanation": "$f'(x) = \\frac{e^x \\cdot x - e^x}{x^2} = \\frac{e^x(x-1)}{x^2}$. Since $e^x > 0$ and $x^2 > 0$, $f'(x) = 0$ only at $x=1$. For $x < 1$: $f' < 0$; for $x > 1$: $f' > 0$. Local (and absolute) minimum at $x=1$: $f(1) = e^1/1 = e$. As $x \\to 0^+$ or $x \\to \\infty$, $f \\to \\infty$."
+        },
+        {
+          "id": "D",
+          "text": "$f$ has no absolute minimum on $(0, \\infty)$ because the domain is open.",
+          "is_correct": false,
+          "explanation": "Although the domain is open, $f$ still attains its minimum value at $x=1$: $f$ approaches infinity at both ends of the domain, so the interior critical point gives an absolute minimum."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -1645,9 +1835,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$t = 1$ and $t = 3$",
+          "text": "$t = 1$ only",
           "is_correct": false,
-          "explanation": "$v'(t) = 3t^2 - 12t + 9 = 3(t-1)(t-3) = 0$ at $t=1,3$. These are critical points of velocity (acceleration $= 0$), but speed $= |v(t)|$. Speed has a local max where $|v|$ has a local max — check sign of $v$ at these points."
+          "explanation": "Speed $= |v(t)|$. At $t=3$: $v(3)=-2$ (local min of $v$), and $|v|$ reaches a local maximum there too ($|v(3)|=2$). Both $t=1$ and $t=3$ yield local maxima of speed."
         },
         {
           "id": "B",
@@ -1657,15 +1847,15 @@
         },
         {
           "id": "C",
-          "text": "$t = 1$ only",
-          "is_correct": false,
-          "explanation": "Speed $= |v(t)|$. At $t=3$: $v(3)=-2$ (local min of $v$), and $|v|$ reaches a local maximum there too ($|v(3)|=2$). Both $t=1$ and $t=3$ yield local maxima of speed."
-        },
-        {
-          "id": "D",
           "text": "$t = 0$ only",
           "is_correct": false,
           "explanation": "$v(0) = -2$, so speed $= 2$ at $t=0$. For $t$ slightly positive: $v$ increases toward $v(1)=2$, so speed at $t=0$ is not a local max."
+        },
+        {
+          "id": "D",
+          "text": "$t = 1$ and $t = 3$",
+          "is_correct": false,
+          "explanation": "$v'(t) = 3t^2 - 12t + 9 = 3(t-1)(t-3) = 0$ at $t=1,3$. These are critical points of velocity (acceleration $= 0$), but speed $= |v(t)|$. Speed has a local max where $|v|$ has a local max — check sign of $v$ at these points."
         }
       ],
       "subject": "ap-calculus-bc",
@@ -1677,26 +1867,28 @@
       "unit": "unit-5",
       "difficulty": "hard",
       "has_stimulus": false,
-      "stimulus": { "type": "none" },
+      "stimulus": {
+        "type": "none"
+      },
       "question": "A ladder 10 feet long leans against a vertical wall. The base slides away from the wall at a rate of 2 ft/s. At the instant the base is 6 feet from the wall, which of the following correctly identifies the rate at which the top of the ladder slides down the wall?",
       "choices": [
         {
           "id": "A",
+          "text": "$-\\dfrac{4}{3}$ ft/s",
+          "is_correct": false,
+          "explanation": "$-\\frac{4}{3}$ inverts the ratio. $\\frac{dy}{dt} = -\\frac{x}{y}\\frac{dx}{dt} = -\\frac{6}{8}(2) = -\\frac{3}{2}$, not $-\\frac{4}{3}$."
+        },
+        {
+          "id": "B",
           "text": "$-\\dfrac{3}{2}$ ft/s",
           "is_correct": true,
           "explanation": "Let $x$ be the base distance and $y$ the height. $x^2 + y^2 = 100$. Differentiating: $2x\\frac{dx}{dt} + 2y\\frac{dy}{dt} = 0$. At $x=6$: $y = \\sqrt{100-36} = 8$. Substituting: $2(6)(2) + 2(8)\\frac{dy}{dt} = 0 \\Rightarrow \\frac{dy}{dt} = -\\frac{24}{16} = -\\frac{3}{2}$ ft/s."
         },
         {
-          "id": "B",
+          "id": "C",
           "text": "$-2$ ft/s",
           "is_correct": false,
           "explanation": "$-2$ ft/s is the rate the base moves, not the top. Implicit differentiation gives $\\frac{dy}{dt} = -\\frac{x}{y}\\frac{dx}{dt} = -\\frac{6}{8}(2) = -\\frac{3}{2}$ ft/s."
-        },
-        {
-          "id": "C",
-          "text": "$-\\dfrac{4}{3}$ ft/s",
-          "is_correct": false,
-          "explanation": "$-\\frac{4}{3}$ inverts the ratio. $\\frac{dy}{dt} = -\\frac{x}{y}\\frac{dx}{dt} = -\\frac{6}{8}(2) = -\\frac{3}{2}$, not $-\\frac{4}{3}$."
         },
         {
           "id": "D",
@@ -1717,15 +1909,39 @@
       "stimulus": {
         "type": "table",
         "content": {
-          "headers": ["$x$", "$f'(x)$"],
+          "headers": [
+            "$x$",
+            "$f'(x)$"
+          ],
           "rows": [
-            ["$0$", "$-5$"],
-            ["$1$", "$-2$"],
-            ["$2$", "$0$"],
-            ["$3$", "$3$"],
-            ["$4$", "$1$"],
-            ["$5$", "$0$"],
-            ["$6$", "$-2$"]
+            [
+              "$0$",
+              "$-5$"
+            ],
+            [
+              "$1$",
+              "$-2$"
+            ],
+            [
+              "$2$",
+              "$0$"
+            ],
+            [
+              "$3$",
+              "$3$"
+            ],
+            [
+              "$4$",
+              "$1$"
+            ],
+            [
+              "$5$",
+              "$0$"
+            ],
+            [
+              "$6$",
+              "$-2$"
+            ]
           ]
         }
       },
@@ -1733,9 +1949,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$(2, 3)$",
+          "text": "$(0, 2)$",
           "is_correct": false,
-          "explanation": "$f'$ increases from $0$ at $x=2$ to $3$ at $x=3$, so $f'' > 0$ on $(2,3)$ — concave up with no sign change in $f''$."
+          "explanation": "$f'$ increases from $-5$ to $0$ on $(0,2)$, suggesting $f'' > 0$ throughout. No sign change in $f''$, so no inflection point."
         },
         {
           "id": "B",
@@ -1745,9 +1961,9 @@
         },
         {
           "id": "C",
-          "text": "$(0, 2)$",
+          "text": "$(2, 3)$",
           "is_correct": false,
-          "explanation": "$f'$ increases from $-5$ to $0$ on $(0,2)$, suggesting $f'' > 0$ throughout. No sign change in $f''$, so no inflection point."
+          "explanation": "$f'$ increases from $0$ at $x=2$ to $3$ at $x=3$, so $f'' > 0$ on $(2,3)$ — concave up with no sign change in $f''$."
         },
         {
           "id": "D",
@@ -1765,20 +1981,22 @@
       "unit": "unit-5",
       "difficulty": "hard",
       "has_stimulus": false,
-      "stimulus": { "type": "none" },
+      "stimulus": {
+        "type": "none"
+      },
       "question": "Let $f(x) = x^5 - 5x^4$. Which of the following correctly describes all local extrema of $f$?",
       "choices": [
         {
           "id": "A",
-          "text": "One local maximum at $x = 0$ and one local minimum at $x = 4$",
-          "is_correct": true,
-          "explanation": "$f'(x) = 5x^4 - 20x^3 = 5x^3(x-4)$. Critical points: $x=0$ and $x=4$. Sign analysis: for $x < 0$: $5x^3 < 0$, $(x-4) < 0$, so $f' > 0$. For $0 < x < 4$: $5x^3 > 0$, $(x-4) < 0$, so $f' < 0$. For $x > 4$: both factors positive, $f' > 0$. At $x=0$: $f'$ goes $+ \\to -$ (local max). At $x=4$: $f'$ goes $- \\to +$ (local min)."
-        },
-        {
-          "id": "B",
           "text": "One local minimum at $x = 4$ only",
           "is_correct": false,
           "explanation": "$f'$ also changes sign at $x = 0$ (from positive to negative), giving a local maximum there. Both $x=0$ and $x=4$ yield local extrema."
+        },
+        {
+          "id": "B",
+          "text": "One local maximum at $x = 4$ and one local minimum at $x = 0$",
+          "is_correct": false,
+          "explanation": "The signs are reversed. At $x=0$: $f'$ goes from $+$ to $-$ (local max). At $x=4$: $f'$ goes from $-$ to $+$ (local min). The roles of max and min are swapped in this choice."
         },
         {
           "id": "C",
@@ -1788,9 +2006,9 @@
         },
         {
           "id": "D",
-          "text": "One local maximum at $x = 4$ and one local minimum at $x = 0$",
-          "is_correct": false,
-          "explanation": "The signs are reversed. At $x=0$: $f'$ goes from $+$ to $-$ (local max). At $x=4$: $f'$ goes from $-$ to $+$ (local min). The roles of max and min are swapped in this choice."
+          "text": "One local maximum at $x = 0$ and one local minimum at $x = 4$",
+          "is_correct": true,
+          "explanation": "$f'(x) = 5x^4 - 20x^3 = 5x^3(x-4)$. Critical points: $x=0$ and $x=4$. Sign analysis: for $x < 0$: $5x^3 < 0$, $(x-4) < 0$, so $f' > 0$. For $0 < x < 4$: $5x^3 > 0$, $(x-4) < 0$, so $f' < 0$. For $x > 4$: both factors positive, $f' > 0$. At $x=0$: $f'$ goes $+ \\to -$ (local max). At $x=4$: $f'$ goes $- \\to +$ (local min)."
         }
       ],
       "subject": "ap-calculus-bc",

@@ -17,21 +17,21 @@
         },
         {
           "id": "B",
-          "text": "$4x^3 + C$",
-          "is_correct": false,
-          "explanation": "$4x^3$ is the derivative of $x^4$, not its antiderivative. Integration increases the exponent by 1 and divides by the new exponent."
-        },
-        {
-          "id": "C",
           "text": "$x^5 + C$",
           "is_correct": false,
           "explanation": "The Power Rule divides by $n+1=5$: the antiderivative is $\\frac{x^5}{5}+C$, not $x^5+C$."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$\\frac{x^3}{3} + C$",
           "is_correct": false,
           "explanation": "This would be the antiderivative of $x^2$, not $x^4$. Add 1 to the exponent: $4+1=5$, giving $\\frac{x^5}{5}+C$."
+        },
+        {
+          "id": "D",
+          "text": "$4x^3 + C$",
+          "is_correct": false,
+          "explanation": "$4x^3$ is the derivative of $x^4$, not its antiderivative. Integration increases the exponent by 1 and divides by the new exponent."
         }
       ],
       "stimulus": {
@@ -50,27 +50,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$e^x + C$",
-          "is_correct": true,
-          "explanation": "$e^x$ is its own antiderivative: $\\frac{d}{dx}[e^x] = e^x$, so $\\int e^x\\,dx = e^x + C$."
-        },
-        {
-          "id": "B",
           "text": "$xe^x + C$",
           "is_correct": false,
           "explanation": "$xe^x + C$ is not the antiderivative of $e^x$. Check by differentiating: $\\frac{d}{dx}[xe^x] = e^x + xe^x \\neq e^x$. The correct antiderivative of $e^x$ is simply $e^x + C$."
         },
         {
-          "id": "C",
-          "text": "$e^{x+1} + C$",
-          "is_correct": false,
-          "explanation": "$\\frac{d}{dx}[e^{x+1}] = e^{x+1}$, not $e^x$. The antiderivative of $e^x$ is $e^x + C$."
-        },
-        {
-          "id": "D",
+          "id": "B",
           "text": "$\\frac{e^{x+1}}{x+1} + C$",
           "is_correct": false,
           "explanation": "The Power Rule for integration does not apply to $e^x$. The antiderivative of $e^x$ is simply $e^x + C$."
+        },
+        {
+          "id": "C",
+          "text": "$e^x + C$",
+          "is_correct": true,
+          "explanation": "$e^x$ is its own antiderivative: $\\frac{d}{dx}[e^x] = e^x$, so $\\int e^x\\,dx = e^x + C$."
+        },
+        {
+          "id": "D",
+          "text": "$e^{x+1} + C$",
+          "is_correct": false,
+          "explanation": "$\\frac{d}{dx}[e^{x+1}] = e^{x+1}$, not $e^x$. The antiderivative of $e^x$ is $e^x + C$."
         }
       ],
       "stimulus": {
@@ -89,9 +89,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\sin(x) + C$",
-          "is_correct": true,
-          "explanation": "$\\frac{d}{dx}[\\sin x] = \\cos x$, so $\\int \\cos x\\,dx = \\sin x + C$."
+          "text": "$\\cos(x) + C$",
+          "is_correct": false,
+          "explanation": "Verify: $\\frac{d}{dx}[\\cos x] = -\\sin x \\neq \\cos x$. The antiderivative of $\\cos x$ is $\\sin x + C$."
         },
         {
           "id": "B",
@@ -101,9 +101,9 @@
         },
         {
           "id": "C",
-          "text": "$\\cos(x) + C$",
-          "is_correct": false,
-          "explanation": "Verify: $\\frac{d}{dx}[\\cos x] = -\\sin x \\neq \\cos x$. The antiderivative of $\\cos x$ is $\\sin x + C$."
+          "text": "$\\sin(x) + C$",
+          "is_correct": true,
+          "explanation": "$\\frac{d}{dx}[\\sin x] = \\cos x$, so $\\int \\cos x\\,dx = \\sin x + C$."
         },
         {
           "id": "D",
@@ -128,27 +128,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\ln|x| + C$",
-          "is_correct": true,
-          "explanation": "$\\frac{d}{dx}[\\ln|x|] = \\frac{1}{x}$, so $\\int \\frac{1}{x}\\,dx = \\ln|x| + C$."
-        },
-        {
-          "id": "B",
           "text": "$\\frac{x^0}{0} + C$",
           "is_correct": false,
           "explanation": "The Power Rule fails for $n=-1$ (division by zero). Instead, $\\int x^{-1}\\,dx = \\ln|x| + C$."
         },
         {
-          "id": "C",
-          "text": "$\\frac{1}{x^2} + C$",
-          "is_correct": false,
-          "explanation": "$\\frac{d}{dx}[\\frac{1}{x^2}] = -\\frac{2}{x^3}$, not $\\frac{1}{x}$. The antiderivative of $\\frac{1}{x}$ is $\\ln|x|+C$."
+          "id": "B",
+          "text": "$\\ln|x| + C$",
+          "is_correct": true,
+          "explanation": "$\\frac{d}{dx}[\\ln|x|] = \\frac{1}{x}$, so $\\int \\frac{1}{x}\\,dx = \\ln|x| + C$."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$-\\frac{1}{x^2} + C$",
           "is_correct": false,
           "explanation": "$-\\frac{1}{x^2}+C$ is the antiderivative of $\\frac{2}{x^3}$. For $\\frac{1}{x}$: $\\int \\frac{1}{x}dx = \\ln|x|+C$."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{1}{x^2} + C$",
+          "is_correct": false,
+          "explanation": "$\\frac{d}{dx}[\\frac{1}{x^2}] = -\\frac{2}{x^3}$, not $\\frac{1}{x}$. The antiderivative of $\\frac{1}{x}$ is $\\ln|x|+C$."
         }
       ],
       "stimulus": {
@@ -167,27 +167,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$12$",
-          "is_correct": true,
-          "explanation": "$\\int_0^3(2x+1)dx = [x^2+x]_0^3 = (9+3)-(0) = 12$."
-        },
-        {
-          "id": "B",
           "text": "$9$",
           "is_correct": false,
           "explanation": "Evaluating $2(3)+1=7$ (the integrand at $x=3$) is not integration. $[x^2+x]_0^3 = 12-0=12$."
         },
         {
-          "id": "C",
-          "text": "$15$",
-          "is_correct": false,
-          "explanation": "$(3)^2+(3) = 12$, not 15. $15$ would result from $[x^2+x]_0^3$ evaluated incorrectly as $[2x^2+x]_0^3/2$."
-        },
-        {
-          "id": "D",
+          "id": "B",
           "text": "$6$",
           "is_correct": false,
           "explanation": "$[x^2+x]_0^3 = 12$. $6$ would result from integrating $2x$ only ($[x^2]_0^3=9$) or a factor error."
+        },
+        {
+          "id": "C",
+          "text": "$12$",
+          "is_correct": true,
+          "explanation": "$\\int_0^3(2x+1)dx = [x^2+x]_0^3 = (9+3)-(0) = 12$."
+        },
+        {
+          "id": "D",
+          "text": "$15$",
+          "is_correct": false,
+          "explanation": "$(3)^2+(3) = 12$, not 15. $15$ would result from $[x^2+x]_0^3$ evaluated incorrectly as $[2x^2+x]_0^3/2$."
         }
       ],
       "stimulus": {
@@ -206,27 +206,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$0$",
-          "is_correct": false,
-          "explanation": "$[\\ln x]_1^e = \\ln(e) - \\ln(1) = 1 - 0 = 1$."
-        },
-        {
-          "id": "B",
           "text": "$1$",
           "is_correct": true,
           "explanation": "$\\int_1^e \\frac{1}{x}dx = [\\ln x]_1^e = \\ln(e)-\\ln(1) = 1 - 0 = 1$."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "$e$",
           "is_correct": false,
           "explanation": "$[\\ln x]_1^e = 1$, not $e$. Note $\\ln(e) = 1$, not $e$."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$\\ln(2)$",
           "is_correct": false,
           "explanation": "$[\\ln x]_1^e = \\ln e - \\ln 1 = 1 - 0 = 1$, not $\\ln 2$."
+        },
+        {
+          "id": "D",
+          "text": "$0$",
+          "is_correct": false,
+          "explanation": "$[\\ln x]_1^e = \\ln(e) - \\ln(1) = 1 - 0 = 1$."
         }
       ],
       "stimulus": {
@@ -245,21 +245,21 @@
       "choices": [
         {
           "id": "A",
-          "text": "$F(b) - F(a)$",
-          "is_correct": true,
-          "explanation": "FTC Part 2: $\\int_a^b f(x)\\,dx = F(b)-F(a)$, where $F$ is any antiderivative of $f$."
-        },
-        {
-          "id": "B",
           "text": "$F(b) + F(a)$",
           "is_correct": false,
           "explanation": "The FTC uses subtraction, not addition: $\\int_a^b f(x)dx = F(b)-F(a)$."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "$f(b) - f(a)$",
           "is_correct": false,
           "explanation": "The FTC uses the antiderivative $F$, not the function $f$ itself: $\\int_a^b f\\,dx = F(b)-F(a)$."
+        },
+        {
+          "id": "C",
+          "text": "$F(b) - F(a)$",
+          "is_correct": true,
+          "explanation": "FTC Part 2: $\\int_a^b f(x)\\,dx = F(b)-F(a)$, where $F$ is any antiderivative of $f$."
         },
         {
           "id": "D",
@@ -284,9 +284,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\cos(x) + C$",
+          "text": "$-\\sin(x) + C$",
           "is_correct": false,
-          "explanation": "$\\frac{d}{dx}[\\cos x] = -\\sin x$, not $+\\sin x$. The antiderivative of $\\sin x$ is $-\\cos x + C$."
+          "explanation": "$\\frac{d}{dx}[-\\sin x] = -\\cos x$, not $\\sin x$. The correct antiderivative is $-\\cos x + C$."
         },
         {
           "id": "B",
@@ -302,9 +302,9 @@
         },
         {
           "id": "D",
-          "text": "$-\\sin(x) + C$",
+          "text": "$\\cos(x) + C$",
           "is_correct": false,
-          "explanation": "$\\frac{d}{dx}[-\\sin x] = -\\cos x$, not $\\sin x$. The correct antiderivative is $-\\cos x + C$."
+          "explanation": "$\\frac{d}{dx}[\\cos x] = -\\sin x$, not $+\\sin x$. The antiderivative of $\\sin x$ is $-\\cos x + C$."
         }
       ],
       "stimulus": {
@@ -346,27 +346,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$18$",
-          "is_correct": true,
-          "explanation": "Left Riemann sum with $\\Delta x=1$: $f(0)+f(1)+f(2)+f(3) = 2+5+4+7 = 18$."
-        },
-        {
-          "id": "B",
           "text": "$19$",
           "is_correct": false,
           "explanation": "The right Riemann sum: $f(1)+f(2)+f(3)+f(4) = 5+4+7+3=19$. The left sum uses left endpoints: $f(0)=2$."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "$21$",
           "is_correct": false,
           "explanation": "Summing all five values $2+5+4+7+3=21$ counts an extra term. Left Riemann sum uses 4 left endpoints only."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$16$",
           "is_correct": false,
           "explanation": "$16$ is not the sum of any four consecutive values in this table. Left sum: $f(0)+f(1)+f(2)+f(3) = 2+5+4+7=18$."
+        },
+        {
+          "id": "D",
+          "text": "$18$",
+          "is_correct": true,
+          "explanation": "Left Riemann sum with $\\Delta x=1$: $f(0)+f(1)+f(2)+f(3) = 2+5+4+7 = 18$."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -381,15 +381,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\sin(t^2)$",
-          "is_correct": false,
-          "explanation": "FTC Part 1: differentiate with respect to $x$, not $t$. The result is $\\sin(x^2)$ (replace $t$ with $x$)."
-        },
-        {
-          "id": "B",
           "text": "$\\sin(x^2)$",
           "is_correct": true,
           "explanation": "FTC Part 1: $\\frac{d}{dx}\\int_0^x f(t)dt = f(x)$. Here $f(t) = \\sin(t^2)$, so the derivative is $\\sin(x^2)$."
+        },
+        {
+          "id": "B",
+          "text": "$\\sin(t^2)$",
+          "is_correct": false,
+          "explanation": "FTC Part 1: differentiate with respect to $x$, not $t$. The result is $\\sin(x^2)$ (replace $t$ with $x$)."
         },
         {
           "id": "C",
@@ -426,9 +426,9 @@
         },
         {
           "id": "B",
-          "text": "$\\int_2^{13} f(x)\\,dx$",
+          "text": "$\\int_5^5 f(x)\\,dx$",
           "is_correct": false,
-          "explanation": "The limits do not add: $5+8\\neq 13$. The shared endpoint $x=5$ connects the two integrals: $\\int_2^5 + \\int_5^8 = \\int_2^8$."
+          "explanation": "$\\int_5^5 f = 0$ (zero-width interval). The two integrals combine to $\\int_2^8 f$."
         },
         {
           "id": "C",
@@ -438,9 +438,9 @@
         },
         {
           "id": "D",
-          "text": "$\\int_5^5 f(x)\\,dx$",
+          "text": "$\\int_2^{13} f(x)\\,dx$",
           "is_correct": false,
-          "explanation": "$\\int_5^5 f = 0$ (zero-width interval). The two integrals combine to $\\int_2^8 f$."
+          "explanation": "The limits do not add: $5+8\\neq 13$. The shared endpoint $x=5$ connects the two integrals: $\\int_2^5 + \\int_5^8 = \\int_2^8$."
         }
       ],
       "stimulus": {
@@ -459,9 +459,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "The area between the curve $y = f(x)$ and the $x$-axis on $[a,b]$",
-          "is_correct": true,
-          "explanation": "When $f(x) \\geq 0$, the definite integral equals the area under the curve and above the $x$-axis on $[a,b]$."
+          "text": "$F(a) - F(b)$ where $F$ is an antiderivative",
+          "is_correct": false,
+          "explanation": "The FTC gives $\\int_a^b f = F(b)-F(a)$, not $F(a)-F(b)$. Order matters."
         },
         {
           "id": "B",
@@ -471,15 +471,15 @@
         },
         {
           "id": "C",
-          "text": "$f(b) - f(a)$",
-          "is_correct": false,
-          "explanation": "$f(b)-f(a)$ is the net change in $f$. The definite integral is the area under $f$ on $[a,b]$ (when $f\\geq 0$)."
+          "text": "The area between the curve $y = f(x)$ and the $x$-axis on $[a,b]$",
+          "is_correct": true,
+          "explanation": "When $f(x) \\geq 0$, the definite integral equals the area under the curve and above the $x$-axis on $[a,b]$."
         },
         {
           "id": "D",
-          "text": "$F(a) - F(b)$ where $F$ is an antiderivative",
+          "text": "$f(b) - f(a)$",
           "is_correct": false,
-          "explanation": "The FTC gives $\\int_a^b f = F(b)-F(a)$, not $F(a)-F(b)$. Order matters."
+          "explanation": "$f(b)-f(a)$ is the net change in $f$. The definite integral is the area under $f$ on $[a,b]$ (when $f\\geq 0$)."
         }
       ],
       "stimulus": {
@@ -536,27 +536,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$0$",
-          "is_correct": false,
-          "explanation": "$[-\\cos x]_0^\\pi = -\\cos(\\pi)+\\cos(0) = -(-1)+1 = 2$."
-        },
-        {
-          "id": "B",
           "text": "$2$",
           "is_correct": true,
           "explanation": "$\\int_0^\\pi \\sin x\\,dx = [-\\cos x]_0^\\pi = -\\cos(\\pi)+\\cos(0) = 1+1=2$."
         },
         {
-          "id": "C",
-          "text": "$-2$",
+          "id": "B",
+          "text": "$0$",
           "is_correct": false,
-          "explanation": "$[-\\cos x]_0^\\pi = -\\cos\\pi + \\cos 0 = 1+1=2$, not $-2$."
+          "explanation": "$[-\\cos x]_0^\\pi = -\\cos(\\pi)+\\cos(0) = -(-1)+1 = 2$."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$1$",
           "is_correct": false,
           "explanation": "$[-\\cos x]_0^\\pi = -(-1) - (-1) = 1+1 = 2$."
+        },
+        {
+          "id": "D",
+          "text": "$-2$",
+          "is_correct": false,
+          "explanation": "$[-\\cos x]_0^\\pi = -\\cos\\pi + \\cos 0 = 1+1=2$, not $-2$."
         }
       ],
       "stimulus": {
@@ -575,27 +575,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$6$",
-          "is_correct": false,
-          "explanation": "$[x^3]_0^2 = 8-0=8$."
-        },
-        {
-          "id": "B",
           "text": "$8$",
           "is_correct": true,
           "explanation": "$\\int_0^2 3x^2\\,dx = [x^3]_0^2 = 8-0=8$."
         },
         {
-          "id": "C",
-          "text": "$12$",
-          "is_correct": false,
-          "explanation": "$3x^2\\big|_{x=2} = 12$ is the integrand value at $x=2$, not the integral. $[x^3]_0^2 = 8$."
-        },
-        {
-          "id": "D",
+          "id": "B",
           "text": "$4$",
           "is_correct": false,
           "explanation": "$[x^3]_0^2 = 8$. Using $[3x^3/3]_0^2 = [x^3]_0^2 = 8$, not 4."
+        },
+        {
+          "id": "C",
+          "text": "$6$",
+          "is_correct": false,
+          "explanation": "$[x^3]_0^2 = 8-0=8$."
+        },
+        {
+          "id": "D",
+          "text": "$12$",
+          "is_correct": false,
+          "explanation": "$3x^2\\big|_{x=2} = 12$ is the integrand value at $x=2$, not the integral. $[x^3]_0^2 = 8$."
         }
       ],
       "stimulus": {
@@ -637,27 +637,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$14$",
-          "is_correct": false,
-          "explanation": "Left sum: $f(0)+f(1)+f(2)+f(3) = 1+4+3+6=14$. Right sum: $f(1)+f(2)+f(3)+f(4) = 4+3+6+2=15$."
-        },
-        {
-          "id": "B",
-          "text": "$15$",
-          "is_correct": true,
-          "explanation": "Right Riemann sum with $\\Delta x=1$: $f(1)+f(2)+f(3)+f(4) = 4+3+6+2=15$."
-        },
-        {
-          "id": "C",
           "text": "$16$",
           "is_correct": false,
           "explanation": "Midpoint sum or trapezoidal approximation might give 16. Right sum uses right endpoints: $4+3+6+2=15$."
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "$14$",
+          "is_correct": false,
+          "explanation": "Left sum: $f(0)+f(1)+f(2)+f(3) = 1+4+3+6=14$. Right sum: $f(1)+f(2)+f(3)+f(4) = 4+3+6+2=15$."
+        },
+        {
+          "id": "C",
           "text": "$9$",
           "is_correct": false,
           "explanation": "$9$ sums only $f(3)+f(4)$. The right sum uses all four right endpoints: $f(1)+f(2)+f(3)+f(4)=15$."
+        },
+        {
+          "id": "D",
+          "text": "$15$",
+          "is_correct": true,
+          "explanation": "Right Riemann sum with $\\Delta x=1$: $f(1)+f(2)+f(3)+f(4) = 4+3+6+2=15$."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -672,9 +672,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{1}{2}\\sin(x^2) + C$",
-          "is_correct": true,
-          "explanation": "Let $u = x^2$, $du = 2x\\,dx$. $\\int x\\cos(x^2)dx = \\frac{1}{2}\\int \\cos(u)du = \\frac{1}{2}\\sin(u)+C = \\frac{1}{2}\\sin(x^2)+C$."
+          "text": "$x\\sin(x^2) + C$",
+          "is_correct": false,
+          "explanation": "Verify: $\\frac{d}{dx}[x\\sin(x^2)] = \\sin(x^2)+2x^2\\cos(x^2)\\neq x\\cos(x^2)$. Use $u$-substitution: $\\frac{1}{2}\\sin(x^2)+C$."
         },
         {
           "id": "B",
@@ -690,9 +690,9 @@
         },
         {
           "id": "D",
-          "text": "$x\\sin(x^2) + C$",
-          "is_correct": false,
-          "explanation": "Verify: $\\frac{d}{dx}[x\\sin(x^2)] = \\sin(x^2)+2x^2\\cos(x^2)\\neq x\\cos(x^2)$. Use $u$-substitution: $\\frac{1}{2}\\sin(x^2)+C$."
+          "text": "$\\frac{1}{2}\\sin(x^2) + C$",
+          "is_correct": true,
+          "explanation": "Let $u = x^2$, $du = 2x\\,dx$. $\\int x\\cos(x^2)dx = \\frac{1}{2}\\int \\cos(u)du = \\frac{1}{2}\\sin(u)+C = \\frac{1}{2}\\sin(x^2)+C$."
         }
       ],
       "stimulus": {
@@ -717,21 +717,21 @@
         },
         {
           "id": "B",
-          "text": "$e$",
-          "is_correct": false,
-          "explanation": "$[e^{x^2}]_0^1 = e^1-e^0 = e-1$, not $e$. Subtract the lower-bound value $e^0=1$."
-        },
-        {
-          "id": "C",
           "text": "$2e - 2$",
           "is_correct": false,
           "explanation": "The $2x$ factor is the exact differential of $x^2$, so no extra factor of 2 remains after $u$-sub. $e^u$ from 0 to 1 gives $e-1$."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$1$",
           "is_correct": false,
           "explanation": "$[e^{x^2}]_0^1 = e - 1 \\approx 1.718$, not 1."
+        },
+        {
+          "id": "D",
+          "text": "$e$",
+          "is_correct": false,
+          "explanation": "$[e^{x^2}]_0^1 = e^1-e^0 = e-1$, not $e$. Subtract the lower-bound value $e^0=1$."
         }
       ],
       "stimulus": {
@@ -777,27 +777,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$e^{x^2}$",
-          "is_correct": false,
-          "explanation": "FTC Part 1 with chain rule: $\\frac{d}{dx}\\int_0^{x^2}e^t\\,dt = e^{x^2} \\cdot \\frac{d}{dx}[x^2] = 2xe^{x^2}$."
-        },
-        {
-          "id": "B",
           "text": "$2xe^{x^2}$",
           "is_correct": true,
           "explanation": "FTC Part 1 + chain rule: $\\frac{d}{dx}\\int_0^{g(x)}f(t)dt = f(g(x)) \\cdot g'(x)$. Here $f(t)=e^t$, $g(x)=x^2$: $e^{x^2} \\cdot 2x$."
         },
         {
-          "id": "C",
-          "text": "$e^{x^2} - 1$",
-          "is_correct": false,
-          "explanation": "$e^{x^2}-1$ would be the value of the integral evaluated ($e^{x^2}-e^0$), not its derivative. Apply FTC Part 1 with chain rule: $2xe^{x^2}$."
-        },
-        {
-          "id": "D",
+          "id": "B",
           "text": "$x^2 e^{x^2}$",
           "is_correct": false,
           "explanation": "The chain rule factor is $g'(x) = 2x$, not $x^2$. FTC Part 1 gives $e^{x^2} \\cdot 2x = 2xe^{x^2}$."
+        },
+        {
+          "id": "C",
+          "text": "$e^{x^2}$",
+          "is_correct": false,
+          "explanation": "FTC Part 1 with chain rule: $\\frac{d}{dx}\\int_0^{x^2}e^t\\,dt = e^{x^2} \\cdot \\frac{d}{dx}[x^2] = 2xe^{x^2}$."
+        },
+        {
+          "id": "D",
+          "text": "$e^{x^2} - 1$",
+          "is_correct": false,
+          "explanation": "$e^{x^2}-1$ would be the value of the integral evaluated ($e^{x^2}-e^0$), not its derivative. Apply FTC Part 1 with chain rule: $2xe^{x^2}$."
         }
       ],
       "stimulus": {
@@ -816,9 +816,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\ln|x^3+1| + C$",
-          "is_correct": true,
-          "explanation": "$u = x^3+1$, $du=3x^2\\,dx$. $\\int\\frac{3x^2}{x^3+1}dx = \\int\\frac{du}{u} = \\ln|u|+C = \\ln|x^3+1|+C$."
+          "text": "$\\frac{\\ln|x^3+1|}{3x^2} + C$",
+          "is_correct": false,
+          "explanation": "Division by $3x^2$ is incorrect. The $u$-sub $u=x^3+1$ absorbs the $3x^2$ in the numerator entirely."
         },
         {
           "id": "B",
@@ -828,9 +828,9 @@
         },
         {
           "id": "C",
-          "text": "$\\frac{\\ln|x^3+1|}{3x^2} + C$",
-          "is_correct": false,
-          "explanation": "Division by $3x^2$ is incorrect. The $u$-sub $u=x^3+1$ absorbs the $3x^2$ in the numerator entirely."
+          "text": "$\\ln|x^3+1| + C$",
+          "is_correct": true,
+          "explanation": "$u = x^3+1$, $du=3x^2\\,dx$. $\\int\\frac{3x^2}{x^3+1}dx = \\int\\frac{du}{u} = \\ln|u|+C = \\ln|x^3+1|+C$."
         },
         {
           "id": "D",
@@ -901,27 +901,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$21.5$",
-          "is_correct": false,
-          "explanation": "Trap rule: $\\frac{\\Delta x}{2}[f(0)+2f(1)+2f(2)+2f(3)+f(4)] = \\frac{1}{2}[4+12+10+16+3] = \\frac{45}{2} = 22.5$. Recalculate: $4+12+10+16+3=45$, $\\times 1/2 = 22.5$."
-        },
-        {
-          "id": "B",
-          "text": "$22.5$",
-          "is_correct": true,
-          "explanation": "Trapezoidal rule: $\\frac{1}{2}[f(0)+2f(1)+2f(2)+2f(3)+f(4)] = \\frac{1}{2}[4+12+10+16+3] = \\frac{45}{2} = 22.5$."
-        },
-        {
-          "id": "C",
           "text": "$26$",
           "is_correct": false,
           "explanation": "Summing all 5 values: $4+6+5+8+3=26$ is not the trapezoidal rule. The trap rule halves the first and last terms."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "$22$",
           "is_correct": false,
           "explanation": "The correct trapezoidal sum is $\\frac{1}{2}(4+12+10+16+3) = 22.5$, not 22."
+        },
+        {
+          "id": "C",
+          "text": "$21.5$",
+          "is_correct": false,
+          "explanation": "Trap rule: $\\frac{\\Delta x}{2}[f(0)+2f(1)+2f(2)+2f(3)+f(4)] = \\frac{1}{2}[4+12+10+16+3] = \\frac{45}{2} = 22.5$. Recalculate: $4+12+10+16+3=45$, $\\times 1/2 = 22.5$."
+        },
+        {
+          "id": "D",
+          "text": "$22.5$",
+          "is_correct": true,
+          "explanation": "Trapezoidal rule: $\\frac{1}{2}[f(0)+2f(1)+2f(2)+2f(3)+f(4)] = \\frac{1}{2}[4+12+10+16+3] = \\frac{45}{2} = 22.5$."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -936,9 +936,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{(x+1)^{11}}{11} + C$",
-          "is_correct": true,
-          "explanation": "$u=x+1$, $du=dx$. $\\int u^{10}du = \\frac{u^{11}}{11}+C = \\frac{(x+1)^{11}}{11}+C$."
+          "text": "$11(x+1)^{11} + C$",
+          "is_correct": false,
+          "explanation": "The coefficient should be $\\frac{1}{11}$, not $11$. $u$-sub gives $\\frac{u^{11}}{11}+C = \\frac{(x+1)^{11}}{11}+C$."
         },
         {
           "id": "B",
@@ -948,15 +948,15 @@
         },
         {
           "id": "C",
-          "text": "$\\frac{(x+1)^{10}}{10} + C$",
-          "is_correct": false,
-          "explanation": "The exponent after integration is $10+1=11$: $\\frac{(x+1)^{11}}{11}+C$."
+          "text": "$\\frac{(x+1)^{11}}{11} + C$",
+          "is_correct": true,
+          "explanation": "$u=x+1$, $du=dx$. $\\int u^{10}du = \\frac{u^{11}}{11}+C = \\frac{(x+1)^{11}}{11}+C$."
         },
         {
           "id": "D",
-          "text": "$11(x+1)^{11} + C$",
+          "text": "$\\frac{(x+1)^{10}}{10} + C$",
           "is_correct": false,
-          "explanation": "The coefficient should be $\\frac{1}{11}$, not $11$. $u$-sub gives $\\frac{u^{11}}{11}+C = \\frac{(x+1)^{11}}{11}+C$."
+          "explanation": "The exponent after integration is $10+1=11$: $\\frac{(x+1)^{11}}{11}+C$."
         }
       ],
       "stimulus": {
@@ -975,27 +975,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$10$",
-          "is_correct": false,
-          "explanation": "For an even function: $\\int_{-3}^3 f = 2\\int_0^3 f = 10$. For an ODD function: $\\int_{-3}^3 f = 0$."
-        },
-        {
-          "id": "B",
           "text": "$0$",
           "is_correct": true,
           "explanation": "For odd functions, $f(-x) = -f(x)$: $\\int_{-3}^3 f(x)dx = \\int_{-3}^0 f + \\int_0^3 f = -5+5 = 0$."
         },
         {
-          "id": "C",
-          "text": "$5$",
+          "id": "B",
+          "text": "$10$",
           "is_correct": false,
-          "explanation": "That is $\\int_0^3 f$, not $\\int_{-3}^3 f$. For an odd function, $\\int_{-a}^a f = 0$."
+          "explanation": "For an even function: $\\int_{-3}^3 f = 2\\int_0^3 f = 10$. For an ODD function: $\\int_{-3}^3 f = 0$."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$-5$",
           "is_correct": false,
           "explanation": "$\\int_{-3}^0 f = -5$ for an odd function. But $\\int_{-3}^3 f = \\int_{-3}^0 f + \\int_0^3 f = -5+5=0$."
+        },
+        {
+          "id": "D",
+          "text": "$5$",
+          "is_correct": false,
+          "explanation": "That is $\\int_0^3 f$, not $\\int_{-3}^3 f$. For an odd function, $\\int_{-a}^a f = 0$."
         }
       ],
       "stimulus": {
@@ -1059,9 +1059,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$1$",
-          "is_correct": true,
-          "explanation": "$\\int_1^4 \\frac{1}{2\\sqrt{x}}dx = [\\sqrt{x}]_1^4 = 2-1=1$. Note $\\frac{d}{dx}[\\sqrt{x}] = \\frac{1}{2\\sqrt{x}}$."
+          "text": "$\\frac{1}{2}$",
+          "is_correct": false,
+          "explanation": "The antiderivative of $\\frac{1}{2\\sqrt{x}}$ is $\\sqrt{x}$. $[\\sqrt{x}]_1^4 = 2-1=1$, not $\\frac{1}{2}$."
         },
         {
           "id": "B",
@@ -1071,9 +1071,9 @@
         },
         {
           "id": "C",
-          "text": "$\\frac{1}{2}$",
-          "is_correct": false,
-          "explanation": "The antiderivative of $\\frac{1}{2\\sqrt{x}}$ is $\\sqrt{x}$. $[\\sqrt{x}]_1^4 = 2-1=1$, not $\\frac{1}{2}$."
+          "text": "$1$",
+          "is_correct": true,
+          "explanation": "$\\int_1^4 \\frac{1}{2\\sqrt{x}}dx = [\\sqrt{x}]_1^4 = 2-1=1$. Note $\\frac{d}{dx}[\\sqrt{x}] = \\frac{1}{2\\sqrt{x}}$."
         },
         {
           "id": "D",
@@ -1144,21 +1144,21 @@
         },
         {
           "id": "B",
-          "text": "$-x^3$",
-          "is_correct": true,
-          "explanation": "FTC Part 1: $\\frac{d}{dx}\\int_x^5 t^3 dt = -\\frac{d}{dx}\\int_5^x t^3 dt = -x^3$."
-        },
-        {
-          "id": "C",
           "text": "$5^3$",
           "is_correct": false,
           "explanation": "$5^3=125$ is the constant upper-limit value of the integrand. FTC Part 1 differentiates with respect to the variable limit."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$5^3 - x^3$",
           "is_correct": false,
           "explanation": "That is not a result of FTC differentiation. The derivative of $\\int_x^5 t^3 dt$ with respect to $x$ is $-x^3$."
+        },
+        {
+          "id": "D",
+          "text": "$-x^3$",
+          "is_correct": true,
+          "explanation": "FTC Part 1: $\\frac{d}{dx}\\int_x^5 t^3 dt = -\\frac{d}{dx}\\int_5^x t^3 dt = -x^3$."
         }
       ],
       "stimulus": {
@@ -1177,9 +1177,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\tan(x) + C$",
-          "is_correct": true,
-          "explanation": "$\\frac{d}{dx}[\\tan x] = \\sec^2 x$, so $\\int \\sec^2 x\\,dx = \\tan x + C$."
+          "text": "$-\\cot(x) + C$",
+          "is_correct": false,
+          "explanation": "$-\\cot x + C$ is the antiderivative of $\\csc^2 x$. For $\\sec^2 x$: antiderivative is $\\tan x + C$."
         },
         {
           "id": "B",
@@ -1189,15 +1189,15 @@
         },
         {
           "id": "C",
-          "text": "$2\\sec(x)\\tan(x) + C$",
-          "is_correct": false,
-          "explanation": "$\\frac{d}{dx}[\\sec^2 x] = 2\\sec x \\sec x\\tan x$, not the antiderivative. $\\int\\sec^2 x\\,dx = \\tan x+C$."
+          "text": "$\\tan(x) + C$",
+          "is_correct": true,
+          "explanation": "$\\frac{d}{dx}[\\tan x] = \\sec^2 x$, so $\\int \\sec^2 x\\,dx = \\tan x + C$."
         },
         {
           "id": "D",
-          "text": "$-\\cot(x) + C$",
+          "text": "$2\\sec(x)\\tan(x) + C$",
           "is_correct": false,
-          "explanation": "$-\\cot x + C$ is the antiderivative of $\\csc^2 x$. For $\\sec^2 x$: antiderivative is $\\tan x + C$."
+          "explanation": "$\\frac{d}{dx}[\\sec^2 x] = 2\\sec x \\sec x\\tan x$, not the antiderivative. $\\int\\sec^2 x\\,dx = \\tan x+C$."
         }
       ],
       "stimulus": {
@@ -1216,27 +1216,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{1}{2}$",
-          "is_correct": false,
-          "explanation": "$\\int_0^{\\pi/2}\\cos(2x)dx = [\\frac{\\sin(2x)}{2}]_0^{\\pi/2} = \\frac{\\sin\\pi}{2} - \\frac{\\sin 0}{2} = 0 - 0 = 0$."
-        },
-        {
-          "id": "B",
           "text": "$0$",
           "is_correct": true,
           "explanation": "$[\\frac{\\sin(2x)}{2}]_0^{\\pi/2} = \\frac{\\sin(\\pi)}{2} - \\frac{\\sin(0)}{2} = 0 - 0 = 0$."
         },
         {
-          "id": "C",
-          "text": "$1$",
+          "id": "B",
+          "text": "$\\frac{1}{2}$",
           "is_correct": false,
-          "explanation": "$[\\frac{\\sin(2x)}{2}]_0^{\\pi/2} = 0-0=0$, not 1."
+          "explanation": "$\\int_0^{\\pi/2}\\cos(2x)dx = [\\frac{\\sin(2x)}{2}]_0^{\\pi/2} = \\frac{\\sin\\pi}{2} - \\frac{\\sin 0}{2} = 0 - 0 = 0$."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$-\\frac{1}{2}$",
           "is_correct": false,
           "explanation": "$\\frac{\\sin(\\pi)}{2} - \\frac{\\sin(0)}{2} = 0-0=0$. The result is 0."
+        },
+        {
+          "id": "D",
+          "text": "$1$",
+          "is_correct": false,
+          "explanation": "$[\\frac{\\sin(2x)}{2}]_0^{\\pi/2} = 0-0=0$, not 1."
         }
       ],
       "stimulus": {
@@ -1261,15 +1261,15 @@
         },
         {
           "id": "B",
-          "text": "$4$",
-          "is_correct": true,
-          "explanation": "Split at $x=2$: $\\int_0^2(2-x)dx = [2x-x^2/2]_0^2 = 4-2=2$; $\\int_2^4(x-2)dx = [x^2/2-2x]_2^4 = (8-8)-(2-4)=2$. Total: $4$."
-        },
-        {
-          "id": "C",
           "text": "$2$",
           "is_correct": false,
           "explanation": "Each half contributes 2; the total is $2+2=4$."
+        },
+        {
+          "id": "C",
+          "text": "$4$",
+          "is_correct": true,
+          "explanation": "Split at $x=2$: $\\int_0^2(2-x)dx = [2x-x^2/2]_0^2 = 4-2=2$; $\\int_2^4(x-2)dx = [x^2/2-2x]_2^4 = (8-8)-(2-4)=2$. Total: $4$."
         },
         {
           "id": "D",
@@ -1336,15 +1336,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{1}{2}\\ln|x^2+4| + C$",
-          "is_correct": true,
-          "explanation": "$u=x^2+4$, $du=2x\\,dx$. $\\int\\frac{x}{x^2+4}dx = \\frac{1}{2}\\int\\frac{du}{u} = \\frac{1}{2}\\ln|u|+C = \\frac{1}{2}\\ln|x^2+4|+C$."
-        },
-        {
-          "id": "B",
           "text": "$\\ln|x^2+4| + C$",
           "is_correct": false,
           "explanation": "Missing the factor $\\frac{1}{2}$ from $u$-sub. $du=2x\\,dx$ introduces $\\frac{1}{2}$: $\\frac{1}{2}\\ln|x^2+4|+C$."
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{x^2}{2(x^2+4)} + C$",
+          "is_correct": false,
+          "explanation": "That is not an antiderivative. $u$-substitution correctly gives $\\frac{1}{2}\\ln|x^2+4|+C$."
         },
         {
           "id": "C",
@@ -1354,9 +1354,9 @@
         },
         {
           "id": "D",
-          "text": "$\\frac{x^2}{2(x^2+4)} + C$",
-          "is_correct": false,
-          "explanation": "That is not an antiderivative. $u$-substitution correctly gives $\\frac{1}{2}\\ln|x^2+4|+C$."
+          "text": "$\\frac{1}{2}\\ln|x^2+4| + C$",
+          "is_correct": true,
+          "explanation": "$u=x^2+4$, $du=2x\\,dx$. $\\int\\frac{x}{x^2+4}dx = \\frac{1}{2}\\int\\frac{du}{u} = \\frac{1}{2}\\ln|u|+C = \\frac{1}{2}\\ln|x^2+4|+C$."
         }
       ],
       "stimulus": {
@@ -1379,27 +1379,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$9$",
+          "text": "$27$",
           "is_correct": false,
-          "explanation": "Displacement $= \\int_0^3(3t^2-6t)dt = [t^3-3t^2]_0^3 = (27-27)-0=0$. Re-checking: $[t^3-3t^2]_0^3 = 27-27=0$. Hmm, answer is 0."
+          "explanation": "$[t^3-3t^2]_0^3 = 0$. $27$ is $t^3$ evaluated at $t=3$ without subtracting $3t^2$."
         },
         {
           "id": "B",
-          "text": "$0$",
-          "is_correct": true,
-          "explanation": "Displacement $= \\int_0^3(3t^2-6t)dt = [t^3-3t^2]_0^3 = (27-27)-(0) = 0$."
-        },
-        {
-          "id": "C",
           "text": "$-9$",
           "is_correct": false,
           "explanation": "$[t^3-3t^2]_0^3 = (27-27)-0 = 0$, not $-9$."
         },
         {
-          "id": "D",
-          "text": "$27$",
+          "id": "C",
+          "text": "$9$",
           "is_correct": false,
-          "explanation": "$[t^3-3t^2]_0^3 = 0$. $27$ is $t^3$ evaluated at $t=3$ without subtracting $3t^2$."
+          "explanation": "Displacement $= \\int_0^3(3t^2-6t)dt = [t^3-3t^2]_0^3 = (27-27)-0=0$. Re-checking: $[t^3-3t^2]_0^3 = 27-27=0$. Hmm, answer is 0."
+        },
+        {
+          "id": "D",
+          "text": "$0$",
+          "is_correct": true,
+          "explanation": "Displacement $= \\int_0^3(3t^2-6t)dt = [t^3-3t^2]_0^3 = (27-27)-(0) = 0$."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -1414,9 +1414,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{(\\ln 2)^2}{2}$",
-          "is_correct": true,
-          "explanation": "$u=\\ln x$, $du=\\frac{1}{x}dx$. $\\int_1^2\\frac{\\ln x}{x}dx = \\int_0^{\\ln 2} u\\,du = [\\frac{u^2}{2}]_0^{\\ln 2} = \\frac{(\\ln 2)^2}{2}$."
+          "text": "$\\frac{1}{2}$",
+          "is_correct": false,
+          "explanation": "$\\frac{(\\ln 2)^2}{2} \\approx \\frac{(0.693)^2}{2} \\approx 0.24$, not $\\frac{1}{2}$."
         },
         {
           "id": "B",
@@ -1426,15 +1426,15 @@
         },
         {
           "id": "C",
-          "text": "$\\frac{\\ln 2}{2}$",
-          "is_correct": false,
-          "explanation": "The $u$-sub gives $\\frac{(\\ln 2)^2}{2}$ (the square of $\\ln 2$, divided by 2), not $\\frac{\\ln 2}{2}$."
+          "text": "$\\frac{(\\ln 2)^2}{2}$",
+          "is_correct": true,
+          "explanation": "$u=\\ln x$, $du=\\frac{1}{x}dx$. $\\int_1^2\\frac{\\ln x}{x}dx = \\int_0^{\\ln 2} u\\,du = [\\frac{u^2}{2}]_0^{\\ln 2} = \\frac{(\\ln 2)^2}{2}$."
         },
         {
           "id": "D",
-          "text": "$\\frac{1}{2}$",
+          "text": "$\\frac{\\ln 2}{2}$",
           "is_correct": false,
-          "explanation": "$\\frac{(\\ln 2)^2}{2} \\approx \\frac{(0.693)^2}{2} \\approx 0.24$, not $\\frac{1}{2}$."
+          "explanation": "The $u$-sub gives $\\frac{(\\ln 2)^2}{2}$ (the square of $\\ln 2$, divided by 2), not $\\frac{\\ln 2}{2}$."
         }
       ],
       "stimulus": {
@@ -1459,15 +1459,15 @@
         },
         {
           "id": "B",
-          "text": "$14$",
-          "is_correct": false,
-          "explanation": "Adding instead of subtracting: $10+4=14$. But $\\int_0^3 f = \\int_0^5 f - \\int_3^5 f = 6$."
-        },
-        {
-          "id": "C",
           "text": "$40$",
           "is_correct": false,
           "explanation": "No multiplication is involved. $\\int_0^3 f = \\int_0^5 f - \\int_3^5 f = 10-4=6$."
+        },
+        {
+          "id": "C",
+          "text": "$14$",
+          "is_correct": false,
+          "explanation": "Adding instead of subtracting: $10+4=14$. But $\\int_0^3 f = \\int_0^5 f - \\int_3^5 f = 6$."
         },
         {
           "id": "D",
@@ -1535,9 +1535,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$5$ ft",
+          "text": "$10$ ft",
           "is_correct": false,
-          "explanation": "Net displacement $= \\int_0^5(6-2t)dt = [6t-t^2]_0^5 = 30-25=5$. Total distance requires integrating $|v|$."
+          "explanation": "Total distance $\\neq$ twice the net displacement. Calculate $|v|$ piecewise: $9+4=13$ ft."
         },
         {
           "id": "B",
@@ -1547,15 +1547,15 @@
         },
         {
           "id": "C",
-          "text": "$13$ ft",
-          "is_correct": true,
-          "explanation": "$v=0$ at $t=3$. Distance $= \\int_0^3(6-2t)dt + \\int_3^5(2t-6)dt = 9 + 4 = 13$ ft."
+          "text": "$5$ ft",
+          "is_correct": false,
+          "explanation": "Net displacement $= \\int_0^5(6-2t)dt = [6t-t^2]_0^5 = 30-25=5$. Total distance requires integrating $|v|$."
         },
         {
           "id": "D",
-          "text": "$10$ ft",
-          "is_correct": false,
-          "explanation": "Total distance $\\neq$ twice the net displacement. Calculate $|v|$ piecewise: $9+4=13$ ft."
+          "text": "$13$ ft",
+          "is_correct": true,
+          "explanation": "$v=0$ at $t=3$. Distance $= \\int_0^3(6-2t)dt + \\int_3^5(2t-6)dt = 9 + 4 = 13$ ft."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -1570,27 +1570,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\ln|\\cos(x)| + C$",
+          "text": "$\\ln|\\sin(x)| + C$",
           "is_correct": false,
-          "explanation": "$\\ln|\\cos x| + C$ differentiates to $\\frac{-\\sin x}{\\cos x} = -\\tan x$, not $+\\tan x$."
+          "explanation": "$\\frac{d}{dx}[\\ln|\\sin x|] = \\frac{\\cos x}{\\sin x} = \\cot x$, not $\\tan x$."
         },
         {
           "id": "B",
-          "text": "$-\\ln|\\cos(x)| + C$",
-          "is_correct": true,
-          "explanation": "$\\int\\tan x\\,dx = \\int\\frac{\\sin x}{\\cos x}dx$. Let $u=\\cos x$, $du=-\\sin x\\,dx$: $-\\int\\frac{du}{u} = -\\ln|u|+C = -\\ln|\\cos x|+C$."
-        },
-        {
-          "id": "C",
           "text": "$\\sec^2(x) + C$",
           "is_correct": false,
           "explanation": "$\\sec^2 x$ is the derivative of $\\tan x$, not its antiderivative. $\\int\\tan x\\,dx = -\\ln|\\cos x|+C$."
         },
         {
+          "id": "C",
+          "text": "$-\\ln|\\cos(x)| + C$",
+          "is_correct": true,
+          "explanation": "$\\int\\tan x\\,dx = \\int\\frac{\\sin x}{\\cos x}dx$. Let $u=\\cos x$, $du=-\\sin x\\,dx$: $-\\int\\frac{du}{u} = -\\ln|u|+C = -\\ln|\\cos x|+C$."
+        },
+        {
           "id": "D",
-          "text": "$\\ln|\\sin(x)| + C$",
+          "text": "$\\ln|\\cos(x)| + C$",
           "is_correct": false,
-          "explanation": "$\\frac{d}{dx}[\\ln|\\sin x|] = \\frac{\\cos x}{\\sin x} = \\cot x$, not $\\tan x$."
+          "explanation": "$\\ln|\\cos x| + C$ differentiates to $\\frac{-\\sin x}{\\cos x} = -\\tan x$, not $+\\tan x$."
         }
       ],
       "stimulus": {
@@ -1609,21 +1609,21 @@
       "choices": [
         {
           "id": "A",
+          "text": "$0$",
+          "is_correct": false,
+          "explanation": "The integrand is positive on $(0,1)$, so the integral is positive. $[\\sqrt{1-x^2}]$ from 0 to 1: $\\sqrt{u}$ evaluated at 0 and 1 gives $1-0=1$."
+        },
+        {
+          "id": "B",
           "text": "$1$",
           "is_correct": true,
           "explanation": "$u=1-x^2$, $du=-2x\\,dx$. $\\int_0^1\\frac{x}{\\sqrt{1-x^2}}dx = -\\frac{1}{2}\\int_1^0 u^{-1/2}du = \\frac{1}{2}\\int_0^1 u^{-1/2}du = [\\sqrt{u}]_0^1 = 1$."
         },
         {
-          "id": "B",
+          "id": "C",
           "text": "$\\frac{1}{2}$",
           "is_correct": false,
           "explanation": "After $u$-sub, $[\\sqrt{u}]_0^1 = 1-0=1$, not $\\frac{1}{2}$."
-        },
-        {
-          "id": "C",
-          "text": "$0$",
-          "is_correct": false,
-          "explanation": "The integrand is positive on $(0,1)$, so the integral is positive. $[\\sqrt{1-x^2}]$ from 0 to 1: $\\sqrt{u}$ evaluated at 0 and 1 gives $1-0=1$."
         },
         {
           "id": "D",
@@ -1648,15 +1648,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{1}{3}\\ln|x^3+3x| + C$",
-          "is_correct": true,
-          "explanation": "$u = x^3+3x$, $du = (3x^2+3)dx = 3(x^2+1)dx$. $\\int\\frac{x^2+1}{x^3+3x}dx = \\frac{1}{3}\\int\\frac{du}{u} = \\frac{1}{3}\\ln|u|+C = \\frac{1}{3}\\ln|x^3+3x|+C$."
+          "text": "$\\frac{1}{3x^2+3}\\ln|x^3+3x| + C$",
+          "is_correct": false,
+          "explanation": "The constant factor from $u$-sub is $\\frac{1}{3}$ (the reciprocal of the derivative coefficient), not $\\frac{1}{3x^2+3}$."
         },
         {
           "id": "B",
-          "text": "$\\ln|x^3+3x| + C$",
-          "is_correct": false,
-          "explanation": "The $u$-sub introduces $\\frac{1}{3}$: $du = 3(x^2+1)dx$, so $x^2+1 = \\frac{du}{3}$. The answer is $\\frac{1}{3}\\ln|x^3+3x|+C$."
+          "text": "$\\frac{1}{3}\\ln|x^3+3x| + C$",
+          "is_correct": true,
+          "explanation": "$u = x^3+3x$, $du = (3x^2+3)dx = 3(x^2+1)dx$. $\\int\\frac{x^2+1}{x^3+3x}dx = \\frac{1}{3}\\int\\frac{du}{u} = \\frac{1}{3}\\ln|u|+C = \\frac{1}{3}\\ln|x^3+3x|+C$."
         },
         {
           "id": "C",
@@ -1666,9 +1666,9 @@
         },
         {
           "id": "D",
-          "text": "$\\frac{1}{3x^2+3}\\ln|x^3+3x| + C$",
+          "text": "$\\ln|x^3+3x| + C$",
           "is_correct": false,
-          "explanation": "The constant factor from $u$-sub is $\\frac{1}{3}$ (the reciprocal of the derivative coefficient), not $\\frac{1}{3x^2+3}$."
+          "explanation": "The $u$-sub introduces $\\frac{1}{3}$: $du = 3(x^2+1)dx$, so $x^2+1 = \\frac{du}{3}$. The answer is $\\frac{1}{3}\\ln|x^3+3x|+C$."
         }
       ],
       "stimulus": {
@@ -1687,27 +1687,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$1 - \\frac{\\pi}{4}$",
-          "is_correct": true,
-          "explanation": "Use $\\tan^2 x = \\sec^2 x - 1$: $\\int_0^{\\pi/4}(\\sec^2 x-1)dx = [\\tan x - x]_0^{\\pi/4} = (1-\\pi/4) - 0 = 1-\\pi/4$."
-        },
-        {
-          "id": "B",
-          "text": "$\\frac{\\pi}{4}$",
-          "is_correct": false,
-          "explanation": "$\\int_0^{\\pi/4}\\tan^2 x = 1 - \\pi/4 \\approx 0.215$. Using $\\pi/4$ ignores the identity $\\tan^2 x = \\sec^2 x-1$."
-        },
-        {
-          "id": "C",
           "text": "$\\frac{1}{2}$",
           "is_correct": false,
           "explanation": "$[\\tan x - x]_0^{\\pi/4} = 1 - \\pi/4 \\approx 0.215$, not $1/2$."
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "$1 - \\frac{\\pi}{4}$",
+          "is_correct": true,
+          "explanation": "Use $\\tan^2 x = \\sec^2 x - 1$: $\\int_0^{\\pi/4}(\\sec^2 x-1)dx = [\\tan x - x]_0^{\\pi/4} = (1-\\pi/4) - 0 = 1-\\pi/4$."
+        },
+        {
+          "id": "C",
           "text": "$1$",
           "is_correct": false,
           "explanation": "$[\\tan x - x]_0^{\\pi/4} = 1-\\pi/4 \\neq 1$. The $-x$ term contributes $-\\pi/4$."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{\\pi}{4}$",
+          "is_correct": false,
+          "explanation": "$\\int_0^{\\pi/4}\\tan^2 x = 1 - \\pi/4 \\approx 0.215$. Using $\\pi/4$ ignores the identity $\\tan^2 x = \\sec^2 x-1$."
         }
       ],
       "stimulus": {
@@ -1726,21 +1726,21 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{2}{5}(x+1)^{5/2} - \\frac{2}{3}(x+1)^{3/2} + C$",
-          "is_correct": true,
-          "explanation": "$u=x+1$, $x=u-1$, $dx=du$. $\\int(u-1)\\sqrt{u}\\,du = \\int(u^{3/2}-u^{1/2})du = \\frac{2u^{5/2}}{5}-\\frac{2u^{3/2}}{3}+C$."
-        },
-        {
-          "id": "B",
           "text": "$\\frac{2x(x+1)^{3/2}}{3} + C$",
           "is_correct": false,
           "explanation": "This is not correct. $u$-sub gives $\\frac{2(x+1)^{5/2}}{5} - \\frac{2(x+1)^{3/2}}{3}+C$, which has two terms."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "$\\frac{2(x+1)^{3/2}}{3} + C$",
           "is_correct": false,
           "explanation": "This is the antiderivative of $\\sqrt{x+1}$, not $x\\sqrt{x+1}$. The $x$ factor introduces an additional term."
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{2}{5}(x+1)^{5/2} - \\frac{2}{3}(x+1)^{3/2} + C$",
+          "is_correct": true,
+          "explanation": "$u=x+1$, $x=u-1$, $dx=du$. $\\int(u-1)\\sqrt{u}\\,du = \\int(u^{3/2}-u^{1/2})du = \\frac{2u^{5/2}}{5}-\\frac{2u^{3/2}}{3}+C$."
         },
         {
           "id": "D",
@@ -1769,9 +1769,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$e^x - 1 + 2$",
+          "text": "$e^x$",
           "is_correct": false,
-          "explanation": "Differentiate: $f(x) = \\frac{d}{dx}[e^x - x - 1 + 2x] = e^x - 1 + 2 = e^x + 1$. Check: $f(0) = 1+1=2$ ✓. So $f(x) = e^x+1$."
+          "explanation": "Differentiating $e^x-x-1+2x = e^x+x-1$ gives $e^x+1$, not $e^x$."
         },
         {
           "id": "B",
@@ -1787,9 +1787,9 @@
         },
         {
           "id": "D",
-          "text": "$e^x$",
+          "text": "$e^x - 1 + 2$",
           "is_correct": false,
-          "explanation": "Differentiating $e^x-x-1+2x = e^x+x-1$ gives $e^x+1$, not $e^x$."
+          "explanation": "Differentiate: $f(x) = \\frac{d}{dx}[e^x - x - 1 + 2x] = e^x - 1 + 2 = e^x + 1$. Check: $f(0) = 1+1=2$ ✓. So $f(x) = e^x+1$."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -1804,27 +1804,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{(\\ln x)^4}{4} + C$",
-          "is_correct": true,
-          "explanation": "Let $u = \\ln x$, so $du = \\frac{1}{x}dx$. The integral becomes $\\int u^3\\,du = \\frac{u^4}{4} + C = \\frac{(\\ln x)^4}{4} + C$."
-        },
-        {
-          "id": "B",
-          "text": "$\\frac{(\\ln x)^4}{4x} + C$",
-          "is_correct": false,
-          "explanation": "The $\\frac{1}{x}$ factor is absorbed into $du = \\frac{1}{x}dx$, so it does not remain in the answer. After back-substituting $u = \\ln x$: $\\frac{(\\ln x)^4}{4} + C$."
-        },
-        {
-          "id": "C",
           "text": "$3(\\ln x)^2 \\cdot \\frac{1}{x} + C$",
           "is_correct": false,
           "explanation": "This is $\\frac{d}{dx}[(\\ln x)^3]$ (differentiating, not integrating). Use $u$-sub with $u = \\ln x$ to integrate: $\\frac{(\\ln x)^4}{4} + C$."
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "$\\frac{(\\ln x)^4}{4} + C$",
+          "is_correct": true,
+          "explanation": "Let $u = \\ln x$, so $du = \\frac{1}{x}dx$. The integral becomes $\\int u^3\\,du = \\frac{u^4}{4} + C = \\frac{(\\ln x)^4}{4} + C$."
+        },
+        {
+          "id": "C",
           "text": "$\\frac{(\\ln x)^2}{2x^2} + C$",
           "is_correct": false,
           "explanation": "This is not a valid antiderivative. Verify: $\\frac{d}{dx}\\left[\\frac{(\\ln x)^4}{4}\\right] = \\frac{4(\\ln x)^3}{4} \\cdot \\frac{1}{x} = \\frac{(\\ln x)^3}{x}$ ✓."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{(\\ln x)^4}{4x} + C$",
+          "is_correct": false,
+          "explanation": "The $\\frac{1}{x}$ factor is absorbed into $du = \\frac{1}{x}dx$, so it does not remain in the answer. After back-substituting $u = \\ln x$: $\\frac{(\\ln x)^4}{4} + C$."
         }
       ],
       "stimulus": {
@@ -1843,27 +1843,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\cos^2(x)(-\\sin x) - \\sin^2(x)\\cos(x)$",
-          "is_correct": true,
-          "explanation": "Chain rule on both limits: $\\frac{d}{dx}\\int_a^{g(x)} f = f(g(x))g'(x) - f(h(x))h'(x)$. Here: $\\cos^2(x)\\cdot(-\\sin x) - \\sin^2(x)\\cdot\\cos(x)$."
+          "text": "$\\cos^2(x) + \\sin^2(x)$",
+          "is_correct": false,
+          "explanation": "While $\\cos^2+\\sin^2=1$, this does not follow from differentiating the integral. Apply Leibniz rule with chain factors."
         },
         {
           "id": "B",
-          "text": "$\\cos^2(x) - \\sin^2(x)$",
-          "is_correct": false,
-          "explanation": "This omits the chain rule factors $g'(x) = -\\sin x$ and $h'(x) = \\cos x$. Apply Leibniz rule."
-        },
-        {
-          "id": "C",
           "text": "$\\cos^3(x)/3 - \\sin^3(x)/3$",
           "is_correct": false,
           "explanation": "This is $F(\\cos x) - F(\\sin x)$ (the value of the integral), not its derivative."
         },
         {
-          "id": "D",
-          "text": "$\\cos^2(x) + \\sin^2(x)$",
+          "id": "C",
+          "text": "$\\cos^2(x) - \\sin^2(x)$",
           "is_correct": false,
-          "explanation": "While $\\cos^2+\\sin^2=1$, this does not follow from differentiating the integral. Apply Leibniz rule with chain factors."
+          "explanation": "This omits the chain rule factors $g'(x) = -\\sin x$ and $h'(x) = \\cos x$. Apply Leibniz rule."
+        },
+        {
+          "id": "D",
+          "text": "$\\cos^2(x)(-\\sin x) - \\sin^2(x)\\cos(x)$",
+          "is_correct": true,
+          "explanation": "Chain rule on both limits: $\\frac{d}{dx}\\int_a^{g(x)} f = f(g(x))g'(x) - f(h(x))h'(x)$. Here: $\\cos^2(x)\\cdot(-\\sin x) - \\sin^2(x)\\cdot\\cos(x)$."
         }
       ],
       "stimulus": {
@@ -1882,27 +1882,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{x}{2} - \\frac{\\sin(2x)}{4} + C$",
-          "is_correct": true,
-          "explanation": "Use $\\sin^2 x = \\frac{1-\\cos(2x)}{2}$: $\\int\\frac{1-\\cos 2x}{2}dx = \\frac{x}{2} - \\frac{\\sin 2x}{4}+C$."
+          "text": "$\\frac{\\sin^3(x)}{3} + C$",
+          "is_correct": false,
+          "explanation": "$\\frac{d}{dx}[\\sin^3 x/3] = \\sin^2 x \\cos x \\neq \\sin^2 x$. The half-angle identity is needed."
         },
         {
           "id": "B",
-          "text": "$\\frac{x}{2} + \\frac{\\sin(2x)}{4} + C$",
-          "is_correct": false,
-          "explanation": "Sign error. $\\int\\frac{1-\\cos 2x}{2}dx = \\frac{x}{2} - \\frac{\\sin 2x}{4}+C$. The $\\cos(2x)$ term integrates with a minus sign."
-        },
-        {
-          "id": "C",
           "text": "$-\\sin(x)\\cos(x) + C$",
           "is_correct": false,
           "explanation": "Note $-\\sin x\\cos x = -\\frac{\\sin 2x}{2}$. $\\int\\sin^2 x\\,dx = \\frac{x}{2}-\\frac{\\sin 2x}{4}+C$, which has an $x$ term."
         },
         {
-          "id": "D",
-          "text": "$\\frac{\\sin^3(x)}{3} + C$",
+          "id": "C",
+          "text": "$\\frac{x}{2} + \\frac{\\sin(2x)}{4} + C$",
           "is_correct": false,
-          "explanation": "$\\frac{d}{dx}[\\sin^3 x/3] = \\sin^2 x \\cos x \\neq \\sin^2 x$. The half-angle identity is needed."
+          "explanation": "Sign error. $\\int\\frac{1-\\cos 2x}{2}dx = \\frac{x}{2} - \\frac{\\sin 2x}{4}+C$. The $\\cos(2x)$ term integrates with a minus sign."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{x}{2} - \\frac{\\sin(2x)}{4} + C$",
+          "is_correct": true,
+          "explanation": "Use $\\sin^2 x = \\frac{1-\\cos(2x)}{2}$: $\\int\\frac{1-\\cos 2x}{2}dx = \\frac{x}{2} - \\frac{\\sin 2x}{4}+C$."
         }
       ],
       "stimulus": {
@@ -1925,15 +1925,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$4$",
-          "is_correct": false,
-          "explanation": "Midpoint sum with 2 subintervals ($[0,1]$ and $[1,2]$), $\\Delta x=1$: midpoints at $x=0.5$ and $x=1.5$. Sum $= 1 \\cdot (f'(0.5)+f'(1.5)) = 2+1=3$, not 4."
-        },
-        {
-          "id": "B",
           "text": "$6$",
           "is_correct": false,
           "explanation": "Using $f'(1)+f'(1) = 4+4=8$ or other endpoints. Midpoints of $[0,1]$ and $[1,2]$ are $0.5$ and $1.5$."
+        },
+        {
+          "id": "B",
+          "text": "$4$",
+          "is_correct": false,
+          "explanation": "Midpoint sum with 2 subintervals ($[0,1]$ and $[1,2]$), $\\Delta x=1$: midpoints at $x=0.5$ and $x=1.5$. Sum $= 1 \\cdot (f'(0.5)+f'(1.5)) = 2+1=3$, not 4."
         },
         {
           "id": "C",
@@ -1966,21 +1966,21 @@
         },
         {
           "id": "B",
-          "text": "Right sum $\\geq$ integral $\\geq$ left sum",
-          "is_correct": false,
-          "explanation": "For decreasing $f$: left endpoints give higher values (overestimate); right endpoints give lower values (underestimate). Left $\\geq$ integral $\\geq$ right."
-        },
-        {
-          "id": "C",
           "text": "Left sum overestimates, right sum underestimates",
           "is_correct": true,
           "explanation": "For a decreasing function, left endpoints have larger $f$ values (overestimate), and right endpoints have smaller $f$ values (underestimate)."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "Left sum underestimates, right sum overestimates",
           "is_correct": false,
           "explanation": "This is the relationship for INCREASING functions. For decreasing functions, left sums overestimate and right sums underestimate."
+        },
+        {
+          "id": "D",
+          "text": "Right sum $\\geq$ integral $\\geq$ left sum",
+          "is_correct": false,
+          "explanation": "For decreasing $f$: left endpoints give higher values (overestimate); right endpoints give lower values (underestimate). Left $\\geq$ integral $\\geq$ right."
         }
       ],
       "stimulus": {
@@ -2054,27 +2054,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\arcsin\\left(\\frac{x}{2}\\right) + C$",
-          "is_correct": true,
-          "explanation": "$\\frac{1}{\\sqrt{4-x^2}} = \\frac{1}{2\\sqrt{1-(x/2)^2}}$. Using $\\int\\frac{1}{\\sqrt{a^2-x^2}}dx = \\arcsin(x/a)+C$ with $a=2$: $\\arcsin(x/2)+C$."
-        },
-        {
-          "id": "B",
           "text": "$\\frac{1}{2}\\arcsin\\left(\\frac{x}{2}\\right) + C$",
           "is_correct": false,
           "explanation": "The standard formula $\\int\\frac{dx}{\\sqrt{a^2-x^2}} = \\arcsin(x/a)+C$ (no extra $1/a$ factor). Result: $\\arcsin(x/2)+C$."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "$\\arctan\\left(\\frac{x}{2}\\right) + C$",
           "is_correct": false,
           "explanation": "$\\arctan(x/2)$ antiderivative requires $\\frac{1}{x^2+4}$ form, not $\\frac{1}{\\sqrt{4-x^2}}$. The answer is $\\arcsin(x/2)+C$."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$-\\sqrt{4-x^2} + C$",
           "is_correct": false,
           "explanation": "$\\frac{d}{dx}[-\\sqrt{4-x^2}] = \\frac{x}{\\sqrt{4-x^2}} \\neq \\frac{1}{\\sqrt{4-x^2}}$. The correct antiderivative is $\\arcsin(x/2)+C$."
+        },
+        {
+          "id": "D",
+          "text": "$\\arcsin\\left(\\frac{x}{2}\\right) + C$",
+          "is_correct": true,
+          "explanation": "$\\frac{1}{\\sqrt{4-x^2}} = \\frac{1}{2\\sqrt{1-(x/2)^2}}$. Using $\\int\\frac{1}{\\sqrt{a^2-x^2}}dx = \\arcsin(x/a)+C$ with $a=2$: $\\arcsin(x/2)+C$."
         }
       ],
       "stimulus": {
@@ -2097,15 +2097,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$g(6) = 2$",
+          "text": "Cannot be determined from the given information",
           "is_correct": false,
-          "explanation": "$g(6) = \\int_0^6 f = \\int_0^3 f + \\int_3^6 f = 5+(-3)=2$. But $g(3)=5$ and $g(6)=2$, so the maximum is $g(3)=5$."
+          "explanation": "We can determine: $g$ increases on $(0,3)$ (since $f>0$) and decreases on $(3,6)$ (since $f<0$). Maximum at $x=3$: $g(3)=5$."
         },
         {
           "id": "B",
-          "text": "$g(3) = 5$",
-          "is_correct": true,
-          "explanation": "$g(3) = \\int_0^3 f = 5$. For $x>3$: $g$ decreases (since $f<0$). For $x<3$: $g$ increases. Maximum is $g(3)=5$."
+          "text": "$g(6) = 2$",
+          "is_correct": false,
+          "explanation": "$g(6) = \\int_0^6 f = \\int_0^3 f + \\int_3^6 f = 5+(-3)=2$. But $g(3)=5$ and $g(6)=2$, so the maximum is $g(3)=5$."
         },
         {
           "id": "C",
@@ -2115,9 +2115,9 @@
         },
         {
           "id": "D",
-          "text": "Cannot be determined from the given information",
-          "is_correct": false,
-          "explanation": "We can determine: $g$ increases on $(0,3)$ (since $f>0$) and decreases on $(3,6)$ (since $f<0$). Maximum at $x=3$: $g(3)=5$."
+          "text": "$g(3) = 5$",
+          "is_correct": true,
+          "explanation": "$g(3) = \\int_0^3 f = 5$. For $x>3$: $g$ decreases (since $f<0$). For $x<3$: $g$ increases. Maximum is $g(3)=5$."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -2132,15 +2132,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{1}{2}$",
-          "is_correct": true,
-          "explanation": "Use $\\sin x \\cos x = \\frac{\\sin 2x}{2}$: $\\int_0^{\\pi/2}\\frac{\\sin 2x}{2}dx = [-\\frac{\\cos 2x}{4}]_0^{\\pi/2} = (-\\frac{\\cos\\pi}{4})+\\frac{\\cos 0}{4} = \\frac{1}{4}+\\frac{1}{4} = \\frac{1}{2}$."
-        },
-        {
-          "id": "B",
           "text": "$1$",
           "is_correct": false,
           "explanation": "$[-\\frac{\\cos 2x}{4}]_0^{\\pi/2} = \\frac{1}{4}+\\frac{1}{4}=\\frac{1}{2}$, not 1."
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{1}{2}$",
+          "is_correct": true,
+          "explanation": "Use $\\sin x \\cos x = \\frac{\\sin 2x}{2}$: $\\int_0^{\\pi/2}\\frac{\\sin 2x}{2}dx = [-\\frac{\\cos 2x}{4}]_0^{\\pi/2} = (-\\frac{\\cos\\pi}{4})+\\frac{\\cos 0}{4} = \\frac{1}{4}+\\frac{1}{4} = \\frac{1}{2}$."
         },
         {
           "id": "C",
@@ -2183,15 +2183,15 @@
         },
         {
           "id": "C",
-          "text": "$e^x \\ln|e^x + 3| + C$",
-          "is_correct": false,
-          "explanation": "The factor $e^x$ is consumed by the substitution $du = e^x\\,dx$. After substituting, you integrate $\\frac{1}{u}$, which gives $\\ln|u| + C$, not $e^x \\ln|u| + C$."
-        },
-        {
-          "id": "D",
           "text": "$\\frac{1}{2}\\ln(e^{2x} + 3) + C$",
           "is_correct": false,
           "explanation": "This does not match. Verify the correct answer: $\\frac{d}{dx}[\\ln(e^x+3)] = \\frac{e^x}{e^x+3}$ ✓. The answer is $\\ln|e^x+3|+C$."
+        },
+        {
+          "id": "D",
+          "text": "$e^x \\ln|e^x + 3| + C$",
+          "is_correct": false,
+          "explanation": "The factor $e^x$ is consumed by the substitution $du = e^x\\,dx$. After substituting, you integrate $\\frac{1}{u}$, which gives $\\ln|u| + C$, not $e^x \\ln|u| + C$."
         }
       ],
       "stimulus": {
@@ -2304,15 +2304,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$2x\\cos(x^2)$",
-          "is_correct": true,
-          "explanation": "By FTC Part 1 with chain rule: $F'(x) = \\cos(x^2) \\cdot \\frac{d}{dx}[x^2] = \\cos(x^2) \\cdot 2x = 2x\\cos(x^2)$."
-        },
-        {
-          "id": "B",
           "text": "$\\cos(x^2)$",
           "is_correct": false,
           "explanation": "This omits the chain rule factor. When the upper limit is $g(x) = x^2$ (not just $x$), multiply by $g'(x) = 2x$: $F'(x) = 2x\\cos(x^2)$."
+        },
+        {
+          "id": "B",
+          "text": "$2x\\cos(x^2)$",
+          "is_correct": true,
+          "explanation": "By FTC Part 1 with chain rule: $F'(x) = \\cos(x^2) \\cdot \\frac{d}{dx}[x^2] = \\cos(x^2) \\cdot 2x = 2x\\cos(x^2)$."
         },
         {
           "id": "C",
@@ -2366,27 +2366,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\ln|x^2+x| + C$",
-          "is_correct": true,
-          "explanation": "Note $\\frac{d}{dx}[x^2+x] = 2x+1$. So $\\int\\frac{2x+1}{x^2+x}dx = \\ln|x^2+x|+C$ (direct $u$-sub with $u=x^2+x$)."
-        },
-        {
-          "id": "B",
-          "text": "$\\frac{1}{2}\\ln|x^2+x| + C$",
-          "is_correct": false,
-          "explanation": "No extra $\\frac{1}{2}$ needed: $du = (2x+1)dx$ exactly, so $\\int\\frac{du}{u} = \\ln|u|+C$ with no scaling."
-        },
-        {
-          "id": "C",
           "text": "$\\ln|2x+1| + C$",
           "is_correct": false,
           "explanation": "The denominator is $x^2+x$, not $2x+1$. $u=x^2+x$ gives $\\ln|x^2+x|+C$."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "$2\\ln|x^2+x| + C$",
           "is_correct": false,
           "explanation": "$du = (2x+1)dx$ exactly matches the numerator with no extra coefficient. The answer is $\\ln|x^2+x|+C$."
+        },
+        {
+          "id": "C",
+          "text": "$\\ln|x^2+x| + C$",
+          "is_correct": true,
+          "explanation": "Note $\\frac{d}{dx}[x^2+x] = 2x+1$. So $\\int\\frac{2x+1}{x^2+x}dx = \\ln|x^2+x|+C$ (direct $u$-sub with $u=x^2+x$)."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{1}{2}\\ln|x^2+x| + C$",
+          "is_correct": false,
+          "explanation": "No extra $\\frac{1}{2}$ needed: $du = (2x+1)dx$ exactly, so $\\int\\frac{du}{u} = \\ln|u|+C$ with no scaling."
         }
       ],
       "stimulus": {
@@ -2405,15 +2405,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\pi$",
-          "is_correct": true,
-          "explanation": "$\\int_0^2\\sqrt{4-x^2}\\,dx$ is the area of a quarter circle of radius 2: $\\frac{1}{4}\\pi(2)^2 = \\pi$."
-        },
-        {
-          "id": "B",
           "text": "$2\\pi$",
           "is_correct": false,
           "explanation": "The full circle has area $\\pi r^2 = 4\\pi$. The quarter circle is $\\frac{4\\pi}{4} = \\pi$."
+        },
+        {
+          "id": "B",
+          "text": "$\\pi$",
+          "is_correct": true,
+          "explanation": "$\\int_0^2\\sqrt{4-x^2}\\,dx$ is the area of a quarter circle of radius 2: $\\frac{1}{4}\\pi(2)^2 = \\pi$."
         },
         {
           "id": "C",
@@ -2486,15 +2486,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\sqrt{2}-1$",
-          "is_correct": false,
-          "explanation": "$u=1+x^4$, $du=4x^3\\,dx$. $\\int_0^1\\frac{x^3}{\\sqrt{1+x^4}}dx = \\frac{1}{4}\\int_1^2 u^{-1/2}du = \\frac{1}{4}[2\\sqrt{u}]_1^2 = \\frac{1}{2}(\\sqrt{2}-1)$. Hmm, that gives $\\frac{\\sqrt{2}-1}{2}$."
-        },
-        {
-          "id": "B",
           "text": "$\\frac{\\sqrt{2}-1}{2}$",
           "is_correct": true,
           "explanation": "$u=1+x^4$, $du=4x^3dx$. $\\frac{1}{4}\\int_1^2 u^{-1/2}du = \\frac{1}{4}[2\\sqrt{u}]_1^2 = \\frac{1}{2}(\\sqrt{2}-1)$."
+        },
+        {
+          "id": "B",
+          "text": "$\\sqrt{2}-1$",
+          "is_correct": false,
+          "explanation": "$u=1+x^4$, $du=4x^3\\,dx$. $\\int_0^1\\frac{x^3}{\\sqrt{1+x^4}}dx = \\frac{1}{4}\\int_1^2 u^{-1/2}du = \\frac{1}{4}[2\\sqrt{u}]_1^2 = \\frac{1}{2}(\\sqrt{2}-1)$. Hmm, that gives $\\frac{\\sqrt{2}-1}{2}$."
         },
         {
           "id": "C",
@@ -2548,27 +2548,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{x^2}{2} + C$",
-          "is_correct": true,
-          "explanation": "Long division: $\\frac{x^3+x}{x^2+1} = \\frac{x(x^2+1)}{x^2+1} = x$. $\\int x\\,dx = \\frac{x^2}{2}+C$."
+          "text": "$x^2\\ln(x^2+1) + C$",
+          "is_correct": false,
+          "explanation": "Not a valid form here. The integrand simplifies to $x$, whose antiderivative is $\\frac{x^2}{2}+C$."
         },
         {
           "id": "B",
-          "text": "$\\frac{x^2}{2} + \\arctan(x) + C$",
-          "is_correct": false,
-          "explanation": "$\\frac{x^3+x}{x^2+1} = x$ exactly (after factoring). No remainder means no $\\arctan$ term."
-        },
-        {
-          "id": "C",
           "text": "$\\frac{x^4+x^2}{2(x^2+1)} + C$",
           "is_correct": false,
           "explanation": "This is the integrand multiplied by $x/2$, not the antiderivative. Simplify first: $x^3+x = x(x^2+1)$, so the integrand reduces to $x$."
         },
         {
-          "id": "D",
-          "text": "$x^2\\ln(x^2+1) + C$",
+          "id": "C",
+          "text": "$\\frac{x^2}{2} + \\arctan(x) + C$",
           "is_correct": false,
-          "explanation": "Not a valid form here. The integrand simplifies to $x$, whose antiderivative is $\\frac{x^2}{2}+C$."
+          "explanation": "$\\frac{x^3+x}{x^2+1} = x$ exactly (after factoring). No remainder means no $\\arctan$ term."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{x^2}{2} + C$",
+          "is_correct": true,
+          "explanation": "Long division: $\\frac{x^3+x}{x^2+1} = \\frac{x(x^2+1)}{x^2+1} = x$. $\\int x\\,dx = \\frac{x^2}{2}+C$."
         }
       ],
       "stimulus": {
@@ -2597,21 +2597,21 @@
         },
         {
           "id": "B",
+          "text": "$\\frac{7}{3}$",
+          "is_correct": false,
+          "explanation": "$\\frac{G(5)}{f(5)} = \\frac{7}{3}$ has no standard calculus meaning. By FTC Part 1: $G'(5)=f(5)=3$."
+        },
+        {
+          "id": "C",
           "text": "$3$",
           "is_correct": true,
           "explanation": "FTC Part 1: $G'(x) = \\frac{d}{dx}\\int_2^x f(t)dt = f(x)$. Therefore $G'(5) = f(5) = 3$."
         },
         {
-          "id": "C",
+          "id": "D",
           "text": "$0$",
           "is_correct": false,
           "explanation": "$G'(5)=f(5)=3 \\neq 0$. $G'=0$ only when $f=0$ at that point."
-        },
-        {
-          "id": "D",
-          "text": "$\\frac{7}{3}$",
-          "is_correct": false,
-          "explanation": "$\\frac{G(5)}{f(5)} = \\frac{7}{3}$ has no standard calculus meaning. By FTC Part 1: $G'(5)=f(5)=3$."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -2626,15 +2626,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$3$",
+          "text": "$-1$",
           "is_correct": false,
-          "explanation": "$\\int_0^\\pi f = \\int_0^{\\pi/2}f + \\int_{\\pi/2}^\\pi f$. We also know $\\int_0^\\pi f = \\int_0^{\\pi/2}f + 4$, so $\\int_0^\\pi f = 3 + 4 = 7$."
+          "explanation": "Subtracting instead of adding: $3-4=-1$. But the given relation adds 4: $\\int_0^\\pi f = 3+4=7$."
         },
         {
           "id": "B",
-          "text": "$7$",
-          "is_correct": true,
-          "explanation": "Given $\\int_0^\\pi f = \\int_0^{\\pi/2}f + 4 = 3 + 4 = 7$."
+          "text": "$3$",
+          "is_correct": false,
+          "explanation": "$\\int_0^\\pi f = \\int_0^{\\pi/2}f + \\int_{\\pi/2}^\\pi f$. We also know $\\int_0^\\pi f = \\int_0^{\\pi/2}f + 4$, so $\\int_0^\\pi f = 3 + 4 = 7$."
         },
         {
           "id": "C",
@@ -2644,9 +2644,9 @@
         },
         {
           "id": "D",
-          "text": "$-1$",
-          "is_correct": false,
-          "explanation": "Subtracting instead of adding: $3-4=-1$. But the given relation adds 4: $\\int_0^\\pi f = 3+4=7$."
+          "text": "$7$",
+          "is_correct": true,
+          "explanation": "Given $\\int_0^\\pi f = \\int_0^{\\pi/2}f + 4 = 3 + 4 = 7$."
         }
       ],
       "stimulus": {
@@ -2665,27 +2665,27 @@
       "choices": [
         {
           "id": "A",
+          "text": "$\\sqrt{3}-\\sqrt{2}$",
+          "is_correct": false,
+          "explanation": "$[\\frac{2u^{3/2}}{3}]_2^3 = \\frac{2}{3}(3\\sqrt{3}-2\\sqrt{2}) \\neq \\sqrt{3}-\\sqrt{2}$."
+        },
+        {
+          "id": "B",
           "text": "$\\frac{2}{3}(3^{3/2}-2^{3/2})$",
           "is_correct": true,
           "explanation": "$u=e^x+1$, $du=e^x dx$. Limits: $x=0\\Rightarrow u=2$; $x=\\ln 2\\Rightarrow u=3$. $\\int_2^3\\sqrt{u}\\,du = [\\frac{2u^{3/2}}{3}]_2^3 = \\frac{2}{3}(3^{3/2}-2^{3/2})$."
         },
         {
-          "id": "B",
+          "id": "C",
           "text": "$\\frac{2}{3}(2^{3/2}-3^{3/2})$",
           "is_correct": false,
           "explanation": "Limits after $u$-sub: lower is $u=2$, upper is $u=3$. Correct order: $[\\frac{2u^{3/2}}{3}]_2^3 = \\frac{2}{3}(3^{3/2}-2^{3/2})$."
         },
         {
-          "id": "C",
+          "id": "D",
           "text": "$\\frac{2}{3}(\\sqrt{8}-\\sqrt{6})$",
           "is_correct": false,
           "explanation": "$3^{3/2}=3\\sqrt{3}$ and $2^{3/2}=2\\sqrt{2}$. The expression $\\frac{2}{3}(3^{3/2}-2^{3/2})$ is the correct form."
-        },
-        {
-          "id": "D",
-          "text": "$\\sqrt{3}-\\sqrt{2}$",
-          "is_correct": false,
-          "explanation": "$[\\frac{2u^{3/2}}{3}]_2^3 = \\frac{2}{3}(3\\sqrt{3}-2\\sqrt{2}) \\neq \\sqrt{3}-\\sqrt{2}$."
         }
       ],
       "stimulus": {
@@ -2727,15 +2727,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$e - e^{-1}$",
-          "is_correct": false,
-          "explanation": "$f(x) = x^5 e^{x^2}$ is an odd function: $f(-x) = (-x)^5 e^{(-x)^2} = -x^5 e^{x^2} = -f(x)$. For odd functions: $\\int_{-1}^1 f = 0$."
-        },
-        {
-          "id": "B",
           "text": "$0$",
           "is_correct": true,
           "explanation": "$x^5 e^{x^2}$ is odd (product of odd $x^5$ and even $e^{x^2}$). For odd functions symmetric about origin: $\\int_{-a}^a f = 0$."
+        },
+        {
+          "id": "B",
+          "text": "$2e - 2$",
+          "is_correct": false,
+          "explanation": "Recognizing the odd symmetry eliminates computation: $\\int_{-1}^1 x^5 e^{x^2}dx = 0$."
         },
         {
           "id": "C",
@@ -2745,9 +2745,9 @@
         },
         {
           "id": "D",
-          "text": "$2e - 2$",
+          "text": "$e - e^{-1}$",
           "is_correct": false,
-          "explanation": "Recognizing the odd symmetry eliminates computation: $\\int_{-1}^1 x^5 e^{x^2}dx = 0$."
+          "explanation": "$f(x) = x^5 e^{x^2}$ is an odd function: $f(-x) = (-x)^5 e^{(-x)^2} = -x^5 e^{x^2} = -f(x)$. For odd functions: $\\int_{-1}^1 f = 0$."
         }
       ],
       "stimulus": {
@@ -2807,27 +2807,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\arctan(\\sin x) + C$",
-          "is_correct": true,
-          "explanation": "$u=\\sin x$, $du=\\cos x\\,dx$. $\\int\\frac{\\cos x}{1+\\sin^2 x}dx = \\int\\frac{du}{1+u^2} = \\arctan(u)+C = \\arctan(\\sin x)+C$."
-        },
-        {
-          "id": "B",
-          "text": "$\\arcsin(\\cos x) + C$",
-          "is_correct": false,
-          "explanation": "After $u$-sub: $\\int\\frac{du}{1+u^2} = \\arctan(u)+C$, not $\\arcsin$. The denominator $1+u^2$ gives $\\arctan$."
-        },
-        {
-          "id": "C",
           "text": "$\\frac{\\cos x}{1+\\sin^2 x} + C$",
           "is_correct": false,
           "explanation": "That is the integrand, not its antiderivative. $u$-sub gives $\\arctan(\\sin x)+C$."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "$\\ln(1+\\sin^2 x) + C$",
           "is_correct": false,
           "explanation": "$\\frac{d}{dx}[\\ln(1+\\sin^2 x)] = \\frac{2\\sin x\\cos x}{1+\\sin^2 x} \\neq \\frac{\\cos x}{1+\\sin^2 x}$."
+        },
+        {
+          "id": "C",
+          "text": "$\\arctan(\\sin x) + C$",
+          "is_correct": true,
+          "explanation": "$u=\\sin x$, $du=\\cos x\\,dx$. $\\int\\frac{\\cos x}{1+\\sin^2 x}dx = \\int\\frac{du}{1+u^2} = \\arctan(u)+C = \\arctan(\\sin x)+C$."
+        },
+        {
+          "id": "D",
+          "text": "$\\arcsin(\\cos x) + C$",
+          "is_correct": false,
+          "explanation": "After $u$-sub: $\\int\\frac{du}{1+u^2} = \\arctan(u)+C$, not $\\arcsin$. The denominator $1+u^2$ gives $\\arctan$."
         }
       ],
       "stimulus": {
@@ -2879,9 +2879,9 @@
         },
         {
           "id": "B",
-          "text": "$5 + \\frac{2}{\\pi}$",
+          "text": "$5 - \\frac{2}{\\pi}$",
           "is_correct": false,
-          "explanation": "$\\int_0^2\\sin(\\pi t)dt = \\frac{-\\cos 2\\pi + \\cos 0}{\\pi} = \\frac{-1+1}{\\pi} = 0$. So $s(2) = 5+0=5$."
+          "explanation": "$\\int_0^2\\sin(\\pi t)dt = \\frac{-\\cos(2\\pi)+1}{\\pi} = 0$. Position is $5+0=5$."
         },
         {
           "id": "C",
@@ -2891,9 +2891,9 @@
         },
         {
           "id": "D",
-          "text": "$5 - \\frac{2}{\\pi}$",
+          "text": "$5 + \\frac{2}{\\pi}$",
           "is_correct": false,
-          "explanation": "$\\int_0^2\\sin(\\pi t)dt = \\frac{-\\cos(2\\pi)+1}{\\pi} = 0$. Position is $5+0=5$."
+          "explanation": "$\\int_0^2\\sin(\\pi t)dt = \\frac{-\\cos 2\\pi + \\cos 0}{\\pi} = \\frac{-1+1}{\\pi} = 0$. So $s(2) = 5+0=5$."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -2908,21 +2908,21 @@
       "choices": [
         {
           "id": "A",
-          "text": "$3x^2\\sin(x^6) - \\sin(x^2)$",
-          "is_correct": true,
-          "explanation": "Use FTC Part 1 with chain rule on both limits: $G'(x) = \\sin((x^3)^2)\\cdot 3x^2 - \\sin(x^2)\\cdot 1 = 3x^2\\sin(x^6) - \\sin(x^2)$."
-        },
-        {
-          "id": "B",
           "text": "$\\sin(x^6) - \\sin(x^2)$",
           "is_correct": false,
           "explanation": "This omits the chain rule factor $3x^2$ from the upper limit $x^3$. When the upper limit is $g(x) = x^3$, multiply by $g'(x) = 3x^2$: $3x^2\\sin(x^6) - \\sin(x^2)$."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "$3x^2\\sin(x^6)$",
           "is_correct": false,
           "explanation": "This handles only the upper limit. The lower limit $x$ also contributes: differentiating $\\int_a^x$ gives $+f(x)$, so the lower limit $x$ contributes $-\\sin(x^2)\\cdot 1$."
+        },
+        {
+          "id": "C",
+          "text": "$3x^2\\sin(x^6) - \\sin(x^2)$",
+          "is_correct": true,
+          "explanation": "Use FTC Part 1 with chain rule on both limits: $G'(x) = \\sin((x^3)^2)\\cdot 3x^2 - \\sin(x^2)\\cdot 1 = 3x^2\\sin(x^6) - \\sin(x^2)$."
         },
         {
           "id": "D",
@@ -2966,27 +2966,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{2}{3}$",
-          "is_correct": true,
-          "explanation": "$\\cos^3 x = \\cos x(1-\\sin^2 x)$. Let $u=\\sin x$: $\\int_0^1(1-u^2)du = [u-u^3/3]_0^1 = 1-1/3 = 2/3$."
-        },
-        {
-          "id": "B",
-          "text": "$1$",
-          "is_correct": false,
-          "explanation": "$\\int_0^1(1-u^2)du = 1-1/3=2/3$, not 1."
-        },
-        {
-          "id": "C",
           "text": "$\\frac{\\pi}{4}$",
           "is_correct": false,
           "explanation": "Use $\\cos^3 x = \\cos x(1-\\sin^2 x)$ and $u$-sub to get $2/3$, not $\\pi/4$."
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "$\\frac{2}{3}$",
+          "is_correct": true,
+          "explanation": "$\\cos^3 x = \\cos x(1-\\sin^2 x)$. Let $u=\\sin x$: $\\int_0^1(1-u^2)du = [u-u^3/3]_0^1 = 1-1/3 = 2/3$."
+        },
+        {
+          "id": "C",
           "text": "$\\frac{1}{3}$",
           "is_correct": false,
           "explanation": "$[u-u^3/3]_0^1 = 1-1/3 = 2/3$, not $1/3$."
+        },
+        {
+          "id": "D",
+          "text": "$1$",
+          "is_correct": false,
+          "explanation": "$\\int_0^1(1-u^2)du = 1-1/3=2/3$, not 1."
         }
       ],
       "stimulus": {
@@ -3024,9 +3024,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\ln|\\ln x| + C$",
-          "is_correct": true,
-          "explanation": "$u=\\ln x$, $du=\\frac{1}{x}dx$. $\\int\\frac{1}{x\\ln x}dx = \\int\\frac{du}{u} = \\ln|u|+C = \\ln|\\ln x|+C$."
+          "text": "$\\frac{(\\ln x)^2}{2} + C$",
+          "is_correct": false,
+          "explanation": "That is $\\int \\ln x \\cdot \\frac{1}{x}dx$, not $\\int\\frac{1}{x\\ln x}dx$. Here the numerator is 1, giving $\\ln|\\ln x|+C$."
         },
         {
           "id": "B",
@@ -3036,15 +3036,15 @@
         },
         {
           "id": "C",
-          "text": "$\\frac{(\\ln x)^2}{2} + C$",
-          "is_correct": false,
-          "explanation": "That is $\\int \\ln x \\cdot \\frac{1}{x}dx$, not $\\int\\frac{1}{x\\ln x}dx$. Here the numerator is 1, giving $\\ln|\\ln x|+C$."
-        },
-        {
-          "id": "D",
           "text": "$-\\frac{1}{\\ln x} + C$",
           "is_correct": false,
           "explanation": "$\\frac{d}{dx}[-1/\\ln x] = \\frac{1}{x(\\ln x)^2} \\neq \\frac{1}{x\\ln x}$. The correct antiderivative is $\\ln|\\ln x|+C$."
+        },
+        {
+          "id": "D",
+          "text": "$\\ln|\\ln x| + C$",
+          "is_correct": true,
+          "explanation": "$u=\\ln x$, $du=\\frac{1}{x}dx$. $\\int\\frac{1}{x\\ln x}dx = \\int\\frac{du}{u} = \\ln|u|+C = \\ln|\\ln x|+C$."
         }
       ],
       "stimulus": {
@@ -3090,21 +3090,21 @@
       "choices": [
         {
           "id": "A",
+          "text": "$36$",
+          "is_correct": false,
+          "explanation": "$F(b) = F(a) + \\int_a^b f = 3+12=15$, not $3\\times 12=36$."
+        },
+        {
+          "id": "B",
           "text": "$9$",
           "is_correct": false,
           "explanation": "FTC: $\\int_a^b f = F(b)-F(a) = 12$. $F(b) = 12 + F(a) = 12+3=15$."
         },
         {
-          "id": "B",
+          "id": "C",
           "text": "$15$",
           "is_correct": true,
           "explanation": "FTC Part 2: $\\int_a^b f = F(b)-F(a) \\Rightarrow 12 = F(b)-3 \\Rightarrow F(b) = 15$."
-        },
-        {
-          "id": "C",
-          "text": "$36$",
-          "is_correct": false,
-          "explanation": "$F(b) = F(a) + \\int_a^b f = 3+12=15$, not $3\\times 12=36$."
         },
         {
           "id": "D",
@@ -3125,27 +3125,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{1}{3}$",
-          "is_correct": true,
-          "explanation": "$u=\\ln x$, $du=\\frac{1}{x}dx$. Limits: $x=1\\Rightarrow u=0$; $x=e\\Rightarrow u=1$. $\\int_0^1 u^2 du = [u^3/3]_0^1 = 1/3$."
-        },
-        {
-          "id": "B",
           "text": "$\\frac{1}{2}$",
           "is_correct": false,
           "explanation": "$[u^3/3]_0^1 = 1/3$, not $1/2$. The exponent is 2 (not 1), giving $u^3/3$ after integration."
         },
         {
-          "id": "C",
-          "text": "$e-1$",
-          "is_correct": false,
-          "explanation": "$e-1$ is $\\int_1^e\\frac{1}{x}dx$, not $\\int_1^e\\frac{(\\ln x)^2}{x}dx$."
+          "id": "B",
+          "text": "$\\frac{1}{3}$",
+          "is_correct": true,
+          "explanation": "$u=\\ln x$, $du=\\frac{1}{x}dx$. Limits: $x=1\\Rightarrow u=0$; $x=e\\Rightarrow u=1$. $\\int_0^1 u^2 du = [u^3/3]_0^1 = 1/3$."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$1$",
           "is_correct": false,
           "explanation": "$[u^3/3]_0^1 = 1/3$, not 1."
+        },
+        {
+          "id": "D",
+          "text": "$e-1$",
+          "is_correct": false,
+          "explanation": "$e-1$ is $\\int_1^e\\frac{1}{x}dx$, not $\\int_1^e\\frac{(\\ln x)^2}{x}dx$."
         }
       ],
       "stimulus": {
@@ -3187,27 +3187,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$4$",
-          "is_correct": true,
-          "explanation": "$\\int_0^2 x\\,dx + \\int_2^4(4-x)dx = [x^2/2]_0^2 + [4x-x^2/2]_2^4 = 2 + (16-8)-(8-2) = 2+(8-6)=2+2=4$."
-        },
-        {
-          "id": "B",
           "text": "$8$",
           "is_correct": false,
           "explanation": "Each piece contributes 2: $[x^2/2]_0^2=2$ and $[4x-x^2/2]_2^4=(16-8)-(8-2)=8-6=2$. Total: $4$."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "$2$",
           "is_correct": false,
           "explanation": "Each piece gives area 2; combined: $2+2=4$."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$6$",
           "is_correct": false,
           "explanation": "$\\int_0^2 x\\,dx = 2$ and $\\int_2^4(4-x)dx = [4x-x^2/2]_2^4 = 8-6=2$. Total: $4$, not 6."
+        },
+        {
+          "id": "D",
+          "text": "$4$",
+          "is_correct": true,
+          "explanation": "$\\int_0^2 x\\,dx + \\int_2^4(4-x)dx = [x^2/2]_0^2 + [4x-x^2/2]_2^4 = 2 + (16-8)-(8-2) = 2+(8-6)=2+2=4$."
         }
       ],
       "stimulus": {

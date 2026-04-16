@@ -366,6 +366,7 @@ export default function MCQSession({ session, subject, onComplete, onStartFresh 
       }}>
         <div style={{ maxWidth: '720px', width: '100%' }}>
           <MCQCard
+            key={currentQuestion.id}
             question={currentQuestion}
             onAnswer={handleAnswer}
             onNext={handleNext}

@@ -15,9 +15,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "To encrypt data before it is transmitted across the internet",
+          "text": "To synchronize the clocks of all devices connected to the internet",
           "is_correct": false,
-          "explanation": "Encryption is handled by protocols like HTTPS/TLS, not IP addresses. An IP address is a unique numeric identifier used to route data to the correct device."
+          "explanation": "Clock synchronization is handled by protocols like NTP (Network Time Protocol). IP addresses serve as unique device identifiers for routing purposes."
         },
         {
           "id": "B",
@@ -33,9 +33,9 @@
         },
         {
           "id": "D",
-          "text": "To synchronize the clocks of all devices connected to the internet",
+          "text": "To encrypt data before it is transmitted across the internet",
           "is_correct": false,
-          "explanation": "Clock synchronization is handled by protocols like NTP (Network Time Protocol). IP addresses serve as unique device identifiers for routing purposes."
+          "explanation": "Encryption is handled by protocols like HTTPS/TLS, not IP addresses. An IP address is a unique numeric identifier used to route data to the correct device."
         }
       ],
       "unit_objective": "CSN-1.D"
@@ -52,15 +52,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "A physical cable that connects computers in a network",
+          "text": "A storage medium used to back up data on a network",
           "is_correct": false,
-          "explanation": "Physical cables are hardware — they are part of the network infrastructure, not protocols. A protocol is a set of agreed-upon rules for communication."
+          "explanation": "Backup storage is a data management concept. A protocol is a standardized communication ruleset used by network devices."
         },
         {
           "id": "B",
-          "text": "An agreed-upon set of rules that govern how data is formatted and transmitted between devices",
-          "is_correct": true,
-          "explanation": "A protocol defines the rules devices follow to communicate — how data is packaged, addressed, transmitted, and interpreted. Without common protocols, devices from different manufacturers could not communicate."
+          "text": "A physical cable that connects computers in a network",
+          "is_correct": false,
+          "explanation": "Physical cables are hardware — they are part of the network infrastructure, not protocols. A protocol is a set of agreed-upon rules for communication."
         },
         {
           "id": "C",
@@ -70,9 +70,9 @@
         },
         {
           "id": "D",
-          "text": "A storage medium used to back up data on a network",
-          "is_correct": false,
-          "explanation": "Backup storage is a data management concept. A protocol is a standardized communication ruleset used by network devices."
+          "text": "An agreed-upon set of rules that govern how data is formatted and transmitted between devices",
+          "is_correct": true,
+          "explanation": "A protocol defines the rules devices follow to communicate — how data is packaged, addressed, transmitted, and interpreted. Without common protocols, devices from different manufacturers could not communicate."
         }
       ],
       "unit_objective": "CSN-1.A"
@@ -89,27 +89,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "A physical box used to transport hard drives between data centers",
+          "text": "A complete message transmitted in a single uninterrupted stream from sender to receiver",
           "is_correct": false,
-          "explanation": "In networking, a packet is a unit of digital data — not a physical container. It is transmitted electronically across a network."
+          "explanation": "Messages are broken into multiple packets for transmission — each packet travels independently and may take different routes. They are reassembled at the destination."
         },
         {
           "id": "B",
-          "text": "A small unit of data containing a portion of a message along with source and destination addresses",
-          "is_correct": true,
-          "explanation": "A packet is a fragment of a larger message. It includes the data payload plus header information — including source and destination IP addresses — allowing it to be routed independently across a network."
-        },
-        {
-          "id": "C",
           "text": "A type of encryption key used to secure data in transit",
           "is_correct": false,
           "explanation": "An encryption key is a cryptographic value used to secure data. A packet is a unit of network data that may or may not be encrypted."
         },
         {
+          "id": "C",
+          "text": "A small unit of data containing a portion of a message along with source and destination addresses",
+          "is_correct": true,
+          "explanation": "A packet is a fragment of a larger message. It includes the data payload plus header information — including source and destination IP addresses — allowing it to be routed independently across a network."
+        },
+        {
           "id": "D",
-          "text": "A complete message transmitted in a single uninterrupted stream from sender to receiver",
+          "text": "A physical box used to transport hard drives between data centers",
           "is_correct": false,
-          "explanation": "Messages are broken into multiple packets for transmission — each packet travels independently and may take different routes. They are reassembled at the destination."
+          "explanation": "In networking, a packet is a unit of digital data — not a physical container. It is transmitted electronically across a network."
         }
       ],
       "unit_objective": "CSN-1.C"
@@ -163,21 +163,21 @@
       "choices": [
         {
           "id": "A",
+          "text": "It assigns unique IP addresses to devices when they connect to the internet",
+          "is_correct": false,
+          "explanation": "IP address assignment is handled by DHCP (Dynamic Host Configuration Protocol), not HTTP. HTTP is specifically for web resource transfer."
+        },
+        {
+          "id": "B",
           "text": "It encrypts all data transmitted between a web browser and a server",
           "is_correct": false,
           "explanation": "HTTP does not encrypt data — HTTPS (HTTP with TLS) provides encryption. Standard HTTP transmits data in plaintext."
         },
         {
-          "id": "B",
+          "id": "C",
           "text": "It provides rules for how web browsers request web pages and how servers respond with that content",
           "is_correct": true,
           "explanation": "HTTP (HyperText Transfer Protocol) defines how clients (browsers) request resources from web servers, and how servers respond with those resources — it is the protocol underlying the World Wide Web."
-        },
-        {
-          "id": "C",
-          "text": "It assigns unique IP addresses to devices when they connect to the internet",
-          "is_correct": false,
-          "explanation": "IP address assignment is handled by DHCP (Dynamic Host Configuration Protocol), not HTTP. HTTP is specifically for web resource transfer."
         },
         {
           "id": "D",
@@ -201,27 +201,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "DNS (Domain Name System)",
-          "is_correct": true,
-          "explanation": "DNS is the internet's name-to-address translation service. When a browser needs to contact a site like example.com, it queries DNS to obtain the server's numeric IP address — exactly the lookup described in the passage."
+          "text": "HTTP (HyperText Transfer Protocol)",
+          "is_correct": false,
+          "explanation": "HTTP is the protocol the browser uses to request the page after it already has the server's address. The passage specifically describes the earlier step of converting a name into an address, which is DNS."
         },
         {
           "id": "B",
-          "text": "DHCP (Dynamic Host Configuration Protocol)",
-          "is_correct": false,
-          "explanation": "DHCP assigns IP addresses to devices when they first join a network — it does not translate domain names. The scenario describes looking up an existing address for a named site, which is a DNS operation."
-        },
-        {
-          "id": "C",
           "text": "NAT (Network Address Translation)",
           "is_correct": false,
           "explanation": "NAT rewrites addresses on outgoing packets so that many devices can share one public IP — it does not convert human-readable names to numeric addresses. The passage describes name resolution, which is DNS."
         },
         {
-          "id": "D",
-          "text": "HTTP (HyperText Transfer Protocol)",
+          "id": "C",
+          "text": "DHCP (Dynamic Host Configuration Protocol)",
           "is_correct": false,
-          "explanation": "HTTP is the protocol the browser uses to request the page after it already has the server's address. The passage specifically describes the earlier step of converting a name into an address, which is DNS."
+          "explanation": "DHCP assigns IP addresses to devices when they first join a network — it does not translate domain names. The scenario describes looking up an existing address for a named site, which is a DNS operation."
+        },
+        {
+          "id": "D",
+          "text": "DNS (Domain Name System)",
+          "is_correct": true,
+          "explanation": "DNS is the internet's name-to-address translation service. When a browser needs to contact a site like example.com, it queries DNS to obtain the server's numeric IP address — exactly the lookup described in the passage."
         }
       ],
       "unit_objective": "CSN-1.D"
@@ -239,27 +239,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "Protocol",
-          "is_correct": false,
-          "explanation": "A protocol is a set of communication rules — not a unit of data. Each small unit of the transmitted file is called a packet."
-        },
-        {
-          "id": "B",
           "text": "Packet",
           "is_correct": true,
           "explanation": "Packets are the small units into which large messages are broken for transmission. Each packet contains payload data plus source/destination addressing information, and packets may travel independently across the network."
         },
         {
-          "id": "C",
-          "text": "Router",
-          "is_correct": false,
-          "explanation": "A router is a network device that forwards packets — it is not the data unit itself. The small units of the video are packets."
-        },
-        {
-          "id": "D",
+          "id": "B",
           "text": "Bandwidth",
           "is_correct": false,
           "explanation": "Bandwidth is the data capacity of a network connection, not a unit of data. Each small unit described is a packet."
+        },
+        {
+          "id": "C",
+          "text": "Protocol",
+          "is_correct": false,
+          "explanation": "A protocol is a set of communication rules — not a unit of data. Each small unit of the transmitted file is called a packet."
+        },
+        {
+          "id": "D",
+          "text": "Router",
+          "is_correct": false,
+          "explanation": "A router is a network device that forwards packets — it is not the data unit itself. The small units of the video are packets."
         }
       ],
       "unit_objective": "CSN-1.C"
@@ -277,27 +277,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "TCP (Transmission Control Protocol)",
-          "is_correct": true,
-          "explanation": "TCP is the reliable transport protocol that numbers chunks, waits for acknowledgements, retransmits lost chunks, and delivers data in order — exactly the behavior described in the passage."
-        },
-        {
-          "id": "B",
           "text": "UDP (User Datagram Protocol)",
           "is_correct": false,
           "explanation": "UDP is a connectionless protocol that sends packets without confirmations or retransmissions. The passage explicitly describes confirmations and retransmission of lost chunks, which is TCP behavior, not UDP."
         },
         {
-          "id": "C",
-          "text": "HTTP (HyperText Transfer Protocol)",
-          "is_correct": false,
-          "explanation": "HTTP defines the format of web requests and responses. The chunking, acknowledgement, and retransmission described in the passage happen at a lower layer — TCP — even when HTTP is the application using it."
-        },
-        {
-          "id": "D",
+          "id": "B",
           "text": "DNS (Domain Name System)",
           "is_correct": false,
           "explanation": "DNS translates domain names into numeric IP addresses. It does not handle splitting files into chunks or retransmitting lost data, which is the reliable-delivery job that TCP performs."
+        },
+        {
+          "id": "C",
+          "text": "TCP (Transmission Control Protocol)",
+          "is_correct": true,
+          "explanation": "TCP is the reliable transport protocol that numbers chunks, waits for acknowledgements, retransmits lost chunks, and delivers data in order — exactly the behavior described in the passage."
+        },
+        {
+          "id": "D",
+          "text": "HTTP (HyperText Transfer Protocol)",
+          "is_correct": false,
+          "explanation": "HTTP defines the format of web requests and responses. The chunking, acknowledgement, and retransmission described in the passage happen at a lower layer — TCP — even when HTTP is the application using it."
         }
       ],
       "unit_objective": "CSN-1.C"
@@ -315,21 +315,21 @@
       "choices": [
         {
           "id": "A",
-          "text": "Redundancy",
-          "is_correct": true,
-          "explanation": "Redundancy means providing multiple routing paths (or duplicate resources) so that if one path fails, data can still reach its destination via an alternative. The three-cable design and automatic rerouting after a cut is the defining example."
-        },
-        {
-          "id": "B",
           "text": "Bandwidth",
           "is_correct": false,
           "explanation": "Bandwidth is the amount of data a connection can carry per unit of time. The passage is about having alternative paths when one fails, not about the capacity of any single path."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "Latency",
           "is_correct": false,
           "explanation": "Latency is the delay between sending and receiving data. It is not what allows the network to survive a cut cable — surviving a failure via alternate routes is redundancy."
+        },
+        {
+          "id": "C",
+          "text": "Redundancy",
+          "is_correct": true,
+          "explanation": "Redundancy means providing multiple routing paths (or duplicate resources) so that if one path fails, data can still reach its destination via an alternative. The three-cable design and automatic rerouting after a cut is the defining example."
         },
         {
           "id": "D",
@@ -353,27 +353,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "Fault tolerance",
-          "is_correct": true,
-          "explanation": "Fault tolerance is the ability of a system to continue operating correctly when some of its components fail. The cluster surviving two crashed servers without user-visible disruption is the defining example."
-        },
-        {
-          "id": "B",
-          "text": "Abstraction",
-          "is_correct": false,
-          "explanation": "Abstraction is a design technique that hides implementation details behind simpler interfaces. It does not describe keeping a system running when components fail, which is fault tolerance."
-        },
-        {
-          "id": "C",
           "text": "Open access",
           "is_correct": false,
           "explanation": "Open access refers to making information freely available to users. It is unrelated to a system's ability to survive component failures, which is fault tolerance."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Compression",
           "is_correct": false,
           "explanation": "Compression reduces data size to save storage or bandwidth. It has nothing to do with continuing to operate when servers crash, which is fault tolerance."
+        },
+        {
+          "id": "C",
+          "text": "Fault tolerance",
+          "is_correct": true,
+          "explanation": "Fault tolerance is the ability of a system to continue operating correctly when some of its components fail. The cluster surviving two crashed servers without user-visible disruption is the defining example."
+        },
+        {
+          "id": "D",
+          "text": "Abstraction",
+          "is_correct": false,
+          "explanation": "Abstraction is a design technique that hides implementation details behind simpler interfaces. It does not describe keeping a system running when components fail, which is fault tolerance."
         }
       ],
       "unit_objective": "CSN-1.E"
@@ -391,27 +391,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "The World Wide Web",
-          "is_correct": true,
-          "explanation": "The World Wide Web is the service of interlinked HTML documents accessed via URLs over HTTP. The articles the student reads in her browser are part of the Web, which runs on top of the underlying internet."
-        },
-        {
-          "id": "B",
-          "text": "The internet itself",
-          "is_correct": false,
-          "explanation": "The internet is the global network infrastructure that carries data for many services (email, games, the Web). The passage explicitly distinguishes the article-reading service from the shared underlying connection, so the answer is the Web, not the internet."
-        },
-        {
-          "id": "C",
           "text": "A local area network (LAN)",
           "is_correct": false,
           "explanation": "A LAN connects devices in a small geographic area like a home or office — it is not the service of interlinked web pages. The articles accessed over HTTP through a browser belong to the World Wide Web."
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "The World Wide Web",
+          "is_correct": true,
+          "explanation": "The World Wide Web is the service of interlinked HTML documents accessed via URLs over HTTP. The articles the student reads in her browser are part of the Web, which runs on top of the underlying internet."
+        },
+        {
+          "id": "C",
           "text": "The Domain Name System (DNS)",
           "is_correct": false,
           "explanation": "DNS is the lookup service that translates domain names to IP addresses. It is not the collection of interlinked documents the student is reading — that collection is the World Wide Web."
+        },
+        {
+          "id": "D",
+          "text": "The internet itself",
+          "is_correct": false,
+          "explanation": "The internet is the global network infrastructure that carries data for many services (email, games, the Web). The passage explicitly distinguishes the article-reading service from the shared underlying connection, so the answer is the Web, not the internet."
         }
       ],
       "unit_objective": "CSN-1.A"
@@ -435,21 +435,21 @@
         },
         {
           "id": "B",
-          "text": "The network has too many connections, which reduces bandwidth",
-          "is_correct": false,
-          "explanation": "A ring with 4 nodes has only 4 connections — not too many. The limitation is insufficient connections (no redundant paths), not too many."
-        },
-        {
-          "id": "C",
           "text": "The network cannot use TCP because there are no routers",
           "is_correct": false,
           "explanation": "TCP can operate in any network — it does not require routers specifically. The limitation here is the single-path ring topology's lack of fault tolerance."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "The network uses too many IP addresses",
           "is_correct": false,
           "explanation": "A 4-node network uses 4 IP addresses — this is not excessive. The design limitation is the lack of redundant routing paths."
+        },
+        {
+          "id": "D",
+          "text": "The network has too many connections, which reduces bandwidth",
+          "is_correct": false,
+          "explanation": "A ring with 4 nodes has only 4 connections — not too many. The limitation is insufficient connections (no redundant paths), not too many."
         }
       ],
       "unit_objective": "CSN-1.E"
@@ -467,27 +467,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "The internet uses packet switching, where each packet is routed independently based on network conditions",
-          "is_correct": true,
-          "explanation": "Packet switching allows each packet to be routed independently based on current network conditions (congestion, available links). This improves efficiency and provides fault tolerance — if one route is congested or broken, packets can take alternative paths."
+          "text": "The internet requires all packets from a single file to travel on different routes to increase security",
+          "is_correct": false,
+          "explanation": "Packets take different routes based on network conditions and routing algorithms — not as a security requirement. Security is provided by encryption, not path diversity."
         },
         {
           "id": "B",
-          "text": "The file was split into different formats — some packets use TCP and others use HTTP",
-          "is_correct": false,
-          "explanation": "Packets in a single transmission use the same protocol. The reason for different routes is packet switching — each router independently decides the best next hop based on current conditions."
-        },
-        {
-          "id": "C",
           "text": "Different packets have different bandwidth allocations, which determines their routing",
           "is_correct": false,
           "explanation": "Individual packets do not have different bandwidth allocations. Routing decisions are made by routers based on network topology, congestion, and available paths."
         },
         {
-          "id": "D",
-          "text": "The internet requires all packets from a single file to travel on different routes to increase security",
+          "id": "C",
+          "text": "The file was split into different formats — some packets use TCP and others use HTTP",
           "is_correct": false,
-          "explanation": "Packets take different routes based on network conditions and routing algorithms — not as a security requirement. Security is provided by encryption, not path diversity."
+          "explanation": "Packets in a single transmission use the same protocol. The reason for different routes is packet switching — each router independently decides the best next hop based on current conditions."
+        },
+        {
+          "id": "D",
+          "text": "The internet uses packet switching, where each packet is routed independently based on network conditions",
+          "is_correct": true,
+          "explanation": "Packet switching allows each packet to be routed independently based on current network conditions (congestion, available links). This improves efficiency and provides fault tolerance — if one route is congested or broken, packets can take alternative paths."
         }
       ],
       "unit_objective": "CSN-1.C"
@@ -528,9 +528,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "Design A",
-          "is_correct": false,
-          "explanation": "A linear chain (bus topology) has single points of failure — if any connection breaks, devices downstream are disconnected. This design offers no redundancy."
+          "text": "Design C",
+          "is_correct": true,
+          "explanation": "Design C explicitly provides redundancy — each device has two independent connections. If one connection fails, the other keeps the device connected. This is fault tolerance: continued operation despite component failure."
         },
         {
           "id": "B",
@@ -540,9 +540,9 @@
         },
         {
           "id": "C",
-          "text": "Design C",
-          "is_correct": true,
-          "explanation": "Design C explicitly provides redundancy — each device has two independent connections. If one connection fails, the other keeps the device connected. This is fault tolerance: continued operation despite component failure."
+          "text": "Design A",
+          "is_correct": false,
+          "explanation": "A linear chain (bus topology) has single points of failure — if any connection breaks, devices downstream are disconnected. This design offers no redundancy."
         },
         {
           "id": "D",
@@ -571,9 +571,9 @@
         },
         {
           "id": "B",
-          "text": "Parallel computing is only used for sorting algorithms; distributed computing is only used for web servers",
+          "text": "Parallel and distributed computing are identical — both run tasks simultaneously on multiple processors",
           "is_correct": false,
-          "explanation": "Both parallel and distributed computing have broad applications beyond specific algorithm types. The distinction is about hardware architecture — single multi-processor system vs. multiple networked computers."
+          "explanation": "While both involve simultaneous processing, they differ structurally: parallel = multiple processors in one machine; distributed = task split across multiple separate, networked computers."
         },
         {
           "id": "C",
@@ -583,9 +583,9 @@
         },
         {
           "id": "D",
-          "text": "Parallel and distributed computing are identical — both run tasks simultaneously on multiple processors",
+          "text": "Parallel computing is only used for sorting algorithms; distributed computing is only used for web servers",
           "is_correct": false,
-          "explanation": "While both involve simultaneous processing, they differ structurally: parallel = multiple processors in one machine; distributed = task split across multiple separate, networked computers."
+          "explanation": "Both parallel and distributed computing have broad applications beyond specific algorithm types. The distinction is about hardware architecture — single multi-processor system vs. multiple networked computers."
         }
       ],
       "unit_objective": "CSN-2.A"
@@ -631,27 +631,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "Task D uses a less efficient algorithm than the other tasks",
+          "text": "The 4 processors are using different bandwidth allocations, which slows some of them down",
           "is_correct": false,
-          "explanation": "Algorithm efficiency affects sequential time, not the gap between expected and actual parallel speedup. The reason parallel time is not 1/4 of sequential time is that not all of Task D can be parallelized."
+          "explanation": "Bandwidth affects data transfer, not processor computation speed. The limitation here is that part of Task D must be executed sequentially, preventing full 4× parallelization."
         },
         {
           "id": "B",
-          "text": "Some parts of Task D must be executed sequentially and cannot be parallelized, limiting the achievable speedup",
-          "is_correct": true,
-          "explanation": "The maximum speedup from parallelism is limited by the sequential (non-parallelizable) portion of the task. If some steps must happen in order, they cannot be split across processors — so the sequential portion acts as a ceiling on achievable speedup."
-        },
-        {
-          "id": "C",
           "text": "Using 4 processors always produces exactly a 2× speedup, regardless of the task",
           "is_correct": false,
           "explanation": "Speedup depends on how much of the task is parallelizable. Tasks A and B achieve 4× speedup; Task D achieves only 2× speedup because it has a larger sequential portion."
         },
         {
+          "id": "C",
+          "text": "Some parts of Task D must be executed sequentially and cannot be parallelized, limiting the achievable speedup",
+          "is_correct": true,
+          "explanation": "The maximum speedup from parallelism is limited by the sequential (non-parallelizable) portion of the task. If some steps must happen in order, they cannot be split across processors — so the sequential portion acts as a ceiling on achievable speedup."
+        },
+        {
           "id": "D",
-          "text": "The 4 processors are using different bandwidth allocations, which slows some of them down",
+          "text": "Task D uses a less efficient algorithm than the other tasks",
           "is_correct": false,
-          "explanation": "Bandwidth affects data transfer, not processor computation speed. The limitation here is that part of Task D must be executed sequentially, preventing full 4× parallelization."
+          "explanation": "Algorithm efficiency affects sequential time, not the gap between expected and actual parallel speedup. The reason parallel time is not 1/4 of sequential time is that not all of Task D can be parallelized."
         }
       ],
       "unit_objective": "CSN-2.A"
@@ -669,27 +669,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "HTTP",
+          "text": "Redundancy",
           "is_correct": false,
-          "explanation": "HTTP is the protocol used to request and transfer web content after the connection is established. It does not resolve domain names."
+          "explanation": "Redundancy is a network design property (multiple paths), not a service that resolves domain names. DNS performs the name-to-IP resolution."
         },
         {
           "id": "B",
-          "text": "TCP",
-          "is_correct": false,
-          "explanation": "TCP provides reliable packet delivery — it ensures data arrives correctly. DNS resolves domain names to IP addresses."
-        },
-        {
-          "id": "C",
           "text": "DNS",
           "is_correct": true,
           "explanation": "DNS (Domain Name System) translates human-readable domain names like 'www.example.com' into numeric IP addresses that routers can use to direct network traffic to the correct server."
         },
         {
-          "id": "D",
-          "text": "Redundancy",
+          "id": "C",
+          "text": "TCP",
           "is_correct": false,
-          "explanation": "Redundancy is a network design property (multiple paths), not a service that resolves domain names. DNS performs the name-to-IP resolution."
+          "explanation": "TCP provides reliable packet delivery — it ensures data arrives correctly. DNS resolves domain names to IP addresses."
+        },
+        {
+          "id": "D",
+          "text": "HTTP",
+          "is_correct": false,
+          "explanation": "HTTP is the protocol used to request and transfer web content after the connection is established. It does not resolve domain names."
         }
       ],
       "unit_objective": "CSN-1.D"
@@ -707,27 +707,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "The mesh design requires fewer IP addresses than the star design",
-          "is_correct": false,
-          "explanation": "IP address count depends on the number of devices, not the topology. The justification for the mesh design is fault tolerance, not IP address efficiency."
-        },
-        {
-          "id": "B",
-          "text": "The mesh design provides redundant paths — if any single node or link fails, data can be rerouted, keeping records accessible",
-          "is_correct": true,
-          "explanation": "In a hospital, continuous availability is critical. A mesh design with multiple paths is fault tolerant — any single failure can be routed around. The star design has a single point of failure (the central switch)."
-        },
-        {
-          "id": "C",
           "text": "The mesh design compresses patient records more efficiently than the star design",
           "is_correct": false,
           "explanation": "Network topology does not affect data compression. The recommendation is justified by the mesh design's fault tolerance through redundant paths."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "The mesh design transmits data faster because it uses parallel computing",
           "is_correct": false,
           "explanation": "Mesh topology provides routing redundancy — it does not inherently use parallel computing. The benefit is fault tolerance, not speed improvement."
+        },
+        {
+          "id": "C",
+          "text": "The mesh design provides redundant paths — if any single node or link fails, data can be rerouted, keeping records accessible",
+          "is_correct": true,
+          "explanation": "In a hospital, continuous availability is critical. A mesh design with multiple paths is fault tolerant — any single failure can be routed around. The star design has a single point of failure (the central switch)."
+        },
+        {
+          "id": "D",
+          "text": "The mesh design requires fewer IP addresses than the star design",
+          "is_correct": false,
+          "explanation": "IP address count depends on the number of devices, not the topology. The justification for the mesh design is fault tolerance, not IP address efficiency."
         }
       ],
       "unit_objective": "CSN-1.E"
@@ -778,27 +778,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "10 seconds",
+          "text": "14 seconds",
           "is_correct": false,
-          "explanation": "10 seconds is just the time for Segment 1. Segments 2-4 run in parallel (taking the max time: 8 seconds) and then Segment 5 takes 4 more seconds: 10 + 8 + 4 = 22 seconds total."
+          "explanation": "14 would equal Segment 1 + Segment 5 alone (10 + 4). The parallel segments must also complete before Segment 5 can run: 10 + 8 + 4 = 22 seconds."
         },
         {
           "id": "B",
-          "text": "22 seconds",
-          "is_correct": true,
-          "explanation": "Segment 1 (sequential): 10s. Segments 2, 3, 4 (parallel): the parallel group takes as long as the slowest = 8s (Segment 3). Segment 5 (sequential after parallel): 4s. Total = 10 + 8 + 4 = 22 seconds."
-        },
-        {
-          "id": "C",
           "text": "33 seconds",
           "is_correct": false,
           "explanation": "33 seconds would be the sum of all segments run sequentially (10+5+8+6+4=33). With parallel computing, Segments 2, 3, and 4 run simultaneously: 10 + max(5,8,6) + 4 = 10 + 8 + 4 = 22 seconds."
         },
         {
+          "id": "C",
+          "text": "22 seconds",
+          "is_correct": true,
+          "explanation": "Segment 1 (sequential): 10s. Segments 2, 3, 4 (parallel): the parallel group takes as long as the slowest = 8s (Segment 3). Segment 5 (sequential after parallel): 4s. Total = 10 + 8 + 4 = 22 seconds."
+        },
+        {
           "id": "D",
-          "text": "14 seconds",
+          "text": "10 seconds",
           "is_correct": false,
-          "explanation": "14 would equal Segment 1 + Segment 5 alone (10 + 4). The parallel segments must also complete before Segment 5 can run: 10 + 8 + 4 = 22 seconds."
+          "explanation": "10 seconds is just the time for Segment 1. Segments 2-4 run in parallel (taking the max time: 8 seconds) and then Segment 5 takes 4 more seconds: 10 + 8 + 4 = 22 seconds total."
         }
       ],
       "unit_objective": "CSN-2.A"
@@ -822,21 +822,21 @@
         },
         {
           "id": "B",
-          "text": "HTTP transmits data in plaintext, so anyone who intercepts the packets can read the credit card number and home address",
-          "is_correct": true,
-          "explanation": "HTTP is unencrypted — data is transmitted in readable plaintext. A network attacker (e.g., on a shared Wi-Fi network) could intercept the packets and read the sensitive information."
-        },
-        {
-          "id": "C",
           "text": "The website uses too much bandwidth because HTTP is less efficient than HTTPS",
           "is_correct": false,
           "explanation": "Bandwidth efficiency is not the concern here. The risk is that HTTP transmits sensitive data without encryption, making it readable if intercepted."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "The DNS server will expose the user's home address to third parties",
           "is_correct": false,
           "explanation": "DNS resolves domain names to IP addresses — it does not transmit or see application-layer data like addresses or credit card numbers."
+        },
+        {
+          "id": "D",
+          "text": "HTTP transmits data in plaintext, so anyone who intercepts the packets can read the credit card number and home address",
+          "is_correct": true,
+          "explanation": "HTTP is unencrypted — data is transmitted in readable plaintext. A network attacker (e.g., on a shared Wi-Fi network) could intercept the packets and read the sensitive information."
         }
       ],
       "unit_objective": "CSN-1.A"
@@ -853,15 +853,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "The ability of a system to encrypt data as traffic increases",
+          "text": "The maximum bandwidth of a network connection",
           "is_correct": false,
-          "explanation": "Encryption is a security property. Scalability is about a system's ability to handle increased workload without performance degradation."
+          "explanation": "Bandwidth is a capacity measurement for a specific link. Scalability refers to the system's ability to grow and handle increased demand."
         },
         {
           "id": "B",
-          "text": "The ability of a system to handle an increasing number of users or requests without a significant drop in performance",
-          "is_correct": true,
-          "explanation": "Scalability means a system can grow to accommodate more users, data, or load while maintaining acceptable performance — a critical property of web services and distributed systems."
+          "text": "The ability of a system to encrypt data as traffic increases",
+          "is_correct": false,
+          "explanation": "Encryption is a security property. Scalability is about a system's ability to handle increased workload without performance degradation."
         },
         {
           "id": "C",
@@ -871,9 +871,9 @@
         },
         {
           "id": "D",
-          "text": "The maximum bandwidth of a network connection",
-          "is_correct": false,
-          "explanation": "Bandwidth is a capacity measurement for a specific link. Scalability refers to the system's ability to grow and handle increased demand."
+          "text": "The ability of a system to handle an increasing number of users or requests without a significant drop in performance",
+          "is_correct": true,
+          "explanation": "Scalability means a system can grow to accommodate more users, data, or load while maintaining acceptable performance — a critical property of web services and distributed systems."
         }
       ],
       "unit_objective": "CSN-1.E"
@@ -903,15 +903,15 @@
         },
         {
           "id": "C",
-          "text": "Each city has a separate IP address, preventing routing conflicts when links fail",
-          "is_correct": false,
-          "explanation": "Each city having unique IP addresses is a basic networking requirement, not a fault tolerance mechanism. Fault tolerance comes from the redundant multiple connections per city."
-        },
-        {
-          "id": "D",
           "text": "The 10-city network is small enough that all packets arrive within 1 millisecond",
           "is_correct": false,
           "explanation": "Speed is not fault tolerance. Fault tolerance is about continued operation when connections fail — the redundant connections (3 per city) provide this property."
+        },
+        {
+          "id": "D",
+          "text": "Each city has a separate IP address, preventing routing conflicts when links fail",
+          "is_correct": false,
+          "explanation": "Each city having unique IP addresses is a basic networking requirement, not a fault tolerance mechanism. Fault tolerance comes from the redundant multiple connections per city."
         }
       ],
       "unit_objective": "CSN-1.E"
@@ -962,27 +962,27 @@
       "choices": [
         {
           "id": "A",
+          "text": "There is no speedup because the sequential portions prevent any parallel benefit",
+          "is_correct": false,
+          "explanation": "The sequential portions (7 seconds total) do limit speedup, but the parallel chunks (30 seconds of work compressed into 10) provide a significant reduction from 37s to 17s — a real speedup."
+        },
+        {
+          "id": "B",
           "text": "The speedup is 3× because 3 processors are used",
           "is_correct": false,
           "explanation": "The speedup is not simply equal to the number of processors because the sequential portions (load + combine = 7s) cannot be parallelized. Sequential total = 37s; parallel = 17s. Speedup ≈ 2.18×, not 3×."
         },
         {
-          "id": "B",
+          "id": "C",
           "text": "The speedup is approximately 2.18× (sequential = 37s, parallel = 17s)",
           "is_correct": true,
           "explanation": "Sequential: 4+10+10+10+3 = 37s. Parallel: 4s (load) + 10s (A, B, C run simultaneously — max = 10s) + 3s (combine) = 17s. Speedup = 37 ÷ 17 ≈ 2.18×."
         },
         {
-          "id": "C",
+          "id": "D",
           "text": "The speedup is approximately 1.3× because only the processing chunks are parallelized",
           "is_correct": false,
           "explanation": "The parallel time is 17s and sequential is 37s. 37 ÷ 17 ≈ 2.18, not 1.3. The processing chunks alone reduce total time significantly."
-        },
-        {
-          "id": "D",
-          "text": "There is no speedup because the sequential portions prevent any parallel benefit",
-          "is_correct": false,
-          "explanation": "The sequential portions (7 seconds total) do limit speedup, but the parallel chunks (30 seconds of work compressed into 10) provide a significant reduction from 37s to 17s — a real speedup."
         }
       ],
       "unit_objective": "CSN-2.A"
@@ -1000,9 +1000,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "This task is well-suited for distributed computing because all 1 million samples can be processed independently across many machines",
+          "text": "Using 10,000 machines could reduce the total analysis time by approximately a factor of 10,000 since tasks are independent",
           "is_correct": true,
-          "explanation": "When tasks are independent (embarrassingly parallel), they are ideal for distributed computing — different machines handle different samples simultaneously with no coordination overhead."
+          "explanation": "When tasks are fully independent, distributing across N machines reduces total time by approximately N. With 10,000 machines each handling 100 samples, the workload completes ~10,000× faster than sequential processing."
         },
         {
           "id": "B",
@@ -1012,15 +1012,15 @@
         },
         {
           "id": "C",
-          "text": "Using 10,000 machines could reduce the total analysis time by approximately a factor of 10,000 since tasks are independent",
-          "is_correct": true,
-          "explanation": "When tasks are fully independent, distributing across N machines reduces total time by approximately N. With 10,000 machines each handling 100 samples, the workload completes ~10,000× faster than sequential processing."
-        },
-        {
-          "id": "D",
           "text": "Distributed computing is not appropriate because each machine needs the same IP address to share data",
           "is_correct": false,
           "explanation": "Machines in a distributed system each have unique IP addresses — they communicate over a network. Shared IP addresses would cause routing failures, not enable communication."
+        },
+        {
+          "id": "D",
+          "text": "This task is well-suited for distributed computing because all 1 million samples can be processed independently across many machines",
+          "is_correct": true,
+          "explanation": "When tasks are independent (embarrassingly parallel), they are ideal for distributed computing — different machines handle different samples simultaneously with no coordination overhead."
         }
       ],
       "unit_objective": "CSN-2.A"
@@ -1038,9 +1038,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "Scalability, because multiple data centers can handle more users than a single center",
+          "text": "Parallel computing, because each data center runs the same code simultaneously",
           "is_correct": false,
-          "explanation": "While multiple data centers do add capacity, the key property demonstrated here is fault tolerance — the automatic failover when a data center fails. Continued availability despite failures is fault tolerance, not just scalability."
+          "explanation": "Parallel computing involves splitting a single task across multiple processors. Multiple data centers serving different users is load distribution — the key property enabling failure survival is fault tolerance."
         },
         {
           "id": "B",
@@ -1056,9 +1056,9 @@
         },
         {
           "id": "D",
-          "text": "Parallel computing, because each data center runs the same code simultaneously",
+          "text": "Scalability, because multiple data centers can handle more users than a single center",
           "is_correct": false,
-          "explanation": "Parallel computing involves splitting a single task across multiple processors. Multiple data centers serving different users is load distribution — the key property enabling failure survival is fault tolerance."
+          "explanation": "While multiple data centers do add capacity, the key property demonstrated here is fault tolerance — the automatic failover when a data center fails. Continued availability despite failures is fault tolerance, not just scalability."
         }
       ],
       "unit_objective": "CSN-1.E"
@@ -1082,9 +1082,9 @@
         },
         {
           "id": "B",
-          "text": "The system should use DNS to compress sensor data before transmission",
+          "text": "Each sensor must use TCP because packet switching is not available for city networks",
           "is_correct": false,
-          "explanation": "DNS translates domain names to IP addresses — it does not compress data. Data compression (if used) would be handled by the application layer."
+          "explanation": "Packet switching is the fundamental mechanism of the internet and all modern IP networks. City networks use standard packet-switched infrastructure, and not all IoT sensors require TCP specifically."
         },
         {
           "id": "C",
@@ -1094,9 +1094,9 @@
         },
         {
           "id": "D",
-          "text": "Each sensor must use TCP because packet switching is not available for city networks",
+          "text": "The system should use DNS to compress sensor data before transmission",
           "is_correct": false,
-          "explanation": "Packet switching is the fundamental mechanism of the internet and all modern IP networks. City networks use standard packet-switched infrastructure, and not all IoT sensors require TCP specifically."
+          "explanation": "DNS translates domain names to IP addresses — it does not compress data. Data compression (if used) would be handled by the application layer."
         }
       ],
       "unit_objective": "CSN-1.E"
@@ -1114,27 +1114,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "The program is undecidable, so additional processors do not help",
-          "is_correct": false,
-          "explanation": "An undecidable program would not produce results with any number of processors. The program finishes in 30 seconds — it is decidable. The speedup limitation is due to sequential portions."
-        },
-        {
-          "id": "B",
-          "text": "Some portion of the program must run sequentially and cannot be divided across processors, limiting the maximum speedup",
-          "is_correct": true,
-          "explanation": "When any portion of a program is sequential — meaning it cannot be parallelized — that portion takes the same time regardless of processor count. This creates a ceiling on speedup, pulling total time above the ideal 120÷6=20s."
-        },
-        {
-          "id": "C",
           "text": "Adding more processors always reduces performance because they compete for bandwidth",
           "is_correct": false,
           "explanation": "The program runs faster with 6 processors (30s vs 120s). More processors can improve performance — the limitation is the sequential portion of the program, not processor competition."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "The 6 processors each have lower clock speeds than the single processor",
           "is_correct": false,
           "explanation": "Clock speed differences are not described in the scenario. The reason speedup is less than 6× is that some program steps must run sequentially and cannot be split across processors, regardless of how many processors are added."
+        },
+        {
+          "id": "C",
+          "text": "The program is undecidable, so additional processors do not help",
+          "is_correct": false,
+          "explanation": "An undecidable program would not produce results with any number of processors. The program finishes in 30 seconds — it is decidable. The speedup limitation is due to sequential portions."
+        },
+        {
+          "id": "D",
+          "text": "Some portion of the program must run sequentially and cannot be divided across processors, limiting the maximum speedup",
+          "is_correct": true,
+          "explanation": "When any portion of a program is sequential — meaning it cannot be parallelized — that portion takes the same time regardless of processor count. This creates a ceiling on speedup, pulling total time above the ideal 120÷6=20s."
         }
       ],
       "unit_objective": "CSN-2.A"
@@ -1152,27 +1152,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "A single server creates a single point of failure — if it goes down, all 1,000,000 users lose access",
-          "is_correct": true,
-          "explanation": "A single server has no redundancy. Any failure — hardware, software, or network — takes down the entire service for all users. Fault tolerance requires distributing the service across multiple servers."
-        },
-        {
-          "id": "B",
-          "text": "A single server may not scale to handle 1,000,000 simultaneous users — distributing load across multiple servers would improve scalability",
-          "is_correct": true,
-          "explanation": "A single server has finite processing capacity. As user load grows 100×, the server will likely become a bottleneck. Distributing load across multiple servers improves scalability."
-        },
-        {
-          "id": "C",
           "text": "The server must change its IP address for each new user to ensure packets are routed correctly",
           "is_correct": false,
           "explanation": "A server uses one (or a few) fixed IP addresses — it does not change addresses per user. Users' clients connect to the server's IP; the server handles multiple concurrent connections with the same IP."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "TCP must be replaced with HTTP to handle more than 100,000 simultaneous connections",
           "is_correct": false,
           "explanation": "HTTP runs on top of TCP — replacing TCP with HTTP makes no sense. HTTP is the application protocol; TCP is the transport protocol. Neither needs to be replaced to scale — the architecture needs more servers."
+        },
+        {
+          "id": "C",
+          "text": "A single server creates a single point of failure — if it goes down, all 1,000,000 users lose access",
+          "is_correct": true,
+          "explanation": "A single server has no redundancy. Any failure — hardware, software, or network — takes down the entire service for all users. Fault tolerance requires distributing the service across multiple servers."
+        },
+        {
+          "id": "D",
+          "text": "A single server may not scale to handle 1,000,000 simultaneous users — distributing load across multiple servers would improve scalability",
+          "is_correct": true,
+          "explanation": "A single server has finite processing capacity. As user load grows 100×, the server will likely become a bottleneck. Distributing load across multiple servers improves scalability."
         }
       ],
       "unit_objective": "CSN-1.E"
@@ -1190,27 +1190,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "Design Y uses fewer components, which reduces the probability of any single component failing",
-          "is_correct": false,
-          "explanation": "Design Y uses MORE components (two switches, two routers per path). The benefit is not fewer components but more redundant paths that survive individual component failures."
-        },
-        {
-          "id": "B",
-          "text": "Design Y is fault tolerant — multiple independent paths mean any single component failure can be worked around, keeping all servers connected",
-          "is_correct": true,
-          "explanation": "Design Y's redundant switches and routers mean no single point of failure. If one switch or router fails, packets reroute through the remaining devices — all servers stay connected."
-        },
-        {
-          "id": "C",
           "text": "Design Y compresses data more efficiently because packets can choose shorter routes",
           "is_correct": false,
           "explanation": "Path selection does not affect data compression. Design Y's advantage is fault tolerance through multiple redundant paths — not compression efficiency."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Design Y is better because it uses DNS to resolve server addresses more quickly",
           "is_correct": false,
           "explanation": "DNS performs name resolution — it is not affected by whether one or two routers are used. Design Y's advantage is fault tolerance through physical network redundancy."
+        },
+        {
+          "id": "C",
+          "text": "Design Y uses fewer components, which reduces the probability of any single component failing",
+          "is_correct": false,
+          "explanation": "Design Y uses MORE components (two switches, two routers per path). The benefit is not fewer components but more redundant paths that survive individual component failures."
+        },
+        {
+          "id": "D",
+          "text": "Design Y is fault tolerant — multiple independent paths mean any single component failure can be worked around, keeping all servers connected",
+          "is_correct": true,
+          "explanation": "Design Y's redundant switches and routers mean no single point of failure. If one switch or router fails, packets reroute through the remaining devices — all servers stay connected."
         }
       ],
       "unit_objective": "CSN-1.E"
@@ -1228,27 +1228,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "Fault tolerance — if the New York server goes down, users can still access the video from Tokyo or other CDN nodes",
-          "is_correct": true,
-          "explanation": "Geographic redundancy means the video is available from multiple locations. If the origin server fails, CDN nodes worldwide continue serving the content — this is fault tolerance through distributed redundancy."
-        },
-        {
-          "id": "B",
-          "text": "Scalability — serving content from local CDN nodes reduces load on the origin server and improves response times for large user populations",
-          "is_correct": true,
-          "explanation": "CDNs distribute load away from a single origin server to many local servers. As user count grows globally, the CDN scales to serve users from nearby locations without overloading the origin."
-        },
-        {
-          "id": "C",
           "text": "Packet switching — each video frame travels independently via a different CDN node",
           "is_correct": false,
           "explanation": "Packet switching describes how individual packets are routed — it is not the same as distributing content across geographic CDN nodes. The CDN design demonstrates fault tolerance and scalability."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Data abstraction — users do not need to know the IP addresses of CDN servers",
           "is_correct": false,
           "explanation": "Users not knowing IP addresses is an abstraction layer, but the CDN design's primary properties demonstrated here are fault tolerance and scalability — not data abstraction."
+        },
+        {
+          "id": "C",
+          "text": "Scalability — serving content from local CDN nodes reduces load on the origin server and improves response times for large user populations",
+          "is_correct": true,
+          "explanation": "CDNs distribute load away from a single origin server to many local servers. As user count grows globally, the CDN scales to serve users from nearby locations without overloading the origin."
+        },
+        {
+          "id": "D",
+          "text": "Fault tolerance — if the New York server goes down, users can still access the video from Tokyo or other CDN nodes",
+          "is_correct": true,
+          "explanation": "Geographic redundancy means the video is available from multiple locations. If the origin server fails, CDN nodes worldwide continue serving the content — this is fault tolerance through distributed redundancy."
         }
       ],
       "unit_objective": "CSN-1.E"

@@ -15,9 +15,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$v(t) = 3t^2 - 12t + 9$",
-          "is_correct": true,
-          "explanation": "Velocity is the derivative of position: $v(t) = s'(t) = 3t^2 - 12t + 9$."
+          "text": "$v(t) = 3t^2 + 12t + 9$",
+          "is_correct": false,
+          "explanation": "Sign error on the middle term. $\\frac{d}{dt}[-6t^2] = -12t$, not $+12t$."
         },
         {
           "id": "B",
@@ -27,15 +27,15 @@
         },
         {
           "id": "C",
-          "text": "$v(t) = \\frac{t^4}{4} - 2t^3 + \\frac{9t^2}{2}$",
-          "is_correct": false,
-          "explanation": "This is the antiderivative (integral) of $s(t)$, not the derivative. Velocity requires differentiation."
+          "text": "$v(t) = 3t^2 - 12t + 9$",
+          "is_correct": true,
+          "explanation": "Velocity is the derivative of position: $v(t) = s'(t) = 3t^2 - 12t + 9$."
         },
         {
           "id": "D",
-          "text": "$v(t) = 3t^2 + 12t + 9$",
+          "text": "$v(t) = \\frac{t^4}{4} - 2t^3 + \\frac{9t^2}{2}$",
           "is_correct": false,
-          "explanation": "Sign error on the middle term. $\\frac{d}{dt}[-6t^2] = -12t$, not $+12t$."
+          "explanation": "This is the antiderivative (integral) of $s(t)$, not the derivative. Velocity requires differentiation."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -54,27 +54,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$3$ m/s²",
+          "text": "$16$ m/s²",
           "is_correct": false,
-          "explanation": "$a(t) = v'(t) = 8t - 8$. At $t = 2$: $a(2) = 16 - 8 = 8$ m/s², not 3."
+          "explanation": "Using $v'(2) = 8t - 8$ at $t=2$: $16-8=8$, not 16. The constant $-8$ must be subtracted."
         },
         {
           "id": "B",
-          "text": "$8$ m/s²",
-          "is_correct": true,
-          "explanation": "Acceleration is the derivative of velocity: $a(t) = v'(t) = 8t - 8$. At $t = 2$: $a(2) = 16 - 8 = 8$ m/s²."
-        },
-        {
-          "id": "C",
           "text": "$5$ m/s²",
           "is_correct": false,
           "explanation": "Substituting $t=2$ into $v(t) = 4(4)-8(2)+3 = 3$ gives velocity, not acceleration. Acceleration requires differentiating first."
         },
         {
+          "id": "C",
+          "text": "$8$ m/s²",
+          "is_correct": true,
+          "explanation": "Acceleration is the derivative of velocity: $a(t) = v'(t) = 8t - 8$. At $t = 2$: $a(2) = 16 - 8 = 8$ m/s²."
+        },
+        {
           "id": "D",
-          "text": "$16$ m/s²",
+          "text": "$3$ m/s²",
           "is_correct": false,
-          "explanation": "Using $v'(2) = 8t - 8$ at $t=2$: $16-8=8$, not 16. The constant $-8$ must be subtracted."
+          "explanation": "$a(t) = v'(t) = 8t - 8$. At $t = 2$: $a(2) = 16 - 8 = 8$ m/s², not 3."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -89,27 +89,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$L(x) = 3 + \\frac{1}{6}(x-9)$",
-          "is_correct": true,
-          "explanation": "Linearization: $L(x) = f(a) + f'(a)(x-a)$. $f(9) = 3$, $f'(x) = \\frac{1}{2\\sqrt{x}}$, $f'(9) = \\frac{1}{6}$. So $L(x) = 3 + \\frac{1}{6}(x-9)$."
-        },
-        {
-          "id": "B",
-          "text": "$L(x) = 3 + \\frac{1}{3}(x-9)$",
-          "is_correct": false,
-          "explanation": "$f'(9) = \\frac{1}{2\\sqrt{9}} = \\frac{1}{6}$, not $\\frac{1}{3}$. Ensure the square root in the denominator is evaluated at $x=9$."
-        },
-        {
-          "id": "C",
           "text": "$L(x) = 9 + 3(x-9)$",
           "is_correct": false,
           "explanation": "The base point should use $f(9) = 3$ (not 9) and the slope is $f'(9) = \\frac{1}{6}$ (not 3). The function value and its derivative were swapped."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "$L(x) = 3 + \\sqrt{x-9}$",
           "is_correct": false,
           "explanation": "Linearization uses the derivative evaluated at $a$, not the original function. The linear approximation is $3 + \\frac{1}{6}(x-9)$, a line, not a radical."
+        },
+        {
+          "id": "C",
+          "text": "$L(x) = 3 + \\frac{1}{6}(x-9)$",
+          "is_correct": true,
+          "explanation": "Linearization: $L(x) = f(a) + f'(a)(x-a)$. $f(9) = 3$, $f'(x) = \\frac{1}{2\\sqrt{x}}$, $f'(9) = \\frac{1}{6}$. So $L(x) = 3 + \\frac{1}{6}(x-9)$."
+        },
+        {
+          "id": "D",
+          "text": "$L(x) = 3 + \\frac{1}{3}(x-9)$",
+          "is_correct": false,
+          "explanation": "$f'(9) = \\frac{1}{2\\sqrt{9}} = \\frac{1}{6}$, not $\\frac{1}{3}$. Ensure the square root in the denominator is evaluated at $x=9$."
         }
       ],
       "stimulus": {
@@ -128,27 +128,27 @@
       "choices": [
         {
           "id": "A",
+          "text": "The limit equals $\\frac{-\\sin(0)}{0}$",
+          "is_correct": false,
+          "explanation": "L'Hôpital's Rule differentiates numerator and denominator separately: $\\frac{d}{dx}[\\sin x] = \\cos x$, and $\\frac{d}{dx}[x] = 1$. The result is $\\frac{\\cos(0)}{1} = 1$."
+        },
+        {
+          "id": "B",
           "text": "The limit equals $\\frac{\\cos(0)}{1} = 1$",
           "is_correct": true,
           "explanation": "Since $\\frac{0}{0}$ is indeterminate, L'Hôpital's applies: $\\lim_{x\\to 0}\\frac{\\sin x}{x} = \\lim_{x\\to 0}\\frac{\\cos x}{1} = \\cos(0) = 1$."
         },
         {
-          "id": "B",
+          "id": "C",
           "text": "The limit equals $0$ because $\\sin(0) = 0$",
           "is_correct": false,
           "explanation": "Direct substitution gives $\\frac{0}{0}$ (indeterminate form), so the limit cannot be evaluated by simple substitution. L'Hôpital's Rule is needed."
         },
         {
-          "id": "C",
+          "id": "D",
           "text": "The limit does not exist because the denominator is 0",
           "is_correct": false,
           "explanation": "L'Hôpital's Rule applies to $\\frac{0}{0}$ forms. After differentiating numerator and denominator, the limit equals 1."
-        },
-        {
-          "id": "D",
-          "text": "The limit equals $\\frac{-\\sin(0)}{0}$",
-          "is_correct": false,
-          "explanation": "L'Hôpital's Rule differentiates numerator and denominator separately: $\\frac{d}{dx}[\\sin x] = \\cos x$, and $\\frac{d}{dx}[x] = 1$. The result is $\\frac{\\cos(0)}{1} = 1$."
         }
       ],
       "stimulus": {
@@ -171,9 +171,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$t = 0$",
+          "text": "$t = 4$",
           "is_correct": false,
-          "explanation": "$v(0) = 4(0) - 4 = -4 \\neq 0$. The particle is moving at $t=0$."
+          "explanation": "$v(4) = 16-4 = 12 \\neq 0$. Solving $4t-4 = 0$ gives $t=1$."
         },
         {
           "id": "B",
@@ -189,9 +189,9 @@
         },
         {
           "id": "D",
-          "text": "$t = 4$",
+          "text": "$t = 0$",
           "is_correct": false,
-          "explanation": "$v(4) = 16-4 = 12 \\neq 0$. Solving $4t-4 = 0$ gives $t=1$."
+          "explanation": "$v(0) = 4(0) - 4 = -4 \\neq 0$. The particle is moving at $t=0$."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -206,21 +206,21 @@
       "choices": [
         {
           "id": "A",
-          "text": "$3s$",
-          "is_correct": false,
-          "explanation": "This omits the $\\frac{ds}{dt}$ factor from the chain rule. Since $V$ and $s$ both depend on $t$, $\\frac{dV}{dt} = 3s^2 \\frac{ds}{dt}$."
-        },
-        {
-          "id": "B",
           "text": "$3s^2$",
           "is_correct": false,
           "explanation": "This is $\\frac{dV}{ds}$, not $\\frac{dV}{dt}$. By the chain rule, $\\frac{dV}{dt} = \\frac{dV}{ds} \\cdot \\frac{ds}{dt} = 3s^2 \\frac{ds}{dt}$."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "$3s^2 \\frac{ds}{dt}$",
           "is_correct": true,
           "explanation": "Chain rule: $\\frac{dV}{dt} = \\frac{dV}{ds} \\cdot \\frac{ds}{dt} = 3s^2 \\frac{ds}{dt}$. The rate of change of $V$ depends on both the current size $s$ and how fast $s$ is changing."
+        },
+        {
+          "id": "C",
+          "text": "$3s$",
+          "is_correct": false,
+          "explanation": "This omits the $\\frac{ds}{dt}$ factor from the chain rule. Since $V$ and $s$ both depend on $t$, $\\frac{dV}{dt} = 3s^2 \\frac{ds}{dt}$."
         },
         {
           "id": "D",
@@ -245,9 +245,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\lim_{x \\to a} \\frac{f'(x)}{g'(x)}$, provided this limit exists",
-          "is_correct": true,
-          "explanation": "L'Hôpital's Rule: if $\\lim f/g = \\frac{0}{0}$ or $\\frac{\\pm\\infty}{\\pm\\infty}$, then the limit equals $\\lim\\frac{f'(x)}{g'(x)}$ (if the latter exists)."
+          "text": "$\\frac{\\lim_{x \\to a} f'(x)}{\\lim_{x \\to a} g(x)}$",
+          "is_correct": false,
+          "explanation": "The denominator must also be differentiated. L'Hôpital's Rule gives $\\lim\\frac{f'(x)}{g'(x)}$, not $\\frac{\\lim f'(x)}{\\lim g(x)}$."
         },
         {
           "id": "B",
@@ -257,15 +257,15 @@
         },
         {
           "id": "C",
-          "text": "$\\lim_{x \\to a} \\left(\\frac{f}{g}\\right)'(x)$",
-          "is_correct": false,
-          "explanation": "L'Hôpital's is not the derivative of the ratio. Separately differentiate numerator and denominator: $\\frac{f'(x)}{g'(x)}$."
+          "text": "$\\lim_{x \\to a} \\frac{f'(x)}{g'(x)}$, provided this limit exists",
+          "is_correct": true,
+          "explanation": "L'Hôpital's Rule: if $\\lim f/g = \\frac{0}{0}$ or $\\frac{\\pm\\infty}{\\pm\\infty}$, then the limit equals $\\lim\\frac{f'(x)}{g'(x)}$ (if the latter exists)."
         },
         {
           "id": "D",
-          "text": "$\\frac{\\lim_{x \\to a} f'(x)}{\\lim_{x \\to a} g(x)}$",
+          "text": "$\\lim_{x \\to a} \\left(\\frac{f}{g}\\right)'(x)$",
           "is_correct": false,
-          "explanation": "The denominator must also be differentiated. L'Hôpital's Rule gives $\\lim\\frac{f'(x)}{g'(x)}$, not $\\frac{\\lim f'(x)}{\\lim g(x)}$."
+          "explanation": "L'Hôpital's is not the derivative of the ratio. Separately differentiate numerator and denominator: $\\frac{f'(x)}{g'(x)}$."
         }
       ],
       "stimulus": {
@@ -288,27 +288,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "Moving in the positive direction",
-          "is_correct": false,
-          "explanation": "$v(t) = 2t - 4$. On $0 < t < 2$: $2t < 4$, so $v(t) < 0$. The particle moves in the negative direction."
-        },
-        {
-          "id": "B",
           "text": "Moving in the negative direction",
           "is_correct": true,
           "explanation": "$v(t) = s'(t) = 2t - 4$. For $0 < t < 2$: $v(t) = 2t - 4 < 0$. So the particle moves in the negative direction."
         },
         {
-          "id": "C",
-          "text": "At rest",
+          "id": "B",
+          "text": "Moving in the positive direction",
           "is_correct": false,
-          "explanation": "The particle is at rest only when $v(t) = 0$, i.e., $t = 2$. For $0 < t < 2$, $v(t) < 0$ (moving, not at rest)."
+          "explanation": "$v(t) = 2t - 4$. On $0 < t < 2$: $2t < 4$, so $v(t) < 0$. The particle moves in the negative direction."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "Accelerating in the positive direction and moving in the positive direction",
           "is_correct": false,
           "explanation": "While $a(t) = 2 > 0$ (positive acceleration), the velocity $v(t) = 2t-4 < 0$ for $t < 2$ (negative direction of motion)."
+        },
+        {
+          "id": "D",
+          "text": "At rest",
+          "is_correct": false,
+          "explanation": "The particle is at rest only when $v(t) = 0$, i.e., $t = 2$. For $0 < t < 2$, $v(t) < 0$ (moving, not at rest)."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -323,9 +323,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$1$",
+          "text": "$2$",
           "is_correct": false,
-          "explanation": "The limit $\\frac{0}{0}$: apply L'Hôpital's: $\\lim_{x\\to 0}\\frac{2x}{\\cos x} = \\frac{0}{1} = 0$, not 1."
+          "explanation": "Applying L'Hôpital's: $\\frac{d}{dx}[x^2] = 2x$ and $\\frac{d}{dx}[\\sin x] = \\cos x$. The new limit is $\\frac{2x}{\\cos x} \\to \\frac{0}{1} = 0$, not 2."
         },
         {
           "id": "B",
@@ -335,15 +335,15 @@
         },
         {
           "id": "C",
-          "text": "$2$",
-          "is_correct": false,
-          "explanation": "Applying L'Hôpital's: $\\frac{d}{dx}[x^2] = 2x$ and $\\frac{d}{dx}[\\sin x] = \\cos x$. The new limit is $\\frac{2x}{\\cos x} \\to \\frac{0}{1} = 0$, not 2."
-        },
-        {
-          "id": "D",
           "text": "The limit does not exist",
           "is_correct": false,
           "explanation": "The limit exists after L'Hôpital's: $\\lim_{x\\to 0}\\frac{2x}{\\cos x} = 0$."
+        },
+        {
+          "id": "D",
+          "text": "$1$",
+          "is_correct": false,
+          "explanation": "The limit $\\frac{0}{0}$: apply L'Hôpital's: $\\lim_{x\\to 0}\\frac{2x}{\\cos x} = \\frac{0}{1} = 0$, not 1."
         }
       ],
       "stimulus": {
@@ -362,9 +362,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$2.3$",
-          "is_correct": true,
-          "explanation": "Linearization: $f(4.1) \\approx f(4) + f'(4)(4.1-4) = 2 + 3(0.1) = 2.3$."
+          "text": "$2.03$",
+          "is_correct": false,
+          "explanation": "Using a step of $0.01$ instead of $0.1$. The difference is $4.1 - 4 = 0.1$, giving $2 + 3(0.1) = 2.3$."
         },
         {
           "id": "B",
@@ -380,9 +380,9 @@
         },
         {
           "id": "D",
-          "text": "$2.03$",
-          "is_correct": false,
-          "explanation": "Using a step of $0.01$ instead of $0.1$. The difference is $4.1 - 4 = 0.1$, giving $2 + 3(0.1) = 2.3$."
+          "text": "$2.3$",
+          "is_correct": true,
+          "explanation": "Linearization: $f(4.1) \\approx f(4) + f'(4)(4.1-4) = 2 + 3(0.1) = 2.3$."
         }
       ],
       "stimulus": {
@@ -407,15 +407,15 @@
         },
         {
           "id": "B",
-          "text": "$1$",
-          "is_correct": true,
-          "explanation": "$\\frac{0}{0}$ form. L'Hôpital's: $\\lim_{x\\to 0}\\frac{e^x}{1} = 1$."
-        },
-        {
-          "id": "C",
           "text": "$e$",
           "is_correct": false,
           "explanation": "After L'Hôpital's, the limit is $e^x$ evaluated at $x=0$: $e^0 = 1$, not $e$."
+        },
+        {
+          "id": "C",
+          "text": "$1$",
+          "is_correct": true,
+          "explanation": "$\\frac{0}{0}$ form. L'Hôpital's: $\\lim_{x\\to 0}\\frac{e^x}{1} = 1$."
         },
         {
           "id": "D",
@@ -444,27 +444,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$200\\pi$ cm³/s",
-          "is_correct": true,
-          "explanation": "$\\frac{dV}{dt} = 4\\pi r^2 \\frac{dr}{dt}$. At $r=5$, $\\frac{dr}{dt}=2$: $\\frac{dV}{dt} = 4\\pi(25)(2) = 200\\pi$ cm³/s."
-        },
-        {
-          "id": "B",
           "text": "$100\\pi$ cm³/s",
           "is_correct": false,
           "explanation": "Using $4\\pi r^2$ without multiplying by $\\frac{dr}{dt} = 2$: $4\\pi(25) = 100\\pi$. The chain factor $\\frac{dr}{dt}$ must be included."
         },
         {
-          "id": "C",
-          "text": "$\\frac{500\\pi}{3}$ cm³/s",
-          "is_correct": false,
-          "explanation": "$\\frac{500\\pi}{3}$ is the volume $V$ at $r=5$ (evaluating $V$, not $\\frac{dV}{dt}$). Differentiate first, then substitute."
-        },
-        {
-          "id": "D",
+          "id": "B",
           "text": "$40\\pi$ cm³/s",
           "is_correct": false,
           "explanation": "Using $4\\pi r$ instead of $4\\pi r^2$. The surface area formula gives $4\\pi r^2$ when $V = \\frac{4}{3}\\pi r^3$ is differentiated."
+        },
+        {
+          "id": "C",
+          "text": "$200\\pi$ cm³/s",
+          "is_correct": true,
+          "explanation": "$\\frac{dV}{dt} = 4\\pi r^2 \\frac{dr}{dt}$. At $r=5$, $\\frac{dr}{dt}=2$: $\\frac{dV}{dt} = 4\\pi(25)(2) = 200\\pi$ cm³/s."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{500\\pi}{3}$ cm³/s",
+          "is_correct": false,
+          "explanation": "$\\frac{500\\pi}{3}$ is the volume $V$ at $r=5$ (evaluating $V$, not $\\frac{dV}{dt}$). Differentiate first, then substitute."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -483,21 +483,21 @@
       "choices": [
         {
           "id": "A",
+          "text": "$-\\frac{1}{8}$ ft/s",
+          "is_correct": false,
+          "explanation": "Using $\\frac{dy}{dt} = -\\frac{x}{y}\\frac{dx}{dt}$: $-\\frac{6}{8}(1) = -\\frac{3}{4}$, not $-\\frac{1}{8}$."
+        },
+        {
+          "id": "B",
           "text": "$-\\frac{3}{4}$ ft/s",
           "is_correct": true,
           "explanation": "$x^2 + y^2 = 100$. Differentiate: $2x\\frac{dx}{dt} + 2y\\frac{dy}{dt} = 0$. At $x=6$: $y = \\sqrt{100-36} = 8$. So $2(6)(1) + 2(8)\\frac{dy}{dt} = 0 \\Rightarrow \\frac{dy}{dt} = -\\frac{6}{8} = -\\frac{3}{4}$ ft/s."
         },
         {
-          "id": "B",
+          "id": "C",
           "text": "$\\frac{3}{4}$ ft/s",
           "is_correct": false,
           "explanation": "The top slides DOWN, so $\\frac{dy}{dt}$ is negative. The answer is $-\\frac{3}{4}$ ft/s."
-        },
-        {
-          "id": "C",
-          "text": "$-\\frac{1}{8}$ ft/s",
-          "is_correct": false,
-          "explanation": "Using $\\frac{dy}{dt} = -\\frac{x}{y}\\frac{dx}{dt}$: $-\\frac{6}{8}(1) = -\\frac{3}{4}$, not $-\\frac{1}{8}$."
         },
         {
           "id": "D",
@@ -522,27 +522,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$12\\pi$ cm²/s",
+          "text": "$48\\pi$ cm²/s",
           "is_correct": false,
-          "explanation": "$\\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt} = 2\\pi(4)(3) = 24\\pi$. Using $\\pi r \\frac{dr}{dt} = \\pi(4)(3)$ omits the factor of 2."
+          "explanation": "Using $2\\pi r^2 \\frac{dr}{dt}$ instead of $2\\pi r \\frac{dr}{dt}$. The derivative of $\\pi r^2$ with respect to $r$ is $2\\pi r$, not $2\\pi r^2$."
         },
         {
           "id": "B",
-          "text": "$24\\pi$ cm²/s",
-          "is_correct": true,
-          "explanation": "$\\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$. At $r=4$, $\\frac{dr}{dt}=3$: $\\frac{dA}{dt} = 2\\pi(4)(3) = 24\\pi$ cm²/s."
-        },
-        {
-          "id": "C",
           "text": "$16\\pi$ cm²/s",
           "is_correct": false,
           "explanation": "$16\\pi$ is the area at $r=4$, not the rate. Differentiate $A = \\pi r^2$ to get $\\frac{dA}{dt} = 2\\pi r(3) = 24\\pi$."
         },
         {
+          "id": "C",
+          "text": "$24\\pi$ cm²/s",
+          "is_correct": true,
+          "explanation": "$\\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$. At $r=4$, $\\frac{dr}{dt}=3$: $\\frac{dA}{dt} = 2\\pi(4)(3) = 24\\pi$ cm²/s."
+        },
+        {
           "id": "D",
-          "text": "$48\\pi$ cm²/s",
+          "text": "$12\\pi$ cm²/s",
           "is_correct": false,
-          "explanation": "Using $2\\pi r^2 \\frac{dr}{dt}$ instead of $2\\pi r \\frac{dr}{dt}$. The derivative of $\\pi r^2$ with respect to $r$ is $2\\pi r$, not $2\\pi r^2$."
+          "explanation": "$\\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt} = 2\\pi(4)(3) = 24\\pi$. Using $\\pi r \\frac{dr}{dt} = \\pi(4)(3)$ omits the factor of 2."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -573,15 +573,15 @@
         },
         {
           "id": "C",
-          "text": "$-\\frac{8}{\\pi}$ m/min",
-          "is_correct": false,
-          "explanation": "Omitting the $h^2/4$ factor in $\\frac{dV}{dt}$. After substituting $h=3$: $\\frac{dV}{dt} = \\frac{9\\pi}{4}\\frac{dh}{dt}$, giving $\\frac{dh}{dt} = -\\frac{8}{9\\pi}$."
-        },
-        {
-          "id": "D",
           "text": "$\\frac{8}{9\\pi}$ m/min",
           "is_correct": false,
           "explanation": "The water is draining, so $\\frac{dV}{dt} = -2 < 0$ and $\\frac{dh}{dt}$ is negative. The height is decreasing."
+        },
+        {
+          "id": "D",
+          "text": "$-\\frac{8}{\\pi}$ m/min",
+          "is_correct": false,
+          "explanation": "Omitting the $h^2/4$ factor in $\\frac{dV}{dt}$. After substituting $h=3$: $\\frac{dV}{dt} = \\frac{9\\pi}{4}\\frac{dh}{dt}$, giving $\\frac{dh}{dt} = -\\frac{8}{9\\pi}$."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -600,27 +600,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$72$",
+          "text": "$77$",
           "is_correct": false,
-          "explanation": "That is $T(4)$, not $T(4.2)$. The linearization gives $T(4.2) \\approx 72 + 5(0.2) = 73$."
+          "explanation": "Using $5(1) = 5$ as if the step were 1: $72 + 5 = 77$. The step is $4.2-4=0.2$, giving $72 + 5(0.2) = 73$."
         },
         {
           "id": "B",
-          "text": "$73$",
-          "is_correct": true,
-          "explanation": "$T(4.2) \\approx 72 + 5(4.2-4) = 72 + 5(0.2) = 72 + 1 = 73$°F."
-        },
-        {
-          "id": "C",
           "text": "$74$",
           "is_correct": false,
           "explanation": "Using step 0.4 instead of 0.2: $72 + 5(0.4) = 74$. The correct step is $4.2 - 4 = 0.2$."
         },
         {
-          "id": "D",
-          "text": "$77$",
+          "id": "C",
+          "text": "$72$",
           "is_correct": false,
-          "explanation": "Using $5(1) = 5$ as if the step were 1: $72 + 5 = 77$. The step is $4.2-4=0.2$, giving $72 + 5(0.2) = 73$."
+          "explanation": "That is $T(4)$, not $T(4.2)$. The linearization gives $T(4.2) \\approx 72 + 5(0.2) = 73$."
+        },
+        {
+          "id": "D",
+          "text": "$73$",
+          "is_correct": true,
+          "explanation": "$T(4.2) \\approx 72 + 5(4.2-4) = 72 + 5(0.2) = 72 + 1 = 73$°F."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -639,27 +639,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$50$ mph",
-          "is_correct": true,
-          "explanation": "At $t=1$: $x=40$, $y=30$, $d=\\sqrt{1600+900}=50$. Differentiate $d^2 = x^2+y^2$: $2d\\frac{dd}{dt} = 2x(40)+2y(30)$. So $\\frac{dd}{dt} = \\frac{40(40)+30(30)}{50} = \\frac{1600+900}{50} = 50$ mph."
-        },
-        {
-          "id": "B",
-          "text": "$70$ mph",
-          "is_correct": false,
-          "explanation": "$70$ would be $40+30$, which only applies if the cars travel in the same direction. Since they travel perpendicularly, use the Pythagorean relation."
-        },
-        {
-          "id": "C",
           "text": "$35$ mph",
           "is_correct": false,
           "explanation": "Averaging the speeds gives a meaningless quantity. The related rates formula $\\frac{dd}{dt} = \\frac{x\\dot{x}+y\\dot{y}}{d}$ gives $50$ mph."
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "$50$ mph",
+          "is_correct": true,
+          "explanation": "At $t=1$: $x=40$, $y=30$, $d=\\sqrt{1600+900}=50$. Differentiate $d^2 = x^2+y^2$: $2d\\frac{dd}{dt} = 2x(40)+2y(30)$. So $\\frac{dd}{dt} = \\frac{40(40)+30(30)}{50} = \\frac{1600+900}{50} = 50$ mph."
+        },
+        {
+          "id": "C",
           "text": "$25$ mph",
           "is_correct": false,
           "explanation": "Not equal to any standard combination. The correct related rates formula gives $\\frac{dd}{dt} = \\frac{40(40)+30(30)}{50} = 50$ mph."
+        },
+        {
+          "id": "D",
+          "text": "$70$ mph",
+          "is_correct": false,
+          "explanation": "$70$ would be $40+30$, which only applies if the cars travel in the same direction. Since they travel perpendicularly, use the Pythagorean relation."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -674,21 +674,21 @@
       "choices": [
         {
           "id": "A",
-          "text": "$0$",
-          "is_correct": false,
-          "explanation": "L'Hôpital's: $\\lim_{x\\to 0}\\frac{\\sec^2(x)}{1} = \\sec^2(0) = 1$, not 0."
-        },
-        {
-          "id": "B",
           "text": "$1$",
           "is_correct": true,
           "explanation": "$\\frac{0}{0}$ form. L'Hôpital's: $\\lim_{x\\to 0}\\frac{\\sec^2 x}{1} = \\sec^2(0) = 1$."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "$\\infty$",
           "is_correct": false,
           "explanation": "After L'Hôpital's the limit is $\\sec^2(0) = 1$, which is finite."
+        },
+        {
+          "id": "C",
+          "text": "$0$",
+          "is_correct": false,
+          "explanation": "L'Hôpital's: $\\lim_{x\\to 0}\\frac{\\sec^2(x)}{1} = \\sec^2(0) = 1$, not 0."
         },
         {
           "id": "D",
@@ -713,21 +713,21 @@
       "choices": [
         {
           "id": "A",
-          "text": "$0$",
-          "is_correct": true,
-          "explanation": "$v(t) = \\pi\\cos(\\pi t)$. At $t = \\frac{1}{2}$: $v = \\pi\\cos(\\pi/2) = \\pi \\cdot 0 = 0$. This is actually correct — the velocity IS 0. Re-reading: $\\cos(\\pi/2) = 0$, so the answer IS 0."
-        },
-        {
-          "id": "B",
           "text": "$\\pi$",
           "is_correct": false,
           "explanation": "$v(1/2) = \\pi\\cos(\\pi/2) = \\pi(0) = 0$. $\\pi$ would be the velocity at $t=0$: $v(0) = \\pi\\cos(0) = \\pi$."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "$-\\pi$",
           "is_correct": false,
           "explanation": "$v(1/2) = \\pi\\cos(\\pi/2) = 0$. $-\\pi$ would be the velocity at $t=1$: $v(1) = \\pi\\cos(\\pi) = -\\pi$."
+        },
+        {
+          "id": "C",
+          "text": "$0$",
+          "is_correct": true,
+          "explanation": "$v(t) = \\pi\\cos(\\pi t)$. At $t = \\frac{1}{2}$: $v = \\pi\\cos(\\pi/2) = \\pi \\cdot 0 = 0$. This is actually correct — the velocity IS 0. Re-reading: $\\cos(\\pi/2) = 0$, so the answer IS 0."
         },
         {
           "id": "D",
@@ -785,21 +785,21 @@
       "choices": [
         {
           "id": "A",
+          "text": "$8$",
+          "is_correct": false,
+          "explanation": "Using step size 1 instead of 0.5: $10 + (-2)(1) = 8$. The step is $5.5 - 5 = 0.5$, giving $10 - 1 = 9$."
+        },
+        {
+          "id": "B",
           "text": "$9$",
           "is_correct": true,
           "explanation": "$L(5.5) = f(5) + f'(5)(5.5-5) = 10 + (-2)(0.5) = 10 - 1 = 9$."
         },
         {
-          "id": "B",
+          "id": "C",
           "text": "$11$",
           "is_correct": false,
           "explanation": "Using $+2$ instead of $-2$ for the slope. The correct sign gives $10 + (-2)(0.5) = 9$."
-        },
-        {
-          "id": "C",
-          "text": "$8$",
-          "is_correct": false,
-          "explanation": "Using step size 1 instead of 0.5: $10 + (-2)(1) = 8$. The step is $5.5 - 5 = 0.5$, giving $10 - 1 = 9$."
         },
         {
           "id": "D",
@@ -847,15 +847,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$1$",
+          "text": "$e$",
           "is_correct": false,
-          "explanation": "L'Hôpital's ($\\frac{\\infty}{\\infty}$ form): $\\lim_{x\\to\\infty}\\frac{1/x}{1} = \\lim_{x\\to\\infty}\\frac{1}{x} = 0$, not 1."
+          "explanation": "L'Hôpital's gives $\\lim_{x\\to\\infty}\\frac{1/x}{1} = 0$, not $e$. The limit is 0."
         },
         {
           "id": "B",
-          "text": "$0$",
-          "is_correct": true,
-          "explanation": "$\\frac{\\infty}{\\infty}$ form. L'Hôpital's: $\\lim_{x\\to\\infty}\\frac{1/x}{1} = 0$. The logarithm grows much slower than $x$."
+          "text": "$1$",
+          "is_correct": false,
+          "explanation": "L'Hôpital's ($\\frac{\\infty}{\\infty}$ form): $\\lim_{x\\to\\infty}\\frac{1/x}{1} = \\lim_{x\\to\\infty}\\frac{1}{x} = 0$, not 1."
         },
         {
           "id": "C",
@@ -865,9 +865,9 @@
         },
         {
           "id": "D",
-          "text": "$e$",
-          "is_correct": false,
-          "explanation": "L'Hôpital's gives $\\lim_{x\\to\\infty}\\frac{1/x}{1} = 0$, not $e$. The limit is 0."
+          "text": "$0$",
+          "is_correct": true,
+          "explanation": "$\\frac{\\infty}{\\infty}$ form. L'Hôpital's: $\\lim_{x\\to\\infty}\\frac{1/x}{1} = 0$. The logarithm grows much slower than $x$."
         }
       ],
       "stimulus": {
@@ -890,27 +890,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$0.01$ cm²",
-          "is_correct": false,
-          "explanation": "This is $(ds)^2 = (0.1)^2$. The linearization gives $dA = 2s\\,ds = 2(10)(0.1) = 2$ cm²."
-        },
-        {
-          "id": "B",
           "text": "$1$ cm²",
           "is_correct": false,
           "explanation": "$dA = 2s\\,ds = 2(10)(0.1) = 2$ cm², not 1. The factor of 2 from differentiating $s^2$ must be included."
         },
         {
-          "id": "C",
-          "text": "$2$ cm²",
-          "is_correct": true,
-          "explanation": "$dA = \\frac{dA}{ds}\\,ds = 2s\\,ds = 2(10)(0.1) = 2$ cm². This is the differential approximation for error propagation."
+          "id": "B",
+          "text": "$0.01$ cm²",
+          "is_correct": false,
+          "explanation": "This is $(ds)^2 = (0.1)^2$. The linearization gives $dA = 2s\\,ds = 2(10)(0.1) = 2$ cm²."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$20$ cm²",
           "is_correct": false,
           "explanation": "Using $2s$ without multiplying by $ds = 0.1$: $2(10) = 20$. The error in measurement $ds = 0.1$ must be included."
+        },
+        {
+          "id": "D",
+          "text": "$2$ cm²",
+          "is_correct": true,
+          "explanation": "$dA = \\frac{dA}{ds}\\,ds = 2s\\,ds = 2(10)(0.1) = 2$ cm². This is the differential approximation for error propagation."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -925,9 +925,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$0$",
-          "is_correct": true,
-          "explanation": "Rewrite as $\\frac{\\ln x}{1/x}$ ($-\\infty/\\infty$ form). L'Hôpital's: $\\frac{1/x}{-1/x^2} = \\frac{x^2 \\cdot (1/x)}{-1} = -x \\to 0$ as $x\\to 0^+$."
+          "text": "$1$",
+          "is_correct": false,
+          "explanation": "L'Hôpital's on $\\frac{\\ln x}{1/x}$ gives $\\frac{1/x}{-1/x^2} = -x \\to 0$, not 1."
         },
         {
           "id": "B",
@@ -937,15 +937,15 @@
         },
         {
           "id": "C",
-          "text": "$1$",
-          "is_correct": false,
-          "explanation": "L'Hôpital's on $\\frac{\\ln x}{1/x}$ gives $\\frac{1/x}{-1/x^2} = -x \\to 0$, not 1."
-        },
-        {
-          "id": "D",
           "text": "The limit does not exist",
           "is_correct": false,
           "explanation": "The limit exists and equals 0. L'Hôpital's applied to $\\frac{\\ln x}{1/x}$ gives $-x \\to 0^+$."
+        },
+        {
+          "id": "D",
+          "text": "$0$",
+          "is_correct": true,
+          "explanation": "Rewrite as $\\frac{\\ln x}{1/x}$ ($-\\infty/\\infty$ form). L'Hôpital's: $\\frac{1/x}{-1/x^2} = \\frac{x^2 \\cdot (1/x)}{-1} = -x \\to 0$ as $x\\to 0^+$."
         }
       ],
       "stimulus": {
@@ -1003,27 +1003,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$L(x) \\geq f(x)$ near $x = a$ (overestimate)",
-          "is_correct": false,
-          "explanation": "When $f$ is concave up ($f'' > 0$), the tangent line lies BELOW the curve: $L(x) \\leq f(x)$, making $L$ an underestimate."
-        },
-        {
-          "id": "B",
           "text": "$L(x) \\leq f(x)$ near $x = a$ (underestimate)",
           "is_correct": true,
           "explanation": "Concave up means $f'' > 0$: the curve bends upward away from the tangent line. So the tangent line (linearization) lies below the curve, giving an underestimate."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "$L(x) = f(x)$ near $x = a$",
           "is_correct": false,
           "explanation": "$L(x) = f(x)$ only exactly at $x = a$. Away from $a$, the concavity causes $f$ to curve above (if concave up) or below (if concave down) the tangent line."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "The relationship depends on whether $x > a$ or $x < a$",
           "is_correct": false,
           "explanation": "For concave up functions, the tangent line lies below the curve on BOTH sides of $a$. The linearization is an underestimate regardless of direction."
+        },
+        {
+          "id": "D",
+          "text": "$L(x) \\geq f(x)$ near $x = a$ (overestimate)",
+          "is_correct": false,
+          "explanation": "When $f$ is concave up ($f'' > 0$), the tangent line lies BELOW the curve: $L(x) \\leq f(x)$, making $L$ an underestimate."
         }
       ],
       "stimulus": {
@@ -1042,27 +1042,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "meters per second",
-          "is_correct": false,
-          "explanation": "Meters per second are the units of velocity $\\frac{ds}{dt}$, not acceleration $\\frac{d^2s}{dt^2}$."
-        },
-        {
-          "id": "B",
           "text": "meters per second squared",
           "is_correct": true,
           "explanation": "$\\frac{d^2s}{dt^2}$ is acceleration: differentiated twice with respect to $t$, so units are $\\frac{\\text{m}}{\\text{s}^2}$."
         },
         {
-          "id": "C",
-          "text": "seconds per meter",
-          "is_correct": false,
-          "explanation": "Inverted units. Differentiation of $s$ (meters) with respect to $t$ (seconds) gives meters/second, not seconds/meter."
-        },
-        {
-          "id": "D",
+          "id": "B",
           "text": "meters squared per second",
           "is_correct": false,
           "explanation": "The units are $\\frac{\\text{m}}{\\text{s}^2}$ (meters per second squared), not $\\frac{\\text{m}^2}{\\text{s}}$. Differentiation affects the time unit, not the position unit."
+        },
+        {
+          "id": "C",
+          "text": "meters per second",
+          "is_correct": false,
+          "explanation": "Meters per second are the units of velocity $\\frac{ds}{dt}$, not acceleration $\\frac{d^2s}{dt^2}$."
+        },
+        {
+          "id": "D",
+          "text": "seconds per meter",
+          "is_correct": false,
+          "explanation": "Inverted units. Differentiation of $s$ (meters) with respect to $t$ (seconds) gives meters/second, not seconds/meter."
         }
       ],
       "stimulus": {
@@ -1085,27 +1085,27 @@
       "choices": [
         {
           "id": "A",
+          "text": "$2$ ft/s",
+          "is_correct": false,
+          "explanation": "The ratio depends on the heights 15 and 6: $s = \\frac{6}{9}x = \\frac{2x}{3}$, giving $\\frac{ds}{dt} = \\frac{10}{3}$ ft/s, not 2."
+        },
+        {
+          "id": "B",
           "text": "$\\frac{10}{3}$ ft/s",
           "is_correct": true,
           "explanation": "Let $x$ = distance from light base, $s$ = shadow length. By similar triangles: $\\frac{15}{x+s} = \\frac{6}{s} \\Rightarrow 15s = 6(x+s) \\Rightarrow 9s = 6x \\Rightarrow s = \\frac{2x}{3}$. So $\\frac{ds}{dt} = \\frac{2}{3}\\frac{dx}{dt} = \\frac{2}{3}(5) = \\frac{10}{3}$ ft/s."
         },
         {
-          "id": "B",
+          "id": "C",
           "text": "$5$ ft/s",
           "is_correct": false,
           "explanation": "The shadow lengthens at a different rate than the person walks. Using similar triangles gives $s = \\frac{2x}{3}$, so $\\frac{ds}{dt} = \\frac{2}{3}(5) = \\frac{10}{3}$ ft/s."
         },
         {
-          "id": "C",
+          "id": "D",
           "text": "$\\frac{5}{3}$ ft/s",
           "is_correct": false,
           "explanation": "Off by a factor of 2. The ratio from similar triangles is $s = \\frac{2x}{3}$, giving $\\frac{ds}{dt} = \\frac{2}{3}(5) = \\frac{10}{3}$."
-        },
-        {
-          "id": "D",
-          "text": "$2$ ft/s",
-          "is_correct": false,
-          "explanation": "The ratio depends on the heights 15 and 6: $s = \\frac{6}{9}x = \\frac{2x}{3}$, giving $\\frac{ds}{dt} = \\frac{10}{3}$ ft/s, not 2."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -1120,27 +1120,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$0$",
-          "is_correct": false,
-          "explanation": "Apply L'Hôpital's twice: first $\\frac{\\sin x}{2x}$ ($\\frac{0}{0}$ again), then $\\frac{\\cos x}{2} \\to \\frac{1}{2}$."
-        },
-        {
-          "id": "B",
           "text": "$\\frac{1}{2}$",
           "is_correct": true,
           "explanation": "$\\frac{0}{0}$: L'Hôpital's gives $\\frac{\\sin x}{2x}$ ($\\frac{0}{0}$ again). Apply again: $\\frac{\\cos x}{2} \\to \\frac{1}{2}$ as $x \\to 0$."
         },
         {
-          "id": "C",
-          "text": "$1$",
+          "id": "B",
+          "text": "$0$",
           "is_correct": false,
-          "explanation": "Applying L'Hôpital's only once gives $\\lim_{x\\to 0}\\frac{\\sin x}{2x}$, which is still $\\frac{0}{0}$. Apply a second time to get $\\frac{\\cos x}{2} \\to \\frac{1}{2}$."
+          "explanation": "Apply L'Hôpital's twice: first $\\frac{\\sin x}{2x}$ ($\\frac{0}{0}$ again), then $\\frac{\\cos x}{2} \\to \\frac{1}{2}$."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$2$",
           "is_correct": false,
           "explanation": "Inverting $1/2$ gives 2. The correct answer is $\\frac{1}{2}$, obtained by applying L'Hôpital's Rule twice."
+        },
+        {
+          "id": "D",
+          "text": "$1$",
+          "is_correct": false,
+          "explanation": "Applying L'Hôpital's only once gives $\\lim_{x\\to 0}\\frac{\\sin x}{2x}$, which is still $\\frac{0}{0}$. Apply a second time to get $\\frac{\\cos x}{2} \\to \\frac{1}{2}$."
         }
       ],
       "stimulus": {
@@ -1169,15 +1169,15 @@
         },
         {
           "id": "B",
-          "text": "$e^{-t}\\cos(t)$",
-          "is_correct": false,
-          "explanation": "This only differentiates the $\\sin(t)$ part. The product rule requires both: $(-e^{-t})\\sin t + e^{-t}\\cos t$."
-        },
-        {
-          "id": "C",
           "text": "$-e^{-t}\\sin(t)$",
           "is_correct": false,
           "explanation": "This only differentiates the $e^{-t}$ part. The product rule requires both terms: $-e^{-t}\\sin t + e^{-t}\\cos t$."
+        },
+        {
+          "id": "C",
+          "text": "$e^{-t}\\cos(t)$",
+          "is_correct": false,
+          "explanation": "This only differentiates the $\\sin(t)$ part. The product rule requires both: $(-e^{-t})\\sin t + e^{-t}\\cos t$."
         },
         {
           "id": "D",
@@ -1198,27 +1198,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "The linearization overestimates $f(x)$ for $x$ near $a$",
-          "is_correct": true,
-          "explanation": "Concave down ($f'' < 0$) means the tangent line lies ABOVE the curve. So the linearization overestimates $f(x)$ near $x = a$."
-        },
-        {
-          "id": "B",
-          "text": "The linearization underestimates $f(x)$ for $x$ near $a$",
-          "is_correct": false,
-          "explanation": "Underestimating is the behavior for concave up functions. For concave down ($f'' < 0$), the tangent line lies above the curve."
-        },
-        {
-          "id": "C",
           "text": "The linearization is exact for $x$ near $a$",
           "is_correct": false,
           "explanation": "The linearization equals $f$ only at $x = a$. The concavity causes the tangent line to diverge from the curve away from $a$."
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "The linearization overestimates $f(x)$ for $x$ near $a$",
+          "is_correct": true,
+          "explanation": "Concave down ($f'' < 0$) means the tangent line lies ABOVE the curve. So the linearization overestimates $f(x)$ near $x = a$."
+        },
+        {
+          "id": "C",
           "text": "The relationship depends on the sign of $f'(a)$",
           "is_correct": false,
           "explanation": "Whether the linearization over- or underestimates depends on concavity ($f''$), not the sign of $f'$. For concave down, it overestimates regardless."
+        },
+        {
+          "id": "D",
+          "text": "The linearization underestimates $f(x)$ for $x$ near $a$",
+          "is_correct": false,
+          "explanation": "Underestimating is the behavior for concave up functions. For concave down ($f'' < 0$), the tangent line lies above the curve."
         }
       ],
       "stimulus": {
@@ -1237,27 +1237,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$0$",
-          "is_correct": false,
-          "explanation": "L'Hôpital's applied twice: first $\\frac{6x}{2x}$, then $\\frac{6}{2} = 3$."
-        },
-        {
-          "id": "B",
           "text": "$3$",
           "is_correct": true,
           "explanation": "$\\frac{\\infty}{\\infty}$: L'Hôpital's gives $\\frac{6x}{2x} = 3$. (Alternatively: leading coefficient ratio $3/1 = 3$.)"
         },
         {
-          "id": "C",
-          "text": "$-5$",
-          "is_correct": false,
-          "explanation": "$-5$ is the constant in the numerator, not the limit. The limit of a ratio of same-degree polynomials equals the ratio of leading coefficients: $3/1 = 3$."
-        },
-        {
-          "id": "D",
+          "id": "B",
           "text": "$\\infty$",
           "is_correct": false,
           "explanation": "Equal degrees means the limit is the leading coefficient ratio, not $\\infty$. L'Hôpital's: $\\frac{6x}{2x} = 3$."
+        },
+        {
+          "id": "C",
+          "text": "$0$",
+          "is_correct": false,
+          "explanation": "L'Hôpital's applied twice: first $\\frac{6x}{2x}$, then $\\frac{6}{2} = 3$."
+        },
+        {
+          "id": "D",
+          "text": "$-5$",
+          "is_correct": false,
+          "explanation": "$-5$ is the constant in the numerator, not the limit. The limit of a ratio of same-degree polynomials equals the ratio of leading coefficients: $3/1 = 3$."
         }
       ],
       "stimulus": {
@@ -1280,9 +1280,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "Speeding up, because $v(2) > 0$ and $a(2) > 0$",
+          "text": "Speeding up, because $v(2) < 0$ and $a(2) < 0$",
           "is_correct": false,
-          "explanation": "$v(2) = 3(4)-6(2) = 12-12 = 0$, so the particle is not speeding up. It is momentarily at rest at $t=2$."
+          "explanation": "$v(2) = 0$ (not negative) and $a(2) = 6$ (not negative). The particle is at rest at this instant."
         },
         {
           "id": "B",
@@ -1292,15 +1292,15 @@
         },
         {
           "id": "C",
-          "text": "At rest (neither speeding up nor slowing down)",
-          "is_correct": true,
-          "explanation": "At $t=2$: $v(2) = 3(4)-6(2) = 0$, so the particle is instantaneously at rest. Since $v(2) = 0$, the particle is neither speeding up nor slowing down at this instant, even though $a(2) = 6 > 0$ means it is about to accelerate in the positive direction."
+          "text": "Speeding up, because $v(2) > 0$ and $a(2) > 0$",
+          "is_correct": false,
+          "explanation": "$v(2) = 3(4)-6(2) = 12-12 = 0$, so the particle is not speeding up. It is momentarily at rest at $t=2$."
         },
         {
           "id": "D",
-          "text": "Speeding up, because $v(2) < 0$ and $a(2) < 0$",
-          "is_correct": false,
-          "explanation": "$v(2) = 0$ (not negative) and $a(2) = 6$ (not negative). The particle is at rest at this instant."
+          "text": "At rest (neither speeding up nor slowing down)",
+          "is_correct": true,
+          "explanation": "At $t=2$: $v(2) = 3(4)-6(2) = 0$, so the particle is instantaneously at rest. Since $v(2) = 0$, the particle is neither speeding up nor slowing down at this instant, even though $a(2) = 6 > 0$ means it is about to accelerate in the positive direction."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -1315,9 +1315,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$1$",
+          "text": "$0$",
           "is_correct": false,
-          "explanation": "L'Hôpital's: $\\lim_{x\\to 0}\\frac{2e^{2x}}{3\\cos(3x)} = \\frac{2(1)}{3(1)} = \\frac{2}{3}$, not 1."
+          "explanation": "Both $e^{2x}-1$ and $\\sin(3x)$ approach 0, but L'Hôpital's gives $\\frac{2}{3}$, not 0."
         },
         {
           "id": "B",
@@ -1333,9 +1333,9 @@
         },
         {
           "id": "D",
-          "text": "$0$",
+          "text": "$1$",
           "is_correct": false,
-          "explanation": "Both $e^{2x}-1$ and $\\sin(3x)$ approach 0, but L'Hôpital's gives $\\frac{2}{3}$, not 0."
+          "explanation": "L'Hôpital's: $\\lim_{x\\to 0}\\frac{2e^{2x}}{3\\cos(3x)} = \\frac{2(1)}{3(1)} = \\frac{2}{3}$, not 1."
         }
       ],
       "stimulus": {
@@ -1364,21 +1364,21 @@
         },
         {
           "id": "B",
+          "text": "$0 < t < 3$",
+          "is_correct": false,
+          "explanation": "On $(0,1)$: $v>0$, $a<0$ (slowing); on $(2,3)$: $v<0$, $a>0$ (slowing). Not all of $(0,3)$ is speeding up."
+        },
+        {
+          "id": "C",
           "text": "$0 < t < 1$ and $2 < t < 3$",
           "is_correct": false,
           "explanation": "On $(0,1)$: $v>0$, $a<0$ — slowing down. On $(2,3)$: $v<0$, $a>0$ — slowing down. Speeding up requires same-sign velocity and acceleration."
         },
         {
-          "id": "C",
+          "id": "D",
           "text": "$t > 2$",
           "is_correct": false,
           "explanation": "On $(2,3)$: $v<0$, $a>0$ — opposite signs, so slowing down. Only on $(3,\\infty)$ is the particle speeding up (in addition to $(1,2)$)."
-        },
-        {
-          "id": "D",
-          "text": "$0 < t < 3$",
-          "is_correct": false,
-          "explanation": "On $(0,1)$: $v>0$, $a<0$ (slowing); on $(2,3)$: $v<0$, $a>0$ (slowing). Not all of $(0,3)$ is speeding up."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -1405,15 +1405,15 @@
         },
         {
           "id": "C",
-          "text": "$L(x) = e^x$; $e^{0.1} \\approx 1.105$",
-          "is_correct": false,
-          "explanation": "The linearization is the tangent line, $L(x) = 1+x$, not $e^x$ itself. $e^x$ is the actual function, not the approximation."
-        },
-        {
-          "id": "D",
           "text": "$L(x) = x$; $e^{0.1} \\approx 0.1$",
           "is_correct": false,
           "explanation": "$f(0) = 1$, so the linearization starts at 1, not 0. $L(x) = 1 + x$, giving $e^{0.1} \\approx 1.1$."
+        },
+        {
+          "id": "D",
+          "text": "$L(x) = e^x$; $e^{0.1} \\approx 1.105$",
+          "is_correct": false,
+          "explanation": "The linearization is the tangent line, $L(x) = 1+x$, not $e^x$ itself. $e^x$ is the actual function, not the approximation."
         }
       ],
       "stimulus": {
@@ -1436,21 +1436,21 @@
       "choices": [
         {
           "id": "A",
+          "text": "$\\frac{1}{4}$ m/min",
+          "is_correct": false,
+          "explanation": "Using $r=2$ but not $r^2$: $\\frac{dV}{dt} = \\pi r^2\\frac{dh}{dt}$ requires $r^2 = 4$, giving $\\frac{dh}{dt} = \\frac{\\pi/4}{4\\pi} = \\frac{1}{16}$, not $\\frac{1}{4}$."
+        },
+        {
+          "id": "B",
           "text": "$\\frac{1}{16}$ m/min",
           "is_correct": true,
           "explanation": "$V = \\pi r^2 h = 4\\pi h$. $\\frac{dV}{dt} = 4\\pi\\frac{dh}{dt}$. Given $\\frac{dV}{dt} = \\frac{\\pi}{4}$: $\\frac{\\pi}{4} = 4\\pi\\frac{dh}{dt} \\Rightarrow \\frac{dh}{dt} = \\frac{1}{16}$ m/min."
         },
         {
-          "id": "B",
+          "id": "C",
           "text": "$\\pi$ m/min",
           "is_correct": false,
           "explanation": "Forgetting to divide by the base area $\\pi r^2 = 4\\pi$. The correct formula is $\\frac{dh}{dt} = \\frac{1}{4\\pi}\\frac{dV}{dt} = \\frac{1}{16}$ m/min."
-        },
-        {
-          "id": "C",
-          "text": "$\\frac{1}{4}$ m/min",
-          "is_correct": false,
-          "explanation": "Using $r=2$ but not $r^2$: $\\frac{dV}{dt} = \\pi r^2\\frac{dh}{dt}$ requires $r^2 = 4$, giving $\\frac{dh}{dt} = \\frac{\\pi/4}{4\\pi} = \\frac{1}{16}$, not $\\frac{1}{4}$."
         },
         {
           "id": "D",
@@ -1475,27 +1475,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{24\\sqrt{13}}{13}$ ft/s",
-          "is_correct": true,
-          "explanation": "$L^2 = x^2 + 100^2$. At $x=150$: $L = \\sqrt{22500+10000} = \\sqrt{32500} = 50\\sqrt{13}$. Differentiate: $2L\\frac{dL}{dt} = 2x\\frac{dx}{dt}$. $\\frac{dL}{dt} = \\frac{x \\cdot \\frac{dx}{dt}}{L} = \\frac{150 \\cdot 8}{50\\sqrt{13}} = \\frac{24}{\\sqrt{13}} = \\frac{24\\sqrt{13}}{13} \\approx 6.66$ ft/s."
-        },
-        {
-          "id": "B",
           "text": "$\\frac{24}{5}$ ft/s",
           "is_correct": false,
           "explanation": "This incorrectly uses $L = \\sqrt{150^2+100^2} = 250/\\sqrt{1}$... actually $L = 50\\sqrt{13} \\neq 250$. Using $L=250$ would give $\\frac{150 \\cdot 8}{250} = 4.8 = \\frac{24}{5}$, but $L = 50\\sqrt{13} \\approx 180.3$."
         },
         {
-          "id": "C",
-          "text": "$8$ ft/s",
-          "is_correct": false,
-          "explanation": "$\\frac{dL}{dt} \\neq \\frac{dx}{dt}$ because the height adds to the right-triangle relationship. The string grows more slowly than the horizontal rate."
-        },
-        {
-          "id": "D",
+          "id": "B",
           "text": "$\\frac{150}{\\sqrt{32500}}$ ft/s",
           "is_correct": false,
           "explanation": "Forgetting to multiply by $\\frac{dx}{dt} = 8$. The correct formula is $\\frac{dL}{dt} = \\frac{x}{L} \\cdot \\frac{dx}{dt} = \\frac{150 \\cdot 8}{\\sqrt{32500}}$."
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{24\\sqrt{13}}{13}$ ft/s",
+          "is_correct": true,
+          "explanation": "$L^2 = x^2 + 100^2$. At $x=150$: $L = \\sqrt{22500+10000} = \\sqrt{32500} = 50\\sqrt{13}$. Differentiate: $2L\\frac{dL}{dt} = 2x\\frac{dx}{dt}$. $\\frac{dL}{dt} = \\frac{x \\cdot \\frac{dx}{dt}}{L} = \\frac{150 \\cdot 8}{50\\sqrt{13}} = \\frac{24}{\\sqrt{13}} = \\frac{24\\sqrt{13}}{13} \\approx 6.66$ ft/s."
+        },
+        {
+          "id": "D",
+          "text": "$8$ ft/s",
+          "is_correct": false,
+          "explanation": "$\\frac{dL}{dt} \\neq \\frac{dx}{dt}$ because the height adds to the right-triangle relationship. The string grows more slowly than the horizontal rate."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -1516,21 +1516,21 @@
         },
         {
           "id": "B",
+          "text": "$e^{-1}$",
+          "is_correct": false,
+          "explanation": "$\\ln(\\lim x^x) = \\lim x\\ln x = 0$, so the limit is $e^0 = 1$, not $e^{-1}$."
+        },
+        {
+          "id": "C",
           "text": "$1$",
           "is_correct": true,
           "explanation": "Let $L = \\lim_{x\\to 0^+} x^x$. Then $\\ln L = \\lim x\\ln x = 0$ (shown via L'Hôpital's). So $L = e^0 = 1$."
         },
         {
-          "id": "C",
+          "id": "D",
           "text": "The limit does not exist",
           "is_correct": false,
           "explanation": "The limit exists via the exponential trick: $\\lim x^x = \\exp(\\lim x\\ln x) = e^0 = 1$."
-        },
-        {
-          "id": "D",
-          "text": "$e^{-1}$",
-          "is_correct": false,
-          "explanation": "$\\ln(\\lim x^x) = \\lim x\\ln x = 0$, so the limit is $e^0 = 1$, not $e^{-1}$."
         }
       ],
       "stimulus": {
@@ -1553,27 +1553,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$x = 2$",
+          "text": "$x = 8$",
           "is_correct": false,
-          "explanation": "$S = 2x^2 + 128/x$. $S' = 4x - 128/x^2 = 0 \\Rightarrow 4x^3 = 128 \\Rightarrow x^3 = 32 \\Rightarrow x = 2^{5/3} \\approx 3.17$, not 2."
+          "explanation": "$8^3 = 512 \\neq 32$. Setting $S' = 0$ gives $x^3 = 32$, so $x = 2^{5/3} \\approx 3.17$."
         },
         {
           "id": "B",
-          "text": "$x = 4$",
-          "is_correct": false,
-          "explanation": "$S' = 4x - 128/x^2 = 0 \\Rightarrow x^3 = 32 \\Rightarrow x = 32^{1/3} = 2^{5/3}$. Since $4^3 = 64 \\neq 32$, $x = 4$ does not satisfy the equation."
-        },
-        {
-          "id": "C",
           "text": "$x = 2^{5/3}$",
           "is_correct": true,
           "explanation": "$S(x) = 2x^2 + \\frac{128}{x}$. $S'(x) = 4x - \\frac{128}{x^2} = 0 \\Rightarrow 4x^3 = 128 \\Rightarrow x^3 = 32 \\Rightarrow x = 32^{1/3} = 2^{5/3}$."
         },
         {
-          "id": "D",
-          "text": "$x = 8$",
+          "id": "C",
+          "text": "$x = 4$",
           "is_correct": false,
-          "explanation": "$8^3 = 512 \\neq 32$. Setting $S' = 0$ gives $x^3 = 32$, so $x = 2^{5/3} \\approx 3.17$."
+          "explanation": "$S' = 4x - 128/x^2 = 0 \\Rightarrow x^3 = 32 \\Rightarrow x = 32^{1/3} = 2^{5/3}$. Since $4^3 = 64 \\neq 32$, $x = 4$ does not satisfy the equation."
+        },
+        {
+          "id": "D",
+          "text": "$x = 2$",
+          "is_correct": false,
+          "explanation": "$S = 2x^2 + 128/x$. $S' = 4x - 128/x^2 = 0 \\Rightarrow 4x^3 = 128 \\Rightarrow x^3 = 32 \\Rightarrow x = 2^{5/3} \\approx 3.17$, not 2."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -1592,27 +1592,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{3}{8}$ rad/s",
-          "is_correct": false,
-          "explanation": "$\\tan\\theta = h/200$. Differentiate: $\\sec^2\\theta \\frac{d\\theta}{dt} = \\frac{1}{200}\\frac{dh}{dt}$. At $h=200$: $\\tan\\theta=1$, so $\\theta = \\pi/4$ and $\\sec^2\\theta = 2$. $2\\frac{d\\theta}{dt} = \\frac{300}{200} \\Rightarrow \\frac{d\\theta}{dt} = \\frac{3}{4}$ rad/s."
-        },
-        {
-          "id": "B",
-          "text": "$\\frac{3}{4}$ rad/s",
-          "is_correct": true,
-          "explanation": "$\\tan\\theta = h/200$. Differentiate: $\\sec^2\\theta\\frac{d\\theta}{dt} = \\frac{\\dot{h}}{200}$. At $h=200$: $\\theta=45°$, $\\sec^2\\theta=2$. $2\\frac{d\\theta}{dt} = \\frac{300}{200} = \\frac{3}{2}$. So $\\frac{d\\theta}{dt} = \\frac{3}{4}$ rad/s."
-        },
-        {
-          "id": "C",
           "text": "$\\frac{3}{2}$ rad/s",
           "is_correct": false,
           "explanation": "This forgets to divide by $\\sec^2\\theta = 2$. The equation $\\sec^2\\theta \\frac{d\\theta}{dt} = 3/2$ gives $\\frac{d\\theta}{dt} = \\frac{3/2}{2} = \\frac{3}{4}$ rad/s."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "$\\frac{300}{200\\sqrt{2}}$ rad/s",
           "is_correct": false,
           "explanation": "Using $\\cos^2\\theta = 1/2$ correctly in principle but computing $\\frac{d\\theta}{dt} = \\frac{\\dot{h}}{200}\\cos^2\\theta = \\frac{300}{200} \\cdot \\frac{1}{2} = \\frac{3}{4}$ rad/s. The numerical form equals $\\frac{3}{4}$, which matches."
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{3}{4}$ rad/s",
+          "is_correct": true,
+          "explanation": "$\\tan\\theta = h/200$. Differentiate: $\\sec^2\\theta\\frac{d\\theta}{dt} = \\frac{\\dot{h}}{200}$. At $h=200$: $\\theta=45°$, $\\sec^2\\theta=2$. $2\\frac{d\\theta}{dt} = \\frac{300}{200} = \\frac{3}{2}$. So $\\frac{d\\theta}{dt} = \\frac{3}{4}$ rad/s."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{3}{8}$ rad/s",
+          "is_correct": false,
+          "explanation": "$\\tan\\theta = h/200$. Differentiate: $\\sec^2\\theta \\frac{d\\theta}{dt} = \\frac{1}{200}\\frac{dh}{dt}$. At $h=200$: $\\tan\\theta=1$, so $\\theta = \\pi/4$ and $\\sec^2\\theta = 2$. $2\\frac{d\\theta}{dt} = \\frac{300}{200} \\Rightarrow \\frac{d\\theta}{dt} = \\frac{3}{4}$ rad/s."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -1627,15 +1627,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$0$",
+          "text": "$\\infty$",
           "is_correct": false,
-          "explanation": "Rewrite as $\\frac{e^{1/x}-1}{1/x}$; let $u = 1/x \\to 0^+$: $\\lim_{u\\to 0}\\frac{e^u-1}{u} = 1$."
+          "explanation": "While $e^{1/x}-1 \\to 0$ and $x \\to \\infty$, the product is finite. The rewritten form shows the limit equals 1."
         },
         {
           "id": "B",
-          "text": "$1$",
-          "is_correct": true,
-          "explanation": "Rewrite: $\\frac{e^{1/x}-1}{1/x}$. Let $u=1/x \\to 0^+$: $\\lim_{u\\to 0^+}\\frac{e^u-1}{u} = 1$ (standard L'Hôpital result)."
+          "text": "$0$",
+          "is_correct": false,
+          "explanation": "Rewrite as $\\frac{e^{1/x}-1}{1/x}$; let $u = 1/x \\to 0^+$: $\\lim_{u\\to 0}\\frac{e^u-1}{u} = 1$."
         },
         {
           "id": "C",
@@ -1645,9 +1645,9 @@
         },
         {
           "id": "D",
-          "text": "$\\infty$",
-          "is_correct": false,
-          "explanation": "While $e^{1/x}-1 \\to 0$ and $x \\to \\infty$, the product is finite. The rewritten form shows the limit equals 1."
+          "text": "$1$",
+          "is_correct": true,
+          "explanation": "Rewrite: $\\frac{e^{1/x}-1}{1/x}$. Let $u=1/x \\to 0^+$: $\\lim_{u\\to 0^+}\\frac{e^u-1}{u} = 1$ (standard L'Hôpital result)."
         }
       ],
       "stimulus": {
@@ -1670,27 +1670,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{-750}{\\sqrt{14400}}$ ft/s",
-          "is_correct": false,
-          "explanation": "The distance from second base: $d^2 = (90-x)^2 + 90^2$ where $x$ is distance from home toward first. At $x=30$: $(60)^2 + (90)^2 = 3600+8100=11700$. $\\frac{dd}{dt} = \\frac{-(90-x)}{d}\\frac{dx}{dt} = \\frac{-60(25)}{\\sqrt{11700}}$."
-        },
-        {
-          "id": "B",
           "text": "$\\frac{-1500}{\\sqrt{11700}}$ ft/s",
           "is_correct": true,
           "explanation": "$d^2 = (90-x)^2 + 90^2$. Differentiate: $2d\\frac{dd}{dt} = -2(90-x)\\frac{dx}{dt}$. At $x=30$: $d = \\sqrt{3600+8100} = \\sqrt{11700}$. $\\frac{dd}{dt} = \\frac{-(90-30)(25)}{\\sqrt{11700}} = \\frac{-1500}{\\sqrt{11700}}$ ft/s."
         },
         {
-          "id": "C",
-          "text": "$\\frac{-25}{\\sqrt{11700}}$ ft/s",
-          "is_correct": false,
-          "explanation": "Forgetting to multiply by $\\frac{dx}{dt}$ and the factor $(90-x)$ fully. The numerator is $-(90-30)(25) = -1500$."
-        },
-        {
-          "id": "D",
+          "id": "B",
           "text": "$\\frac{25}{\\sqrt{11700}}$ ft/s",
           "is_correct": false,
           "explanation": "The runner is approaching second base (distance decreasing), so $\\frac{dd}{dt} < 0$. The correct answer is $\\frac{-1500}{\\sqrt{11700}}$."
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{-750}{\\sqrt{14400}}$ ft/s",
+          "is_correct": false,
+          "explanation": "The distance from second base: $d^2 = (90-x)^2 + 90^2$ where $x$ is distance from home toward first. At $x=30$: $(60)^2 + (90)^2 = 3600+8100=11700$. $\\frac{dd}{dt} = \\frac{-(90-x)}{d}\\frac{dx}{dt} = \\frac{-60(25)}{\\sqrt{11700}}$."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{-25}{\\sqrt{11700}}$ ft/s",
+          "is_correct": false,
+          "explanation": "Forgetting to multiply by $\\frac{dx}{dt}$ and the factor $(90-x)$ fully. The numerator is $-(90-30)(25) = -1500$."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -1711,9 +1711,9 @@
         },
         {
           "id": "B",
-          "text": "$-\\frac{1}{2}$",
-          "is_correct": true,
-          "explanation": "$\\frac{0}{0}$. L'Hôpital's: $\\frac{\\frac{1}{1+x}-1}{2x} = \\frac{-x}{2x(1+x)} = \\frac{-1}{2(1+x)} \\to -\\frac{1}{2}$."
+          "text": "$1$",
+          "is_correct": false,
+          "explanation": "Applying L'Hôpital's only once: $\\frac{1/(1+x)-1}{2x}$, which is still $\\frac{0}{0}$ at $x=0$. A second application gives $-\\frac{1}{2}$."
         },
         {
           "id": "C",
@@ -1723,9 +1723,9 @@
         },
         {
           "id": "D",
-          "text": "$1$",
-          "is_correct": false,
-          "explanation": "Applying L'Hôpital's only once: $\\frac{1/(1+x)-1}{2x}$, which is still $\\frac{0}{0}$ at $x=0$. A second application gives $-\\frac{1}{2}$."
+          "text": "$-\\frac{1}{2}$",
+          "is_correct": true,
+          "explanation": "$\\frac{0}{0}$. L'Hôpital's: $\\frac{\\frac{1}{1+x}-1}{2x} = \\frac{-x}{2x(1+x)} = \\frac{-1}{2(1+x)} \\to -\\frac{1}{2}$."
         }
       ],
       "stimulus": {
@@ -1748,27 +1748,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$s(t) = t^3 - t^2 - 4t + 5$",
-          "is_correct": true,
-          "explanation": "$v(t) = \\int(6t-2)dt = 3t^2-2t+C_1$. $v(0)=-4 \\Rightarrow C_1=-4$. $s(t) = \\int(3t^2-2t-4)dt = t^3-t^2-4t+C_2$. $s(0)=5 \\Rightarrow C_2=5$."
-        },
-        {
-          "id": "B",
-          "text": "$s(t) = t^3 - t^2 + 5$",
-          "is_correct": false,
-          "explanation": "This omits the $-4t$ term from the initial velocity. The velocity integration gives $3t^2-2t-4$, and integrating yields $t^3-t^2-4t+C$."
-        },
-        {
-          "id": "C",
           "text": "$s(t) = 3t^2 - 2t - 4$",
           "is_correct": false,
           "explanation": "That is $v(t)$, the velocity function. One more integration is needed: $s(t) = t^3 - t^2 - 4t + 5$."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "$s(t) = t^3 - t^2 - 4t$",
           "is_correct": false,
           "explanation": "Missing the initial condition constant. $s(0) = 5$ gives $C_2 = 5$, so $s(t) = t^3-t^2-4t+5$."
+        },
+        {
+          "id": "C",
+          "text": "$s(t) = t^3 - t^2 + 5$",
+          "is_correct": false,
+          "explanation": "This omits the $-4t$ term from the initial velocity. The velocity integration gives $3t^2-2t-4$, and integrating yields $t^3-t^2-4t+C$."
+        },
+        {
+          "id": "D",
+          "text": "$s(t) = t^3 - t^2 - 4t + 5$",
+          "is_correct": true,
+          "explanation": "$v(t) = \\int(6t-2)dt = 3t^2-2t+C_1$. $v(0)=-4 \\Rightarrow C_1=-4$. $s(t) = \\int(3t^2-2t-4)dt = t^3-t^2-4t+C_2$. $s(0)=5 \\Rightarrow C_2=5$."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -1783,27 +1783,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$1$",
-          "is_correct": false,
-          "explanation": "Take $\\ln$: $\\lim_{x\\to 0^+}\\frac{\\ln(1+x)}{x} = 1$ (L'Hôpital's: $\\frac{1/(1+x)}{1} \\to 1$). So the limit is $e^1 = e$, not 1."
-        },
-        {
-          "id": "B",
-          "text": "$e$",
-          "is_correct": true,
-          "explanation": "Let $L = \\lim(1+x)^{1/x}$. $\\ln L = \\lim\\frac{\\ln(1+x)}{x}$. L'Hôpital's: $\\frac{1/(1+x)}{1} \\to 1$. So $L = e^1 = e$."
-        },
-        {
-          "id": "C",
           "text": "$e^2$",
           "is_correct": false,
           "explanation": "$\\ln L = \\lim\\frac{\\ln(1+x)}{x} \\to 1$, not 2. So $L = e^1 = e$."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "The limit does not exist",
           "is_correct": false,
           "explanation": "The limit exists and equals $e$ — this is one of the fundamental definitions of $e$."
+        },
+        {
+          "id": "C",
+          "text": "$e$",
+          "is_correct": true,
+          "explanation": "Let $L = \\lim(1+x)^{1/x}$. $\\ln L = \\lim\\frac{\\ln(1+x)}{x}$. L'Hôpital's: $\\frac{1/(1+x)}{1} \\to 1$. So $L = e^1 = e$."
+        },
+        {
+          "id": "D",
+          "text": "$1$",
+          "is_correct": false,
+          "explanation": "Take $\\ln$: $\\lim_{x\\to 0^+}\\frac{\\ln(1+x)}{x} = 1$ (L'Hôpital's: $\\frac{1/(1+x)}{1} \\to 1$). So the limit is $e^1 = e$, not 1."
         }
       ],
       "stimulus": {
@@ -1826,9 +1826,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$0$",
+          "text": "$108$",
           "is_correct": false,
-          "explanation": "$0$ is the net displacement. Total distance accounts for direction changes. $v(t) = 4t^3-12t^2 = 4t^2(t-3)$, so velocity changes sign at $t=3$."
+          "explanation": "Integrating $|v(t)|$ over $[0,4]$ gives $\\int_0^3(-v)dt + \\int_3^4 v\\,dt = 27+27=54$, not 108."
         },
         {
           "id": "B",
@@ -1844,9 +1844,9 @@
         },
         {
           "id": "D",
-          "text": "$108$",
+          "text": "$0$",
           "is_correct": false,
-          "explanation": "Integrating $|v(t)|$ over $[0,4]$ gives $\\int_0^3(-v)dt + \\int_3^4 v\\,dt = 27+27=54$, not 108."
+          "explanation": "$0$ is the net displacement. Total distance accounts for direction changes. $v(t) = 4t^3-12t^2 = 4t^2(t-3)$, so velocity changes sign at $t=3$."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -1867,21 +1867,21 @@
         },
         {
           "id": "B",
-          "text": "$3$",
-          "is_correct": false,
-          "explanation": "Three applications of L'Hôpital's are needed. The final form is $\\frac{6}{e^x} \\to 0$ as $x \\to \\infty$, not 3."
-        },
-        {
-          "id": "C",
           "text": "$0$",
           "is_correct": true,
           "explanation": "Apply L'Hôpital's three times: $\\frac{x^3}{e^x} \\to \\frac{3x^2}{e^x} \\to \\frac{6x}{e^x} \\to \\frac{6}{e^x} \\to 0$. Exponential grows faster than any polynomial."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$6$",
           "is_correct": false,
           "explanation": "After three L'Hôpital applications, the form is $\\frac{6}{e^x}$, which approaches 0 (not 6) as $x \\to \\infty$."
+        },
+        {
+          "id": "D",
+          "text": "$3$",
+          "is_correct": false,
+          "explanation": "Three applications of L'Hôpital's are needed. The final form is $\\frac{6}{e^x} \\to 0$ as $x \\to \\infty$, not 3."
         }
       ],
       "stimulus": {
@@ -1910,9 +1910,9 @@
         },
         {
           "id": "B",
-          "text": "$T'(x) = -4x$ cm/°C, the rate of length change per degree",
+          "text": "$T'(x) = -2x^2$ °C/cm",
           "is_correct": false,
-          "explanation": "The derivative $\\frac{dT}{dx}$ has units of °C/cm (change in temperature per change in position), not cm/°C."
+          "explanation": "That is $-\\frac{1}{2}T(x) + 50$, not $T'(x)$. Differentiating $100-2x^2$ gives $-4x$."
         },
         {
           "id": "C",
@@ -1922,9 +1922,9 @@
         },
         {
           "id": "D",
-          "text": "$T'(x) = -2x^2$ °C/cm",
+          "text": "$T'(x) = -4x$ cm/°C, the rate of length change per degree",
           "is_correct": false,
-          "explanation": "That is $-\\frac{1}{2}T(x) + 50$, not $T'(x)$. Differentiating $100-2x^2$ gives $-4x$."
+          "explanation": "The derivative $\\frac{dT}{dx}$ has units of °C/cm (change in temperature per change in position), not cm/°C."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -1943,27 +1943,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "The 50th unit generated $\\$100$ in total revenue",
-          "is_correct": false,
-          "explanation": "$R(50) = 200(50)-2500 = 7500$ is total revenue. $R'(50) = 100$ is the marginal revenue (approximate additional revenue from the 51st unit)."
-        },
-        {
-          "id": "B",
           "text": "At 50 units, each additional unit sold generates approximately $\\$100$ in additional revenue",
           "is_correct": true,
           "explanation": "Marginal revenue $R'(x)$ represents the rate of change of revenue per additional unit: at $x=50$, selling one more unit adds approximately $\\$100$ in revenue."
         },
         {
-          "id": "C",
-          "text": "The total revenue at 50 units is $\\$100$",
+          "id": "B",
+          "text": "The 50th unit generated $\\$100$ in total revenue",
           "is_correct": false,
-          "explanation": "Total revenue is $R(50)$, not $R'(50)$. $R'(50) = 100$ is the marginal revenue — the approximate revenue from the next unit."
+          "explanation": "$R(50) = 200(50)-2500 = 7500$ is total revenue. $R'(50) = 100$ is the marginal revenue (approximate additional revenue from the 51st unit)."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "The company should produce 100 units, not 50",
           "is_correct": false,
           "explanation": "$R'(50) = 100$ is a rate (dollars per unit), not a recommended production level. It describes how revenue changes at the current level of 50 units."
+        },
+        {
+          "id": "D",
+          "text": "The total revenue at 50 units is $\\$100$",
+          "is_correct": false,
+          "explanation": "Total revenue is $R(50)$, not $R'(50)$. $R'(50) = 100$ is the marginal revenue — the approximate revenue from the next unit."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -1994,15 +1994,15 @@
         },
         {
           "id": "C",
-          "text": "$4$ ft/s",
-          "is_correct": false,
-          "explanation": "The person approaches the wall ($\\frac{dx}{dt} < 0$), so the shadow shortens ($\\frac{ds}{dt} < 0$). The rate is $-4$ ft/s."
-        },
-        {
-          "id": "D",
           "text": "$-8$ ft/s",
           "is_correct": false,
           "explanation": "Using the tip of the shadow (length from wall) would involve different similar triangle ratios. The shadow length from the person: $s = x$, so $\\frac{ds}{dt} = -4$ ft/s."
+        },
+        {
+          "id": "D",
+          "text": "$4$ ft/s",
+          "is_correct": false,
+          "explanation": "The person approaches the wall ($\\frac{dx}{dt} < 0$), so the shadow shortens ($\\frac{ds}{dt} < 0$). The rate is $-4$ ft/s."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -2017,27 +2017,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$0$",
+          "text": "$1$",
           "is_correct": false,
-          "explanation": "Apply L'Hôpital's three times: $\\frac{\\sin x-x}{x^3} \\to \\frac{\\cos x-1}{3x^2} \\to \\frac{-\\sin x}{6x} \\to \\frac{-\\cos x}{6} \\to -\\frac{1}{6}$."
+          "explanation": "The three L'Hôpital applications are needed. The final form $\\frac{-\\cos x}{6}$ evaluated at $x=0$ gives $-\\frac{1}{6}$, not 1."
         },
         {
           "id": "B",
-          "text": "$-\\frac{1}{6}$",
-          "is_correct": true,
-          "explanation": "Three applications of L'Hôpital's ($\\frac{0}{0}$ each time): $\\frac{\\cos x-1}{3x^2} \\to \\frac{-\\sin x}{6x} \\to \\frac{-\\cos x}{6} \\to -\\frac{1}{6}$."
-        },
-        {
-          "id": "C",
           "text": "$\\frac{1}{6}$",
           "is_correct": false,
           "explanation": "Sign error. $\\frac{d^3}{dx^3}[\\sin x - x] = -\\cos x$. At $x=0$: $-\\cos(0)/3! = -1/6$."
         },
         {
+          "id": "C",
+          "text": "$-\\frac{1}{6}$",
+          "is_correct": true,
+          "explanation": "Three applications of L'Hôpital's ($\\frac{0}{0}$ each time): $\\frac{\\cos x-1}{3x^2} \\to \\frac{-\\sin x}{6x} \\to \\frac{-\\cos x}{6} \\to -\\frac{1}{6}$."
+        },
+        {
           "id": "D",
-          "text": "$1$",
+          "text": "$0$",
           "is_correct": false,
-          "explanation": "The three L'Hôpital applications are needed. The final form $\\frac{-\\cos x}{6}$ evaluated at $x=0$ gives $-\\frac{1}{6}$, not 1."
+          "explanation": "Apply L'Hôpital's three times: $\\frac{\\sin x-x}{x^3} \\to \\frac{\\cos x-1}{3x^2} \\to \\frac{-\\sin x}{6x} \\to \\frac{-\\cos x}{6} \\to -\\frac{1}{6}$."
         }
       ],
       "stimulus": {
@@ -2066,21 +2066,21 @@
         },
         {
           "id": "B",
-          "text": "$\\frac{32}{3}$",
-          "is_correct": false,
-          "explanation": "Total distance (not displacement) requires integrating $|v|$, but even that is not $\\frac{32}{3}$ here. Displacement: $\\frac{64}{3}-16 = \\frac{16}{3}$."
-        },
-        {
-          "id": "C",
           "text": "$0$",
           "is_correct": false,
           "explanation": "$\\int_0^4(t^2-4)dt = \\frac{64}{3}-16 = \\frac{16}{3} \\neq 0$. Zero would be the case if positive and negative areas canceled exactly."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$8$",
           "is_correct": false,
           "explanation": "$\\frac{t^4}{4}\\big|_0^4 - 4t\\big|_0^4 = 64-16=48$... The correct antiderivative is $\\frac{t^3}{3}-4t$: at $t=4$, $\\frac{64}{3}-16 = \\frac{16}{3}$."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{32}{3}$",
+          "is_correct": false,
+          "explanation": "Total distance (not displacement) requires integrating $|v|$, but even that is not $\\frac{32}{3}$ here. Displacement: $\\frac{64}{3}-16 = \\frac{16}{3}$."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -2099,27 +2099,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$y(t) = \\frac{5}{\\pi}\\sin(\\pi t) + 3$",
-          "is_correct": true,
-          "explanation": "$y(t) = \\int 5\\cos(\\pi t)dt = \\frac{5}{\\pi}\\sin(\\pi t) + C$. $y(0) = 0 + C = 3 \\Rightarrow C = 3$."
-        },
-        {
-          "id": "B",
           "text": "$y(t) = 5\\sin(\\pi t) + 3$",
           "is_correct": false,
           "explanation": "The antiderivative of $5\\cos(\\pi t)$ uses the chain rule: $\\frac{5}{\\pi}\\sin(\\pi t)$, not $5\\sin(\\pi t)$. The $\\pi$ in the denominator comes from the chain rule."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "$y(t) = -5\\pi\\sin(\\pi t) + 3$",
           "is_correct": false,
           "explanation": "$-5\\pi\\sin(\\pi t)$ is the derivative of $5\\cos(\\pi t)$, not its antiderivative. Integration places $\\pi$ in the denominator, not multiplies it."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$y(t) = \\frac{5}{\\pi}\\sin(\\pi t)$",
           "is_correct": false,
           "explanation": "The initial condition $y(0) = 3$ requires $C = 3$. Without adding 3, the particle starts at the origin."
+        },
+        {
+          "id": "D",
+          "text": "$y(t) = \\frac{5}{\\pi}\\sin(\\pi t) + 3$",
+          "is_correct": true,
+          "explanation": "$y(t) = \\int 5\\cos(\\pi t)dt = \\frac{5}{\\pi}\\sin(\\pi t) + C$. $y(0) = 0 + C = 3 \\Rightarrow C = 3$."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -2134,15 +2134,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$e$",
-          "is_correct": false,
-          "explanation": "Let $L = \\lim(1+2/x)^x$. $\\ln L = \\lim x\\ln(1+2/x)$. Let $u=1/x$: $\\lim\\frac{\\ln(1+2u)}{u} = 2$ (L'Hôpital's). So $L = e^2$."
-        },
-        {
-          "id": "B",
           "text": "$e^2$",
           "is_correct": true,
           "explanation": "$\\ln L = \\lim x\\ln(1+2/x)$. Let $u=2/x$: $\\lim \\frac{2}{u}\\ln(1+u) = 2\\lim\\frac{\\ln(1+u)}{u} = 2(1) = 2$. So $L = e^2$."
+        },
+        {
+          "id": "B",
+          "text": "$e^{1/2}$",
+          "is_correct": false,
+          "explanation": "$\\ln L = \\lim x\\ln(1+2/x) \\to 2$, giving $L = e^2$, not $e^{1/2}$."
         },
         {
           "id": "C",
@@ -2152,9 +2152,9 @@
         },
         {
           "id": "D",
-          "text": "$e^{1/2}$",
+          "text": "$e$",
           "is_correct": false,
-          "explanation": "$\\ln L = \\lim x\\ln(1+2/x) \\to 2$, giving $L = e^2$, not $e^{1/2}$."
+          "explanation": "Let $L = \\lim(1+2/x)^x$. $\\ln L = \\lim x\\ln(1+2/x)$. Let $u=1/x$: $\\lim\\frac{\\ln(1+2u)}{u} = 2$ (L'Hôpital's). So $L = e^2$."
         }
       ],
       "stimulus": {
@@ -2183,21 +2183,21 @@
         },
         {
           "id": "B",
+          "text": "Exact, because $F$ is a polynomial",
+          "is_correct": false,
+          "explanation": "Linearization is exact only at the base point $x=2$. Away from it, the concavity of $F$ causes the tangent line to deviate (below $F$, since $F''(2)>0$)."
+        },
+        {
+          "id": "C",
           "text": "Underestimate, because $F''(2) > 0$",
           "is_correct": true,
           "explanation": "$F''(x) = 6x-2$, $F''(2) = 10 > 0$ (concave up). The tangent line lies below the curve, so the linearization underestimates $F(2.05)$."
         },
         {
-          "id": "C",
+          "id": "D",
           "text": "Overestimate, because $F'(2) > 0$",
           "is_correct": false,
           "explanation": "Whether the linearization over- or underestimates depends on concavity, not the sign of $F'$. Since $F''(2) > 0$ (concave up), it's an underestimate."
-        },
-        {
-          "id": "D",
-          "text": "Exact, because $F$ is a polynomial",
-          "is_correct": false,
-          "explanation": "Linearization is exact only at the base point $x=2$. Away from it, the concavity of $F$ causes the tangent line to deviate (below $F$, since $F''(2)>0$)."
         }
       ],
       "subject": "ap-calculus-ab",

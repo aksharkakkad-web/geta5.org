@@ -11,21 +11,21 @@
       "choices": [
         {
           "id": "A",
-          "text": "$4$",
-          "is_correct": false,
-          "explanation": "This is $f(1)$, not the average value."
-        },
-        {
-          "id": "B",
           "text": "$6$",
           "is_correct": true,
           "explanation": "Average value $= \\frac{1}{3-0}\\int_0^3 4x\\,dx = \\frac{1}{3}[2x^2]_0^3 = \\frac{1}{3}(18) = 6$."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "$12$",
           "is_correct": false,
           "explanation": "$\\int_0^3 4x\\,dx = 18$, but you must divide by the interval length $3$."
+        },
+        {
+          "id": "C",
+          "text": "$4$",
+          "is_correct": false,
+          "explanation": "This is $f(1)$, not the average value."
         },
         {
           "id": "D",
@@ -90,27 +90,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{16}{3}$",
-          "is_correct": true,
-          "explanation": "Net displacement $= \\int_0^4 (t^2 - 4)\\,dt = \\left[\\frac{t^3}{3} - 4t\\right]_0^4 = \\frac{64}{3} - 16 = \\frac{16}{3}$."
-        },
-        {
-          "id": "B",
           "text": "$\\frac{32}{3}$",
           "is_correct": false,
           "explanation": "This would result from computing total distance, which splits the integral at zeros of velocity."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "$0$",
           "is_correct": false,
           "explanation": "The positive and negative portions do not cancel perfectly here."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$8$",
           "is_correct": false,
           "explanation": "Arithmetic error — recompute $\\frac{64}{3} - 16 = \\frac{64-48}{3} = \\frac{16}{3}$."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{16}{3}$",
+          "is_correct": true,
+          "explanation": "Net displacement $= \\int_0^4 (t^2 - 4)\\,dt = \\left[\\frac{t^3}{3} - 4t\\right]_0^4 = \\frac{64}{3} - 16 = \\frac{16}{3}$."
         }
       ],
       "stimulus": {
@@ -170,27 +170,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{1}{6}$",
-          "is_correct": true,
-          "explanation": "The curves intersect at $x=0$ and $x=1$. Area $= \\int_0^1 (x - x^2)\\,dx = \\left[\\frac{x^2}{2} - \\frac{x^3}{3}\\right]_0^1 = \\frac{1}{2} - \\frac{1}{3} = \\frac{1}{6}$."
-        },
-        {
-          "id": "B",
           "text": "$\\frac{1}{3}$",
           "is_correct": false,
           "explanation": "This would be the result of integrating only one function from 0 to 1, not the difference."
         },
         {
-          "id": "C",
-          "text": "$\\frac{1}{2}$",
-          "is_correct": false,
-          "explanation": "$\\int_0^1 x\\,dx = \\frac{1}{2}$, but you must subtract the area under $y = x^2$."
-        },
-        {
-          "id": "D",
+          "id": "B",
           "text": "$1$",
           "is_correct": false,
           "explanation": "This significantly overestimates the enclosed area."
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{1}{6}$",
+          "is_correct": true,
+          "explanation": "The curves intersect at $x=0$ and $x=1$. Area $= \\int_0^1 (x - x^2)\\,dx = \\left[\\frac{x^2}{2} - \\frac{x^3}{3}\\right]_0^1 = \\frac{1}{2} - \\frac{1}{3} = \\frac{1}{6}$."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{1}{2}$",
+          "is_correct": false,
+          "explanation": "$\\int_0^1 x\\,dx = \\frac{1}{2}$, but you must subtract the area under $y = x^2$."
         }
       ],
       "stimulus": {
@@ -276,9 +276,9 @@
         },
         {
           "id": "B",
-          "text": "$5$",
+          "text": "$18$",
           "is_correct": false,
-          "explanation": "This is net displacement, not total distance. Total distance requires splitting at $v(t) = 0$."
+          "explanation": "This does not account for direction change correctly."
         },
         {
           "id": "C",
@@ -288,9 +288,9 @@
         },
         {
           "id": "D",
-          "text": "$18$",
+          "text": "$5$",
           "is_correct": false,
-          "explanation": "This does not account for direction change correctly."
+          "explanation": "This is net displacement, not total distance. Total distance requires splitting at $v(t) = 0$."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -305,15 +305,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\pi \\int_0^4 x\\,dx$",
-          "is_correct": true,
-          "explanation": "The disc radius is $R(x) = \\sqrt{x}$, so $V = \\pi\\int_0^4 (\\sqrt{x})^2\\,dx = \\pi\\int_0^4 x\\,dx$."
-        },
-        {
-          "id": "B",
           "text": "$\\pi \\int_0^4 \\sqrt{x}\\,dx$",
           "is_correct": false,
           "explanation": "The integrand should be $[R(x)]^2 = x$, not $\\sqrt{x}$."
+        },
+        {
+          "id": "B",
+          "text": "$\\pi \\int_0^4 x\\,dx$",
+          "is_correct": true,
+          "explanation": "The disc radius is $R(x) = \\sqrt{x}$, so $V = \\pi\\int_0^4 (\\sqrt{x})^2\\,dx = \\pi\\int_0^4 x\\,dx$."
         },
         {
           "id": "C",
@@ -390,27 +390,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\int_{-2}^{2}(4 - x^2)\\,dx$",
-          "is_correct": true,
-          "explanation": "Area = $\\int_{-2}^{2}(\\text{top} - \\text{bottom})\\,dx = \\int_{-2}^{2}(4 - x^2)\\,dx$."
-        },
-        {
-          "id": "B",
           "text": "$\\int_{-2}^{2}(x^2 - 4)\\,dx$",
           "is_correct": false,
           "explanation": "This gives a negative value since $x^2 < 4$ on $(-2,2)$. Top minus bottom gives positive area."
         },
         {
-          "id": "C",
-          "text": "$2\\int_0^2 x^2\\,dx$",
-          "is_correct": false,
-          "explanation": "This is twice the area under $y = x^2$, not the area between $y = 4$ and $y = x^2$."
-        },
-        {
-          "id": "D",
+          "id": "B",
           "text": "$\\int_0^4(4 - x^2)\\,dx$",
           "is_correct": false,
           "explanation": "Incorrect limits of integration — the region spans $x \\in [-2, 2]$."
+        },
+        {
+          "id": "C",
+          "text": "$\\int_{-2}^{2}(4 - x^2)\\,dx$",
+          "is_correct": true,
+          "explanation": "Area = $\\int_{-2}^{2}(\\text{top} - \\text{bottom})\\,dx = \\int_{-2}^{2}(4 - x^2)\\,dx$."
+        },
+        {
+          "id": "D",
+          "text": "$2\\int_0^2 x^2\\,dx$",
+          "is_correct": false,
+          "explanation": "This is twice the area under $y = x^2$, not the area between $y = 4$ and $y = x^2$."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -425,15 +425,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$0$",
+          "text": "$1$",
           "is_correct": false,
-          "explanation": "$\\int_0^\\pi \\sin x\\,dx = 2 \\neq 0$."
+          "explanation": "The maximum of $\\sin x$ is 1, but the average is less than the maximum."
         },
         {
           "id": "B",
-          "text": "$\\frac{2}{\\pi}$",
-          "is_correct": true,
-          "explanation": "Average value $= \\frac{1}{\\pi}\\int_0^\\pi \\sin x\\,dx = \\frac{1}{\\pi}[-\\cos x]_0^\\pi = \\frac{1}{\\pi}(1+1) = \\frac{2}{\\pi}$."
+          "text": "$0$",
+          "is_correct": false,
+          "explanation": "$\\int_0^\\pi \\sin x\\,dx = 2 \\neq 0$."
         },
         {
           "id": "C",
@@ -443,9 +443,9 @@
         },
         {
           "id": "D",
-          "text": "$1$",
-          "is_correct": false,
-          "explanation": "The maximum of $\\sin x$ is 1, but the average is less than the maximum."
+          "text": "$\\frac{2}{\\pi}$",
+          "is_correct": true,
+          "explanation": "Average value $= \\frac{1}{\\pi}\\int_0^\\pi \\sin x\\,dx = \\frac{1}{\\pi}[-\\cos x]_0^\\pi = \\frac{1}{\\pi}(1+1) = \\frac{2}{\\pi}$."
         }
       ],
       "stimulus": {
@@ -537,27 +537,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$10$ ft",
+          "text": "$6$ ft",
           "is_correct": false,
-          "explanation": "This uses only some of the values. Left sum uses $t = 0, 1, 2, 3$: $(0+4+6+4)(1) = 14$ ft."
+          "explanation": "This is only $v(2)$, the maximum value, not a Riemann sum."
         },
         {
           "id": "B",
-          "text": "$14$ ft",
-          "is_correct": true,
-          "explanation": "Left Riemann sum: $\\Delta t = 1$. Sum $= 1\\cdot[v(0)+v(1)+v(2)+v(3)] = 0+4+6+4 = 14$ ft."
-        },
-        {
-          "id": "C",
           "text": "$16$ ft",
           "is_correct": false,
           "explanation": "A right Riemann sum would give $v(1)+v(2)+v(3)+v(4) = 4+6+4+0 = 14$ ft, not 16."
         },
         {
-          "id": "D",
-          "text": "$6$ ft",
+          "id": "C",
+          "text": "$10$ ft",
           "is_correct": false,
-          "explanation": "This is only $v(2)$, the maximum value, not a Riemann sum."
+          "explanation": "This uses only some of the values. Left sum uses $t = 0, 1, 2, 3$: $(0+4+6+4)(1) = 14$ ft."
+        },
+        {
+          "id": "D",
+          "text": "$14$ ft",
+          "is_correct": true,
+          "explanation": "Left Riemann sum: $\\Delta t = 1$. Sum $= 1\\cdot[v(0)+v(1)+v(2)+v(3)] = 0+4+6+4 = 14$ ft."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -578,9 +578,9 @@
         },
         {
           "id": "B",
-          "text": "$8$",
+          "text": "$32$",
           "is_correct": false,
-          "explanation": "$\\int_0^4 x\\,dx = 8$, but each cross section has area $x^2$ (square), not $x$."
+          "explanation": "Computational error — $\\int_0^4 x^2\\,dx = \\frac{x^3}{3}\\Big|_0^4 = \\frac{64}{3} \\approx 21.3$."
         },
         {
           "id": "C",
@@ -590,9 +590,9 @@
         },
         {
           "id": "D",
-          "text": "$32$",
+          "text": "$8$",
           "is_correct": false,
-          "explanation": "Computational error — $\\int_0^4 x^2\\,dx = \\frac{x^3}{3}\\Big|_0^4 = \\frac{64}{3} \\approx 21.3$."
+          "explanation": "$\\int_0^4 x\\,dx = 8$, but each cross section has area $x^2$ (square), not $x$."
         }
       ],
       "stimulus": {
@@ -611,15 +611,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$12\\pi$",
-          "is_correct": true,
-          "explanation": "Disc method: $V = \\pi\\int_0^3 2^2\\,dx = 4\\pi \\cdot 3 = 12\\pi$. (This is a cylinder.)"
+          "text": "$6$",
+          "is_correct": false,
+          "explanation": "This is the area of the rectangular region, not the volume of revolution."
         },
         {
           "id": "B",
-          "text": "$6\\pi$",
-          "is_correct": false,
-          "explanation": "Off by factor of 2 — the radius is 2, so $R^2 = 4$, giving $V = 12\\pi$."
+          "text": "$12\\pi$",
+          "is_correct": true,
+          "explanation": "Disc method: $V = \\pi\\int_0^3 2^2\\,dx = 4\\pi \\cdot 3 = 12\\pi$. (This is a cylinder.)"
         },
         {
           "id": "C",
@@ -629,9 +629,9 @@
         },
         {
           "id": "D",
-          "text": "$6$",
+          "text": "$6\\pi$",
           "is_correct": false,
-          "explanation": "This is the area of the rectangular region, not the volume of revolution."
+          "explanation": "Off by factor of 2 — the radius is 2, so $R^2 = 4$, giving $V = 12\\pi$."
         }
       ],
       "stimulus": {
@@ -741,9 +741,9 @@
         },
         {
           "id": "B",
-          "text": "$\\frac{10}{3}$",
+          "text": "$8$",
           "is_correct": false,
-          "explanation": "$v(t) = (t-1)(t-3) = t^2-4t+3$, zeros at $t=1$ and $t=3$. Each sub-interval: $\\int_0^1|v|=\\frac{4}{3}$, $\\int_1^3|v|=\\frac{4}{3}$, $\\int_3^4|v|=\\frac{4}{3}$. Total distance $= \\frac{4}{3}+\\frac{4}{3}+\\frac{4}{3} = 4$, not $\\frac{10}{3}$."
+          "explanation": "This overestimates; each sub-interval contributes $\\frac{4}{3}$."
         },
         {
           "id": "C",
@@ -753,9 +753,9 @@
         },
         {
           "id": "D",
-          "text": "$8$",
+          "text": "$\\frac{10}{3}$",
           "is_correct": false,
-          "explanation": "This overestimates; each sub-interval contributes $\\frac{4}{3}$."
+          "explanation": "$v(t) = (t-1)(t-3) = t^2-4t+3$, zeros at $t=1$ and $t=3$. Each sub-interval: $\\int_0^1|v|=\\frac{4}{3}$, $\\int_1^3|v|=\\frac{4}{3}$, $\\int_3^4|v|=\\frac{4}{3}$. Total distance $= \\frac{4}{3}+\\frac{4}{3}+\\frac{4}{3} = 4$, not $\\frac{10}{3}$."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -774,27 +774,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{4}{3}$",
-          "is_correct": true,
-          "explanation": "$\\int_0^4(t^2-4t+3)\\,dt = \\left[\\frac{t^3}{3}-2t^2+3t\\right]_0^4 = \\frac{64}{3}-32+12 = \\frac{64}{3}-20 = \\frac{4}{3}$."
-        },
-        {
-          "id": "B",
           "text": "$4$",
           "is_correct": false,
           "explanation": "This is the total distance traveled, not the net displacement."
         },
         {
-          "id": "C",
-          "text": "$\\frac{8}{3}$",
-          "is_correct": false,
-          "explanation": "Arithmetic error — $\\frac{64}{3} - 20 = \\frac{64-60}{3} = \\frac{4}{3}$."
-        },
-        {
-          "id": "D",
+          "id": "B",
           "text": "$0$",
           "is_correct": false,
           "explanation": "The net displacement is not zero here; recompute the definite integral."
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{4}{3}$",
+          "is_correct": true,
+          "explanation": "$\\int_0^4(t^2-4t+3)\\,dt = \\left[\\frac{t^3}{3}-2t^2+3t\\right]_0^4 = \\frac{64}{3}-32+12 = \\frac{64}{3}-20 = \\frac{4}{3}$."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{8}{3}$",
+          "is_correct": false,
+          "explanation": "Arithmetic error — $\\frac{64}{3} - 20 = \\frac{64-60}{3} = \\frac{4}{3}$."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -813,27 +813,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\int_0^2(e^x - 1)\\,dx$",
-          "is_correct": true,
-          "explanation": "On $[0,2]$, $e^x \\ge 1$. The curves intersect at $x = 0$ (since $e^0 = 1$). Area $= \\int_0^2(e^x-1)\\,dx$."
-        },
-        {
-          "id": "B",
-          "text": "$\\int_1^2 e^x\\,dx$",
-          "is_correct": false,
-          "explanation": "This starts at $x = 1$, not at the intersection point $x = 0$."
-        },
-        {
-          "id": "C",
           "text": "$\\int_0^2 e^x\\,dx - 2$",
           "is_correct": false,
           "explanation": "$\\int_0^2 1\\,dx = 2$, so this gives the same value as $\\int_0^2(e^x-1)\\,dx$, but it obscures the setup."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "$e^2 - 1$",
           "is_correct": false,
           "explanation": "This is the value at $x = 2$ minus the value at $x = 0$, not an integral."
+        },
+        {
+          "id": "C",
+          "text": "$\\int_1^2 e^x\\,dx$",
+          "is_correct": false,
+          "explanation": "This starts at $x = 1$, not at the intersection point $x = 0$."
+        },
+        {
+          "id": "D",
+          "text": "$\\int_0^2(e^x - 1)\\,dx$",
+          "is_correct": true,
+          "explanation": "On $[0,2]$, $e^x \\ge 1$. The curves intersect at $x = 0$ (since $e^0 = 1$). Area $= \\int_0^2(e^x-1)\\,dx$."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -852,27 +852,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{4}{3}$",
-          "is_correct": true,
-          "explanation": "Intersection: $x^2 = 2x \\Rightarrow x = 0, 2$. Area $= \\int_0^2(2x - x^2)\\,dx = [x^2 - \\frac{x^3}{3}]_0^2 = 4 - \\frac{8}{3} = \\frac{4}{3}$."
-        },
-        {
-          "id": "B",
           "text": "$\\frac{8}{3}$",
           "is_correct": false,
           "explanation": "This is $\\int_0^2 x^2\\,dx$, not the area between the curves."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "$2$",
           "is_correct": false,
           "explanation": "$\\int_0^2 2x\\,dx = 4$, but you must subtract the area under $y = x^2$."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$\\frac{2}{3}$",
           "is_correct": false,
           "explanation": "Arithmetic error — $4 - \\frac{8}{3} = \\frac{12-8}{3} = \\frac{4}{3}$."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{4}{3}$",
+          "is_correct": true,
+          "explanation": "Intersection: $x^2 = 2x \\Rightarrow x = 0, 2$. Area $= \\int_0^2(2x - x^2)\\,dx = [x^2 - \\frac{x^3}{3}]_0^2 = 4 - \\frac{8}{3} = \\frac{4}{3}$."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -893,21 +893,21 @@
         },
         {
           "id": "B",
-          "text": "$\\pi\\int_{-2}^{2}(x^2)^2\\,dx$",
-          "is_correct": false,
-          "explanation": "This would revolve about $y = 0$, not $y = 4$."
-        },
-        {
-          "id": "C",
           "text": "$\\pi\\int_0^4(4-y)\\,dy$",
           "is_correct": false,
           "explanation": "This switches the variable to $y$ but misidentifies the radius."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$2\\pi\\int_{-2}^{2} x^2(4-x^2)\\,dx$",
           "is_correct": false,
           "explanation": "This resembles a shell method setup, which would integrate differently for revolution about a horizontal axis."
+        },
+        {
+          "id": "D",
+          "text": "$\\pi\\int_{-2}^{2}(x^2)^2\\,dx$",
+          "is_correct": false,
+          "explanation": "This would revolve about $y = 0$, not $y = 4$."
         }
       ],
       "stimulus": {
@@ -987,9 +987,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{81\\pi}{2}$",
-          "is_correct": true,
-          "explanation": "$V = \\pi\\int_0^9(\\sqrt{x})^2\\,dx = \\pi\\int_0^9 x\\,dx = \\pi\\cdot\\frac{81}{2} = \\frac{81\\pi}{2}$."
+          "text": "$81\\pi$",
+          "is_correct": false,
+          "explanation": "Off by factor of 2 — remember to divide by 2 when integrating $x$: $\\frac{x^2}{2}\\Big|_0^9 = \\frac{81}{2}$."
         },
         {
           "id": "B",
@@ -999,15 +999,15 @@
         },
         {
           "id": "C",
-          "text": "$27\\pi$",
-          "is_correct": false,
-          "explanation": "$\\int_0^9\\sqrt{x}\\,dx = 18$, but the integrand for disc method is $(\\sqrt{x})^2 = x$."
+          "text": "$\\frac{81\\pi}{2}$",
+          "is_correct": true,
+          "explanation": "$V = \\pi\\int_0^9(\\sqrt{x})^2\\,dx = \\pi\\int_0^9 x\\,dx = \\pi\\cdot\\frac{81}{2} = \\frac{81\\pi}{2}$."
         },
         {
           "id": "D",
-          "text": "$81\\pi$",
+          "text": "$27\\pi$",
           "is_correct": false,
-          "explanation": "Off by factor of 2 — remember to divide by 2 when integrating $x$: $\\frac{x^2}{2}\\Big|_0^9 = \\frac{81}{2}$."
+          "explanation": "$\\int_0^9\\sqrt{x}\\,dx = 18$, but the integrand for disc method is $(\\sqrt{x})^2 = x$."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -1038,15 +1038,15 @@
         },
         {
           "id": "C",
-          "text": "$\\pi\\int_0^4(4 - y)\\cdot 1\\,dy$",
-          "is_correct": false,
-          "explanation": "This is not the correct disc/washer formula; the radius squared is needed."
-        },
-        {
-          "id": "D",
           "text": "$\\pi\\int_0^4\\left[(2)^2 - (\\sqrt{y})^2\\right]\\,dy$",
           "is_correct": true,
           "explanation": "Washer method about $y$-axis: outer radius $= 2$, inner radius $= \\sqrt{y}$ (from $x = \\sqrt{y}$). $V = \\pi\\int_0^4(4-y)\\,dy$, which matches this."
+        },
+        {
+          "id": "D",
+          "text": "$\\pi\\int_0^4(4 - y)\\cdot 1\\,dy$",
+          "is_correct": false,
+          "explanation": "This is not the correct disc/washer formula; the radius squared is needed."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -1127,15 +1127,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{\\pi}{4}\\int_0^\\pi\\sin^2 x\\,dx$",
-          "is_correct": false,
-          "explanation": "Diameter $= \\sin x$, radius $= \\frac{\\sin x}{2}$. Area of semicircle $= \\frac{1}{2}\\pi r^2 = \\frac{\\pi}{2}\\cdot\\frac{\\sin^2 x}{4} = \\frac{\\pi\\sin^2 x}{8}$. The coefficient is $\\frac{\\pi}{8}$, not $\\frac{\\pi}{4}$."
-        },
-        {
-          "id": "B",
           "text": "$\\frac{\\pi}{8}\\int_0^\\pi\\sin^2 x\\,dx$",
           "is_correct": true,
           "explanation": "Diameter $= \\sin x$, radius $= \\frac{\\sin x}{2}$. Semicircle area $= \\frac{1}{2}\\pi r^2 = \\frac{\\pi}{8}\\sin^2 x$. Volume $= \\int_0^\\pi \\frac{\\pi}{8}\\sin^2 x\\,dx = \\frac{\\pi}{8}\\int_0^\\pi\\sin^2 x\\,dx$."
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{\\pi}{4}\\int_0^\\pi\\sin^2 x\\,dx$",
+          "is_correct": false,
+          "explanation": "Diameter $= \\sin x$, radius $= \\frac{\\sin x}{2}$. Area of semicircle $= \\frac{1}{2}\\pi r^2 = \\frac{\\pi}{2}\\cdot\\frac{\\sin^2 x}{4} = \\frac{\\pi\\sin^2 x}{8}$. The coefficient is $\\frac{\\pi}{8}$, not $\\frac{\\pi}{4}$."
         },
         {
           "id": "C",
@@ -1212,15 +1212,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$4$",
+          "text": "$16$",
           "is_correct": false,
-          "explanation": "This is the net displacement $x(4) - x(0) = 64 - 96 + 36 - 0 = 4$."
+          "explanation": "This overestimates; the maximum displacement from origin is only 4."
         },
         {
           "id": "B",
-          "text": "$8$",
+          "text": "$4$",
           "is_correct": false,
-          "explanation": "$v(t) = 3t^2-12t+9 = 3(t-1)(t-3)$, zeros at $t=1,3$. Position: $x(0)=0$, $x(1)=1-6+9=4$, $x(3)=27-54+27=0$, $x(4)=64-96+36=4$. Total distance $= |4-0|+|0-4|+|4-0| = 4+4+4 = 12$, not 8."
+          "explanation": "This is the net displacement $x(4) - x(0) = 64 - 96 + 36 - 0 = 4$."
         },
         {
           "id": "C",
@@ -1230,9 +1230,9 @@
         },
         {
           "id": "D",
-          "text": "$16$",
+          "text": "$8$",
           "is_correct": false,
-          "explanation": "This overestimates; the maximum displacement from origin is only 4."
+          "explanation": "$v(t) = 3t^2-12t+9 = 3(t-1)(t-3)$, zeros at $t=1,3$. Position: $x(0)=0$, $x(1)=1-6+9=4$, $x(3)=27-54+27=0$, $x(4)=64-96+36=4$. Total distance $= |4-0|+|0-4|+|4-0| = 4+4+4 = 12$, not 8."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -1253,21 +1253,21 @@
         },
         {
           "id": "B",
+          "text": "$1$",
+          "is_correct": false,
+          "explanation": "This overestimates; the correct area is $\\frac{1}{2}$."
+        },
+        {
+          "id": "C",
           "text": "$\\frac{1}{2}$",
           "is_correct": true,
           "explanation": "On $[-1,0]$: $x^3 > x$; on $[0,1]$: $x < x^3$... Actually on $[0,1]$, $x \\ge x^3$. By symmetry, Area $= 2\\int_0^1(x-x^3)\\,dx = 2[\\frac{x^2}{2}-\\frac{x^4}{4}]_0^1 = 2(\\frac{1}{2}-\\frac{1}{4}) = \\frac{1}{2}$."
         },
         {
-          "id": "C",
+          "id": "D",
           "text": "$\\frac{1}{4}$",
           "is_correct": false,
           "explanation": "Off by factor of 2 — the region is symmetric about the origin, so you multiply the $[0,1]$ area by 2."
-        },
-        {
-          "id": "D",
-          "text": "$1$",
-          "is_correct": false,
-          "explanation": "This overestimates; the correct area is $\\frac{1}{2}$."
         }
       ],
       "stimulus": {
@@ -1347,9 +1347,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{\\pi^2}{4}$",
-          "is_correct": true,
-          "explanation": "$V = \\pi\\int_0^{\\pi/2}\\cos^2 x\\,dx = \\pi\\int_0^{\\pi/2}\\frac{1+\\cos 2x}{2}\\,dx = \\pi\\left[\\frac{x}{2}+\\frac{\\sin 2x}{4}\\right]_0^{\\pi/2} = \\pi\\cdot\\frac{\\pi}{4} = \\frac{\\pi^2}{4}$."
+          "text": "$2$",
+          "is_correct": false,
+          "explanation": "This is not a rational multiple of $\\pi$; the volume must involve $\\pi$."
         },
         {
           "id": "B",
@@ -1365,9 +1365,9 @@
         },
         {
           "id": "D",
-          "text": "$2$",
-          "is_correct": false,
-          "explanation": "This is not a rational multiple of $\\pi$; the volume must involve $\\pi$."
+          "text": "$\\frac{\\pi^2}{4}$",
+          "is_correct": true,
+          "explanation": "$V = \\pi\\int_0^{\\pi/2}\\cos^2 x\\,dx = \\pi\\int_0^{\\pi/2}\\frac{1+\\cos 2x}{2}\\,dx = \\pi\\left[\\frac{x}{2}+\\frac{\\sin 2x}{4}\\right]_0^{\\pi/2} = \\pi\\cdot\\frac{\\pi}{4} = \\frac{\\pi^2}{4}$."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -1382,9 +1382,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$e - 1$",
+          "text": "$\\frac{1}{e}$",
           "is_correct": false,
-          "explanation": "$\\int_1^e x\\,dx = \\frac{e^2-1}{2}$, not the same."
+          "explanation": "$\\frac{1}{e}$ is the value of the function at $x = e$, not the area under the curve."
         },
         {
           "id": "B",
@@ -1394,15 +1394,15 @@
         },
         {
           "id": "C",
-          "text": "$\\frac{1}{e}$",
-          "is_correct": false,
-          "explanation": "$\\frac{1}{e}$ is the value of the function at $x = e$, not the area under the curve."
-        },
-        {
-          "id": "D",
           "text": "$e$",
           "is_correct": false,
           "explanation": "The area is $\\ln e = 1$, not $e$."
+        },
+        {
+          "id": "D",
+          "text": "$e - 1$",
+          "is_correct": false,
+          "explanation": "$\\int_1^e x\\,dx = \\frac{e^2-1}{2}$, not the same."
         }
       ],
       "stimulus": {
@@ -1473,15 +1473,15 @@
         },
         {
           "id": "B",
-          "text": "$\\int_{-2}^{2}(2\\sqrt{4-x^2})^2\\,dx$",
-          "is_correct": true,
-          "explanation": "The chord at position $x$ has length $2y = 2\\sqrt{4-x^2}$ (the side of each square). $V = \\int_{-2}^{2}(2\\sqrt{4-x^2})^2\\,dx = \\int_{-2}^{2}4(4-x^2)\\,dx$."
-        },
-        {
-          "id": "C",
           "text": "$\\pi\\int_{-2}^{2}(4-x^2)\\,dx$",
           "is_correct": false,
           "explanation": "The factor $\\pi$ suggests circular cross sections (discs), but the cross sections here are squares."
+        },
+        {
+          "id": "C",
+          "text": "$\\int_{-2}^{2}(2\\sqrt{4-x^2})^2\\,dx$",
+          "is_correct": true,
+          "explanation": "The chord at position $x$ has length $2y = 2\\sqrt{4-x^2}$ (the side of each square). $V = \\int_{-2}^{2}(2\\sqrt{4-x^2})^2\\,dx = \\int_{-2}^{2}4(4-x^2)\\,dx$."
         },
         {
           "id": "D",
@@ -1512,9 +1512,9 @@
         },
         {
           "id": "B",
-          "text": "$3$",
+          "text": "$\\frac{3}{2}$",
           "is_correct": false,
-          "explanation": "Setting up incorrectly — the integral of $x$ over $[0,3]$ is $\\frac{9}{2}$, and the result after subtraction is $\\frac{9}{2}$."
+          "explanation": "Arithmetic error — $\\frac{27}{2} - 9 = \\frac{27-18}{2} = \\frac{9}{2}$."
         },
         {
           "id": "C",
@@ -1524,9 +1524,9 @@
         },
         {
           "id": "D",
-          "text": "$\\frac{3}{2}$",
+          "text": "$3$",
           "is_correct": false,
-          "explanation": "Arithmetic error — $\\frac{27}{2} - 9 = \\frac{27-18}{2} = \\frac{9}{2}$."
+          "explanation": "Setting up incorrectly — the integral of $x$ over $[0,3]$ is $\\frac{9}{2}$, and the result after subtraction is $\\frac{9}{2}$."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -1541,27 +1541,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\pi\\int_0^3 y^2\\,dy$",
-          "is_correct": false,
-          "explanation": "This gives $9\\pi$; for revolution about the $y$-axis, outer radius $= 3$ and inner radius $= y$."
-        },
-        {
-          "id": "B",
           "text": "$\\pi\\int_0^3(9 - y^2)\\,dy$",
           "is_correct": true,
           "explanation": "Washer method about $y$-axis: outer radius $= 3$, inner radius $= y$ (from $x = y$). $V = \\pi\\int_0^3(9-y^2)\\,dy = \\pi[9y-\\frac{y^3}{3}]_0^3 = \\pi(27-9) = 18\\pi$."
         },
         {
-          "id": "C",
-          "text": "$\\pi\\int_0^3 x^2\\,dx$",
+          "id": "B",
+          "text": "$\\pi\\int_0^3 y^2\\,dy$",
           "is_correct": false,
-          "explanation": "This integrates with respect to $x$, which corresponds to revolving about the $x$-axis, not the $y$-axis."
+          "explanation": "This gives $9\\pi$; for revolution about the $y$-axis, outer radius $= 3$ and inner radius $= y$."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$2\\pi\\int_0^3 x^2\\,dx$",
           "is_correct": false,
           "explanation": "The factor $2\\pi$ suggests the shell method, not the washer method."
+        },
+        {
+          "id": "D",
+          "text": "$\\pi\\int_0^3 x^2\\,dx$",
+          "is_correct": false,
+          "explanation": "This integrates with respect to $x$, which corresponds to revolving about the $x$-axis, not the $y$-axis."
         }
       ],
       "stimulus": {
@@ -1636,15 +1636,15 @@
         },
         {
           "id": "B",
-          "text": "$6$",
-          "is_correct": false,
-          "explanation": "This equals $|\\int_0^{\\pi/2}3\\cos t\\,dt|$, only one quarter of the motion."
-        },
-        {
-          "id": "C",
           "text": "$12$",
           "is_correct": true,
           "explanation": "$v = 0$ at $t = \\pi/2, 3\\pi/2$. Total distance $= \\int_0^{\\pi/2}3\\cos t\\,dt + |\\int_{\\pi/2}^{3\\pi/2}3\\cos t\\,dt| + \\int_{3\\pi/2}^{2\\pi}3\\cos t\\,dt = 3+6+3 = 12$."
+        },
+        {
+          "id": "C",
+          "text": "$6$",
+          "is_correct": false,
+          "explanation": "This equals $|\\int_0^{\\pi/2}3\\cos t\\,dt|$, only one quarter of the motion."
         },
         {
           "id": "D",
@@ -1665,21 +1665,21 @@
       "choices": [
         {
           "id": "A",
+          "text": "$15$",
+          "is_correct": false,
+          "explanation": "Average value $\\times$ interval length: $3 \\times 4 = 12$, not $3 \\times 5 = 15$."
+        },
+        {
+          "id": "B",
           "text": "$3$",
           "is_correct": false,
           "explanation": "The average value is $\\frac{F(5)}{4}$, not $F(5)$."
         },
         {
-          "id": "B",
+          "id": "C",
           "text": "$12$",
           "is_correct": true,
           "explanation": "Average value $= \\frac{1}{5-1}\\int_1^5 f(t)\\,dt = 3 \\Rightarrow F(5) = \\int_1^5 f(t)\\,dt = 3 \\cdot 4 = 12$."
-        },
-        {
-          "id": "C",
-          "text": "$15$",
-          "is_correct": false,
-          "explanation": "Average value $\\times$ interval length: $3 \\times 4 = 12$, not $3 \\times 5 = 15$."
         },
         {
           "id": "D",
@@ -1731,9 +1731,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\pi\\int_0^4(2-\\sqrt{y})^2\\,dy$",
-          "is_correct": true,
-          "explanation": "Revolving about $x = 2$: radius $= 2 - x = 2 - \\sqrt{y}$ (since $x = \\sqrt{y}$ on this boundary). Volume $= \\pi\\int_0^4(2-\\sqrt{y})^2\\,dy$."
+          "text": "$2\\pi\\int_0^2 x(2-x^2)\\,dy$",
+          "is_correct": false,
+          "explanation": "Mixed variables and incorrect method setup."
         },
         {
           "id": "B",
@@ -1743,15 +1743,15 @@
         },
         {
           "id": "C",
-          "text": "$\\pi\\int_0^4(4-y)\\,dy$",
-          "is_correct": false,
-          "explanation": "$(2-\\sqrt{y})^2 = 4 - 4\\sqrt{y} + y \\neq 4-y$."
+          "text": "$\\pi\\int_0^4(2-\\sqrt{y})^2\\,dy$",
+          "is_correct": true,
+          "explanation": "Revolving about $x = 2$: radius $= 2 - x = 2 - \\sqrt{y}$ (since $x = \\sqrt{y}$ on this boundary). Volume $= \\pi\\int_0^4(2-\\sqrt{y})^2\\,dy$."
         },
         {
           "id": "D",
-          "text": "$2\\pi\\int_0^2 x(2-x^2)\\,dy$",
+          "text": "$\\pi\\int_0^4(4-y)\\,dy$",
           "is_correct": false,
-          "explanation": "Mixed variables and incorrect method setup."
+          "explanation": "$(2-\\sqrt{y})^2 = 4 - 4\\sqrt{y} + y \\neq 4-y$."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -1766,27 +1766,27 @@
       "choices": [
         {
           "id": "A",
+          "text": "$\\frac{4}{3}$",
+          "is_correct": false,
+          "explanation": "This would be $\\frac{1}{4}\\int_{-2}^{2} x^2\\,dx = \\frac{1}{4}\\cdot\\frac{16}{3} = \\frac{4}{3}$, missing the $+1$ term."
+        },
+        {
+          "id": "B",
           "text": "$\\frac{7}{3}$",
           "is_correct": true,
           "explanation": "Avg $= \\frac{1}{4}\\int_{-2}^{2}(x^2+1)\\,dx = \\frac{1}{4}[\\frac{x^3}{3}+x]_{-2}^{2} = \\frac{1}{4}[(\\frac{8}{3}+2)-(-\\frac{8}{3}-2)] = \\frac{1}{4}\\cdot\\frac{28}{3} = \\frac{7}{3}$."
         },
         {
-          "id": "B",
+          "id": "C",
           "text": "$\\frac{5}{3}$",
           "is_correct": false,
           "explanation": "Arithmetic error — recompute $\\frac{1}{4}\\cdot\\frac{28}{3} = \\frac{7}{3}$."
         },
         {
-          "id": "C",
+          "id": "D",
           "text": "$3$",
           "is_correct": false,
           "explanation": "$f(1) = 2$ and $f(2) = 5$; the average of a function is not an average of endpoint values."
-        },
-        {
-          "id": "D",
-          "text": "$\\frac{4}{3}$",
-          "is_correct": false,
-          "explanation": "This would be $\\frac{1}{4}\\int_{-2}^{2} x^2\\,dx = \\frac{1}{4}\\cdot\\frac{16}{3} = \\frac{4}{3}$, missing the $+1$ term."
         }
       ],
       "stimulus": {
@@ -1851,15 +1851,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$7$",
+          "text": "$14$",
           "is_correct": false,
-          "explanation": "The integral gives the displacement, not the final position. Final position $= x(0) + \\int_0^5 v\\,dt$."
+          "explanation": "No operation gives 14 from these values."
         },
         {
           "id": "B",
-          "text": "$5$",
+          "text": "$7$",
           "is_correct": false,
-          "explanation": "Net displacement is 7; adding initial position 2 gives 9, not 5."
+          "explanation": "The integral gives the displacement, not the final position. Final position $= x(0) + \\int_0^5 v\\,dt$."
         },
         {
           "id": "C",
@@ -1869,9 +1869,9 @@
         },
         {
           "id": "D",
-          "text": "$14$",
+          "text": "$5$",
           "is_correct": false,
-          "explanation": "No operation gives 14 from these values."
+          "explanation": "Net displacement is 7; adding initial position 2 gives 9, not 5."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -1886,9 +1886,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\int_{-2}^{2}\\frac{\\sqrt{3}}{4}(4-x^2)^2\\,dx$",
-          "is_correct": true,
-          "explanation": "Side of equilateral triangle $= 4 - x^2$. Area of equilateral triangle $= \\frac{\\sqrt{3}}{4}s^2 = \\frac{\\sqrt{3}}{4}(4-x^2)^2$. Volume $= \\int_{-2}^{2}\\frac{\\sqrt{3}}{4}(4-x^2)^2\\,dx$."
+          "text": "$\\pi\\int_{-2}^{2}(4-x^2)^2\\,dx$",
+          "is_correct": false,
+          "explanation": "The factor $\\pi$ applies to disc/washer cross sections."
         },
         {
           "id": "B",
@@ -1898,15 +1898,15 @@
         },
         {
           "id": "C",
-          "text": "$\\pi\\int_{-2}^{2}(4-x^2)^2\\,dx$",
-          "is_correct": false,
-          "explanation": "The factor $\\pi$ applies to disc/washer cross sections."
-        },
-        {
-          "id": "D",
           "text": "$\\int_{-2}^{2}(4-x^2)\\,dx$",
           "is_correct": false,
           "explanation": "This gives the area of the base, not the volume with triangular cross sections."
+        },
+        {
+          "id": "D",
+          "text": "$\\int_{-2}^{2}\\frac{\\sqrt{3}}{4}(4-x^2)^2\\,dx$",
+          "is_correct": true,
+          "explanation": "Side of equilateral triangle $= 4 - x^2$. Area of equilateral triangle $= \\frac{\\sqrt{3}}{4}s^2 = \\frac{\\sqrt{3}}{4}(4-x^2)^2$. Volume $= \\int_{-2}^{2}\\frac{\\sqrt{3}}{4}(4-x^2)^2\\,dx$."
         }
       ],
       "stimulus": {
@@ -1971,27 +1971,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$1$",
-          "is_correct": true,
-          "explanation": "$\\ln x = 0$ at $x = 1$. Area $= \\int_1^e \\ln x\\,dx = [x\\ln x - x]_1^e = (e-e)-(1\\cdot 0-1) = 0+1 = 1$."
-        },
-        {
-          "id": "B",
-          "text": "$e - 1$",
-          "is_correct": false,
-          "explanation": "$\\int_1^e 1\\,dx = e-1$, but we need $\\int_1^e \\ln x\\,dx$."
-        },
-        {
-          "id": "C",
           "text": "$e$",
           "is_correct": false,
           "explanation": "This overestimates — $\\int_1^e \\ln x\\,dx = 1$, as $\\ln x < 1$ for most of $[1,e]$."
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "$1$",
+          "is_correct": true,
+          "explanation": "$\\ln x = 0$ at $x = 1$. Area $= \\int_1^e \\ln x\\,dx = [x\\ln x - x]_1^e = (e-e)-(1\\cdot 0-1) = 0+1 = 1$."
+        },
+        {
+          "id": "C",
           "text": "$\\frac{1}{e}$",
           "is_correct": false,
           "explanation": "Far too small — the area under $y = \\ln x$ from 1 to $e$ equals 1."
+        },
+        {
+          "id": "D",
+          "text": "$e - 1$",
+          "is_correct": false,
+          "explanation": "$\\int_1^e 1\\,dx = e-1$, but we need $\\int_1^e \\ln x\\,dx$."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -2018,15 +2018,15 @@
         },
         {
           "id": "C",
-          "text": "$8\\pi$",
-          "is_correct": false,
-          "explanation": "$\\pi\\int_{-2}^{2}4\\,dx = 32\\pi$; subtracting $\\pi\\int_{-2}^{2}x^2\\,dx = \\frac{16\\pi}{3}$ gives $\\frac{32\\pi}{3}$."
-        },
-        {
-          "id": "D",
           "text": "$4\\pi$",
           "is_correct": false,
           "explanation": "This would be the area of the semicircle, not the volume of revolution."
+        },
+        {
+          "id": "D",
+          "text": "$8\\pi$",
+          "is_correct": false,
+          "explanation": "$\\pi\\int_{-2}^{2}4\\,dx = 32\\pi$; subtracting $\\pi\\int_{-2}^{2}x^2\\,dx = \\frac{16\\pi}{3}$ gives $\\frac{32\\pi}{3}$."
         }
       ],
       "stimulus": {
@@ -2091,15 +2091,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\pi\\int_{-1}^{3}[(2x+3)^2 - x^4]\\,dx$",
-          "is_correct": true,
-          "explanation": "Intersection: $x^2 = 2x+3 \\Rightarrow x = -1, 3$. On $[-1,3]$, $2x+3 \\ge x^2$. Washer: $V = \\pi\\int_{-1}^{3}[(2x+3)^2-(x^2)^2]\\,dx$."
-        },
-        {
-          "id": "B",
           "text": "$\\pi\\int_{-1}^{3}(2x+3-x^2)^2\\,dx$",
           "is_correct": false,
           "explanation": "The square of the difference is not the washer formula. Washers use $R^2 - r^2$, not $(R-r)^2$."
+        },
+        {
+          "id": "B",
+          "text": "$\\pi\\int_{-1}^{3}[(2x+3)^2 - x^4]\\,dx$",
+          "is_correct": true,
+          "explanation": "Intersection: $x^2 = 2x+3 \\Rightarrow x = -1, 3$. On $[-1,3]$, $2x+3 \\ge x^2$. Washer: $V = \\pi\\int_{-1}^{3}[(2x+3)^2-(x^2)^2]\\,dx$."
         },
         {
           "id": "C",
@@ -2130,27 +2130,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{1}{30}$",
-          "is_correct": true,
-          "explanation": "Side $= \\sqrt{x} - x$. Volume $= \\int_0^1(\\sqrt{x}-x)^2\\,dx = \\int_0^1(x - 2x^{3/2} + x^2)\\,dx = [\\frac{x^2}{2} - \\frac{4x^{5/2}}{5} + \\frac{x^3}{3}]_0^1 = \\frac{1}{2} - \\frac{4}{5} + \\frac{1}{3} = \\frac{15 - 24 + 10}{30} = \\frac{1}{30}$."
+          "text": "$\\frac{1}{3}$",
+          "is_correct": false,
+          "explanation": "$\\frac{1}{3}$ would be $\\int_0^1 x^2\\,dx$. The correct integrand is $(\\sqrt{x}-x)^2$, which gives $\\frac{1}{30}$."
         },
         {
           "id": "B",
-          "text": "$\\frac{1}{6}$",
-          "is_correct": false,
-          "explanation": "$\\int_0^1(\\sqrt{x}-x)\\,dx = \\frac{1}{6}$ is the area between the curves, not the volume of the solid with square cross-sections."
-        },
-        {
-          "id": "C",
           "text": "$\\frac{1}{10}$",
           "is_correct": false,
           "explanation": "This does not match the integral. $\\int_0^1(\\sqrt{x}-x)^2\\,dx = \\frac{1}{2} - \\frac{4}{5} + \\frac{1}{3} = \\frac{1}{30}$, not $\\frac{1}{10}$."
         },
         {
-          "id": "D",
-          "text": "$\\frac{1}{3}$",
+          "id": "C",
+          "text": "$\\frac{1}{6}$",
           "is_correct": false,
-          "explanation": "$\\frac{1}{3}$ would be $\\int_0^1 x^2\\,dx$. The correct integrand is $(\\sqrt{x}-x)^2$, which gives $\\frac{1}{30}$."
+          "explanation": "$\\int_0^1(\\sqrt{x}-x)\\,dx = \\frac{1}{6}$ is the area between the curves, not the volume of the solid with square cross-sections."
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{1}{30}$",
+          "is_correct": true,
+          "explanation": "Side $= \\sqrt{x} - x$. Volume $= \\int_0^1(\\sqrt{x}-x)^2\\,dx = \\int_0^1(x - 2x^{3/2} + x^2)\\,dx = [\\frac{x^2}{2} - \\frac{4x^{5/2}}{5} + \\frac{x^3}{3}]_0^1 = \\frac{1}{2} - \\frac{4}{5} + \\frac{1}{3} = \\frac{15 - 24 + 10}{30} = \\frac{1}{30}$."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -2235,9 +2235,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$1$",
+          "text": "$-4$",
           "is_correct": false,
-          "explanation": "This has the wrong sign. Trapezoidal rule: $\\frac{\\Delta t}{2}[v(0)+2v(1)+2v(2)+2v(3)+v(4)] = \\frac{1}{2}[2+(-2)+(-6)+0+4] = \\frac{1}{2}(-2) = -1$, not $+1$."
+          "explanation": "This would result from summing only the negative-velocity intervals."
         },
         {
           "id": "B",
@@ -2247,15 +2247,15 @@
         },
         {
           "id": "C",
-          "text": "$2$",
+          "text": "$1$",
           "is_correct": false,
-          "explanation": "Arithmetic error — the negative velocity values bring the sum to $-1$, not $+2$."
+          "explanation": "This has the wrong sign. Trapezoidal rule: $\\frac{\\Delta t}{2}[v(0)+2v(1)+2v(2)+2v(3)+v(4)] = \\frac{1}{2}[2+(-2)+(-6)+0+4] = \\frac{1}{2}(-2) = -1$, not $+1$."
         },
         {
           "id": "D",
-          "text": "$-4$",
+          "text": "$2$",
           "is_correct": false,
-          "explanation": "This would result from summing only the negative-velocity intervals."
+          "explanation": "Arithmetic error — the negative velocity values bring the sum to $-1$, not $+2$."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -2270,21 +2270,21 @@
       "choices": [
         {
           "id": "A",
+          "text": "$b = e^2$",
+          "is_correct": false,
+          "explanation": "$V = \\pi(1 - e^{-2}) \\approx 0.865\\pi \\neq \\frac{\\pi}{2}$."
+        },
+        {
+          "id": "B",
           "text": "$b = e$",
           "is_correct": false,
           "explanation": "$V = \\pi\\int_1^e \\frac{1}{x^2}\\,dx = \\pi[-\\frac{1}{x}]_1^e = \\pi(1 - \\frac{1}{e}) \\approx 0.632\\pi \\neq \\frac{\\pi}{2}$."
         },
         {
-          "id": "B",
+          "id": "C",
           "text": "$b = 2$",
           "is_correct": true,
           "explanation": "$V = \\pi\\int_1^b \\frac{1}{x^2}\\,dx = \\pi[-\\frac{1}{x}]_1^b = \\pi(1 - \\frac{1}{b})$. Setting equal to $\\frac{\\pi}{2}$: $1 - \\frac{1}{b} = \\frac{1}{2}$, so $\\frac{1}{b} = \\frac{1}{2}$ and $b = 2$."
-        },
-        {
-          "id": "C",
-          "text": "$b = e^2$",
-          "is_correct": false,
-          "explanation": "$V = \\pi(1 - e^{-2}) \\approx 0.865\\pi \\neq \\frac{\\pi}{2}$."
         },
         {
           "id": "D",
@@ -2355,15 +2355,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\pi\\sqrt{3}$",
-          "is_correct": true,
-          "explanation": "$V = \\pi\\int_0^{\\pi/3}\\sec^2 x\\,dx = \\pi[\\tan x]_0^{\\pi/3} = \\pi(\\sqrt{3}-0) = \\pi\\sqrt{3}$."
-        },
-        {
-          "id": "B",
           "text": "$\\pi\\ln(\\sec\\frac{\\pi}{3}+\\tan\\frac{\\pi}{3})$",
           "is_correct": false,
           "explanation": "$\\int\\sec x\\,dx = \\ln|\\sec x + \\tan x|$, but disc method requires $\\sec^2 x$, and $\\int\\sec^2 x = \\tan x$."
+        },
+        {
+          "id": "B",
+          "text": "$\\pi\\sqrt{3}$",
+          "is_correct": true,
+          "explanation": "$V = \\pi\\int_0^{\\pi/3}\\sec^2 x\\,dx = \\pi[\\tan x]_0^{\\pi/3} = \\pi(\\sqrt{3}-0) = \\pi\\sqrt{3}$."
         },
         {
           "id": "C",
@@ -2394,15 +2394,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\sqrt{3}$",
-          "is_correct": false,
-          "explanation": "$\\bar{f} = \\frac{1}{2}\\int_0^2 x^3\\,dx = \\frac{1}{2}\\cdot 4 = 2$. Solve $c^3 = 2 \\Rightarrow c = \\sqrt[3]{2}$."
-        },
-        {
-          "id": "B",
           "text": "$\\sqrt[3]{2}$",
           "is_correct": true,
           "explanation": "Average value $= \\frac{1}{2}\\int_0^2 x^3\\,dx = \\frac{1}{2}[\\frac{x^4}{4}]_0^2 = \\frac{1}{2}\\cdot 4 = 2$. Set $c^3 = 2 \\Rightarrow c = 2^{1/3} = \\sqrt[3]{2}$."
+        },
+        {
+          "id": "B",
+          "text": "$\\sqrt{3}$",
+          "is_correct": false,
+          "explanation": "$\\bar{f} = \\frac{1}{2}\\int_0^2 x^3\\,dx = \\frac{1}{2}\\cdot 4 = 2$. Solve $c^3 = 2 \\Rightarrow c = \\sqrt[3]{2}$."
         },
         {
           "id": "C",
@@ -2429,27 +2429,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$0$",
-          "is_correct": false,
-          "explanation": "$\\int_{-1}^{1}(x^3-x)\\,dx = 0$ by odd-function symmetry, but area is the absolute value of each piece."
-        },
-        {
-          "id": "B",
-          "text": "$1$",
-          "is_correct": false,
-          "explanation": "Each symmetric piece has area $\\frac{1}{4}$, so the total is $2 \\cdot \\frac{1}{4} = \\frac{1}{2}$, not $1$. This error comes from forgetting the $\\frac{1}{4}$ evaluation of each piece."
-        },
-        {
-          "id": "C",
           "text": "$\\frac{1}{2}$",
           "is_correct": true,
           "explanation": "$x^3-x = x(x-1)(x+1) = 0$ at $x = -1, 0, 1$. By symmetry, Area $= 2\\int_0^1|x^3-x|\\,dx = 2\\int_0^1(x-x^3)\\,dx = 2[\\frac{x^2}{2}-\\frac{x^4}{4}]_0^1 = 2(\\frac{1}{2}-\\frac{1}{4}) = 2 \\cdot \\frac{1}{4} = \\frac{1}{2}$."
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "$0$",
+          "is_correct": false,
+          "explanation": "$\\int_{-1}^{1}(x^3-x)\\,dx = 0$ by odd-function symmetry, but area is the absolute value of each piece."
+        },
+        {
+          "id": "C",
           "text": "$\\frac{1}{4}$",
           "is_correct": false,
           "explanation": "This is only the area over $[0,1]$, not accounting for the symmetric piece on $[-1,0]$."
+        },
+        {
+          "id": "D",
+          "text": "$1$",
+          "is_correct": false,
+          "explanation": "Each symmetric piece has area $\\frac{1}{4}$, so the total is $2 \\cdot \\frac{1}{4} = \\frac{1}{2}$, not $1$. This error comes from forgetting the $\\frac{1}{4}$ evaluation of each piece."
         }
       ],
       "stimulus": {
@@ -2529,27 +2529,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$7$",
-          "is_correct": false,
-          "explanation": "This would require a net displacement of $+4$, but the velocity is negative over much of the interval. The actual net displacement is $-4$."
-        },
-        {
-          "id": "B",
           "text": "$-1$",
           "is_correct": true,
           "explanation": "$\\int_0^2(-2)\\,dt = -4$. $\\int_2^6(t-4)\\,dt = [\\frac{t^2}{2}-4t]_2^6 = (18-24)-(2-8) = -6+6 = 0$. Net displacement $= -4 + 0 = -4$. Position $= 3 + (-4) = -1$."
         },
         {
-          "id": "C",
-          "text": "$3$",
-          "is_correct": false,
-          "explanation": "Net displacement is not zero — the first segment contributes $-4$."
-        },
-        {
-          "id": "D",
+          "id": "B",
           "text": "$11$",
           "is_correct": false,
           "explanation": "This would require a positive net displacement of 8, which is not supported by the given velocity."
+        },
+        {
+          "id": "C",
+          "text": "$7$",
+          "is_correct": false,
+          "explanation": "This would require a net displacement of $+4$, but the velocity is negative over much of the interval. The actual net displacement is $-4$."
+        },
+        {
+          "id": "D",
+          "text": "$3$",
+          "is_correct": false,
+          "explanation": "Net displacement is not zero — the first segment contributes $-4$."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -2574,9 +2574,9 @@
         },
         {
           "id": "B",
-          "text": "$k = e^3 - 1$",
+          "text": "$k = \\ln 3$",
           "is_correct": false,
-          "explanation": "$\\ln(k+1) = \\ln 3$ gives $k+1 = 3$, not $k+1 = e^3$."
+          "explanation": "$\\ln(\\ln 3 + 1) \\neq \\ln 3$."
         },
         {
           "id": "C",
@@ -2586,9 +2586,9 @@
         },
         {
           "id": "D",
-          "text": "$k = \\ln 3$",
+          "text": "$k = e^3 - 1$",
           "is_correct": false,
-          "explanation": "$\\ln(\\ln 3 + 1) \\neq \\ln 3$."
+          "explanation": "$\\ln(k+1) = \\ln 3$ gives $k+1 = 3$, not $k+1 = e^3$."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -2603,27 +2603,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\pi$",
-          "is_correct": false,
-          "explanation": "$V = \\pi\\int_0^\\pi\\sin x\\,dx = \\pi[-\\cos x]_0^\\pi = \\pi(1+1) = 2\\pi$."
-        },
-        {
-          "id": "B",
           "text": "$2\\pi$",
           "is_correct": true,
           "explanation": "$V = \\pi\\int_0^\\pi(\\sqrt{\\sin x})^2\\,dx = \\pi\\int_0^\\pi\\sin x\\,dx = \\pi[-\\cos x]_0^\\pi = \\pi(1+1) = 2\\pi$."
         },
         {
-          "id": "C",
-          "text": "$4$",
+          "id": "B",
+          "text": "$\\pi$",
           "is_correct": false,
-          "explanation": "$\\int_0^\\pi\\sin x\\,dx = 2$, but multiplying by $\\pi$ (not 2) gives $2\\pi$."
+          "explanation": "$V = \\pi\\int_0^\\pi\\sin x\\,dx = \\pi[-\\cos x]_0^\\pi = \\pi(1+1) = 2\\pi$."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$\\pi\\sqrt{2}$",
           "is_correct": false,
           "explanation": "No $\\sqrt{2}$ arises from integrating $\\sin x$."
+        },
+        {
+          "id": "D",
+          "text": "$4$",
+          "is_correct": false,
+          "explanation": "$\\int_0^\\pi\\sin x\\,dx = 2$, but multiplying by $\\pi$ (not 2) gives $2\\pi$."
         }
       ],
       "stimulus": {
@@ -2688,27 +2688,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{16}{3}$",
-          "is_correct": false,
-          "explanation": "Close but off — integrating from $y = -2$ to $y = 2$: $\\int_{-2}^{2}(0-(y^2-4))\\,dy = \\int_{-2}^{2}(4-y^2)\\,dy = [4y-\\frac{y^3}{3}]_{-2}^{2} = (8-\\frac{8}{3})-(-8+\\frac{8}{3}) = \\frac{16}{3} + \\frac{16}{3}$... $= \\frac{32}{3}$."
-        },
-        {
-          "id": "B",
           "text": "$\\frac{32}{3}$",
           "is_correct": true,
           "explanation": "$x = y^2-4 = 0$ when $y = \\pm 2$. On $[-2,2]$, $y^2-4 \\le 0$, so the region extends from $x = y^2-4$ to $x = 0$. Area $= \\int_{-2}^{2}(4-y^2)\\,dy = [4y-\\frac{y^3}{3}]_{-2}^{2} = (8-\\frac{8}{3}) - (-8+\\frac{8}{3}) = \\frac{32}{3}$."
         },
         {
-          "id": "C",
-          "text": "$8$",
-          "is_correct": false,
-          "explanation": "$\\int_{-2}^{2}4\\,dy = 16$; subtracting $\\int_{-2}^{2}y^2\\,dy = \\frac{16}{3}$ gives $16-\\frac{16}{3} = \\frac{32}{3}$."
-        },
-        {
-          "id": "D",
+          "id": "B",
           "text": "$\\frac{4}{3}$",
           "is_correct": false,
           "explanation": "This significantly underestimates the area."
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{16}{3}$",
+          "is_correct": false,
+          "explanation": "Close but off — integrating from $y = -2$ to $y = 2$: $\\int_{-2}^{2}(0-(y^2-4))\\,dy = \\int_{-2}^{2}(4-y^2)\\,dy = [4y-\\frac{y^3}{3}]_{-2}^{2} = (8-\\frac{8}{3})-(-8+\\frac{8}{3}) = \\frac{16}{3} + \\frac{16}{3}$... $= \\frac{32}{3}$."
+        },
+        {
+          "id": "D",
+          "text": "$8$",
+          "is_correct": false,
+          "explanation": "$\\int_{-2}^{2}4\\,dy = 16$; subtracting $\\int_{-2}^{2}y^2\\,dy = \\frac{16}{3}$ gives $16-\\frac{16}{3} = \\frac{32}{3}$."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -2727,27 +2727,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\int_{-3}^{3}\\frac{1}{4}(2\\sqrt{9-x^2})^2\\,dx$",
-          "is_correct": true,
-          "explanation": "Hypotenuse $= 2\\sqrt{9-x^2}$ (chord of circle). For isosceles right triangle with hypotenuse $h$, area $= \\frac{h^2}{4}$. Volume $= \\int_{-3}^{3}\\frac{1}{4}(2\\sqrt{9-x^2})^2\\,dx = \\int_{-3}^{3}(9-x^2)\\,dx$."
-        },
-        {
-          "id": "B",
           "text": "$\\int_{-3}^{3}\\frac{1}{2}(\\sqrt{9-x^2})^2\\,dx$",
           "is_correct": false,
           "explanation": "This uses leg $= \\sqrt{9-x^2}$ as if that's given, but the hypotenuse lies in the base — see correct formula."
         },
         {
-          "id": "C",
-          "text": "$\\pi\\int_{-3}^{3}(9-x^2)\\,dx$",
-          "is_correct": false,
-          "explanation": "The factor $\\pi$ indicates circular cross sections; these are triangles."
+          "id": "B",
+          "text": "$\\int_{-3}^{3}\\frac{1}{4}(2\\sqrt{9-x^2})^2\\,dx$",
+          "is_correct": true,
+          "explanation": "Hypotenuse $= 2\\sqrt{9-x^2}$ (chord of circle). For isosceles right triangle with hypotenuse $h$, area $= \\frac{h^2}{4}$. Volume $= \\int_{-3}^{3}\\frac{1}{4}(2\\sqrt{9-x^2})^2\\,dx = \\int_{-3}^{3}(9-x^2)\\,dx$."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$\\int_{-3}^{3}\\frac{\\sqrt{3}}{4}(9-x^2)\\,dx$",
           "is_correct": false,
           "explanation": "$\\frac{\\sqrt{3}}{4}s^2$ is the area of an equilateral triangle, not an isosceles right triangle."
+        },
+        {
+          "id": "D",
+          "text": "$\\pi\\int_{-3}^{3}(9-x^2)\\,dx$",
+          "is_correct": false,
+          "explanation": "The factor $\\pi$ indicates circular cross sections; these are triangles."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -2768,21 +2768,21 @@
         },
         {
           "id": "B",
-          "text": "$3$",
-          "is_correct": true,
-          "explanation": "Area $= \\int_1^3[f(x)-g(x)]\\,dx = \\int_1^3 f\\,dx - \\int_1^3 g\\,dx = 5-2 = 3$."
-        },
-        {
-          "id": "C",
           "text": "$10$",
           "is_correct": false,
           "explanation": "No standard area formula produces 10 from these values."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "Cannot be determined",
           "is_correct": false,
           "explanation": "It CAN be determined: linearity of integrals gives the exact area as 3."
+        },
+        {
+          "id": "D",
+          "text": "$3$",
+          "is_correct": true,
+          "explanation": "Area $= \\int_1^3[f(x)-g(x)]\\,dx = \\int_1^3 f\\,dx - \\int_1^3 g\\,dx = 5-2 = 3$."
         }
       ],
       "stimulus": {
@@ -2868,21 +2868,21 @@
         },
         {
           "id": "B",
+          "text": "The net displacement over $[0,\\infty)$ is finite",
+          "is_correct": false,
+          "explanation": "$\\int_0^\\infty s^2 e^{-s}\\,ds = \\Gamma(3) = 2! = 2$ — actually finite! But evaluating whether students know this exceeds AB scope; the primary fact tested is sign of velocity."
+        },
+        {
+          "id": "C",
           "text": "The particle changes direction at $s = 2$",
           "is_correct": false,
           "explanation": "$v(s) = 0$ only at $s = 0$; for $s > 0$, $v(s) > 0$. The particle never changes direction."
         },
         {
-          "id": "C",
+          "id": "D",
           "text": "The particle's speed is decreasing for all $t > 0$",
           "is_correct": false,
           "explanation": "$v'(t) = 2te^{-t} - t^2e^{-t} = te^{-t}(2-t)$. Speed increases on $(0,2)$ and decreases on $(2,\\infty)$."
-        },
-        {
-          "id": "D",
-          "text": "The net displacement over $[0,\\infty)$ is finite",
-          "is_correct": false,
-          "explanation": "$\\int_0^\\infty s^2 e^{-s}\\,ds = \\Gamma(3) = 2! = 2$ — actually finite! But evaluating whether students know this exceeds AB scope; the primary fact tested is sign of velocity."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -2901,9 +2901,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\pi\\int_1^4\\left[\\left(\\frac{1}{\\sqrt{x}}+1\\right)^2 - 1\\right]\\,dx$",
-          "is_correct": true,
-          "explanation": "Revolving about $y = -1$: outer radius $= \\frac{1}{\\sqrt{x}}-(-1) = \\frac{1}{\\sqrt{x}}+1$, inner radius $= 0-(-1) = 1$. Washer: $V = \\pi\\int_1^4\\left[(\\frac{1}{\\sqrt{x}}+1)^2-1^2\\right]\\,dx$."
+          "text": "$\\pi\\int_1^4\\left[\\left(\\frac{1}{\\sqrt{x}}+1\\right)^2\\right]\\,dx$",
+          "is_correct": false,
+          "explanation": "Missing the subtraction of the inner radius squared ($1^2 = 1$)."
         },
         {
           "id": "B",
@@ -2913,15 +2913,15 @@
         },
         {
           "id": "C",
-          "text": "$\\pi\\int_1^4\\frac{1}{x}\\,dx$",
-          "is_correct": false,
-          "explanation": "This is revolution about $y = 0$, not $y = -1$."
+          "text": "$\\pi\\int_1^4\\left[\\left(\\frac{1}{\\sqrt{x}}+1\\right)^2 - 1\\right]\\,dx$",
+          "is_correct": true,
+          "explanation": "Revolving about $y = -1$: outer radius $= \\frac{1}{\\sqrt{x}}-(-1) = \\frac{1}{\\sqrt{x}}+1$, inner radius $= 0-(-1) = 1$. Washer: $V = \\pi\\int_1^4\\left[(\\frac{1}{\\sqrt{x}}+1)^2-1^2\\right]\\,dx$."
         },
         {
           "id": "D",
-          "text": "$\\pi\\int_1^4\\left[\\left(\\frac{1}{\\sqrt{x}}+1\\right)^2\\right]\\,dx$",
+          "text": "$\\pi\\int_1^4\\frac{1}{x}\\,dx$",
           "is_correct": false,
-          "explanation": "Missing the subtraction of the inner radius squared ($1^2 = 1$)."
+          "explanation": "This is revolution about $y = 0$, not $y = -1$."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -2936,9 +2936,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{1}{\\sqrt{3}}$",
+          "text": "$\\frac{2}{\\sqrt{3}}$",
           "is_correct": false,
-          "explanation": "Avg $= \\frac{1}{\\sqrt{3}}\\int_0^{\\sqrt{3}}\\frac{x}{\\sqrt{x^2+1}}\\,dx$. Let $u = x^2+1$: integral $= [\\sqrt{x^2+1}]_0^{\\sqrt{3}} = 2-1 = 1$. Avg $= \\frac{1}{\\sqrt{3}}$. This is correct."
+          "explanation": "Off by factor of 2 — the integral evaluates to 1, not 2."
         },
         {
           "id": "B",
@@ -2954,9 +2954,9 @@
         },
         {
           "id": "D",
-          "text": "$\\frac{2}{\\sqrt{3}}$",
+          "text": "$\\frac{1}{\\sqrt{3}}$",
           "is_correct": false,
-          "explanation": "Off by factor of 2 — the integral evaluates to 1, not 2."
+          "explanation": "Avg $= \\frac{1}{\\sqrt{3}}\\int_0^{\\sqrt{3}}\\frac{x}{\\sqrt{x^2+1}}\\,dx$. Let $u = x^2+1$: integral $= [\\sqrt{x^2+1}]_0^{\\sqrt{3}} = 2-1 = 1$. Avg $= \\frac{1}{\\sqrt{3}}$. This is correct."
         }
       ],
       "stimulus": {
@@ -3019,27 +3019,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$10$",
-          "is_correct": true,
-          "explanation": "Washer volume: $\\pi\\int_0^4([f(x)]^2-[g(x)]^2)\\,dx = 20\\pi \\Rightarrow \\int_0^4([f]^2-[g]^2)\\,dx = 20 \\Rightarrow \\int_0^4[g]^2\\,dx = 30-20 = 10$."
-        },
-        {
-          "id": "B",
           "text": "$50$",
           "is_correct": false,
           "explanation": "$\\int[g]^2 = \\int[f]^2 + \\frac{\\text{volume}}{\\pi}$ would give 50, but the relation subtracts, not adds."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "$20$",
           "is_correct": false,
           "explanation": "$\\int[g]^2 = \\int[f]^2 - \\frac{\\text{volume}}{\\pi} = 30-20 = 10$, not 20."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$\\frac{20}{\\pi}$",
           "is_correct": false,
           "explanation": "No need to divide by $\\pi$ again — the $\\pi$ was already factored out when setting up the equation."
+        },
+        {
+          "id": "D",
+          "text": "$10$",
+          "is_correct": true,
+          "explanation": "Washer volume: $\\pi\\int_0^4([f(x)]^2-[g(x)]^2)\\,dx = 20\\pi \\Rightarrow \\int_0^4([f]^2-[g]^2)\\,dx = 20 \\Rightarrow \\int_0^4[g]^2\\,dx = 30-20 = 10$."
         }
       ],
       "subject": "ap-calculus-ab",
@@ -3058,9 +3058,9 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\frac{16}{\\pi}$",
+          "text": "$0$",
           "is_correct": false,
-          "explanation": "This is $|\\int_0^2 v\\,dt| = |[-\\frac{8}{\\pi}\\cos\\frac{\\pi t}{2}]_0^2| = |\\frac{8}{\\pi}\\cdot 2| = \\frac{16}{\\pi}$, just the first half."
+          "explanation": "Net displacement $= 0$, but total distance accounts for both forward and backward motion."
         },
         {
           "id": "B",
@@ -3070,9 +3070,9 @@
         },
         {
           "id": "C",
-          "text": "$0$",
+          "text": "$\\frac{16}{\\pi}$",
           "is_correct": false,
-          "explanation": "Net displacement $= 0$, but total distance accounts for both forward and backward motion."
+          "explanation": "This is $|\\int_0^2 v\\,dt| = |[-\\frac{8}{\\pi}\\cos\\frac{\\pi t}{2}]_0^2| = |\\frac{8}{\\pi}\\cdot 2| = \\frac{16}{\\pi}$, just the first half."
         },
         {
           "id": "D",
@@ -3097,15 +3097,15 @@
       "choices": [
         {
           "id": "A",
-          "text": "$\\pi\\int_0^1(e - e^x)^2\\,dx$",
-          "is_correct": true,
-          "explanation": "The region is bounded above by $y = e$ and below by $y = e^x$ on $[0,1]$ (since $e^0 = 1 < e$ and $e^1 = e$). Revolving about $y = e$: radius $= e - e^x$. $V = \\pi\\int_0^1(e-e^x)^2\\,dx$."
+          "text": "$\\pi\\int_0^1 e^{2x}\\,dx$",
+          "is_correct": false,
+          "explanation": "This revolves about $y = 0$, not $y = e$."
         },
         {
           "id": "B",
-          "text": "$\\pi\\int_0^1(e^x - e)^2\\,dx$",
-          "is_correct": false,
-          "explanation": "$(e^x - e)^2 = (e - e^x)^2$ since squaring removes the sign; algebraically the same as A. But note the region requires the correct setup — both are algebraically identical here."
+          "text": "$\\pi\\int_0^1(e - e^x)^2\\,dx$",
+          "is_correct": true,
+          "explanation": "The region is bounded above by $y = e$ and below by $y = e^x$ on $[0,1]$ (since $e^0 = 1 < e$ and $e^1 = e$). Revolving about $y = e$: radius $= e - e^x$. $V = \\pi\\int_0^1(e-e^x)^2\\,dx$."
         },
         {
           "id": "C",
@@ -3115,9 +3115,9 @@
         },
         {
           "id": "D",
-          "text": "$\\pi\\int_0^1 e^{2x}\\,dx$",
+          "text": "$\\pi\\int_0^1(e^x - e)^2\\,dx$",
           "is_correct": false,
-          "explanation": "This revolves about $y = 0$, not $y = e$."
+          "explanation": "$(e^x - e)^2 = (e - e^x)^2$ since squaring removes the sign; algebraically the same as A. But note the region requires the correct setup — both are algebraically identical here."
         }
       ],
       "subject": "ap-calculus-ab",

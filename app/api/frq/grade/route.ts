@@ -159,6 +159,16 @@ async function loadFRQ(subject: string, questionId: string): Promise<FRQ | null>
   }
 }
 
+async function loadStimulusImage(stimulusImagePath: string): Promise<Buffer | null> {
+  try {
+    const abs = path.join(process.cwd(), 'public', stimulusImagePath)
+    const data = await readFile(abs)
+    return data
+  } catch {
+    return null
+  }
+}
+
 export async function POST(req: Request) {
   // 1. Auth check
   const supabase = await createClient()
@@ -248,6 +258,12 @@ export async function POST(req: Request) {
 
   const validStrictness: GradingStrictness = ['light', 'moderate', 'strict'].includes(strictness) ? strictness : 'moderate'
 
+  // Load stimulus image for image-only questions (stimulus_image set, stimulus null)
+  let stimulusImageBuffer: Buffer | null = null
+  if (question.stimulus_image && !question.stimulus) {
+    stimulusImageBuffer = await loadStimulusImage(question.stimulus_image)
+  }
+
   // 5. Check rate limit
   const usage = await checkAndIncrementUsage(user.id, getCallCost(validStrictness))
 
@@ -270,10 +286,17 @@ export async function POST(req: Request) {
   try {
     const systemPrompt = buildFRQGradingPrompt(question, responses, validStrictness)
 
+    const gradingUserContent = stimulusImageBuffer
+      ? [
+          { type: 'image' as const, image: stimulusImageBuffer },
+          { type: 'text' as const, text: 'Grade this FRQ submission according to the rubric. Respond with the JSON scoring object only.' },
+        ]
+      : 'Grade this FRQ submission according to the rubric. Respond with the JSON scoring object only.'
+
     const result = await generateText({
       model: getModelForStrictness(validStrictness),
       system: systemPrompt,
-      messages: [{ role: 'user', content: 'Grade this FRQ submission according to the rubric. Respond with the JSON scoring object only.' }],
+      messages: [{ role: 'user', content: gradingUserContent }],
       maxOutputTokens: 2048,
       temperature: 0,
     })
@@ -302,10 +325,17 @@ export async function POST(req: Request) {
     if (validStrictness === 'strict') {
       try {
         const auditorPrompt = buildFRQAuditorPrompt(question, responses, grading, validStrictness)
+        const auditorUserContent = stimulusImageBuffer
+          ? [
+              { type: 'image' as const, image: stimulusImageBuffer },
+              { type: 'text' as const, text: 'Audit the grading result. Respond with the corrected JSON scoring object only.' },
+            ]
+          : 'Audit the grading result. Respond with the corrected JSON scoring object only.'
+
         const auditorResult = await generateText({
           model: getModelForStrictness(validStrictness),
           system: auditorPrompt,
-          messages: [{ role: 'user', content: 'Audit the grading result. Respond with the corrected JSON scoring object only.' }],
+          messages: [{ role: 'user', content: auditorUserContent }],
           maxOutputTokens: 2048,
           temperature: 0,
         })
