@@ -16,11 +16,39 @@
       "letter": "a",
       "prompt": "The functions $g$ and $h$ are given by:\n$$g(x) = e^{(x+3)}$$\n$$h(x) = \\arcsin\\left(\\frac{x}{2}\\right)$$\n\n(i) Solve $g(x) = 10$ for values of $x$ in the domain of $g$.\n\n(ii) Solve $h(x) = \\frac{\\pi}{4}$ for values of $x$ in the domain of $h$.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: $x = -3 + \\ln 10$; supporting work required, e.g., $e^{(x+3)} = 10 \\Rightarrow x + 3 = \\ln 10 \\Rightarrow x = -3 + \\ln 10$",
-        "1 pt: $x = \\sqrt{2}$; supporting work must include $\\frac{x}{2} = \\sin\\left(\\frac{\\pi}{4}\\right)$ OR $\\frac{x}{2} = \\frac{\\sqrt{2}}{2}$ OR $\\frac{x}{2} = \\frac{1}{\\sqrt{2}}$"
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Correct exact solution $x = -3 + \\ln 10$; supporting work required showing the conversion from exponential to logarithmic form",
+          "alternatives": [
+            {
+              "required_elements": ["$e^{x+3} = 10 \\Rightarrow x + 3 = \\ln 10$", "$x = -3 + \\ln 10$"],
+              "correct_example": "$e^{(x+3)} = 10 \\Rightarrow x + 3 = \\ln 10 \\Rightarrow x = -3 + \\ln 10$"
+            },
+            {
+              "required_elements": ["change-of-base equivalent", "$x = \\frac{\\log_{b} 10}{\\log_{b} e} - 3$"],
+              "correct_example": "$x = \\frac{\\log_{10} 10}{\\log_{10} e} - 3 = \\frac{1}{\\log_{10} e} - 3$"
+            }
+          ],
+          "wrong_examples": ["$x = \\ln 10 - 3$ presented without supporting work", "$x = \\ln 7$ (arithmetic error)"],
+          "common_traps": ["Answers not evaluated to simplest form do not earn the point", "Supporting work is required — just stating the answer is insufficient"]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Correct exact solution $x = \\sqrt{2}$; supporting work must include $\\frac{x}{2} = \\sin\\left(\\frac{\\pi}{4}\\right)$ OR $\\frac{x}{2} = \\frac{\\sqrt{2}}{2}$ OR $\\frac{x}{2} = \\frac{1}{\\sqrt{2}}$",
+          "alternatives": [
+            {
+              "required_elements": ["$\\frac{x}{2} = \\sin(\\frac{\\pi}{4}) = \\frac{\\sqrt{2}}{2}$", "$x = \\sqrt{2}$"],
+              "correct_example": "$\\arcsin\\left(\\frac{x}{2}\\right) = \\frac{\\pi}{4} \\Rightarrow \\frac{x}{2} = \\sin\\left(\\frac{\\pi}{4}\\right) = \\frac{\\sqrt{2}}{2} \\Rightarrow x = \\sqrt{2}$"
+            }
+          ],
+          "wrong_examples": ["$x = \\frac{\\pi}{2}$ (confusing $x$ with the angle)", "$x = \\frac{\\sqrt{2}}{2}$ (forgot to multiply by 2)", "$x = \\frac{2}{\\sqrt{2}}$ not simplified to $\\sqrt{2}$"],
+          "common_traps": ["Rationalizing denominators is not required", "Supporting work must include the intermediate step $\\sin(\\pi/4)$"]
+        }
       ],
-      "scoring_notes": "Supporting work is required for both (i) and (ii). Answers not evaluated to simplest form (per directions) do not earn the point. Rationalizing denominators is not required. An alternate solution for (i): $x = \\frac{\\log_{b} 10}{\\log_{b} e} - 3$ for any valid base $b$. Partial credit (1–0) available if one criterion from each partial credit column is met.",
+      "scoring_notes": "Supporting work is required in (i) and (ii). Scratchwork using a variable other than $x$ is acceptable. Answers not evaluated to simplest form do not earn the point. Partial credit (scored 1–0) if one criterion from the first column AND one from the second column: correct answer without supporting work, or correct answer with unevaluated form like $x = \\ln 10 - 3$ presented as $x + 3 = \\ln 10$.",
       "requires_drawing": false,
       "reference_image": null
     },
@@ -28,11 +56,39 @@
       "letter": "b",
       "prompt": "The functions $j$ and $k$ are given by:\n$$j(x) = \\log_{10}(8x^5) + \\log_{10}(2x^2) - 9\\log_{10} x$$\n$$k(x) = \\left(\\frac{1 - \\sin^2 x}{\\sin x}\\right) \\sec x$$\n\n(i) Rewrite $j(x)$ as a single logarithm base 10 without negative exponents in any part of the expression. Your result should be of the form $\\log_{10}(\\text{expression})$.\n\n(ii) Rewrite $k(x)$ as a single term involving $\\tan x$.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: $j(x) = \\log_{10}\\left(\\frac{16}{x^2}\\right)$ for $x > 0$; supporting work required showing combination of logarithms, e.g., $\\log_{10}(8x^5 \\cdot 2x^2) - \\log_{10}(x^9) = \\log_{10}\\left(\\frac{16x^7}{x^9}\\right)$",
-        "1 pt: $k(x) = \\frac{1}{\\tan x}$ (i.e., $\\cot x$); supporting work required showing use of Pythagorean identity $1 - \\sin^2 x = \\cos^2 x$, giving $\\frac{\\cos^2 x}{\\sin x} \\cdot \\frac{1}{\\cos x} = \\frac{\\cos x}{\\sin x}$"
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Correct expression $j(x) = \\log_{10}\\left(\\frac{16}{x^2}\\right)$ for $x > 0$; supporting work required showing combination of logarithms",
+          "alternatives": [
+            {
+              "required_elements": ["combine to $\\log_{10}(16x^7) - \\log_{10}(x^9)$", "$\\log_{10}\\left(\\frac{16}{x^2}\\right)$"],
+              "correct_example": "$\\log_{10}(8x^5 \\cdot 2x^2) - \\log_{10}(x^9) = \\log_{10}\\left(\\frac{16x^7}{x^9}\\right) = \\log_{10}\\left(\\frac{16}{x^2}\\right)$"
+            },
+            {
+              "required_elements": ["$\\log_{10}\\left(\\frac{4^2}{x^2}\\right)$"],
+              "correct_example": "$\\log_{10}\\left(\\frac{4^2}{x^2}\\right)$ with supporting work"
+            }
+          ],
+          "wrong_examples": ["$\\log_{10}(16x^{-2})$ as a final answer (negative exponent not allowed)", "$\\log_{10}(16) - 2\\log_{10}(x)$ (not a single logarithm)"],
+          "common_traps": ["Using 'log' instead of '$\\log_{10}$' is acceptable", "A logarithmic expression missing parentheses around its argument is still eligible"]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Correct expression $k(x) = \\frac{1}{\\tan x}$ (i.e., $\\cot x$); supporting work required showing use of Pythagorean identity $1 - \\sin^2 x = \\cos^2 x$",
+          "alternatives": [
+            {
+              "required_elements": ["$1 - \\sin^2 x = \\cos^2 x$", "$\\frac{\\cos^2 x}{\\sin x} \\cdot \\frac{1}{\\cos x} = \\frac{\\cos x}{\\sin x}$", "$\\frac{1}{\\tan x}$"],
+              "correct_example": "$k(x) = \\frac{1 - \\sin^2 x}{\\sin x} \\cdot \\sec x = \\frac{\\cos^2 x}{\\sin x} \\cdot \\frac{1}{\\cos x} = \\frac{\\cos x}{\\sin x} = \\frac{1}{\\tan x}$"
+            }
+          ],
+          "wrong_examples": ["$k(x) = \\cos x / \\sin x$ presented as final answer without connecting to $1/\\tan x$", "Stopping at $\\cos x / \\sin x$ without simplifying to $\\cot x$ or $1/\\tan x$"],
+          "common_traps": ["Supporting work is required; must show the Pythagorean identity step explicitly", "If presented as a complex fraction, structure must be unambiguous"]
+        }
       ],
-      "scoring_notes": "Supporting work is required for both (i) and (ii). Domain restrictions are not required and not scored. Use of \"log\" rather than \"$\\log_{10}$\" is acceptable. $\\log_{10}\\left(\\frac{4^2}{x}\\right)$ also earns the first point with supporting work. A logarithmic expression missing parentheses around its argument is still eligible. If presented as a complex fraction, parentheses and fraction bars must be unambiguous.",
+      "scoring_notes": "Supporting work is required in (i) and (ii). Domain restrictions are not required and not scored. Answers not evaluated to simplest form do not earn the point. Partial credit (scored 1–0) if one criterion from each column: correct expression in (i) without supporting work, OR correct application of Pythagorean identity in (ii) with no incorrect work.",
       "requires_drawing": false,
       "reference_image": null
     },
@@ -40,11 +96,39 @@
       "letter": "c",
       "prompt": "The function $m$ is given by $m(x) = \\cos^{-1}(\\tan(2x))$. Find all values in the domain of $m$ that yield an output value of $0$.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: At least one correct value of $x$, with supporting work showing $\\tan(2x) = \\cos(0) = 1 \\Rightarrow 2x = \\frac{\\pi}{4} + \\pi n \\Rightarrow x = \\frac{\\pi}{8} + \\frac{\\pi}{2}n$",
-        "1 pt: General solution $x = \\frac{\\pi}{8} + \\frac{\\pi}{2}n$ where $n$ is any integer (no incorrect values included)"
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "At least one correct value of $x$, with supporting work showing $\\tan(2x) = \\cos(0) = 1 \\Rightarrow 2x = \\frac{\\pi}{4} + \\pi n \\Rightarrow x = \\frac{\\pi}{8} + \\frac{\\pi}{2}n$",
+          "alternatives": [
+            {
+              "required_elements": ["$\\tan(2x) = 1$", "$2x = \\frac{\\pi}{4} + \\pi n$", "at least one value such as $x = \\frac{\\pi}{8}$"],
+              "correct_example": "$m(x) = 0 \\Rightarrow \\cos^{-1}(\\tan(2x)) = 0 \\Rightarrow \\tan(2x) = \\cos(0) = 1 \\Rightarrow 2x = \\frac{\\pi}{4} + \\pi n \\Rightarrow x = \\frac{\\pi}{8}$"
+            }
+          ],
+          "wrong_examples": ["$\\tan(2x) = 0$ (wrong — $\\cos^{-1}(0) = \\pi/2$, not $0$)", "No supporting work shown"],
+          "common_traps": ["$m(x) = 0$ means $\\cos^{-1}(\\tan 2x) = 0$, which means $\\tan(2x) = \\cos(0) = 1$, not $\\tan(2x) = 0$"]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "General solution $x = \\frac{\\pi}{8} + \\frac{\\pi}{2}n$ where $n$ is any integer; no incorrect values of $x$ may be included",
+          "alternatives": [
+            {
+              "required_elements": ["$x = \\frac{\\pi}{8} + \\frac{\\pi}{2}n$", "no incorrect values"],
+              "correct_example": "$x = \\frac{\\pi}{8} + \\frac{\\pi}{2}n$, where $n$ is any integer"
+            },
+            {
+              "required_elements": ["both $x = \\frac{\\pi}{8} + \\pi n$ and $x = \\frac{5\\pi}{8} + \\pi n$", "no incorrect values"],
+              "correct_example": "$x = \\frac{\\pi}{8} + \\pi n$ and $x = \\frac{5\\pi}{8} + \\pi n$, where $n$ is any integer"
+            }
+          ],
+          "wrong_examples": ["Including $x = -\\frac{\\pi}{8}$ as an incorrect extra value", "Giving only $x = \\frac{\\pi}{8}$ without the general solution"],
+          "common_traps": ["Stating 'where $n$ is any integer' is not required to earn the point", "No incorrect values of $x$ may be included — any extra wrong value voids this point"]
+        }
       ],
-      "scoring_notes": "Supporting work is required. A response with supporting work that gives all correct values (e.g., $x = \\frac{\\pi}{8} + \\pi n$ and $x = \\frac{5\\pi}{8} + \\pi n$) earns both points. When expressing the general solution, $i$, $k$, $n$, or any letter except $x$ may be used. Stating \"where $n$ is any integer\" is not required to earn the second point. No incorrect values of $x$ may be included.",
+      "scoring_notes": "Supporting work is required. A response giving all correct values (e.g., $x = \\frac{\\pi}{8} + \\pi n$ and $x = \\frac{5\\pi}{8} + \\pi n$) earns both points. When expressing the general solution, $i$, $k$, $n$, or any letter except $x$ may be used. The phrase 'where $n$ is any integer' is not required.",
       "requires_drawing": false,
       "reference_image": null
     }

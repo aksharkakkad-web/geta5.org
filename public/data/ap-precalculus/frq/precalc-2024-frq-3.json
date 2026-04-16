@@ -16,11 +16,39 @@
       "letter": "a",
       "prompt": "The graph of $h$ and its dashed midline for two full cycles is shown. Five points, $F$, $G$, $J$, $K$, and $P$, are labeled on the graph. No scale is indicated, and no axes are presented.\n\nDetermine possible coordinates $(t, h(t))$ for the five points: $F$, $G$, $J$, $K$, and $P$.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct $h(t)$-coordinates — e.g., $F$: $h(t) = 18$; $G$: $h(t) = 9$; $J$: $h(t) = 0$; $K$: $h(t) = 9$; $P$: $h(t) = 18$",
-        "1 pt: Correct $t$-coordinates forming a valid arithmetic sequence with $\\Delta t = \\frac{1}{2}$, e.g., $F = \\left(\\frac{3}{2}, 18\\right)$, $G = (2, 9)$, $J = \\left(\\frac{5}{2}, 0\\right)$, $K = (3, 9)$, $P = \\left(\\frac{7}{2}, 18\\right)$; OR an equivalent cycle shifted by $2k$ for integer $k$"
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Correct $h(t)$-coordinates: $F$ and $P$ at maximum $18$, $G$ and $K$ at midline $9$, $J$ at minimum $0$",
+          "alternatives": [
+            {
+              "required_elements": ["$F$: $h(t) = 18$", "$G$: $h(t) = 9$", "$J$: $h(t) = 0$", "$K$: $h(t) = 9$", "$P$: $h(t) = 18$"],
+              "correct_example": "$F = (\\frac{3}{2}, 18)$, $G = (2, 9)$, $J = (\\frac{5}{2}, 0)$, $K = (3, 9)$, $P = (\\frac{7}{2}, 18)$ — $h(t)$-coordinates are $18, 9, 0, 9, 18$"
+            }
+          ],
+          "wrong_examples": ["Swapping $h(t)$-coordinates for $t$-coordinates", "Using incorrect height values not consistent with amplitude $9$ and midline $9$"],
+          "common_traps": ["Forgetting that the midline is at $9$ (radius = half of max height $18$)", "Having $F$ and $P$ at different heights — they must be the same (both maxima in the pictured cycle)"]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Correct $t$-coordinates forming a valid arithmetic sequence with $\\Delta t = \\frac{1}{2}$; $t$-values must be of the form $-\\frac{1}{2} + 2k$, $0 + 2k$, $\\frac{1}{2} + 2k$, $1 + 2k$, $\\frac{3}{2} + 2k$ for a specific integer $k$",
+          "alternatives": [
+            {
+              "required_elements": ["arithmetic sequence with $\\Delta t = \\frac{1}{2}$", "start at a valid maximum position (e.g., $t = \\frac{3}{2}$ for $k=1$)"],
+              "correct_example": "$F = (\\frac{3}{2}, 18)$, $G = (2, 9)$, $J = (\\frac{5}{2}, 0)$, $K = (3, 9)$, $P = (\\frac{7}{2}, 18)$"
+            },
+            {
+              "required_elements": ["arithmetic sequence with $\\Delta t = \\frac{1}{2}$", "starting at $k=0$: $t = -\\frac{1}{2}$"],
+              "correct_example": "$F = (-\\frac{1}{2}, 18)$, $G = (0, 9)$, $J = (\\frac{1}{2}, 0)$, $K = (1, 9)$, $P = (\\frac{3}{2}, 18)$"
+            }
+          ],
+          "wrong_examples": ["$t$-coordinates that are not in arithmetic sequence with $\\Delta t = \\frac{1}{2}$"],
+          "common_traps": ["Negative $t$-coordinates are acceptable", "Period is $2$ seconds (from one ground-touch to next), so quarter-period is $\\frac{1}{2}$ second"]
+        }
       ],
-      "scoring_notes": "No supporting work required. h(t)-coordinates and/or t-coordinates may appear in a list. Negative t-coordinates are acceptable. t-coordinates must be of the form $-\\frac{1}{2} + 2k$, $0 + 2k$, $\\frac{1}{2} + 2k$, $1 + 2k$, $\\frac{3}{2} + 2k$ for a specific integer $k$. Partial credit (scored 0–1) if the response gives 3 correct points, or all 5 points have t-coordinates in arithmetic sequence with $\\Delta t = \\frac{1}{2}$ and h(t)-coordinates satisfy the correct relative structure.",
+      "scoring_notes": "No supporting work is required. $h(t)$-coordinates and/or $t$-coordinates may appear in a list. Negative $t$-coordinates are acceptable. $t$-coordinates must be $-\\frac{1}{2}+2k$, $0+2k$, $\\frac{1}{2}+2k$, $1+2k$, $\\frac{3}{2}+2k$ for a specific integer $k$. Partial credit (scored 0–1) if: all 5 points have swapped $(h(t), t)$ coordinates with correct values; 3 of 5 points are correct; or all 5 $t$-coordinates are in arithmetic sequence with $\\Delta t = \\frac{1}{2}$ and $h(t)$-coordinates satisfy the correct relative structure.",
       "requires_drawing": false,
       "reference_image": "/data/ap-precalculus/frq/images/precalc-2024-frq-3-graph.png"
     },
@@ -28,11 +56,43 @@
       "letter": "b",
       "prompt": "The function $h$ can be written in the form $h(t) = a\\sin(b(t + c)) + d$. Find values of constants $a$, $b$, $c$, and $d$.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct vertical transformation values — $a = 9$ (or $a = -9$) and $d = 9$",
-        "1 pt: Correct horizontal transformation values — $b = \\pi$ (from period $= 2$, so $\\frac{2\\pi}{b} = 2$) and $c = -1$ (if $a = 9$) or $c = 0$ (if $a = -9$); e.g., $h(t) = 9\\sin(\\pi(t - 1)) + 9$ or $h(t) = -9\\sin(\\pi t) + 9$"
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Correct vertical transformation values: $a = 9$ (or $a = -9$) and $d = 9$",
+          "alternatives": [
+            {
+              "required_elements": ["$a = 9$", "$d = 9$"],
+              "correct_example": "$a = 9$, $d = 9$"
+            },
+            {
+              "required_elements": ["$a = -9$", "$d = 9$"],
+              "correct_example": "$a = -9$, $d = 9$"
+            }
+          ],
+          "wrong_examples": ["$a = 18$, $d = 0$", "$a = 9$, $d = 0$"],
+          "common_traps": ["Amplitude is 9 (radius of tire = half of max height 18), not 18", "Midline $d = 9$ (halfway between 0 and 18)"]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Correct horizontal transformation values: $b = \\pi$ (from period $= 2$, so $\\frac{2\\pi}{b} = 2$) and an appropriate value of $c$ consistent with the form (e.g., $c = -1$ if $a = 9$, or $c = 0$ if $a = -9$)",
+          "alternatives": [
+            {
+              "required_elements": ["$b = \\pi$", "$c = -1 + 2k$ for integer $k$ (if $a = 9$)"],
+              "correct_example": "$h(t) = 9\\sin(\\pi(t - 1)) + 9$, i.e., $b = \\pi$, $c = -1$"
+            },
+            {
+              "required_elements": ["$b = \\pi$", "$c = 0 + 2k$ for integer $k$ (if $a = -9$)"],
+              "correct_example": "$h(t) = -9\\sin(\\pi t) + 9$, i.e., $b = \\pi$, $c = 0$"
+            }
+          ],
+          "wrong_examples": ["$b = 2$ (forgetting the $2\\pi$ in the period formula)", "$b = \\pi$, $c = 1$ with $a = 9$ (incorrect phase shift direction)"],
+          "common_traps": ["Period $= 2 \\Rightarrow b = \\frac{2\\pi}{2} = \\pi$", "Other correct values of $c$: for $a = 9$, $c = -1 + 2k$; for $a = -9$, $c = 0 + 2k$, for any integer $k$"]
+        }
       ],
-      "scoring_notes": "No supporting work required. Points earned for correct values in a list OR in an expression for $h(t)$. Other correct values of $c$: for $h(t) = 9\\sin(\\pi(t + c)) + 9$, $c = -1 + 2k$ for any integer $k$; for $h(t) = -9\\sin(\\pi(t + c)) + 9$, $c = 0 + 2k$ for any integer $k$. Full credit also available based on correctly imported coordinates from part (A) that meet criteria: $a \\neq 1$, $b \\neq 1$, $d \\neq 0$, and if $a > 0$ then $c \\neq 0$.",
+      "scoring_notes": "No supporting work is required. Points are earned for correct values in a list OR in an expression for $h(t)$. Full credit based on correctly imported coordinates from part (A) if they meet the criteria: $a \\neq 1$, $b \\neq 1$, $d \\neq 0$, and if $a > 0$ then $c \\neq 0$. Partial credit (scored 1–0) if only values of $a$ and $b$, or $b$ and $d$, are correct.",
       "requires_drawing": false,
       "reference_image": null
     },
@@ -40,11 +100,39 @@
       "letter": "c",
       "prompt": "Refer to the graph of $h$ in part (A). The $t$-coordinate of $K$ is $t_1$, and the $t$-coordinate of $P$ is $t_2$.\n\n(i) On the interval $(t_1, t_2)$, which of the following is true about $h$?\na. $h$ is positive and increasing.\nb. $h$ is positive and decreasing.\nc. $h$ is negative and increasing.\nd. $h$ is negative and decreasing.\n\n(ii) Describe how the rate of change of $h$ is changing on the interval $(t_1, t_2)$.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Correct answer — choice (a): $h$ is positive and increasing on $(t_1, t_2)$",
-        "1 pt: The rate of change of $h$ is decreasing on $(t_1, t_2)$ (equivalently: the graph of $h$ is concave down, OR $h$ is increasing at a decreasing rate)"
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Correct answer — choice (a): $h$ is positive and increasing on $(t_1, t_2)$",
+          "alternatives": [
+            {
+              "required_elements": ["choice (a) or 'positive and increasing'"],
+              "correct_example": "Choice a: $h$ is positive and increasing"
+            }
+          ],
+          "wrong_examples": ["Choice b (positive and decreasing)", "Choice c (negative and increasing)", "Choice d (negative and decreasing)"],
+          "common_traps": ["On $(t_1, t_2)$: $K$ is at midline ($h = 9 > 0$) and $P$ is at maximum ($h = 18$), so height is positive and increasing throughout", "If both letter choice and written description are given, the written description is scored"]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "The rate of change of $h$ is decreasing on $(t_1, t_2)$ (equivalently: the graph of $h$ is concave down; or $h$ is increasing at a decreasing rate)",
+          "alternatives": [
+            {
+              "required_elements": ["rate of change is decreasing"],
+              "correct_example": "The rate of change of $h$ is decreasing on $(t_1, t_2)$ because the graph is concave down."
+            },
+            {
+              "required_elements": ["$h$ is increasing at a decreasing rate"],
+              "correct_example": "Function $h$ is increasing at a decreasing rate on $(t_1, t_2)$."
+            }
+          ],
+          "wrong_examples": ["'The graph of $h$ is concave down' alone (without mentioning rate of change)", "'The rate of change is decreasing at an increasing rate' (requires calculus — not accepted)"],
+          "common_traps": ["A response that only states 'the graph is concave down' does not earn the point — must reference the rate of change", "Cannot earn this point if there are any errors in part (c)(ii)"]
+        }
       ],
-      "scoring_notes": "No supporting work required. For (i), if both letter choice and written description are included, the written description is scored. For (ii), \"decreasing\" or \"function $h$ is increasing at a decreasing rate\" is acceptable. If concavity is referenced, it must be correct. A response that only states \"the graph of $h$ is concave down\" does not earn the second point — a statement about the rate of change is required. A response stating the rate of change is \"decreasing at an increasing (or decreasing) rate\" does not earn the point. The second point cannot be earned if there are errors in part (c)(ii).",
+      "scoring_notes": "No supporting work is required. The first point is earned for 'a' or 'positive and increasing.' If both letter and written description are included, the written description is scored. To earn the second point, 'decreasing' or 'function $h$ is increasing at a decreasing rate' is acceptable. If concavity is referenced it must be correct, but 'concave down' alone is insufficient. The second point cannot be earned if there are any errors in part (c)(ii).",
       "requires_drawing": false,
       "reference_image": null
     }

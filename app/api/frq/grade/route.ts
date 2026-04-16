@@ -57,13 +57,21 @@ function sanitizeGrading(question: FRQ, raw: FRQGradingResult): FRQGradingResult
         const prEarned = typeof pr.earned === 'number' && Number.isFinite(pr.earned)
           ? Math.max(0, Math.min(prMax, Math.round(pr.earned)))
           : 0
+        const confidence = typeof pr.confidence === 'number' && Number.isFinite(pr.confidence)
+          ? Math.max(0, Math.min(1, pr.confidence))
+          : 0.5
+        const suggestion = prEarned === 0 && typeof pr.suggestion === 'string' && pr.suggestion.trim()
+          ? pr.suggestion
+          : null
         return {
           point_id: pr.point_id,
           description: pr.description,
           earned: prEarned,
           max: prMax,
+          confidence,
           sub_results: Array.isArray(pr.sub_results) ? pr.sub_results : [],
           reasoning: typeof pr.reasoning === 'string' ? pr.reasoning : '',
+          suggestion,
         }
       })
       earned = Math.min(maxForPart, pointResults.reduce((sum, pr) => sum + pr.earned, 0))

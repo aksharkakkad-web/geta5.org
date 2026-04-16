@@ -16,11 +16,39 @@
       "letter": "a",
       "prompt": "(i) Use the given data to write two equations that can be used to find the values for constants $a$ and $b$ in the expression for $G(t)$.\n\n(ii) Find the values for $a$ and $b$ as decimal approximations.",
       "point_value": 2,
-      "rubric_criteria": [
-        "1 pt: Two equations involving $a$ and $b$ using the given input-output pairs, e.g., $a + b\\ln(0 + 1) = 40$ and $a + b\\ln(91 + 1) = 76$",
-        "1 pt: Correct values $a = 40$ and $b = 7.961$ (or $b = 7.961451\\ldots$); may be presented as standalone values or in an expression for $G(t)$"
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Two equations involving $a$ and $b$ using the given input-output pairs: $a + b\\ln(0 + 1) = 40$ and $a + b\\ln(91 + 1) = 76$",
+          "alternatives": [
+            {
+              "required_elements": ["$a + b\\ln(1) = 40$", "$a + b\\ln(92) = 76$"],
+              "correct_example": "$a + b\\ln(1) = 40$ and $a + b\\ln(92) = 76$"
+            }
+          ],
+          "wrong_examples": ["Using only one equation", "Using incorrect input values such as $G(90)$ instead of $G(91)$"],
+          "common_traps": ["Forgetting that $t + 1$ appears in the argument (so at $t=91$, the argument is $\\ln(92)$, not $\\ln(91)$)"]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Correct values $a = 40$ and $b = 7.961$ (or $b = 7.961451\\ldots$); may be presented as standalone values or in an expression for $G(t)$",
+          "alternatives": [
+            {
+              "required_elements": ["$a = 40$", "$b = 7.961$"],
+              "correct_example": "$a = 40$, $b = 7.961$; i.e., $G(t) = 40 + 7.961\\ln(t+1)$"
+            },
+            {
+              "required_elements": ["$a = 40{,}000$", "$b = 7961$"],
+              "correct_example": "$a = 40{,}000$, $b = 7961$ (using thousands correctly translated)"
+            }
+          ],
+          "wrong_examples": ["$b = 7.96$ (decimal presentation error on first occurrence)", "$a = 0$, $b = 8$"],
+          "common_traps": ["Decimal presentation error: must give at least three decimal places", "If the thousands translation is used consistently ($a = 40{,}000$, $b = 7961$), both points are eligible"]
+        }
       ],
-      "scoring_notes": "Decimal approximations must be correct to three decimal places. Second point earned with or without supporting work if correct values are identified. A response using 40,000 and 76,000 (correct \"thousands\" translation) is eligible: $a = 40{,}000$, $b = 7961$. Partial credit (scored 1–0) available if one correct equation is present with one correct value.",
+      "scoring_notes": "The first point is earned for two equations involving $a$ and $b$ using the given input-output pairs. The second point is earned with or without supporting work if correct values are identified. Partial credit (scored 1–0) if one correct equation is present in a set of two AND one correct value is identified.",
       "requires_drawing": false,
       "reference_image": null
     },
@@ -28,12 +56,48 @@
       "letter": "b",
       "prompt": "(i) Use the given data to find the average rate of change of the number of units of the video game sold, in thousands per day, from $t = 0$ to $t = 91$ days. Express your answer as a decimal approximation. Show the computations that lead to your answer.\n\n(ii) Use the average rate of change found in (i) to estimate the number of units of the video game sold, in thousands, on day $t = 50$. Show the work that leads to your answer.\n\n(iii) Let $A_t$ represent the estimate of the number of units sold, in thousands, using the average rate of change found in (i). For $A_{50}$ found in (ii), it can be shown that $A_{50} < G(50)$. Explain why, in general, $A_t < G(t)$ for all $t$ where $0 < t < 91$.",
       "point_value": 3,
-      "rubric_criteria": [
-        "1 pt: Correct average rate of change $\\frac{G(91) - G(0)}{91 - 0} = \\frac{76 - 40}{91} = 0.396$ (or $0.395$) thousand units per day, in presence of a quotient using the given data values",
-        "1 pt: Correct estimate for $t = 50$: $y = 40 + 0.395604 \\cdot (50 - 0) = 59.780$ thousand, in presence of supporting work (accept range $[59.750, 59.805]$)",
-        "1 pt: Explanation that (a) $G$ is concave down on $(0, 91)$ OR the rate of change of $G$ is decreasing, AND (b) reference to the secant line on $0 < t < 91$ being below the graph of $G$"
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Correct average rate of change $\\frac{G(91) - G(0)}{91 - 0} = \\frac{76 - 40}{91} \\approx 0.396$ (or $0.395$) thousand units per day, in the presence of a quotient using the given data values",
+          "alternatives": [
+            {
+              "required_elements": ["quotient using $76 - 40$ and $91 - 0$", "$0.396$ or $0.395$"],
+              "correct_example": "$\\frac{76 - 40}{91 - 0} = \\frac{36}{91} \\approx 0.396$ thousand units per day"
+            }
+          ],
+          "wrong_examples": ["$0.40$ (decimal presentation error)", "Rate $= 36$ without dividing by $91$"],
+          "common_traps": ["Supporting work showing the quotient is required", "Units are not needed and are ignored if presented"]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Correct estimate for $t = 50$: $y = 40 + 0.395604 \\cdot (50 - 0) \\approx 59.780$ thousand, in the presence of supporting work (accept range $[59.750, 59.805]$)",
+          "alternatives": [
+            {
+              "required_elements": ["$y = G(0) + r(50 - 0)$ or $y = G(91) + r(50 - 91)$", "$\\approx 59.780$"],
+              "correct_example": "$y = 40 + 0.396 \\cdot 50 \\approx 59.780$ thousand"
+            }
+          ],
+          "wrong_examples": ["Estimate of $59.8$ or $60$ without supporting work showing the decimal approximation"],
+          "common_traps": ["Final answer may be reported as 59 or 60 thousand provided supporting work shows a correct decimal approximation", "If rate in (i) has a decimal presentation error, the consistent value from (i) can earn this point"]
+        },
+        {
+          "point_id": "b3",
+          "point_value": 1,
+          "description": "Explanation must include (a) the graph of $G$ is concave down on $(0, 91)$ OR the rate of change of $G$ is decreasing, AND (b) reference to the secant line on $0 < t < 91$ being below the graph of $G$",
+          "alternatives": [
+            {
+              "required_elements": ["$G$ is concave down OR rate of change of $G$ is decreasing", "secant line lies below graph of $G$ on $(0, 91)$"],
+              "correct_example": "The estimate $A_t$ is the $y$-coordinate of a point on the secant line through $(0, G(0))$ and $(91, G(91))$. Because the graph of $G$ is concave down on $(0, 91)$, this secant line is below the graph of $G$ on $(0, 91)$. Therefore $A_t < G(t)$ for all $t$ in $(0, 91)$."
+            }
+          ],
+          "wrong_examples": ["Saying only 'G is increasing' without addressing concavity or secant line placement", "Saying only 'the secant line is below the curve' without explaining why (concavity)"],
+          "common_traps": ["Both elements — concavity/decreasing rate AND secant line reference — are required to earn this point"]
+        }
       ],
-      "scoring_notes": "Supporting work is required for (i) and (ii). Units are not needed in (i). The final answer in (ii) may be reported as 59 thousand or 60 thousand if supporting work shows a correct decimal approximation. For (iii), both the concavity/rate-of-change statement AND the secant line reference are required to earn the point.",
+      "scoring_notes": "Supporting work is required in (i) and (ii). Units are not needed in (i). The final answer in (ii) may be reported as 59 thousand or 60 thousand if supporting work shows a correct decimal approximation. For (iii), both the concavity/rate-of-change statement AND the secant line reference are required.",
       "requires_drawing": false,
       "reference_image": null
     },
@@ -41,10 +105,22 @@
       "letter": "c",
       "prompt": "The makers of the video game reported that daily sales of the video game decreased each day after $t = 91$. Explain why the error in the model $G$ increases after $t = 91$.",
       "point_value": 1,
-      "rubric_criteria": [
-        "1 pt: Explanation must connect that the function model $G$ is increasing for $t > 91$ while actual daily sales are decreasing, so the absolute difference between actual and predicted values grows each day after $t = 91$"
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Explanation must connect that the function model $G$ is increasing for $t > 91$ while actual daily sales are decreasing, so the absolute difference between actual and predicted values grows each day after $t = 91$",
+          "alternatives": [
+            {
+              "required_elements": ["$G$ is increasing for $t > 91$", "actual daily sales are decreasing for $t > 91$"],
+              "correct_example": "For $t > 91$, daily sales are decreasing and $G$ is increasing. Therefore, the absolute value of the difference between actual daily sales and the daily sales predicted by $G$ is increasing each day for $t > 91$."
+            }
+          ],
+          "wrong_examples": ["Saying only '$G$ keeps increasing' without connecting to the decreasing actual sales", "Saying only 'sales decrease' without noting that $G$ predicts the opposite direction"],
+          "common_traps": ["Must include an implicit or explicit connection between 'function model is increasing' and 'daily sales are decreasing'"]
+        }
       ],
-      "scoring_notes": "Requires an implicit or explicit connection between \"function model is increasing\" and \"daily sales are decreasing.\" On day $t = 91$, actual sales and $G(91)$ agree; for $t > 91$ the gap widens because $G$ continues to increase while actual sales fall.",
+      "scoring_notes": "To earn the point, the reasoning must include an implicit or explicit connection between the 'function model is increasing' and 'daily sales are decreasing.' On day $t = 91$, actual sales and $G(91)$ agree; for $t > 91$ the gap widens because $G$ continues to increase while actual sales fall.",
       "requires_drawing": false,
       "reference_image": null
     }

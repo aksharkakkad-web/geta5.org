@@ -82,8 +82,10 @@ export interface FRQGradingPointResult {
   description: string
   earned: number                 // 0 or point_value
   max: number
+  confidence: number             // 0-1: how certain the grader is about this score
   sub_results: FRQGradingSubResult[]
   reasoning: string              // 1-sentence grader justification
+  suggestion: string | null      // improvement hint for missed points, null if earned
 }
 
 export interface FRQGradingPart {

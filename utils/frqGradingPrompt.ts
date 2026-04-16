@@ -133,10 +133,12 @@ const OUTPUT_SCHEMA = `OUTPUT FORMAT — respond with raw JSON only (no markdown
           "description": "<copy of description>",
           "earned": 0,
           "max": 1,
+          "confidence": 0.95,
           "sub_results": [
             { "element": "<required_element text>", "student_evidence_quote": "<EXACT verbatim substring of student response, or empty string if absent>", "met": false }
           ],
-          "reasoning": "<1 sentence>"
+          "reasoning": "<1 sentence>",
+          "suggestion": "<if earned=0: 1-2 sentences explaining what was needed AND how the student's own words could be improved to earn this point. Reference the correct_example if available. If the student was completely off-topic, explain what the rubric required instead. null if earned=max>"
         }
       ],
       "earned": 0,
@@ -149,6 +151,15 @@ const OUTPUT_SCHEMA = `OUTPUT FORMAT — respond with raw JSON only (no markdown
   "max_score": 0,
   "takeaway": "<one key improvement tip>"
 }
+
+CONFIDENCE RULE: Set confidence between 0 and 1 for each point_result. Use 0.9+ when the rubric criteria clearly match or clearly don't match the student's response. Use 0.6-0.9 when the response is ambiguous or borderline. Use below 0.6 only when you genuinely cannot determine if the criterion is met. Be calibrated — don't default to 0.95 on everything.
+
+SUGGESTION RULE: For each missed point (earned=0), the suggestion MUST:
+1. Reference what the student actually wrote (quote their words)
+2. Explain specifically what was missing or incorrect
+3. Show how their response could be revised to earn the point — build on their attempt, don't replace it
+4. If the student was completely off-topic, explain what the rubric required and give a model response
+Set suggestion to null for earned points.
 
 EVIDENCE RULE: student_evidence_quote MUST be a verbatim substring of the student's response for that part. If you cannot find supporting text, use empty string "" and mark met: false. Do NOT paraphrase or invent quotes.`
 
@@ -200,6 +211,84 @@ function renderDocumentsBlock(documents: FRQDocument[]): string {
     return `Document ${doc.doc_number}\nSource: ${doc.source}\nContent: ${doc.content}`
   }).join('\n\n')
   return `DOCUMENTS (the student wrote their response using these sources):\n\n${docs}`
+}
+
+// ─── Task Verb Definitions ───────────────────────────────────────────────────
+// AP exams distinguish sharply between these verbs. Students commonly lose points
+// by "describing" when asked to "explain."
+
+const TASK_VERB_BLOCK = `TASK VERB DEFINITIONS (apply when evaluating whether a student's response meets a criterion):
+- IDENTIFY: Indicate or provide information about a topic without elaboration. A name, term, or phrase is sufficient.
+- DESCRIBE: Provide the relevant characteristics of a specified topic. More than just mentioning a term — must include detail or context.
+- EXPLAIN: Provide information about HOW or WHY a relationship, process, pattern, position, situation, or outcome occurs. Must show causal or logical reasoning, not just state facts.
+- COMPARE: Provide a description or explanation of similarities AND/OR differences.
+- EVALUATE: Judge the merits/significance of something, usually with "to what extent" framing.
+
+CRITICAL DISTINCTION: If a criterion says "Explain" and the student only "Describes" (states facts without showing how/why), award 0. If a criterion says "Describe" and the student only "Identifies" (mentions a term without characteristics), award 0.`
+
+// ─── Per-FRQ-Type Calibration ────────────────────────────────────────────────
+// Real examples drawn from College Board scoring guidelines to anchor the AI.
+
+const FRQ_TYPE_CALIBRATION: Record<string, string> = {
+  'dbq': `DBQ CALIBRATION:
+THESIS (1pt) — EARNS: "Communist rule fundamentally transformed Soviet and Chinese societies by restructuring class hierarchies, but the extent of transformation varied as traditional gender roles and rural-urban divides persisted." — HAS a defensible claim WITH a line of reasoning (categories of argument).
+THESIS (1pt) — DOES NOT EARN: "Communist rule transformed Soviet and Chinese societies between 1930 and 1990." — Restates the prompt without establishing HOW or WHY.
+SOURCING (1pt) — EARNS: "Document 3 was written by a Soviet official in 1946, so its positive portrayal of women's liberation likely served propaganda purposes to legitimize the regime abroad." — Explains HOW the purpose/audience affects the document's meaning.
+SOURCING (1pt) — DOES NOT EARN: "Document 3 was written by Alexandra Kollontai, a Russian politician." — Only identifies the source without explaining relevance to the argument.`,
+
+  'leq': `LEQ CALIBRATION:
+CONTEXTUALIZATION (1pt) — EARNS: "Following the devastation of World War I and the collapse of European empires, nationalist movements gained momentum across Asia and Africa, as colonized peoples drew on Wilsonian ideals of self-determination." — Describes broader context with specific detail.
+CONTEXTUALIZATION (1pt) — DOES NOT EARN: "There were many changes in the world during this time period." — Overgeneralized, no specific historical content.
+COMPLEXITY (1pt) — EARNS: Addresses both similarities AND differences, OR analyzes multiple perspectives, OR connects across time periods with nuance.
+COMPLEXITY (1pt) — DOES NOT EARN: A single-track argument that only addresses one side.`,
+
+  'saq': `SAQ CALIBRATION:
+1-POINT PART — EARNS: "Europeans used gunpowder weapons to conquer new territories, which gave them a significant military advantage over Indigenous peoples who lacked comparable technology." — Names a specific method AND provides relevant detail.
+1-POINT PART — DOES NOT EARN: "Europeans went to the Americas." — Too vague, does not name a specific method or provide relevant characteristics.`,
+
+  'concept_application': `GOV CONCEPT APPLICATION CALIBRATION:
+DESCRIBE (1pt) — EARNS: "The EPA used its rule-making authority to interpret and implement environmental laws differently under different administrations." — Names a specific bureaucratic power connected to the scenario.
+DESCRIBE (1pt) — DOES NOT EARN: "The EPA enforced the law." — Too vague, does not name the specific power.
+EXPLAIN (1pt) — EARNS: "The president could limit the EPA's power by issuing an executive order that gives the agency specific guidance on how to interpret the new law." — Shows HOW the president affects the power.
+EXPLAIN (1pt) — DOES NOT EARN: "The president can affect the EPA." — States that an effect exists without explaining the mechanism.`,
+
+  'quantitative_analysis': `GOV QUANTITATIVE ANALYSIS CALIBRATION:
+IDENTIFY (1pt) — EARNS: "Mandatory spending." — Correctly reads the data.
+DESCRIBE (1pt) — EARNS: "As a percentage of total federal spending, mandatory spending increased while discretionary spending decreased." — Describes BOTH trends shown in the data.
+DESCRIBE (1pt) — DOES NOT EARN: "Spending changed over time." — Does not specify which type or direction.
+CONCLUDE (1pt) — EARNS: "Congress has decreased discretionary spending as mandatory spending has grown, suggesting that entitlement programs are crowding out other budget priorities." — Goes BEYOND restating the data to draw an inference.
+CONCLUDE (1pt) — DOES NOT EARN: "Mandatory spending went up and discretionary went down." — Restates the data without drawing a conclusion.`,
+
+  'scotus_comparison': `GOV SCOTUS COMPARISON CALIBRATION:
+EXPLAIN comparison (1pt) — EARNS: "In Lopez, the Court found that possessing a firearm in a school zone was not economic activity connected to interstate commerce, while in Katzenbach, the restaurant's refusal to serve Black customers directly affected interstate commerce through food supply chains." — Explains WHY the facts led to different holdings.
+EXPLAIN comparison (1pt) — DOES NOT EARN: "Lopez was about guns and Katzenbach was about restaurants. The Court ruled differently in each case." — Describes each case but does not explain the CONNECTION between facts and holdings.`,
+
+  'argument_essay': `GOV ARGUMENT ESSAY CALIBRATION:
+EVIDENCE (3pts tiered):
+  1pt: Names one relevant piece of evidence (e.g., "The First Amendment")
+  2pts: Uses one specific piece of evidence to SUPPORT the thesis (e.g., "The First Amendment protects free speech, which allows citizens to criticize the government — a check on tyranny")
+  3pts: Uses TWO specific pieces of evidence supporting the thesis, at least one from the listed foundational documents
+REBUTTAL (1pt) — EARNS: "Critics argue that judicial review gives unelected judges too much power, but the system of checks and balances ensures that constitutional amendments can override court decisions." — Acknowledges opposing view AND refutes it.
+REBUTTAL (1pt) — DOES NOT EARN: "Some people disagree with this." — Acknowledges opposition without refuting.`,
+
+  'multi_part_math': `MATH FRQ CALIBRATION:
+SETUP POINT (1pt) — EARNS: Shows the correct formula/integral/equation with appropriate notation. The setup alone earns the point even if the final computation has errors.
+SETUP POINT (1pt) — DOES NOT EARN: Jumps straight to an answer without showing the mathematical setup.
+ANSWER POINT (1pt) — EARNS: Correct numerical/symbolic answer. Accept equivalent forms. Calculator questions: 3+ decimal places. No-calculator: exact values required.
+ANSWER POINT (1pt) — DOES NOT EARN: Correct setup but arithmetic/algebra error in the final answer (earns setup point, not answer point).
+JUSTIFICATION POINT (1pt) — EARNS: For optimization/existence, must test ALL critical points and endpoints (Candidates Test) OR show sign change analysis on the correct interval.
+JUSTIFICATION POINT (1pt) — DOES NOT EARN: Uses only a local test (First/Second Derivative Test at one point) when a global argument is required.`,
+
+  'essay': `PSYCHOLOGY ESSAY FRQ CALIBRATION:
+Same scoring standards as multi_part_text — each criterion is independently evaluated.
+For Argumentation points (2pt tier): 1pt for citing results, 2pts for explaining HOW results support/refute the hypothesis with explicit reasoning.`,
+
+  'multi_part_text': `PSYCHOLOGY FRQ CALIBRATION:
+CONCEPT APPLICATION (1pt) — EARNS: "The dependent variable, reaction time, was operationally defined as the number of milliseconds between the stimulus appearing and the participant pressing the button." — Identifies the variable AND provides a measurable/quantifiable definition.
+CONCEPT APPLICATION (1pt) — DOES NOT EARN: "The dependent variable was how fast they reacted." — Names the variable but the definition is not measurable/quantifiable.
+ARGUMENTATION (2pt tier):
+  1pt: Uses results from the study but does not explain how they support/refute the hypothesis.
+  2pts: Uses specific results AND explains HOW they support or refute the hypothesis with reasoning.`,
 }
 
 // ─── Strict Mode Blocks ───────────────────────────────────────────────────────
@@ -270,11 +359,16 @@ ${gradableParts.map(renderPartBlock).join('\n\n')}`
 
   const studentBlock = renderStudentBlock(gradableParts, responses)
 
+  // FRQ-type-specific calibration examples (anchors grading to College Board standard)
+  const typeCalibration = FRQ_TYPE_CALIBRATION[question.frq_type] ?? ''
+
   const sections = [
     role,
     answerKeyFirewall,
     pessimisticPrior,
     subjectRubric,
+    TASK_VERB_BLOCK,
+    typeCalibration,
     strictnessBlock,
     generalRules,
     OUTPUT_SCHEMA,
