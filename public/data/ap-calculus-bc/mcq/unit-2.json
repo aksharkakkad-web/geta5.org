@@ -754,8 +754,35 @@
       "difficulty": "medium",
       "has_stimulus": true,
       "stimulus": {
-        "type": "text",
-        "content": "The graph of $f$ has a corner at $x = 3$, where the left-hand slope approaches $2$ and the right-hand slope approaches $5$."
+        "type": "chart",
+        "content": {
+          "type": "line",
+          "data": {
+            "labels": ["0", "1", "2", "3", "4", "5"],
+            "datasets": [
+              {
+                "label": "f(x)",
+                "data": [-4, -2, 0, 2, 7, 12],
+                "borderColor": "#6366f1",
+                "backgroundColor": "transparent",
+                "fill": false,
+                "cubicInterpolationMode": "default",
+                "tension": 0,
+                "pointRadius": [3, 3, 3, 5, 3, 3]
+              }
+            ]
+          },
+          "options": {
+            "scales": {
+              "x": { "title": { "display": true, "text": "x" } },
+              "y": { "title": { "display": true, "text": "f(x)" } }
+            },
+            "plugins": {
+              "annotation": {},
+              "legend": { "display": false }
+            }
+          }
+        }
       },
       "question": "Which of the following best describes the differentiability of $f$ at $x = 3$?",
       "choices": [
@@ -2055,8 +2082,34 @@
       "difficulty": "medium",
       "has_stimulus": true,
       "stimulus": {
-        "type": "text",
-        "content": "The graph of $f$ is shown below (described in text): $f$ is continuous on $[-2, 4]$. The graph is linear on $[-2, 0]$ with slope $3$, has a cusp at $x = 0$, is linear on $[0, 2]$ with slope $-1$, and is a smooth curve on $[2, 4]$ with $f'(2)$ defined."
+        "type": "chart",
+        "content": {
+          "type": "line",
+          "data": {
+            "labels": ["-2", "-1", "0", "1", "2", "3", "4"],
+            "datasets": [
+              {
+                "label": "f(x)",
+                "data": [-4, -1, 2, 1, 0, 0.5, 1.5],
+                "borderColor": "#6366f1",
+                "backgroundColor": "transparent",
+                "fill": false,
+                "cubicInterpolationMode": "default",
+                "tension": 0,
+                "pointRadius": [3, 3, 5, 3, 3, 3, 3]
+              }
+            ]
+          },
+          "options": {
+            "scales": {
+              "x": { "title": { "display": true, "text": "x" } },
+              "y": { "title": { "display": true, "text": "f(x)" } }
+            },
+            "plugins": {
+              "legend": { "display": false }
+            }
+          }
+        }
       },
       "question": "At which of the following $x$-values is $f$ NOT differentiable?",
       "choices": [

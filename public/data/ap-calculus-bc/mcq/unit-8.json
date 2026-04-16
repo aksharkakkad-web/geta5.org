@@ -2017,8 +2017,32 @@
       "difficulty": "hard",
       "has_stimulus": true,
       "stimulus": {
-        "type": "text",
-        "content": "The graph of $f$ is shown (not pictured). $f$ is continuous and positive on $[0, 4]$, with the following properties: $f$ is increasing on $[0,2]$ and decreasing on $[2,4]$, and $f(2) = 6$."
+        "type": "chart",
+        "content": {
+          "type": "line",
+          "data": {
+            "labels": ["0", "0.5", "1", "1.5", "2", "2.5", "3", "3.5", "4"],
+            "datasets": [
+              {
+                "label": "f(x)",
+                "data": [1, 2.5, 4, 5.5, 6, 5.5, 4, 2.5, 1],
+                "borderColor": "#6366f1",
+                "backgroundColor": "transparent",
+                "fill": false,
+                "pointRadius": [5, 3, 3, 3, 5, 3, 3, 3, 5]
+              }
+            ]
+          },
+          "options": {
+            "scales": {
+              "x": { "title": { "display": true, "text": "x" } },
+              "y": { "title": { "display": true, "text": "f(x)" }, "min": 0 }
+            },
+            "plugins": {
+              "legend": { "display": false }
+            }
+          }
+        }
       },
       "question": "Which of the following statements about the average value of $f$ on $[0, 4]$ must be true?",
       "choices": [

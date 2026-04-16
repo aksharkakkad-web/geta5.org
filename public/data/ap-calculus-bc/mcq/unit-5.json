@@ -509,8 +509,32 @@
       "difficulty": "medium",
       "has_stimulus": true,
       "stimulus": {
-        "type": "text",
-        "content": "The graph of $f'$, the derivative of a function $f$, is shown. $f'$ is positive on $(-2, 1)$, zero at $x = -2$ and $x = 1$, and negative on $(1, 4)$. $f'$ changes from increasing to decreasing at $x = -1$."
+        "type": "chart",
+        "content": {
+          "type": "line",
+          "data": {
+            "labels": ["-2", "-1", "0", "1", "2", "3", "4"],
+            "datasets": [
+              {
+                "label": "f′(x)",
+                "data": [0, 2, 1.5, 0, -1.5, -2.5, -3],
+                "borderColor": "#6366f1",
+                "backgroundColor": "transparent",
+                "fill": false,
+                "pointRadius": [5, 3, 3, 5, 3, 3, 3]
+              }
+            ]
+          },
+          "options": {
+            "scales": {
+              "x": { "title": { "display": true, "text": "x" } },
+              "y": { "title": { "display": true, "text": "f′(x)" } }
+            },
+            "plugins": {
+              "legend": { "display": false }
+            }
+          }
+        }
       },
       "question": "Based on the information about $f'$, which of the following best describes the behavior of $f$ at $x = 1$?",
       "choices": [
@@ -1749,8 +1773,32 @@
       "difficulty": "medium",
       "has_stimulus": true,
       "stimulus": {
-        "type": "text",
-        "content": "The graph of $f'$ (the derivative of $f$) is a parabola opening downward with vertex at $(2, 4)$ and zeros at $x = 0$ and $x = 4$."
+        "type": "chart",
+        "content": {
+          "type": "line",
+          "data": {
+            "labels": ["-1", "0", "1", "2", "3", "4", "5"],
+            "datasets": [
+              {
+                "label": "f′(x)",
+                "data": [-3, 0, 3, 4, 3, 0, -3],
+                "borderColor": "#6366f1",
+                "backgroundColor": "transparent",
+                "fill": false,
+                "pointRadius": [3, 5, 3, 5, 3, 5, 3]
+              }
+            ]
+          },
+          "options": {
+            "scales": {
+              "x": { "title": { "display": true, "text": "x" } },
+              "y": { "title": { "display": true, "text": "f′(x)" } }
+            },
+            "plugins": {
+              "legend": { "display": false }
+            }
+          }
+        }
       },
       "question": "Which of the following best describes the behavior of $f$ on the interval $(0, 4)$?",
       "choices": [

@@ -791,8 +791,32 @@
       "difficulty": "medium",
       "has_stimulus": true,
       "stimulus": {
-        "type": "text",
-        "content": "The graph of a differentiable function $f$ is shown below. The graph passes through the point $(2, 5)$ with slope $3$, through $(5, 2)$ with slope $\\frac{1}{3}$, and is one-to-one on its domain."
+        "type": "chart",
+        "content": {
+          "type": "line",
+          "data": {
+            "labels": ["0", "1", "2", "3", "4", "5", "6"],
+            "datasets": [
+              {
+                "label": "f(x)",
+                "data": [-1, 2, 5, 6.5, 7, 2, -4],
+                "borderColor": "#6366f1",
+                "backgroundColor": "transparent",
+                "fill": false,
+                "pointRadius": [3, 3, 5, 3, 3, 5, 3]
+              }
+            ]
+          },
+          "options": {
+            "scales": {
+              "x": { "title": { "display": true, "text": "x" } },
+              "y": { "title": { "display": true, "text": "f(x)" } }
+            },
+            "plugins": {
+              "legend": { "display": false }
+            }
+          }
+        }
       },
       "question": "If $g = f^{-1}$, which of the following gives $g'(5)$?",
       "choices": [

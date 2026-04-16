@@ -1303,8 +1303,33 @@
       "difficulty": "medium",
       "has_stimulus": true,
       "stimulus": {
-        "type": "text",
-        "content": "The graph of $f$ is shown below (not pictured). It is known that $f$ is positive and increasing on $[1,5]$ and that $\\int_1^5 f(x)\\,dx = 16$."
+        "type": "chart",
+        "content": {
+          "type": "line",
+          "data": {
+            "labels": ["1", "2", "3", "4", "5"],
+            "datasets": [
+              {
+                "label": "f(x)",
+                "data": [1, 2, 4, 6, 8],
+                "borderColor": "#6366f1",
+                "backgroundColor": "transparent",
+                "fill": false,
+                "pointRadius": [5, 3, 3, 3, 5]
+              }
+            ]
+          },
+          "options": {
+            "scales": {
+              "x": { "title": { "display": true, "text": "x" } },
+              "y": { "title": { "display": true, "text": "f(x)" }, "min": 0 }
+            },
+            "plugins": {
+              "legend": { "display": false },
+              "subtitle": { "display": true, "text": "f is positive and increasing; area under curve = 16" }
+            }
+          }
+        }
       },
       "question": "Which of the following must be true about the left Riemann sum $L$ and the right Riemann sum $R$ with $n$ equal subintervals used to approximate $\\int_1^5 f(x)\\,dx$?",
       "choices": [
@@ -1696,8 +1721,34 @@
       "difficulty": "hard",
       "has_stimulus": true,
       "stimulus": {
-        "type": "text",
-        "content": "Let $g(x) = \\int_0^x f(t)\\,dt$, where the graph of $f$ consists of two line segments: one from $(0,0)$ to $(2,4)$ and one from $(2,4)$ to $(5,-2)$."
+        "type": "chart",
+        "content": {
+          "type": "line",
+          "data": {
+            "labels": ["0", "1", "2", "3", "4", "5"],
+            "datasets": [
+              {
+                "label": "f(t)",
+                "data": [0, 2, 4, 2, 0, -2],
+                "borderColor": "#6366f1",
+                "backgroundColor": "transparent",
+                "fill": false,
+                "cubicInterpolationMode": "default",
+                "tension": 0,
+                "pointRadius": [5, 3, 5, 3, 3, 5]
+              }
+            ]
+          },
+          "options": {
+            "scales": {
+              "x": { "title": { "display": true, "text": "t" } },
+              "y": { "title": { "display": true, "text": "f(t)" } }
+            },
+            "plugins": {
+              "legend": { "display": false }
+            }
+          }
+        }
       },
       "question": "Which of the following gives $g(5)$?",
       "choices": [
