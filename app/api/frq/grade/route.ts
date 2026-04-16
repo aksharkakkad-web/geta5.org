@@ -108,6 +108,36 @@ function normalize(s: string): string {
   return s.toLowerCase().replace(/\s+/g, ' ').trim()
 }
 
+// Strip LaTeX formatting so math notation differences don't cause false
+// negatives in evidence verification. E.g. "\frac{d}{dx}" → "d/dx".
+function normalizeLaTeX(s: string): string {
+  let r = s
+  // Strip $$ and $ delimiters
+  r = r.replace(/\$\$/g, '').replace(/\$/g, '')
+  // Replace \frac{a}{b} with a/b (handle nested braces via repeated passes)
+  for (let i = 0; i < 5; i++) {
+    r = r.replace(/\\frac\{([^{}]*)\}\{([^{}]*)\}/g, '$1/$2')
+  }
+  // Strip \text{...} → keep inner text
+  r = r.replace(/\\text\{([^{}]*)\}/g, '$1')
+  // Strip \left and \right prefixes
+  r = r.replace(/\\left/g, '').replace(/\\right/g, '')
+  // Remove spacing commands
+  r = r.replace(/\\(?:,|;|:|!|quad|qquad)\b/g, ' ')
+  // Replace multiplication symbols
+  r = r.replace(/\\cdot/g, '*').replace(/\\times/g, '*')
+  // Replace comparison/equality symbols
+  r = r.replace(/\\le\b/g, '<=').replace(/\\ge\b/g, '>=')
+  r = r.replace(/\\ne\b/g, '!=').replace(/\\approx\b/g, '≈')
+  // Strip style commands
+  r = r.replace(/\\(?:displaystyle|textstyle|scriptstyle)\b/g, '')
+  // Remove remaining \commandname sequences
+  r = r.replace(/\\[a-zA-Z]+/g, '')
+  // Collapse whitespace
+  r = r.replace(/\s+/g, ' ').trim()
+  return r
+}
+
 // Server-verify because LLM can fabricate quotes — strip any awarded point
 // whose evidence quote is not a verbatim substring of the student's response.
 function verifyEvidence(grading: FRQGradingResult, responses: Record<string, string>): FRQGradingResult {
@@ -115,14 +145,20 @@ function verifyEvidence(grading: FRQGradingResult, responses: Record<string, str
     if (!part.point_results || part.point_results.length === 0) return part
     const studentRaw = responses[part.letter] ?? ''
     const studentNorm = normalize(studentRaw)
+    const studentLaTeX = normalize(normalizeLaTeX(studentRaw))
     const pointResults = part.point_results.map(pr => {
       const subResults = pr.sub_results.map(sr => {
         if (!sr.met) return sr
         const quote = sr.student_evidence_quote ?? ''
         if (quote.trim() === '') return { ...sr, met: false }
         const quoteNorm = normalize(quote)
-        if (!studentNorm.includes(quoteNorm)) return { ...sr, met: false }
-        return sr
+        // Pass 1: exact normalized match
+        if (studentNorm.includes(quoteNorm)) return sr
+        // Pass 2: LaTeX-stripped match (for math subjects)
+        const quoteLaTeX = normalize(normalizeLaTeX(quote))
+        if (studentLaTeX.includes(quoteLaTeX)) return sr
+        // Neither matched
+        return { ...sr, met: false }
       })
       const allMet = subResults.length > 0 && subResults.every(sr => sr.met)
       const earned = allMet ? pr.max : 0
