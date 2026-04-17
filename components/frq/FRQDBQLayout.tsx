@@ -93,16 +93,9 @@ function DesktopDBQ({ question, responses, onResponseChange, onSubmit, onSaveDra
         >
           DBQ
         </span>
-        {question.stimulus && (
-          <span style={{ color: 'var(--text-primary)', fontSize: '14px', lineHeight: 1.6 }}>
-            <InlineMath text={question.stimulus} />
-          </span>
-        )}
-        {!question.stimulus && (
-          <span style={{ color: 'var(--text-primary)', fontSize: '14px' }}>
-            <InlineMath text={question.title} />
-          </span>
-        )}
+        <span style={{ color: 'var(--text-primary)', fontSize: '14px', lineHeight: 1.6 }}>
+          <InlineMath text={question.parts[0]?.prompt ?? question.title} />
+        </span>
       </div>
 
       {/* Split panel */}
@@ -380,11 +373,7 @@ function MobileDBQ({ question, responses, onResponseChange, onSubmit, onSaveDraf
           DBQ
         </span>
         <span style={{ color: 'var(--text-primary)', fontSize: '14px', lineHeight: 1.6 }}>
-          {question.stimulus ? (
-            <InlineMath text={question.stimulus} />
-          ) : (
-            <InlineMath text={question.title} />
-          )}
+          <InlineMath text={question.parts[0]?.prompt ?? question.title} />
         </span>
       </div>
 
