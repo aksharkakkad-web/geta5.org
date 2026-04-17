@@ -14,13 +14,13 @@
   ],
   "calculator_allowed": true,
   "total_points": 9,
-  "stimulus": "A particle moving along a curve in the xy-plane has position (x",
+  "stimulus": "A particle moving along a curve in the $xy$-plane has position $(x(t), y(t))$ at time $t$ seconds, where\n$$\\frac{dx}{dt} = t^2 - t - 6 \\quad \\text{and} \\quad \\frac{dy}{dt} = 3\\cos(t^2).$$\nAt time $t = 2$, the particle is at the point $(1, 4)$.",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Find the speed of the particle at time t = 2 seconds. Show the setup for your calculations.",
+      "prompt": "Find the speed of the particle at time $t = 2$ seconds. Show the setup for your calculations.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -29,26 +29,27 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct speed (magnitude of velocity vector)",
+          "description": "Correct setup for speed as magnitude of the velocity vector: $\\text{speed} = \\sqrt{\\left(\\dfrac{dx}{dt}\\bigg|_{t=2}\\right)^2 + \\left(\\dfrac{dy}{dt}\\bigg|_{t=2}\\right)^2}$. At $t = 2$: $\\dfrac{dx}{dt} = 4 - 2 - 6 = -4$ and $\\dfrac{dy}{dt} = 3\\cos(4)$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct speed (magnitude of velocity vector)"
+                "$\\sqrt{\\left(\\frac{dx}{dt}\\right)^2 + \\left(\\frac{dy}{dt}\\right)^2}$ evaluated at $t = 2$"
               ]
             }
           ],
           "common_traps": [
-            "Computing the velocity vector instead of the speed (scalar magnitude)"
+            "Computing the velocity vector instead of the scalar speed",
+            "Evaluating at the wrong time value"
           ]
         },
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Correct answer",
+          "description": "Correct answer: $\\text{speed} = \\sqrt{(-4)^2 + (3\\cos 4)^2} = \\sqrt{16 + 9\\cos^2(4)} \\approx 4.382$ (or equivalent decimal)",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "$\\sqrt{16 + 9\\cos^2(4)} \\approx 4.382$"
               ]
             }
           ]
@@ -57,7 +58,7 @@
     },
     {
       "letter": "b",
-      "prompt": "Find the total distance traveled by the particle over the time interval 0 £ t £ 2. Show the setup for your\ncalculations.",
+      "prompt": "Find the total distance traveled by the particle over the time interval $0 \\leq t \\leq 2$. Show the setup for your calculations.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -66,26 +67,27 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct integral setup",
+          "description": "Correct arc length integral setup: $\\displaystyle\\int_0^2 \\sqrt{\\left(\\frac{dx}{dt}\\right)^2 + \\left(\\frac{dy}{dt}\\right)^2}\\,dt = \\displaystyle\\int_0^2 \\sqrt{(t^2 - t - 6)^2 + 9\\cos^2(t^2)}\\,dt$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct integral setup"
+                "$\\displaystyle\\int_0^2 \\sqrt{(t^2 - t - 6)^2 + 9\\cos^2(t^2)}\\,dt$"
               ]
             }
           ],
           "common_traps": [
-            "Using incorrect limits of integration"
+            "Using incorrect limits of integration",
+            "Forgetting to take the square root of the sum of squares"
           ]
         },
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct answer",
+          "description": "Correct answer (calculator): $\\approx 9.671$ (or equivalent decimal)",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "$\\approx 9.671$"
               ]
             }
           ]
@@ -94,7 +96,7 @@
     },
     {
       "letter": "c",
-      "prompt": "Find the y-coordinate of the position of the particle at the time t = 0. Show the setup for your calculations.",
+      "prompt": "Find the $y$-coordinate of the position of the particle at time $t = 0$. Show the setup for your calculations.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -103,11 +105,12 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Correct definite integral setup",
+          "description": "Correct definite integral setup using the known position at $t = 2$: $y(0) = y(2) - \\displaystyle\\int_0^2 \\frac{dy}{dt}\\,dt = 4 - \\displaystyle\\int_0^2 3\\cos(t^2)\\,dt$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct definite integral setup"
+                "$y(0) = y(2) - \\displaystyle\\int_0^2 \\frac{dy}{dt}\\,dt$",
+                "$4 - \\displaystyle\\int_0^2 3\\cos(t^2)\\,dt$"
               ]
             }
           ]
@@ -115,26 +118,27 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Correct use of initial condition",
+          "description": "Correct use of initial condition $y(2) = 4$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct use of initial condition"
+                "$y(2) = 4$"
               ]
             }
           ],
           "common_traps": [
-            "Using incorrect initial condition"
+            "Setting up the integral in the wrong direction (adding instead of subtracting)",
+            "Using the wrong known position"
           ]
         },
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "Correct answer",
+          "description": "Correct answer (calculator): $y(0) = 4 - \\displaystyle\\int_0^2 3\\cos(t^2)\\,dt \\approx 4 - 2.467 \\approx 1.533$ (or equivalent decimal)",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "$\\approx 1.533$"
               ]
             }
           ]
@@ -143,7 +147,7 @@
     },
     {
       "letter": "d",
-      "prompt": "For 2 £ t £ 8, the particle remains in the first quadrant. Find all times t in the interval 2 £ t £ 8 when the\nparticle is moving toward the x-axis. Give a reason for your answer.\n__________________________________________________________\nWrite your responses to this question only on the designated pages in the separate Free Response\nbooklet. Write your solution to each part in the space provided for that part.",
+      "prompt": "For $2 \\leq t \\leq 8$, the particle remains in the first quadrant. Find all times $t$ in the interval $2 \\leq t \\leq 8$ when the particle is moving toward the $x$-axis. Give a reason for your answer.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -152,11 +156,12 @@
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "t Considers sign ofy t",
+          "description": "Considers the sign of $\\dfrac{dy}{dt} = 3\\cos(t^2)$. The particle moves toward the $x$-axis (downward, i.e., $y$ decreasing) when $\\dfrac{dy}{dt} < 0$, which requires $\\cos(t^2) < 0$.",
           "alternatives": [
             {
               "required_elements": [
-                "t Considers sign ofy t"
+                "considers sign of $\\dfrac{dy}{dt}$",
+                "$\\dfrac{dy}{dt} < 0$ when moving toward $x$-axis"
               ]
             }
           ]
@@ -164,13 +169,18 @@
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "Correct answer with reason",
+          "description": "Correct answer with reason: The particle moves toward the $x$-axis when $\\dfrac{dy}{dt} < 0$, i.e., when $\\cos(t^2) < 0$. This occurs when $t^2 \\in \\left(\\frac{\\pi}{2} + k\\pi, \\frac{3\\pi}{2} + k\\pi\\right)$ for integer $k \\geq 0$. In the interval $[2, 8]$, $\\dfrac{dy}{dt} < 0$ on approximately $2.507 < t < 2.802$ and $3.070 < t < 3.431$ (and other subintervals where $\\cos(t^2) < 0$).",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer with reason"
+                "$\\dfrac{dy}{dt} < 0$",
+                "correct subintervals of $[2, 8]$ where $\\cos(t^2) < 0$"
               ]
             }
+          ],
+          "common_traps": [
+            "Forgetting that the particle is in the first quadrant so $y > 0$; downward motion means moving toward $x$-axis",
+            "Not finding all subintervals within $[2, 8]$"
           ]
         }
       ]

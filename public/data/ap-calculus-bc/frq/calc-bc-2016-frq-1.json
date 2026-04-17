@@ -13,26 +13,26 @@
   ],
   "calculator_allowed": true,
   "total_points": 9,
-  "stimulus": "Water is pumped into a tank at a rate modeled by W(cid:11)t(cid:12) (cid:32) 2000e(cid:16)t2 20 liters per hour for 0 (cid:133) t (cid:133) 8, where t\nis measured in hours. Water is removed from the tank at a rate modeled by R(cid:11)t(cid:12) liters per hour, where R is\ndifferentiable and decreasing on 0 (cid:133) t (cid:133) 8. Selected values of R(cid:11)t(cid:12) are shown in the table above. At time\nt (cid:32) 0, there are 50,000 liters of water in the tank.",
+  "stimulus": "Water is pumped into a tank at a rate modeled by $W(t) = 2000e^{-t^2/20}$ liters per hour for $0 \\leq t \\leq 8$, where $t$ is measured in hours. Water is removed from the tank at a rate modeled by $R(t)$ liters per hour, where $R$ is differentiable and decreasing on $0 \\leq t \\leq 8$. Selected values of $R(t)$ are shown in the table below.\n\n| $t$ (hours) | 0 | 1 | 4 | 8 |\n|---|---|---|---|---|\n| $R(t)$ (liters/hour) | 1340 | 1190 | 950 | 720 |\n\nAt time $t = 0$, there are 50,000 liters of water in the tank.",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Estimate R(cid:132)(cid:11)2(cid:12). Show the work that leads to your answer. Indicate units of measure.",
+      "prompt": "Estimate $R'(2)$. Show the work that leads to your answer. Indicate units of measure.",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "Use a difference quotient with table values at $t=1$ and $t=4$ (the values surrounding $t=2$).",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct estimate or setup with supporting work",
+          "description": "Correct difference quotient setup using the surrounding table values",
           "alternatives": [
             {
               "required_elements": [
-                "Correct computation shown"
+                "$R'(2) \\approx \\dfrac{R(4) - R(1)}{4 - 1} = \\dfrac{950 - 1190}{3} = -\\dfrac{240}{3} = -80$"
               ]
             }
           ]
@@ -40,12 +40,11 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Correct interpretation or answer with units",
+          "description": "Correct units stated",
           "alternatives": [
             {
               "required_elements": [
-                "Correct units",
-                "Correct context statement"
+                "liters per hour per hour, or liters/hour$^2$"
               ]
             }
           ]
@@ -54,20 +53,20 @@
     },
     {
       "letter": "b",
-      "prompt": "Use a left Riemann sum with the four subintervals indicated by the table to estimate the total amount of\nwater removed from the tank during the 8 hours. Is this an overestimate or an underestimate of the total\namount of water removed? Give a reason for your answer.",
+      "prompt": "Use a left Riemann sum with the four subintervals indicated by the data in the table to estimate $\\int_0^8 R(t)\\,dt$. Is this an overestimate or an underestimate of the total amount of water removed from the tank during the 8 hours? Give a reason for your answer.",
       "point_value": 3,
-      "scoring_notes": null,
+      "scoring_notes": "Subintervals are $[0,1]$, $[1,4]$, $[4,8]$ — only three subintervals from four data points. Left Riemann sum uses left endpoints.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct setup or expression",
+          "description": "Correct left Riemann sum setup with appropriate subinterval widths",
           "alternatives": [
             {
               "required_elements": [
-                "Correct integral or rate expression"
+                "$R(0) \\cdot 1 + R(1) \\cdot 3 + R(4) \\cdot 4 = 1340(1) + 1190(3) + 950(4) = 1340 + 3570 + 3800 = 8710$ liters"
               ]
             }
           ]
@@ -75,11 +74,11 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct numerical answer or critical value",
+          "description": "Correct numerical answer",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "$8710$ liters"
               ]
             }
           ]
@@ -87,11 +86,11 @@
         {
           "point_id": "b3",
           "point_value": 1,
-          "description": "Correct interpretation or justification",
+          "description": "Correct conclusion (overestimate) with correct justification",
           "alternatives": [
             {
               "required_elements": [
-                "Correct reasoning or context"
+                "Overestimate, because $R$ is decreasing on $[0, 8]$, so left Riemann sums overestimate the integral"
               ]
             }
           ]
@@ -100,20 +99,20 @@
     },
     {
       "letter": "c",
-      "prompt": "Use your answer from part (b) to find an estimate of the total amount of water in the tank, to the nearest\nliter, at the end of 8 hours.",
+      "prompt": "Use your answer from part (b) to find an estimate of the total amount of water in the tank, to the nearest liter, at the end of 8 hours.",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "Total = initial + pumped in − removed. Use a calculator to evaluate $\\int_0^8 W(t)\\,dt$ and subtract the estimate from (b).",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 1",
+          "description": "Correct integral setup for total water pumped in",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 1"
+                "$50000 + \\int_0^8 W(t)\\,dt - \\int_0^8 R(t)\\,dt \\approx 50000 + \\int_0^8 2000e^{-t^2/20}\\,dt - 8710$"
               ]
             }
           ]
@@ -121,11 +120,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 2",
+          "description": "Correct numerical answer (using calculator value $\\int_0^8 W(t)\\,dt \\approx 7836.197$)",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 2"
+                "$50000 + 7836 - 8710 \\approx 49126$ liters"
               ]
             }
           ]
@@ -134,20 +133,20 @@
     },
     {
       "letter": "d",
-      "prompt": "For 0 (cid:133) t (cid:133) 8, is there a time t when the rate at which water is pumped into the tank is the same as the rate\nat which water is removed from the tank? Explain why or why not.",
+      "prompt": "For $0 \\leq t \\leq 8$, is there a time $t$ at which the rate at which water is pumped into the tank is the same as the rate at which water is removed from the tank? Explain why or why not.",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "Apply the Intermediate Value Theorem: check $W(0)$ vs $R(0)$ and $W(8)$ vs $R(8)$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "Correct average value or rate integral",
+          "description": "Correct evaluation showing $W(0) < R(0)$ and $W(8) > R(8)$ (or equivalent sign-change argument for $W - R$)",
           "alternatives": [
             {
               "required_elements": [
-                "$\\frac{1}{b-a}\\int_a^b f\\, dt$"
+                "$W(0) = 2000 < 1340 = R(0)$? No — $W(0) = 2000 > 1340 = R(0)$ and $W(8) = 2000e^{-64/20} \\approx 90.7 < 720 = R(8)$, so $W(t) - R(t)$ changes sign"
               ]
             }
           ]
@@ -155,11 +154,11 @@
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "Correct answer",
+          "description": "Correct conclusion: yes, there exists such a time $t$, by the Intermediate Value Theorem (since $W - R$ is continuous and changes sign)",
           "alternatives": [
             {
               "required_elements": [
-                "Correct numerical value"
+                "Yes; since $W$ and $R$ are both continuous and $W(0) > R(0)$ while $W(8) < R(8)$, by IVT there exists a $t$ in $(0,8)$ where $W(t) = R(t)$"
               ]
             }
           ]

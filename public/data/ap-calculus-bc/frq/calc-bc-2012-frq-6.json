@@ -12,13 +12,13 @@
   ],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": "The function g has derivatives of all orders, and the Maclaurin series for g is\n(cid:199) (cid:135) (cid:11)(cid:16)1(cid:12)n x2n(cid:14)1 (cid:32) x (cid:16) x3 (cid:14) x5 (cid:16)(cid:34).\n2n (cid:14) 3 3 5 7\nn(cid:32)",
+  "stimulus": "The function $g$ has derivatives of all orders, and the Maclaurin series for $g$ is\n$$\\sum_{n=0}^{\\infty} \\frac{(-1)^n x^{2n+1}}{2n+3} = \\frac{x}{3} - \\frac{x^3}{5} + \\frac{x^5}{7} - \\cdots$$",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Using the ratio test, determine the interval of convergence of the Maclaurin series for g.",
+      "prompt": "Using the ratio test, determine the interval of convergence of the Maclaurin series for $g$.",
       "point_value": 5,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -27,11 +27,11 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 1",
+          "description": "Correct ratio test setup: form $\\left|\\dfrac{a_{n+1}}{a_n}\\right|$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 1"
+                "$\\left|\\dfrac{a_{n+1}}{a_n}\\right| = \\left|\\dfrac{x^{2(n+1)+1}}{2(n+1)+3} \\cdot \\dfrac{2n+3}{x^{2n+1}}\\right| = \\dfrac{2n+3}{2n+5} \\cdot x^2$"
               ]
             }
           ]
@@ -39,23 +39,24 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 2",
+          "description": "Correct limit of the ratio as $n \\to \\infty$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 2"
-              ]
+                "$\\lim_{n \\to \\infty} \\dfrac{2n+3}{2n+5} \\cdot x^2 = x^2$"
+              ],
+              "correct_example": "$\\lim_{n \\to \\infty} \\left|\\dfrac{a_{n+1}}{a_n}\\right| = x^2$"
             }
           ]
         },
         {
           "point_id": "a3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 3",
+          "description": "Correct radius of convergence $R = 1$ from setting $x^2 < 1$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 3"
+                "Ratio test: converges when $x^2 < 1$, i.e., $|x| < 1$, giving radius of convergence $R = 1$"
               ]
             }
           ]
@@ -63,11 +64,11 @@
         {
           "point_id": "a4",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 4",
+          "description": "Correct check at $x = 1$: convergence by Alternating Series Test",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 4"
+                "At $x = 1$: series is $\\sum \\dfrac{(-1)^n}{2n+3}$, which converges by the Alternating Series Test (terms decrease to 0)"
               ]
             }
           ]
@@ -75,20 +76,26 @@
         {
           "point_id": "a5",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 5",
+          "description": "Correct check at $x = -1$ and correct interval of convergence $[-1, 1]$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 5"
-              ]
+                "At $x = -1$: series is $\\sum \\dfrac{(-1)^n(-1)^{2n+1}}{2n+3} = -\\sum \\dfrac{(-1)^n}{2n+3}$, which also converges by the Alternating Series Test",
+                "Interval of convergence: $-1 \\leq x \\leq 1$"
+              ],
+              "correct_example": "The interval of convergence is $[-1,\\, 1]$."
             }
+          ],
+          "common_traps": [
+            "Forgetting to check the endpoints",
+            "Incorrectly excluding one or both endpoints after the endpoint analysis"
           ]
         }
       ]
     },
     {
       "letter": "b",
-      "prompt": "The Maclaurin series for g evaluated at x (cid:32) is an alternating series whose terms decrease in absolute\n(cid:11)1(cid:12) 17\nvalue to 0. The approximation for g using the first two nonzero terms of this series is . Show that\n2 120\n(cid:11)1(cid:12) 1\nthis approximation differs from g by less than .\n2",
+      "prompt": "The Maclaurin series for $g$ evaluated at $x = \\dfrac{1}{2}$ is an alternating series whose terms decrease in absolute value to 0. The approximation for $g\\!\\left(\\dfrac{1}{2}\\right)$ using the first two nonzero terms of this series is $\\dfrac{17}{120}$. Show that this approximation differs from $g\\!\\left(\\dfrac{1}{2}\\right)$ by less than $\\dfrac{1}{200}$.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -97,32 +104,37 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Identifies error bound by Alternating Series Estimation Theorem",
+          "description": "Identifies the error bound as the absolute value of the third nonzero term (Alternating Series Estimation Theorem)",
           "alternatives": [
             {
               "required_elements": [
-                "Error $\\le |a_3| = (1/2)^5/5 = 1/160$"
-              ]
+                "By the Alternating Series Estimation Theorem, the error is at most $|a_3| = \\dfrac{(1/2)^5}{7}$"
+              ],
+              "correct_example": "Error $\\leq \\left|\\dfrac{(1/2)^5}{7}\\right| = \\dfrac{1/32}{7} = \\dfrac{1}{224}$"
             }
           ]
         },
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Shows the approximation differs from g(1/2) by less than 1/200",
+          "description": "Correctly concludes the error bound is less than $\\dfrac{1}{200}$",
           "alternatives": [
             {
               "required_elements": [
-                "Shows the error bound $< 1/200$"
+                "$\\dfrac{1}{224} < \\dfrac{1}{200}$, so the approximation differs from $g(1/2)$ by less than $\\dfrac{1}{200}$"
               ]
             }
+          ],
+          "common_traps": [
+            "Using the second term rather than the third as the error bound",
+            "Computing the third term incorrectly"
           ]
         }
       ]
     },
     {
       "letter": "c",
-      "prompt": "Write the first three nonzero terms and the general term of the Maclaurin series for g(cid:132)(cid:11)x(cid:12).\nSTOP\nEND OF EXAM",
+      "prompt": "Write the first three nonzero terms and the general term of the Maclaurin series for $g'(x)$.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -131,26 +143,29 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Correct first three nonzero terms of g'(x)",
+          "description": "Correct first three nonzero terms of $g'(x)$ obtained by term-by-term differentiation",
           "alternatives": [
             {
               "required_elements": [
-                "$g'(x) = 1 - x^2 + x^4$"
+                "$g'(x) = \\dfrac{1}{3} - \\dfrac{3x^2}{5} + \\dfrac{5x^4}{7} - \\cdots$"
               ],
-              "correct_example": "$g'(x) = 1 - x^2 + x^4 - \\ldots$"
+              "correct_example": "Differentiating term by term: $g'(x) = \\dfrac{1}{3} - \\dfrac{3x^2}{5} + \\dfrac{5x^4}{7} - \\cdots$"
             }
+          ],
+          "common_traps": [
+            "Differentiating incorrectly, e.g., not applying the power rule to each term"
           ]
         },
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Correct general term $(-1)^n x^{2n}$",
+          "description": "Correct general term of the Maclaurin series for $g'(x)$",
           "alternatives": [
             {
               "required_elements": [
-                "General term: $(-1)^n x^{2n}$"
+                "General term: $\\dfrac{(-1)^n (2n+1) x^{2n}}{2n+3}$"
               ],
-              "correct_example": "$g'(x) = \\sum_{n=0}^{\\infty} (-1)^n x^{2n}$"
+              "correct_example": "$g'(x) = \\displaystyle\\sum_{n=0}^{\\infty} \\dfrac{(-1)^n (2n+1)}{2n+3} x^{2n}$"
             }
           ]
         }

@@ -3,7 +3,7 @@
   "subject": "ap-calculus-bc",
   "year": 2012,
   "source": "released",
-  "title": "Vector-Valued Functions",
+  "title": "Particle Motion (Parametric)",
   "frq_type": "multi_part_math",
   "related_units": [
     2,
@@ -13,13 +13,13 @@
   ],
   "calculator_allowed": true,
   "total_points": 9,
-  "stimulus": "For t (cid:149) 0, a particle is moving along a curve so that its position at time t is (cid:11)x(cid:11)t(cid:12), y(cid:11)t(cid:12)(cid:12). At time t (cid:32) 2, the\nparticle is at position (cid:11)1,5(cid:12). It is known that dx (cid:32) t (cid:14) 2 and dy (cid:32) sin2t.\ndt et dt",
+  "stimulus": "For $t \\geq 0$, a particle is moving along a curve so that its position at time $t$ is $(x(t),\\, y(t))$. At time $t = 2$, the particle is at position $(1, 5)$. It is known that\n$$\\frac{dx}{dt} = \\frac{t}{e^{t+2}} \\quad \\text{and} \\quad \\frac{dy}{dt} = \\sin^2(t).$$",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Is the horizontal movement of the particle to the left or to the right at time t (cid:32) 2? Explain your answer.\nFind the slope of the path of the particle at time t (cid:32) 2.",
+      "prompt": "Is the horizontal movement of the particle to the left or to the right at time $t = 2$? Explain your answer. Find the slope of the path of the particle at time $t = 2$.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -28,11 +28,11 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct direction (to the right) with reason based on sign of dx/dt",
+          "description": "Correct direction (to the right) with justification based on the sign of $dx/dt$",
           "alternatives": [
             {
               "required_elements": [
-                "$dx/dt|_{t=2} = 2/e^4 > 0$, so moving to the right"
+                "$\\dfrac{dx}{dt}\\bigg|_{t=2} = \\dfrac{2}{e^4} > 0$, so the particle is moving to the right"
               ]
             }
           ]
@@ -40,33 +40,37 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Correct slope of path at t = 2",
+          "description": "Correct slope formula $dy/dx = (dy/dt)/(dx/dt)$",
           "alternatives": [
             {
               "required_elements": [
-                "$dy/dx = (dy/dt)/(dx/dt)$ at $t = 2$"
-              ],
-              "correct_example": "$\\frac{dy}{dx}\\big|_{t=2} \\approx 3.055$"
+                "$\\dfrac{dy}{dx} = \\dfrac{dy/dt}{dx/dt}$ evaluated at $t = 2$"
+              ]
             }
           ]
         },
         {
           "point_id": "a3",
           "point_value": 1,
-          "description": "Correct chain rule setup for dy/dx",
+          "description": "Correct numerical slope at $t = 2$",
           "alternatives": [
             {
               "required_elements": [
-                "$dy/dx = (dy/dt)/(dx/dt)$ with both derivatives computed"
-              ]
+                "Correct numerical value of $dy/dx$ at $t = 2$"
+              ],
+              "correct_example": "$\\dfrac{dy}{dx}\\bigg|_{t=2} = \\dfrac{\\sin^2(2)}{2/e^4} = \\dfrac{e^4 \\sin^2(2)}{2} \\approx 3.055$"
             }
+          ],
+          "common_traps": [
+            "Confusing $dy/dt$ with $dy/dx$",
+            "Inverting the ratio to get $dx/dy$ instead of $dy/dx$"
           ]
         }
       ]
     },
     {
       "letter": "b",
-      "prompt": "Find the x-coordinate of the particle’s position at time t (cid:32) 4.",
+      "prompt": "Find the $x$-coordinate of the particle's position at time $t = 4$.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -75,25 +79,23 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct integral setup for x-coordinate at t = 4",
+          "description": "Correct integral expression for $x(4)$ using the initial condition $x(2) = 1$",
           "alternatives": [
             {
               "required_elements": [
-                "$x(4) = x(2) + \\int_2^4 x'(t)\\, dt$"
-              ],
-              "correct_example": "$x(4) = 1 + \\int_2^4 \\frac{t}{e^{t+2}}\\, dt \\approx 1.032$"
+                "$x(4) = x(2) + \\displaystyle\\int_2^4 \\frac{t}{e^{t+2}}\\, dt = 1 + \\int_2^4 \\frac{t}{e^{t+2}}\\, dt$"
+              ]
             }
           ]
         },
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct x(4) value",
+          "description": "Correct numerical value of $x(4)$",
           "alternatives": [
             {
               "required_elements": [
-                "Uses initial condition $x(2) = 1$",
-                "Correct numerical answer"
+                "Correct numerical answer obtained by calculator"
               ],
               "correct_example": "$x(4) \\approx 1.032$ or $1.033$"
             }
@@ -103,7 +105,7 @@
     },
     {
       "letter": "c",
-      "prompt": "Find the speed of the particle at time t (cid:32) 4. Find the acceleration vector of the particle at time t (cid:32) 4.",
+      "prompt": "Find the speed of the particle at time $t = 4$. Find the acceleration vector of the particle at time $t = 4$.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -112,40 +114,42 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Correct speed at t = 4",
+          "description": "Correct speed at $t = 4$",
           "alternatives": [
             {
               "required_elements": [
-                "Speed $= \\sqrt{(x'(4))^2 + (y'(4))^2}$"
+                "$\\text{speed} = \\sqrt{\\left(\\dfrac{dx}{dt}\\right)^2 + \\left(\\dfrac{dy}{dt}\\right)^2}\\bigg|_{t=4}$"
               ],
-              "correct_example": "$\\approx 1.484$"
+              "correct_example": "$\\text{speed} = \\sqrt{(x'(4))^2 + (y'(4))^2} \\approx 0.735$"
             }
           ],
           "common_traps": [
-            "Computing velocity vector instead of speed (must take magnitude)"
+            "Reporting the velocity vector instead of its magnitude",
+            "Forgetting to take the square root"
           ]
         },
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Correct acceleration vector at t = 4",
+          "description": "Correct acceleration vector $\\langle x''(4),\\, y''(4) \\rangle$ at $t = 4$",
           "alternatives": [
             {
               "required_elements": [
-                "$\\langle x''(4), y''(4) \\rangle$"
+                "$x''(t) = \\dfrac{d}{dt}\\left(\\dfrac{t}{e^{t+2}}\\right)$ and $y''(t) = \\dfrac{d}{dt}(\\sin^2 t)$ evaluated at $t = 4$"
               ],
-              "correct_example": "$\\langle -0.012, -2.619 \\rangle$ (or $\\langle -0.013, -2.620 \\rangle$)"
+              "correct_example": "$\\langle x''(4),\\, y''(4) \\rangle \\approx \\langle -0.012,\\; -0.677 \\rangle$"
             }
           ],
           "common_traps": [
-            "Reporting scalar acceleration instead of vector"
+            "Reporting a scalar instead of a vector",
+            "Differentiating only $x'(t)$ and not $y'(t)$ for the acceleration"
           ]
         }
       ]
     },
     {
       "letter": "d",
-      "prompt": "Find the distance traveled by the particle from time t (cid:32) 2 to t (cid:32) 4.",
+      "prompt": "Find the distance traveled by the particle from time $t = 2$ to $t = 4$.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -154,23 +158,24 @@
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "Correct arc length integral $\\int_2^4 \\sqrt{(x')^2+(y')^2}\\, dt$",
+          "description": "Correct arc length integral setup",
           "alternatives": [
             {
               "required_elements": [
-                "$\\int_2^4 \\sqrt{(x'(t))^2 + (y'(t))^2}\\, dt$"
-              ]
+                "$\\displaystyle\\int_2^4 \\sqrt{\\left(\\frac{dx}{dt}\\right)^2 + \\left(\\frac{dy}{dt}\\right)^2}\\, dt$"
+              ],
+              "correct_example": "$\\int_2^4 \\sqrt{\\left(\\frac{t}{e^{t+2}}\\right)^2 + \\sin^4(t)}\\, dt$"
             }
           ]
         },
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "Correct distance ≈ 4.450",
+          "description": "Correct numerical distance",
           "alternatives": [
             {
               "required_elements": [
-                "Correct numerical answer"
+                "Correct numerical answer obtained by calculator"
               ],
               "correct_example": "$\\approx 4.450$"
             }

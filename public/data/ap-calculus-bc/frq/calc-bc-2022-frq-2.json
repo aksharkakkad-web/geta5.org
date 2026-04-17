@@ -3,7 +3,7 @@
   "subject": "ap-calculus-bc",
   "year": 2022,
   "source": "released",
-  "title": "Parametric Equations",
+  "title": "Parametric Equations — Particle Motion",
   "frq_type": "multi_part_math",
   "related_units": [
     1,
@@ -15,13 +15,13 @@
   ],
   "calculator_allowed": true,
   "total_points": 9,
-  "stimulus": "A particle moving along a curve in the xy-plane is at position (x(t ), y",
+  "stimulus": "A particle moving along a curve in the $xy$-plane has position $(x(t), y(t))$ at time $t \\geq 0$, where\n$$\\frac{dx}{dt} = \\sqrt{t^3 + 4}$$\n$$\\frac{dy}{dt} = 3\\sin(t^2)$$\nAt time $t = 4$, the particle is at position $(5, 8)$.",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Find the slope of the line tangent to the path of the particle at time t = 4.",
+      "prompt": "Find the slope of the line tangent to the path of the particle at time $t = 4$.",
       "point_value": 1,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -30,11 +30,11 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct answer",
+          "description": "Correct slope: $\\dfrac{dy/dt}{dx/dt}\\bigg|_{t=4} = \\dfrac{3\\sin(16)}{\\sqrt{68}}$. Numerically this is approximately $-0.104$ (since $\\sin(16) \\approx -0.2879$ and $\\sqrt{68} \\approx 8.246$). Accept any correct decimal equivalent.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "$\\dfrac{3\\sin(16)}{\\sqrt{68}}$ or equivalent numerical value (approximately $-0.104$)"
               ]
             }
           ]
@@ -43,7 +43,7 @@
     },
     {
       "letter": "b",
-      "prompt": "Find the speed of the particle at time t = 4, and find the acceleration vector of the particle at time t = 4.",
+      "prompt": "Find the speed of the particle at time $t = 4$, and find the acceleration vector of the particle at time $t = 4$.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -52,26 +52,26 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct speed (magnitude of velocity vector)",
+          "description": "Correct speed: $\\text{speed} = \\sqrt{\\left(\\dfrac{dx}{dt}\\right)^2 + \\left(\\dfrac{dy}{dt}\\right)^2}\\bigg|_{t=4} = \\sqrt{68 + 9\\sin^2(16)} \\approx 8.298$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct speed (magnitude of velocity vector)"
+                "$\\sqrt{68 + 9\\sin^2(16)}$ or approximately $8.298$"
               ]
             }
           ],
           "common_traps": [
-            "Computing the velocity vector instead of the speed (scalar magnitude)"
+            "Writing the velocity vector instead of the scalar speed"
           ]
         },
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "acceleration",
+          "description": "Correct first component of acceleration: $\\dfrac{d^2x}{dt^2}\\bigg|_{t=4} = \\dfrac{3t^2}{2\\sqrt{t^3+4}}\\bigg|_{t=4} = \\dfrac{3(16)}{2\\sqrt{68}} = \\dfrac{24}{\\sqrt{68}} \\approx 2.910$.",
           "alternatives": [
             {
               "required_elements": [
-                "acceleration"
+                "First component of acceleration: $\\dfrac{24}{\\sqrt{68}}$ or approximately $2.910$"
               ]
             }
           ]
@@ -79,11 +79,11 @@
         {
           "point_id": "b3",
           "point_value": 1,
-          "description": "Second com ponent ofacceleration",
+          "description": "Correct second component of acceleration: $\\dfrac{d^2y}{dt^2}\\bigg|_{t=4} = 6t\\cos(t^2)\\bigg|_{t=4} = 24\\cos(16) \\approx -22.985$.",
           "alternatives": [
             {
               "required_elements": [
-                "Second com ponent ofacceleration"
+                "Second component of acceleration: $24\\cos(16)$ or approximately $-22.985$"
               ]
             }
           ]
@@ -92,7 +92,7 @@
     },
     {
       "letter": "c",
-      "prompt": "Find the y-coordinate of the particle’s position at time t = 6.",
+      "prompt": "Find the $y$-coordinate of the particle's position at time $t = 6$.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -101,26 +101,26 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Correct integrand",
+          "description": "Sets up the correct integral to find the change in $y$: $y(6) = y(4) + \\displaystyle\\int_{4}^{6} \\frac{dy}{dt}\\,dt = 8 + \\int_{4}^{6} 3\\sin(t^2)\\,dt$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct integrand"
+                "Integral $\\displaystyle\\int_{4}^{6} 3\\sin(t^2)\\,dt$ for the change in $y$-coordinate"
               ]
             }
           ],
           "common_traps": [
-            "Using incorrect integrand or missing factor"
+            "Using incorrect limits or forgetting to add the initial $y$-coordinate"
           ]
         },
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Uses y",
+          "description": "Uses the initial condition $y(4) = 8$, writing $y(6) = 8 + \\displaystyle\\int_{4}^{6} 3\\sin(t^2)\\,dt$.",
           "alternatives": [
             {
               "required_elements": [
-                "Uses y"
+                "$y(6) = 8 + \\displaystyle\\int_{4}^{6} 3\\sin(t^2)\\,dt$"
               ]
             }
           ]
@@ -128,11 +128,11 @@
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "Correct answer",
+          "description": "Correct answer: $y(6) = 8 + \\displaystyle\\int_{4}^{6} 3\\sin(t^2)\\,dt \\approx 8 + (-1.307) \\approx 6.693$. Accept $6.693$ or equivalent.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "Numerical answer approximately $6.693$"
               ]
             }
           ]
@@ -141,7 +141,7 @@
     },
     {
       "letter": "d",
-      "prompt": "Find the total distance the particle travels along the curve from time t = 4 to time t = 6.\n__________________________________________________________\nWrite your responses to this question only on the designated pages in the separate Free Response\nbooklet. Write your solution to each part in the space provided for that part.",
+      "prompt": "Find the total distance the particle travels along the curve from time $t = 4$ to time $t = 6$.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -150,26 +150,26 @@
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "Correct integrand",
+          "description": "Sets up the correct arc length integral:\n$$\\int_{4}^{6} \\sqrt{\\left(\\frac{dx}{dt}\\right)^2 + \\left(\\frac{dy}{dt}\\right)^2}\\,dt = \\int_{4}^{6} \\sqrt{(t^3+4) + 9\\sin^2(t^2)}\\,dt$$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct integrand"
+                "$\\displaystyle\\int_{4}^{6} \\sqrt{(t^3+4) + 9\\sin^2(t^2)}\\,dt$"
               ]
             }
           ],
           "common_traps": [
-            "Using incorrect integrand or missing factor"
+            "Squaring rather than taking the square root of the sum of squares"
           ]
         },
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "Correct answer",
+          "description": "Correct answer: approximately $16.570$. Accept any value in the range $[16.569, 16.571]$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "Numerical answer approximately $16.570$"
               ]
             }
           ]

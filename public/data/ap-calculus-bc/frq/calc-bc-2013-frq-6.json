@@ -11,13 +11,13 @@
   ],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": "A function f has derivatives of all orders at x (cid:32) 0. Let P (cid:11)x(cid:12) denote the nth-degree Taylor polynomial\nn\nfor f about x (cid:32) 0.\n(cid:11)1(cid:12)",
+  "stimulus": "A function $f$ has derivatives of all orders at $x = 0$. Let $P_n(x)$ denote the $n$th-degree Taylor polynomial for $f$ about $x = 0$.",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "It is known that f(cid:11)0(cid:12) (cid:32) (cid:16)4 and that P (cid:32) (cid:16)3. Show that f(cid:132)(cid:11)0(cid:12) (cid:32) 2.\n1 2\n2",
+      "prompt": "It is known that $f(0) = -4$ and that $P_1\\!\\left(\\dfrac{1}{2}\\right) = -3$. Show that $f'(0) = 2$.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -26,11 +26,11 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 1",
+          "description": "Correctly writes $P_1(x)$ in terms of $f(0)$ and $f'(0)$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 1"
+                "$P_1(x) = f(0) + f'(0)\\cdot x = -4 + f'(0)\\cdot x$"
               ]
             }
           ]
@@ -38,11 +38,12 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 2",
+          "description": "Correctly substitutes $x = \\frac{1}{2}$ and solves to show $f'(0) = 2$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 2"
+                "$P_1\\!\\left(\\frac{1}{2}\\right) = -4 + f'(0)\\cdot\\frac{1}{2} = -3$",
+                "$f'(0)\\cdot\\frac{1}{2} = 1 \\Rightarrow f'(0) = 2$"
               ]
             }
           ]
@@ -51,7 +52,7 @@
     },
     {
       "letter": "b",
-      "prompt": "It is known that f(cid:132)(cid:132)(cid:11)0(cid:12) (cid:32) (cid:16) and f(cid:132)(cid:132)(cid:132)(cid:11)0(cid:12) (cid:32) . Find P (cid:11)x(cid:12).\n3 3",
+      "prompt": "It is known that $f''(0) = -\\dfrac{2}{3}$ and $f'''(0) = \\dfrac{2}{3}$. Find $P_3(x)$.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -60,11 +61,11 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 1",
+          "description": "Correct general form of $P_3(x)$ as a Taylor polynomial about $x = 0$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 1"
+                "$P_3(x) = f(0) + f'(0)x + \\dfrac{f''(0)}{2!}x^2 + \\dfrac{f'''(0)}{3!}x^3$"
               ]
             }
           ]
@@ -72,11 +73,11 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 2",
+          "description": "Correct coefficients substituted",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 2"
+                "$P_3(x) = -4 + 2x + \\dfrac{-2/3}{2}x^2 + \\dfrac{2/3}{6}x^3 = -4 + 2x - \\dfrac{1}{3}x^2 + \\dfrac{1}{9}x^3$"
               ]
             }
           ]
@@ -84,11 +85,11 @@
         {
           "point_id": "b3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 3",
+          "description": "Correct final expression for $P_3(x)$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 3"
+                "$P_3(x) = -4 + 2x - \\dfrac{1}{3}x^2 + \\dfrac{1}{9}x^3$"
               ]
             }
           ]
@@ -97,7 +98,7 @@
     },
     {
       "letter": "c",
-      "prompt": "The function h has first derivative given by h(cid:132)(cid:11)x(cid:12) (cid:32) f(cid:11)2x(cid:12). It is known that h(cid:11)0(cid:12) (cid:32) 7. Find the\nthird-degree Taylor polynomial for h about x (cid:32) 0.\nSTOP\nEND OF EXAM",
+      "prompt": "The function $h$ has first derivative given by $h'(x) = f(2x)$. It is known that $h(0) = 7$. Find the third-degree Taylor polynomial for $h$ about $x = 0$.",
       "point_value": 4,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -106,11 +107,12 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 1",
+          "description": "Correctly uses $h'(x) = f(2x)$ and writes the Taylor series for $h'(x)$ by substituting $2x$ into $P_3(x)$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 1"
+                "$h'(x) = f(2x) \\approx -4 + 2(2x) - \\dfrac{1}{3}(2x)^2 + \\dfrac{1}{9}(2x)^3$",
+                "$h'(x) \\approx -4 + 4x - \\dfrac{4}{3}x^2 + \\dfrac{8}{9}x^3$"
               ]
             }
           ]
@@ -118,11 +120,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 2",
+          "description": "Correctly integrates to find $h(x) = h(0) + \\int_0^x h'(t)\\,dt$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 2"
+                "$h(x) = 7 + \\displaystyle\\int_0^x h'(t)\\,dt$"
               ]
             }
           ]
@@ -130,11 +132,11 @@
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 3",
+          "description": "Correct antiderivative of the Taylor polynomial for $h'(x)$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 3"
+                "$\\displaystyle\\int_0^x\\left(-4 + 4t - \\frac{4}{3}t^2\\right)dt = -4x + 2x^2 - \\frac{4}{9}x^3$"
               ]
             }
           ]
@@ -142,11 +144,11 @@
         {
           "point_id": "c4",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 4",
+          "description": "Correct third-degree Taylor polynomial for $h$ with correct constant $h(0) = 7$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 4"
+                "$Q_3(x) = 7 - 4x + 2x^2 - \\dfrac{4}{9}x^3$"
               ]
             }
           ]

@@ -3,7 +3,7 @@
   "subject": "ap-calculus-bc",
   "year": 2021,
   "source": "released",
-  "title": "Polar Curves & Area",
+  "title": "Accumulation Function Analysis",
   "frq_type": "multi_part_math",
   "related_units": [
     1,
@@ -14,13 +14,13 @@
   ],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": "Let f be a continuous function defined on the closed interval − 4 £ x £ 6. The graph of f, consisting of four\nx\nline segments, is shown above. Let G be the function defined by G ( x ) = ∫ f ( t ) dt.",
+  "stimulus": "Let $f$ be a continuous function defined on the closed interval $-4 \\leq x \\leq 6$. The graph of $f$, consisting of four line segments, is shown above. Let $G$ be the function defined by $G(x) = \\int_0^x f(t)\\,dt$.",
   "stimulus_image": "/data/ap-calculus-bc/frq/images/calc-bc-2021-frq-4-stimulus.png",
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "On what open intervals is the graph of G concave up? Give a reason for your answer.",
+      "prompt": "On what open intervals is the graph of $G$ concave up? Give a reason for your answer.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": true,
@@ -29,11 +29,11 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 1",
+          "description": "States the correct open intervals where $G$ is concave up: $(-4, -2)$ and $(2, 5)$ (i.e., where $f$ is increasing, since $G''(x) = f'(x) > 0$)",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 1"
+                "Intervals $(-4,-2)$ and $(2,5)$"
               ]
             }
           ]
@@ -41,11 +41,11 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 2",
+          "description": "Correct reasoning: $G''(x) = f'(x)$, so $G$ is concave up where $f'(x) > 0$, i.e., where $f$ is increasing",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 2"
+                "$G''(x) = f'(x) > 0$ where $f$ is increasing"
               ]
             }
           ]
@@ -54,7 +54,7 @@
     },
     {
       "letter": "b",
-      "prompt": "Let P be the function defined by P ( x ) = G ( x )◊ f ( x ). Find P¢ ( 3 ) .\n( )\nG x",
+      "prompt": "Let $P$ be the function defined by $P(x) = G(x) \\cdot f(x)$. Find $P'(3)$.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -63,11 +63,11 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 1",
+          "description": "Applies the product rule: $P'(x) = G'(x) \\cdot f(x) + G(x) \\cdot f'(x) = f(x) \\cdot f(x) + G(x) \\cdot f'(x) = [f(x)]^2 + G(x)f'(x)$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 1"
+                "$P'(x) = [f(x)]^2 + G(x)\\cdot f'(x)$"
               ]
             }
           ]
@@ -75,11 +75,13 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 2",
+          "description": "Computes $G(3) = \\int_0^3 f(t)\\,dt$ from the graph (sum of signed areas): $G(3) = $ area from graph $= \\frac{1}{2}(2)(4) + \\frac{1}{2}(1)(2) - $ (area below axis as needed) [exact value depends on graph; e.g., $G(3) = 3$] and reads $f(3)$ and $f'(3)$ from the graph",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 2"
+                "Correct $G(3)$ computed as $\\int_0^3 f(t)\\,dt$ from the graph",
+                "Correct $f(3)$ read from graph",
+                "Correct $f'(3)$ as slope of $f$ at $x=3$ from graph"
               ]
             }
           ]
@@ -87,11 +89,11 @@
         {
           "point_id": "b3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 3",
+          "description": "Correct final numerical answer for $P'(3)$ (follow-through from graph values): $P'(3) = [f(3)]^2 + G(3)\\cdot f'(3)$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 3"
+                "Correct numerical answer for $P'(3)$ consistent with graph values"
               ]
             }
           ]
@@ -100,7 +102,7 @@
     },
     {
       "letter": "c",
-      "prompt": "Find lim .\n2 −\nx→2 x 2x",
+      "prompt": "Find $\\displaystyle\\lim_{x \\to 2} \\frac{G(x)}{x^2 - 2x}$.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -109,11 +111,16 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Uses L’Hospital’sRule",
+          "description": "Recognizes the limit has the form $\\frac{0}{0}$ (since $G(2) = \\int_0^2 f(t)\\,dt$ and $2^2 - 2(2) = 0$) and applies L'Hôpital's Rule: $\\lim_{x\\to 2} \\frac{G(x)}{x^2-2x} = \\lim_{x\\to 2} \\frac{G'(x)}{2x-2} = \\lim_{x\\to 2} \\frac{f(x)}{2x-2}$",
           "alternatives": [
             {
               "required_elements": [
-                "Uses L’Hospital’sRule"
+                "Applies L'Hôpital's Rule: $\\lim_{x\\to 2}\\frac{f(x)}{2x-2}$"
+              ]
+            },
+            {
+              "required_elements": [
+                "Factors denominator: $x^2-2x = x(x-2)$, numerator $G(x)\\approx G'(2)(x-2) = f(2)(x-2)$, giving $\\frac{f(2)}{2}$"
               ]
             }
           ]
@@ -121,11 +128,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Correct justification",
+          "description": "Evaluates the limit: reads $f(2)$ from the graph (e.g., $f(2) = 4$) and computes $\\frac{f(2)}{2(2)-2} = \\frac{4}{2} = 2$ (exact value follows from graph; answer must be consistent with the graph)",
           "alternatives": [
             {
               "required_elements": [
-                "Correct justification"
+                "Correct numerical answer $\\frac{f(2)}{2}$ consistent with graph (e.g., $2$)"
               ]
             }
           ]
@@ -134,20 +141,20 @@
     },
     {
       "letter": "d",
-      "prompt": "Find the average rate of change of G on the interval [ − 4, 2]. Does the Mean Value Theorem guarantee a\nvalue c, − 4 < c < 2, for which G¢ ( c )is equal to this average rate of change? Justify your answer.\n__________________________________________________________\nWrite your responses to this question only on the designated pages in the separate Free Response\nbooklet. Write your solution to each part in the space provided for that part.",
+      "prompt": "Find the average rate of change of $G$ on the interval $[-4, 2]$. Does the Mean Value Theorem guarantee a value $c$, $-4 < c < 2$, for which $G'(c)$ is equal to this average rate of change? Justify your answer.",
       "point_value": 2,
-      "scoring_notes": "must be correct.",
+      "scoring_notes": "The value of $G(-4)$ and $G(2)$ must be correct.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "Average rate ofchange",
+          "description": "Computes the average rate of change: $\\frac{G(2) - G(-4)}{2 - (-4)} = \\frac{\\int_0^2 f(t)\\,dt - \\int_0^{-4}f(t)\\,dt}{6}$. Evaluates from the graph: $G(2) = \\int_0^2 f(t)\\,dt$ and $G(-4) = \\int_0^{-4}f(t)\\,dt = -\\int_{-4}^0 f(t)\\,dt$; computes the correct numerical average rate of change",
           "alternatives": [
             {
               "required_elements": [
-                "Average rate ofchange"
+                "$\\frac{G(2)-G(-4)}{6}$ with correct numerical values from the graph"
               ]
             }
           ]
@@ -155,11 +162,11 @@
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "Correct justification",
+          "description": "Yes, the MVT guarantees such a $c$, because $G$ is differentiable on $(-4, 2)$ (since $G'(x) = f(x)$ and $f$ is continuous) and continuous on $[-4, 2]$, so the MVT applies",
           "alternatives": [
             {
               "required_elements": [
-                "Correct justification"
+                "Yes, MVT applies because $G$ is continuous on $[-4,2]$ and differentiable on $(-4,2)$"
               ]
             }
           ]

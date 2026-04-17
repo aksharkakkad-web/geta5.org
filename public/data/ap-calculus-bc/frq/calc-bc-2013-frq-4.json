@@ -3,7 +3,7 @@
   "subject": "ap-calculus-bc",
   "year": 2013,
   "source": "released",
-  "title": "Analysis of Functions",
+  "title": "Analysis of Functions (Graph of f')",
   "frq_type": "multi_part_math",
   "related_units": [
     2,
@@ -12,13 +12,13 @@
   ],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": "The figure above shows the graph of f(cid:132), the derivative of a twice-differentiable function f, on the closed\ninterval 0 (cid:133) x (cid:133) 8. The graph of f(cid:132) has horizontal tangent lines at x (cid:32) 1, x (cid:32) 3, and x (cid:32) 5. The areas of the\nregions between the graph of f(cid:132) and the x-axis are labeled in the figure. The function f is defined for all real\nnumbers and satisfies f(cid:11)8(cid:12) (cid:32) 4.",
+  "stimulus": "The figure above shows the graph of $f'$, the derivative of a twice-differentiable function $f$, on the closed interval $0 \\leq x \\leq 8$. The graph of $f'$ has horizontal tangent lines at $x = 1$, $x = 3$, and $x = 5$. The areas of the regions between the graph of $f'$ and the $x$-axis are labeled in the figure. The function $f$ is defined for all real numbers and satisfies $f(8) = 4$.",
   "stimulus_image": "/data/ap-calculus-bc/frq/images/calc-bc-2013-frq-4-stimulus.png",
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Find all values of x on the open interval 0 (cid:31) x (cid:31) 8 for which the function f has a local minimum. Justify\nyour answer.",
+      "prompt": "Find all values of $x$ on the open interval $0 < x < 8$ for which the function $f$ has a local minimum. Justify your answer.",
       "point_value": 1,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -27,11 +27,11 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 1",
+          "description": "Correct $x$-value with sign-change justification",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 1"
+                "$f$ has a local minimum at $x = 6$ because $f'$ changes from negative to positive at $x = 6$"
               ]
             }
           ]
@@ -40,7 +40,7 @@
     },
     {
       "letter": "b",
-      "prompt": "Determine the absolute minimum value of f on the closed interval 0 (cid:133) x (cid:133) 8. Justify your answer.",
+      "prompt": "Determine the absolute minimum value of $f$ on the closed interval $0 \\leq x \\leq 8$. Justify your answer.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -49,11 +49,11 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 1",
+          "description": "Identifies all candidates for absolute minimum (critical points where $f'= 0$ changes sign, plus endpoints)",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 1"
+                "Candidates: $x = 0$, $x = 6$, and $x = 8$ (using the labeled areas to compute $f$ values from $f(8) = 4$)"
               ]
             }
           ]
@@ -61,11 +61,12 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 2",
+          "description": "Correct values of $f$ at the candidate points using accumulated area from $f(8) = 4$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 2"
+                "$f(6) = f(8) - \\displaystyle\\int_6^8 f'(x)\\,dx = 4 - 2 = 2$ (using the labeled area of 2 between $x=6$ and $x=8$ where $f' > 0$)",
+                "$f(0) = f(8) - \\displaystyle\\int_0^8 f'(x)\\,dx$; computed using labeled areas"
               ]
             }
           ]
@@ -73,11 +74,11 @@
         {
           "point_id": "b3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 3",
+          "description": "Correct absolute minimum value with justification by comparison of all candidate values",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 3"
+                "The absolute minimum value of $f$ on $[0, 8]$ is $f(6) = 2$, since $f(6)$ is less than or equal to $f$ at all other candidates"
               ]
             }
           ]
@@ -86,20 +87,21 @@
     },
     {
       "letter": "c",
-      "prompt": "On what open intervals contained in 0 (cid:31) x (cid:31) 8 is the graph of f both concave down and increasing?\nExplain your reasoning.",
+      "prompt": "On what open intervals contained in $0 < x < 8$ is the graph of $f$ both concave down and increasing? Explain your reasoning.",
       "point_value": 2,
       "scoring_notes": null,
-      "requires_drawing": true,
+      "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Correct area or volume integral setup",
+          "description": "Correct reasoning: $f$ is increasing where $f' > 0$, and $f$ is concave down where $f'' < 0$ (i.e., where $f'$ is decreasing)",
           "alternatives": [
             {
               "required_elements": [
-                "Correct integrand and limits"
+                "$f$ is increasing where $f'(x) > 0$",
+                "$f$ is concave down where $f'$ is decreasing (i.e., $f''(x) < 0$)"
               ]
             }
           ]
@@ -107,11 +109,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Correct answer",
+          "description": "Correct interval(s)",
           "alternatives": [
             {
               "required_elements": [
-                "Correct numerical value"
+                "$(0, 1)$ and $(6, 7)$ — intervals where $f'$ is positive and decreasing (from the graph)"
               ]
             }
           ]
@@ -120,7 +122,7 @@
     },
     {
       "letter": "d",
-      "prompt": "The function g is defined by g(cid:11)x(cid:12) (cid:32) (cid:11)f(cid:11)x(cid:12)(cid:12)3 . If f(cid:11)3(cid:12) (cid:32) (cid:16) 5 , find the slope of the line tangent to the graph\nof g at x (cid:32) 3.",
+      "prompt": "The function $g$ is defined by $g(x) = \\bigl(f(x)\\bigr)^3$. If $f(3) = -\\dfrac{5}{2}$, find the slope of the line tangent to the graph of $g$ at $x = 3$.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -129,11 +131,11 @@
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 1",
+          "description": "Correct derivative $g'(x)$ using the chain rule",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 1"
+                "$g'(x) = 3\\bigl(f(x)\\bigr)^2 \\cdot f'(x)$"
               ]
             }
           ]
@@ -141,11 +143,11 @@
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 2",
+          "description": "Correct value of $f'(3)$ read from the graph",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 2"
+                "$f'(3) = 0$ (since $f'$ has a horizontal tangent at $x = 3$, and from the graph $f'(3) = 0$)"
               ]
             }
           ]
@@ -153,11 +155,11 @@
         {
           "point_id": "d3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 3",
+          "description": "Correct slope of the tangent line",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 3"
+                "$g'(3) = 3\\left(-\\dfrac{5}{2}\\right)^2 \\cdot 0 = 0$"
               ]
             }
           ]

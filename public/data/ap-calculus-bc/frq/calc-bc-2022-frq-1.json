@@ -3,7 +3,7 @@
   "subject": "ap-calculus-bc",
   "year": 2022,
   "source": "released",
-  "title": "Rate & Accumulation (Riemann Sums)",
+  "title": "Rate & Accumulation — Toll Plaza",
   "frq_type": "multi_part_math",
   "related_units": [
     1,
@@ -12,13 +12,13 @@
   ],
   "calculator_allowed": true,
   "total_points": 9,
-  "stimulus": "From 5 A.M. to 10 A.M., the rate at which vehicles arrive at a certain toll plaza is given by\nA",
+  "stimulus": "From 5 A.M. to 10 A.M., the rate at which vehicles arrive at a certain toll plaza is modeled by\n$$A(t) = 82.5te^{-0.5t}$$\nvehicles per hour, where $t$ is the number of hours after 5 A.M. The table below gives values of $A(t)$ at selected values of $t$, for $0 \\leq t \\leq 5$.\n\n| $t$ (hours after 5 A.M.) | 0 | 1 | 2 | 3 | 4 | 5 |\n|---|---|---|---|---|---|---|\n| $A(t)$ (vehicles per hour) | 0 | 49.9 | 60.7 | 55.5 | 45.0 | 34.7 |\n\nAt time $t = 0$ (5 A.M.), there are no vehicles in line at the toll plaza. The toll plaza processes vehicles at a constant rate of 400 vehicles per hour.",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Write, but do not evaluate, an integral expression that gives the total number of vehicles that arrive at the\ntoll plaza from 6 A.M. (t = 1) to 10 A.M. (t = 5).",
+      "prompt": "Write, but do not evaluate, an integral expression that gives the total number of vehicles that arrive at the toll plaza from 6 A.M. ($t = 1$) to 10 A.M. ($t = 5$).",
       "point_value": 1,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -27,11 +27,11 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct answer",
+          "description": "Correct integral expression with limits from $t = 1$ to $t = 5$: $\\displaystyle\\int_{1}^{5} A(t)\\,dt$ or equivalently $\\displaystyle\\int_{1}^{5} 82.5te^{-0.5t}\\,dt$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "Integral from $t = 1$ to $t = 5$ of $A(t)\\,dt$ (or $82.5te^{-0.5t}\\,dt$)"
               ]
             }
           ]
@@ -40,7 +40,7 @@
     },
     {
       "letter": "b",
-      "prompt": "Find the average value of the rate, in vehicles per hour, at which vehicles arrive at the toll plaza from\n6 A.M. (t = 1) to 10 A.M. (t = 5).",
+      "prompt": "Find the average value of the rate, in vehicles per hour, at which vehicles arrive at the toll plaza from 6 A.M. ($t = 1$) to 10 A.M. ($t = 5$).",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -49,11 +49,11 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "t dtba",
+          "description": "Sets up the correct average value expression: $\\dfrac{1}{5-1}\\displaystyle\\int_{1}^{5} A(t)\\,dt = \\dfrac{1}{4}\\int_{1}^{5} 82.5te^{-0.5t}\\,dt$.",
           "alternatives": [
             {
               "required_elements": [
-                "t dtba"
+                "$\\dfrac{1}{4}\\displaystyle\\int_{1}^{5} A(t)\\,dt$"
               ]
             }
           ]
@@ -61,11 +61,11 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct answer",
+          "description": "Correct answer: approximately $52.995$ vehicles per hour (accept $52.995$ or $52.996$).",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "Numerical answer approximately $52.995$ vehicles per hour"
               ]
             }
           ]
@@ -74,7 +74,7 @@
     },
     {
       "letter": "c",
-      "prompt": "Is the rate at which vehicles arrive at the toll plaza at 6 A.M. (t = 1) increasing or decreasing? Give a reason\nfor your answer.",
+      "prompt": "Is the rate at which vehicles arrive at the toll plaza at 6 A.M. ($t = 1$) increasing or decreasing? Give a reason for your answer.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -83,11 +83,11 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Considers A′",
+          "description": "Considers the sign of $A'(1)$. Computes $A'(t) = 82.5e^{-0.5t} - 41.25te^{-0.5t} = 82.5e^{-0.5t}(1 - 0.5t)$, giving $A'(1) = 82.5e^{-0.5}(0.5) > 0$.",
           "alternatives": [
             {
               "required_elements": [
-                "Considers A′"
+                "Evaluates or analyzes $A'(1)$ and determines $A'(1) > 0$"
               ]
             }
           ]
@@ -95,11 +95,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Correct answer with reason",
+          "description": "Concludes that the rate is **increasing** at $t = 1$ because $A'(1) > 0$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer with reason"
+                "States 'increasing' with the reason that $A'(1) > 0$"
               ]
             }
           ]
@@ -108,20 +108,20 @@
     },
     {
       "letter": "d",
-      "prompt": "A line forms whenever A(t) ≥ 400. The number of vehicles in line at time t, for a £ t £ 4, is given by\nt\nN(t ) = ∫ ( A(x) − 400) dx, where a is the time when a line first begins to form. To the nearest whole\na\nnumber, find the greatest number of vehicles in line at the toll plaza in the time interval a £ t £ 4. Justify\nyour answer.\n__________________________________________________________\nWrite your responses to this question only on the designated pages in the separate Free Response\nbooklet. Write your solution to each part in the space provided for that part.",
+      "prompt": "The number of vehicles in line at the toll plaza at time $t$, for $a \\leq t \\leq 4$, is modeled by\n$$N(t) = \\int_{a}^{t} (A(x) - 400)\\,dx$$\nwhere $a$ is the first time in the interval $0 \\leq t \\leq 5$ at which $A(t) = 400$. To the nearest whole number, find the greatest number of vehicles in line at the toll plaza in the time interval $a \\leq t \\leq 4$. Justify your answer.",
       "point_value": 4,
-      "scoring_notes": null,
+      "scoring_notes": "The equation $A(t) = 400$ has solutions at $t \\approx 0.422$ and $t \\approx 3.916$ on $[0,5]$. The line first forms at $t = a \\approx 0.422$. Since $N'(t) = A(t) - 400$, the number of vehicles is increasing when $A(t) > 400$ and decreasing when $A(t) < 400$. The maximum of $N$ on $[a, 4]$ occurs at $t \\approx 3.916$, which is approximately 33 vehicles.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "Considers",
+          "description": "Identifies that $N'(t) = A(t) - 400$ and sets $N'(t) = 0$ (i.e., $A(t) = 400$) to find candidates for the maximum, or notes that $N$ is maximized where $A(t)$ changes from greater than 400 to less than 400.",
           "alternatives": [
             {
               "required_elements": [
-                "Considers"
+                "Sets $A(t) = 400$ or considers $N'(t) = 0$ to find the candidate maximum"
               ]
             }
           ]
@@ -129,11 +129,11 @@
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "and t",
+          "description": "Correctly identifies the interior critical point $t \\approx 3.916$ within $(a, 4)$ and considers the endpoint $t = 4$ as well (noting $N(a) = 0$).",
           "alternatives": [
             {
               "required_elements": [
-                "and t"
+                "Identifies $t \\approx 3.916$ as the interior critical point and checks endpoints"
               ]
             }
           ]
@@ -141,11 +141,11 @@
         {
           "point_id": "d3",
           "point_value": 1,
-          "description": "Correct answer",
+          "description": "Correct answer: $N(3.916) \\approx 33$ vehicles (to the nearest whole number). Accept $33$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "Answer of $33$ vehicles (or correct numerical answer consistent with student's $a$)"
               ]
             }
           ]
@@ -153,11 +153,11 @@
         {
           "point_id": "d4",
           "point_value": 1,
-          "description": "Correct justification",
+          "description": "Provides correct justification: $N'(t) = A(t) - 400 > 0$ for $t \\in (a, 3.916)$ and $N'(t) < 0$ for $t \\in (3.916, 4)$, so $N$ has an absolute maximum at $t \\approx 3.916$ on $[a, 4]$ (since $N(a) = 0$ and $N(4) < N(3.916)$).",
           "alternatives": [
             {
               "required_elements": [
-                "Correct justification"
+                "Justifies that $N'$ changes from positive to negative at $t \\approx 3.916$, confirming the maximum"
               ]
             }
           ]

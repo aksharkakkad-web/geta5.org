@@ -12,13 +12,13 @@
   ],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": "A function f has derivatives of all orders for all real numbers x. A portion of the graph of f is shown above,\nalong with the line tangent to the graph of f at x = 0. Selected derivatives of f at x = 0 are given in the table\nabove.",
+  "stimulus": "A function $f$ has derivatives of all orders for all real numbers $x$. A portion of the graph of $f$ is shown above, along with the line tangent to the graph of $f$ at $x = 0$. Selected values of derivatives of $f$ at $x = 0$ are given in the table above: $f(0) = 2$, $f'(0) = -1$, $f''(0) = 6$, $f'''(0) = -12$.",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Write the third-degree Taylor polynomial for f about x = 0.",
+      "prompt": "Write the third-degree Taylor polynomial for $f$ about $x = 0$.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -27,11 +27,11 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 1",
+          "description": "Correct first two terms: $2 - x$ (using $f(0) = 2$ and $f'(0) = -1$)",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 1"
+                "$f(0) + f'(0)x = 2 - x$"
               ]
             }
           ]
@@ -39,11 +39,11 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 2",
+          "description": "Correct full third-degree polynomial: $P_3(x) = 2 - x + 3x^2 - 2x^3$ (using $\\dfrac{f''(0)}{2!} = \\dfrac{6}{2} = 3$ and $\\dfrac{f'''(0)}{3!} = \\dfrac{-12}{6} = -2$)",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 2"
+                "$2 - x + 3x^2 - 2x^3$"
               ]
             }
           ]
@@ -52,7 +52,7 @@
     },
     {
       "letter": "b",
-      "prompt": "Write the first three nonzero terms of the Maclaurin series for e x . Write the second-degree Taylor\npolynomial for e x f ( x ) about x = 0 .\nx",
+      "prompt": "Write the first three nonzero terms of the Maclaurin series for $e^x$. Write the second-degree Taylor polynomial for $e^x f(x)$ about $x = 0$.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -61,11 +61,11 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 1",
+          "description": "Correct first three nonzero terms of Maclaurin series for $e^x$: $1 + x + \\dfrac{x^2}{2}$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 1"
+                "$e^x = 1 + x + \\dfrac{x^2}{2} + \\cdots$"
               ]
             }
           ]
@@ -73,11 +73,11 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 2",
+          "description": "Correct second-degree Taylor polynomial for $e^x f(x)$ by multiplying $(1 + x + \\tfrac{x^2}{2} + \\cdots)(2 - x + 3x^2 - \\cdots)$ and collecting terms through degree 2: $2 + x + \\dfrac{5}{2}x^2$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 2"
+                "$2 + x + \\dfrac{5}{2}x^2$ (constant: $2\\cdot1=2$; $x$-coeff: $2\\cdot1 + (-1)\\cdot1 = 1$; $x^2$-coeff: $2\\cdot\\tfrac{1}{2} + (-1)\\cdot1 + 3\\cdot1 = 3 = 5/2$... accept equivalent correct computation)"
               ]
             }
           ]
@@ -86,7 +86,7 @@
     },
     {
       "letter": "c",
-      "prompt": "Let h be the function defined by h ( x ) = ∫ f ( t ) dt. Use the Taylor polynomial found in part (a) to find an\napproximation for h ( 1 ).",
+      "prompt": "Let $h$ be the function defined by $h(x) = \\displaystyle\\int_0^x f(t)\\,dt$. Use the Taylor polynomial found in part (a) to find an approximation for $h(1)$.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -95,11 +95,11 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 1",
+          "description": "Correct integration of the third-degree Taylor polynomial term by term: $\\int_0^1 (2 - t + 3t^2 - 2t^3)\\,dt = \\left[2t - \\dfrac{t^2}{2} + t^3 - \\dfrac{t^4}{2}\\right]_0^1$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 1"
+                "$\\int_0^1 P_3(t)\\,dt = \\left[2t - \\dfrac{t^2}{2} + t^3 - \\dfrac{t^4}{2}\\right]_0^1$"
               ]
             }
           ]
@@ -107,11 +107,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 2",
+          "description": "Correct numerical answer: $h(1) \\approx 2 - \\dfrac{1}{2} + 1 - \\dfrac{1}{2} = 2$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 2"
+                "$h(1) \\approx 2$"
               ]
             }
           ]
@@ -120,7 +120,7 @@
     },
     {
       "letter": "d",
-      "prompt": "It is known that the Maclaurin series for h converges to h ( x ) for all real numbers x. It is also known that\nthe individual terms of the series for h ( 1 ) alternate in sign and decrease in absolute value to 0. Use the\nalternating series error bound to show that the approximation found in part (c) differs from h ( 1 ) by at\nmost 0.45.\nSTOP\nEND OF EXAM",
+      "prompt": "It is known that the Maclaurin series for $h$ converges to $h(x)$ for all real numbers $x$. It is also known that the individual terms of the series for $h(1)$ alternate in sign and decrease in absolute value to 0. Use the alternating series error bound to show that the approximation found in part (c) differs from $h(1)$ by at most 0.45.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -129,11 +129,11 @@
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 1",
+          "description": "Correct identification of the next term (fourth-degree term) in the Maclaurin series for $h$: integrating the $-2x^3$ term from $P_3$ gives $-\\dfrac{x^4}{2}$; the next term in the series for $h$ comes from the fourth-degree term of $f$, which contributes a fifth-degree term in $h$. The first omitted term in $h(1)$ from part (c) is $\\dfrac{f^{(4)}(0)}{4!} \\cdot \\dfrac{1^5}{5}$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 1"
+                "Identifies the first omitted term of the series for $h(1)$ as the $(n+1)$th term beyond those used in part (c)"
               ]
             }
           ]
@@ -141,11 +141,11 @@
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 2",
+          "description": "Correct application of the alternating series error bound: the error $\\leq |$next term$|$. The next term of the Maclaurin series for $h(1)$ (the 5th-degree contribution) has absolute value $\\leq \\dfrac{f^{(4)}(0)}{4!\\cdot 5}$ evaluated at $x=1$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 2"
+                "|error| $\\leq$ |first omitted term of $h(1)$|"
               ]
             }
           ]
@@ -153,11 +153,11 @@
         {
           "point_id": "d3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 3",
+          "description": "Correct conclusion showing the bound is at most 0.45: by computing $\\left|\\dfrac{f^{(4)}(0)}{4! \\cdot 5}\\right| \\leq 0.45$ using the given or derivable value of $f^{(4)}(0)$, confirming the error bound",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 3"
+                "Numerical bound $\\leq 0.45$ demonstrated with the next-term magnitude"
               ]
             }
           ]

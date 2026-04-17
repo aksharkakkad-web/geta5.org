@@ -3,7 +3,7 @@
   "subject": "ap-calculus-bc",
   "year": 2014,
   "source": "released",
-  "title": "Particle Motion",
+  "title": "Particle Motion and Related Rates (Two Trains)",
   "frq_type": "multi_part_math",
   "related_units": [
     1,
@@ -14,26 +14,26 @@
   ],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": "Train A runs back and forth on an east-west section of railroad track. Train A’s velocity, measured in meters\nper minute, is given by a differentiable function v (cid:11)t(cid:12), where time t is measured in minutes. Selected values for\nA\nv (cid:11)t(cid:12) are given in the table above.\nA",
+  "stimulus": "Train A runs back and forth on an east-west section of railroad track. Train A's velocity, measured in meters per minute, is given by a differentiable function $v_A(t)$, where time $t$ is measured in minutes. Selected values of $v_A(t)$ are given in the table below.\n\n| $t$ (minutes) | 0 | 2 | 5 | 8 | 12 |\n|---|---|---|---|---|---|\n| $v_A(t)$ (meters/min) | 0 | 100 | 40 | $-120$ | $-150$ |",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Find the average acceleration of train A over the interval 2 (cid:133) t (cid:133) 8.",
+      "prompt": "Find the average acceleration of train A over the interval $2 \\leq t \\leq 8$.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "Units must be meters per minute per minute (or meters per minute squared).",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 1",
+          "description": "Correct average acceleration with units",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 1"
+                "$\\dfrac{v_A(8) - v_A(2)}{8 - 2} = \\dfrac{-120 - 100}{6} = \\dfrac{-220}{6} = -\\dfrac{110}{3}$ meters per minute per minute"
               ]
             }
           ]
@@ -42,20 +42,20 @@
     },
     {
       "letter": "b",
-      "prompt": "Do the data in the table support the conclusion that train A’s velocity is (cid:16)100 meters per minute at some\ntime t with 5 (cid:31) t (cid:31) 8? Give a reason for your answer.",
+      "prompt": "Do the data in the table support the conclusion that train A's velocity is $-100$ meters per minute at some time $t$ with $5 < t < 8$? Give a reason for your answer.",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "Apply the Intermediate Value Theorem to $v_A(t)$, which is differentiable (hence continuous) on $[5, 8]$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct concavity or inflection analysis",
+          "description": "Correct conclusion (Yes) with IVT invoked",
           "alternatives": [
             {
               "required_elements": [
-                "$f''$ sign analyzed"
+                "Yes; since $v_A$ is differentiable, it is continuous on $[5, 8]$, and by the Intermediate Value Theorem, since $v_A(5) = 40 > -100$ and $v_A(8) = -120 < -100$, there exists some $t$ with $5 < t < 8$ such that $v_A(t) = -100$"
               ]
             }
           ]
@@ -63,11 +63,11 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct inflection point(s)",
+          "description": "Correct values cited from table to support IVT conclusion",
           "alternatives": [
             {
               "required_elements": [
-                "Sign change of $f''$ at inflection"
+                "$v_A(5) = 40$ and $v_A(8) = -120$ are cited, and $-120 < -100 < 40$"
               ]
             }
           ]
@@ -76,20 +76,20 @@
     },
     {
       "letter": "c",
-      "prompt": "At time t (cid:32) 2, train A’s position is 300 meters east of the Origin Station, and the train is moving to the east.\nWrite an expression involving an integral that gives the position of train A, in meters from the Origin\nStation, at time t (cid:32) 12. Use a trapezoidal sum with three subintervals indicated by the table to approximate\nthe position of the train at time t (cid:32) 12.",
+      "prompt": "At time $t = 2$, train A's position is 300 meters east of the Origin Station, and the train is moving to the east. Write an expression involving an integral that gives the position of train A, in meters from the Origin Station, at time $t = 12$. Use a trapezoidal sum with three subintervals indicated by the data in the table to approximate the position of train A at time $t = 12$.",
       "point_value": 3,
-      "scoring_notes": null,
+      "scoring_notes": "Three subintervals from the table data: $[2,5]$, $[5,8]$, $[8,12]$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 1",
+          "description": "Correct integral expression for position at $t = 12$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 1"
+                "Position at $t = 12$ is $300 + \\displaystyle\\int_{2}^{12} v_A(t)\\,dt$ meters east of Origin Station"
               ]
             }
           ]
@@ -97,11 +97,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 2",
+          "description": "Correct trapezoidal sum setup with three subintervals",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 2"
+                "$\\displaystyle\\int_{2}^{12} v_A(t)\\,dt \\approx \\frac{(100+40)}{2}(3) + \\frac{(40+(-120))}{2}(3) + \\frac{(-120+(-150))}{2}(4)$"
               ]
             }
           ]
@@ -109,11 +109,11 @@
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 3",
+          "description": "Correct numerical approximation for position",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 3"
+                "Trapezoidal sum $= 210 + (-120) + (-540) = -450$; position $\\approx 300 + (-450) = -150$ meters from Origin Station (i.e., 150 meters west)"
               ]
             }
           ]
@@ -122,20 +122,20 @@
     },
     {
       "letter": "d",
-      "prompt": "A second train, train B, travels north from the Origin Station. At time t the velocity of train B is given by\nv (cid:11)t(cid:12) (cid:32) (cid:16)5t2 (cid:14) 60t (cid:14) 25, and at time t (cid:32) 2 the train is 400 meters north of the station. Find the rate, in\nB\nmeters per minute, at which the distance between train A and train B is changing at time t (cid:32) 2.",
+      "prompt": "A second train, train B, travels north from the Origin Station. At time $t$ the velocity of train B is given by $v_B(t) = -5t^2 + 60t + 25$, and at time $t = 2$ the train is 400 meters north of the station. Find the rate, in meters per minute, at which the distance between train A and train B is changing at time $t = 2$.",
       "point_value": 3,
-      "scoring_notes": null,
+      "scoring_notes": "Let $x_A$ be the east position of train A and $y_B$ be the north position of train B. The distance $s = \\sqrt{x_A^2 + y_B^2}$. Use $\\frac{ds}{dt} = \\frac{x_A \\frac{dx_A}{dt} + y_B \\frac{dy_B}{dt}}{s}$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 1",
+          "description": "Correct distance equation and differentiation",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 1"
+                "$s^2 = x_A^2 + y_B^2$, differentiated to $2s\\dfrac{ds}{dt} = 2x_A\\dfrac{dx_A}{dt} + 2y_B\\dfrac{dy_B}{dt}$"
               ]
             }
           ]
@@ -143,11 +143,11 @@
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 2",
+          "description": "Correct substitution of values at $t = 2$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 2"
+                "At $t = 2$: $x_A = 300$, $\\frac{dx_A}{dt} = v_A(2) = 100$; $y_B = 400$, $\\frac{dy_B}{dt} = v_B(2) = -5(4) + 60(2) + 25 = 125$; $s = \\sqrt{300^2 + 400^2} = 500$"
               ]
             }
           ]
@@ -155,11 +155,11 @@
         {
           "point_id": "d3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 3",
+          "description": "Correct rate of change of distance",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 3"
+                "$\\dfrac{ds}{dt} = \\dfrac{300(100) + 400(125)}{500} = \\dfrac{30000 + 50000}{500} = \\dfrac{80000}{500} = 160$ meters per minute"
               ]
             }
           ]

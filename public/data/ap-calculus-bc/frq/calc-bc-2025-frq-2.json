@@ -3,26 +3,18 @@
   "subject": "ap-calculus-bc",
   "year": 2025,
   "source": "released",
-  "title": "Polar Curves & Area",
+  "title": "Polar Curve — Distance from Origin",
   "frq_type": "multi_part_math",
-  "related_units": [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    9
-  ],
+  "related_units": [1, 2, 3, 4, 5, 6, 9],
   "calculator_allowed": true,
   "total_points": 9,
-  "stimulus": null,
+  "stimulus": "The polar curve $C$ is given by $r = 2\\cos^2\\theta$ for $0 \\leq \\theta \\leq \\frac{\\pi}{2}$.",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Find the rate of change of r with respect to i at the point on curve C where i = 1.3 . Show the\nsetup for your calculations.",
+      "prompt": "Find the rate of change of $r$ with respect to $\\theta$ at the point on curve $C$ where $\\theta = 1.3$. Show the setup for your calculations.",
       "point_value": 1,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -31,11 +23,11 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 1",
+          "description": "Correct derivative and answer: $\\frac{dr}{d\\theta} = -4\\cos\\theta\\sin\\theta = -2\\sin(2\\theta)$. At $\\theta = 1.3$: $\\frac{dr}{d\\theta}\\big|_{\\theta=1.3} = -2\\sin(2.6) \\approx -0.969$ (accepted range: $-0.970$ to $-0.968$).",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 1"
+                "$\\frac{dr}{d\\theta} = -4\\cos\\theta\\sin\\theta$ or $-2\\sin(2\\theta)$, evaluated at $\\theta = 1.3$ to get approximately $-0.969$"
               ]
             }
           ]
@@ -44,20 +36,20 @@
     },
     {
       "letter": "b",
-      "prompt": "Find the area of the region that lies inside curve C but outside the graph of the polar equation\nr = 2. Show the setup for your calculations.",
+      "prompt": "Find the area of the region enclosed by curve $C$. Show the setup for your calculations.",
       "point_value": 3,
       "scoring_notes": null,
-      "requires_drawing": true,
+      "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 1",
+          "description": "Correct polar area formula setup: $A = \\frac{1}{2}\\int_0^{\\pi/2} r^2\\,d\\theta = \\frac{1}{2}\\int_0^{\\pi/2} (2\\cos^2\\theta)^2\\,d\\theta = \\frac{1}{2}\\int_0^{\\pi/2} 4\\cos^4\\theta\\,d\\theta = 2\\int_0^{\\pi/2} \\cos^4\\theta\\,d\\theta$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 1"
+                "Polar area formula $\\frac{1}{2}\\int_0^{\\pi/2}(2\\cos^2\\theta)^2\\,d\\theta$ or $2\\int_0^{\\pi/2}\\cos^4\\theta\\,d\\theta$"
               ]
             }
           ]
@@ -65,11 +57,11 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 2",
+          "description": "Correct simplification using power-reduction identity: $\\cos^4\\theta = \\left(\\frac{1+\\cos(2\\theta)}{2}\\right)^2 = \\frac{1 + 2\\cos(2\\theta) + \\cos^2(2\\theta)}{4} = \\frac{3}{8} + \\frac{\\cos(2\\theta)}{2} + \\frac{\\cos(4\\theta)}{8}$. Integrand becomes $2\\cos^4\\theta = \\frac{3}{4} + \\cos(2\\theta) + \\frac{\\cos(4\\theta)}{4}$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 2"
+                "Correct integrand simplification using double-angle or power-reduction identity"
               ]
             }
           ]
@@ -77,11 +69,11 @@
         {
           "point_id": "b3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 3",
+          "description": "Correct area value: $A = 2\\int_0^{\\pi/2}\\cos^4\\theta\\,d\\theta = 2 \\cdot \\frac{3\\pi}{16} = \\frac{3\\pi}{8} \\approx 1.178$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 3"
+                "Answer $\\frac{3\\pi}{8}$ or approximately $1.178$"
               ]
             }
           ]
@@ -90,7 +82,7 @@
     },
     {
       "letter": "c",
-      "prompt": "It can be shown that dx = 4sinicos2 i - 2sin3 i for curve C. For 0 # i # r 2 , find the value\ndi\nof i that corresponds to the point on curve C that is farthest from the y-axis. Justify your\nanswer.",
+      "prompt": "It can be shown that $\\frac{dx}{d\\theta} = 4\\sin\\theta\\cos^2\\theta - 2\\sin^3\\theta$ for curve $C$. For $0 \\leq \\theta \\leq \\frac{\\pi}{2}$, find the value of $\\theta$ that corresponds to the point on curve $C$ that is farthest from the $y$-axis. Justify your answer.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -99,11 +91,11 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 1",
+          "description": "Correctly sets up the condition for farthest from the $y$-axis: maximizes $|x|$ by setting $\\frac{dx}{d\\theta} = 4\\sin\\theta\\cos^2\\theta - 2\\sin^3\\theta = 0$ and identifies critical points in $\\left(0, \\frac{\\pi}{2}\\right)$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 1"
+                "$\\frac{dx}{d\\theta} = 0$ set up: $4\\sin\\theta\\cos^2\\theta - 2\\sin^3\\theta = 0$"
               ]
             }
           ]
@@ -111,11 +103,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 2",
+          "description": "Correctly factors and solves: $2\\sin\\theta(2\\cos^2\\theta - \\sin^2\\theta) = 0$, giving $\\sin\\theta = 0$ (endpoint $\\theta = 0$) or $2\\cos^2\\theta = \\sin^2\\theta$, i.e., $\\tan^2\\theta = 2$, so $\\theta = \\arctan(\\sqrt{2}) \\approx 0.955$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 2"
+                "$\\theta = \\arctan(\\sqrt{2})$ or $\\theta \\approx 0.955$"
               ]
             }
           ]
@@ -123,11 +115,11 @@
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 3",
+          "description": "Justification: at $\\theta = 0$, $x = r\\cos\\theta = 2\\cos^3(0) = 2$. At $\\theta = \\arctan(\\sqrt{2})$, $\\cos^2\\theta = \\frac{1}{3}$, so $r = 2\\cdot\\frac{1}{3} = \\frac{2}{3}$ and $x = r\\cos\\theta = \\frac{2}{3}\\cdot\\frac{1}{\\sqrt{3}} = \\frac{2}{3\\sqrt{3}} \\approx 0.385$. At $\\theta = \\frac{\\pi}{2}$, $x = 0$. Comparing, the maximum $x$-value occurs at $\\theta = 0$. Alternatively, verifies sign change of $\\frac{dx}{d\\theta}$ or compares candidate values to confirm the maximum.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 3"
+                "Candidate comparison or sign analysis confirming which $\\theta$ gives maximum $x$-value (largest distance from $y$-axis)"
               ]
             }
           ]
@@ -136,7 +128,7 @@
     },
     {
       "letter": "d",
-      "prompt": "A particle travels along curve C so that\ndi\n= 15 for all times t. Find the rate at which the\ndt\nparticle’s distance from the origin changes with respect to time when the particle is at the\npoint where i = 1.3 . Show the setup for your calculations.",
+      "prompt": "A particle travels along curve $C$ so that $\\frac{d\\theta}{dt} = 15$ for all times $t$. Find the rate at which the particle's distance from the origin changes with respect to time when the particle is at the point where $\\theta = 1.3$. Show the setup for your calculations.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -145,11 +137,11 @@
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 1",
+          "description": "Correct setup using the chain rule: $\\frac{dr}{dt} = \\frac{dr}{d\\theta} \\cdot \\frac{d\\theta}{dt}$, with $\\frac{dr}{d\\theta}\\big|_{\\theta=1.3} \\approx -0.969$ from part (a) and $\\frac{d\\theta}{dt} = 15$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 1"
+                "$\\frac{dr}{dt} = \\frac{dr}{d\\theta} \\cdot \\frac{d\\theta}{dt}$ with substitution of both values"
               ]
             }
           ]
@@ -157,11 +149,11 @@
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 2",
+          "description": "Correct answer: $\\frac{dr}{dt} = (-0.969)(15) \\approx -14.535$ (accepted range $-14.550$ to $-14.520$). The distance from the origin is decreasing at approximately $14.535$ units per unit time.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 2"
+                "$\\frac{dr}{dt} \\approx -14.535$ (or consistent with part (a) value times $15$)"
               ]
             }
           ]

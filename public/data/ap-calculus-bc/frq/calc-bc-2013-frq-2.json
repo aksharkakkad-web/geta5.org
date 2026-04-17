@@ -13,13 +13,13 @@
   ],
   "calculator_allowed": true,
   "total_points": 9,
-  "stimulus": "The graphs of the polar curves r (cid:32) 3 and r (cid:32) 4 (cid:16) 2sinq are shown in the figure above. The curves intersect\np 5p\nwhen q (cid:32) and q (cid:32) .\n6",
+  "stimulus": "The graphs of the polar curves $r = 3$ and $r = 4 - 2\\sin\\theta$ are shown in the figure above. The curves intersect when $\\theta = \\dfrac{\\pi}{6}$ and $\\theta = \\dfrac{5\\pi}{6}$.",
   "stimulus_image": "/data/ap-calculus-bc/frq/images/calc-bc-2013-frq-2-stimulus.png",
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Let S be the shaded region that is inside the graph of r (cid:32) 3 and also inside the graph of r (cid:32) 4 (cid:16) 2sinq.\nFind the area of S.",
+      "prompt": "Let $S$ be the shaded region that is inside the graph of $r = 3$ and also inside the graph of $r = 4 - 2\\sin\\theta$. Find the area of $S$.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": true,
@@ -28,11 +28,12 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 1",
+          "description": "Correct area integral setup using the appropriate polar area formula and correct bounds",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 1"
+                "$A = \\dfrac{1}{2}\\displaystyle\\int_{\\pi/6}^{5\\pi/6} (4-2\\sin\\theta)^2\\,d\\theta + \\dfrac{1}{2}\\int_{-\\pi/6}^{\\pi/6} 9\\,d\\theta$ (or equivalent symmetric setup)",
+                "Area $= \\dfrac{1}{2}\\displaystyle\\int_0^{\\pi/6} 9\\,d\\theta + \\dfrac{1}{2}\\int_{\\pi/6}^{5\\pi/6}(4-2\\sin\\theta)^2\\,d\\theta + \\dfrac{1}{2}\\int_{5\\pi/6}^{2\\pi} 9\\,d\\theta$"
               ]
             }
           ]
@@ -40,11 +41,12 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 2",
+          "description": "Correct integrand(s) with correct limits of integration",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 2"
+                "Integrand $(4-2\\sin\\theta)^2$ on the arc where $r = 4 - 2\\sin\\theta < 3$",
+                "Integrand $9$ (i.e., $r = 3$) on the arcs where the circle is interior"
               ]
             }
           ]
@@ -52,11 +54,11 @@
         {
           "point_id": "a3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 3",
+          "description": "Correct numerical area",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 3"
+                "$A \\approx 25.590$ square units"
               ]
             }
           ]
@@ -65,7 +67,7 @@
     },
     {
       "letter": "b",
-      "prompt": "A particle moves along the polar curve r (cid:32) 4 (cid:16) 2sinq so that at time t seconds, q (cid:32) t2. Find the time t in\nthe interval 1(cid:133) t (cid:133) 2 for which the x-coordinate of the particle’s position is (cid:16)1.",
+      "prompt": "A particle moves along the polar curve $r = 4 - 2\\sin\\theta$ so that at time $t$ seconds, $\\theta = t^2$. Find the time $t$ in the interval $1 \\leq t \\leq 2$ for which the $x$-coordinate of the particle's position is $-1$.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -74,11 +76,11 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 1",
+          "description": "Correct expression for the $x$-coordinate in terms of $t$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 1"
+                "$x = r\\cos\\theta = (4 - 2\\sin(t^2))\\cos(t^2)$"
               ]
             }
           ]
@@ -86,11 +88,11 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 2",
+          "description": "Sets $x = -1$ and uses calculator to solve",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 2"
+                "$(4 - 2\\sin(t^2))\\cos(t^2) = -1$ on $[1, 2]$"
               ]
             }
           ]
@@ -98,11 +100,11 @@
         {
           "point_id": "b3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 3",
+          "description": "Correct value of $t$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 3"
+                "$t \\approx 1.489$ seconds"
               ]
             }
           ]
@@ -111,7 +113,7 @@
     },
     {
       "letter": "c",
-      "prompt": "For the particle described in part (b), find the position vector in terms of t. Find the velocity vector at\ntime t (cid:32) 1.5.",
+      "prompt": "For the particle described in part (b), find the position vector in terms of $t$. Find the velocity vector at time $t = 1.5$.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -120,11 +122,11 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Correct position integral setup",
+          "description": "Correct position vector components expressed in terms of $t$",
           "alternatives": [
             {
               "required_elements": [
-                "$y(t_0) = y(t_1) \\pm \\int y'\\, dt$"
+                "$\\vec{r}(t) = \\langle (4-2\\sin(t^2))\\cos(t^2),\\; (4-2\\sin(t^2))\\sin(t^2) \\rangle$"
               ]
             }
           ]
@@ -132,11 +134,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Correct initial condition used",
+          "description": "Correct method for finding the velocity vector (differentiating $x(t)$ and $y(t)$)",
           "alternatives": [
             {
               "required_elements": [
-                "Correct reference position applied"
+                "$\\vec{v}(t) = \\left\\langle \\dfrac{dx}{dt},\\, \\dfrac{dy}{dt} \\right\\rangle$ using chain rule with $\\theta = t^2$, $\\dfrac{d\\theta}{dt} = 2t$"
               ]
             }
           ]
@@ -144,11 +146,11 @@
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "Correct position coordinates",
+          "description": "Correct numerical velocity vector at $t = 1.5$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "$\\vec{v}(1.5) \\approx \\langle -4.402,\\; 6.161 \\rangle$ (or equivalent decimal approximation)"
               ]
             }
           ]

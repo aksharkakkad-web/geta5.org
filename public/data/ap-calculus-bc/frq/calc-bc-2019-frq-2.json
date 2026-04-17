@@ -14,13 +14,13 @@
   ],
   "calculator_allowed": true,
   "total_points": 9,
-  "stimulus": "Let S be the region bounded by the graph of the polar curve r (q ) = 3 q sin q 2 for 0 £ q £ p, as shown\nin the figure above.",
+  "stimulus": "Let $S$ be the region bounded by the graph of the polar curve $r(\\theta) = 3\\theta\\sin(\\theta^2)$ for $0 \\leq \\theta \\leq \\sqrt{\\pi}$, as shown in the figure above.",
   "stimulus_image": "/data/ap-calculus-bc/frq/images/calc-bc-2019-frq-2-stimulus.png",
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Find the area of S.\n( )",
+      "prompt": "Find the area of $S$.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -29,11 +29,11 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct speed or slope computation",
+          "description": "Correct integral setup for polar area: $\\frac{1}{2}\\int_0^{\\sqrt{\\pi}} [r(\\theta)]^2\\,d\\theta = \\frac{1}{2}\\int_0^{\\sqrt{\\pi}} [3\\theta\\sin(\\theta^2)]^2\\,d\\theta$",
           "alternatives": [
             {
               "required_elements": [
-                "$\\sqrt{(x')^2+(y')^2}$ or $dy/dx = (dy/dt)/(dx/dt)$"
+                "$\\frac{1}{2}\\int_0^{\\sqrt{\\pi}} 9\\theta^2\\sin^2(\\theta^2)\\,d\\theta$"
               ]
             }
           ]
@@ -41,11 +41,11 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Correct numerical answer",
+          "description": "Correct numerical answer: area $\\approx 4.382$ (or $\\frac{9\\pi}{4} - \\frac{9}{4} \\approx 4.382$, accept any equivalent value)",
           "alternatives": [
             {
               "required_elements": [
-                "Correct value"
+                "4.382 (or equivalent)"
               ]
             }
           ]
@@ -54,7 +54,7 @@
     },
     {
       "letter": "b",
-      "prompt": "What is the average distance from the origin to a point on the polar curve r (q ) = 3 q sin q 2 for\n0 £ q £ p ?",
+      "prompt": "What is the average distance from the origin to a point on the polar curve $r(\\theta) = 3\\theta\\sin(\\theta^2)$ for $0 \\leq \\theta \\leq \\sqrt{\\pi}$?",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -63,11 +63,11 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct arc length or distance integral",
+          "description": "Correct average value setup: $\\frac{1}{\\sqrt{\\pi} - 0}\\int_0^{\\sqrt{\\pi}} r(\\theta)\\,d\\theta = \\frac{1}{\\sqrt{\\pi}}\\int_0^{\\sqrt{\\pi}} 3\\theta\\sin(\\theta^2)\\,d\\theta$",
           "alternatives": [
             {
               "required_elements": [
-                "$\\int \\sqrt{(x')^2+(y')^2}\\, dt$"
+                "$\\frac{1}{\\sqrt{\\pi}}\\int_0^{\\sqrt{\\pi}} 3\\theta\\sin(\\theta^2)\\,d\\theta$"
               ]
             }
           ]
@@ -75,11 +75,11 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct distance value",
+          "description": "Correct numerical answer: average distance $\\approx 1.076$ (or $\\frac{6}{\\sqrt{\\pi}} \\approx 3.385 / \\sqrt{\\pi}$, accept equivalent)",
           "alternatives": [
             {
               "required_elements": [
-                "Correct numerical answer"
+                "1.076 (or equivalent)"
               ]
             }
           ]
@@ -88,7 +88,7 @@
     },
     {
       "letter": "c",
-      "prompt": "There is a line through the origin with positive slope m that divides the region S into two regions with\nequal areas. Write, but do not solve, an equation involving one or more integrals whose solution gives the\nvalue of m.",
+      "prompt": "There is a line $y = mx$ through the origin with positive slope $m$ that divides the region $S$ into two regions with equal areas. Write, but do not solve, an equation involving one or more integrals whose solution gives the value of $m$.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -97,11 +97,11 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Correct position integral setup",
+          "description": "Recognizes that the line $y = mx$ corresponds to the ray $\\theta = \\arctan(m)$, so the dividing angle is $\\theta_0 = \\arctan(m)$",
           "alternatives": [
             {
               "required_elements": [
-                "$y(t_0) = y(t_1) \\pm \\int y'\\, dt$"
+                "$\\theta_0 = \\arctan(m)$ identified as the dividing angle"
               ]
             }
           ]
@@ -109,11 +109,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Correct initial condition used",
+          "description": "Correct polar area integral for one sub-region: $\\frac{1}{2}\\int_0^{\\arctan(m)} [3\\theta\\sin(\\theta^2)]^2\\,d\\theta$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct reference position applied"
+                "$\\frac{1}{2}\\int_0^{\\arctan(m)} 9\\theta^2\\sin^2(\\theta^2)\\,d\\theta$"
               ]
             }
           ]
@@ -121,11 +121,11 @@
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "Correct position coordinates",
+          "description": "Correct equation setting the area of the lower sub-region equal to half the total area: $\\frac{1}{2}\\int_0^{\\arctan(m)} 9\\theta^2\\sin^2(\\theta^2)\\,d\\theta = \\frac{1}{2}\\cdot\\frac{1}{2}\\int_0^{\\sqrt{\\pi}} 9\\theta^2\\sin^2(\\theta^2)\\,d\\theta$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "$\\int_0^{\\arctan(m)} 9\\theta^2\\sin^2(\\theta^2)\\,d\\theta = \\int_{\\arctan(m)}^{\\sqrt{\\pi}} 9\\theta^2\\sin^2(\\theta^2)\\,d\\theta$"
               ]
             }
           ]
@@ -134,7 +134,7 @@
     },
     {
       "letter": "d",
-      "prompt": "For k > 0, let A ( k ) be the area of the portion of region S that is also inside the circle r = kcos q. Find\nlim A\n(\nk\n).\nk→∞",
+      "prompt": "For $k > 0$, let $A(k)$ be the area of the portion of region $S$ that is also inside the circle $r = k\\cos\\theta$. Find $\\lim_{k \\to \\infty} A(k)$.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -143,11 +143,11 @@
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "Correct analysis (direction, area, or other)",
+          "description": "Correct reasoning: as $k \\to \\infty$, the circle $r = k\\cos\\theta$ grows without bound and eventually contains all of region $S$, so $A(k)$ approaches the total area of $S$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct method applied"
+                "As $k \\to \\infty$, the circle $r = k\\cos\\theta$ contains all of $S$; therefore $A(k) \\to$ area of $S$"
               ]
             }
           ]
@@ -155,11 +155,11 @@
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "Correct answer or interval with reason",
+          "description": "Correct answer: $\\lim_{k\\to\\infty} A(k) = $ area of $S \\approx 4.382$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct reasoning"
+                "$\\lim_{k\\to\\infty} A(k) \\approx 4.382$ (the total area of $S$)"
               ]
             }
           ]

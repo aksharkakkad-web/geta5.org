@@ -14,13 +14,13 @@
   ],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": "The function f is differentiable on the closed interval [ −6, 5 ] and satisfies f (− 2 ) = 7. The graph of f ¢, the\nderivative of f, consists of a semicircle and three line segments, as shown in the figure above.",
+  "stimulus": "The function $f$ is differentiable on the closed interval $[-6, 5]$ and satisfies $f(-2) = 7$. The graph of $f'$, the derivative of $f$, consists of a semicircle and three line segments, as shown in the figure above.",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Find the values of f (− 6)and f (5).",
+      "prompt": "Find the values of $f(-6)$ and $f(5)$.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -29,11 +29,12 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 1",
+          "description": "Uses the Fundamental Theorem of Calculus: $f(-6) = f(-2) - \\int_{-6}^{-2} f'(x)\\,dx$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 1"
+                "$f(-6) = f(-2) + \\int_{-2}^{-6} f'(x)\\,dx$",
+                "$f(-6) = 7 - \\int_{-6}^{-2} f'(x)\\,dx$"
               ]
             }
           ]
@@ -41,32 +42,35 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 2",
+          "description": "Correct value $f(-6) = 7 - 2\\pi$ using the area of the semicircle of radius 2 over $[-6, -2]$ being $\\frac{1}{2}\\pi(2)^2 = 2\\pi$ (above $x$-axis, so $\\int_{-6}^{-2} f' = 2\\pi$)",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 2"
+                "$f(-6) = 7 - 2\\pi$"
               ]
             }
-          ]
+          ],
+          "correct_example": "$f(-6) = 7 - 2\\pi \\approx 0.717$"
         },
         {
           "point_id": "a3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 3",
+          "description": "Correct value $f(5)$ using $f(5) = f(-2) + \\int_{-2}^{5} f'(x)\\,dx$ and reading net area from graph (triangles and line segments give net area of $-3$)",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 3"
+                "$f(5) = 7 + \\int_{-2}^{5} f'(x)\\,dx$",
+                "$f(5) = 4$"
               ]
             }
-          ]
+          ],
+          "correct_example": "$\\int_{-2}^{5} f'(x)\\,dx = -3$, so $f(5) = 7 + (-3) = 4$"
         }
       ]
     },
     {
       "letter": "b",
-      "prompt": "On what intervals is f increasing? Justify your answer.",
+      "prompt": "On what intervals is $f$ increasing? Justify your answer.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -75,11 +79,11 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct relative extremum analysis",
+          "description": "States that $f$ is increasing where $f' > 0$",
           "alternatives": [
             {
               "required_elements": [
-                "$g' = f$ changes sign at extremum"
+                "$f$ is increasing where $f'(x) > 0$"
               ]
             }
           ]
@@ -87,20 +91,21 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct classification with justification",
+          "description": "Correct intervals: $f$ is increasing on $(-6, -2)$ where $f' > 0$ (semicircle above $x$-axis), and on $(1, 4)$ where the line segment portion of $f'$ is positive",
           "alternatives": [
             {
               "required_elements": [
-                "Type of extremum with sign analysis"
+                "$(-6, -2)$ and $(1, 4)$"
               ]
             }
-          ]
+          ],
+          "correct_example": "$f$ is increasing on $(-6, -2)$ and $(1, 4)$ because $f'(x) > 0$ on those intervals."
         }
       ]
     },
     {
       "letter": "c",
-      "prompt": "Find the absolute minimum value of f on the closed interval [ −6, 5 ]. Justify your answer.",
+      "prompt": "Find the absolute minimum value of $f$ on the closed interval $[-6, 5]$. Justify your answer.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -109,11 +114,11 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 1",
+          "description": "Identifies all critical points and endpoints as candidates, and evaluates $f$ at each: $x = -6$, $x = -2$, $x = 1$, $x = 4$, $x = 5$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 1"
+                "Considers $f$ at critical points where $f'$ changes sign and at endpoints"
               ]
             }
           ]
@@ -121,20 +126,21 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 2",
+          "description": "Correct absolute minimum value with justification",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 2"
+                "Absolute minimum is $7 - 2\\pi$ at $x = -6$, or correctly identifies minimum after comparing all candidate values"
               ]
             }
-          ]
+          ],
+          "correct_example": "Comparing $f(-6) = 7 - 2\\pi \\approx 0.72$, $f(-2) = 7$, $f(1)$ (found by subtracting area from $-2$ to $1$), $f(4)$, $f(5) = 4$: the absolute minimum is $7 - 2\\pi$ at $x = -6$."
         }
       ]
     },
     {
       "letter": "d",
-      "prompt": "For each of f ≤ (− 5 ) and f ≤ (3 ), find the value or explain why it does not exist.",
+      "prompt": "For each of $f''(-5)$ and $f''(3)$, find the value or explain why it does not exist.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -143,26 +149,30 @@
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 1",
+          "description": "$f''(-5)$ exists and equals the slope of the line tangent to the semicircle at $x = -5$ (i.e., $\\frac{d}{dx}f'(-5)$, the derivative of $f'$ at $x = -5$)",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 1"
+                "$f''(-5)$ equals the slope of $f'$ at $x = -5$",
+                "Correct value from the semicircle's derivative at $x = -5$: $f''(-5) = -\\frac{\\sqrt{3}}{3}$ or equivalent from circle geometry"
               ]
             }
-          ]
+          ],
+          "correct_example": "The graph of $f'$ is a semicircle of radius 2 centered at $(-4, 0)$. The slope of $f'$ at $x = -5$ equals $\\frac{d}{dx}\\sqrt{4-(x+4)^2}\\big|_{x=-5} = \\frac{-(-5+4)}{\\sqrt{4-1}} = \\frac{1}{\\sqrt{3}} = \\frac{\\sqrt{3}}{3}$."
         },
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 2",
+          "description": "$f''(3)$ does not exist because $f'$ is not differentiable at $x = 3$ — the graph of $f'$ has a corner (the slope of $f'$ changes abruptly) at $x = 3$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 2"
+                "$f''(3)$ does not exist",
+                "$f'$ has a corner at $x = 3$, so $f''(3)$ does not exist"
               ]
             }
-          ]
+          ],
+          "correct_example": "$f''(3)$ does not exist because the graph of $f'$ has a corner at $x = 3$; the left-hand and right-hand derivatives of $f'$ at $x = 3$ are not equal."
         }
       ]
     }

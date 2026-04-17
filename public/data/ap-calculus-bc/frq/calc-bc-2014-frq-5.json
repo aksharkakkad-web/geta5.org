@@ -3,7 +3,7 @@
   "subject": "ap-calculus-bc",
   "year": 2014,
   "source": "released",
-  "title": "Polar Curves & Area",
+  "title": "Area, Volume, and Arc Length",
   "frq_type": "multi_part_math",
   "related_units": [
     1,
@@ -14,26 +14,26 @@
   ],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": "Let R be the shaded region bounded by the graph of y (cid:32)\nxex2\n, the line y (cid:32) (cid:16)2x, and the vertical line x (cid:32) 1, as\nshown in the figure above.",
+  "stimulus": "Let $R$ be the shaded region bounded by the graph of $y = xe^{x^2}$, the line $y = -2x$, and the vertical line $x = 1$, as shown in the figure.",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Find the area of R.",
+      "prompt": "Find the area of $R$.",
       "point_value": 3,
-      "scoring_notes": null,
+      "scoring_notes": "First find the intersection point(s). $xe^{x^2} = -2x$ gives $x = 0$ (since $e^{x^2} \\neq -2$ for real $x$). On $[0,1]$, $xe^{x^2} \\geq -2x$ (both are $\\geq 0$ for $x \\geq 0$, and $-2x \\leq 0$). Area $= \\int_0^1 (xe^{x^2} - (-2x))\\,dx = \\int_0^1 (xe^{x^2} + 2x)\\,dx$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 1",
+          "description": "Correct integral setup for area",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 1"
+                "$\\text{Area} = \\displaystyle\\int_0^1 \\left(xe^{x^2} + 2x\\right)dx$"
               ]
             }
           ]
@@ -41,11 +41,11 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 2",
+          "description": "Correct antiderivative",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 2"
+                "$\\displaystyle\\int xe^{x^2}\\,dx = \\tfrac{1}{2}e^{x^2}$, so $\\displaystyle\\int_0^1 xe^{x^2}\\,dx = \\tfrac{1}{2}(e - 1)$ and $\\displaystyle\\int_0^1 2x\\,dx = 1$"
               ]
             }
           ]
@@ -53,11 +53,11 @@
         {
           "point_id": "a3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 3",
+          "description": "Correct numerical answer",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 3"
+                "$\\text{Area} = \\tfrac{1}{2}(e-1) + 1 = \\tfrac{1}{2}e + \\tfrac{1}{2} = \\dfrac{e+1}{2}$"
               ]
             }
           ]
@@ -66,20 +66,20 @@
     },
     {
       "letter": "b",
-      "prompt": "Write, but do not evaluate, an integral expression that gives the volume of the solid generated when R is\nrotated about the horizontal line y (cid:32) (cid:16)2.",
+      "prompt": "Write, but do not evaluate, an integral expression that gives the volume of the solid generated when $R$ is rotated about the horizontal line $y = -2$.",
       "point_value": 3,
-      "scoring_notes": null,
+      "scoring_notes": "Use the washer method. The axis of rotation is $y = -2$. Outer radius $= xe^{x^2} - (-2) = xe^{x^2} + 2$; inner radius $= -2x - (-2) = 2 - 2x$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 1",
+          "description": "Correct washer method setup",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 1"
+                "$V = \\pi\\displaystyle\\int_0^1 \\left[\\left(xe^{x^2} + 2\\right)^2 - \\left(2 - 2x\\right)^2\\right]dx$"
               ]
             }
           ]
@@ -87,11 +87,11 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 2",
+          "description": "Correct outer radius expression",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 2"
+                "Outer radius $= xe^{x^2} - (-2) = xe^{x^2} + 2$"
               ]
             }
           ]
@@ -99,11 +99,11 @@
         {
           "point_id": "b3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 3",
+          "description": "Correct inner radius expression",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 3"
+                "Inner radius $= -2x - (-2) = 2 - 2x$"
               ]
             }
           ]
@@ -112,20 +112,20 @@
     },
     {
       "letter": "c",
-      "prompt": "Write, but do not evaluate, an expression involving one or more integrals that gives the perimeter of R.",
+      "prompt": "Write, but do not evaluate, an expression involving one or more integrals that gives the perimeter of $R$.",
       "point_value": 3,
-      "scoring_notes": null,
+      "scoring_notes": "The perimeter consists of three parts: the arc along $y = xe^{x^2}$ from $x = 0$ to $x = 1$, the segment along $y = -2x$ from $x = 0$ to $x = 1$, and the vertical segment at $x = 1$ from $y = -2$ to $y = e$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 1",
+          "description": "Correct arc length integral for $y = xe^{x^2}$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 1"
+                "$\\displaystyle\\int_0^1 \\sqrt{1 + \\left(e^{x^2} + 2x^2 e^{x^2}\\right)^2}\\,dx$"
               ]
             }
           ]
@@ -133,11 +133,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 2",
+          "description": "Correct length of the segment along $y = -2x$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 2"
+                "Length of segment along $y = -2x$ from $(0,0)$ to $(1,-2)$: $\\sqrt{(1-0)^2 + (-2-0)^2} = \\sqrt{5}$"
               ]
             }
           ]
@@ -145,11 +145,11 @@
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 3",
+          "description": "Correct vertical segment length at $x = 1$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 3"
+                "Vertical segment at $x = 1$ from $y = -2$ to $y = e$: length $= e - (-2) = e + 2$; full perimeter $= \\displaystyle\\int_0^1 \\sqrt{1 + (e^{x^2} + 2x^2 e^{x^2})^2}\\,dx + \\sqrt{5} + (e + 2)$"
               ]
             }
           ]

@@ -3,7 +3,7 @@
   "subject": "ap-calculus-bc",
   "year": 2019,
   "source": "released",
-  "title": "Volume of Solids",
+  "title": "Differential Equations (Draining Barrel)",
   "frq_type": "multi_part_math",
   "related_units": [
     2,
@@ -14,13 +14,13 @@
   ],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": "A cylindrical barrel with a diameter of 2 feet contains collected rainwater, as shown in the figure above. The\nwater drains out through a valve (not shown) at the bottom of the barrel. The rate of change of the height h of\ndh 1\nthe water in the barrel with respect to time t is modeled by = − h , where h is measured in feet and\ndt 10\nt is measured in seconds. (The volume V of a cylinder with radius r and height h is V = pr 2 h.)",
+  "stimulus": "A cylindrical barrel with a diameter of 2 feet contains collected rainwater, as shown in the figure above. The water drains out through a valve (not shown) at the bottom of the barrel. The rate of change of the height $h$ of the water in the barrel with respect to time $t$ is modeled by $\\dfrac{dh}{dt} = -\\dfrac{1}{10}\\sqrt{h}$, where $h$ is measured in feet and $t$ is measured in seconds. (The volume $V$ of a cylinder with radius $r$ and height $h$ is $V = \\pi r^2 h$.)",
   "stimulus_image": "/data/ap-calculus-bc/frq/images/calc-bc-2019-frq-4-stimulus.png",
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Find the rate of change of the volume of water in the barrel with respect to time when the height of the\nwater is 4 feet. Indicate units of measure.",
+      "prompt": "Find the rate of change of the volume of water in the barrel with respect to time when the height of the water is 4 feet. Indicate units of measure.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -29,11 +29,11 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct critical points and classification",
+          "description": "Correct setup using $V = \\pi r^2 h = \\pi(1)^2 h = \\pi h$ (since radius = 1 ft), so $\\dfrac{dV}{dt} = \\pi \\dfrac{dh}{dt}$",
           "alternatives": [
             {
               "required_elements": [
-                "$f' = 0$ found; sign analysis for type"
+                "$\\dfrac{dV}{dt} = \\pi \\dfrac{dh}{dt} = \\pi\\left(-\\dfrac{1}{10}\\sqrt{h}\\right)$"
               ]
             }
           ]
@@ -41,11 +41,11 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Correct extremum value",
+          "description": "Correct answer with units: when $h = 4$, $\\dfrac{dV}{dt} = \\pi\\left(-\\dfrac{1}{10}\\sqrt{4}\\right) = -\\dfrac{\\pi}{5}$ cubic feet per second",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "$-\\dfrac{\\pi}{5}$ cubic feet per second (or $\\approx -0.628$ ft$^3$/sec)"
               ]
             }
           ]
@@ -54,7 +54,7 @@
     },
     {
       "letter": "b",
-      "prompt": "When the height of the water is 3 feet, is the rate of change of the height of the water with respect to time\nincreasing or decreasing? Explain your reasoning.",
+      "prompt": "When the height of the water is 3 feet, is the rate of change of the height of the water with respect to time increasing or decreasing? Explain your reasoning.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -63,11 +63,11 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 1",
+          "description": "Correct computation of $\\dfrac{d^2h}{dt^2}$ by differentiating $\\dfrac{dh}{dt} = -\\dfrac{1}{10}h^{1/2}$ with respect to $t$: $\\dfrac{d^2h}{dt^2} = -\\dfrac{1}{10}\\cdot\\dfrac{1}{2}h^{-1/2}\\dfrac{dh}{dt}$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 1"
+                "$\\dfrac{d^2h}{dt^2} = -\\dfrac{1}{20\\sqrt{h}}\\cdot\\dfrac{dh}{dt}$"
               ]
             }
           ]
@@ -75,11 +75,11 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 2",
+          "description": "Correct substitution: $\\dfrac{d^2h}{dt^2} = -\\dfrac{1}{20\\sqrt{h}}\\cdot\\left(-\\dfrac{\\sqrt{h}}{10}\\right) = \\dfrac{1}{200}$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 2"
+                "$\\dfrac{d^2h}{dt^2} = \\dfrac{1}{200}$ at $h = 3$ (or any equivalent positive value)"
               ]
             }
           ]
@@ -87,11 +87,11 @@
         {
           "point_id": "b3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 3",
+          "description": "Correct conclusion: since $\\dfrac{d^2h}{dt^2} > 0$, the rate of change of the height is increasing at $h = 3$ feet",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 3"
+                "Increasing, because $\\dfrac{d^2h}{dt^2} = \\dfrac{1}{200} > 0$"
               ]
             }
           ]
@@ -100,20 +100,20 @@
     },
     {
       "letter": "c",
-      "prompt": "At time t = 0 seconds, the height of the water is 5 feet. Use separation of variables to find an expression\nfor h in terms of t.",
+      "prompt": "At time $t = 0$ seconds, the height of the water is 5 feet. Use separation of variables to find an expression for $h$ in terms of $t$.",
       "point_value": 4,
-      "scoring_notes": "Note: 0 4 if no separation of variables Note: max 2 4 [1-1-0-0] if no constant",
+      "scoring_notes": "Note: 0/4 if no separation of variables. Note: max 2/4 [1-1-0-0] if no constant of integration.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 1",
+          "description": "Correct separation of variables: $\\dfrac{dh}{\\sqrt{h}} = -\\dfrac{1}{10}\\,dt$, i.e., $h^{-1/2}\\,dh = -\\dfrac{1}{10}\\,dt$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 1"
+                "$h^{-1/2}\\,dh = -\\dfrac{1}{10}\\,dt$"
               ]
             }
           ]
@@ -121,11 +121,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 2",
+          "description": "Correct antidifferentiation of both sides: $2\\sqrt{h} = -\\dfrac{t}{10} + C$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 2"
+                "$2h^{1/2} = -\\dfrac{t}{10} + C$ (constant of integration required)"
               ]
             }
           ]
@@ -133,11 +133,11 @@
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 3",
+          "description": "Correct application of initial condition $h(0) = 5$: $2\\sqrt{5} = C$, so $2\\sqrt{h} = -\\dfrac{t}{10} + 2\\sqrt{5}$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 3"
+                "$C = 2\\sqrt{5}$"
               ]
             }
           ]
@@ -145,11 +145,11 @@
         {
           "point_id": "c4",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 4",
+          "description": "Correct explicit solution for $h$: $h(t) = \\left(\\sqrt{5} - \\dfrac{t}{20}\\right)^2$ for $0 \\leq t \\leq 20\\sqrt{5}$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 4"
+                "$h = \\left(\\sqrt{5} - \\dfrac{t}{20}\\right)^2$ or equivalent"
               ]
             }
           ]

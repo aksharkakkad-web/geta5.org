@@ -3,7 +3,7 @@
   "subject": "ap-calculus-bc",
   "year": 2024,
   "source": "released",
-  "title": "Area Between Curves",
+  "title": "Function Analysis with Accumulation",
   "frq_type": "multi_part_math",
   "related_units": [
     2,
@@ -12,13 +12,13 @@
   ],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": "The graph of the differentiable function f , shown for −6 £ x £ 7, has a horizontal tangent at x = −2 and is\nlinear for 0 £ x £ 7. Let R be the region in the second quadrant bounded by the graph of f , the vertical line\nx = −6, and the x- and y-axes. Region R has area 12.\nx",
+  "stimulus": "The graph of the differentiable function $f$, shown for $-6 \\leq x \\leq 7$, has a horizontal tangent at $x = -2$ and is linear for $0 \\leq x \\leq 7$. Let $R$ be the region in the second quadrant bounded by the graph of $f$, the vertical line $x = -6$, and the $x$- and $y$-axes. Region $R$ has area 12.\n\nSelected values of $f$ are given: $f(0) = 0$, $f(4) = 6$, $f(6) = 9$, and the line through $(0,0)$ and $(7,10.5)$ has slope $\\dfrac{3}{2}$ for $0 \\leq x \\leq 7$. The area of region $R$ (between the graph and the axes in the second quadrant, from $x = -6$ to $x = 0$) is 12.",
   "stimulus_image": "/data/ap-calculus-bc/frq/images/calc-bc-2024-frq-4-stimulus.png",
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "The function g is defined by g( x) = ∫ f (t) dt . Find the values of g( −6 ), g( 4), and g( 6).",
+      "prompt": "The function $g$ is defined by $g(x) = \\displaystyle\\int_0^x f(t)\\,dt$. Find the values of $g(-6)$, $g(4)$, and $g(6)$.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -27,11 +27,11 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "dt f t dt 6g",
+          "description": "$g(-6) = \\displaystyle\\int_0^{-6} f(t)\\,dt = -\\displaystyle\\int_{-6}^0 f(t)\\,dt$. Since region $R$ has area 12 and lies below the $x$-axis in the second quadrant (where $f < 0$), $\\displaystyle\\int_{-6}^0 f(t)\\,dt = -12$, so $g(-6) = -(-12) = 12$... Alternatively: $f \\leq 0$ on $[-6,0]$ (region $R$ is below $x$-axis), so $\\displaystyle\\int_{-6}^{0} f(t)\\,dt = -12$, giving $g(-6) = -(-12) = 12$. Note: the exact sign depends on whether $f$ is above or below the $x$-axis in $[-6,0]$. Since $R$ is bounded by the graph, vertical line $x=-6$, and the axes, $f \\leq 0$ on $(-6,0)$, so $g(-6) = 12$.",
           "alternatives": [
             {
               "required_elements": [
-                "dt f t dt 6g"
+                "$g(-6) = 12$"
               ]
             }
           ]
@@ -39,11 +39,11 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "g f t dt 4g",
+          "description": "For $0 \\leq x \\leq 7$, $f$ is linear with $f(0) = 0$ and slope $\\dfrac{3}{2}$, so $f(t) = \\dfrac{3}{2}t$. Thus $g(4) = \\displaystyle\\int_0^4 \\dfrac{3}{2}t\\,dt = \\dfrac{3}{2} \\cdot \\dfrac{t^2}{2}\\Big|_0^4 = \\dfrac{3}{4}(16) = 12$.",
           "alternatives": [
             {
               "required_elements": [
-                "g f t dt 4g"
+                "$g(4) = 12$"
               ]
             }
           ]
@@ -51,11 +51,11 @@
         {
           "point_id": "a3",
           "point_value": 1,
-          "description": "g f t dt 6g",
+          "description": "$g(6) = \\displaystyle\\int_0^6 \\dfrac{3}{2}t\\,dt = \\dfrac{3}{4}(36) = 27$.",
           "alternatives": [
             {
               "required_elements": [
-                "g f t dt 6g"
+                "$g(6) = 27$"
               ]
             }
           ]
@@ -64,20 +64,20 @@
     },
     {
       "letter": "b",
-      "prompt": "For the function g defined in part (a), find all values of x in the interval 0 £ x £ 6 at which the graph of g\nhas a critical point. Give a reason for your answer.\nx",
+      "prompt": "For the function $g$ defined in part (a), find all values of $x$ in the interval $0 \\leq x \\leq 6$ at which the graph of $g$ has a critical point. Give a reason for your answer.",
       "point_value": 2,
       "scoring_notes": null,
-      "requires_drawing": true,
+      "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "x FundamentalTheorem of Calculus",
+          "description": "By the Fundamental Theorem of Calculus, $g'(x) = f(x)$. A critical point of $g$ occurs where $g'(x) = f(x) = 0$.",
           "alternatives": [
             {
               "required_elements": [
-                "x FundamentalTheorem of Calculus"
+                "$g'(x) = f(x)$ by the Fundamental Theorem of Calculus"
               ]
             }
           ]
@@ -85,20 +85,25 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct answer with reason",
+          "description": "Since $f(x) = \\dfrac{3}{2}x$ for $0 \\leq x \\leq 6$, $f(x) = 0$ only at $x = 0$. Thus $g$ has a critical point at $x = 0$. Because $f(x) > 0$ for $x > 0$, $g'(x) > 0$ for $x \\in (0, 6]$, so $x = 0$ is not a local minimum or maximum in the interior; $x = 0$ is a critical point (endpoint where $g' = 0$).",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer with reason"
+                "$x = 0$ is the only critical point in $[0, 6]$",
+                "$f(x) = 0$ only at $x = 0$ on this interval"
               ]
             }
+          ],
+          "common_traps": [
+            "Saying there are no critical points and forgetting $x = 0$",
+            "Not using the Fundamental Theorem to connect $g'$ and $f$"
           ]
         }
       ]
     },
     {
       "letter": "c",
-      "prompt": "The function h is defined by h(x) = ∫ f ¢ (t) dt.Find the values of h( 6) , h ¢(6), and h ¢¢(6). Show the work\n−6\nthat leads to your answers.\n__________________________________________________________\nWrite your responses to this question only on the designated pages in the separate Free Response\nbooklet. Write your solution to each part in the space provided for that part.",
+      "prompt": "The function $h$ is defined by $h(x) = \\displaystyle\\int_{-6}^x f'(t)\\,dt$. Find the values of $h(6)$, $h'(6)$, and $h''(6)$. Show the work that leads to your answers.",
       "point_value": 4,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -107,11 +112,12 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 1",
+          "description": "By the Fundamental Theorem of Calculus, $h(x) = \\displaystyle\\int_{-6}^x f'(t)\\,dt = f(x) - f(-6)$. Thus $h(6) = f(6) - f(-6)$. Using $f(6) = \\dfrac{3}{2}(6) = 9$ (from the linear piece on $[0,7]$) and reading $f(-6)$ from the graph. The numerical value of $h(6)$ depends on $f(-6)$ as read from the provided graph.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 1"
+                "$h(x) = f(x) - f(-6)$",
+                "$h(6) = f(6) - f(-6)$"
               ]
             }
           ]
@@ -119,11 +125,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 2",
+          "description": "By the Fundamental Theorem of Calculus, $h'(x) = f'(x)$. For $0 \\leq x \\leq 7$, $f$ is linear with slope $\\dfrac{3}{2}$, so $f'(6) = \\dfrac{3}{2}$. Thus $h'(6) = \\dfrac{3}{2}$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 2"
+                "$h'(6) = f'(6) = \\dfrac{3}{2}$"
               ]
             }
           ]
@@ -131,11 +137,12 @@
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 3",
+          "description": "$h''(x) = f''(x)$. Since $f$ is linear on $0 \\leq x \\leq 7$, $f''(x) = 0$ for $0 < x < 7$. Therefore $h''(6) = f''(6) = 0$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 3"
+                "$h''(6) = f''(6) = 0$",
+                "$f$ is linear so $f'' = 0$"
               ]
             }
           ]
@@ -143,13 +150,17 @@
         {
           "point_id": "c4",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 4",
+          "description": "All three values $h(6)$, $h'(6)$, $h''(6)$ computed correctly with supporting work shown.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 4"
+                "All three values correct with work shown"
               ]
             }
+          ],
+          "common_traps": [
+            "Applying the Fundamental Theorem incorrectly (confusing $h = \\int f'$ with $h = f$)",
+            "Forgetting to subtract $f(-6)$ when evaluating $h(6)$"
           ]
         }
       ]

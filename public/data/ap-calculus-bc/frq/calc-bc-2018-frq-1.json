@@ -3,20 +3,18 @@
   "subject": "ap-calculus-bc",
   "year": 2018,
   "source": "released",
-  "title": "Rate & Accumulation (Riemann Sums)",
+  "title": "Rate & Accumulation (Escalator Line)",
   "frq_type": "multi_part_math",
-  "related_units": [
-    6
-  ],
+  "related_units": [6],
   "calculator_allowed": true,
   "total_points": 9,
-  "stimulus": "People enter a line for an escalator at a rate modeled by the function r given by\n⎪⎧\n⎪\n(\nt\n)3 (\nt\n)7\nr ( t ) = ⎪\n⎪⎪\n⎨ 44 100 1\n−\n300 for 0 £ t £ 300\n⎪\n⎪⎪⎩ 0 for t > 300,\nwhere r ( t ) is measured in people per second and t is measured in seconds. As people get on the escalator,\nthey exit the line at a constant rate of 0.7 person per second. There are 20 people in line at time t = 0.",
+  "stimulus": "People enter a line for an escalator at a rate modeled by the function $r$ given by\n$$r(t) = \\begin{cases} 44\\left(\\dfrac{t}{100}\\right)^3\\left(1 - \\dfrac{t}{300}\\right)^7 & \\text{for } 0 \\leq t \\leq 300 \\\\ 0 & \\text{for } t > 300, \\end{cases}$$\nwhere $r(t)$ is measured in people per second and $t$ is measured in seconds. As people get on the escalator, they exit the line at a constant rate of $0.7$ person per second. There are $20$ people in line at time $t = 0$.",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "How many people enter the line for the escalator during the time interval 0 £ t £ 30 0 ?",
+      "prompt": "How many people enter the line for the escalator during the time interval $0 \\leq t \\leq 300$? Give your answer to the nearest whole number.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -25,11 +23,11 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 1",
+          "description": "Sets up the correct integral: $\\int_0^{300} r(t)\\,dt$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 1"
+                "$\\int_0^{300} r(t)\\,dt$"
               ]
             }
           ]
@@ -37,11 +35,11 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 2",
+          "description": "Correct answer: $\\int_0^{300} r(t)\\,dt \\approx 270.031$, so approximately $270$ people enter the line",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 2"
+                "$270$ people"
               ]
             }
           ]
@@ -50,7 +48,7 @@
     },
     {
       "letter": "b",
-      "prompt": "During the time interval 0 £ t £ 30 0, there are always people in line for the escalator. How many people\nare in line at time t = 300 ?",
+      "prompt": "During the time interval $0 \\leq t \\leq 300$, there are always people in line for the escalator. How many people are in line at time $t = 300$? Give your answer to the nearest whole number.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -59,11 +57,11 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 1",
+          "description": "Sets up the correct expression: $20 + \\int_0^{300} r(t)\\,dt - 0.7(300)$, representing the initial $20$ people plus those who entered minus those who exited at the constant rate of $0.7$ per second",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 1"
+                "$20 + \\int_0^{300} r(t)\\,dt - 0.7(300)$"
               ]
             }
           ]
@@ -71,11 +69,11 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 2",
+          "description": "Correct answer: $20 + 270.031 - 210 \\approx 80.031$, so approximately $80$ people are in line at $t = 300$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 2"
+                "$80$ people"
               ]
             }
           ]
@@ -84,7 +82,7 @@
     },
     {
       "letter": "c",
-      "prompt": "For t > 300, what is the first time t that there are no people in line for the escalator?",
+      "prompt": "For $t > 300$, what is the first time $t$ at which there are no people in line for the escalator? Give your answer to the nearest whole number.",
       "point_value": 1,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -93,11 +91,11 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 1",
+          "description": "For $t > 300$, $r(t) = 0$, so people only exit at rate $0.7$ per second. The number of people in line at time $t > 300$ is $L(300) - 0.7(t - 300)$. Setting this equal to $0$: $t = 300 + \\dfrac{L(300)}{0.7} \\approx 300 + \\dfrac{80.031}{0.7} \\approx 414.330$, so $t \\approx 414$ seconds.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 1"
+                "$t \\approx 414$ seconds"
               ]
             }
           ]
@@ -106,7 +104,7 @@
     },
     {
       "letter": "d",
-      "prompt": "For 0 £ t £ 30 0, at what time t is the number of people in line a minimum? To the nearest whole\nnumber, find the number of people in line at this time. Justify your answer.",
+      "prompt": "For $0 \\leq t \\leq 300$, at what time $t$ is the number of people in line a minimum? To the nearest whole number, find the number of people in line at this time. Justify your answer.",
       "point_value": 4,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -115,11 +113,11 @@
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 1",
+          "description": "Identifies that the number of people in line changes at rate $r(t) - 0.7$. Sets $r(t) - 0.7 = 0$ to find critical point(s), or equivalently $r(t) = 0.7$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 1"
+                "$r(t) - 0.7 = 0$ or $r(t) = 0.7$ identifies critical point"
               ]
             }
           ]
@@ -127,11 +125,11 @@
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 2",
+          "description": "Finds the critical point at $t \\approx 33.108$ seconds (where $r(t) = 0.7$ for the first time, as $r$ is increasing through $0.7$). Considers endpoints $t = 0$ and $t = 300$ as well.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 2"
+                "Critical point at $t \\approx 33.108$"
               ]
             }
           ]
@@ -139,11 +137,11 @@
         {
           "point_id": "d3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 3",
+          "description": "Justification that the minimum occurs at $t \\approx 33.108$: For $0 < t < 33.108$, $r(t) < 0.7$ so the number of people is decreasing; for $33.108 < t \\leq 300$, $r(t) > 0.7$ so the number is increasing. Therefore the minimum occurs at $t \\approx 33.108$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 3"
+                "$r(t) < 0.7$ for $0 < t < 33.108$ (line decreasing) and $r(t) > 0.7$ for $33.108 < t < 300$ (line increasing), confirming minimum at $t \\approx 33.108$"
               ]
             }
           ]
@@ -151,11 +149,11 @@
         {
           "point_id": "d4",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 4",
+          "description": "Correct minimum number of people: $L(t^*) = 20 + \\int_0^{t^*}\\bigl(r(t) - 0.7\\bigr)\\,dt \\approx 20 - 6.370 \\approx 14$ people (to the nearest whole number)",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 4"
+                "$14$ people in line at the minimum"
               ]
             }
           ]

@@ -3,7 +3,7 @@
   "subject": "ap-calculus-bc",
   "year": 2021,
   "source": "released",
-  "title": "Area Between Curves",
+  "title": "Spinning Toys — Solid of Revolution",
   "frq_type": "multi_part_math",
   "related_units": [
     1,
@@ -13,13 +13,13 @@
   ],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": "A company designs spinning toys using the family of functions y = cx 4 − x 2 , where c is a positive\nconstant. The figure above shows the region in the first quadrant bounded by the x-axis and the graph of\ny = cx 4 − x 2 , for some c. Each spinning toy is in the shape of the solid generated when such a region is\nrevolved about the x-axis. Both x and y are measured in inches.",
+  "stimulus": "A company designs spinning toys using the family of functions $y = cx\\sqrt{4 - x^2}$, where $c$ is a positive constant. The figure above shows the region in the first quadrant bounded by the $x$-axis and the graph of $y = cx\\sqrt{4 - x^2}$, for some value of $c$. Each spinning toy is in the shape of the solid generated when such a region is revolved about the $x$-axis. Both $x$ and $y$ are measured in inches.",
   "stimulus_image": "/data/ap-calculus-bc/frq/images/calc-bc-2021-frq-3-stimulus.png",
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Find the area of the region in the first quadrant bounded by the x-axis and the graph of y = cx 4 − x 2\nfor c = 6.\n( )\n− 2\nc 4 2x\ndy",
+      "prompt": "Find the area of the region in the first quadrant bounded by the $x$-axis and the graph of $y = cx\\sqrt{4 - x^2}$ for $c = 6$.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": true,
@@ -28,41 +28,41 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct integrand",
+          "description": "Identifies correct limits of integration ($x = 0$ to $x = 2$, since $y = 0$ when $x = 0$ or $x = 2$) and correct integrand $6x\\sqrt{4-x^2}$: sets up $\\int_0^2 6x\\sqrt{4-x^2}\\,dx$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct integrand"
+                "$\\int_0^2 6x\\sqrt{4-x^2}\\,dx$"
               ]
             }
           ],
           "common_traps": [
-            "Using incorrect integrand or missing factor"
+            "Using incorrect upper limit; forgetting that $y = 0$ at $x = 2$"
           ]
         },
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Correct antiderivative",
+          "description": "Uses substitution $u = 4 - x^2$, $du = -2x\\,dx$ to find the correct antiderivative: $-3 \\cdot \\frac{2}{3}(4-x^2)^{3/2} = -2(4-x^2)^{3/2}$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct antiderivative"
+                "Antiderivative $-2(4-x^2)^{3/2}$ (or equivalent)"
               ]
             }
           ],
           "common_traps": [
-            "Missing +C"
+            "Forgetting the chain rule factor when antidifferentiating"
           ]
         },
         {
           "point_id": "a3",
           "point_value": 1,
-          "description": "Correct answer",
+          "description": "Correct area: $\\left[-2(4-x^2)^{3/2}\\right]_0^2 = -2(0)^{3/2} - (-2)(4)^{3/2} = 0 + 2 \\cdot 8 = 16$ square inches",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "Area $= 16$ square inches"
               ]
             }
           ]
@@ -71,7 +71,7 @@
     },
     {
       "letter": "b",
-      "prompt": "It is known that, for y = cx 4 − x 2 , = . For a particular spinning toy, the radius of the\ndx − 2\n4 x\nlargest cross-sectional circular slice is 1.2 inches. What is the value of c for this spinning toy?",
+      "prompt": "It is known that, for $y = cx\\sqrt{4 - x^2}$, $\\dfrac{dy}{dx} = \\dfrac{c(4 - 2x^2)}{\\sqrt{4 - x^2}}$. For a particular spinning toy, the radius of the largest cross-sectional circular slice is $1.2$ inches. What is the value of $c$ for this spinning toy?",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -80,11 +80,11 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 1",
+          "description": "Sets $\\frac{dy}{dx} = 0$ to find where $y$ is maximized: $c(4-2x^2) = 0 \\Rightarrow x^2 = 2 \\Rightarrow x = \\sqrt{2}$; then the maximum $y$-value (radius of largest slice) is $y(\\sqrt{2}) = c\\sqrt{2}\\sqrt{4-2} = c\\sqrt{2}\\cdot\\sqrt{2} = 2c$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 1"
+                "Maximum radius $= 2c$, found by setting $dy/dx = 0$ at $x = \\sqrt{2}$"
               ]
             }
           ]
@@ -92,11 +92,11 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 2",
+          "description": "Sets $2c = 1.2$ and solves: $c = 0.6$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 2"
+                "$c = 0.6$"
               ]
             }
           ]
@@ -105,7 +105,7 @@
     },
     {
       "letter": "c",
-      "prompt": "For another spinning toy, the volume is 2p cubic inches. What is the value of c for this spinning toy?\n__________________________________________________________\nWrite your responses to this question only on the designated pages in the separate Free Response\nbooklet. Write your solution to each part in the space provided for that part.",
+      "prompt": "For another spinning toy, the volume is $2\\pi$ cubic inches. What is the value of $c$ for this spinning toy?",
       "point_value": 4,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -114,26 +114,26 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Correct integrand",
+          "description": "Sets up the correct disk/washer method integrand for volume: $\\pi [y(x)]^2 = \\pi c^2 x^2(4-x^2)$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct integrand"
+                "Integrand $\\pi c^2 x^2(4-x^2)$"
               ]
             }
           ],
           "common_traps": [
-            "Using incorrect integrand or missing factor"
+            "Forgetting to square $y$; forgetting the $\\pi$ factor"
           ]
         },
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Correct limits and constant ($\\pi$)",
+          "description": "Correct limits $[0, 2]$ and correct volume expression: $V = \\pi c^2 \\int_0^2 x^2(4-x^2)\\,dx = \\pi c^2 \\int_0^2 (4x^2 - x^4)\\,dx$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct limits and constant ($\\pi$)"
+                "$\\pi c^2 \\int_0^2 (4x^2 - x^4)\\,dx$"
               ]
             }
           ]
@@ -141,26 +141,26 @@
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "Correct antiderivative",
+          "description": "Evaluates the integral correctly: $\\int_0^2 (4x^2-x^4)\\,dx = \\left[\\frac{4x^3}{3} - \\frac{x^5}{5}\\right]_0^2 = \\frac{32}{3} - \\frac{32}{5} = \\frac{160 - 96}{15} = \\frac{64}{15}$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct antiderivative"
+                "$\\int_0^2(4x^2-x^4)\\,dx = \\frac{64}{15}$"
               ]
             }
           ],
           "common_traps": [
-            "Missing +C"
+            "Arithmetic errors in the antiderivative evaluation"
           ]
         },
         {
           "point_id": "c4",
           "point_value": 1,
-          "description": "Correct answer",
+          "description": "Sets volume equal to $2\\pi$ and solves for $c$: $\\pi c^2 \\cdot \\frac{64}{15} = 2\\pi \\Rightarrow c^2 = \\frac{30}{64} = \\frac{15}{32} \\Rightarrow c = \\sqrt{\\frac{15}{32}} = \\frac{\\sqrt{15}}{4\\sqrt{2}} = \\frac{\\sqrt{30}}{8}$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "$c = \\sqrt{\\dfrac{15}{32}}$ or $c = \\dfrac{\\sqrt{30}}{8}$"
               ]
             }
           ]

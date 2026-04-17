@@ -13,13 +13,13 @@
   ],
   "calculator_allowed": true,
   "total_points": 9,
-  "stimulus": "A tank has a height of 10 feet. The area of the horizontal cross section of the tank at height h feet is given by\nthe function A, where A",
+  "stimulus": "A tank has a height of 10 feet. The area of the horizontal cross section of the tank at height $h$ feet is given by the function $A$, where $A(h)$ is measured in square feet. The table below gives values of $A(h)$ for selected heights $h$.\n\n| $h$ (feet) | 0 | 2 | 5 | 10 |\n|---|---|---|---|---|\n| $A(h)$ (square feet) | 50.3 | 14.4 | 6.5 | 2.9 |",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Use a left Riemann sum with the three subintervals indicated by the data in the table to approximate the\nvolume of the tank. Indicate units of measure.",
+      "prompt": "Use a left Riemann sum with the three subintervals indicated by the data in the table to approximate the volume of the tank. Indicate units of measure.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -28,32 +28,35 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 1",
+          "description": "Correct left Riemann sum setup using the three subintervals $[0,2]$, $[2,5]$, and $[5,10]$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 1"
+                "$A(0) \\cdot 2 + A(2) \\cdot 3 + A(5) \\cdot 5$",
+                "$50.3(2) + 14.4(3) + 6.5(5)$"
               ]
             }
-          ]
+          ],
+          "correct_example": "$50.3(2) + 14.4(3) + 6.5(5) = 100.6 + 43.2 + 32.5 = 176.3$ cubic feet"
         },
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 2",
+          "description": "Correct answer with units of cubic feet",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 2"
+                "$176.3$ cubic feet"
               ]
             }
-          ]
+          ],
+          "correct_example": "$176.3$ cubic feet"
         }
       ]
     },
     {
       "letter": "b",
-      "prompt": "Does the approximation in part (a) overestimate or underestimate the volume of the tank? Explain your\nreasoning.",
+      "prompt": "Does the approximation in part (a) overestimate or underestimate the volume of the tank? Explain your reasoning.",
       "point_value": 1,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -62,20 +65,22 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 1",
+          "description": "States overestimate with correct reasoning that $A$ is a decreasing function, so the left Riemann sum uses values of $A$ that are greater than or equal to the actual values on each subinterval",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 1"
+                "Overestimate",
+                "$A$ is decreasing (or each left endpoint value is greater than the values of $A$ on the subinterval)"
               ]
             }
-          ]
+          ],
+          "correct_example": "The approximation is an overestimate because $A$ is a decreasing function. On each subinterval the left endpoint value of $A$ is greater than or equal to all other values of $A$ on that subinterval, so the left Riemann sum is greater than the actual volume."
         }
       ]
     },
     {
       "letter": "c",
-      "prompt": "The area, in square feet, of the horizontal cross section at height h feet is modeled by the function f given\n50.3\nby f(h) = . Based on this model, find the volume of the tank. Indicate units of measure.\n0.2h\ne + h",
+      "prompt": "The area, in square feet, of the horizontal cross section at height $h$ feet is modeled by the function $f$ given by $$f(h) = \\frac{50.3}{e^{0.2h} + h}.$$ Based on this model, find the volume of the tank. Indicate units of measure.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -84,11 +89,11 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 1",
+          "description": "Correct integral setup: volume equals $\\int_0^{10} f(h)\\,dh$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 1"
+                "$\\displaystyle\\int_0^{10} \\frac{50.3}{e^{0.2h}+h}\\,dh$"
               ]
             }
           ]
@@ -96,20 +101,21 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 2",
+          "description": "Correct numerical answer with units",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 2"
+                "$101.325$ cubic feet (or equivalent using calculator)"
               ]
             }
-          ]
+          ],
+          "correct_example": "$\\displaystyle\\int_0^{10} \\frac{50.3}{e^{0.2h}+h}\\,dh \\approx 101.325$ cubic feet"
         }
       ]
     },
     {
       "letter": "d",
-      "prompt": "Water is pumped into the tank. When the height of the water is 5 feet, the height is increasing at the rate\nof 0.26 foot per minute. Using the model from part (c), find the rate at which the volume of water is\nchanging with respect to time when the height of the water is 5 feet. Indicate units of measure.",
+      "prompt": "Water is pumped into the tank. When the height of the water is 5 feet, the height is increasing at the rate of $0.26$ foot per minute. Using the model from part (c), find the rate at which the volume of water is changing with respect to time when the height of the water is 5 feet. Indicate units of measure.",
       "point_value": 4,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -118,11 +124,11 @@
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 1",
+          "description": "Correct related rates setup: $\\frac{dV}{dt} = f(h) \\cdot \\frac{dh}{dt}$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 1"
+                "$\\frac{dV}{dt} = f(h) \\cdot \\frac{dh}{dt}$"
               ]
             }
           ]
@@ -130,23 +136,24 @@
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 2",
+          "description": "Substitutes $h = 5$ into $f(h)$ correctly",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 2"
+                "$f(5) = \\frac{50.3}{e^{1.0} + 5}$"
               ]
             }
-          ]
+          ],
+          "correct_example": "$f(5) = \\frac{50.3}{e + 5} \\approx 6.5$"
         },
         {
           "point_id": "d3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 3",
+          "description": "Substitutes $\\frac{dh}{dt} = 0.26$ and $h = 5$ to compute $\\frac{dV}{dt}$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 3"
+                "$\\frac{dV}{dt} = f(5) \\cdot 0.26$"
               ]
             }
           ]
@@ -154,14 +161,15 @@
         {
           "point_id": "d4",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 4",
+          "description": "Correct numerical answer with units of cubic feet per minute",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 4"
+                "$\\approx 1.694$ cubic feet per minute"
               ]
             }
-          ]
+          ],
+          "correct_example": "$\\frac{dV}{dt} = \\frac{50.3}{e^{1.0}+5} \\cdot 0.26 \\approx 1.694$ cubic feet per minute"
         }
       ]
     }

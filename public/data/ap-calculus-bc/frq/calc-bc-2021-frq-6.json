@@ -16,26 +16,26 @@
   ],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": "The function g has derivatives of all orders for all real numbers. The Maclaurin series for g is given by\n∞ (−1) nxn\ng",
+  "stimulus": "The function $g$ has derivatives of all orders for all real numbers. The Maclaurin series for $g$ is given by\n$$g(x) = \\sum_{n=0}^{\\infty} \\frac{(-1)^n x^n}{2e^n + 3}.$$",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "State the conditions necessary to use the integral test to determine convergence of the series ∑ en.\nn=0\n∞ 1\n∑\nUse the integral test to show that en converges.\nn=0\n∞ 1 ∞ (−1) n",
+      "prompt": "State the conditions necessary to apply the integral test to the series $\\displaystyle\\sum_{n=0}^{\\infty} \\frac{1}{e^n}$. Then use the integral test to show that $\\displaystyle\\sum_{n=0}^{\\infty} \\frac{1}{e^n}$ converges.",
       "point_value": 3,
-      "scoring_notes": null,
+      "scoring_notes": "The integral test requires the associated function $f(x) = e^{-x}$ to be positive, continuous, and decreasing on $[0, \\infty)$. The improper integral must be set up and evaluated correctly.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Conditions",
+          "description": "States all three necessary conditions for the integral test: the function $f(x) = \\frac{1}{e^x} = e^{-x}$ must be (1) positive, (2) continuous, and (3) decreasing on $[0, \\infty)$ (or $[1, \\infty)$). All three conditions are satisfied: $e^{-x} > 0$ for all $x$, $e^{-x}$ is continuous everywhere, and $e^{-x}$ is strictly decreasing.",
           "alternatives": [
             {
               "required_elements": [
-                "Conditions"
+                "All three conditions stated: positive, continuous, and decreasing on $[0,\\infty)$"
               ]
             }
           ]
@@ -43,26 +43,25 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Correct integral setup",
+          "description": "Sets up the correct improper integral: $\\displaystyle\\int_0^{\\infty} e^{-x}\\,dx = \\lim_{b \\to \\infty} \\int_0^b e^{-x}\\,dx$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct integral setup"
+                "$\\int_0^{\\infty} e^{-x}\\,dx$ or equivalent improper integral setup"
               ]
             }
-          ],
-          "common_traps": [
-            "Using incorrect limits of integration"
           ]
         },
         {
           "point_id": "a3",
           "point_value": 1,
-          "description": "Evaluation",
+          "description": "Evaluates the improper integral and concludes convergence: $\\displaystyle\\lim_{b \\to \\infty}\\left[-e^{-x}\\right]_0^b = \\lim_{b \\to \\infty}\\left(-e^{-b} + e^0\\right) = 0 + 1 = 1$. Since the integral converges (equals $1$), the series $\\displaystyle\\sum_{n=0}^{\\infty} \\frac{1}{e^n}$ converges by the integral test.",
           "alternatives": [
             {
               "required_elements": [
-                "Evaluation"
+                "Antiderivative $-e^{-x}$ evaluated correctly",
+                "Limit gives finite value $1$",
+                "Concludes series converges by integral test"
               ]
             }
           ]
@@ -71,20 +70,20 @@
     },
     {
       "letter": "b",
-      "prompt": "Use the limit comparison test with the series ∑ en to show that the series g(1) = ∑ 2e n + 3\nn=0 n=0\nconverges absolutely.",
+      "prompt": "Use the limit comparison test with the series $\\displaystyle\\sum_{n=0}^{\\infty} \\frac{1}{e^n}$ to show that the series $g(1) = \\displaystyle\\sum_{n=0}^{\\infty} \\frac{(-1)^n}{2e^n + 3}$ converges absolutely.",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "To show absolute convergence, the student must consider $\\displaystyle\\sum_{n=0}^{\\infty} \\frac{1}{2e^n + 3}$ and apply the limit comparison test with $\\displaystyle\\sum_{n=0}^{\\infty} \\frac{1}{e^n}$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Sets up limitcomparison",
+          "description": "Sets up and computes the limit comparison: let $a_n = \\dfrac{1}{2e^n + 3}$ and $b_n = \\dfrac{1}{e^n}$. Computes $\\displaystyle\\lim_{n\\to\\infty} \\frac{a_n}{b_n} = \\lim_{n\\to\\infty} \\frac{e^n}{2e^n + 3} = \\lim_{n\\to\\infty} \\frac{1}{2 + 3e^{-n}} = \\frac{1}{2}$.",
           "alternatives": [
             {
               "required_elements": [
-                "Sets up limitcomparison"
+                "$\\lim_{n\\to\\infty}\\dfrac{1/(2e^n+3)}{1/e^n} = \\dfrac{1}{2}$"
               ]
             }
           ]
@@ -92,11 +91,13 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Explanation",
+          "description": "Conclusion: since the limit $\\frac{1}{2}$ is positive and finite, and $\\displaystyle\\sum_{n=0}^{\\infty} \\frac{1}{e^n}$ converges (shown in part (a)), by the limit comparison test $\\displaystyle\\sum_{n=0}^{\\infty} \\frac{1}{2e^n + 3}$ converges. Therefore $\\displaystyle\\sum_{n=0}^{\\infty} \\frac{(-1)^n}{2e^n + 3}$ converges absolutely.",
           "alternatives": [
             {
               "required_elements": [
-                "Explanation"
+                "Limit is positive and finite ($\\frac{1}{2}$)",
+                "Since $\\sum \\frac{1}{e^n}$ converges, $\\sum \\frac{1}{2e^n+3}$ converges by LCT",
+                "Concludes absolute convergence of $g(1)$"
               ]
             }
           ]
@@ -105,20 +106,20 @@
     },
     {
       "letter": "c",
-      "prompt": "Determine the radius of convergence of the Maclaurin series for g.\n∞ (−1) n",
+      "prompt": "Determine the radius of convergence of the Maclaurin series $\\displaystyle\\sum_{n=0}^{\\infty} \\frac{(-1)^n x^n}{2e^n + 3}$ for $g$. Show the work that leads to your answer.",
       "point_value": 3,
-      "scoring_notes": null,
+      "scoring_notes": "Use the ratio test. The radius of convergence is $R = e$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Sets up ratio",
+          "description": "Sets up the ratio test correctly: $\\displaystyle\\lim_{n\\to\\infty}\\left|\\frac{a_{n+1}}{a_n}\\right| = \\lim_{n\\to\\infty}\\left|\\frac{(-1)^{n+1}x^{n+1}}{2e^{n+1}+3} \\cdot \\frac{2e^n+3}{(-1)^n x^n}\\right| = \\lim_{n\\to\\infty} |x|\\cdot\\frac{2e^n+3}{2e^{n+1}+3}$",
           "alternatives": [
             {
               "required_elements": [
-                "Sets up ratio"
+                "Ratio $\\left|\\dfrac{a_{n+1}}{a_n}\\right| = |x| \\cdot \\dfrac{2e^n+3}{2e^{n+1}+3}$ or equivalent"
               ]
             }
           ]
@@ -126,11 +127,12 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Computes limit ofratio",
+          "description": "Evaluates the limit of the ratio: $\\displaystyle\\lim_{n\\to\\infty} \\frac{2e^n + 3}{2e^{n+1}+3} = \\lim_{n\\to\\infty} \\frac{2e^n+3}{2e\\cdot e^n+3} = \\frac{2}{2e} = \\frac{1}{e}$. So the ratio test limit equals $\\dfrac{|x|}{e}$.",
           "alternatives": [
             {
               "required_elements": [
-                "Computes limit ofratio"
+                "$\\lim_{n\\to\\infty}\\dfrac{2e^n+3}{2e^{n+1}+3} = \\dfrac{1}{e}$",
+                "Ratio test limit $= \\dfrac{|x|}{e}$"
               ]
             }
           ]
@@ -138,11 +140,11 @@
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "Correct answer",
+          "description": "Sets the ratio test limit less than $1$ and determines the radius of convergence: $\\dfrac{|x|}{e} < 1 \\Rightarrow |x| < e$. Therefore the radius of convergence is $R = e$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "$R = e$"
               ]
             }
           ]
@@ -151,20 +153,20 @@
     },
     {
       "letter": "d",
-      "prompt": "The first two terms of the series g(1) = ∑ are used to approximate g(1). Use the alternating\n2e n + 3\nn=0\nseries error bound to determine an upper bound on the error of the approximation.\n__________________________________________________________\nWrite your responses to this question only on the designated pages in the separate Free Response\nbooklet. Write your solution to each part in the space provided for that part.",
+      "prompt": "The first two terms of the series $g(1) = \\displaystyle\\sum_{n=0}^{\\infty} \\frac{(-1)^n}{2e^n + 3}$ are used to approximate $g(1)$. Use the alternating series error bound to determine an upper bound for the error of this approximation.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "The alternating series error bound equals the absolute value of the first omitted term, which is the $n=2$ term.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "Correct answer",
+          "description": "Identifies the correct error bound as the absolute value of the third term ($n = 2$): the first two terms used are $n = 0$ and $n = 1$, so the first omitted term is $\\dfrac{(-1)^2}{2e^2+3} = \\dfrac{1}{2e^2+3}$. By the alternating series error bound, the error is at most $\\dfrac{1}{2e^2 + 3}$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "Error $\\leq \\dfrac{1}{2e^2+3}$"
               ]
             }
           ]

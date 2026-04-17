@@ -14,58 +14,50 @@
   ],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": "The Taylor series for a function f about x =1 is given by (cid:199)\n(cid:135) (cid:11)(cid:16)1(cid:12)n(cid:14)12n\n(cid:11)x (cid:16)1(cid:12)n and converges to f(cid:11)x(cid:12) for\nn\nn(cid:32)1\nx −1 < R, where R is the radius of convergence of the Taylor series.",
+  "stimulus": "The Taylor series for a function $f$ about $x = 1$ is given by $\\displaystyle\\sum_{n=1}^{\\infty} \\frac{(-1)^{n+1} \\cdot 2^n}{n}(x-1)^n$ and converges to $f(x)$ for $|x - 1| < R$, where $R$ is the radius of convergence of the Taylor series.",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Find the value of R.",
+      "prompt": "Find the value of $R$.",
       "point_value": 3,
-      "scoring_notes": null,
+      "scoring_notes": "Apply the Ratio Test to find the radius of convergence.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct separation of variables",
+          "description": "Correct application of the Ratio Test",
           "alternatives": [
             {
               "required_elements": [
-                "Variables correctly separated"
+                "$\\displaystyle\\lim_{n \\to \\infty} \\left|\\frac{a_{n+1}}{a_n}\\right| = \\lim_{n \\to \\infty} \\left|\\frac{(-1)^{n+2} \\cdot 2^{n+1}}{n+1}(x-1)^{n+1} \\cdot \\frac{n}{(-1)^{n+1} \\cdot 2^n (x-1)^n}\\right| = 2|x-1|\\lim_{n\\to\\infty}\\frac{n}{n+1} = 2|x-1|$"
               ]
             }
-          ],
-          "common_traps": [
-            "Failing to separate — earns 0 for integration"
           ]
         },
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Correct antiderivatives with constant of integration",
+          "description": "Correct convergence condition",
           "alternatives": [
             {
               "required_elements": [
-                "Both sides integrated correctly",
-                "+C present"
+                "Convergence requires $2|x-1| < 1$, i.e., $|x-1| < \\dfrac{1}{2}$"
               ]
             }
-          ],
-          "common_traps": [
-            "Missing +C"
           ]
         },
         {
           "point_id": "a3",
           "point_value": 1,
-          "description": "Initial condition applied; correct particular solution",
+          "description": "Correct value of $R$",
           "alternatives": [
             {
               "required_elements": [
-                "IC substituted",
-                "Particular solution solved for $y$"
+                "$R = \\dfrac{1}{2}$"
               ]
             }
           ]
@@ -74,20 +66,20 @@
     },
     {
       "letter": "b",
-      "prompt": "Find the first three nonzero terms and the general term of the Taylor series for f(cid:132), the derivative of f,\nabout x (cid:32) 1.",
+      "prompt": "Find the first three nonzero terms and the general term of the Taylor series for $f'$, the derivative of $f$, about $x = 1$.",
       "point_value": 3,
-      "scoring_notes": null,
+      "scoring_notes": "Differentiate the series term by term. The general term becomes $(-1)^{n+1} \\cdot 2^n (x-1)^{n-1}$. Reindex to get the series for $f'$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 1",
+          "description": "Correct differentiation of the series",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 1"
+                "$f'(x) = \\displaystyle\\sum_{n=1}^{\\infty} (-1)^{n+1} \\cdot 2^n (x-1)^{n-1}$"
               ]
             }
           ]
@@ -95,11 +87,11 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 2",
+          "description": "First three nonzero terms written out",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 2"
+                "$f'(x) = 2 - 4(x-1) + 8(x-1)^2 - \\cdots$"
               ]
             }
           ]
@@ -107,11 +99,11 @@
         {
           "point_id": "b3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 3",
+          "description": "Correct general term",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 3"
+                "General term: $(-1)^{n+1} \\cdot 2^n (x-1)^{n-1}$ for $n = 1, 2, 3, \\ldots$, or equivalently $(-1)^n \\cdot 2^{n+1}(x-1)^n$ for $n = 0, 1, 2, \\ldots$"
               ]
             }
           ]
@@ -120,20 +112,20 @@
     },
     {
       "letter": "c",
-      "prompt": "The Taylor series for f(cid:132) about x (cid:32) 1, found in part (b), is a geometric series. Find the function f(cid:132) to which\nthe series converges for x −1 < R. Use this function to determine f for x −1 < R.\nSTOP\nEND OF EXAM",
+      "prompt": "The Taylor series for $f'$ about $x = 1$, found in part (b), is a geometric series. Find the function $f'$ to which the series converges for $|x - 1| < R$. Use this function to determine $f$ for $|x - 1| < R$.",
       "point_value": 3,
-      "scoring_notes": null,
+      "scoring_notes": "The series $2 - 4(x-1) + 8(x-1)^2 - \\cdots$ is geometric with first term $a = 2$ and common ratio $r = -2(x-1)$. Sum $= \\frac{a}{1-r} = \\frac{2}{1+2(x-1)}$. Integrate to find $f$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 1",
+          "description": "Correct closed form for $f'(x)$ as a geometric series sum",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 1"
+                "$f'(x) = \\dfrac{2}{1 + 2(x-1)} = \\dfrac{2}{2x - 1}$"
               ]
             }
           ]
@@ -141,11 +133,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 2",
+          "description": "Correct antiderivative for $f(x)$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 2"
+                "$f(x) = \\displaystyle\\int \\frac{2}{2x-1}\\,dx = \\ln|2x-1| + C$"
               ]
             }
           ]
@@ -153,11 +145,11 @@
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 3",
+          "description": "Correct determination of $C$ using $f(1)$ from the series, and final form of $f(x)$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 3"
+                "From the series: $f(1) = 0$ (all terms are zero when $x = 1$); applying $f(1) = \\ln|2(1)-1| + C = \\ln 1 + C = C = 0$; therefore $f(x) = \\ln|2x-1|$ for $|x-1| < \\dfrac{1}{2}$"
               ]
             }
           ]

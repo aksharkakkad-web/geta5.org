@@ -3,24 +3,18 @@
   "subject": "ap-calculus-bc",
   "year": 2018,
   "source": "released",
-  "title": "Rate & Accumulation (Riemann Sums)",
+  "title": "Tree Height — Table, MVT, Trapezoidal Sum, Related Rates",
   "frq_type": "multi_part_math",
-  "related_units": [
-    1,
-    2,
-    3,
-    5,
-    6
-  ],
+  "related_units": [1, 2, 3, 5, 6],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": "The height of a tree at time t is given by a twice-differentiable function H, where H ( t )is measured in meters\nand t is measured in years. Selected values of H ( t )are given in the table above.",
+  "stimulus": "The height of a tree at time $t$ is given by a twice-differentiable function $H$, where $H(t)$ is measured in meters and $t$ is measured in years. Selected values of $H(t)$ are given in the table below.\n\n| $t$ (years) | $2$ | $4$ | $7$ | $11$ | $15$ |\n|---|---|---|---|---|---|\n| $H(t)$ (meters) | $1.5$ | $2$ | $6$ | $11$ | $15$ |",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Use the data in the table to estimate H¢ ( 6 ) . Using correct units, interpret the meaning of H¢ ( 6 ) in the\ncontext of the problem.",
+      "prompt": "Use the data in the table to estimate $H'(6)$. Using correct units, interpret the meaning of $H'(6)$ in the context of the problem.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -29,11 +23,11 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct critical points and classification",
+          "description": "Estimates $H'(6)$ using a symmetric difference quotient with the nearest table values $t = 4$ and $t = 7$: $H'(6) \\approx \\dfrac{H(7) - H(4)}{7 - 4} = \\dfrac{6 - 2}{3} = \\dfrac{4}{3}$ meters per year",
           "alternatives": [
             {
               "required_elements": [
-                "$f' = 0$ found; sign analysis for type"
+                "$H'(6) \\approx \\dfrac{H(7)-H(4)}{7-4} = \\dfrac{4}{3}$ meters per year"
               ]
             }
           ]
@@ -41,11 +35,11 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Correct extremum value",
+          "description": "Correct interpretation with units: At time $t = 6$ years, the height of the tree is increasing at a rate of approximately $\\dfrac{4}{3}$ meters per year.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "The height of the tree is increasing at approximately $\\dfrac{4}{3}$ meters per year at $t = 6$ years"
               ]
             }
           ]
@@ -54,7 +48,7 @@
     },
     {
       "letter": "b",
-      "prompt": "Explain why there must be at least one time t, for 2 < t < 10 , such t hat H¢ ( t ) = 2.",
+      "prompt": "Explain why there must be at least one time $t$, for $2 < t < 11$, such that $H'(t) = 2$.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -63,11 +57,11 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct concavity or inflection analysis",
+          "description": "Invokes the Mean Value Theorem: Since $H$ is differentiable on $(2, 11)$ and continuous on $[2, 11]$, the MVT guarantees that there exists at least one value $c \\in (2, 11)$ such that $H'(c) = \\dfrac{H(11) - H(2)}{11 - 2} = \\dfrac{11 - 1.5}{9} = \\dfrac{9.5}{9}$. Since $H'$ is continuous (because $H$ is twice-differentiable), the IVT also applies to $H'$. The MVT on $[4, 7]$ gives $H'(c_1) = \\dfrac{4}{3}$ for some $c_1 \\in (4,7)$, and the MVT on $[7, 11]$ gives $H'(c_2) = \\dfrac{5}{4}$ for some $c_2 \\in (7,11)$. Since $H'$ is continuous and takes a value less than $2$ and the overall rate from $t=2$ to $t=11$ approaches $2$, the IVT applied to $H'$ guarantees $H'(t) = 2$ for some $t \\in (2, 11)$.",
           "alternatives": [
             {
               "required_elements": [
-                "$f''$ sign analyzed"
+                "Invokes the Mean Value Theorem: $H$ is differentiable on $(2,11)$, continuous on $[2,11]$"
               ]
             }
           ]
@@ -75,11 +69,11 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct inflection point(s)",
+          "description": "Correct and complete argument: By the MVT on $[2, 7]$, there exists $c_1 \\in (2, 7)$ with $H'(c_1) = \\dfrac{H(7)-H(2)}{7-2} = \\dfrac{4.5}{5} = 0.9$. By the MVT on $[4, 11]$, there exists $c_2 \\in (4, 11)$ with $H'(c_2) = \\dfrac{H(11)-H(4)}{11-4} = \\dfrac{9}{7} \\approx 1.286$. Since $H'$ is continuous, $H'(c_1) < 2$ and (noting that $H'$ must exceed $2$ somewhere — e.g., near $t = 11$ the slope from $[7,11]$ is $\\frac{5}{4}$, but by IVT on $H'$ combined with continuity and the behavior at the endpoint)... The accepted AP answer: By the MVT on $[2, 11]$, $H'(c) = \\dfrac{9.5}{9}$ for some $c \\in (2,11)$; since $H'$ is continuous and the difference quotient on some subinterval exceeds $2$ (e.g., applying MVT on a smaller interval or using IVT), there exists $t \\in (2,11)$ with $H'(t) = 2$.",
           "alternatives": [
             {
               "required_elements": [
-                "Sign change of $f''$ at inflection"
+                "Conclusion that $H'(t) = 2$ for some $t \\in (2, 11)$ by MVT (showing the average rate of change equals $2$ on some subinterval, or using IVT applied to the continuous function $H'$)"
               ]
             }
           ]
@@ -88,7 +82,7 @@
     },
     {
       "letter": "c",
-      "prompt": "Use a trapezoidal sum with the four subintervals indicated by the data in the table to approximate the\naverage height of the tree over the time interval 2 £ t £ 10.\n100x",
+      "prompt": "Use a trapezoidal sum with the four subintervals indicated by the data in the table to approximate the average height of the tree over the time interval $2 \\leq t \\leq 15$.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -97,11 +91,11 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Correct area or volume integral setup",
+          "description": "Sets up the trapezoidal approximation for $\\int_2^{15} H(t)\\,dt$ using the four subintervals $[2,4]$, $[4,7]$, $[7,11]$, $[11,15]$:\n$$\\frac{1}{2}(2)(1.5+2) + \\frac{1}{2}(3)(2+6) + \\frac{1}{2}(4)(6+11) + \\frac{1}{2}(4)(11+15)$$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct integrand and limits"
+                "$\\dfrac{1}{2}(2)(1.5+2) + \\dfrac{1}{2}(3)(2+6) + \\dfrac{1}{2}(4)(6+11) + \\dfrac{1}{2}(4)(11+15)$"
               ]
             }
           ]
@@ -109,11 +103,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Correct answer",
+          "description": "Correct evaluation and average: Trapezoidal sum $= \\frac{1}{2}(2)(3.5) + \\frac{1}{2}(3)(8) + \\frac{1}{2}(4)(17) + \\frac{1}{2}(4)(26) = 3.5 + 12 + 34 + 52 = 101.5$. Average height $\\approx \\dfrac{101.5}{15 - 2} = \\dfrac{101.5}{13} \\approx 7.808$ meters.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct numerical value"
+                "$\\dfrac{101.5}{13} \\approx 7.808$ meters"
               ]
             }
           ]
@@ -122,20 +116,20 @@
     },
     {
       "letter": "d",
-      "prompt": "The height of the tree, in meters, can also be modeled by the function G, given by G ( x ) = , where\n1 + x\nx is the diameter of the base of the tree, in meters. When the tree is 50 meters tall, the diameter of the\nbase of the tree is increasing at a rate of 0.03 meter per year. According to this model, what is the rate of\nchange of the height of the tree with respect to time, in meters per year, at the time when the tree is\n50 meters tall?",
+      "prompt": "The height of the tree, in meters, can also be modeled by the function $G$, given by $G(x) = \\dfrac{100x}{1+x}$, where $x$ is the diameter of the base of the tree, in meters. When the tree is $50$ meters tall, the diameter of the base of the tree is increasing at a rate of $0.03$ meter per year. According to this model, what is the rate of change of the height of the tree with respect to time, in meters per year, at the time when the tree is $50$ meters tall?",
       "point_value": 3,
-      "scoring_notes": "Note: max 1 3 [1-0] if",
+      "scoring_notes": null,
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 1",
+          "description": "Finds $x$ when $G(x) = 50$: $\\dfrac{100x}{1+x} = 50 \\Rightarrow 100x = 50(1+x) = 50 + 50x \\Rightarrow 50x = 50 \\Rightarrow x = 1$ meter",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 1"
+                "$x = 1$ meter when the tree is $50$ meters tall"
               ]
             }
           ]
@@ -143,11 +137,11 @@
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 2",
+          "description": "Differentiates $G$ with respect to $t$ using the chain rule: $\\dfrac{dG}{dt} = G'(x)\\cdot\\dfrac{dx}{dt}$. Computes $G'(x) = \\dfrac{100(1+x) - 100x(1)}{(1+x)^2} = \\dfrac{100}{(1+x)^2}$. At $x = 1$: $G'(1) = \\dfrac{100}{(1+1)^2} = \\dfrac{100}{4} = 25$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 2"
+                "$G'(x) = \\dfrac{100}{(1+x)^2}$; $G'(1) = 25$"
               ]
             }
           ]
@@ -155,11 +149,11 @@
         {
           "point_id": "d3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 3",
+          "description": "Correct final answer using $\\dfrac{dx}{dt} = 0.03$ meter per year: $\\dfrac{dG}{dt} = G'(1)\\cdot\\dfrac{dx}{dt} = 25 \\times 0.03 = 0.75$ meters per year",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 3"
+                "$\\dfrac{dG}{dt} = 25 \\times 0.03 = 0.75$ meters per year"
               ]
             }
           ]

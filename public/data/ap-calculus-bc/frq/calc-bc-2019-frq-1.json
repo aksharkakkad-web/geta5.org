@@ -3,7 +3,7 @@
   "subject": "ap-calculus-bc",
   "year": 2019,
   "source": "released",
-  "title": "Rate & Accumulation (Riemann Sums)",
+  "title": "Rate & Accumulation (Fish in a Lake)",
   "frq_type": "multi_part_math",
   "related_units": [
     2,
@@ -12,13 +12,13 @@
   ],
   "calculator_allowed": true,
   "total_points": 9,
-  "stimulus": "Fish enter a lake at a rate modeled by the function E given by E ( t ) = 20 + 15 sin . Fish leave the lake at\na rate modeled by the function L given by L ( t ) = 4 + 2 0.1t 2 . Both E ( t ) and L ( t ) are measured in fish per\nhour, and t is measured in hours since midnight ( t = 0 ).",
+  "stimulus": "Fish enter a lake at a rate modeled by the function $E$ given by $E(t) = 20 + 15\\sin\\!\\left(\\frac{t^2}{6}\\right)$. Fish leave the lake at a rate modeled by the function $L$ given by $L(t) = 4 + 2e^{0.1t^2}$. Both $E(t)$ and $L(t)$ are measured in fish per hour, and $t$ is measured in hours since midnight ($t = 0$). The functions $E$ and $L$ are defined for $0 \\leq t \\leq 8$.",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "How many fish enter the lake over the 5-hour period from midnight ( t = 0 ) to 5 A.M. ( t = 5 ) ? Give your\nanswer to the nearest whole number.",
+      "prompt": "How many fish enter the lake over the 5-hour period from midnight ($t = 0$) to 5 A.M. ($t = 5$)? Give your answer to the nearest whole number.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -27,11 +27,11 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct estimate or setup with supporting work",
+          "description": "Correct integral setup: $\\int_0^5 E(t)\\,dt$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct computation shown"
+                "$\\int_0^5 E(t)\\,dt$ or $\\int_0^5 \\left(20 + 15\\sin\\!\\left(\\frac{t^2}{6}\\right)\\right)dt$"
               ]
             }
           ]
@@ -39,12 +39,11 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Correct interpretation or answer with units",
+          "description": "Correct answer: 153 fish (rounded to nearest whole number)",
           "alternatives": [
             {
               "required_elements": [
-                "Correct units",
-                "Correct context statement"
+                "153 fish"
               ]
             }
           ]
@@ -53,7 +52,7 @@
     },
     {
       "letter": "b",
-      "prompt": "What is the average number of fish that leave the lake per hour over the 5-hour period from\nmidnight ( t = 0 ) to 5 A.M. ( t = 5 ) ?",
+      "prompt": "What is the average number of fish that leave the lake per hour over the 5-hour period from midnight ($t = 0$) to 5 A.M. ($t = 5$)?",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -62,11 +61,11 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 1",
+          "description": "Correct average value setup: $\\frac{1}{5}\\int_0^5 L(t)\\,dt$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 1"
+                "$\\frac{1}{5}\\int_0^5 L(t)\\,dt$ or $\\frac{1}{5}\\int_0^5 \\left(4 + 2e^{0.1t^2}\\right)dt$"
               ]
             }
           ]
@@ -74,11 +73,11 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 2",
+          "description": "Correct answer: approximately 9.006 fish per hour",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 2"
+                "9.006 (or equivalent decimal)"
               ]
             }
           ]
@@ -87,7 +86,7 @@
     },
     {
       "letter": "c",
-      "prompt": "At what time t, for 0 £ t £ 8, is the greatest number of fish in the lake? Justify your answer.",
+      "prompt": "At what time $t$, for $0 \\leq t \\leq 8$, is the greatest number of fish in the lake? Justify your answer.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -96,11 +95,11 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Correct identification of extremum or critical value",
+          "description": "Correct identification that the number of fish is increasing when $E(t) > L(t)$ and decreasing when $E(t) < L(t)$, with the critical value at $t$ where $E(t) = L(t)$",
           "alternatives": [
             {
               "required_elements": [
-                "Critical point analysis or sign change"
+                "Sets $E(t) = L(t)$ to find critical point, or identifies that $E(t) - L(t)$ changes sign"
               ]
             }
           ]
@@ -108,11 +107,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Correct justification using first derivative test",
+          "description": "Correct identification of the critical time $t \\approx 6.532$ hours where $E(t) - L(t)$ changes from positive to negative",
           "alternatives": [
             {
               "required_elements": [
-                "Sign analysis of f'(t)"
+                "$t \\approx 6.532$ (or equivalent value where $E(t) = L(t)$)"
               ]
             }
           ]
@@ -120,11 +119,11 @@
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "Correct maximum/minimum value",
+          "description": "Correct conclusion: the greatest number of fish is in the lake at time $t \\approx 6.532$ hours, with justification that $E(t) - L(t) > 0$ for $0 < t < 6.532$ and $E(t) - L(t) < 0$ for $6.532 < t \\leq 8$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct numerical value"
+                "$t \\approx 6.532$ with sign analysis showing $E(t) - L(t)$ changes from positive to negative"
               ]
             }
           ]
@@ -133,7 +132,7 @@
     },
     {
       "letter": "d",
-      "prompt": "Is the rate of change in the number of fish in the lake increasing or decreasing at 5 A.M. ( t = 5 ) ? Explain\nyour reasoning.",
+      "prompt": "Is the rate of change in the number of fish in the lake increasing or decreasing at 5 A.M. ($t = 5$)? Explain your reasoning.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -142,11 +141,11 @@
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "Correct average value or rate integral",
+          "description": "Correct method: compute $\\frac{d}{dt}[E(t) - L(t)]$ at $t = 5$, or compute $E'(5) - L'(5)$",
           "alternatives": [
             {
               "required_elements": [
-                "$\\frac{1}{b-a}\\int_a^b f\\, dt$"
+                "$E'(5) - L'(5)$ computed, or derivative of $E(t) - L(t)$ evaluated at $t = 5$"
               ]
             }
           ]
@@ -154,11 +153,11 @@
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "Correct answer",
+          "description": "Correct conclusion: the rate of change is decreasing at $t = 5$ because $E'(5) - L'(5) < 0$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct numerical value"
+                "Decreasing, with $E'(5) - L'(5) \\approx -4.600 < 0$ (or equivalent negative value)"
               ]
             }
           ]

@@ -3,7 +3,7 @@
   "subject": "ap-calculus-bc",
   "year": 2014,
   "source": "released",
-  "title": "Rate & Accumulation (Riemann Sums)",
+  "title": "Grass Clippings Decomposition (Exponential Model)",
   "frq_type": "multi_part_math",
   "related_units": [
     2,
@@ -12,26 +12,26 @@
   ],
   "calculator_allowed": true,
   "total_points": 9,
-  "stimulus": "Grass clippings are placed in a bin, where they decompose. For 0 (cid:133) t (cid:133) 30, the amount of grass clippings\nremaining in the bin is modeled by A(cid:11)t(cid:12) (cid:32) 6.687(cid:11)0.931(cid:12)t , where A",
+  "stimulus": "Grass clippings are placed in a bin, where they decompose. For $0 \\leq t \\leq 30$, the amount of grass clippings remaining in the bin is modeled by $A(t) = 6.687(0.931)^t$, where $A(t)$ is measured in pounds and $t$ is measured in days.",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Find the average rate of change of A(cid:11)t(cid:12) over the interval 0 (cid:133) t (cid:133) 30. Indicate units of measure.",
+      "prompt": "Find the average rate of change of $A(t)$ over the interval $0 \\leq t \\leq 30$. Indicate units of measure.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "Answer must include correct units (pounds per day).",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 1",
+          "description": "Correct average rate of change with units",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 1"
+                "$\\dfrac{A(30) - A(0)}{30 - 0} = \\dfrac{6.687(0.931)^{30} - 6.687}{30} \\approx -0.197$ pounds per day"
               ]
             }
           ]
@@ -40,20 +40,20 @@
     },
     {
       "letter": "b",
-      "prompt": "Find the value of A(cid:132)(cid:11)15(cid:12). Using correct units, interpret the meaning of the value in the context of the\nproblem.",
+      "prompt": "Find the value of $A'(15)$. Using correct units, interpret the meaning of the value in the context of the problem.",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "One point for correct numerical value; one point for correct interpretation with units.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 1",
+          "description": "Correct numerical value of $A'(15)$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 1"
+                "$A'(15) = 6.687(0.931)^{15} \\ln(0.931) \\approx -0.197$ pounds per day"
               ]
             }
           ]
@@ -61,11 +61,11 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 2",
+          "description": "Correct interpretation with units",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 2"
+                "At $t = 15$ days, the amount of grass clippings in the bin is decreasing at a rate of approximately $0.197$ pounds per day"
               ]
             }
           ]
@@ -74,20 +74,20 @@
     },
     {
       "letter": "c",
-      "prompt": "Find the time t for which the amount of grass clippings in the bin is equal to the average amount of grass\nclippings in the bin over the interval 0 (cid:133) t (cid:133) 30.",
+      "prompt": "Find the time $t$ for which the amount of grass clippings in the bin is equal to the average amount of grass clippings in the bin over the interval $0 \\leq t \\leq 30$.",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "One point for setting up the average value integral; one point for correct answer.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 1",
+          "description": "Correct setup of average value expression",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 1"
+                "Average value $= \\dfrac{1}{30} \\displaystyle\\int_0^{30} 6.687(0.931)^t \\, dt$"
               ]
             }
           ]
@@ -95,11 +95,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 2",
+          "description": "Correct value of $t$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 2"
+                "$A(t) = \\dfrac{1}{30} \\displaystyle\\int_0^{30} 6.687(0.931)^t \\, dt \\approx 2.848$ pounds, so $t \\approx 12.415$ days"
               ]
             }
           ]
@@ -108,20 +108,20 @@
     },
     {
       "letter": "d",
-      "prompt": "For t (cid:33) 30, L(cid:11)t(cid:12), the linear approximation to A at t (cid:32) 30, is a better model for the amount of grass\nclippings remaining in the bin. Use L(cid:11)t(cid:12) to predict the time at which there will be 0.5 pound of grass\nclippings remaining in the bin. Show the work that leads to your answer.",
+      "prompt": "For $t > 30$, $L(t)$, the linear approximation to $A$ at $t = 30$, is a better model for the amount of grass clippings remaining in the bin. Use $L(t)$ to predict the time at which there will be $0.5$ pound of grass clippings remaining in the bin. Show the work that leads to your answer.",
       "point_value": 4,
-      "scoring_notes": null,
+      "scoring_notes": "One point each for: $A(30)$, $A'(30)$, correct linear approximation $L(t)$, correct predicted time.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 1",
+          "description": "Correct value of $A(30)$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 1"
+                "$A(30) = 6.687(0.931)^{30} \\approx 0.845$ pounds"
               ]
             }
           ]
@@ -129,11 +129,11 @@
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 2",
+          "description": "Correct value of $A'(30)$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 2"
+                "$A'(30) = 6.687(0.931)^{30} \\ln(0.931) \\approx -0.058$ pounds per day"
               ]
             }
           ]
@@ -141,11 +141,11 @@
         {
           "point_id": "d3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 3",
+          "description": "Correct linear approximation $L(t)$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 3"
+                "$L(t) = A(30) + A'(30)(t - 30) \\approx 0.845 - 0.058(t - 30)$"
               ]
             }
           ]
@@ -153,11 +153,11 @@
         {
           "point_id": "d4",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 4",
+          "description": "Correct predicted time when $L(t) = 0.5$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 4"
+                "$0.5 = 0.845 - 0.058(t - 30)$, so $t \\approx 35.884$ days"
               ]
             }
           ]

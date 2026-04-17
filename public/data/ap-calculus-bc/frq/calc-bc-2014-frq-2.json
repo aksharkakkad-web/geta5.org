@@ -3,7 +3,7 @@
   "subject": "ap-calculus-bc",
   "year": 2014,
   "source": "released",
-  "title": "Polar Curves & Area",
+  "title": "Polar Curves: Area and Rate of Change",
   "frq_type": "multi_part_math",
   "related_units": [
     1,
@@ -14,26 +14,26 @@
   ],
   "calculator_allowed": true,
   "total_points": 9,
-  "stimulus": "The graphs of the polar curves r (cid:32) 3 and r (cid:32) 3(cid:16) 2sin(cid:11)2q(cid:12) are shown in the figure above for 0 (cid:133) q (cid:133) p.",
+  "stimulus": "The graphs of the polar curves $r = 3$ and $r = 3 - 2\\sin(2\\theta)$ are shown in the figure for $0 \\leq \\theta \\leq \\pi$.",
   "stimulus_image": "/data/ap-calculus-bc/frq/images/calc-bc-2014-frq-2-stimulus.png",
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Let R be the shaded region that is inside the graph of r (cid:32) 3 and inside the graph of r (cid:32) 3(cid:16) 2sin(cid:11)2q(cid:12). Find\nthe area of R.\ndx p",
+      "prompt": "Let $R$ be the shaded region that is inside the graph of $r = 3$ and inside the graph of $r = 3 - 2\\sin(2\\theta)$, for $0 \\leq \\theta \\leq \\pi$. Find the area of $R$.",
       "point_value": 3,
-      "scoring_notes": null,
+      "scoring_notes": "The shaded region is where $r = 3 - 2\\sin(2\\theta) \\leq 3$, i.e., where $\\sin(2\\theta) \\geq 0$, which occurs on $[0, \\pi/2]$ and $[\\pi, \\pi]$ within $[0,\\pi]$. The area integral uses $r = 3 - 2\\sin(2\\theta)$ on those subintervals and $r = 3$ elsewhere.",
       "requires_drawing": true,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 1",
+          "description": "Correct identification of limits and which curve bounds the region",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 1"
+                "Recognizes $r = 3 - 2\\sin(2\\theta) \\leq 3$ when $\\sin(2\\theta) \\geq 0$, i.e., on $[0, \\tfrac{\\pi}{2}]$"
               ]
             }
           ]
@@ -41,11 +41,11 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 2",
+          "description": "Correct area integral set up",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 2"
+                "Area $= \\dfrac{1}{2}\\displaystyle\\int_0^{\\pi/2}(3-2\\sin(2\\theta))^2\\,d\\theta + \\dfrac{1}{2}\\displaystyle\\int_{\\pi/2}^{\\pi} 9\\,d\\theta$"
               ]
             }
           ]
@@ -53,11 +53,11 @@
         {
           "point_id": "a3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 3",
+          "description": "Correct numerical answer",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 3"
+                "Area $\\approx 10.370$"
               ]
             }
           ]
@@ -66,20 +66,20 @@
     },
     {
       "letter": "b",
-      "prompt": "For the curve r (cid:32) 3(cid:16) 2sin(cid:11)2q(cid:12), find the value of at q (cid:32) .\ndq 6\np",
-      "point_value": 2,
-      "scoring_notes": null,
+      "prompt": "For the curve $r = 3 - 2\\sin(2\\theta)$, find the value of $\\dfrac{dy}{dx}$ at $\\theta = \\dfrac{\\pi}{6}$.",
+      "point_value": 3,
+      "scoring_notes": "Use parametric form $x = r\\cos\\theta$, $y = r\\sin\\theta$ and differentiate.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct arc length or distance integral",
+          "description": "Correct expressions for $\\dfrac{dx}{d\\theta}$ and $\\dfrac{dy}{d\\theta}$",
           "alternatives": [
             {
               "required_elements": [
-                "$\\int \\sqrt{(x')^2+(y')^2}\\, dt$"
+                "$\\dfrac{dx}{d\\theta} = \\dfrac{dr}{d\\theta}\\cos\\theta - r\\sin\\theta$, $\\dfrac{dy}{d\\theta} = \\dfrac{dr}{d\\theta}\\sin\\theta + r\\cos\\theta$, where $\\dfrac{dr}{d\\theta} = -4\\cos(2\\theta)$"
               ]
             }
           ]
@@ -87,11 +87,23 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct distance value",
+          "description": "Correct evaluation at $\\theta = \\pi/6$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct numerical answer"
+                "Substitutes $\\theta = \\dfrac{\\pi}{6}$, $r = 3 - 2\\sin\\!\\left(\\dfrac{\\pi}{3}\\right) = 3 - \\sqrt{3}$, $\\dfrac{dr}{d\\theta} = -4\\cos\\!\\left(\\dfrac{\\pi}{3}\\right) = -2$ correctly"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "b3",
+          "point_value": 1,
+          "description": "Correct numerical value of $\\dfrac{dy}{dx}$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$\\dfrac{dy}{dx}\\bigg|_{\\theta=\\pi/6} \\approx -2.366$ (or exact equivalent)"
               ]
             }
           ]
@@ -100,32 +112,20 @@
     },
     {
       "letter": "c",
-      "prompt": "The distance between the two curves changes for 0 (cid:31) q (cid:31) . Find the rate at which the distance between\np\nthe two curves is changing with respect to q when q (cid:32) .\ndq",
-      "point_value": 2,
-      "scoring_notes": null,
+      "prompt": "The distance between the two curves changes for $0 < \\theta < \\dfrac{\\pi}{2}$. Find the rate at which the distance between the two curves is changing with respect to $\\theta$ when $\\theta = \\dfrac{\\pi}{3}$.",
+      "point_value": 1,
+      "scoring_notes": "The radial distance between curves is $D(\\theta) = 3 - (3 - 2\\sin(2\\theta)) = 2\\sin(2\\theta)$ for $0 < \\theta < \\pi/2$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 1",
+          "description": "Correct rate of change of distance",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 1"
-              ]
-            }
-          ]
-        },
-        {
-          "point_id": "c2",
-          "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 2",
-          "alternatives": [
-            {
-              "required_elements": [
-                "Correct response for part (c), point 2"
+                "$D(\\theta) = 2\\sin(2\\theta)$, $D'(\\theta) = 4\\cos(2\\theta)$, $D'\\!\\left(\\dfrac{\\pi}{3}\\right) = 4\\cos\\!\\left(\\dfrac{2\\pi}{3}\\right) = -2$"
               ]
             }
           ]
@@ -134,20 +134,20 @@
     },
     {
       "letter": "d",
-      "prompt": "A particle is moving along the curve r (cid:32) 3 (cid:16) 2sin(cid:11)2q(cid:12) so that (cid:32) 3 for all times t (cid:149) 0. Find the value\ndt\ndr p\nof at q (cid:32) .\ndt",
+      "prompt": "A particle is moving along the curve $r = 3 - 2\\sin(2\\theta)$ so that $\\dfrac{d\\theta}{dt} = 3$ for all times $t \\geq 0$. Find the value of $\\dfrac{dr}{dt}$ at $\\theta = \\dfrac{\\pi}{3}$.",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "Apply chain rule: $\\dfrac{dr}{dt} = \\dfrac{dr}{d\\theta} \\cdot \\dfrac{d\\theta}{dt}$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "Correct analysis (direction, area, or other)",
+          "description": "Correct application of chain rule",
           "alternatives": [
             {
               "required_elements": [
-                "Correct method applied"
+                "$\\dfrac{dr}{dt} = \\dfrac{dr}{d\\theta} \\cdot \\dfrac{d\\theta}{dt} = -4\\cos(2\\theta) \\cdot 3$"
               ]
             }
           ]
@@ -155,11 +155,11 @@
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "Correct answer or interval with reason",
+          "description": "Correct numerical answer",
           "alternatives": [
             {
               "required_elements": [
-                "Correct reasoning"
+                "$\\dfrac{dr}{dt}\\bigg|_{\\theta=\\pi/3} = -4\\cos\\!\\left(\\dfrac{2\\pi}{3}\\right) \\cdot 3 = -4\\!\\left(-\\tfrac{1}{2}\\right)\\!(3) = 6$"
               ]
             }
           ]

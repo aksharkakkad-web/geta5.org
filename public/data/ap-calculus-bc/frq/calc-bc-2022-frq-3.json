@@ -3,7 +3,7 @@
   "subject": "ap-calculus-bc",
   "year": 2022,
   "source": "released",
-  "title": "Rate & Accumulation (Riemann Sums)",
+  "title": "Function Analysis with Graph of Derivative",
   "frq_type": "multi_part_math",
   "related_units": [
     1,
@@ -13,26 +13,26 @@
   ],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": "Let f be a differentiable function with f (4) = 3. On the interval 0 £ x £ 7, the graph of f ¢, the derivative\nof f , consists of a semicircle and two line segments, as shown in the figure above.",
+  "stimulus": "Let $f$ be a differentiable function with $f(4) = 3$. On the interval $0 \\leq x \\leq 7$, the graph of $f'$, the derivative of $f$, consists of a semicircle and two line segments, as shown in the figure.\n\nFrom the graph of $f'$:\n- On $[0, 2]$: $f'$ is a line segment from $(0, -4)$ to $(2, 0)$.\n- On $[2, 6]$: $f'$ is a semicircle centered at $(4, 0)$ with radius $2$ (above the $x$-axis, so $f'(x) \\geq 0$).\n- On $[6, 7]$: $f'$ is a line segment from $(6, 0)$ to $(7, 2)$.",
   "stimulus_image": "/data/ap-calculus-bc/frq/images/calc-bc-2022-frq-3-stimulus.png",
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Find f (0) and f (5) .",
+      "prompt": "Find $f(0)$ and $f(5)$.",
       "point_value": 3,
-      "scoring_notes": "must be labeled as either f (0) or f (5) in order to earn any points.",
+      "scoring_notes": "Responses must be labeled as either $f(0)$ or $f(5)$ to earn the corresponding points. Use the Fundamental Theorem of Calculus with the given value $f(4) = 3$ and the geometric areas under the graph of $f'$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 1",
+          "description": "Correctly uses FTC to compute $f(0)$. The integral $\\displaystyle\\int_{0}^{4} f'(x)\\,dx$ equals the signed area under $f'$ from $0$ to $4$: the triangle on $[0,2]$ contributes $-\\frac{1}{2}(2)(4) = -4$ (since $f' < 0$ there), and the left half of the semicircle on $[2,4]$ contributes $\\frac{1}{2}\\pi(2)^2 \\cdot \\frac{1}{2} = \\pi$. Wait — the full semicircle area is $\\frac{1}{2}\\pi r^2 = 2\\pi$, and the left half from $[2,4]$ is $\\pi$. Thus $\\displaystyle\\int_0^4 f'\\,dx = -4 + \\pi$, so $f(0) = f(4) - \\displaystyle\\int_0^4 f'\\,dx = 3 - (-4 + \\pi) = 7 - \\pi$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 1"
+                "$f(0) = 7 - \\pi$"
               ]
             }
           ]
@@ -40,11 +40,11 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 2",
+          "description": "Correctly computes $f(5)$ using $f(5) = f(4) + \\displaystyle\\int_{4}^{5} f'(x)\\,dx$. On $[2,6]$, $f'(x) = \\sqrt{4-(x-4)^2}$. So $\\displaystyle\\int_4^5 \\sqrt{4-(x-4)^2}\\,dx = \\int_0^1 \\sqrt{4-u^2}\\,du = \\left[\\frac{u}{2}\\sqrt{4-u^2}+2\\arcsin\\frac{u}{2}\\right]_0^1 = \\frac{\\sqrt{3}}{2}+\\frac{\\pi}{3}$. Therefore $f(5) = 3 + \\dfrac{\\sqrt{3}}{2} + \\dfrac{\\pi}{3}$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 2"
+                "$f(5) = 3 + \\dfrac{\\sqrt{3}}{2} + \\dfrac{\\pi}{3}$"
               ]
             }
           ]
@@ -52,11 +52,11 @@
         {
           "point_id": "a3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 3",
+          "description": "Both $f(0) = 7 - \\pi$ and $f(5) = 3 + \\dfrac{\\sqrt{3}}{2} + \\dfrac{\\pi}{3}$ are correct and clearly labeled.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 3"
+                "Both values correctly computed and labeled"
               ]
             }
           ]
@@ -65,20 +65,20 @@
     },
     {
       "letter": "b",
-      "prompt": "Find the x-coordinates of all points of inflection of the graph of f for 0 < x < 7. Justify your answer.",
+      "prompt": "Find the $x$-coordinates of all points of inflection of the graph of $f$ for $0 < x < 7$. Justify your answer.",
       "point_value": 2,
       "scoring_notes": null,
-      "requires_drawing": true,
+      "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct answer",
+          "description": "Identifies $x = 4$ and $x = 6$ as the inflection points. At $x = 4$, $f'$ is at its maximum (top of the semicircle), so $f''$ changes from positive to negative. At $x = 6$, $f'$ changes from decreasing (on the semicircle) to increasing (on the line segment), so $f''$ changes from negative to positive.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "$x = 4$ and $x = 6$"
               ]
             }
           ]
@@ -86,11 +86,11 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct justification",
+          "description": "Justifies using the sign change of $f''$: at $x = 4$, $f'' = f'' $ changes from positive to negative (since $f'$ changes from increasing to decreasing at the top of the semicircle); at $x = 6$, $f''$ changes from negative to positive (since $f'$ changes from decreasing to increasing). No other sign changes of $f''$ occur on $(0,7)$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct justification"
+                "$f''$ changes sign at $x = 4$ (from $+$ to $-$) and at $x = 6$ (from $-$ to $+$)"
               ]
             }
           ]
@@ -99,7 +99,7 @@
     },
     {
       "letter": "c",
-      "prompt": "Let g be the function defined by g(x ) = f (x ) − x. On what intervals, if any, is g decreasing for\n0 £ x £ 7 ? Show the analysis that leads to your answer.",
+      "prompt": "Let $g$ be the function defined by $g(x) = f(x) - x$. On what intervals, if any, is $g$ decreasing for $0 \\leq x \\leq 7$? Show the analysis that leads to your answer.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -108,11 +108,11 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Correct answer",
+          "description": "Computes $g'(x) = f'(x) - 1$ and sets $g'(x) < 0$, i.e., finds where $f'(x) < 1$. On $[0,2]$: $f'$ goes from $-4$ to $0$, so $f'(x) < 1$ throughout. On $[2,6]$: $f'(x) = \\sqrt{4-(x-4)^2} = 1$ gives $x = 4 \\pm \\sqrt{3}$, so $f'(x) < 1$ for $x \\in [2, 4-\\sqrt{3})$ and $(4+\\sqrt{3}, 6]$. On $[6,7]$: $f'(x) = 2(x-6)$, so $f'(x) = 1$ at $x = \\dfrac{13}{2}$, and $f'(x) < 1$ for $x \\in [6, \\frac{13}{2})$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "Sets $g'(x) = f'(x) - 1 < 0$, i.e., finds where $f'(x) < 1$"
               ]
             }
           ]
@@ -120,11 +120,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Correct answer with reason",
+          "description": "$g$ is decreasing on $\\left[0,\\, 4-\\sqrt{3}\\right]$ and $\\left[4+\\sqrt{3},\\, \\dfrac{13}{2}\\right]$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer with reason"
+                "$g$ is decreasing on $\\left[0,\\, 4-\\sqrt{3}\\right]$ and $\\left[4+\\sqrt{3},\\, \\dfrac{13}{2}\\right]$"
               ]
             }
           ]
@@ -133,7 +133,7 @@
     },
     {
       "letter": "d",
-      "prompt": "For the function g defined in part (c), find the absolute minimum value on the interval 0 £ x £ 7. Justify\nyour answer.\n__________________________________________________________\nWrite your responses to this question only on the designated pages in the separate Free Response\nbooklet. Write your solution to each part in the space provided for that part.\nt\n03 7 10 12\n(days)\nr¢(t)\n−6.1 −5.0 −4.4 −3.8 −3.5\n(centimeters per day)",
+      "prompt": "For the function $g$ defined in part (c), find the absolute minimum value on the interval $0 \\leq x \\leq 7$. Justify your answer.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -142,11 +142,11 @@
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "Considers ′gx",
+          "description": "Considers all critical points of $g$ on $[0,7]$ (where $g'(x) = f'(x) - 1 = 0$): $x = 4-\\sqrt{3}$, $x = 4+\\sqrt{3}$, and $x = \\dfrac{13}{2}$, as well as the endpoints $x = 0$ and $x = 7$. Evaluates or compares $g$ at each candidate point using $g(x) = f(x) - x$ and $f(4) = 3$.",
           "alternatives": [
             {
               "required_elements": [
-                "Considers ′gx"
+                "Identifies all critical points and endpoints and evaluates $g$ at each"
               ]
             }
           ]
@@ -154,11 +154,11 @@
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "Correct justification",
+          "description": "Correct absolute minimum with justification. Since $g$ decreases on $[4+\\sqrt{3}, \\frac{13}{2}]$ and increases on $[\\frac{13}{2}, 7]$, the local minimum at $x = \\frac{13}{2}$ is a candidate. Using $f(6) = f(4) + \\displaystyle\\int_4^6 f'\\,dx = 3 + \\pi$ (full semicircle area $= 2\\pi$, half from $4$ to $6$) and $f\\!\\left(\\frac{13}{2}\\right) = f(6) + \\displaystyle\\int_6^{13/2} 2(x-6)\\,dx = 3 + \\pi + \\frac{1}{4}$, so $g\\!\\left(\\frac{13}{2}\\right) = 3 + \\pi + \\frac{1}{4} - \\frac{13}{2} = \\pi - \\frac{13}{4}$. Comparing with other candidates confirms this is the absolute minimum.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct justification"
+                "Absolute minimum value is $\\pi - \\dfrac{13}{4}$, occurring at $x = \\dfrac{13}{2}$"
               ]
             }
           ]

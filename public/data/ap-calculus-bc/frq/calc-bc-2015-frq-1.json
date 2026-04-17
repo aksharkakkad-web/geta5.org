@@ -3,7 +3,7 @@
   "subject": "ap-calculus-bc",
   "year": 2015,
   "source": "released",
-  "title": "Rate & Accumulation (Riemann Sums)",
+  "title": "Rate & Accumulation (Drainpipe)",
   "frq_type": "multi_part_math",
   "related_units": [
     5,
@@ -11,13 +11,13 @@
   ],
   "calculator_allowed": true,
   "total_points": 9,
-  "stimulus": "The rate at which rainwater flows into a drainpipe is modeled by the function R, where R(cid:11)t(cid:12) (cid:32) 20sin\n(cid:201) (cid:202)35(cid:217)\n(cid:218)\ncubic feet per hour, t is measured in hours, and 0 (cid:133) t (cid:133) 8. The pipe is partially blocked, allowing water to drain\nout the other end of the pipe at a rate modeled by D(cid:11)t(cid:12) (cid:32) (cid:16)0.04t3 (cid:14) 0.4t2 (cid:14) 0.96t cubic feet per hour, for\n0 (cid:133) t (cid:133) 8. There are 30 cubic feet of water in the pipe at time t (cid:32) 0.",
+  "stimulus": "The rate at which rainwater flows into a drainpipe is modeled by the function $R$, where $R(t) = 20\\sin\\left(\\dfrac{t^2}{35}\\right)$ cubic feet per hour, $t$ is measured in hours, and $0 \\leq t \\leq 8$. The pipe is partially blocked, allowing water to drain out the other end of the pipe at a rate modeled by $D(t) = -0.04t^3 + 0.4t^2 + 0.96t$ cubic feet per hour, for $0 \\leq t \\leq 8$. There are 30 cubic feet of water in the pipe at time $t = 0$.",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "How many cubic feet of rainwater flow into the pipe during the 8-hour time interval 0 (cid:133) t (cid:133) 8?",
+      "prompt": "How many cubic feet of rainwater flow into the pipe during the 8-hour time interval $0 \\leq t \\leq 8$? Indicate units of measure.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -26,11 +26,11 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct estimate or setup with supporting work",
+          "description": "Correct integral setup: $\\int_0^8 R(t)\\,dt$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct computation shown"
+                "$\\int_0^8 20\\sin\\!\\left(\\dfrac{t^2}{35}\\right)dt$"
               ]
             }
           ]
@@ -38,12 +38,11 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Correct interpretation or answer with units",
+          "description": "Correct answer with units: approximately $76.570$ cubic feet",
           "alternatives": [
             {
               "required_elements": [
-                "Correct units",
-                "Correct context statement"
+                "$\\approx 76.570$ cubic feet"
               ]
             }
           ]
@@ -52,7 +51,7 @@
     },
     {
       "letter": "b",
-      "prompt": "Is the amount of water in the pipe increasing or decreasing at time t (cid:32) 3 hours? Give a reason for your\nanswer.",
+      "prompt": "Is the amount of water in the pipe increasing or decreasing at time $t = 3$ hours? Give a reason for your answer.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -61,11 +60,16 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 1",
+          "description": "Correct evaluation: $R(3) \\approx 20\\sin\\!\\left(\\frac{9}{35}\\right) \\approx 4.963$ and $D(3) = -0.04(27) + 0.4(9) + 0.96(3) = -1.08 + 3.6 + 2.88 = 5.4$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 1"
+                "$R(3) \\approx 4.963$ and $D(3) = 5.4$"
+              ]
+            },
+            {
+              "required_elements": [
+                "Evaluates $R(3) - D(3) < 0$"
               ]
             }
           ]
@@ -73,11 +77,12 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 2",
+          "description": "Correct conclusion: the amount of water is decreasing because $R(3) < D(3)$, so water is leaving faster than it enters",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 2"
+                "Decreasing",
+                "$R(3) < D(3)$ or $R(3) - D(3) < 0$"
               ]
             }
           ]
@@ -86,7 +91,7 @@
     },
     {
       "letter": "c",
-      "prompt": "At what time t, 0 (cid:133) t (cid:133) 8, is the amount of water in the pipe at a minimum? Justify your answer.",
+      "prompt": "At what time $t$, $0 \\leq t \\leq 8$, is the amount of water in the pipe at a minimum? Justify your answer.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -95,11 +100,12 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Correct identification of extremum or critical value",
+          "description": "Sets $R(t) = D(t)$ and identifies critical points in $[0, 8]$; the relevant critical point is $t \\approx 3.272$",
           "alternatives": [
             {
               "required_elements": [
-                "Critical point analysis or sign change"
+                "$R(t) - D(t) = 0$ solved on $[0,8]$",
+                "Critical point near $t \\approx 3.272$ identified"
               ]
             }
           ]
@@ -107,11 +113,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Correct justification using first derivative test",
+          "description": "Correct sign analysis: $R(t) - D(t) < 0$ for $t < 3.272$ (water decreasing) and $R(t) - D(t) > 0$ for $t > 3.272$ (water increasing), so the amount changes from decreasing to increasing at $t \\approx 3.272$",
           "alternatives": [
             {
               "required_elements": [
-                "Sign analysis of f'(t)"
+                "Sign change of $R(t) - D(t)$ from negative to positive at $t \\approx 3.272$"
               ]
             }
           ]
@@ -119,11 +125,11 @@
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "Correct maximum/minimum value",
+          "description": "Correct minimum value: amount of water at $t \\approx 3.272$ is $30 + \\int_0^{3.272}\\left[R(t) - D(t)\\right]dt \\approx 27.964$ cubic feet",
           "alternatives": [
             {
               "required_elements": [
-                "Correct numerical value"
+                "$\\approx 27.964$ cubic feet"
               ]
             }
           ]
@@ -132,7 +138,7 @@
     },
     {
       "letter": "d",
-      "prompt": "The pipe can hold 50 cubic feet of water before overflowing. For t (cid:33) 8, water continues to flow into and out\nof the pipe at the given rates until the pipe begins to overflow. Write, but do not solve, an equation involving\none or more integrals that gives the time w when the pipe will begin to overflow.",
+      "prompt": "The pipe can hold 50 cubic feet of water before overflowing. For $t > 8$, water continues to flow into and out of the pipe at the given rates until the pipe begins to overflow. Write, but do not solve, an equation involving one or more integrals that gives the time $w$ when the pipe will begin to overflow.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -141,11 +147,11 @@
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "Correct average value or rate integral",
+          "description": "Correct accumulation equation using the net rate from $t = 0$ to $t = w$, equated to 50",
           "alternatives": [
             {
               "required_elements": [
-                "$\\frac{1}{b-a}\\int_a^b f\\, dt$"
+                "$30 + \\int_0^{w}\\left[R(t) - D(t)\\right]dt = 50$"
               ]
             }
           ]
@@ -153,11 +159,12 @@
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "Correct answer",
+          "description": "Correct structure: initial amount plus net accumulation equals 50, with $w > 8$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct numerical value"
+                "Equation correctly equated to $50$",
+                "$w > 8$ implied or stated"
               ]
             }
           ]

@@ -13,13 +13,13 @@
   ],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": "At time t = 0, a boiled potato is taken from a pot on a stove and left to cool in a kitchen. The internal\ntemperature of the potato is 91 degrees Celsius (°C) at time t = 0, and the internal temperature of the potato\nis greater than 27 °C for all times t > 0. The internal temperature of the potato at time t minutes can be\ndH 1\nmodeled by the function H that satisfies the differential equation = − (H − 27 ) , where H",
+  "stimulus": "At time $t = 0$, a boiled potato is taken from a pot on a stove and left to cool in a kitchen. The internal temperature of the potato is $91$ degrees Celsius ($^\\circ$C) at time $t = 0$, and the internal temperature of the potato is greater than $27^\\circ$C for all times $t > 0$. The internal temperature of the potato at time $t$ minutes can be modeled by the function $H$ that satisfies the differential equation $$\\frac{dH}{dt} = -\\frac{1}{4}(H - 27),$$ where $H(t)$ is measured in degrees Celsius and $H(0) = 91$.",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Write an equation for the line tangent to the graph of H at t = 0. Use this equation to approximate the\ninternal temperature of the potato at time t = 3.\nd H",
+      "prompt": "Write an equation for the line tangent to the graph of $H$ at $t = 0$. Use this equation to approximate the internal temperature of the potato at time $t = 3$.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": true,
@@ -28,44 +28,48 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 1",
+          "description": "Computes $\\frac{dH}{dt}\\big|_{t=0}$ correctly using the differential equation with $H(0) = 91$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 1"
+                "$\\frac{dH}{dt}\\big|_{t=0} = -\\frac{1}{4}(91 - 27) = -16$"
               ]
             }
-          ]
+          ],
+          "correct_example": "$\\frac{dH}{dt}\\big|_{t=0} = -\\frac{1}{4}(91 - 27) = -\\frac{1}{4}(64) = -16$"
         },
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 2",
+          "description": "Writes correct tangent line equation",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 2"
+                "$H \\approx 91 - 16t$",
+                "$H - 91 = -16(t - 0)$"
               ]
             }
-          ]
+          ],
+          "correct_example": "Tangent line: $H = 91 - 16t$"
         },
         {
           "point_id": "a3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 3",
+          "description": "Uses the tangent line to approximate $H(3)$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 3"
+                "$H(3) \\approx 91 - 16(3) = 43$"
               ]
             }
-          ]
+          ],
+          "correct_example": "$H(3) \\approx 91 - 16(3) = 91 - 48 = 43^\\circ$C"
         }
       ]
     },
     {
       "letter": "b",
-      "prompt": "Use to determine whether your answer in part (a) is an underestimate or an overestimate of the\ndt\ninternal temperature of the potato at time t = 3.",
+      "prompt": "Use $\\frac{d^2H}{dt^2}$ to determine whether your answer in part (a) is an underestimate or an overestimate of the internal temperature of the potato at time $t = 3$.",
       "point_value": 1,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -74,33 +78,35 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 1",
+          "description": "States overestimate with correct reasoning using the second derivative. Since $\\frac{d^2H}{dt^2} = -\\frac{1}{4}\\frac{dH}{dt} = \\frac{1}{16}(H - 27) > 0$, the graph of $H$ is concave up, so the tangent line lies below the curve and gives an underestimate.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 1"
+                "$\\frac{d^2H}{dt^2} = -\\frac{1}{4}\\cdot\\frac{dH}{dt} = \\frac{1}{16}(H-27) > 0$",
+                "Graph of $H$ is concave up, so tangent line gives underestimate"
               ]
             }
-          ]
+          ],
+          "correct_example": "$\\frac{d^2H}{dt^2} = -\\frac{1}{4}\\cdot(-\\frac{1}{4}(H-27)) = \\frac{1}{16}(H-27)$. Since $H > 27$ for all $t > 0$, $\\frac{d^2H}{dt^2} > 0$, so $H$ is concave up and the tangent line approximation is an underestimate."
         }
       ]
     },
     {
       "letter": "c",
-      "prompt": "For t < 10, an alternate model for the internal temperature of the potato at time t minutes is the function\nG that satisfies the differential equation dG = −(G − 27)2 /3 , w here G(t)is measured in degrees Celsius\ndt\nand G(0 ) = 91. Fin d an expression for G(t). Based on this model, what is the internal temperature of the\npotato at time t = 3 ?",
+      "prompt": "For $t < 10$, an alternate model for the internal temperature of the potato at time $t$ minutes is the function $G$ that satisfies the differential equation $$\\frac{dG}{dt} = -(G - 27)^{2/3},$$ where $G(t)$ is measured in degrees Celsius and $G(0) = 91$. Find an expression for $G(t)$. Based on this model, what is the internal temperature of the potato at time $t = 3$?",
       "point_value": 5,
-      "scoring_notes": "Note: max 2 5 [ 1-1-0-0-0] if no constant Note: 0 5 if no separation of variables",
+      "scoring_notes": "Note: max 2/5 [1-1-0-0-0] if no constant of integration. Note: 0/5 if no separation of variables.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 1",
+          "description": "Correctly separates variables: $(G-27)^{-2/3}\\,dG = -dt$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 1"
+                "$(G-27)^{-2/3}\\,dG = -\\,dt$"
               ]
             }
           ]
@@ -108,50 +114,58 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 2",
+          "description": "Correctly integrates both sides: $3(G-27)^{1/3} = -t + C$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 2"
+                "$3(G-27)^{1/3} = -t + C$",
+                "$(G-27)^{1/3} = \\frac{-t+C}{3}$"
               ]
             }
-          ]
+          ],
+          "correct_example": "$\\int (G-27)^{-2/3}\\,dG = \\int -\\,dt \\Rightarrow 3(G-27)^{1/3} = -t + C$"
         },
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 3",
+          "description": "Applies initial condition $G(0) = 91$ to find $C$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 3"
+                "$3(91-27)^{1/3} = C$",
+                "$3(64)^{1/3} = C$",
+                "$C = 12$"
               ]
             }
-          ]
+          ],
+          "correct_example": "$3(91-27)^{1/3} = C \\Rightarrow 3 \\cdot 4 = 12$, so $C = 12$"
         },
         {
           "point_id": "c4",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 4",
+          "description": "Solves for $G(t)$ explicitly",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 4"
+                "$G(t) = 27 + \\left(\\frac{12-t}{3}\\right)^3$",
+                "$G(t) = \\left(\\frac{12-t}{3}\\right)^3 + 27$"
               ]
             }
-          ]
+          ],
+          "correct_example": "$3(G-27)^{1/3} = 12 - t \\Rightarrow (G-27)^{1/3} = \\frac{12-t}{3} \\Rightarrow G(t) = 27 + \\left(\\frac{12-t}{3}\\right)^3$"
         },
         {
           "point_id": "c5",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 5",
+          "description": "Correct temperature at $t = 3$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 5"
+                "$G(3) = 27 + \\left(\\frac{9}{3}\\right)^3 = 27 + 27 = 54$"
               ]
             }
-          ]
+          ],
+          "correct_example": "$G(3) = 27 + \\left(\\frac{12-3}{3}\\right)^3 = 27 + 3^3 = 27 + 27 = 54^\\circ$C"
         }
       ]
     }

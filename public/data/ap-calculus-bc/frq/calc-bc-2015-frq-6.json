@@ -13,13 +13,13 @@
   ],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": "The Maclaurin series for a function f is given by (cid:199) xn (cid:32) x (cid:16) x2 (cid:14) 3x3 (cid:16)(cid:14) xn (cid:14) and\nn 2 n\nn(cid:32)1\nconverges to f(cid:11)x(cid:12) for x (cid:31) R, where R is the radius of convergence of the Maclaurin series.",
+  "stimulus": "The Maclaurin series for a function $f$ is given by $\\sum_{n=1}^{\\infty} \\dfrac{(-1)^{n+1}}{n \\cdot 2^n} x^n = \\dfrac{x}{2} - \\dfrac{x^2}{8} + \\dfrac{x^3}{24} - \\dfrac{x^4}{64} + \\cdots + \\dfrac{(-1)^{n+1}}{n \\cdot 2^n} x^n + \\cdots$ and converges to $f(x)$ for $|x| < R$, where $R$ is the radius of convergence of the Maclaurin series.",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Use the ratio test to find R.",
+      "prompt": "Use the ratio test to find $R$, the radius of convergence of the Maclaurin series for $f$.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -28,43 +28,35 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct separation of variables",
+          "description": "Correct ratio test setup: $\\lim_{n \\to \\infty} \\left|\\dfrac{a_{n+1}}{a_n}\\right| = \\lim_{n \\to \\infty} \\left|\\dfrac{x^{n+1}}{(n+1) \\cdot 2^{n+1}} \\cdot \\dfrac{n \\cdot 2^n}{x^n}\\right|$",
           "alternatives": [
             {
               "required_elements": [
-                "Variables correctly separated"
+                "$\\lim_{n \\to \\infty} \\left|\\dfrac{n \\cdot x}{2(n+1)}\\right|$"
               ]
             }
-          ],
-          "common_traps": [
-            "Failing to separate — earns 0 for integration"
           ]
         },
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Correct antiderivatives with constant of integration",
+          "description": "Correct simplification of the limit: $\\lim_{n \\to \\infty} \\dfrac{n}{n+1} \\cdot \\dfrac{|x|}{2} = \\dfrac{|x|}{2}$",
           "alternatives": [
             {
               "required_elements": [
-                "Both sides integrated correctly",
-                "+C present"
+                "$\\dfrac{|x|}{2} < 1$"
               ]
             }
-          ],
-          "common_traps": [
-            "Missing +C"
           ]
         },
         {
           "point_id": "a3",
           "point_value": 1,
-          "description": "Initial condition applied; correct particular solution",
+          "description": "Correct conclusion: series converges when $\\dfrac{|x|}{2} < 1$, i.e., $|x| < 2$, so $R = 2$",
           "alternatives": [
             {
               "required_elements": [
-                "IC substituted",
-                "Particular solution solved for $y$"
+                "$R = 2$"
               ]
             }
           ]
@@ -73,7 +65,7 @@
     },
     {
       "letter": "b",
-      "prompt": "Write the first four nonzero terms of the Maclaurin series for f(cid:132), the derivative of f. Express f(cid:132) as a\nrational function for x (cid:31) R.",
+      "prompt": "Write the first four nonzero terms of the Maclaurin series for $f'$, the derivative of $f$. Express $f'(x)$ as a rational function for $|x| < R$.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -82,11 +74,11 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 1",
+          "description": "Differentiates the given series term-by-term: $f'(x) = \\dfrac{1}{2} - \\dfrac{x}{4} + \\dfrac{x^2}{8} - \\dfrac{x^3}{16} + \\cdots$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 1"
+                "$f'(x) = \\dfrac{1}{2} - \\dfrac{x}{4} + \\dfrac{x^2}{8} - \\dfrac{x^3}{16} + \\cdots$"
               ]
             }
           ]
@@ -94,11 +86,11 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 2",
+          "description": "Recognizes this as a geometric series with first term $\\frac{1}{2}$ and ratio $-\\frac{x}{2}$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 2"
+                "Identifies geometric series with ratio $-\\dfrac{x}{2}$"
               ]
             }
           ]
@@ -106,11 +98,11 @@
         {
           "point_id": "b3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 3",
+          "description": "Correct closed form: $f'(x) = \\dfrac{1/2}{1 + x/2} = \\dfrac{1}{2 + x}$ for $|x| < 2$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 3"
+                "$f'(x) = \\dfrac{1}{x + 2}$"
               ]
             }
           ]
@@ -119,7 +111,7 @@
     },
     {
       "letter": "c",
-      "prompt": "Write the first four nonzero terms of the Maclaurin series for ex. Use the Maclaurin series for ex to write\nthe third-degree Taylor polynomial for g(cid:11)x(cid:12) (cid:32) exf(cid:11)x(cid:12) about x (cid:32) 0.\nSTOP\nEND OF EXAM",
+      "prompt": "Write the first four nonzero terms of the Maclaurin series for $e^x$. Use the Maclaurin series for $e^x$ to write the third-degree Taylor polynomial for $g(x) = e^x f(x)$ about $x = 0$.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -128,11 +120,11 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 1",
+          "description": "Correct first four terms of the Maclaurin series for $e^x$: $1 + x + \\dfrac{x^2}{2} + \\dfrac{x^3}{6} + \\cdots$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 1"
+                "$e^x = 1 + x + \\dfrac{x^2}{2!} + \\dfrac{x^3}{3!} + \\cdots$"
               ]
             }
           ]
@@ -140,11 +132,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 2",
+          "description": "Multiplies $e^x$ series by $f(x)$ series and collects terms through degree 3: $g(x) = e^x f(x) = \\left(1 + x + \\dfrac{x^2}{2} + \\dfrac{x^3}{6} + \\cdots\\right)\\left(\\dfrac{x}{2} - \\dfrac{x^2}{8} + \\dfrac{x^3}{24} - \\cdots\\right)$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 2"
+                "Product of $e^x$ and $f(x)$ series set up correctly through degree 3"
               ]
             }
           ]
@@ -152,11 +144,11 @@
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 3",
+          "description": "Correct third-degree polynomial: $P_3(x) = \\dfrac{x}{2} + \\dfrac{3x^2}{8} + \\dfrac{x^3}{6}$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 3"
+                "$\\dfrac{x}{2} + \\dfrac{3x^2}{8} + \\dfrac{x^3}{6}$"
               ]
             }
           ]

@@ -3,7 +3,7 @@
   "subject": "ap-calculus-bc",
   "year": 2023,
   "source": "released",
-  "title": "Rate & Accumulation (Riemann Sums)",
+  "title": "Area, Improper Integral, and Integration by Parts",
   "frq_type": "multi_part_math",
   "related_units": [
     1,
@@ -12,150 +12,187 @@
   ],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": "The graphs of the functions f and g are shown in the figure for 0 £ x £ 3. It is known that g",
+  "stimulus": "The graphs of the functions $f$ and $g$ are shown in the figure for $0 \\leq x \\leq 3$. It is known that $g(x) = \\dfrac{1}{x^2}$ for $x > 0$. The region $S$ is enclosed by the graphs of $f$ and $g$ and the vertical lines $x = 1$ and $x = 3$. Selected values of $f$ are given in the table below.\n\n| $x$ | $1$ | $2$ | $3$ |\n|---|---|---|---|\n| $f(x)$ | $1$ | $\\dfrac{1}{2}$ | $\\dfrac{1}{3}$ |\n\nIt is also known that $f(x) = \\dfrac{1}{x}$ for $x > 0$.",
   "stimulus_image": "/data/ap-calculus-bc/frq/images/calc-bc-2023-frq-5-stimulus.png",
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Find the area of the shaded region enclosed by the graphs of f and g.\n∞",
+      "prompt": "Find the area of the region $S$ enclosed by the graphs of $f$ and $g$ for $1 \\leq x \\leq 3$.",
       "point_value": 3,
-      "scoring_notes": null,
+      "scoring_notes": "Area $= \\displaystyle\\int_1^3 \\left(f(x) - g(x)\\right)dx = \\int_1^3 \\left(\\dfrac{1}{x} - \\dfrac{1}{x^2}\\right)dx$. Antiderivative: $\\ln x + \\dfrac{1}{x}\\Big|_1^3 = \\left(\\ln 3 + \\dfrac{1}{3}\\right) - (\\ln 1 + 1) = \\ln 3 + \\dfrac{1}{3} - 1 = \\ln 3 - \\dfrac{2}{3}$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct integrand",
+          "description": "Correct integrand with correct orientation: $\\displaystyle\\int_1^3 \\left(\\dfrac{1}{x} - \\dfrac{1}{x^2}\\right)dx$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct integrand"
+                "$\\displaystyle\\int_1^3 \\left(f(x) - g(x)\\right)dx$",
+                "Limits $1$ to $3$ with $f$ on top"
               ]
             }
           ],
           "common_traps": [
-            "Using incorrect integrand or missing factor"
+            "Reversing $f$ and $g$ in the integrand",
+            "Using incorrect limits of integration"
           ]
         },
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "⌡ Antiderivative of",
+          "description": "Correct antiderivative: $\\ln x + \\dfrac{1}{x}$.",
           "alternatives": [
             {
               "required_elements": [
-                "⌡ Antiderivative of"
+                "$\\ln x + \\dfrac{1}{x}$"
+              ]
+            },
+            {
+              "required_elements": [
+                "$\\ln|x| + \\dfrac{1}{x}$"
               ]
             }
+          ],
+          "common_traps": [
+            "Antidifferentiating $\\dfrac{1}{x^2}$ as $\\ln(x^2)$ instead of $-\\dfrac{1}{x}$",
+            "Sign error on the antiderivative of $-\\dfrac{1}{x^2}$"
           ]
         },
         {
           "point_id": "a3",
           "point_value": 1,
-          "description": "Correct answer",
+          "description": "Correct answer: $\\ln 3 - \\dfrac{2}{3}$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "$\\ln 3 - \\dfrac{2}{3}$"
               ]
             }
+          ],
+          "common_traps": [
+            "Arithmetic error when evaluating at the bounds",
+            "Forgetting that $\\ln 1 = 0$"
           ]
         }
       ]
     },
     {
       "letter": "b",
-      "prompt": "Evaluate the improper integral ∫ (g(x)) dx, or show that the integral diverges.",
+      "prompt": "Evaluate $\\displaystyle\\int_1^{\\infty} g(x)\\,dx$, or show that the integral diverges.",
       "point_value": 3,
-      "scoring_notes": null,
+      "scoring_notes": "$\\displaystyle\\int_1^{\\infty} \\dfrac{1}{x^2}\\,dx = \\lim_{b \\to \\infty} \\int_1^b \\dfrac{1}{x^2}\\,dx = \\lim_{b \\to \\infty} \\left[-\\dfrac{1}{x}\\right]_1^b = \\lim_{b \\to \\infty} \\left(-\\dfrac{1}{b} + 1\\right) = 0 + 1 = 1$. The integral converges to $1$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Limit notation",
+          "description": "Correct limit notation to convert the improper integral: $\\displaystyle\\lim_{b \\to \\infty} \\int_1^b \\dfrac{1}{x^2}\\,dx$.",
           "alternatives": [
             {
               "required_elements": [
-                "Limit notation"
+                "$\\displaystyle\\lim_{b \\to \\infty} \\int_1^b g(x)\\,dx$"
               ]
             }
+          ],
+          "common_traps": [
+            "Not writing the limit — treating the improper integral as a definite integral with $\\infty$ as an endpoint",
+            "Using incorrect lower bound"
           ]
         },
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct antiderivative",
+          "description": "Correct antiderivative: $-\\dfrac{1}{x}$ (i.e., $-x^{-1}$).",
           "alternatives": [
             {
               "required_elements": [
-                "Correct antiderivative"
+                "$-\\dfrac{1}{x}$"
               ]
             }
           ],
           "common_traps": [
-            "Missing +C"
+            "Using $\\ln x$ as the antiderivative of $x^{-2}$ (confusing with $x^{-1}$)",
+            "Incorrect power rule — getting $-\\dfrac{1}{2x^2}$ or similar"
           ]
         },
         {
           "point_id": "b3",
           "point_value": 1,
-          "description": "Correct answer",
+          "description": "Correct evaluation and answer: $\\displaystyle\\lim_{b \\to \\infty}\\left(-\\dfrac{1}{b}+1\\right) = 1$. The integral converges to $1$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "$\\displaystyle\\lim_{b \\to \\infty}\\left(-\\dfrac{1}{b}+1\\right) = 1$"
               ]
             }
+          ],
+          "common_traps": [
+            "Concluding the limit is $0$ instead of $1$ (forgetting to subtract the lower bound value)",
+            "Stating the integral diverges when it converges"
           ]
         }
       ]
     },
     {
       "letter": "c",
-      "prompt": "Let h be the function defined by h(x ) = x ◊ f ¢(x). Find the value of ∫ h(x) dx.\n__________________________________________________________\nWrite your responses to this question only on the designated pages in the separate Free Response\nbooklet. Write your solution to each part in the space provided for that part.",
+      "prompt": "Let $h$ be the function defined by $h(x) = x \\cdot f'(x)$. Find the value of $\\displaystyle\\int_1^3 h(x)\\,dx$.",
       "point_value": 3,
-      "scoring_notes": null,
+      "scoring_notes": "$h(x) = x \\cdot f'(x) = x \\cdot \\left(-\\dfrac{1}{x^2}\\right) = -\\dfrac{1}{x}$, but the problem intends integration by parts. Using IBP with $u = x$ and $dv = f'(x)\\,dx$, so $du = dx$ and $v = f(x)$: $\\displaystyle\\int_1^3 x\\,f'(x)\\,dx = \\left[x\\,f(x)\\right]_1^3 - \\int_1^3 f(x)\\,dx = \\left(3 \\cdot \\dfrac{1}{3} - 1 \\cdot 1\\right) - \\int_1^3 \\dfrac{1}{x}\\,dx = (1 - 1) - \\left[\\ln x\\right]_1^3 = 0 - \\ln 3 = -\\ln 3$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "u and dv",
+          "description": "Correct integration by parts setup: $u = x$, $dv = f'(x)\\,dx$, giving $\\displaystyle\\int_1^3 x\\,f'(x)\\,dx = \\left[x\\,f(x)\\right]_1^3 - \\int_1^3 f(x)\\,dx$.",
           "alternatives": [
             {
               "required_elements": [
-                "u and dv"
+                "Integration by parts: $u = x$, $dv = f'(x)\\,dx$",
+                "$\\left[x\\,f(x)\\right]_1^3 - \\displaystyle\\int_1^3 f(x)\\,dx$"
               ]
             }
+          ],
+          "common_traps": [
+            "Choosing $u = f'(x)$ and $dv = x\\,dx$ (leads to a more complicated integral)",
+            "Not applying the boundary term correctly"
           ]
         },
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "xfx fxd x",
+          "description": "Correct evaluation of the boundary term: $\\left[x\\,f(x)\\right]_1^3 = 3\\,f(3) - 1\\,f(1) = 3 \\cdot \\dfrac{1}{3} - 1 \\cdot 1 = 1 - 1 = 0$.",
           "alternatives": [
             {
               "required_elements": [
-                "xfx fxd x"
+                "$3\\,f(3) - f(1) = 3\\cdot\\tfrac{1}{3} - 1 = 0$"
               ]
             }
+          ],
+          "common_traps": [
+            "Misreading $f(1)$ or $f(3)$ from the table",
+            "Failing to evaluate the boundary term at both endpoints"
           ]
         },
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "Correct answer",
+          "description": "Correct final answer: $-\\ln 3$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "$0 - \\displaystyle\\int_1^3 \\dfrac{1}{x}\\,dx = -\\ln 3$"
               ]
             }
+          ],
+          "common_traps": [
+            "Sign error — writing $\\ln 3$ instead of $-\\ln 3$",
+            "Forgetting that $\\ln 1 = 0$"
           ]
         }
       ]

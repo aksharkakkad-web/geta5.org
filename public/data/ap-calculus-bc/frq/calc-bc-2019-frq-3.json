@@ -3,7 +3,7 @@
   "subject": "ap-calculus-bc",
   "year": 2019,
   "source": "released",
-  "title": "Integration & Accumulation",
+  "title": "Graph Analysis & Accumulation Function",
   "frq_type": "multi_part_math",
   "related_units": [
     1,
@@ -13,13 +13,13 @@
   ],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": "The continuous function f is defined on the closed interval − 6 £ x £ 5. The figure above shows a portion of\nthe graph of f, consisting of two line segments and a quarter of a circle centered at the point ( 5, 3 ). Iti s\nknown that the point ( 3, 3 − 5 )is on the graph of f.\n5 −",
+  "stimulus": "The continuous function $f$ is defined on the closed interval $-6 \\leq x \\leq 5$. The figure above shows a portion of the graph of $f$, consisting of two line segments and a quarter of a circle centered at the point $(5, 3)$. It is known that the point $\\left(3, 3 + \\sqrt{5}\\right)$ is on the graph of $f$.",
   "stimulus_image": "/data/ap-calculus-bc/frq/images/calc-bc-2019-frq-3-stimulus.png",
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "If ∫ f ( x ) d x = 7, find the value of ∫ f ( x ) d x. Show the work that leads to your answer.\n−6 −",
+      "prompt": "If $\\int_{-6}^{5} f(x)\\,dx = 7$, find the value of $\\int_{-6}^{-2} f(x)\\,dx$. Show the work that leads to your answer.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -28,11 +28,11 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 1",
+          "description": "Correct computation of $\\int_{-2}^{3} f(x)\\,dx$ using the two line segments visible on the graph (a triangle and a trapezoid, or equivalent geometric areas)",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 1"
+                "Geometric computation of $\\int_{-2}^{3} f(x)\\,dx$ from the graph"
               ]
             }
           ]
@@ -40,11 +40,11 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 2",
+          "description": "Correct computation of $\\int_{3}^{5} f(x)\\,dx$ using the quarter-circle area: $\\frac{1}{4}\\pi(2)^2 = \\pi$ (quarter circle of radius 2, but the quarter circle is below the value at the center, so the signed area must be computed correctly)",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 2"
+                "Geometric computation of $\\int_{3}^{5} f(x)\\,dx$ from the quarter-circle portion"
               ]
             }
           ]
@@ -52,11 +52,11 @@
         {
           "point_id": "a3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 3",
+          "description": "Correct final answer using $\\int_{-6}^{-2} f(x)\\,dx = \\int_{-6}^{5} f(x)\\,dx - \\int_{-2}^{3} f(x)\\,dx - \\int_{3}^{5} f(x)\\,dx = 7 - \\int_{-2}^{3} f(x)\\,dx - \\int_{3}^{5} f(x)\\,dx$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 3"
+                "Correct numerical value using additivity of definite integrals"
               ]
             }
           ]
@@ -65,7 +65,7 @@
     },
     {
       "letter": "b",
-      "prompt": "Evaluate ∫ ( 2f¢ ( x ) + 4 ) dx .\nx",
+      "prompt": "Evaluate $\\int_{-2}^{3} \\left(2f'(x) + 4\\right) dx$.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -74,11 +74,11 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct relative extremum analysis",
+          "description": "Correct use of FTC and linearity: $\\int_{-2}^{3} \\left(2f'(x) + 4\\right)dx = 2[f(3) - f(-2)] + 4(3-(-2)) = 2[f(3) - f(-2)] + 20$",
           "alternatives": [
             {
               "required_elements": [
-                "$g' = f$ changes sign at extremum"
+                "$2f(3) - 2f(-2) + 20$ with $f(3)$ and $f(-2)$ read from graph"
               ]
             }
           ]
@@ -86,11 +86,11 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct classification with justification",
+          "description": "Correct final numerical answer (reading $f(-2)$ and $f(3)$ from the graph correctly and computing $2[f(3) - f(-2)] + 20$)",
           "alternatives": [
             {
               "required_elements": [
-                "Type of extremum with sign analysis"
+                "Correct numerical value with $f(3)$ and $f(-2)$ substituted from the graph"
               ]
             }
           ]
@@ -99,7 +99,7 @@
     },
     {
       "letter": "c",
-      "prompt": "The function g is given by g ( x ) = ∫ f ( t ) d t. Find the absolute maximum value of g on the interval\n− 2\n− 2 £ x £ 5. Justify your answer.\nx − ( )\n10 3f¢ x",
+      "prompt": "The function $g$ is given by $g(x) = \\int_{-2}^{x} f(t)\\,dt$. Find the absolute maximum value of $g$ on the interval $-2 \\leq x \\leq 5$. Justify your answer.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -108,11 +108,11 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 1",
+          "description": "Correct identification that $g'(x) = f(x)$, and finding where $f(x) = 0$ on $[-2, 5]$ to identify critical points of $g$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 1"
+                "$g'(x) = f(x)$; critical point(s) where $f(x) = 0$"
               ]
             }
           ]
@@ -120,11 +120,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 2",
+          "description": "Correct evaluation of $g$ at all critical points and endpoints ($x = -2, x = 5$, and any interior zeros of $f$), computing the accumulated area in each case",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 2"
+                "Values of $g$ computed at critical points and endpoints via accumulated area"
               ]
             }
           ]
@@ -132,11 +132,11 @@
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 3",
+          "description": "Correct identification of the absolute maximum value of $g$ on $[-2, 5]$ with justification comparing all candidate values",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 3"
+                "Absolute maximum value stated with comparison of all candidates"
               ]
             }
           ]
@@ -145,7 +145,7 @@
     },
     {
       "letter": "d",
-      "prompt": "Find lim .\n( ) −\nx→1 f x arctan x",
+      "prompt": "Find $\\displaystyle\\lim_{x \\to 1} \\frac{f(x) - f(1)}{\\arctan(x) - \\arctan(1)}$.",
       "point_value": 1,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -154,11 +154,11 @@
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "Correct tangent line or value",
+          "description": "Correct answer using the chain rule / L'Hopital interpretation: the limit equals $\\frac{f'(1)}{1/(1+1^2)} = f'(1) \\cdot 2 = 2f'(1)$, where $f'(1)$ is the slope of $f$ at $x = 1$ read from the graph",
           "alternatives": [
             {
               "required_elements": [
-                "Correct slope and point"
+                "$\\lim_{x\\to 1}\\frac{f(x)-f(1)}{\\arctan(x)-\\arctan(1)} = \\frac{f'(1)}{\\frac{1}{1+1^2}} = 2f'(1)$, with correct numerical answer"
               ]
             }
           ]

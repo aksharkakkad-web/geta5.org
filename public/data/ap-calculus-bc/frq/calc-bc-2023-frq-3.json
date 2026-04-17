@@ -3,7 +3,7 @@
   "subject": "ap-calculus-bc",
   "year": 2023,
   "source": "released",
-  "title": "Polar Curves & Area",
+  "title": "Differential Equation — Milk Warming",
   "frq_type": "multi_part_math",
   "related_units": [
     2,
@@ -14,157 +14,205 @@
   ],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": "A bottle of milk is taken out of a refrigerator and placed in a pan of hot water to be warmed. The increasing\nfunction M models the temperature of the milk at time t, where M",
+  "stimulus": "A bottle of milk is taken out of a refrigerator and placed in a pan of hot water to be warmed. The function $M$ models the temperature of the milk, where $M(t)$ is measured in degrees Celsius ($^\\circ\\text{C}$) and $t$ is measured in minutes. $M$ satisfies the differential equation $\\dfrac{dM}{dt} = \\dfrac{1}{4}(40 - M)$, and $M(0) = 5$.",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "A slope field for the differential equation = (40 − M)is shown. Sketch the solution curve through\ndt 4\nthe point (0, 5).",
+      "prompt": "A slope field for the differential equation $\\dfrac{dM}{dt} = \\dfrac{1}{4}(40 - M)$ is shown. Sketch the solution curve through the point $(0, 5)$.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "The solution curve must pass through $(0, 5)$, be increasing and concave down (since $M(0) = 5 < 40$ so $dM/dt > 0$ and the curve approaches the equilibrium at $M = 40$ asymptotically), and follow the slope field directions.",
       "requires_drawing": true,
       "reference_image": "/data/ap-calculus-bc/frq/images/calc-bc-2023-frq-3-a-ref.png",
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct solution curve on slope field",
+          "description": "Solution curve passes through $(0, 5)$, is increasing and concave down, approaches the horizontal asymptote $M = 40$ from below, and is consistent with the slope field.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct solution curve on slope field"
+                "Curve passes through $(0, 5)$",
+                "Curve is increasing throughout",
+                "Curve is concave down and approaches $M = 40$ asymptotically",
+                "Curve matches the slope field directions"
               ]
             }
+          ],
+          "common_traps": [
+            "Drawing a curve that crosses $M = 40$",
+            "Drawing a curve that is concave up",
+            "Not passing through $(0, 5)$"
           ]
         }
       ]
     },
     {
       "letter": "b",
-      "prompt": "Use the line tangent to the graph of M at t = 0 to approximate M(2), the temperature of the milk at\ntime t = 2 minutes.\n2 2\nd M d M",
+      "prompt": "Use the line tangent to the graph of $M$ at $t = 0$ to approximate $M(2)$, the temperature of the milk at time $t = 2$ minutes.",
       "point_value": 2,
-      "scoring_notes": null,
-      "requires_drawing": true,
+      "scoring_notes": "At $t = 0$: $M(0) = 5$ and $\\dfrac{dM}{dt}\\bigg|_{t=0} = \\dfrac{1}{4}(40 - 5) = \\dfrac{35}{4}$. Tangent line: $M \\approx 5 + \\dfrac{35}{4}(t - 0)$. At $t = 2$: $M(2) \\approx 5 + \\dfrac{35}{4}(2) = 5 + \\dfrac{35}{2} = 5 + 17.5 = 22.5^\\circ\\text{C}$.",
+      "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "tdMdt",
+          "description": "Correct slope of tangent line at $t = 0$: $\\dfrac{dM}{dt}\\bigg|_{t=0} = \\dfrac{1}{4}(40 - 5) = \\dfrac{35}{4}$.",
           "alternatives": [
             {
               "required_elements": [
-                "tdMdt"
+                "$\\dfrac{dM}{dt}\\bigg|_{t=0} = \\dfrac{1}{4}(40 - 5) = \\dfrac{35}{4}$"
               ]
             }
+          ],
+          "common_traps": [
+            "Using $M(0) = 40$ instead of $5$",
+            "Using $\\dfrac{dM}{dt}$ at a value other than $t = 0$"
           ]
         },
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct numerical approximation",
+          "description": "Correct approximation: $M(2) \\approx 5 + \\dfrac{35}{4}(2) = \\dfrac{45}{2} = 22.5^\\circ\\text{C}$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct numerical approximation"
+                "$M(2) \\approx 22.5$"
               ]
             }
+          ],
+          "common_traps": [
+            "Arithmetic error when multiplying slope by $\\Delta t = 2$"
           ]
         }
       ]
     },
     {
       "letter": "c",
-      "prompt": "Write an expression for in terms of M . Use to determine whether the approximation from\n2 2\ndt dt\npart (b) is an underestimate or an overestimate for the actual value of M(2). Give a reason for your answer.",
+      "prompt": "Write an expression for $\\dfrac{d^2M}{dt^2}$ in terms of $M$. Use $\\dfrac{d^2M}{dt^2}$ to determine whether the approximation from part (b) is an underestimate or an overestimate for the actual value of $M(2)$. Give a reason for your answer.",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "$\\dfrac{d^2M}{dt^2} = \\dfrac{d}{dt}\\!\\left[\\dfrac{1}{4}(40-M)\\right] = -\\dfrac{1}{4}\\dfrac{dM}{dt} = -\\dfrac{1}{4}\\cdot\\dfrac{1}{4}(40-M) = -\\dfrac{1}{16}(40-M)$. Since $M < 40$ (the temperature is below the water temperature), $\\dfrac{d^2M}{dt^2} = -\\dfrac{1}{16}(40-M) < 0$, so $M$ is concave down. Therefore the tangent line lies above the curve, and the approximation is an overestimate.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 1",
+          "description": "Correct expression: $\\dfrac{d^2M}{dt^2} = -\\dfrac{1}{16}(40 - M)$ (or equivalently $-\\dfrac{1}{4}\\cdot\\dfrac{dM}{dt}$).",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 1"
+                "$\\dfrac{d^2M}{dt^2} = -\\dfrac{1}{16}(40-M)$"
+              ]
+            },
+            {
+              "required_elements": [
+                "$\\dfrac{d^2M}{dt^2} = -\\dfrac{1}{4}\\cdot\\dfrac{dM}{dt} = -\\dfrac{1}{4}\\cdot\\dfrac{1}{4}(40-M)$"
               ]
             }
+          ],
+          "common_traps": [
+            "Forgetting the chain rule (not multiplying by $-1$)",
+            "Leaving the answer in terms of $\\dfrac{dM}{dt}$ rather than simplifying to $M$"
           ]
         },
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 2",
+          "description": "Correct conclusion with reasoning: Since $M(t) < 40$ for $t$ near $0$, $\\dfrac{d^2M}{dt^2} < 0$, so $M$ is concave down. A tangent line to a concave down function lies above the curve, so the approximation is an overestimate.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 2"
+                "$\\dfrac{d^2M}{dt^2} < 0$ (concave down) because $M < 40$",
+                "Overestimate — tangent line is above a concave down curve"
               ]
             }
+          ],
+          "common_traps": [
+            "Stating 'underestimate' when the curve is concave down",
+            "Not justifying with concavity"
           ]
         }
       ]
     },
     {
       "letter": "d",
-      "prompt": "Use separation of variables to find an expression for M(t), the particular solution to the differential\ndM 1\nequation = (40 − M) with initial condition M(0) = 5.\ndt 4\n__________________________________________________________\nWrite your responses to this question only on the designated pages in the separate Free Response\nbooklet. Write your solution to each part in the space provided for that part.",
+      "prompt": "Use separation of variables to find an expression for $M(t)$, the particular solution to the differential equation $\\dfrac{dM}{dt} = \\dfrac{1}{4}(40 - M)$ with initial condition $M(0) = 5$.",
       "point_value": 4,
-      "scoring_notes": null,
+      "scoring_notes": "Separate: $\\dfrac{dM}{40-M} = \\dfrac{1}{4}\\,dt$. Integrate: $-\\ln|40-M| = \\dfrac{t}{4} + C$. At $t=0$, $M=5$: $-\\ln(35) = C$. So $-\\ln|40-M| = \\dfrac{t}{4} - \\ln 35$, giving $\\ln|40-M| = \\ln 35 - \\dfrac{t}{4}$, hence $40-M = 35e^{-t/4}$, and $M(t) = 40 - 35e^{-t/4}$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "−⌠ ⌠⌡ ⌡ Separat es variables",
+          "description": "Correctly separates variables: $\\dfrac{dM}{40-M} = \\dfrac{1}{4}\\,dt$.",
           "alternatives": [
             {
               "required_elements": [
-                "−⌠ ⌠⌡ ⌡ Separat es variables"
+                "$\\dfrac{1}{40-M}\\,dM = \\dfrac{1}{4}\\,dt$"
               ]
             }
+          ],
+          "common_traps": [
+            "Algebraic error in separating variables",
+            "Leaving $M$ terms on both sides"
           ]
         },
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "Correct antiderivatives of both sides",
+          "description": "Correct antiderivatives of both sides: $-\\ln|40-M| = \\dfrac{t}{4} + C$ (or equivalent with constant on either side).",
           "alternatives": [
             {
               "required_elements": [
-                "Correct antiderivatives of both sides"
+                "$-\\ln|40-M| = \\dfrac{t}{4} + C$"
+              ]
+            },
+            {
+              "required_elements": [
+                "$\\ln|40-M| = -\\dfrac{t}{4} + C$"
               ]
             }
+          ],
+          "common_traps": [
+            "Missing the negative sign from the chain rule when integrating $\\dfrac{1}{40-M}$",
+            "Omitting the absolute value or constant of integration"
           ]
         },
         {
           "point_id": "d3",
           "point_value": 1,
-          "description": "Correct use of initial condition",
+          "description": "Correct use of initial condition $M(0) = 5$ to find $C = -\\ln(35)$, yielding $40 - M = 35e^{-t/4}$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct use of initial condition"
+                "$M(0) = 5$ substituted",
+                "$C = -\\ln(35)$ or equivalent"
               ]
             }
           ],
           "common_traps": [
-            "Using incorrect initial condition"
+            "Substituting $M(0) = 40$ instead of $5$",
+            "Arithmetic error when solving for $C$"
           ]
         },
         {
           "point_id": "d4",
           "point_value": 1,
-          "description": "− Solves for M",
+          "description": "Correct particular solution solved for $M$: $M(t) = 40 - 35e^{-t/4}$.",
           "alternatives": [
             {
               "required_elements": [
-                "− Solves for M"
+                "$M(t) = 40 - 35e^{-t/4}$"
               ]
             }
+          ],
+          "common_traps": [
+            "Not solving for $M$ explicitly",
+            "Sign error in the exponent"
           ]
         }
       ]

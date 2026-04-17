@@ -3,7 +3,7 @@
   "subject": "ap-calculus-bc",
   "year": 2015,
   "source": "released",
-  "title": "Parametric Equations",
+  "title": "Parametric Equations & Particle Motion",
   "frq_type": "multi_part_math",
   "related_units": [
     2,
@@ -15,13 +15,13 @@
   ],
   "calculator_allowed": true,
   "total_points": 9,
-  "stimulus": "At time t (cid:149) 0, a particle moving along a curve in the xy-plane has position (cid:11)x(cid:11)t(cid:12), y(cid:11)t(cid:12)(cid:12) with velocity vector\nv(cid:11)t(cid:12) (cid:32) (cid:11) cos (cid:11) t2(cid:12) ,e0.5t(cid:12) . At t (cid:32) 1, the particle is at the point (cid:11)3,5(cid:12).",
+  "stimulus": "At time $t \\geq 0$, a particle moving along a curve in the $xy$-plane has position $\\bigl(x(t),\\, y(t)\\bigr)$ with velocity vector $\\mathbf{v}(t) = \\left\\langle \\cos(t^2),\\, e^{0.5t} \\right\\rangle$. At $t = 1$, the particle is at the point $(3, 5)$.",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Find the x-coordinate of the position of the particle at time t (cid:32) 2.",
+      "prompt": "Find the $x$-coordinate of the position of the particle at time $t = 2$.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -30,11 +30,11 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 1",
+          "description": "Correct integral expression for $x(2)$ using the Fundamental Theorem: $x(2) = x(1) + \\int_1^2 \\cos(t^2)\\,dt$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 1"
+                "$x(2) = 3 + \\int_1^2 \\cos(t^2)\\,dt$"
               ]
             }
           ]
@@ -42,11 +42,11 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 2",
+          "description": "Correct numerical evaluation of the integral",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 2"
+                "$\\int_1^2 \\cos(t^2)\\,dt \\approx -0.450$"
               ]
             }
           ]
@@ -54,11 +54,11 @@
         {
           "point_id": "a3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 3",
+          "description": "Correct final answer: $x(2) \\approx 3 + (-0.450) \\approx 2.550$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 3"
+                "$x(2) \\approx 2.550$"
               ]
             }
           ]
@@ -67,7 +67,7 @@
     },
     {
       "letter": "b",
-      "prompt": "For 0 (cid:31) t (cid:31) 1, there is a point on the curve at which the line tangent to the curve has a slope of 2.\nAt what time is the object at that point?",
+      "prompt": "For $0 < t < 1$, there is a point on the curve at which the line tangent to the curve has a slope of $2$. At what time is the particle at that point? Give a decimal approximation.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -76,11 +76,11 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct arc length or distance integral",
+          "description": "Correct slope expression: $\\dfrac{dy}{dx} = \\dfrac{dy/dt}{dx/dt} = \\dfrac{e^{0.5t}}{\\cos(t^2)}$ set equal to $2$",
           "alternatives": [
             {
               "required_elements": [
-                "$\\int \\sqrt{(x')^2+(y')^2}\\, dt$"
+                "$\\dfrac{e^{0.5t}}{\\cos(t^2)} = 2$"
               ]
             }
           ]
@@ -88,11 +88,11 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct distance value",
+          "description": "Correct answer: $t \\approx 0.840$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct numerical answer"
+                "$t \\approx 0.840$"
               ]
             }
           ]
@@ -101,7 +101,7 @@
     },
     {
       "letter": "c",
-      "prompt": "Find the time at which the speed of the particle is 3.",
+      "prompt": "Find the time at which the speed of the particle is $3$. Give a decimal approximation.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -110,11 +110,11 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 1",
+          "description": "Correct speed expression set equal to $3$: $\\sqrt{\\left[\\cos(t^2)\\right]^2 + \\left[e^{0.5t}\\right]^2} = 3$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 1"
+                "$\\sqrt{\\cos^2(t^2) + e^{t}} = 3$"
               ]
             }
           ]
@@ -122,11 +122,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 2",
+          "description": "Correct answer: $t \\approx 2.191$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 2"
+                "$t \\approx 2.191$"
               ]
             }
           ]
@@ -135,7 +135,7 @@
     },
     {
       "letter": "d",
-      "prompt": "Find the total distance traveled by the particle from time t (cid:32) 0 to time t (cid:32) 1.",
+      "prompt": "Find the total distance traveled by the particle from time $t = 0$ to time $t = 1$.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -144,11 +144,11 @@
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "Correct analysis (direction, area, or other)",
+          "description": "Correct arc length integral: $\\int_0^1 \\sqrt{\\cos^2(t^2) + e^{t}}\\,dt$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct method applied"
+                "$\\int_0^1 \\sqrt{\\left[\\cos(t^2)\\right]^2 + \\left(e^{0.5t}\\right)^2}\\,dt$"
               ]
             }
           ]
@@ -156,11 +156,11 @@
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "Correct answer or interval with reason",
+          "description": "Correct numerical answer: $\\approx 1.949$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct reasoning"
+                "$\\approx 1.949$"
               ]
             }
           ]

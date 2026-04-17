@@ -3,22 +3,18 @@
   "subject": "ap-calculus-bc",
   "year": 2018,
   "source": "released",
-  "title": "Taylor / Maclaurin Series",
+  "title": "Maclaurin Series for $f(x) = x\\ln\\!\\left(1 + \\frac{x}{2}\\right)$",
   "frq_type": "multi_part_math",
-  "related_units": [
-    1,
-    9,
-    10
-  ],
+  "related_units": [1, 9, 10],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": "The Maclaurin series for ln ( 1 + x )is given by\n2 3 4 n\nx x x x\nx − + − +  + (− 1 ) n+1 + .\n2 3 4 n\nOn its interval of convergence, this series converges to ln ( 1 + x ). Let f be the function defined by\n( )\nx\nf ( x ) = xln 1 + .",
+  "stimulus": "The Maclaurin series for $\\ln(1 + x)$ is given by\n$$\\ln(1+x) = x - \\frac{x^2}{2} + \\frac{x^3}{3} - \\frac{x^4}{4} + \\cdots + (-1)^{n+1}\\frac{x^n}{n} + \\cdots$$\nThis series converges to $\\ln(1 + x)$ on its interval of convergence. Let $f$ be the function defined by\n$$f(x) = x\\ln\\!\\left(1 + \\frac{x}{2}\\right).$$",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Write the first four nonzero terms and the general term of the Maclaurin series for f.",
+      "prompt": "Write the first four nonzero terms and the general term of the Maclaurin series for $f$.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -27,11 +23,11 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 1",
+          "description": "Substitutes $\\dfrac{x}{2}$ for $x$ in the given series to find $\\ln\\!\\left(1+\\dfrac{x}{2}\\right) = \\dfrac{x}{2} - \\dfrac{1}{2}\\left(\\dfrac{x}{2}\\right)^2 + \\dfrac{1}{3}\\left(\\dfrac{x}{2}\\right)^3 - \\cdots = \\sum_{n=1}^{\\infty}(-1)^{n+1}\\dfrac{x^n}{n \\cdot 2^n}$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 1"
+                "$\\ln\\!\\left(1+\\dfrac{x}{2}\\right) = \\sum_{n=1}^{\\infty} (-1)^{n+1}\\dfrac{x^n}{n \\cdot 2^n}$"
               ]
             }
           ]
@@ -39,11 +35,11 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 2",
+          "description": "Multiplies the series by $x$ to get $f(x) = x\\ln\\!\\left(1+\\dfrac{x}{2}\\right)$. First four nonzero terms and general term:\n$$f(x) = \\frac{x^2}{2} - \\frac{x^3}{8} + \\frac{x^4}{24} - \\frac{x^5}{64} + \\cdots + (-1)^{n+1}\\frac{x^{n+1}}{n \\cdot 2^n} + \\cdots$$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 2"
+                "$\\dfrac{x^2}{2} - \\dfrac{x^3}{8} + \\dfrac{x^4}{24} - \\dfrac{x^5}{64} + \\cdots$; general term $(-1)^{n+1}\\dfrac{x^{n+1}}{n \\cdot 2^n}$ for $n \\geq 1$"
               ]
             }
           ]
@@ -52,7 +48,7 @@
     },
     {
       "letter": "b",
-      "prompt": "Determine the interval of convergence of the Maclaurin series for f. Show the work that leads to your\nanswer.",
+      "prompt": "Determine the interval of convergence of the Maclaurin series for $f$. Show the work that leads to your answer.",
       "point_value": 5,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -61,11 +57,11 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 1",
+          "description": "Applies the Ratio Test: sets up $\\lim_{n\\to\\infty}\\left|\\dfrac{a_{n+1}}{a_n}\\right|$ where $a_n = (-1)^{n+1}\\dfrac{x^{n+1}}{n \\cdot 2^n}$, giving $\\lim_{n\\to\\infty}\\left|\\dfrac{x^{n+2}}{(n+1)\\cdot 2^{n+1}} \\cdot \\dfrac{n \\cdot 2^n}{x^{n+1}}\\right|$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 1"
+                "$\\lim_{n\\to\\infty}\\left|\\dfrac{a_{n+1}}{a_n}\\right|$ set up correctly with general term"
               ]
             }
           ]
@@ -73,11 +69,11 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 2",
+          "description": "Simplifies the ratio correctly: $\\lim_{n\\to\\infty}\\left|\\dfrac{n}{n+1}\\cdot\\dfrac{x}{2}\\right| = \\dfrac{|x|}{2}$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 2"
+                "Limit simplifies to $\\dfrac{|x|}{2}$"
               ]
             }
           ]
@@ -85,11 +81,11 @@
         {
           "point_id": "b3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 3",
+          "description": "Sets $\\dfrac{|x|}{2} < 1$, yielding $|x| < 2$, so the radius of convergence is $R = 2$ and the series converges on $-2 < x < 2$. Endpoints must be checked.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 3"
+                "$|x| < 2$; radius of convergence $R = 2$"
               ]
             }
           ]
@@ -97,11 +93,11 @@
         {
           "point_id": "b4",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 4",
+          "description": "Tests both endpoints: At $x = 2$: $\\sum_{n=1}^{\\infty}(-1)^{n+1}\\dfrac{2^{n+1}}{n \\cdot 2^n} = \\sum_{n=1}^{\\infty}(-1)^{n+1}\\dfrac{2}{n} = 2\\sum_{n=1}^{\\infty}\\dfrac{(-1)^{n+1}}{n}$, which converges by the Alternating Series Test (terms $\\frac{1}{n}$ are decreasing and approach $0$). At $x = -2$: $\\sum_{n=1}^{\\infty}(-1)^{n+1}\\dfrac{(-2)^{n+1}}{n \\cdot 2^n} = \\sum_{n=1}^{\\infty}(-1)^{n+1}\\cdot(-1)^{n+1}\\cdot\\dfrac{2}{n} = -2\\sum_{n=1}^{\\infty}\\dfrac{1}{n}$, which diverges (harmonic series).",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 4"
+                "At $x=2$: $2\\sum\\dfrac{(-1)^{n+1}}{n}$ converges by Alternating Series Test; at $x=-2$: $-2\\sum\\dfrac{1}{n}$ diverges (harmonic series)"
               ]
             }
           ]
@@ -109,11 +105,11 @@
         {
           "point_id": "b5",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 5",
+          "description": "States the correct interval of convergence: $-2 < x \\leq 2$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 5"
+                "$-2 < x \\leq 2$"
               ]
             }
           ]
@@ -122,7 +118,7 @@
     },
     {
       "letter": "c",
-      "prompt": "Let P ( x ) be the fourth-degree Taylor polynomial for f about x = 0 . Use the alternating series error\nbound to find an upper bound for P ( 2 ) − f ( 2 ) .\nSTOP\nEND OF EXAM",
+      "prompt": "Let $P(x)$ be the fourth-degree Taylor polynomial for $f$ about $x = 0$. Use the alternating series error bound to find an upper bound for $|P(2) - f(2)|$.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -131,11 +127,11 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 1",
+          "description": "Identifies $P(x) = \\dfrac{x^2}{2} - \\dfrac{x^3}{8} + \\dfrac{x^4}{24}$ (terms through degree $4$; the degree-$1$ term is $0$, so the fourth-degree polynomial has three nonzero terms). Recognizes that the series for $f$ at $x = 2$ is alternating with terms decreasing in absolute value to $0$, so the alternating series error bound applies: the error $|P(2) - f(2)|$ is bounded by the absolute value of the first omitted term (the $n=4$, degree-$5$ term) evaluated at $x = 2$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 1"
+                "$P(x) = \\dfrac{x^2}{2} - \\dfrac{x^3}{8} + \\dfrac{x^4}{24}$; error $\\leq$ first omitted term at $x = 2$"
               ]
             }
           ]
@@ -143,11 +139,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 2",
+          "description": "Computes the first omitted term at $x = 2$ (the $n = 4$ term of the general series): $\\left|(-1)^{4+1}\\dfrac{2^{4+1}}{4 \\cdot 2^4}\\right| = \\dfrac{2^5}{4 \\cdot 2^4} = \\dfrac{32}{64} = \\dfrac{1}{2}$. Therefore $|P(2) - f(2)| \\leq \\dfrac{1}{2}$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 2"
+                "First omitted term $= \\dfrac{1}{2}$; upper bound $= \\dfrac{1}{2}$"
               ]
             }
           ]

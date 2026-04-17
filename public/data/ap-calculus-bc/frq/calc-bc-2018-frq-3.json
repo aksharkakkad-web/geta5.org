@@ -3,23 +3,18 @@
   "subject": "ap-calculus-bc",
   "year": 2018,
   "source": "released",
-  "title": "Analysis of Functions",
+  "title": "Analysis of $f$ from Graph of $g = f'$",
   "frq_type": "multi_part_math",
-  "related_units": [
-    1,
-    2,
-    5,
-    6
-  ],
+  "related_units": [1, 2, 5, 6],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": "The graph of the continuous function g, the derivative of the function f, is shown above. The function g is\npiecewise linear for − 5 £ x < 3, and g ( x ) = 2 ( x − 4 )2 for 3 £ x £ 6.",
+  "stimulus": "The graph of the continuous function $g$, the derivative of the function $f$, is shown above. The function $g$ is piecewise linear for $-5 \\leq x < 3$, and $g(x) = 2(x - 4)^2$ for $3 \\leq x \\leq 6$.\n\nFrom the graph: $g(-5) = 0$, $g(-3) = 2$, $g(0) = -2$, $g(1) = 0$, $g(3) = 2$. The piecewise linear portions connect these points with straight line segments. Note that $f'(x) = g(x)$.",
   "stimulus_image": "/data/ap-calculus-bc/frq/images/calc-bc-2018-frq-3-stimulus.png",
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "If f ( 1 ) = 3, what is the value of f (− 5 ) ?",
+      "prompt": "If $f(1) = 3$, what is the value of $f(-5)$?",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -28,11 +23,11 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct g-values using area from graph",
+          "description": "Correctly uses the Fundamental Theorem of Calculus: $f(-5) = f(1) - \\int_{-5}^{1} g(x)\\,dx$. Computes $\\int_{-5}^{1} g(x)\\,dx$ as the net signed area under $g$ from $-5$ to $1$ using the triangular regions from the graph: triangle on $[-5,-3]$ above the $x$-axis has area $\\frac{1}{2}(2)(2) = 2$; triangle on $[-3,0]$ below the $x$-axis has area $-\\frac{1}{2}(3)(2) = -3$; triangle on $[0,1]$ below the $x$-axis has area $-\\frac{1}{2}(1)(2) = -1$. Net area $= 2 - 3 - 1 = -2$.",
           "alternatives": [
             {
               "required_elements": [
-                "$g(x_0) = \\int_a^{x_0} f(t)\\, dt$; area from graph"
+                "$\\int_{-5}^{1} g(x)\\,dx = -2$ (correct net signed area from graph)"
               ]
             }
           ]
@@ -40,11 +35,11 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Both values correct",
+          "description": "Correct final answer: $f(-5) = f(1) - \\int_{-5}^{1} g(x)\\,dx = 3 - (-2) = 5$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct numerical values"
+                "$f(-5) = 5$"
               ]
             }
           ]
@@ -53,7 +48,7 @@
     },
     {
       "letter": "b",
-      "prompt": "Evaluate ∫ g ( x ) dx.",
+      "prompt": "Evaluate $\\int_3^6 g(x)\\,dx$.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -62,11 +57,11 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 1",
+          "description": "Sets up the integral using the formula $g(x) = 2(x-4)^2$ on $[3, 6]$: $\\int_3^6 2(x-4)^2\\,dx$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 1"
+                "$\\int_3^6 2(x-4)^2\\,dx$"
               ]
             }
           ]
@@ -74,11 +69,11 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 2",
+          "description": "Finds the correct antiderivative: $\\int 2(x-4)^2\\,dx = \\dfrac{2}{3}(x-4)^3 + C$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 2"
+                "$\\dfrac{2}{3}(x-4)^3\\Big|_3^6$"
               ]
             }
           ]
@@ -86,11 +81,11 @@
         {
           "point_id": "b3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 3",
+          "description": "Correct evaluation: $\\dfrac{2}{3}(6-4)^3 - \\dfrac{2}{3}(3-4)^3 = \\dfrac{2}{3}(8) - \\dfrac{2}{3}(-1) = \\dfrac{16}{3} + \\dfrac{2}{3} = 6$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 3"
+                "$\\dfrac{2}{3}(8) - \\dfrac{2}{3}(-1) = 6$"
               ]
             }
           ]
@@ -99,7 +94,7 @@
     },
     {
       "letter": "c",
-      "prompt": "For − 5 < x < 6, on what open intervals, if any, is the graph of f both increasing and concave up? Give a\nreason for your answer.",
+      "prompt": "For $-5 < x < 6$, on what open intervals, if any, is the graph of $f$ both increasing and concave up? Give a reason for your answer.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": true,
@@ -108,11 +103,11 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 1",
+          "description": "Correctly states the conditions: $f$ is increasing when $f'(x) = g(x) > 0$, and $f$ is concave up when $f''(x) = g'(x) > 0$ (i.e., when $g$ is increasing). From the graph: $g > 0$ on $(-5, -3)$ and on $(1, 6)$. $g$ is increasing on $(-5, -3)$ (slope of the linear piece is positive) and on $(0, 4)$ (slope of linear piece from $0$ to $1$ is positive, then $g'(x) = 4(x-4) < 0$ for $3 < x < 4$ on the parabola — actually $g$ is increasing on $(0,1)$ and on $(4,6)$). The intervals where both conditions hold are where $g > 0$ AND $g$ is increasing.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 1"
+                "$f$ is increasing when $g(x) > 0$; $f$ is concave up when $g'(x) > 0$ (i.e., $g$ is increasing)"
               ]
             }
           ]
@@ -120,11 +115,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 2",
+          "description": "Correct intervals with reason: $(-5, -3)$ and $(4, 6)$. On $(-5,-3)$: $g(x) > 0$ (so $f$ is increasing) and $g$ is increasing (so $f$ is concave up). On $(4,6)$: $g(x) = 2(x-4)^2 > 0$ and $g'(x) = 4(x-4) > 0$ (so $f$ is concave up).",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 2"
+                "Intervals $(-5, -3)$ and $(4, 6)$; $g > 0$ and $g$ is increasing on each interval"
               ]
             }
           ]
@@ -133,7 +128,7 @@
     },
     {
       "letter": "d",
-      "prompt": "Find the x-coordinate of each point of inflection of the graph of f. Give a reason for your answer.",
+      "prompt": "Find the $x$-coordinate of each point of inflection of the graph of $f$. Give a reason for your answer.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": true,
@@ -142,11 +137,11 @@
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 1",
+          "description": "Correctly identifies that inflection points of $f$ occur where $f''(x) = g'(x)$ changes sign, i.e., where $g$ changes from increasing to decreasing or from decreasing to increasing. From the graph: $g$ changes from increasing to decreasing at $x = -3$; $g$ changes from decreasing to increasing at $x = 0$; $g(x) = 2(x-4)^2$ on $[3,6]$ has $g'(x) = 4(x-4)$, which changes sign from negative to positive at $x = 4$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 1"
+                "Inflection points of $f$ occur where $g$ changes monotonicity (where $g'$ changes sign)"
               ]
             }
           ]
@@ -154,11 +149,11 @@
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 2",
+          "description": "Correct $x$-coordinates of inflection points: $x = -3$, $x = 0$, and $x = 4$. At each of these, $g'(x) = f''(x)$ changes sign, so the concavity of $f$ changes.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 2"
+                "$x = -3$, $x = 0$, and $x = 4$"
               ]
             }
           ]

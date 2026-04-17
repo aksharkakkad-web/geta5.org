@@ -13,13 +13,13 @@
   ],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": "The depth of seawater at a location can be modeled by the function H that satisfies the differential equation\ndH 1 (t )\n= (H − 1)c os , where H",
+  "stimulus": "The depth of seawater at a location can be modeled by the function $H$ that satisfies the differential equation\n$$\\frac{dH}{dt} = \\frac{1}{2}(H - 1)\\cos\\!\\left(\\frac{t}{2}\\right),$$\nwhere $H(t)$ is measured in feet and $t$ is measured in hours. At time $t = 0$, $H(0) = 4$.",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "A portion of the slope field for the differential equation is provided. Sketch the solution curve, y = H(t),\nthrough the point (0, 4).",
+      "prompt": "A portion of the slope field for the differential equation $\\dfrac{dH}{dt} = \\dfrac{1}{2}(H-1)\\cos\\!\\left(\\dfrac{t}{2}\\right)$ is provided. Sketch the solution curve $y = H(t)$ through the point $(0, 4)$.",
       "point_value": 1,
       "scoring_notes": null,
       "requires_drawing": true,
@@ -28,11 +28,12 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct solution curve on slope field",
+          "description": "The solution curve must pass through $(0, 4)$ and follow the slope field. At $t = 0$: $\\dfrac{dH}{dt} = \\dfrac{1}{2}(4-1)\\cos(0) = \\dfrac{3}{2} > 0$, so the curve initially increases. Since $\\cos(t/2) = 0$ at $t = \\pi$, the curve reaches a maximum there and then decreases for $\\pi < t < 5$. The curve must be consistent with the given slope field marks.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct solution curve on slope field"
+                "Curve passes through $(0, 4)$",
+                "Curve follows slope field correctly"
               ]
             }
           ]
@@ -41,7 +42,7 @@
     },
     {
       "letter": "b",
-      "prompt": "For 0 < t < 5, it can be shown that H(t) > 1. Find the value of t, for 0 < t < 5, at which H has a critical\npoint. Determine whether the critical point corresponds to a relative minimum, a relative maximum, or\nneither a relative minimum nor a relative maximum of the depth of seawater at the location. Justify your\nanswer.",
+      "prompt": "For $0 < t < 5$, it can be shown that $H(t) > 1$. Find the value of $t$, for $0 < t < 5$, at which $H$ has a critical point. Determine whether the critical point corresponds to a relative minimum, a relative maximum, or neither a relative minimum nor a relative maximum of the depth of seawater at the location. Justify your answer.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -50,11 +51,12 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 1",
+          "description": "Sets $\\dfrac{dH}{dt} = 0$. Since $H(t) > 1$ on $(0, 5)$, we have $H - 1 \\neq 0$, so $\\cos\\!\\left(\\dfrac{t}{2}\\right) = 0$, giving $\\dfrac{t}{2} = \\dfrac{\\pi}{2}$, so $t = \\pi$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 1"
+                "$\\cos\\!\\left(\\dfrac{t}{2}\\right) = 0$",
+                "$t = \\pi$"
               ]
             }
           ]
@@ -62,11 +64,11 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 2",
+          "description": "Determines the type of critical point by analyzing the sign of $\\dfrac{dH}{dt}$. For $0 < t < \\pi$, $\\cos(t/2) > 0$ and $H - 1 > 0$, so $\\dfrac{dH}{dt} > 0$. For $\\pi < t < 5$, $\\cos(t/2) < 0$ and $H - 1 > 0$, so $\\dfrac{dH}{dt} < 0$. Therefore $H$ changes from increasing to decreasing at $t = \\pi$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 2"
+                "sign of $\\dfrac{dH}{dt}$ changes from positive to negative at $t = \\pi$"
               ]
             }
           ]
@@ -74,20 +76,25 @@
         {
           "point_id": "b3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 3",
+          "description": "Correct conclusion: $H$ has a relative maximum at $t = \\pi$ because $\\dfrac{dH}{dt}$ changes from positive to negative there.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 3"
+                "relative maximum at $t = \\pi$",
+                "$\\dfrac{dH}{dt}$ changes from positive to negative"
               ]
             }
+          ],
+          "common_traps": [
+            "Concluding relative minimum instead of maximum",
+            "Not justifying the conclusion with a sign change argument"
           ]
         }
       ]
     },
     {
       "letter": "c",
-      "prompt": "Use separation of variables to find y = H(t), the particular solution to the differential equation\ndH 1 (t )\n= (H − 1)c os with initial condition H(0) = 4.\ndt 2 2\n__________________________________________________________\nWrite your responses to this question only on the designated pages in the separate Free Response\nbooklet. Write your solution to each part in the space provided for that part.",
+      "prompt": "Use separation of variables to find $y = H(t)$, the particular solution to the differential equation $\\dfrac{dH}{dt} = \\dfrac{1}{2}(H - 1)\\cos\\!\\left(\\dfrac{t}{2}\\right)$ with initial condition $H(0) = 4$.",
       "point_value": 5,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -96,11 +103,11 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "dH tdtH Separation ofvariables",
+          "description": "Correct separation of variables: $\\dfrac{dH}{H - 1} = \\dfrac{1}{2}\\cos\\!\\left(\\dfrac{t}{2}\\right)dt$",
           "alternatives": [
             {
               "required_elements": [
-                "dH tdtH Separation ofvariables"
+                "$\\dfrac{dH}{H - 1} = \\dfrac{1}{2}\\cos\\!\\left(\\dfrac{t}{2}\\right)dt$"
               ]
             }
           ]
@@ -108,11 +115,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Correct antiderivative for one side",
+          "description": "Correct antiderivative of the left side: $\\ln|H - 1|$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct antiderivative for one side"
+                "$\\ln|H - 1|$"
               ]
             }
           ]
@@ -120,11 +127,11 @@
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "Correct antiderivative for other side",
+          "description": "Correct antiderivative of the right side: $\\dfrac{1}{2} \\cdot 2\\sin\\!\\left(\\dfrac{t}{2}\\right) = \\sin\\!\\left(\\dfrac{t}{2}\\right) + C$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct antiderivative for other side"
+                "$\\sin\\!\\left(\\dfrac{t}{2}\\right) + C$"
               ]
             }
           ]
@@ -132,28 +139,33 @@
         {
           "point_id": "c4",
           "point_value": 1,
-          "description": "Correct use of initial condition",
+          "description": "Correct use of initial condition $H(0) = 4$: $\\ln|4 - 1| = \\sin(0) + C \\Rightarrow \\ln 3 = C$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct use of initial condition"
+                "$C = \\ln 3$"
               ]
             }
           ],
           "common_traps": [
-            "Using incorrect initial condition"
+            "Forgetting to apply the initial condition",
+            "Arithmetic error when substituting $t = 0$, $H = 4$"
           ]
         },
         {
           "point_id": "c5",
           "point_value": 1,
-          "description": "tH t e Solves for H",
+          "description": "Correctly solves for $H(t)$: $\\ln(H - 1) = \\sin\\!\\left(\\dfrac{t}{2}\\right) + \\ln 3 \\Rightarrow H - 1 = 3e^{\\sin(t/2)} \\Rightarrow H(t) = 1 + 3e^{\\sin(t/2)}$",
           "alternatives": [
             {
               "required_elements": [
-                "tH t e Solves for H"
+                "$H(t) = 1 + 3e^{\\sin(t/2)}$"
               ]
             }
+          ],
+          "common_traps": [
+            "Forgetting the $+1$ when solving for $H$",
+            "Incorrectly handling the absolute value when exponentiating"
           ]
         }
       ]

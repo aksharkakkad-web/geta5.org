@@ -3,23 +3,18 @@
   "subject": "ap-calculus-bc",
   "year": 2025,
   "source": "released",
-  "title": "Rate & Accumulation (Riemann Sums)",
+  "title": "Function Analysis from Graph of Derivative",
   "frq_type": "multi_part_math",
-  "related_units": [
-    1,
-    2,
-    5,
-    6
-  ],
+  "related_units": [1, 2, 5, 6],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": null,
+  "stimulus": "The graph of $f'$, the derivative of a function $f$, is shown above for $-6 \\leq x \\leq 12$. The graph of $f'$ consists of line segments and a semicircle. It is known that $f(0) = 7$. The function $g$ is defined by $g(x) = \\int_0^x f'(t)\\,dt$.",
   "stimulus_image": "/data/ap-calculus-bc/frq/images/calc-bc-2025-frq-4-stimulus.png",
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Find gl 8 . Give a reason for your answer.\n_ i",
+      "prompt": "Find $g'(8)$. Give a reason for your answer.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -28,11 +23,11 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 1",
+          "description": "By the Fundamental Theorem of Calculus, $g'(x) = f'(x)$ for all $x$. Therefore $g'(8) = f'(8)$, which is read directly from the graph of $f'$. The correct numerical value is obtained by reading the $y$-value of the graph at $x = 8$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 1"
+                "$g'(x) = f'(x)$ by FTC, so $g'(8) = f'(8)$ with value read from graph"
               ]
             }
           ]
@@ -40,11 +35,11 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 2",
+          "description": "Correct reason explicitly stated: by the Fundamental Theorem of Calculus, $g'(x) = f'(x)$ for all $x$ in the domain.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 2"
+                "Cites Fundamental Theorem of Calculus as the reason"
               ]
             }
           ]
@@ -53,7 +48,7 @@
     },
     {
       "letter": "b",
-      "prompt": "Find all values of x in the open interval -6 < x < 12 at which the graph of g has a point of\ninflection. Give a reason for your answer.",
+      "prompt": "Find all values of $x$ in the open interval $-6 < x < 12$ at which the graph of $g$ has a point of inflection. Give a reason for your answer.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": true,
@@ -62,11 +57,11 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 1",
+          "description": "Correctly identifies that points of inflection of $g$ occur where $g'' = (f')' = f''$ changes sign, equivalently where $f'$ changes from increasing to decreasing or from decreasing to increasing (i.e., where $f'$ has a local extremum or a corner that causes a sign change in its slope).",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 1"
+                "Inflection points of $g$ occur where $g''$ changes sign, i.e., where $f'$ changes monotonicity"
               ]
             }
           ]
@@ -74,11 +69,11 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 2",
+          "description": "Identifies all correct $x$-values in $(-6, 12)$ where $f'$ changes from increasing to decreasing or vice versa (these are the inflection points of $g$). The student must list all such values read from the graph and provide the reason that $g'' = f''$ changes sign at each.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 2"
+                "All correct $x$-values where $f'$ changes monotonicity, with reason that $g''$ changes sign"
               ]
             }
           ]
@@ -87,7 +82,7 @@
     },
     {
       "letter": "c",
-      "prompt": "Find g and g 0 . Label your answers.\n_ i _ i",
+      "prompt": "Find $g(-6)$ and $g(0)$. Label your answers.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -96,11 +91,11 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 1",
+          "description": "Correct value of $g(0)$: by definition, $g(0) = \\int_0^0 f'(t)\\,dt = 0$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 1"
+                "$g(0) = 0$"
               ]
             }
           ]
@@ -108,11 +103,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 2",
+          "description": "Correct value of $g(-6)$: $g(-6) = \\int_0^{-6} f'(t)\\,dt = -\\int_{-6}^0 f'(t)\\,dt$. The student must correctly compute the signed area under $f'$ from $-6$ to $0$ using the geometric shapes visible on the graph (triangles, rectangles, semicircles), then negate it. The correct numerical value follows from accurately reading the graph.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 2"
+                "Correct numerical value of $g(-6)$ using $g(-6) = -\\int_{-6}^0 f'(t)\\,dt$ and geometric area calculation"
               ]
             }
           ]
@@ -121,7 +116,7 @@
     },
     {
       "letter": "d",
-      "prompt": "Find the value of x at which g attains an absolute minimum on the closed interval\n-6 # x # 12 . Justify your answer.\ndy",
+      "prompt": "Find the value of $x$ at which $g$ attains an absolute minimum on the closed interval $-6 \\leq x \\leq 12$. Justify your answer.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -130,11 +125,11 @@
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 1",
+          "description": "Correctly identifies the candidates for the absolute minimum: critical points of $g$ (where $g'(x) = f'(x) = 0$ or $g'$ is undefined in the interior $(-6, 12)$) and the endpoints $x = -6$ and $x = 12$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 1"
+                "Sets $g'(x) = f'(x) = 0$ to find critical points and also considers endpoints $x = -6$ and $x = 12$"
               ]
             }
           ]
@@ -142,11 +137,11 @@
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 2",
+          "description": "Computes $g$-values at all candidate points by accumulating signed area under $f'$ from the graph (using geometric areas of triangles, rectangles, and the semicircle), correctly applying $g(x) = \\int_0^x f'(t)\\,dt$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 2"
+                "Evaluates or compares $g$-values at all candidate $x$-values using accumulated area under $f'$"
               ]
             }
           ]
@@ -154,11 +149,11 @@
         {
           "point_id": "d3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 3",
+          "description": "Correct answer: the $x$-value at which $g$ is smallest among all candidates, with a complete justification that compares $g$-values at all critical points and both endpoints. The answer follows directly from the geometric areas read from the graph.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 3"
+                "Correct $x$-value with comparison of $g$ at all candidate points as justification"
               ]
             }
           ]

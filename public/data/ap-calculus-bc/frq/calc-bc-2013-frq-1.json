@@ -3,7 +3,7 @@
   "subject": "ap-calculus-bc",
   "year": 2013,
   "source": "released",
-  "title": "Rate & Accumulation (Riemann Sums)",
+  "title": "Rate & Accumulation (Gravel Processing)",
   "frq_type": "multi_part_math",
   "related_units": [
     5,
@@ -11,13 +11,13 @@
   ],
   "calculator_allowed": true,
   "total_points": 9,
-  "stimulus": "On a certain workday, the rate, in tons per hour, at which unprocessed gravel arrives at a gravel processing plant\n(cid:200)t2(cid:216)\nis modeled by G(cid:11)t(cid:12) (cid:32) 90 (cid:14) 45cos , where t is measured in hours and 0 (cid:133) t (cid:133) 8. At the beginning of the\n(cid:201) (cid:202)18(cid:217)\n(cid:218)\nworkday (cid:11)t (cid:32) 0(cid:12), the plant has 500 tons of unprocessed gravel. During the hours of operation, 0 (cid:133) t (cid:133) 8, the\nplant processes gravel at a constant rate of 100 tons per hour.",
+  "stimulus": "On a certain workday, the rate, in tons per hour, at which unprocessed gravel arrives at a gravel processing plant is modeled by $G(t) = 90 + 45\\cos\\!\\left(\\dfrac{t^2}{18}\\right)$, where $t$ is measured in hours and $0 \\leq t \\leq 8$. At the beginning of the workday ($t = 0$), the plant has 500 tons of unprocessed gravel. During the hours of operation, $0 \\leq t \\leq 8$, the plant processes gravel at a constant rate of 100 tons per hour.",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Find G(cid:132)(cid:11)5(cid:12). Using correct units, interpret your answer in the context of the problem.",
+      "prompt": "Find $G'(5)$. Using correct units, interpret your answer in the context of the problem.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -26,11 +26,11 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct estimate or setup with supporting work",
+          "description": "Correct value of $G'(5)$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct computation shown"
+                "$G'(5) = 90 \\cdot \\frac{-2 \\cdot 5}{18} \\sin\\!\\left(\\frac{25}{18}\\right) \\approx -24.588$ tons per hour per hour"
               ]
             }
           ]
@@ -38,12 +38,12 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Correct interpretation or answer with units",
+          "description": "Correct interpretation with correct units (tons per hour per hour)",
           "alternatives": [
             {
               "required_elements": [
-                "Correct units",
-                "Correct context statement"
+                "At $t = 5$ hours, the rate at which gravel arrives is decreasing at approximately $24.588$ tons per hour per hour",
+                "Units: tons per hour per hour"
               ]
             }
           ]
@@ -52,7 +52,7 @@
     },
     {
       "letter": "b",
-      "prompt": "Find the total amount of unprocessed gravel that arrives at the plant during the hours of operation on this\nworkday.",
+      "prompt": "Find the total amount of unprocessed gravel that arrives at the plant during the hours of operation on this workday.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -61,11 +61,11 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 1",
+          "description": "Correct integral setup for total gravel arriving",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 1"
+                "$\\displaystyle\\int_0^8 G(t)\\,dt = \\int_0^8 \\left(90 + 45\\cos\\!\\left(\\frac{t^2}{18}\\right)\\right)dt$"
               ]
             }
           ]
@@ -73,11 +73,11 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 2",
+          "description": "Correct numerical answer",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 2"
+                "$\\approx 825.551$ tons"
               ]
             }
           ]
@@ -86,7 +86,7 @@
     },
     {
       "letter": "c",
-      "prompt": "Is the amount of unprocessed gravel at the plant increasing or decreasing at time t (cid:32) 5 hours? Show the\nwork that leads to your answer.",
+      "prompt": "Is the amount of unprocessed gravel at the plant increasing or decreasing at time $t = 5$ hours? Show the work that leads to your answer.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -95,11 +95,11 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 1",
+          "description": "Correct evaluation of $G(5)$ and comparison to processing rate of 100",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 1"
+                "$G(5) = 90 + 45\\cos\\!\\left(\\frac{25}{18}\\right) \\approx 90 + 45(0.3436) \\approx 105.460$ tons per hour"
               ]
             }
           ]
@@ -107,11 +107,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 2",
+          "description": "Correct conclusion that gravel is increasing because $G(5) > 100$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 2"
+                "Since $G(5) \\approx 105.460 > 100$, the amount of unprocessed gravel is increasing at $t = 5$"
               ]
             }
           ]
@@ -120,7 +120,7 @@
     },
     {
       "letter": "d",
-      "prompt": "What is the maximum amount of unprocessed gravel at the plant during the hours of operation on this\nworkday? Justify your answer.",
+      "prompt": "What is the maximum amount of unprocessed gravel at the plant during the hours of operation on this workday? Justify your answer.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -129,11 +129,11 @@
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 1",
+          "description": "Sets up $G(t) - 100 = 0$ to find critical points and identifies candidates",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 1"
+                "$G(t) = 100$ at $t \\approx 5.118$ (within $[0, 8]$); also checks endpoints $t = 0$ and $t = 8$"
               ]
             }
           ]
@@ -141,11 +141,12 @@
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 2",
+          "description": "Correct amount of unprocessed gravel expression using accumulation",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 2"
+                "Amount at time $t$: $500 + \\displaystyle\\int_0^t \\bigl(G(s) - 100\\bigr)\\,ds$",
+                "Evaluates at $t \\approx 5.118$: $500 + \\displaystyle\\int_0^{5.118}\\bigl(G(s)-100\\bigr)\\,ds \\approx 500 + 121.737 \\approx 621.737$ tons"
               ]
             }
           ]
@@ -153,11 +154,12 @@
         {
           "point_id": "d3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 3",
+          "description": "Correct maximum value with justification comparing all candidates",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 3"
+                "The maximum amount of unprocessed gravel is approximately $621.737$ tons, occurring at $t \\approx 5.118$ hours",
+                "Justification: $G(t) - 100$ changes from positive to negative at $t \\approx 5.118$, confirming a maximum"
               ]
             }
           ]

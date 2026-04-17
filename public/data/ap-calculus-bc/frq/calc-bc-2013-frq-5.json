@@ -3,7 +3,7 @@
   "subject": "ap-calculus-bc",
   "year": 2013,
   "source": "released",
-  "title": "Differential Equations",
+  "title": "Differential Equations (Separable)",
   "frq_type": "multi_part_math",
   "related_units": [
     1,
@@ -13,13 +13,13 @@
   ],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": "Consider the differential equation (cid:32) y2(cid:11)2x (cid:14) 2(cid:12). Let y (cid:32) f(cid:11)x(cid:12) be the particular solution to the differential\ndx\nequation with initial condition f(cid:11)0(cid:12) (cid:32) (cid:16)1.\nf(cid:11)x(cid:12) (cid:14)",
+  "stimulus": "Consider the differential equation $\\dfrac{dy}{dx} = y^2(2x + 2)$. Let $y = f(x)$ be the particular solution to the differential equation with initial condition $f(0) = -1$.",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Find lim . Show the work that leads to your answer.\nx(cid:144)0 sin x\n(cid:11)1(cid:12)",
+      "prompt": "Find $\\displaystyle\\lim_{x \\to 0} \\frac{f(x) + 1}{\\sin x}$. Show the work that leads to your answer.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -28,11 +28,13 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Ratio test applied to find radius of convergence",
+          "description": "Recognizes the limit as $f'(0)$ via L'Hopital's rule or the definition of the derivative, and correctly computes $f'(0)$",
           "alternatives": [
             {
               "required_elements": [
-                "$\\lim |a_{n+1}/a_n|$ computed"
+                "Since $f(0) = -1$, the limit $\\displaystyle\\lim_{x \\to 0} \\frac{f(x) + 1}{\\sin x}$ is of the form $\\frac{0}{0}$",
+                "Applying L'Hopital's rule: $\\displaystyle\\lim_{x \\to 0} \\frac{f'(x)}{\\cos x} = \\frac{f'(0)}{1} = f'(0)$",
+                "$f'(0) = \\bigl(f(0)\\bigr)^2(2\\cdot 0 + 2) = (-1)^2(2) = 2$"
               ]
             }
           ]
@@ -40,24 +42,20 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Endpoints checked; correct interval stated",
+          "description": "Correct limit value",
           "alternatives": [
             {
               "required_elements": [
-                "Both endpoints tested",
-                "Correct interval notation"
+                "$\\displaystyle\\lim_{x \\to 0} \\frac{f(x)+1}{\\sin x} = 2$"
               ]
             }
-          ],
-          "common_traps": [
-            "Failing to check endpoints"
           ]
         }
       ]
     },
     {
       "letter": "b",
-      "prompt": "Use Euler’s method, starting at x (cid:32) 0 with two steps of equal size, to approximate f .",
+      "prompt": "Use Euler's method, starting at $x = 0$ with two steps of equal size, to approximate $f(1)$.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -66,11 +64,12 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct series manipulation (differentiation/substitution)",
+          "description": "Correct first Euler step",
           "alternatives": [
             {
               "required_elements": [
-                "Correct term-by-term operation"
+                "Step size $h = \\frac{1}{2}$",
+                "$y_1 = f(0) + h \\cdot f'(0) = -1 + \\frac{1}{2}\\cdot(-1)^2(0+2) = -1 + \\frac{1}{2}\\cdot 2 = -1 + 1 = 0$"
               ]
             }
           ]
@@ -78,11 +77,12 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct result with general term",
+          "description": "Correct second Euler step and approximation",
           "alternatives": [
             {
               "required_elements": [
-                "Correct series written"
+                "At $x = \\frac{1}{2}$, $y = 0$: $y_2 = 0 + \\frac{1}{2}\\cdot (0)^2\\left(2\\cdot\\frac{1}{2}+2\\right) = 0 + 0 = 0$",
+                "$f(1) \\approx 0$"
               ]
             }
           ]
@@ -91,7 +91,7 @@
     },
     {
       "letter": "c",
-      "prompt": "Find y (cid:32) f(cid:11)x(cid:12), the particular solution to the differential equation with initial condition f(cid:11)0(cid:12) (cid:32) (cid:16)1.",
+      "prompt": "Find $y = f(x)$, the particular solution to the differential equation with initial condition $f(0) = -1$.",
       "point_value": 5,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -100,11 +100,11 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 1",
+          "description": "Correct separation of variables",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 1"
+                "$\\dfrac{dy}{y^2} = (2x + 2)\\,dx$"
               ]
             }
           ]
@@ -112,11 +112,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 2",
+          "description": "Correct antiderivatives on both sides",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 2"
+                "$-\\dfrac{1}{y} = x^2 + 2x + C$"
               ]
             }
           ]
@@ -124,11 +124,11 @@
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 3",
+          "description": "Correct constant $C$ using initial condition $f(0) = -1$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 3"
+                "$-\\dfrac{1}{-1} = 0 + 0 + C \\Rightarrow C = 1$"
               ]
             }
           ]
@@ -136,11 +136,12 @@
         {
           "point_id": "c4",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 4",
+          "description": "Correct algebraic solving for $y$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 4"
+                "$-\\dfrac{1}{y} = x^2 + 2x + 1 = (x+1)^2$",
+                "$y = -\\dfrac{1}{(x+1)^2}$"
               ]
             }
           ]
@@ -148,11 +149,11 @@
         {
           "point_id": "c5",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 5",
+          "description": "Correct domain stated",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 5"
+                "$f(x) = -\\dfrac{1}{(x+1)^2}$, valid for $x > -1$ (or $x \\neq -1$, with $x > -1$ because of the initial condition)"
               ]
             }
           ]

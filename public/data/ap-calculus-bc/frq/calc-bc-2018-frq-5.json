@@ -3,24 +3,18 @@
   "subject": "ap-calculus-bc",
   "year": 2018,
   "source": "released",
-  "title": "Polar Curves & Area",
+  "title": "Polar Curves — Area, Tangent Line, Related Rates",
   "frq_type": "multi_part_math",
-  "related_units": [
-    1,
-    2,
-    4,
-    6,
-    9
-  ],
+  "related_units": [1, 2, 4, 6, 9],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": "The graphs of the polar curves r = 4 and r = 3 + 2c osq are shown in the figure above. The curves intersect\np 5p\nat q = and q = .\n3",
+  "stimulus": "The graphs of the polar curves $r = 4$ and $r = 3 + 2\\cos\\theta$ are shown in the figure above. The curves intersect at $\\theta = \\dfrac{\\pi}{3}$ and $\\theta = \\dfrac{5\\pi}{3}$.",
   "stimulus_image": "/data/ap-calculus-bc/frq/images/calc-bc-2018-frq-5-stimulus.png",
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Let R be the shaded region that is inside the graph of r = 4 and also outside the graph of r = 3 + 2cosq,\nas shown in the figure above. Write an expression involving an integral for the area of R.\np",
+      "prompt": "Let $R$ be the shaded region that is inside the graph of $r = 4$ and also outside the graph of $r = 3 + 2\\cos\\theta$, as shown in the figure above. Write an expression involving one or more integrals for the area of $R$.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": true,
@@ -29,11 +23,11 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 1",
+          "description": "Correct integrand using the polar area formula: $\\dfrac{1}{2}\\left[(4)^2 - (3 + 2\\cos\\theta)^2\\right] = \\dfrac{1}{2}\\left[16 - (3 + 2\\cos\\theta)^2\\right]$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 1"
+                "$\\dfrac{1}{2}\\left[16 - (3+2\\cos\\theta)^2\\right]$"
               ]
             }
           ]
@@ -41,11 +35,11 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 2",
+          "description": "Correct limits of integration: from $\\theta = \\dfrac{\\pi}{3}$ to $\\theta = \\dfrac{5\\pi}{3}$, which is the interval where $r = 4 > r = 3 + 2\\cos\\theta$ (equivalently $\\cos\\theta < \\dfrac{1}{2}$).",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 2"
+                "Limits from $\\dfrac{\\pi}{3}$ to $\\dfrac{5\\pi}{3}$"
               ]
             }
           ]
@@ -53,11 +47,16 @@
         {
           "point_id": "a3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 3",
+          "description": "Complete correct expression: $\\text{Area of } R = \\dfrac{1}{2}\\int_{\\pi/3}^{5\\pi/3} \\left[16 - (3 + 2\\cos\\theta)^2\\right]d\\theta$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 3"
+                "$\\dfrac{1}{2}\\int_{\\pi/3}^{5\\pi/3} \\left[16 - (3+2\\cos\\theta)^2\\right]d\\theta$"
+              ]
+            },
+            {
+              "required_elements": [
+                "By symmetry: $\\int_{\\pi/3}^{\\pi} \\left[16 - (3+2\\cos\\theta)^2\\right]d\\theta$"
               ]
             }
           ]
@@ -66,7 +65,7 @@
     },
     {
       "letter": "b",
-      "prompt": "Find the slope of the line tangent to the graph of r = 3 + 2c osq at q = .\np",
+      "prompt": "Find the slope of the line tangent to the graph of $r = 3 + 2\\cos\\theta$ at $\\theta = \\dfrac{\\pi}{2}$.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": true,
@@ -75,11 +74,12 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 1",
+          "description": "Correctly expresses slope using the parametric form $x = r\\cos\\theta$ and $y = r\\sin\\theta$ with $r = 3 + 2\\cos\\theta$, so $\\dfrac{dr}{d\\theta} = -2\\sin\\theta$. Computes:\n$$\\frac{dy}{d\\theta} = \\frac{dr}{d\\theta}\\sin\\theta + r\\cos\\theta = -2\\sin^2\\theta + (3+2\\cos\\theta)\\cos\\theta$$\n$$\\frac{dx}{d\\theta} = \\frac{dr}{d\\theta}\\cos\\theta - r\\sin\\theta = -2\\sin\\theta\\cos\\theta - (3+2\\cos\\theta)\\sin\\theta$$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 1"
+                "$\\dfrac{dy}{d\\theta} = -2\\sin^2\\theta + (3+2\\cos\\theta)\\cos\\theta$",
+                "$\\dfrac{dx}{d\\theta} = -2\\sin\\theta\\cos\\theta - (3+2\\cos\\theta)\\sin\\theta$"
               ]
             }
           ]
@@ -87,11 +87,11 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 2",
+          "description": "Evaluates at $\\theta = \\dfrac{\\pi}{2}$: $r = 3 + 2\\cos(\\pi/2) = 3$, $\\sin(\\pi/2) = 1$, $\\cos(\\pi/2) = 0$, $dr/d\\theta = -2\\sin(\\pi/2) = -2$.\n$$\\frac{dy}{d\\theta}\\bigg|_{\\pi/2} = -2(1)^2 + (3)(0) = -2$$\n$$\\frac{dx}{d\\theta}\\bigg|_{\\pi/2} = -2(1)(0) - (3)(1) = -3$$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 2"
+                "$\\dfrac{dy}{d\\theta}\\big|_{\\pi/2} = -2$, $\\dfrac{dx}{d\\theta}\\big|_{\\pi/2} = -3$"
               ]
             }
           ]
@@ -99,11 +99,11 @@
         {
           "point_id": "b3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 3",
+          "description": "Correct slope of the tangent line: $\\dfrac{dy}{dx}\\bigg|_{\\theta=\\pi/2} = \\dfrac{-2}{-3} = \\dfrac{2}{3}$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 3"
+                "Slope $= \\dfrac{2}{3}$"
               ]
             }
           ]
@@ -112,7 +112,7 @@
     },
     {
       "letter": "c",
-      "prompt": "A particle moves along the portion of the curve r = 3 + 2c osq for 0 < q < . The particle moves in\nsuch a way that the distance between the particle and the origin increases at a constant rate of 3 units per\nsecond. Find the rate at which the angle q changes with respect to time at the instant when the position\np\nof the particle corresponds to q = . Indicate units of measure.",
+      "prompt": "A particle moves along the portion of the curve $r = 3 + 2\\cos\\theta$ for $0 < \\theta < \\pi$. The particle moves in such a way that the distance from the particle to the origin increases at a constant rate of $3$ units per second. Find the rate at which the angle $\\theta$ changes with respect to time at the instant when the position of the particle corresponds to $\\theta = \\dfrac{\\pi}{3}$. Indicate units of measure.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -121,11 +121,11 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 1",
+          "description": "Recognizes that the distance from the particle to the origin is $r = 3 + 2\\cos\\theta$, so $\\dfrac{dr}{dt} = 3$ (given). Differentiates $r$ with respect to $t$: $\\dfrac{dr}{dt} = \\dfrac{dr}{d\\theta}\\cdot\\dfrac{d\\theta}{dt} = -2\\sin\\theta\\cdot\\dfrac{d\\theta}{dt}$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 1"
+                "$\\dfrac{dr}{dt} = -2\\sin\\theta\\cdot\\dfrac{d\\theta}{dt}$"
               ]
             }
           ]
@@ -133,11 +133,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 2",
+          "description": "Substitutes $\\theta = \\dfrac{\\pi}{3}$ and $\\dfrac{dr}{dt} = 3$: $3 = -2\\sin\\!\\left(\\dfrac{\\pi}{3}\\right)\\cdot\\dfrac{d\\theta}{dt} = -2\\cdot\\dfrac{\\sqrt{3}}{2}\\cdot\\dfrac{d\\theta}{dt} = -\\sqrt{3}\\cdot\\dfrac{d\\theta}{dt}$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 2"
+                "$3 = -\\sqrt{3}\\cdot\\dfrac{d\\theta}{dt}$"
               ]
             }
           ]
@@ -145,11 +145,11 @@
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 3",
+          "description": "Correct answer with units: $\\dfrac{d\\theta}{dt} = -\\dfrac{3}{\\sqrt{3}} = -\\sqrt{3}$ radians per second. The negative value indicates that $\\theta$ is decreasing as the particle moves along $0 < \\theta < \\pi$ with the distance from the origin increasing.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 3"
+                "$\\dfrac{d\\theta}{dt} = -\\sqrt{3}$ radians per second"
               ]
             }
           ]

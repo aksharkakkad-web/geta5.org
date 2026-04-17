@@ -3,7 +3,7 @@
   "subject": "ap-calculus-bc",
   "year": 2021,
   "source": "released",
-  "title": "Polar Curves & Area",
+  "title": "Bacteria Density & Accumulation",
   "frq_type": "multi_part_math",
   "related_units": [
     1,
@@ -14,13 +14,13 @@
   ],
   "calculator_allowed": true,
   "total_points": 9,
-  "stimulus": "The density of a bacteria population in a circular petri dish at a distance r centimeters from the center of the\ndish is given by an increasing, differentiable function f, where f ( r )is measured in milligrams per square\ncentimeter. Values of f ( r )for selected values of r are given in the table above.",
+  "stimulus": "The density of a bacteria population in a circular petri dish at a distance $r$ centimeters from the center of the dish is given by an increasing, differentiable function $f$, where $f(r)$ is measured in milligrams per square centimeter. Values of $f(r)$ for selected values of $r$ are given in the table below.\n\n| $r$ (cm) | 0 | 1 | 2.5 | 3.5 | 4 |\n|---|---|---|---|---|---|\n| $f(r)$ (mg/cm²) | 9 | 10 | 14 | 17 | 20 |",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Use the data in the table to estimate f¢ ( 2.25 ). Using correct units, interpret the meaning of your answer\nin the context of this problem.",
+      "prompt": "Use the data in the table to estimate $f'(2.25)$. Using correct units, interpret the meaning of your answer in the context of this problem.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -29,11 +29,11 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 1",
+          "description": "Correct difference quotient estimate: $f'(2.25) \\approx \\frac{f(2.5) - f(1)}{2.5 - 1} = \\frac{14 - 10}{1.5} = \\frac{8}{3}$ mg/cm² per cm (or equivalent using adjacent table values)",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 1"
+                "$f'(2.25) \\approx \\frac{f(2.5) - f(1)}{2.5 - 1} = \\frac{8}{3}$"
               ]
             }
           ]
@@ -41,11 +41,12 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 2",
+          "description": "Correct units (mg/cm² per cm, or mg/cm³) AND interpretation: at a distance of 2.25 cm from the center of the petri dish, the bacteria density is increasing at a rate of approximately $\\frac{8}{3}$ milligrams per square centimeter per centimeter",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 2"
+                "Units of mg/cm² per cm (or mg/cm³)",
+                "Interpretation references rate of change of density with respect to distance from center"
               ]
             }
           ]
@@ -54,20 +55,22 @@
     },
     {
       "letter": "b",
-      "prompt": "The total mass, in milligrams, of bacteria in the petri dish is given by the integral expression\n4 4\n2p ∫ rf ( r ) dr. Approximate the value of 2p ∫ rf ( r ) dr using a right Riemann sum with the four\n0 0\nsubintervals indicated by the data in the table.",
+      "prompt": "The total mass, in milligrams, of bacteria in the petri dish is given by the integral expression $2\\pi \\int_0^4 r\\,f(r)\\,dr$. Approximate the value of $2\\pi \\int_0^4 r\\,f(r)\\,dr$ using a right Riemann sum with the four subintervals indicated by the data in the table.",
       "point_value": 2,
-      "scoring_notes": "must be explicitly shown.",
+      "scoring_notes": "The setup with subinterval widths and right endpoints must be explicitly shown.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct setup",
+          "description": "Correct right Riemann sum setup using the four subintervals $[0,1]$, $[1,2.5]$, $[2.5,3.5]$, $[3.5,4]$ with right endpoints: $2\\pi\\bigl[(1)(1)f(1) + (1.5)(2.5)f(2.5) + (1)(3.5)f(3.5) + (0.5)(4)f(4)\\bigr]$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct setup"
+                "Four terms with correct right endpoints $r = 1, 2.5, 3.5, 4$",
+                "Correct subinterval widths $\\Delta r = 1, 1.5, 1, 0.5$",
+                "Factor of $2\\pi$ and $r \\cdot f(r)$ in each term"
               ]
             }
           ]
@@ -75,11 +78,11 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct numerical approximation",
+          "description": "Correct numerical answer: $2\\pi[(1)(10) + (1.5)(35) + (1)(59.5) + (0.5)(80)] = 2\\pi[10 + 52.5 + 59.5 + 40] = 2\\pi(162) = 324\\pi \\approx 1017.876$ mg",
           "alternatives": [
             {
               "required_elements": [
-                "Correct numerical approximation"
+                "$324\\pi$ or $\\approx 1017.876$ milligrams"
               ]
             }
           ]
@@ -88,7 +91,7 @@
     },
     {
       "letter": "c",
-      "prompt": "Is the approximation found in part (b) an overestimate or underestimate of the total mass of bacteria in the\npetri dish? Explain your reasoning.",
+      "prompt": "Is the approximation found in part (b) an overestimate or underestimate of the total mass of bacteria in the petri dish? Explain your reasoning.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -97,11 +100,11 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "expression ford",
+          "description": "States that the approximation is an overestimate",
           "alternatives": [
             {
               "required_elements": [
-                "expression ford"
+                "Overestimate"
               ]
             }
           ]
@@ -109,11 +112,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Correct answer with explanation",
+          "description": "Correct reasoning: since $f$ is an increasing function, the right Riemann sum overestimates the integral $\\int_0^4 r\\,f(r)\\,dr$ because $r\\,f(r)$ is increasing (the right endpoint value of the integrand on each subinterval is greater than any interior value)",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer with explanation"
+                "Because $f$ is increasing, the right Riemann sum overestimates the integral"
               ]
             }
           ]
@@ -122,7 +125,7 @@
     },
     {
       "letter": "d",
-      "prompt": "The density of bacteria in the petri dish, for 1 £ r £ 4, is modeled by the function g defined by\ng ( r ) = 2 − 16 ( cos ( 1.57 r ))3 . For what value of k, 1 < k < 4,is g ( k ) equal to the average value of g ( r )\non the interval 1 £ r £ 4 ?\n__________________________________________________________\nWrite your responses to this question only on the designated pages in the separate Free Response\nbooklet. Write your solution to each part in the space provided for that part.",
+      "prompt": "The density of bacteria in the petri dish, for $1 \\leq r \\leq 4$, is modeled by the function $g$ defined by $g(r) = 2 - 16\\cos(1.57r)^3$. For what value of $k$, $1 < k < 4$, is $g(k)$ equal to the average value of $g(r)$ on the interval $1 \\leq r \\leq 4$?",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -131,11 +134,11 @@
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "Definite i ntegral",
+          "description": "Sets up the correct expression for the average value of $g$ on $[1,4]$: $\\frac{1}{4-1}\\int_1^4 g(r)\\,dr = \\frac{1}{3}\\int_1^4 \\left(2 - 16\\cos(1.57r)^3\\right)dr$",
           "alternatives": [
             {
               "required_elements": [
-                "Definite i ntegral"
+                "$\\frac{1}{3}\\int_1^4 g(r)\\,dr$"
               ]
             }
           ]
@@ -143,11 +146,11 @@
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "Correct average value",
+          "description": "Correct average value computed (using calculator): $\\frac{1}{3}\\int_1^4 g(r)\\,dr \\approx 3.521$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct average value"
+                "Average value $\\approx 3.521$ (or equivalent decimal)"
               ]
             }
           ]
@@ -155,11 +158,11 @@
         {
           "point_id": "d3",
           "point_value": 1,
-          "description": "Correct answer",
+          "description": "Solves $g(k) = $ average value for $k$: $k \\approx 1.361$ or $k \\approx 2.493$ (or other correct value in $(1,4)$ obtained from a calculator)",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "A correct value of $k$ in the interval $(1,4)$ satisfying $g(k) =$ average value"
               ]
             }
           ]

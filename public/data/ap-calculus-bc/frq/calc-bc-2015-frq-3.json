@@ -3,7 +3,7 @@
   "subject": "ap-calculus-bc",
   "year": 2015,
   "source": "released",
-  "title": "Particle Motion",
+  "title": "Table-Based Motion Analysis",
   "frq_type": "multi_part_math",
   "related_units": [
     2,
@@ -13,13 +13,13 @@
   ],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": "Johanna jogs along a straight path. For 0 (cid:133) t (cid:133) 40, Johanna’s velocity is given by a differentiable function v.\nSelected values of v(cid:11)t(cid:12), where t is measured in minutes and v(cid:11)t(cid:12) is measured in meters per minute, are given in\nthe table above.",
+  "stimulus": "Johanna jogs along a straight path. For $0 \\leq t \\leq 40$, Johanna's velocity is given by a differentiable function $v$. Selected values of $v(t)$, where $t$ is measured in minutes and $v(t)$ is measured in meters per minute, are given in the table below.\n\n| $t$ (minutes) | $0$ | $12$ | $20$ | $24$ | $40$ |\n|---|---|---|---|---|---|\n| $v(t)$ (meters/min) | $0$ | $200$ | $240$ | $220$ | $150$ |",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Use the data in the table to estimate the value of v(cid:132)(cid:11)16(cid:12).",
+      "prompt": "Use the data in the table to estimate the value of $v'(16)$. Show the computations that lead to your answer. Indicate units of measure.",
       "point_value": 1,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -28,11 +28,11 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 1",
+          "description": "Correct difference quotient using the surrounding table values at $t = 12$ and $t = 20$: $v'(16) \\approx \\dfrac{v(20) - v(12)}{20 - 12} = \\dfrac{240 - 200}{8} = 5$ meters per minute per minute",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 1"
+                "$v'(16) \\approx \\dfrac{240 - 200}{20 - 12} = 5$ meters per minute$^2$"
               ]
             }
           ]
@@ -41,7 +41,7 @@
     },
     {
       "letter": "b",
-      "prompt": "Using correct units, explain the meaning of the definite integral (cid:212) v(cid:11)t(cid:12) dt in the context of the problem.\nApproximate the value of (cid:212) v(cid:11)t(cid:12) dt using a right Riemann sum with the four subintervals indicated in the\ntable.",
+      "prompt": "Using correct units, explain the meaning of the definite integral $\\int_0^{40} v(t)\\,dt$ in the context of the problem. Approximate the value of $\\int_0^{40} v(t)\\,dt$ using a right Riemann sum with the four subintervals indicated in the table.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -50,11 +50,11 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 1",
+          "description": "Correct contextual meaning: $\\int_0^{40} v(t)\\,dt$ is the total distance, in meters, that Johanna jogs during the 40-minute interval",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 1"
+                "Total distance Johanna jogs from $t = 0$ to $t = 40$ minutes, in meters"
               ]
             }
           ]
@@ -62,11 +62,11 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 2",
+          "description": "Correct right Riemann sum setup with the four subintervals $[0,12]$, $[12,20]$, $[20,24]$, $[24,40]$: $(12)(200) + (8)(240) + (4)(220) + (16)(150)$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 2"
+                "$(12)(200) + (8)(240) + (4)(220) + (16)(150)$"
               ]
             }
           ]
@@ -74,11 +74,11 @@
         {
           "point_id": "b3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 3",
+          "description": "Correct answer: $2400 + 1920 + 880 + 2400 = 7600$ meters",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 3"
+                "$7600$ meters"
               ]
             }
           ]
@@ -87,7 +87,7 @@
     },
     {
       "letter": "c",
-      "prompt": "Bob is riding his bicycle along the same path. For 0 (cid:133) t (cid:133) 10, Bob’s velocity is modeled by\nB(cid:11)t(cid:12) (cid:32) t3 (cid:16) 6t2 (cid:14) 300, where t is measured in minutes and B(cid:11)t(cid:12) is measured in meters per minute.\nFind Bob’s acceleration at time t (cid:32) 5.",
+      "prompt": "Bob is riding his bicycle along the same path. For $0 \\leq t \\leq 10$, Bob's velocity is modeled by $B(t) = t^3 - 6t^2 + 300$, where $t$ is measured in minutes and $B(t)$ is measured in meters per minute. Find Bob's acceleration at time $t = 5$. Indicate units of measure.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -96,11 +96,11 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 1",
+          "description": "Correct derivative: $B'(t) = 3t^2 - 12t$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 1"
+                "$B'(t) = 3t^2 - 12t$"
               ]
             }
           ]
@@ -108,11 +108,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 2",
+          "description": "Correct evaluation: $B'(5) = 3(25) - 12(5) = 75 - 60 = 15$ meters per minute per minute",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 2"
+                "$B'(5) = 15$ meters per minute$^2$"
               ]
             }
           ]
@@ -121,7 +121,7 @@
     },
     {
       "letter": "d",
-      "prompt": "Based on the model B from part (c), find Bob’s average velocity during the interval 0 (cid:133) t (cid:133) 10.",
+      "prompt": "Based on the model $B$ from part (c), find Bob's average velocity during the interval $0 \\leq t \\leq 10$. Indicate units of measure.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -130,11 +130,11 @@
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 1",
+          "description": "Correct average value formula: $\\dfrac{1}{10 - 0}\\int_0^{10} B(t)\\,dt$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 1"
+                "$\\dfrac{1}{10}\\int_0^{10} (t^3 - 6t^2 + 300)\\,dt$"
               ]
             }
           ]
@@ -142,11 +142,11 @@
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 2",
+          "description": "Correct antiderivative and evaluation: $\\dfrac{1}{10}\\left[\\dfrac{t^4}{4} - 2t^3 + 300t\\right]_0^{10} = \\dfrac{1}{10}(2500 - 2000 + 3000)$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 2"
+                "$\\dfrac{1}{10}\\left[\\dfrac{10000}{4} - 2(1000) + 300(10)\\right] = \\dfrac{1}{10}(3500)$"
               ]
             }
           ]
@@ -154,11 +154,11 @@
         {
           "point_id": "d3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 3",
+          "description": "Correct answer: $350$ meters per minute",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 3"
+                "$350$ meters per minute"
               ]
             }
           ]

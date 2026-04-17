@@ -3,7 +3,7 @@
   "subject": "ap-calculus-bc",
   "year": 2023,
   "source": "released",
-  "title": "Rate & Accumulation (Riemann Sums)",
+  "title": "Rate & Accumulation — Gasoline Flow",
   "frq_type": "multi_part_math",
   "related_units": [
     1,
@@ -13,161 +13,196 @@
   ],
   "calculator_allowed": true,
   "total_points": 9,
-  "stimulus": "A customer at a gas station is pumping gasoline into a gas tank. The rate of flow of gasoline is modeled by a\ndifferentiable function f , where f",
+  "stimulus": "A customer at a gas station is pumping gasoline into a gas tank. The rate of flow of gasoline is modeled by a differentiable function $f$, where $f(t)$ is measured in gallons per second and $t$ is measured in seconds. Selected values of $f(t)$ are given in the table below.\n\n| $t$ (seconds) | 60 | 90 | 120 | 135 |\n|---|---|---|---|---|\n| $f(t)$ (gallons per second) | 0.027 | 0.060 | 0.060 | 0.049 |\n\nThe customer pumps gasoline for $0 \\leq t \\leq 135$ seconds.",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Using correct units, interpret the meaning of ∫ f (t) dt in the context of the problem. Use a right\nRiemann sum with the three subintervals [60, 90], [90, 120], and [120, 135] to approximate the value of\n∫ f (t) dt.",
+      "prompt": "Using correct units, interpret the meaning of $\\int_{60}^{135} f(t)\\,dt$ in the context of the problem. Use a right Riemann sum with the three subintervals $[60, 90]$, $[90, 120]$, and $[120, 135]$ to approximate the value of $\\int_{60}^{135} f(t)\\,dt$.",
       "point_value": 3,
-      "scoring_notes": null,
+      "scoring_notes": "Right Riemann sum: $f(90)\\cdot 30 + f(120)\\cdot 30 + f(135)\\cdot 15 = 0.060(30) + 0.060(30) + 0.049(15) = 1.8 + 1.8 + 0.735 = 4.335$ gallons.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct units",
+          "description": "Correct interpretation: $\\int_{60}^{135} f(t)\\,dt$ is the total amount of gasoline, in gallons, pumped from $t = 60$ seconds to $t = 135$ seconds.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct units"
+                "Total amount (or quantity) of gasoline pumped",
+                "Correct time interval ($t = 60$ to $t = 135$ seconds)",
+                "Units: gallons"
               ]
             }
           ],
           "common_traps": [
+            "Describing it as a rate rather than a total amount",
             "Omitting or using incorrect units"
           ]
         },
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Form of Riemannsum",
+          "description": "Correct form of the right Riemann sum: $f(90)\\cdot 30 + f(120)\\cdot 30 + f(135)\\cdot 15$.",
           "alternatives": [
             {
               "required_elements": [
-                "Form of Riemannsum"
+                "$0.060 \\cdot 30 + 0.060 \\cdot 30 + 0.049 \\cdot 15$"
               ]
             }
+          ],
+          "common_traps": [
+            "Using left endpoints instead of right endpoints",
+            "Using equal subinterval widths instead of actual widths of 30, 30, and 15"
           ]
         },
         {
           "point_id": "a3",
           "point_value": 1,
-          "description": "Correct answer",
+          "description": "Correct answer: $4.335$ gallons.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "$4.335$"
               ]
             }
+          ],
+          "common_traps": [
+            "Arithmetic error in summing terms"
           ]
         }
       ]
     },
     {
       "letter": "b",
-      "prompt": "Must there exist a value of c, for 60 < c < 120, such that f ¢(c) = 0 ? Justify your answer.\n⎛ 2⎞",
+      "prompt": "Must there exist a value of $c$, for $60 < c < 120$, such that $f'(c) = 0$? Justify your answer.",
       "point_value": 2,
-      "scoring_notes": "Must there exist a value of c, for 60 < c <120, such that f′(c) = 0? Justify your answer.",
+      "scoring_notes": "Yes. Because $f$ is differentiable (hence continuous) on $[60, 120]$ and $f(90) = f(120) = 0.060$, by Rolle's Theorem there must exist a value $c$ in $(60, 120)$ such that $f'(c) = 0$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "c<< such that",
+          "description": "Conclusion: Yes, there must exist such a value $c$.",
           "alternatives": [
             {
               "required_elements": [
-                "c<< such that"
+                "Yes"
               ]
             }
+          ],
+          "common_traps": [
+            "Concluding 'no' without considering Rolle's Theorem",
+            "Not stating a conclusion"
           ]
         },
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct justification",
+          "description": "Correct justification using Rolle's Theorem: $f$ is differentiable on $[60, 120]$ and $f(90) = f(120) = 0.060$ (or any two equal values in the interval), so by Rolle's Theorem there exists $c$ in $(60, 120)$ with $f'(c) = 0$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct justification"
+                "Rolle's Theorem cited (or MVT applied with equal function values)",
+                "$f(90) = f(120) = 0.060$ (equal values identified)",
+                "$f$ is differentiable on the interval"
               ]
             }
+          ],
+          "common_traps": [
+            "Citing MVT without noting the equal function values",
+            "Failing to state $f$ is differentiable (and thus continuous)"
           ]
         }
       ]
     },
     {
       "letter": "c",
-      "prompt": "The rate of flow of gasoline, in gallons per second, can also be modeled by g(t) = ⎛ ⎜ ⎜ ⎝ 50 t 0 ⎟ ⎟⎠ ⎟ ⎞ cos ⎜ ⎜ ⎜ ⎜⎝ ⎛ ⎜ ⎜ ⎝ 12 t 0 ⎟ ⎠⎟ ⎞ ⎟ ⎟ ⎟ ⎟ ⎟⎠ ⎟ for\n0 £ t £ 150. Using this model, find the average rate of flow of gasoline over the time interval 0 £ t £ 150.\nShow the setup for your calculations.",
+      "prompt": "The rate of flow of gasoline, in gallons per second, can also be modeled by $g(t) = \\dfrac{t}{50}\\cos\\!\\left(\\dfrac{t}{120}\\right)$ for $0 \\leq t \\leq 150$. Using this model, find the average rate of flow of gasoline over the time interval $0 \\leq t \\leq 150$. Show the setup for your calculations.",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "Average value $= \\dfrac{1}{150}\\int_0^{150} g(t)\\,dt = \\dfrac{1}{150}\\int_0^{150} \\dfrac{t}{50}\\cos\\!\\left(\\dfrac{t}{120}\\right)dt \\approx 0.450$ gallons per second (calculator required).",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Average valueformula",
+          "description": "Correct average value setup: $\\dfrac{1}{150}\\int_0^{150} g(t)\\,dt$ or equivalently $\\dfrac{1}{150}\\int_0^{150} \\dfrac{t}{50}\\cos\\!\\left(\\dfrac{t}{120}\\right)dt$.",
           "alternatives": [
             {
               "required_elements": [
-                "Average valueformula"
+                "$\\dfrac{1}{150}\\int_0^{150} g(t)\\,dt$"
               ]
             }
+          ],
+          "common_traps": [
+            "Using $\\dfrac{1}{150-0}$ but with wrong limits",
+            "Forgetting to divide by the length of the interval",
+            "Not showing the setup"
           ]
         },
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Correct answer",
+          "description": "Correct answer: approximately $0.450$ gallons per second.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "$\\approx 0.450$ gallons per second"
               ]
             }
+          ],
+          "common_traps": [
+            "Reporting the integral value without dividing by 150",
+            "Units error"
           ]
         }
       ]
     },
     {
       "letter": "d",
-      "prompt": "Using the model g defined in part (c), find the value of g¢(140). Interpret the meaning of your answer in\nthe context of the problem.\n__________________________________________________________\nWrite your responses to this question only on the designated pages in the separate Free Response\nbooklet. Write your solution to each part in the space provided for that part.",
+      "prompt": "Using the model $g$ defined in part (c), find the value of $g'(140)$. Interpret the meaning of your answer in the context of the problem, including units.",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "Using a calculator: $g'(140) \\approx -0.01896$ (or equivalent). This means that at $t = 140$ seconds the rate of flow of gasoline is decreasing at approximately $0.01896$ gallons per second per second.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "()140g′",
+          "description": "Correct value of $g'(140) \\approx -0.01896$ gallons per second per second (accept answers consistent with correct calculator use).",
           "alternatives": [
             {
               "required_elements": [
-                "()140g′"
+                "$g'(140) \\approx -0.01896$"
               ]
             }
+          ],
+          "common_traps": [
+            "Not using a calculator and leaving the expression unevaluated",
+            "Sign error"
           ]
         },
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "Correct interpretation with units in context",
+          "description": "Correct interpretation: at $t = 140$ seconds, the rate of flow of gasoline is decreasing at a rate of approximately $|g'(140)|$ gallons per second per second (or gallons per second$^2$).",
           "alternatives": [
             {
               "required_elements": [
-                "Correct interpretation with units in context"
+                "Rate of flow is decreasing (negative rate of change)",
+                "At $t = 140$ seconds",
+                "Units: gallons per second per second"
               ]
             }
           ],
           "common_traps": [
-            "Omitting units from interpretation",
-            "Not referencing the context of the problem"
+            "Omitting units",
+            "Describing $g'(140)$ as the flow rate rather than the rate of change of the flow rate"
           ]
         }
       ]

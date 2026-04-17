@@ -3,7 +3,7 @@
   "subject": "ap-calculus-bc",
   "year": 2021,
   "source": "released",
-  "title": "Taylor / Maclaurin Series",
+  "title": "Differential Equation — Euler's Method & Particular Solution",
   "frq_type": "multi_part_math",
   "related_units": [
     2,
@@ -14,13 +14,13 @@
   ],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": null,
+  "stimulus": "Consider the differential equation $\\dfrac{dy}{dx} = y(x \\ln x)$, where $x > 0$. Let $y = f(x)$ be the particular solution to the differential equation with initial condition $f(1) = 4$. It can be shown that $f''(1) = 4$.",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Write the second-degree Taylor polynomial for f about x = 1. Use the Taylor polynomial to\napproximate f(2).",
+      "prompt": "Write the second-degree Taylor polynomial for $f$ about $x = 1$. Use the Taylor polynomial to approximate $f(2)$.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -29,11 +29,11 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct Taylor/Maclaurin polynomial",
+          "description": "Correct second-degree Taylor polynomial about $x = 1$: uses $f(1) = 4$, $f'(1) = y(1\\cdot\\ln 1) = 4 \\cdot 0 = 0$, $f''(1) = 4$: $P_2(x) = 4 + 0\\cdot(x-1) + \\frac{4}{2}(x-1)^2 = 4 + 2(x-1)^2$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct Taylor/Maclaurin polynomial"
+                "$P_2(x) = 4 + 2(x-1)^2$"
               ]
             }
           ]
@@ -41,11 +41,11 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Correct numerical approximation",
+          "description": "Uses the polynomial to approximate $f(2)$: $P_2(2) = 4 + 2(2-1)^2 = 4 + 2 = 6$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct numerical approximation"
+                "$f(2) \\approx 6$"
               ]
             }
           ]
@@ -54,20 +54,22 @@
     },
     {
       "letter": "b",
-      "prompt": "Use Euler’s method, starting at x = 1with two steps of equal size, to approximate f(2). Show the\nwork that leads to your answer.\ndy ◊",
+      "prompt": "Use Euler's method, starting at $x = 1$ with two steps of equal size, to approximate $f(2)$. Show the work that leads to your answer.",
       "point_value": 2,
-      "scoring_notes": "Note: In the presence of the correct answer, such a table does not need to be labeled in order to",
+      "scoring_notes": "A table showing the steps is acceptable. In the presence of the correct answer, the table does not need to be labeled in order to earn the point.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Euler’s method withtwo steps",
+          "description": "Correctly executes two Euler steps with $\\Delta x = 0.5$:\n- Step 1: $x_0 = 1$, $y_0 = 4$; slope $= y_0(x_0 \\ln x_0) = 4(1\\cdot 0) = 0$; $y_1 = 4 + 0(0.5) = 4$\n- Step 2: $x_1 = 1.5$, $y_1 = 4$; slope $= 4(1.5\\ln 1.5) \\approx 4(1.5)(0.4055) \\approx 2.433$; $y_2 = 4 + 2.433(0.5) \\approx 5.216$",
           "alternatives": [
             {
               "required_elements": [
-                "Euler’s method withtwo steps"
+                "Two Euler steps shown with $\\Delta x = 0.5$",
+                "First step gives $y_1 = 4$ (since $f'(1) = 0$)",
+                "Second step applies $\\frac{dy}{dx}$ at $(1.5, 4)$"
               ]
             }
           ]
@@ -75,11 +77,11 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct answer",
+          "description": "Correct Euler approximation: $f(2) \\approx 4 + (1.5 \\ln 1.5)(4)(0.5) = 4 + 3(\\ln 1.5)(0.5 \\cdot 4)$. Numerically $\\approx 5.216$ (accept any correct follow-through)",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "Euler approximation $f(2) \\approx 4 + 6\\ln(1.5)$ or equivalent decimal $\\approx 5.216$"
               ]
             }
           ]
@@ -88,20 +90,20 @@
     },
     {
       "letter": "c",
-      "prompt": "Find the particular solution y = f(x) to the differential equation = y (xlnx) with initial\ndx\ncondition f(1) = 4.\n__________________________________________________________\nWrite your responses to this question only on the designated pages in the separate Free Response\nbooklet. Write your solution to each part in the space provided for that part.",
+      "prompt": "Find the particular solution $y = f(x)$ to the differential equation $\\dfrac{dy}{dx} = y(x\\ln x)$ with initial condition $f(1) = 4$.",
       "point_value": 5,
-      "scoring_notes": "Note: This solution is valid for x > 0.",
+      "scoring_notes": "Note: This solution is valid for $x > 0$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 1",
+          "description": "Separates variables correctly: $\\dfrac{dy}{y} = x\\ln x\\,dx$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 1"
+                "$\\frac{dy}{y} = x\\ln x\\,dx$"
               ]
             }
           ]
@@ -109,11 +111,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 2",
+          "description": "Integrates both sides correctly. Left side: $\\int \\frac{dy}{y} = \\ln|y|$. Right side uses integration by parts with $u = \\ln x$, $dv = x\\,dx$: $\\int x\\ln x\\,dx = \\frac{x^2}{2}\\ln x - \\frac{x^2}{4} + C$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 2"
+                "$\\ln|y| = \\frac{x^2}{2}\\ln x - \\frac{x^2}{4} + C$"
               ]
             }
           ]
@@ -121,11 +123,11 @@
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 3",
+          "description": "Exponentiates both sides to get the general solution: $y = Ae^{\\frac{x^2}{2}\\ln x - \\frac{x^2}{4}} = Ax^{x^2/2}\\,e^{-x^2/4}$ (or written as $y = Ae^{\\frac{x^2}{2}\\ln x - \\frac{x^2}{4}}$)",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 3"
+                "$y = Ae^{\\frac{x^2}{2}\\ln x - \\frac{x^2}{4}}$"
               ]
             }
           ]
@@ -133,11 +135,11 @@
         {
           "point_id": "c4",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 4",
+          "description": "Applies initial condition $f(1) = 4$: $4 = Ae^{\\frac{1}{2}\\ln 1 - \\frac{1}{4}} = Ae^{0 - 1/4} = Ae^{-1/4}$, so $A = 4e^{1/4}$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 4"
+                "$A = 4e^{1/4}$"
               ]
             }
           ]
@@ -145,11 +147,16 @@
         {
           "point_id": "c5",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 5",
+          "description": "States the particular solution: $y = 4e^{1/4}\\cdot e^{\\frac{x^2}{2}\\ln x - \\frac{x^2}{4}} = 4e^{\\frac{x^2\\ln x}{2} - \\frac{x^2}{4} + \\frac{1}{4}} = 4e^{\\frac{x^2\\ln x}{2} - \\frac{x^2-1}{4}}$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 5"
+                "$y = 4e^{\\frac{x^2\\ln x}{2} - \\frac{x^2-1}{4}}$"
+              ]
+            },
+            {
+              "required_elements": [
+                "$y = 4x^{x^2/2}\\,e^{(1-x^2)/4}$"
               ]
             }
           ]

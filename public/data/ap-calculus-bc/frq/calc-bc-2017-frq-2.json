@@ -12,13 +12,13 @@
   ],
   "calculator_allowed": true,
   "total_points": 9,
-  "stimulus": "The figure above shows the polar curves r = f (q ) = 1 + sinqc os(2q ) and r = g(q ) = 2cos q for\np\n0 £ q £ . Let R be the region in the first quadrant bounded by the curve r = f",
+  "stimulus": "The figure above shows the polar curves $r = f(\\theta) = 1 + \\sin\\theta\\cos(2\\theta)$ and $r = g(\\theta) = 2\\cos\\theta$ for $0 \\leq \\theta \\leq \\frac{\\pi}{2}$. Let $R$ be the region in the first quadrant bounded by the curve $r = f(\\theta)$ and the $x$-axis. Let $S$ be the region in the first quadrant bounded by the curve $r = f(\\theta)$, the curve $r = g(\\theta)$, and the $x$-axis.",
   "stimulus_image": "/data/ap-calculus-bc/frq/images/calc-bc-2017-frq-2-stimulus.png",
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Find the area of R.\np",
+      "prompt": "Find the area of $R$.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -27,11 +27,12 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct speed or slope computation",
+          "description": "Correct integral setup for the area of region $R$ in polar coordinates",
           "alternatives": [
             {
               "required_elements": [
-                "$\\sqrt{(x')^2+(y')^2}$ or $dy/dx = (dy/dt)/(dx/dt)$"
+                "$\\frac{1}{2}\\displaystyle\\int_0^{\\pi/2} [f(\\theta)]^2\\,d\\theta$",
+                "$\\frac{1}{2}\\displaystyle\\int_0^{\\pi/2} (1+\\sin\\theta\\cos(2\\theta))^2\\,d\\theta$"
               ]
             }
           ]
@@ -39,20 +40,21 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Correct numerical answer",
+          "description": "Correct numerical value",
           "alternatives": [
             {
               "required_elements": [
-                "Correct value"
+                "$\\approx 0.648$"
               ]
             }
-          ]
+          ],
+          "correct_example": "$\\frac{1}{2}\\displaystyle\\int_0^{\\pi/2} (1+\\sin\\theta\\cos(2\\theta))^2\\,d\\theta \\approx 0.648$"
         }
       ]
     },
     {
       "letter": "b",
-      "prompt": "The ray q = k, where 0 < k < , divides S into two regions of equal area. Write, but do not solve, an\nequation involving one or more integrals whose solution gives the value of k.\np",
+      "prompt": "The ray $\\theta = k$, where $0 < k < \\frac{\\pi}{2}$, divides $S$ into two regions of equal area. Write, but do not solve, an equation involving one or more integrals whose solution gives the value of $k$.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -61,11 +63,12 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct arc length or distance integral",
+          "description": "Correct integral expression for area of region $S$ from $0$ to $k$ (or from $k$ to the intersection) equated to half the total area of $S$",
           "alternatives": [
             {
               "required_elements": [
-                "$\\int \\sqrt{(x')^2+(y')^2}\\, dt$"
+                "$\\frac{1}{2}\\displaystyle\\int_0^{k}\\left([f(\\theta)]^2 - [g(\\theta)]^2\\right)d\\theta$",
+                "Integral representing part of region $S$ separated by ray $\\theta = k$"
               ]
             }
           ]
@@ -73,20 +76,21 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct distance value",
+          "description": "Correct equation setting two parts of $S$ equal",
           "alternatives": [
             {
               "required_elements": [
-                "Correct numerical answer"
+                "An equation of the form: area from $0$ to $k$ = area from $k$ to intersection, or total equals twice one part"
               ]
             }
-          ]
+          ],
+          "correct_example": "$\\frac{1}{2}\\displaystyle\\int_0^{k}\\left([g(\\theta)]^2 - [f(\\theta)]^2\\right)d\\theta = \\frac{1}{2}\\displaystyle\\int_k^{\\theta^*}\\left([g(\\theta)]^2 - [f(\\theta)]^2\\right)d\\theta$, where $\\theta^*$ is the intersection angle of $f$ and $g$"
         }
       ]
     },
     {
       "letter": "c",
-      "prompt": "For each q, 0 £ q £ , let w( q)be the distance between the points with polar coordinates (f (q),q ) and\np\n(g (q),q ). Write an expression for w( q). Find w , the average value of w( q)over the interval 0 £ q £ .\nA",
+      "prompt": "For each $\\theta$, $0 \\leq \\theta \\leq \\frac{\\pi}{2}$, let $w(\\theta)$ be the distance between the points with polar coordinates $(f(\\theta), \\theta)$ and $(g(\\theta), \\theta)$. Write an expression for $w(\\theta)$. Find $\\bar{w}$, the average value of $w(\\theta)$ over the interval $0 \\leq \\theta \\leq \\frac{\\pi}{2}$.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -95,23 +99,26 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Correct position integral setup",
+          "description": "Correct expression for $w(\\theta)$ as the radial difference between the two curves",
           "alternatives": [
             {
               "required_elements": [
-                "$y(t_0) = y(t_1) \\pm \\int y'\\, dt$"
+                "$w(\\theta) = g(\\theta) - f(\\theta)$",
+                "$w(\\theta) = 2\\cos\\theta - (1 + \\sin\\theta\\cos(2\\theta))$"
               ]
             }
-          ]
+          ],
+          "correct_example": "$w(\\theta) = 2\\cos\\theta - 1 - \\sin\\theta\\cos(2\\theta)$"
         },
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Correct initial condition used",
+          "description": "Correct average value integral setup",
           "alternatives": [
             {
               "required_elements": [
-                "Correct reference position applied"
+                "$\\bar{w} = \\frac{2}{\\pi}\\displaystyle\\int_0^{\\pi/2} w(\\theta)\\,d\\theta$",
+                "$\\bar{w} = \\frac{1}{\\pi/2}\\displaystyle\\int_0^{\\pi/2} w(\\theta)\\,d\\theta$"
               ]
             }
           ]
@@ -119,20 +126,21 @@
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "Correct position coordinates",
+          "description": "Correct numerical value for $\\bar{w}$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "$\\bar{w} \\approx 0.485$"
               ]
             }
-          ]
+          ],
+          "correct_example": "$\\bar{w} = \\frac{2}{\\pi}\\displaystyle\\int_0^{\\pi/2}(2\\cos\\theta - 1 - \\sin\\theta\\cos(2\\theta))\\,d\\theta \\approx 0.485$"
         }
       ]
     },
     {
       "letter": "d",
-      "prompt": "Using the information from part (c), find the value of q for which w(q) = w . Is the function w( q)\nA\nincreasing or decreasing at that value of q ? Give a reason for your answer.",
+      "prompt": "Using the information from part (c), find the value of $\\theta$ in $[0, \\frac{\\pi}{2}]$ for which $w(\\theta) = \\bar{w}$. Is the function $w(\\theta)$ increasing or decreasing at that value of $\\theta$? Give a reason for your answer.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -141,26 +149,29 @@
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "Correct analysis (direction, area, or other)",
+          "description": "Correct value of $\\theta$ where $w(\\theta) = \\bar{w}$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct method applied"
+                "$\\theta \\approx 0.517$"
               ]
             }
-          ]
+          ],
+          "correct_example": "Setting $w(\\theta) = 0.485$ and solving gives $\\theta \\approx 0.517$"
         },
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "Correct answer or interval with reason",
+          "description": "Correct conclusion (decreasing) with a valid reason using $w'(\\theta)$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct reasoning"
+                "$w$ is decreasing at $\\theta \\approx 0.517$",
+                "$w'(0.517) < 0$"
               ]
             }
-          ]
+          ],
+          "correct_example": "$w$ is decreasing at $\\theta \\approx 0.517$ because $w'(0.517) < 0$."
         }
       ]
     }

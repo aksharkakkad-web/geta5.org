@@ -3,23 +3,18 @@
   "subject": "ap-calculus-bc",
   "year": 2018,
   "source": "released",
-  "title": "Particle Motion",
+  "title": "Plankton Density & Particle Motion",
   "frq_type": "multi_part_math",
-  "related_units": [
-    1,
-    4,
-    6,
-    8
-  ],
+  "related_units": [1, 4, 6, 8],
   "calculator_allowed": true,
   "total_points": 9,
-  "stimulus": "Researchers on a boat are investigating plankton cells in a sea. At a depth of h meters, the density of plankton\ncells, in millions of cells per cubic meter, is modeled by p ( h ) = 0.2h 2 e − 0.0025 h2 for 0 £ h £ 30 and is\nmodeled by f ( h ) for h ≥ 30. The continuous function f is not explicitly given.",
+  "stimulus": "Researchers on a boat are investigating plankton cells in a sea. At a depth of $h$ meters, the density of plankton cells, in millions of cells per cubic meter, is modeled by $p(h) = 0.2h^2 e^{-0.0025h^2}$ for $0 \\leq h \\leq 30$ and is modeled by $f(h)$ for $h \\geq 30$. The continuous function $f$ is not explicitly given.",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Find p¢ ( 25 ). Using correct units, interpret the meaning of p ¢ ( 25 ) in the context of the problem.",
+      "prompt": "Find $p'(25)$. Using correct units, interpret the meaning of $p'(25)$ in the context of the problem.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -28,11 +23,11 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct speed or slope computation",
+          "description": "Correct derivative value: differentiating $p(h) = 0.2h^2 e^{-0.0025h^2}$ gives $p'(h) = 0.4h\\,e^{-0.0025h^2} + 0.2h^2(-0.005h)e^{-0.0025h^2} = e^{-0.0025h^2}(0.4h - 0.001h^3)$. Evaluated at $h = 25$: $p'(25) \\approx -0.299$ million cells per cubic meter per meter.",
           "alternatives": [
             {
               "required_elements": [
-                "$\\sqrt{(x')^2+(y')^2}$ or $dy/dx = (dy/dt)/(dx/dt)$"
+                "$p'(25) \\approx -0.299$ million cells per cubic meter per meter"
               ]
             }
           ]
@@ -40,11 +35,11 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Correct numerical answer",
+          "description": "Correct interpretation with units: At a depth of $25$ meters, the density of plankton cells is decreasing at a rate of approximately $0.299$ million cells per cubic meter per meter of depth.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct value"
+                "The density of plankton cells is decreasing at approximately $0.299$ million cells per cubic meter per meter of depth at $h = 25$ meters"
               ]
             }
           ]
@@ -53,7 +48,7 @@
     },
     {
       "letter": "b",
-      "prompt": "Consider a vertical column of water in this sea with horizontal cross sections of constant area 3 square\nmeters. To the nearest million, how many plankton cells are in this column of water between h = 0 and\nh = 30 meters?\n∞",
+      "prompt": "Consider a vertical column of water in this sea with horizontal cross sections of constant area $3$ square meters. To the nearest million, how many plankton cells are in this column of water between $h = 0$ and $h = 30$ meters?",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -62,11 +57,11 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct arc length or distance integral",
+          "description": "Sets up the correct integral: total plankton (millions) $= 3\\int_0^{30} p(h)\\,dh = 3\\int_0^{30} 0.2h^2 e^{-0.0025h^2}\\,dh$",
           "alternatives": [
             {
               "required_elements": [
-                "$\\int \\sqrt{(x')^2+(y')^2}\\, dt$"
+                "$3\\int_0^{30} 0.2h^2 e^{-0.0025h^2}\\,dh$"
               ]
             }
           ]
@@ -74,11 +69,11 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct distance value",
+          "description": "Correct answer: $3\\int_0^{30} p(h)\\,dh \\approx 3(561.647\\ldots) \\approx 1685$ million plankton cells (to the nearest million).",
           "alternatives": [
             {
               "required_elements": [
-                "Correct numerical answer"
+                "Approximately $1685$ million cells"
               ]
             }
           ]
@@ -87,7 +82,7 @@
     },
     {
       "letter": "c",
-      "prompt": "There is a function u such that 0 £ f ( h ) £ u ( h ) for all h ≥ 30 and ∫ u ( h ) d h = 105. The column of\nwater in part (b) is K meters deep, where K > 30. Write an expression involving one or more integrals\nthat gives the number of plankton cells, in millions, in the entire column. Explain why the number of\nplankton cells in the column is less than or equal to 2000 million.",
+      "prompt": "There is a function $u$ such that $0 \\leq f(h) \\leq u(h)$ for all $h \\geq 30$ and $\\int_{30}^{\\infty} u(h)\\,dh = 105$. The column of water in part (b) is $K$ meters deep, where $K > 30$. Write an expression involving one or more integrals that gives the number of plankton cells, in millions, in the entire column. Explain why the number of plankton cells in the column is less than or equal to $2000$ million.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -96,11 +91,11 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Correct position integral setup",
+          "description": "Correct expression for total plankton in a column of depth $K > 30$: $3\\int_0^{30} p(h)\\,dh + 3\\int_{30}^{K} f(h)\\,dh$ (millions of cells)",
           "alternatives": [
             {
               "required_elements": [
-                "$y(t_0) = y(t_1) \\pm \\int y'\\, dt$"
+                "$3\\int_0^{30} p(h)\\,dh + 3\\int_{30}^{K} f(h)\\,dh$"
               ]
             }
           ]
@@ -108,11 +103,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Correct initial condition used",
+          "description": "Uses the bound $0 \\leq f(h) \\leq u(h)$ to write: total plankton $\\leq 3\\int_0^{30} p(h)\\,dh + 3\\int_{30}^{\\infty} u(h)\\,dh$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct reference position applied"
+                "$\\leq 3\\int_0^{30} p(h)\\,dh + 3\\int_{30}^{\\infty} u(h)\\,dh$"
               ]
             }
           ]
@@ -120,11 +115,11 @@
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "Correct position coordinates",
+          "description": "Completes the bound: $3\\int_0^{30} p(h)\\,dh + 3\\int_{30}^{\\infty} u(h)\\,dh \\approx 3(561.647) + 3(105) \\approx 1684.9 + 315 < 2000$. Since $3\\int_0^{30} p(h)\\,dh \\approx 1685$ and $3 \\cdot 105 = 315$, the total is at most approximately $1685 + 315 = 2000$, so the number of plankton cells in the column is less than or equal to $2000$ million.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "$3\\int_0^{30} p(h)\\,dh + 3(105) \\leq 1685 + 315 = 2000$ million"
               ]
             }
           ]
@@ -133,7 +128,7 @@
     },
     {
       "letter": "d",
-      "prompt": "The boat is moving on the surface of the sea. At time t ≥ 0, the position of the boat is ( x ( t ) , y ( t )), where\nx¢ ( t ) = 662 sin ( 5t ) and y¢ ( t ) = 880 cos ( 6t ). Time t is measured in hours, and x ( t ) and y ( t ) are\nmeasured in meters. Find the total distance traveled by the boat over the time interval 0 £ t £ 1.",
+      "prompt": "The boat is moving on the surface of the sea. At time $t \\geq 0$, the position of the boat is $(x(t), y(t))$, where $x'(t) = 662\\sin(5t)$ and $y'(t) = 880\\cos(6t)$. Time $t$ is measured in hours, and $x(t)$ and $y(t)$ are measured in meters. Find the total distance traveled by the boat over the time interval $0 \\leq t \\leq 1$.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -142,11 +137,11 @@
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "Correct analysis (direction, area, or other)",
+          "description": "Sets up the correct arc length integral for total distance: $\\int_0^1 \\sqrt{[x'(t)]^2 + [y'(t)]^2}\\,dt = \\int_0^1 \\sqrt{(662\\sin 5t)^2 + (880\\cos 6t)^2}\\,dt$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct method applied"
+                "$\\int_0^1 \\sqrt{(662\\sin 5t)^2 + (880\\cos 6t)^2}\\,dt$"
               ]
             }
           ]
@@ -154,11 +149,11 @@
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "Correct answer or interval with reason",
+          "description": "Correct answer: $\\int_0^1 \\sqrt{(662\\sin 5t)^2 + (880\\cos 6t)^2}\\,dt \\approx 757.455$ meters",
           "alternatives": [
             {
               "required_elements": [
-                "Correct reasoning"
+                "$\\approx 757.455$ meters"
               ]
             }
           ]

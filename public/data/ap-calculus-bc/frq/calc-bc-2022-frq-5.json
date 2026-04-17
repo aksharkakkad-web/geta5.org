@@ -3,7 +3,7 @@
   "subject": "ap-calculus-bc",
   "year": 2022,
   "source": "released",
-  "title": "Area Between Curves",
+  "title": "Area, Volume, and Improper Integrals",
   "frq_type": "multi_part_math",
   "related_units": [
     1,
@@ -14,13 +14,13 @@
   ],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": "Figures 1 and 2, shown above, illustrate regions in the first quadrant associated with the graphs of y = and\nx\n1 1\ny = , respectively. In Figure 1, let R be the region bounded by the graph of y = , the x-axis, and the\nx x\nvertical lines x = 1 and x = 5. In Figure 2, let W be the unbounded region between the graph of y = and\nx\nthe x-axis that lies to the right of the vertical line x = 3.",
+  "stimulus": "Figures 1 and 2 illustrate regions in the first quadrant associated with the graph of $y = \\dfrac{1}{\\sqrt{x}}$.\n\nIn Figure 1, let $R$ be the region bounded by the graph of $y = \\dfrac{1}{\\sqrt{x}}$, the $x$-axis, and the vertical lines $x = 1$ and $x = 5$.\n\nIn Figure 2, let $W$ be the unbounded region between the graph of $y = \\dfrac{1}{\\sqrt{x}}$ and the $x$-axis that lies to the right of the vertical line $x = 3$.",
   "stimulus_image": "/data/ap-calculus-bc/frq/images/calc-bc-2022-frq-5-stimulus.png",
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Find the area of region R.",
+      "prompt": "Find the area of region $R$.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -29,26 +29,26 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct integral setup",
+          "description": "Sets up the correct integral and correctly antidifferentiates:\n$$\\int_{1}^{5} \\frac{1}{\\sqrt{x}}\\,dx = \\int_1^5 x^{-1/2}\\,dx = \\left[2\\sqrt{x}\\right]_1^5$$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct integral setup"
+                "$\\displaystyle\\int_1^5 x^{-1/2}\\,dx = \\left[2\\sqrt{x}\\right]_1^5$"
               ]
             }
           ],
           "common_traps": [
-            "Using incorrect limits of integration"
+            "Using incorrect limits or antiderivative $\\ln x$ instead of $2\\sqrt{x}$"
           ]
         },
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Correct answer",
+          "description": "Correct answer: $2\\sqrt{5} - 2(1) = 2\\sqrt{5} - 2$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "$2\\sqrt{5} - 2$"
               ]
             }
           ]
@@ -57,7 +57,7 @@
     },
     {
       "letter": "b",
-      "prompt": "Region R is the base of a solid. For the solid, at each x the cross section perpendicular to the x-axis is a\nx\n/5\nrectangle with area given by xe . Find the volume of the solid.",
+      "prompt": "Region $R$ is the base of a solid. For the solid, at each $x$ the cross section perpendicular to the $x$-axis is a rectangle with area given by $xe^{x/5}$. Find the volume of the solid.",
       "point_value": 4,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -66,11 +66,11 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct definite integral setup",
+          "description": "Sets up the correct definite integral for volume: $V = \\displaystyle\\int_{1}^{5} x e^{x/5}\\,dx$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct definite integral setup"
+                "$V = \\displaystyle\\int_1^5 xe^{x/5}\\,dx$"
               ]
             }
           ]
@@ -78,11 +78,11 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "e u and dv",
+          "description": "Correctly sets up integration by parts with $u = x$ and $dv = e^{x/5}\\,dx$, giving $du = dx$ and $v = 5e^{x/5}$.",
           "alternatives": [
             {
               "required_elements": [
-                "e u and dv"
+                "$u = x$, $dv = e^{x/5}\\,dx$, so $du = dx$, $v = 5e^{x/5}$"
               ]
             }
           ]
@@ -90,11 +90,11 @@
         {
           "point_id": "b3",
           "point_value": 1,
-          "description": "5xe − 5e dx∫",
+          "description": "Correctly applies the integration by parts formula:\n$$\\int_1^5 xe^{x/5}\\,dx = \\left[5xe^{x/5}\\right]_1^5 - \\int_1^5 5e^{x/5}\\,dx = \\left[5xe^{x/5}\\right]_1^5 - \\left[25e^{x/5}\\right]_1^5$$",
           "alternatives": [
             {
               "required_elements": [
-                "5xe − 5e dx∫"
+                "$\\left[5xe^{x/5}\\right]_1^5 - \\displaystyle\\int_1^5 5e^{x/5}\\,dx$"
               ]
             }
           ]
@@ -102,11 +102,11 @@
         {
           "point_id": "b4",
           "point_value": 1,
-          "description": "Correct answer",
+          "description": "Correct answer:\n$$V = \\left[5xe^{x/5} - 25e^{x/5}\\right]_1^5 = (25e^1 - 25e^1) - (5e^{1/5} - 25e^{1/5}) = 0 - (-20e^{1/5}) = 20e^{1/5}$$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "$V = 20e^{1/5}$"
               ]
             }
           ]
@@ -115,7 +115,7 @@
     },
     {
       "letter": "c",
-      "prompt": "Find the volume of the solid generated when the unbounded region W is revolved about the x-axis.\n__________________________________________________________\nWrite your responses to this question only on the designated pages in the separate Free Response\nbooklet. Write your solution to each part in the space provided for that part.\nx\nx\nx\n7 (−1)n\nx\n2n+",
+      "prompt": "Find the volume of the solid generated when the unbounded region $W$ is revolved about the $x$-axis. Does the volume exist? Justify your answer.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -124,41 +124,39 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Correct integral setup",
+          "description": "Sets up the correct improper integral using the disk method:\n$$V = \\pi\\int_{3}^{\\infty} \\left(\\frac{1}{\\sqrt{x}}\\right)^2 dx = \\pi\\int_3^{\\infty} \\frac{1}{x}\\,dx = \\pi\\lim_{b\\to\\infty}\\int_3^b \\frac{1}{x}\\,dx$$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct integral setup"
+                "$\\pi\\displaystyle\\int_3^{\\infty} \\dfrac{1}{x}\\,dx$ or $\\pi\\lim_{b\\to\\infty}\\displaystyle\\int_3^b \\dfrac{1}{x}\\,dx$"
               ]
             }
           ],
           "common_traps": [
-            "Using incorrect limits of integration"
+            "Forgetting the $\\pi$ from the disk method",
+            "Squaring $\\dfrac{1}{\\sqrt{x}}$ incorrectly as $\\dfrac{1}{x^2}$ instead of $\\dfrac{1}{x}$"
           ]
         },
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Correct antiderivative",
+          "description": "Correctly evaluates: $\\pi\\lim_{b\\to\\infty}\\left[\\ln x\\right]_3^b = \\pi\\lim_{b\\to\\infty}(\\ln b - \\ln 3)$, and recognizes this limit is infinite (diverges).",
           "alternatives": [
             {
               "required_elements": [
-                "Correct antiderivative"
+                "Antiderivative $\\ln x$ evaluated from $3$ to $b$, with limit as $b \\to \\infty$ shown to diverge"
               ]
             }
-          ],
-          "common_traps": [
-            "Missing +C"
           ]
         },
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "Correct answer",
+          "description": "Correct conclusion: the volume is **infinite** — the improper integral diverges, so the solid of revolution does not have a finite volume.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "States the volume does not exist (is infinite) / the integral diverges"
               ]
             }
           ]

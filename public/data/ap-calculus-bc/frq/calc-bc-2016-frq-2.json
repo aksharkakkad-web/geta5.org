@@ -15,26 +15,26 @@
   ],
   "calculator_allowed": true,
   "total_points": 9,
-  "stimulus": "At time t, the position of a particle moving in the xy-plane is given by the parametric functions (cid:11)x(cid:11)t(cid:12), y(cid:11)t(cid:12)(cid:12),\nwhere dx (cid:32) t2 (cid:14) sin (cid:11) 3t2(cid:12) . The graph of y, consisting of three line segments, is shown in the figure above.\ndt\nAt t (cid:32) 0, the particle is at position (cid:11)5,1(cid:12).",
+  "stimulus": "At time $t$, the position of a particle moving in the $xy$-plane is given by the parametric functions $(x(t),\\, y(t))$, where $\\dfrac{dx}{dt} = t^2 + \\sin(3t^2)$. The graph of $y$, consisting of three line segments, is shown in the figure above. At $t = 0$, the particle is at position $(5, 1)$.",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Find the position of the particle at t (cid:32) 3.",
+      "prompt": "Find the position of the particle at $t = 3$.",
       "point_value": 3,
-      "scoring_notes": null,
+      "scoring_notes": "Use $x(3) = x(0) + \\int_0^3 \\frac{dx}{dt}\\,dt$ and read $y(3)$ from the graph of $y$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 1",
+          "description": "Correct integral expression for $x(3)$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 1"
+                "$x(3) = 5 + \\int_0^3 (t^2 + \\sin(3t^2))\\,dt$"
               ]
             }
           ]
@@ -42,11 +42,11 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 2",
+          "description": "Correct numerical value for $x(3)$ (calculator required)",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 2"
+                "$x(3) \\approx 5 + 9.405 = 14.405$ (accept values consistent with calculator)"
               ]
             }
           ]
@@ -54,11 +54,11 @@
         {
           "point_id": "a3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 3",
+          "description": "Correct value for $y(3)$ read from the piecewise-linear graph",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 3"
+                "$y(3) = -2$ (read from graph); position is approximately $(14.405,\\, -2)$"
               ]
             }
           ]
@@ -67,20 +67,20 @@
     },
     {
       "letter": "b",
-      "prompt": "Find the slope of the line tangent to the path of the particle at t (cid:32) 3.",
+      "prompt": "Find the slope of the line tangent to the path of the particle at $t = 3$.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "Slope $= \\dfrac{dy/dt}{dx/dt}$ evaluated at $t = 3$. Read $dy/dt$ at $t=3$ from the graph of $y$ (slope of the line segment).",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 1",
+          "description": "Correct tangent slope using $dy/dx = (dy/dt)/(dx/dt)$ at $t=3$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 1"
+                "$\\dfrac{dy}{dx}\\bigg|_{t=3} = \\dfrac{dy/dt}{dx/dt}\\bigg|_{t=3}$; with $dy/dt$ from graph and $dx/dt = 9 + \\sin(27)$ at $t=3$"
               ]
             }
           ]
@@ -89,20 +89,20 @@
     },
     {
       "letter": "c",
-      "prompt": "Find the speed of the particle at t (cid:32) 3.",
+      "prompt": "Find the speed of the particle at $t = 3$.",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "Speed $= \\sqrt{(dx/dt)^2 + (dy/dt)^2}$ evaluated at $t = 3$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 1",
+          "description": "Correct speed formula",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 1"
+                "$\\text{speed} = \\sqrt{\\left(\\dfrac{dx}{dt}\\right)^2 + \\left(\\dfrac{dy}{dt}\\right)^2}\\bigg|_{t=3}$"
               ]
             }
           ]
@@ -110,11 +110,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 2",
+          "description": "Correct numerical answer (calculator required)",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 2"
+                "Numerical value consistent with $\\sqrt{(dx/dt|_{t=3})^2 + (dy/dt|_{t=3})^2}$"
               ]
             }
           ]
@@ -123,20 +123,20 @@
     },
     {
       "letter": "d",
-      "prompt": "Find the total distance traveled by the particle from t (cid:32) 0 to t (cid:32) 2.",
+      "prompt": "Find the total distance traveled by the particle from $t = 0$ to $t = 2$.",
       "point_value": 3,
-      "scoring_notes": null,
+      "scoring_notes": "Arc length $= \\int_0^2 \\sqrt{(dx/dt)^2 + (dy/dt)^2}\\,dt$. Evaluate with a calculator.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 1",
+          "description": "Correct arc-length integral setup",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 1"
+                "$\\int_0^2 \\sqrt{\\left(\\dfrac{dx}{dt}\\right)^2 + \\left(\\dfrac{dy}{dt}\\right)^2}\\,dt$"
               ]
             }
           ]
@@ -144,11 +144,11 @@
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 2",
+          "description": "Correct integrand with $dy/dt$ read from the piecewise-linear graph of $y$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 2"
+                "$\\int_0^2 \\sqrt{(t^2 + \\sin(3t^2))^2 + (dy/dt)^2}\\,dt$ with $dy/dt$ piecewise constant from graph"
               ]
             }
           ]
@@ -156,11 +156,11 @@
         {
           "point_id": "d3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 3",
+          "description": "Correct numerical answer (calculator required)",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 3"
+                "Numerical value consistent with calculator evaluation of the arc-length integral from $t=0$ to $t=2$"
               ]
             }
           ]

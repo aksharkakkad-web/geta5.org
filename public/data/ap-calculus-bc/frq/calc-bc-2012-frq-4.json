@@ -3,7 +3,7 @@
   "subject": "ap-calculus-bc",
   "year": 2012,
   "source": "released",
-  "title": "Taylor / Maclaurin Series",
+  "title": "Taylor Polynomial, Euler's Method & Riemann Sum",
   "frq_type": "multi_part_math",
   "related_units": [
     2,
@@ -13,41 +13,41 @@
   ],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": "The function f is twice differentiable for x (cid:33) 0 with f(cid:11)1(cid:12) (cid:32) 15 and f(cid:132)(cid:132)(cid:11)1(cid:12) (cid:32) 20. Values of f(cid:132), the derivative of\nf, are given for selected values of x in the table above.",
+  "stimulus": "The function $f$ is twice differentiable for $x > 0$ with $f(1) = 5$ and $f''(1) = 20$. Values of $f'$, the derivative of $f$, are given for selected values of $x$ in the table above.\n\n| $x$ | 1.0 | 1.2 | 1.4 |\n|---|---|---|---|\n| $f'(x)$ | 8 | 12 | 18 |",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Write an equation for the line tangent to the graph of f at x (cid:32) 1. Use this line to approximate f(cid:11)1.4(cid:12).",
+      "prompt": "Write an equation for the line tangent to the graph of $f$ at $x = 1$. Use this line to approximate $f(1.4)$.",
       "point_value": 2,
       "scoring_notes": null,
-      "requires_drawing": true,
+      "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct tangent line equation at x = 1: y = 8x − 3",
+          "description": "Correct tangent line equation at $x = 1$",
           "alternatives": [
             {
               "required_elements": [
-                "Slope $f'(1) = 8$, point $(1, 5)$"
+                "Slope $= f'(1) = 8$, point $(1, 5)$: $y - 5 = 8(x - 1)$, i.e., $y = 8x - 3$"
               ],
-              "correct_example": "$y - 5 = 8(x-1)$ i.e. $y = 8x - 3$"
+              "correct_example": "$y - 5 = 8(x - 1)$  or equivalently  $y = 8x - 3$"
             }
           ]
         },
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Correct linearization f(1.4) ≈ 8.2",
+          "description": "Correct linearization approximation $f(1.4) \\approx 8.2$",
           "alternatives": [
             {
               "required_elements": [
-                "Substitutes $x = 1.4$ into tangent line"
+                "Substitute $x = 1.4$ into the tangent line equation"
               ],
-              "correct_example": "$y = 8(1.4) - 3 = 8.2$"
+              "correct_example": "$y(1.4) = 8(1.4) - 3 = 11.2 - 3 = 8.2$"
             }
           ]
         }
@@ -55,7 +55,7 @@
     },
     {
       "letter": "b",
-      "prompt": "Use a midpoint Riemann sum with two subintervals of equal length and values from the table to\n1.4 1.4\napproximate (cid:212) f(cid:132)(cid:11)x(cid:12)dx. Use the approximation for (cid:212) f(cid:132)(cid:11)x(cid:12)dx to estimate the value of f(cid:11)1.4(cid:12). Show\n1 1\nthe computations that lead to your answer.",
+      "prompt": "Use a midpoint Riemann sum with two subintervals of equal length and values from the table to approximate $\\displaystyle\\int_1^{1.4} f'(x)\\, dx$. Use the approximation for $\\displaystyle\\int_1^{1.4} f'(x)\\, dx$ to estimate the value of $f(1.4)$. Show the computations that lead to your answer.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -64,36 +64,43 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 1",
+          "description": "Correct midpoint Riemann sum setup with subintervals $[1, 1.2]$ and $[1.2, 1.4]$, midpoints $x = 1.1$ and $x = 1.3$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 1"
-              ]
+                "Two subintervals each of width $0.2$; midpoints at $x = 1.1$ and $x = 1.3$"
+              ],
+              "correct_example": "$\\int_1^{1.4} f'(x)\\, dx \\approx 0.2 \\cdot f'(1.1) + 0.2 \\cdot f'(1.3)$"
             }
           ]
         },
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 2",
+          "description": "Correct midpoint values $f'(1.1)$ and $f'(1.3)$ read or interpolated from table, and correct sum",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 2"
-              ]
+                "$f'(1.1) = 10$ and $f'(1.3) = 15$ (midpoints between table values), giving $0.2(10) + 0.2(15) = 2 + 3 = 5$"
+              ],
+              "correct_example": "$\\int_1^{1.4} f'(x)\\, dx \\approx 0.2(10) + 0.2(15) = 5$"
             }
+          ],
+          "common_traps": [
+            "Using the endpoints of the subintervals instead of the midpoints",
+            "Using $f'(1.2)$ and $f'(1.4)$ (right endpoints) rather than the midpoints $f'(1.1)$ and $f'(1.3)$"
           ]
         },
         {
           "point_id": "b3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 3",
+          "description": "Correct estimate of $f(1.4)$ using FTC and the Riemann sum approximation",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 3"
-              ]
+                "$f(1.4) = f(1) + \\int_1^{1.4} f'(x)\\, dx \\approx 5 + 5 = 10$"
+              ],
+              "correct_example": "$f(1.4) \\approx 5 + 5 = 10$"
             }
           ]
         }
@@ -101,7 +108,7 @@
     },
     {
       "letter": "c",
-      "prompt": "Use Euler’s method, starting at x (cid:32) 1 with two steps of equal size, to approximate f(cid:11)1.4(cid:12). Show the\ncomputations that lead to your answer.",
+      "prompt": "Use Euler's method, starting at $x = 1$ with two steps of equal size, to approximate $f(1.4)$. Show the computations that lead to your answer.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -110,26 +117,26 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Euler's method first step: f(1.2) ≈ 6.6",
+          "description": "Correct first Euler step: $f(1.2) \\approx 6.6$",
           "alternatives": [
             {
               "required_elements": [
-                "Step $h = 0.2$; $f(1.2) \\approx 5 + 0.2(8) = 6.6$"
+                "Step size $h = 0.2$; $f(1.2) \\approx f(1) + 0.2 \\cdot f'(1) = 5 + 0.2(8) = 5 + 1.6 = 6.6$"
               ]
             }
           ],
           "common_traps": [
-            "Using step h = 0.4 instead of h = 0.2 for two equal steps"
+            "Using step size $h = 0.4$ (one step) instead of $h = 0.2$ (two equal steps)"
           ]
         },
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Euler's method second step: f(1.4) ≈ 9.0",
+          "description": "Correct second Euler step: $f(1.4) \\approx 9.0$",
           "alternatives": [
             {
               "required_elements": [
-                "$f(1.4) \\approx 6.6 + 0.2(12) = 9.0$"
+                "$f(1.4) \\approx f(1.2) + 0.2 \\cdot f'(1.2) = 6.6 + 0.2(12) = 6.6 + 2.4 = 9.0$"
               ]
             }
           ]
@@ -138,7 +145,7 @@
     },
     {
       "letter": "d",
-      "prompt": "Write the second-degree Taylor polynomial for f about x (cid:32) 1. Use the Taylor polynomial to approximate\nf(cid:11)1.4(cid:12).",
+      "prompt": "Write the second-degree Taylor polynomial for $f$ about $x = 1$. Use the Taylor polynomial to approximate $f(1.4)$.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -147,26 +154,27 @@
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "Correct second-degree Taylor polynomial: 5 + 8(x−1) + 10(x−1)²",
+          "description": "Correct second-degree Taylor polynomial centered at $x = 1$",
           "alternatives": [
             {
               "required_elements": [
-                "$P_2(x) = f(1) + f'(1)(x-1) + \\frac{f''(1)}{2}(x-1)^2 = 5 + 8(x-1) + 10(x-1)^2$"
-              ]
+                "$P_2(x) = f(1) + f'(1)(x-1) + \\dfrac{f''(1)}{2!}(x-1)^2 = 5 + 8(x-1) + 10(x-1)^2$"
+              ],
+              "correct_example": "$P_2(x) = 5 + 8(x-1) + 10(x-1)^2$"
             }
           ],
           "common_traps": [
-            "Forgetting to divide f''(1) = 20 by 2"
+            "Forgetting to divide $f''(1) = 20$ by $2!$, giving $20(x-1)^2$ instead of $10(x-1)^2$"
           ]
         },
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "Correct Taylor approximation f(1.4) ≈ 9.8",
+          "description": "Correct Taylor approximation $f(1.4) \\approx 9.8$",
           "alternatives": [
             {
               "required_elements": [
-                "$P_2(1.4) = 5 + 8(0.4) + 10(0.16) = 9.8$"
+                "$P_2(1.4) = 5 + 8(0.4) + 10(0.4)^2 = 5 + 3.2 + 1.6 = 9.8$"
               ]
             }
           ]

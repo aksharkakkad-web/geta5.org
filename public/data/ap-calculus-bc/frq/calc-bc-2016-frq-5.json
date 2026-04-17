@@ -3,7 +3,7 @@
   "subject": "ap-calculus-bc",
   "year": 2016,
   "source": "released",
-  "title": "Polar Curves & Area",
+  "title": "Volume & Related Rates (Funnel)",
   "frq_type": "multi_part_math",
   "related_units": [
     2,
@@ -15,7 +15,7 @@
   ],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": "The inside of a funnel of height 10 inches has circular cross sections, as shown in the figure above. At height h,\nthe radius of the funnel is given by r (cid:32)\n1 (cid:11)\n3 (cid:14)\nh2(cid:12)\n, where 0 (cid:133) h (cid:133) 10. The units of r and h are inches.",
+  "stimulus": "The inside of a funnel of height 10 inches has circular cross sections, as shown in the figure above. At height $h$, the radius of the funnel is given by $r = \\dfrac{1}{3}(3 + h^2)$, where $0 \\leq h \\leq 10$. The units of $r$ and $h$ are inches.",
   "stimulus_image": "/data/ap-calculus-bc/frq/images/calc-bc-2016-frq-5-stimulus.png",
   "documents": null,
   "parts": [
@@ -23,18 +23,18 @@
       "letter": "a",
       "prompt": "Find the average value of the radius of the funnel.",
       "point_value": 3,
-      "scoring_notes": null,
+      "scoring_notes": "Average value of $r$ over $[0, 10]$ is $\\dfrac{1}{10}\\int_0^{10} \\dfrac{1}{3}(3 + h^2)\\,dh$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 1",
+          "description": "Correct average value formula set up",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 1"
+                "$\\dfrac{1}{10}\\int_0^{10} \\dfrac{1}{3}(3 + h^2)\\,dh$"
               ]
             }
           ]
@@ -42,11 +42,11 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 2",
+          "description": "Correct antiderivative",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 2"
+                "$\\dfrac{1}{10} \\cdot \\dfrac{1}{3}\\left[3h + \\dfrac{h^3}{3}\\right]_0^{10}$"
               ]
             }
           ]
@@ -54,11 +54,11 @@
         {
           "point_id": "a3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 3",
+          "description": "Correct numerical answer",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 3"
+                "$\\dfrac{1}{30}\\left[30 + \\dfrac{1000}{3}\\right] = \\dfrac{1}{30} \\cdot \\dfrac{90 + 1000}{3} = \\dfrac{1090}{90} = \\dfrac{109}{9}$ inches"
               ]
             }
           ]
@@ -69,18 +69,18 @@
       "letter": "b",
       "prompt": "Find the volume of the funnel.",
       "point_value": 3,
-      "scoring_notes": null,
+      "scoring_notes": "Volume by disk method: $V = \\int_0^{10} \\pi r^2\\,dh = \\pi \\int_0^{10} \\left[\\dfrac{1}{3}(3+h^2)\\right]^2 dh$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 1",
+          "description": "Correct volume integral setup using disk method",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 1"
+                "$V = \\pi \\int_0^{10} \\left[\\dfrac{1}{3}(3 + h^2)\\right]^2 dh = \\dfrac{\\pi}{9}\\int_0^{10}(3 + h^2)^2\\,dh$"
               ]
             }
           ]
@@ -88,11 +88,11 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 2",
+          "description": "Correct expansion and antiderivative of the integrand",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 2"
+                "$(3+h^2)^2 = 9 + 6h^2 + h^4$; antiderivative $= 9h + 2h^3 + \\dfrac{h^5}{5}$"
               ]
             }
           ]
@@ -100,11 +100,11 @@
         {
           "point_id": "b3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 3",
+          "description": "Correct numerical answer",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 3"
+                "$V = \\dfrac{\\pi}{9}\\left[9(10) + 2(10)^3 + \\dfrac{(10)^5}{5}\\right] = \\dfrac{\\pi}{9}\\left[90 + 2000 + 20000\\right] = \\dfrac{22090\\pi}{9}$ cubic inches"
               ]
             }
           ]
@@ -113,20 +113,20 @@
     },
     {
       "letter": "c",
-      "prompt": "The funnel contains liquid that is draining from the bottom. At the instant when the height of the liquid is\nh (cid:32) 3 inches, the radius of the surface of the liquid is decreasing at a rate of inch per second. At this\ninstant, what is the rate of change of the height of the liquid with respect to time?",
+      "prompt": "The funnel contains liquid that is draining from the bottom. At the instant when the height of the liquid is $h = 3$ inches, the radius of the surface of the liquid is decreasing at a rate of $\\dfrac{1}{3}$ inch per second. At this instant, what is the rate of change of the height of the liquid with respect to time?",
       "point_value": 3,
-      "scoring_notes": null,
+      "scoring_notes": "Differentiate $r = \\dfrac{1}{3}(3 + h^2)$ with respect to $t$ to get $\\dfrac{dr}{dt} = \\dfrac{2h}{3}\\dfrac{dh}{dt}$. Substitute $h=3$ and $dr/dt = -1/3$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 1",
+          "description": "Correct differentiation of $r = \\dfrac{1}{3}(3+h^2)$ with respect to $t$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 1"
+                "$\\dfrac{dr}{dt} = \\dfrac{1}{3} \\cdot 2h \\cdot \\dfrac{dh}{dt} = \\dfrac{2h}{3}\\dfrac{dh}{dt}$"
               ]
             }
           ]
@@ -134,11 +134,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 2",
+          "description": "Correct substitution of $h = 3$ and $dr/dt = -1/3$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 2"
+                "$-\\dfrac{1}{3} = \\dfrac{2(3)}{3}\\dfrac{dh}{dt} = 2\\dfrac{dh}{dt}$"
               ]
             }
           ]
@@ -146,11 +146,11 @@
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 3",
+          "description": "Correct answer with units",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 3"
+                "$\\dfrac{dh}{dt} = -\\dfrac{1}{6}$ inch per second"
               ]
             }
           ]

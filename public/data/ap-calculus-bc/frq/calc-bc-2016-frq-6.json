@@ -12,26 +12,26 @@
   ],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": "The function f has a Taylor series about x (cid:32) 1 that converges to f(cid:11)x(cid:12) for all x in the interval of convergence.\nIt is known that f(cid:11)1(cid:12) (cid:32) 1, f(cid:132)(cid:11)1(cid:12) (cid:32) (cid:16) 1 , and the nth derivative of f at x (cid:32) 1 is given by f (cid:11)n(cid:12)(cid:11)1(cid:12) (cid:32) (cid:11)(cid:16)1(cid:12)n (cid:11)n (cid:16)1(cid:12)!\n2 2n\nfor n (cid:149) 2.",
+  "stimulus": "The function $f$ has a Taylor series about $x = 1$ that converges to $f(x)$ for all $x$ in the interval of convergence. It is known that $f(1) = 1$, $f'(1) = -\\dfrac{1}{2}$, and the $n$th derivative of $f$ at $x = 1$ is given by $f^{(n)}(1) = \\dfrac{(-1)^n (n-1)!}{2^n}$ for $n \\geq 2$.",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Write the first four nonzero terms and the general term of the Taylor series for f about x (cid:32) 1.",
+      "prompt": "Write the first four nonzero terms and the general term of the Taylor series for $f$ about $x = 1$.",
       "point_value": 4,
-      "scoring_notes": null,
+      "scoring_notes": "The Taylor series is $\\sum_{n=0}^{\\infty} \\dfrac{f^{(n)}(1)}{n!}(x-1)^n$. For $n \\geq 2$: $\\dfrac{f^{(n)}(1)}{n!} = \\dfrac{(-1)^n (n-1)!}{2^n \\cdot n!} = \\dfrac{(-1)^n}{n \\cdot 2^n}$. For $n=1$: coefficient $= f'(1) = -\\dfrac{1}{2}$. For $n=0$: $f(1)=1$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 1",
+          "description": "Correct first two nonzero terms",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 1"
+                "$1 - \\dfrac{1}{2}(x-1)$"
               ]
             }
           ]
@@ -39,11 +39,11 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 2",
+          "description": "Correct third nonzero term",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 2"
+                "$+ \\dfrac{1}{8}(x-1)^2$"
               ]
             }
           ]
@@ -51,11 +51,11 @@
         {
           "point_id": "a3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 3",
+          "description": "Correct fourth nonzero term",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 3"
+                "$- \\dfrac{1}{24}(x-1)^3$"
               ]
             }
           ]
@@ -63,11 +63,11 @@
         {
           "point_id": "a4",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 4",
+          "description": "Correct general term for $n \\geq 1$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 4"
+                "$\\sum_{n=1}^{\\infty} \\dfrac{(-1)^n}{n \\cdot 2^n}(x-1)^n$; general term $= \\dfrac{(-1)^n}{n \\cdot 2^n}(x-1)^n$ for $n \\geq 1$"
               ]
             }
           ]
@@ -76,20 +76,20 @@
     },
     {
       "letter": "b",
-      "prompt": "The Taylor series for f about x (cid:32) 1 has a radius of convergence of 2. Find the interval of convergence.\nShow the work that leads to your answer.",
+      "prompt": "The Taylor series for $f$ about $x = 1$ has a radius of convergence of $2$. Find the interval of convergence. Show the work that leads to your answer.",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "Radius of convergence $= 2$ means $|x - 1| < 2$, so $-1 < x < 3$. Check the endpoints $x = -1$ and $x = 3$ for convergence.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 1",
+          "description": "Correctly checks both endpoints",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 1"
+                "At $x = -1$: series becomes $\\sum_{n=1}^{\\infty} \\dfrac{(-1)^n}{n \\cdot 2^n}(-2)^n = \\sum_{n=1}^{\\infty} \\dfrac{(-1)^n \\cdot (-1)^n \\cdot 2^n}{n \\cdot 2^n} = \\sum_{n=1}^{\\infty} \\dfrac{1}{n}$, which diverges (harmonic series). At $x = 3$: series becomes $\\sum_{n=1}^{\\infty} \\dfrac{(-1)^n}{n}$, which converges by the Alternating Series Test."
               ]
             }
           ]
@@ -97,11 +97,11 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 2",
+          "description": "Correct interval of convergence",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 2"
+                "$-1 < x \\leq 3$"
               ]
             }
           ]
@@ -110,20 +110,20 @@
     },
     {
       "letter": "c",
-      "prompt": "The Taylor series for f about x (cid:32) 1 can be used to represent f(cid:11)1.2(cid:12) as an alternating series. Use the first\nthree nonzero terms of the alternating series to approximate f(cid:11)1.2(cid:12).",
+      "prompt": "The Taylor series for $f$ about $x = 1$ can be used to represent $f(1.2)$ as an alternating series. Use the first three nonzero terms of the alternating series to approximate $f(1.2)$.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "Substitute $x = 1.2$, so $x - 1 = 0.2$, into the first three nonzero terms.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Correct over/underestimate or long-term behavior",
+          "description": "Correct approximation using first three terms with $x - 1 = 0.2$",
           "alternatives": [
             {
               "required_elements": [
-                "Concavity argument or limit analysis"
+                "$f(1.2) \\approx 1 - \\dfrac{1}{2}(0.2) + \\dfrac{1}{8}(0.2)^2 = 1 - 0.1 + 0.005 = 0.905$"
               ]
             }
           ]
@@ -132,20 +132,20 @@
     },
     {
       "letter": "d",
-      "prompt": "Show that the approximation found in part (c) is within 0.001 of the exact value of f(cid:11)1.2(cid:12).\nSTOP\nEND OF EXAM",
+      "prompt": "Show that the approximation found in part (c) is within $0.001$ of the exact value of $f(1.2)$.",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "Since the series is alternating and the terms are decreasing in absolute value, the error is bounded by the absolute value of the first omitted term.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 1",
+          "description": "States and applies the Alternating Series Estimation Theorem (error $\\leq |a_{n+1}|$)",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 1"
+                "By the Alternating Series Estimation Theorem, the error is at most the absolute value of the first omitted term"
               ]
             }
           ]
@@ -153,11 +153,11 @@
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 2",
+          "description": "Correctly computes the first omitted term and shows it is less than $0.001$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 2"
+                "First omitted term: $\\left|\\dfrac{(-1)^3}{3 \\cdot 2^3}(0.2)^3\\right| = \\dfrac{(0.2)^3}{24} = \\dfrac{0.008}{24} = \\dfrac{1}{3000} < 0.001$"
               ]
             }
           ]

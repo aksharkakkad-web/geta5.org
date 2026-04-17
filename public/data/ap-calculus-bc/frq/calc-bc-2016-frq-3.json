@@ -3,7 +3,7 @@
   "subject": "ap-calculus-bc",
   "year": 2016,
   "source": "released",
-  "title": "Analysis of Functions",
+  "title": "Analysis of Functions (Accumulation)",
   "frq_type": "multi_part_math",
   "related_units": [
     5,
@@ -11,26 +11,26 @@
   ],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": "The figure above shows the graph of the piecewise-linear function f. For (cid:16)4 (cid:133) x (cid:133) 12, the function g is defined\nx\nby g(cid:11)x(cid:12) (cid:32) (cid:212) f(cid:11)t(cid:12) dt.",
+  "stimulus": "The figure above shows the graph of the piecewise-linear function $f$. For $-4 \\leq x \\leq 12$, the function $g$ is defined by $g(x) = \\int_{2}^{x} f(t)\\,dt$.",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Does g have a relative minimum, a relative maximum, or neither at x (cid:32) 10? Justify your answer.",
+      "prompt": "Does $g$ have a relative minimum, a relative maximum, or neither at $x = 10$? Justify your answer.",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "Since $g'(x) = f(x)$, analyze the sign change of $f$ at $x = 10$ from the piecewise-linear graph.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 1",
+          "description": "Correct conclusion: $g$ has a relative minimum at $x = 10$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 1"
+                "$g$ has a relative minimum at $x = 10$"
               ]
             }
           ]
@@ -38,11 +38,11 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 2",
+          "description": "Correct justification using sign change of $g'(x) = f(x)$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 2"
+                "$g'(x) = f(x)$ changes from negative to positive at $x = 10$, so $g$ has a relative minimum there"
               ]
             }
           ]
@@ -51,20 +51,20 @@
     },
     {
       "letter": "b",
-      "prompt": "Does the graph of g have a point of inflection at x (cid:32) 4? Justify your answer.",
+      "prompt": "Does the graph of $g$ have a point of inflection at $x = 4$? Justify your answer.",
       "point_value": 1,
-      "scoring_notes": null,
-      "requires_drawing": true,
+      "scoring_notes": "A point of inflection occurs where $g''$ (equivalently $f'$) changes sign, i.e., where the slope of $f$ changes sign.",
+      "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 1",
+          "description": "Correct answer (yes) with valid justification that $f'$ changes sign at $x = 4$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 1"
+                "Yes; $g''(x) = f'(x)$ changes sign at $x = 4$ because the slope of $f$ changes from positive to negative (or the slope of the line segment changes), so $g$ has a point of inflection at $x = 4$"
               ]
             }
           ]
@@ -73,20 +73,20 @@
     },
     {
       "letter": "c",
-      "prompt": "Find the absolute minimum value and the absolute maximum value of g on the interval (cid:16)4 (cid:133) x (cid:133) 12.\nJustify your answers.",
+      "prompt": "Find the absolute minimum value and the absolute maximum value of $g$ on the interval $-4 \\leq x \\leq 12$. Justify your answers.",
       "point_value": 4,
-      "scoring_notes": null,
+      "scoring_notes": "Evaluate $g$ at critical points (where $f = 0$) and endpoints $x = -4$ and $x = 12$. $g$ values are found by computing net signed areas under $f$ from $x = 2$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 1",
+          "description": "Correctly identifies all critical points on $[-4, 12]$ where $g'(x) = f(x) = 0$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 1"
+                "Critical points where $f(x) = 0$: $x = -4$ is an endpoint; identify zeros of $f$ from the graph (e.g., $x = 0$, $x = 6$, $x = 10$) as candidates"
               ]
             }
           ]
@@ -94,11 +94,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 2",
+          "description": "Correct computation of $g$ values at the candidates (using net signed area)",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 2"
+                "$g(x) = \\int_2^x f(t)\\,dt$ evaluated at each critical point and at both endpoints $x=-4$ and $x=12$ by computing net signed triangular/trapezoidal areas from the graph"
               ]
             }
           ]
@@ -106,11 +106,11 @@
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 3",
+          "description": "Correct identification and value of the absolute minimum",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 3"
+                "Absolute minimum value of $g$ stated with correct numerical value and correct $x$-location"
               ]
             }
           ]
@@ -118,11 +118,11 @@
         {
           "point_id": "c4",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 4",
+          "description": "Correct identification and value of the absolute maximum",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 4"
+                "Absolute maximum value of $g$ stated with correct numerical value and correct $x$-location"
               ]
             }
           ]
@@ -131,20 +131,20 @@
     },
     {
       "letter": "d",
-      "prompt": "For (cid:16)4 (cid:133) x (cid:133) 12, find all intervals for which g(cid:11)x(cid:12) (cid:133) 0.",
+      "prompt": "For $-4 \\leq x \\leq 12$, find all intervals for which $g(x) \\leq 0$.",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "Find where the net accumulated area $\\int_2^x f(t)\\,dt \\leq 0$ by tracking sign of cumulative area from the graph of $f$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 1",
+          "description": "Correct interval(s) where $g(x) \\leq 0$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 1"
+                "Correct interval(s) determined by finding where the net signed area $\\int_2^x f(t)\\,dt \\leq 0$"
               ]
             }
           ]
@@ -152,11 +152,11 @@
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 2",
+          "description": "Correct justification referencing $g(x) = \\int_2^x f(t)\\,dt$ and the sign of accumulated area",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 2"
+                "Work shows the net area computation from the piecewise-linear graph of $f$ to identify where $g \\leq 0$"
               ]
             }
           ]

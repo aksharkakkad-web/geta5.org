@@ -11,26 +11,26 @@
   ],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": "Consider the differential equation (cid:32) x2 (cid:16) y.\ndx 2\nd2y",
+  "stimulus": "Consider the differential equation $\\dfrac{dy}{dx} = \\dfrac{x^2}{2} - y$.",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Find in terms of x and y.\ndx",
+      "prompt": "Find $\\dfrac{d^2y}{dx^2}$ in terms of $x$ and $y$.",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "Differentiate both sides of $dy/dx = x^2/2 - y$ with respect to $x$, applying implicit differentiation and substituting $dy/dx$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct critical points and classification",
+          "description": "Correct differentiation of the right side with respect to $x$ (including the chain rule on $-y$)",
           "alternatives": [
             {
               "required_elements": [
-                "$f' = 0$ found; sign analysis for type"
+                "$\\dfrac{d^2y}{dx^2} = x - \\dfrac{dy}{dx}$"
               ]
             }
           ]
@@ -38,11 +38,11 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Correct extremum value",
+          "description": "Correct substitution of $dy/dx$ to express $d^2y/dx^2$ entirely in terms of $x$ and $y$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "$\\dfrac{d^2y}{dx^2} = x - \\left(\\dfrac{x^2}{2} - y\\right) = x - \\dfrac{x^2}{2} + y$"
               ]
             }
           ]
@@ -51,20 +51,25 @@
     },
     {
       "letter": "b",
-      "prompt": "Let y (cid:32) f(cid:11)x(cid:12) be the particular solution to the given differential equation whose graph passes through the\npoint (cid:11)(cid:16)2,8(cid:12). Does the graph of f have a relative minimum, a relative maximum, or neither at the\npoint (cid:11)(cid:16)2,8(cid:12)? Justify your answer.",
+      "prompt": "Let $y = f(x)$ be the particular solution to the given differential equation whose graph passes through the point $(-2, 8)$. Does the graph of $f$ have a relative minimum, a relative maximum, or neither at the point $(-2, 8)$? Justify your answer.",
       "point_value": 2,
-      "scoring_notes": null,
-      "requires_drawing": true,
+      "scoring_notes": "Evaluate $dy/dx$ at $(-2, 8)$. Then evaluate $d^2y/dx^2$ at $(-2, 8)$ to determine concavity.",
+      "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct concavity or inflection analysis",
+          "description": "Correct evaluation of $dy/dx$ at $(-2, 8)$ showing it equals $0$ (a critical point)",
           "alternatives": [
             {
               "required_elements": [
-                "$f''$ sign analyzed"
+                "$\\dfrac{dy}{dx}\\bigg|_{(-2,8)} = \\dfrac{(-2)^2}{2} - 8 = 2 - 8 = -6 \\neq 0$"
+              ]
+            },
+            {
+              "required_elements": [
+                "Correct evaluation: $\\dfrac{(-2)^2}{2} - 8 = 2 - 8 = -6$; since $dy/dx \\neq 0$ at $(-2,8)$, there is neither a relative max nor min"
               ]
             }
           ]
@@ -72,11 +77,11 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct inflection point(s)",
+          "description": "Correct conclusion: neither a relative minimum nor a relative maximum, because $dy/dx \\neq 0$ at $(-2, 8)$",
           "alternatives": [
             {
               "required_elements": [
-                "Sign change of $f''$ at inflection"
+                "Neither; since $f'(-2) = -6 \\neq 0$, the graph of $f$ has neither a relative maximum nor a relative minimum at $(-2, 8)$"
               ]
             }
           ]
@@ -85,20 +90,20 @@
     },
     {
       "letter": "c",
-      "prompt": "Let y (cid:32) g(cid:11)x(cid:12) be the particular solution to the given differential equation with g(cid:11)(cid:16)1(cid:12) (cid:32) 2. Find\n(cid:200) g(cid:11)x(cid:12) (cid:16) 2 (cid:216)\nlim . Show the work that leads to your answer.\nx(cid:144)(cid:16)1\n(cid:201)\n(cid:202)3(cid:11)x\n(cid:14)1(cid:12)2(cid:217)\n(cid:218)",
+      "prompt": "Let $y = g(x)$ be the particular solution to the given differential equation with $g(-1) = 2$. Find $\\displaystyle\\lim_{x \\to -1} \\frac{g(x) - 2}{3(x+1)^2}$. Show the work that leads to your answer.",
       "point_value": 3,
-      "scoring_notes": null,
+      "scoring_notes": "The limit has the form $0/0$ at $x = -1$ since $g(-1) = 2$. Apply L'Hôpital's Rule (twice if necessary), using $g'(-1)$ and $g''(-1)$ from the differential equation.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 1",
+          "description": "Recognizes the $0/0$ indeterminate form and correctly applies L'Hôpital's Rule once",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 1"
+                "At $x=-1$, $g(-1)=2$ so numerator $\\to 0$ and denominator $\\to 0$; L'Hôpital gives $\\lim_{x\\to-1} \\dfrac{g'(x)}{6(x+1)}$"
               ]
             }
           ]
@@ -106,11 +111,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 2",
+          "description": "Recognizes the $0/0$ form persists and applies L'Hôpital's Rule a second time (or uses Taylor/limit analysis)",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 2"
+                "$g'(-1) = \\dfrac{(-1)^2}{2} - 2 = \\dfrac{1}{2} - 2 = -\\dfrac{3}{2}$; numerator $\\to 0$ again, so apply L'Hôpital again: $\\lim_{x\\to-1} \\dfrac{g''(x)}{6}$"
               ]
             }
           ]
@@ -118,11 +123,11 @@
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 3",
+          "description": "Correct final answer",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 3"
+                "$g''(-1) = (-1) - \\dfrac{(-1)^2}{2} + 2 = -1 - \\dfrac{1}{2} + 2 = \\dfrac{1}{2}$; limit $= \\dfrac{g''(-1)}{6} = \\dfrac{1/2}{6} = \\dfrac{1}{12}$"
               ]
             }
           ]
@@ -131,20 +136,20 @@
     },
     {
       "letter": "d",
-      "prompt": "Let y (cid:32) h(cid:11)x(cid:12) be the particular solution to the given differential equation with h(cid:11)0(cid:12) (cid:32) 2. Use Euler’s\nmethod, starting at x (cid:32) 0 with two steps of equal size, to approximate h(cid:11)1(cid:12).",
+      "prompt": "Let $y = h(x)$ be the particular solution to the given differential equation with $h(0) = 2$. Use Euler's method, starting at $x = 0$ with two steps of equal size, to approximate $h(1)$.",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "Step size $\\Delta x = 0.5$. Compute two Euler steps from $(0, 2)$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 1",
+          "description": "Correct first Euler step from $(0, 2)$ to $(0.5, y_1)$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 1"
+                "$\\dfrac{dy}{dx}\\bigg|_{(0,2)} = \\dfrac{0}{2} - 2 = -2$; $y_1 = 2 + (-2)(0.5) = 2 - 1 = 1$"
               ]
             }
           ]
@@ -152,11 +157,11 @@
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 2",
+          "description": "Correct second Euler step from $(0.5, 1)$ to $(1, y_2)$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 2"
+                "$\\dfrac{dy}{dx}\\bigg|_{(0.5,1)} = \\dfrac{(0.5)^2}{2} - 1 = \\dfrac{0.25}{2} - 1 = 0.125 - 1 = -0.875$; $h(1) \\approx 1 + (-0.875)(0.5) = 1 - 0.4375 = 0.5625$"
               ]
             }
           ]

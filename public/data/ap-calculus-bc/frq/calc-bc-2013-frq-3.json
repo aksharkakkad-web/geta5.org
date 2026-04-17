@@ -3,7 +3,7 @@
   "subject": "ap-calculus-bc",
   "year": 2013,
   "source": "released",
-  "title": "Rate & Accumulation (Riemann Sums)",
+  "title": "Table-Based Analysis (Coffee Drip)",
   "frq_type": "multi_part_math",
   "related_units": [
     1,
@@ -13,13 +13,13 @@
   ],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": "Hot water is dripping through a coffeemaker, filling a large cup with coffee. The amount of coffee in the cup at\ntime t, 0 (cid:133) t (cid:133) 6, is given by a differentiable function C, where t is measured in minutes. Selected values of\nC(cid:11)t(cid:12), measured in ounces, are given in the table above.",
+  "stimulus": "Hot water is dripping through a coffeemaker, filling a large cup with coffee. The amount of coffee in the cup at time $t$, $0 \\leq t \\leq 6$, is given by a differentiable function $C$, where $t$ is measured in minutes. Selected values of $C(t)$, measured in ounces, are given in the table below.\n\n| $t$ (minutes) | 0 | 1 | 2 | 3 | 4 | 5 | 6 |\n|---|---|---|---|---|---|---|---|\n| $C(t)$ (ounces) | 0 | 4 | 6 | 8 | 9 | 10 | 10.5 |",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Use the data in the table to approximate C(cid:132)(cid:11)3.5(cid:12). Show the computations that lead to your answer, and\nindicate units of measure.",
+      "prompt": "Use the data in the table to approximate $C'(3.5)$. Show the computations that lead to your answer, and indicate units of measure.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -28,11 +28,11 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct g-values using area from graph",
+          "description": "Correct difference quotient setup using adjacent table values",
           "alternatives": [
             {
               "required_elements": [
-                "$g(x_0) = \\int_a^{x_0} f(t)\\, dt$; area from graph"
+                "$C'(3.5) \\approx \\dfrac{C(4) - C(3)}{4 - 3} = \\dfrac{9 - 8}{1} = 1$"
               ]
             }
           ]
@@ -40,11 +40,11 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Both values correct",
+          "description": "Correct answer with correct units",
           "alternatives": [
             {
               "required_elements": [
-                "Correct numerical values"
+                "$C'(3.5) \\approx 1$ ounce per minute"
               ]
             }
           ]
@@ -53,7 +53,7 @@
     },
     {
       "letter": "b",
-      "prompt": "Is there a time t, 2 (cid:133) t (cid:133) 4, at which C(cid:132)(cid:11)t(cid:12) (cid:32) 2? Justify your answer.",
+      "prompt": "Is there a time $t$, $2 \\leq t \\leq 4$, at which $C'(t) = 2$? Justify your answer.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -62,11 +62,11 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct relative extremum analysis",
+          "description": "Invokes the Mean Value Theorem with correct average rate of change",
           "alternatives": [
             {
               "required_elements": [
-                "$g' = f$ changes sign at extremum"
+                "By the Mean Value Theorem, since $C$ is differentiable on $[2, 4]$, there exists a $t$ in $(2, 4)$ such that $C'(t) = \\dfrac{C(4) - C(2)}{4 - 2} = \\dfrac{9 - 6}{2} = \\dfrac{3}{2}$"
               ]
             }
           ]
@@ -74,11 +74,12 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct classification with justification",
+          "description": "Correct conclusion: No, there need not be such a $t$ (MVT gives $3/2$, not $2$), or correctly argues from MVT",
           "alternatives": [
             {
               "required_elements": [
-                "Type of extremum with sign analysis"
+                "The average rate of change on $[2, 4]$ is $\\frac{3}{2} \\neq 2$, so the MVT does not guarantee $C'(t) = 2$ on this interval",
+                "Note: Since $C$ is differentiable and hence continuous, one must check whether $C'$ takes the value 2 — the average rate on $[2,4]$ is $3/2$, so there is no guaranteed $t$ with $C'(t) = 2$"
               ]
             }
           ]
@@ -87,7 +88,7 @@
     },
     {
       "letter": "c",
-      "prompt": "Use a midpoint sum with three subintervals of equal length indicated by the data in the table to approximate\n1 6 1 6\nthe value of (cid:212) C(cid:11)t(cid:12)dt. Using correct units, explain the meaning of (cid:212) C(cid:11)t(cid:12)dt in the context of the\n6 0 6 0\nproblem.",
+      "prompt": "Use a midpoint sum with three subintervals of equal length indicated by the data in the table to approximate the value of $\\dfrac{1}{6}\\displaystyle\\int_0^6 C(t)\\,dt$. Using correct units, explain the meaning of $\\dfrac{1}{6}\\displaystyle\\int_0^6 C(t)\\,dt$ in the context of the problem.",
       "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -96,11 +97,11 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 1",
+          "description": "Correct midpoint sum setup with subinterval width 2 and midpoints $t = 1, 3, 5$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 1"
+                "$\\displaystyle\\int_0^6 C(t)\\,dt \\approx 2\\cdot C(1) + 2\\cdot C(3) + 2\\cdot C(5) = 2(4) + 2(8) + 2(10) = 8 + 16 + 20 = 44$ ounce-minutes"
               ]
             }
           ]
@@ -108,11 +109,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 2",
+          "description": "Correct average value approximation",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 2"
+                "$\\dfrac{1}{6}\\displaystyle\\int_0^6 C(t)\\,dt \\approx \\dfrac{44}{6} = \\dfrac{22}{3} \\approx 7.333$ ounces"
               ]
             }
           ]
@@ -120,11 +121,11 @@
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 3",
+          "description": "Correct contextual interpretation with correct units",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 3"
+                "$\\dfrac{1}{6}\\displaystyle\\int_0^6 C(t)\\,dt$ is the average amount of coffee in the cup, in ounces, over the 6-minute time interval"
               ]
             }
           ]
@@ -133,7 +134,7 @@
     },
     {
       "letter": "d",
-      "prompt": "The amount of coffee in the cup, in ounces, is modeled by B(cid:11)t(cid:12) (cid:32) 16 (cid:16)16e(cid:16)0.4t. Using this model, find the\nrate at which the amount of coffee in the cup is changing when t (cid:32) 5.",
+      "prompt": "The amount of coffee in the cup, in ounces, is modeled by $B(t) = 16 - 16e^{-0.4t}$. Using this model, find the rate at which the amount of coffee in the cup is changing when $t = 5$.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -142,11 +143,11 @@
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 1",
+          "description": "Correct derivative $B'(t)$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 1"
+                "$B'(t) = 16 \\cdot 0.4\\, e^{-0.4t} = 6.4\\,e^{-0.4t}$"
               ]
             }
           ]
@@ -154,11 +155,11 @@
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (d), point 2",
+          "description": "Correct numerical answer with units",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (d), point 2"
+                "$B'(5) = 6.4\\,e^{-2} \\approx 0.865$ ounces per minute"
               ]
             }
           ]

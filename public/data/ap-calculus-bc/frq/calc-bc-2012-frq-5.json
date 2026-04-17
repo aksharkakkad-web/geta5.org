@@ -3,7 +3,7 @@
   "subject": "ap-calculus-bc",
   "year": 2012,
   "source": "released",
-  "title": "Differential Equations",
+  "title": "Differential Equations (Separation of Variables)",
   "frq_type": "multi_part_math",
   "related_units": [
     2,
@@ -13,13 +13,13 @@
   ],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": "The rate at which a baby bird gains weight is proportional to the difference between its adult weight and its\ncurrent weight. At time t (cid:32) 0, when the bird is first weighed, its weight is 20 grams. If B(cid:11)t(cid:12) is the weight of the\nbird, in grams, at time t days after it is first weighed, then\ndB 1\n(cid:32) (cid:11)100 (cid:16) B(cid:12).\ndt 5\nLet y (cid:32) B(cid:11)t(cid:12) be the solution to the differential equation above with initial condition B(cid:11)0(cid:12) (cid:32) 20.",
+  "stimulus": "The rate at which a baby bird gains weight is proportional to the difference between its adult weight and its current weight. At time $t = 0$, when the bird is first weighed, its weight is 20 grams. If $B(t)$ is the weight of the bird, in grams, at time $t$ days after it is first weighed, then\n$$\\frac{dB}{dt} = \\frac{1}{5}(100 - B).$$\nLet $y = B(t)$ be the solution to the differential equation above with initial condition $B(0) = 20$.",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Is the bird gaining weight faster when it weighs 40 grams or when it weighs 70 grams? Explain your\nreasoning.\nd2B d2B",
+      "prompt": "Is the bird gaining weight faster when it weighs 40 grams or when it weighs 70 grams? Explain your reasoning.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -28,32 +28,38 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 1",
+          "description": "Correct comparison of the rates $dB/dt$ at $B = 40$ and $B = 70$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 1"
-              ]
+                "When $B = 40$: $\\dfrac{dB}{dt} = \\dfrac{1}{5}(100 - 40) = 12$ grams/day",
+                "When $B = 70$: $\\dfrac{dB}{dt} = \\dfrac{1}{5}(100 - 70) = 6$ grams/day"
+              ],
+              "correct_example": "The bird gains weight faster when it weighs 40 grams, since $\\frac{1}{5}(100-40) = 12 > 6 = \\frac{1}{5}(100-70)$."
             }
           ]
         },
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (a), point 2",
+          "description": "Correct conclusion: the bird is gaining weight faster at 40 grams, with valid reasoning",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (a), point 2"
+                "The bird gains weight faster at 40 grams because the rate $\\frac{1}{5}(100-B)$ is a decreasing function of $B$, so a smaller weight produces a larger rate"
               ]
             }
+          ],
+          "common_traps": [
+            "Concluding the bird gains weight faster at 70 grams (confusing larger weight with faster growth)",
+            "Not computing or comparing the actual rates"
           ]
         }
       ]
     },
     {
       "letter": "b",
-      "prompt": "Find in terms of B. Use to explain why the graph of B cannot resemble the following graph.\ndt2 dt",
+      "prompt": "Find $\\dfrac{d^2B}{dt^2}$ in terms of $B$. Use $\\dfrac{d^2B}{dt^2}$ to explain why the graph of $B$ cannot resemble the following graph.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": true,
@@ -62,35 +68,38 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct expression for $d^2B/dt^2 = -\\frac{1}{25}(100-B)$",
+          "description": "Correct expression $\\dfrac{d^2B}{dt^2} = -\\dfrac{1}{25}(100 - B)$",
           "alternatives": [
             {
               "required_elements": [
-                "$d^2B/dt^2 = -\\frac{1}{25}(100-B)$"
-              ]
+                "$\\dfrac{d^2B}{dt^2} = \\dfrac{d}{dt}\\left[\\dfrac{1}{5}(100-B)\\right] = -\\dfrac{1}{5}\\cdot\\dfrac{dB}{dt} = -\\dfrac{1}{5}\\cdot\\dfrac{1}{5}(100-B) = -\\dfrac{1}{25}(100-B)$"
+              ],
+              "correct_example": "$\\dfrac{d^2B}{dt^2} = -\\dfrac{1}{25}(100 - B)$"
             }
           ]
         },
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct explanation: graph cannot have inflection (always concave down)",
+          "description": "Correct explanation: $B < 100$ always, so $d^2B/dt^2 < 0$, meaning the graph is always concave down and cannot have an inflection point",
           "alternatives": [
             {
               "required_elements": [
-                "Since $B < 100$, $d^2B/dt^2 < 0$ always — B is always concave down; no inflection point"
+                "Since $B < 100$ for all $t \\geq 0$, we have $100 - B > 0$, so $\\dfrac{d^2B}{dt^2} = -\\dfrac{1}{25}(100-B) < 0$",
+                "The graph of $B$ is always concave down — it cannot have an inflection point as shown in the given graph"
               ]
             }
           ],
           "common_traps": [
-            "Stating the solution can be concave up"
+            "Claiming the graph can be concave up for some values of $t$",
+            "Not connecting $d^2B/dt^2 < 0$ to the concavity argument"
           ]
         }
       ]
     },
     {
       "letter": "c",
-      "prompt": "Use separation of variables to find y (cid:32) B(cid:11)t(cid:12), the particular solution to the differential equation with initial\ncondition B(cid:11)0(cid:12) (cid:32) 20.",
+      "prompt": "Use separation of variables to find $y = B(t)$, the particular solution to the differential equation with initial condition $B(0) = 20$.",
       "point_value": 5,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -99,11 +108,11 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 1",
+          "description": "Correct separation of variables: variables correctly separated",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 1"
+                "$\\dfrac{dB}{100 - B} = \\dfrac{1}{5}\\, dt$"
               ]
             }
           ]
@@ -111,23 +120,29 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 2",
+          "description": "Correct antiderivatives on both sides",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 2"
-              ]
+                "$-\\ln|100 - B| = \\dfrac{t}{5} + C$"
+              ],
+              "correct_example": "$\\int \\dfrac{dB}{100-B} = \\int \\dfrac{1}{5}\\, dt \\implies -\\ln|100-B| = \\dfrac{t}{5} + C$"
             }
+          ],
+          "common_traps": [
+            "Missing the negative sign when integrating $\\frac{1}{100-B}$",
+            "Writing $\\ln|100-B|$ instead of $-\\ln|100-B|$"
           ]
         },
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 3",
+          "description": "Correct exponentiation / solving for $B$ in terms of $t$ and $C$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 3"
+                "$|100 - B| = e^{-t/5 + C} = Ae^{-t/5}$ where $A > 0$",
+                "$100 - B = Ce^{-t/5}$ (absorbing sign into constant $C$)"
               ]
             }
           ]
@@ -135,11 +150,11 @@
         {
           "point_id": "c4",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 4",
+          "description": "Correct application of initial condition $B(0) = 20$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 4"
+                "$100 - 20 = Ce^{0} \\implies C = 80$"
               ]
             }
           ]
@@ -147,13 +162,18 @@
         {
           "point_id": "c5",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 5",
+          "description": "Correct particular solution $B(t) = 100 - 80e^{-t/5}$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 5"
-              ]
+                "$B(t) = 100 - 80e^{-t/5}$"
+              ],
+              "correct_example": "$B(t) = 100 - 80e^{-t/5}$"
             }
+          ],
+          "common_traps": [
+            "Writing $B(t) = 100 + 80e^{-t/5}$ (wrong sign on the exponential term)",
+            "Not applying the initial condition to determine the constant"
           ]
         }
       ]

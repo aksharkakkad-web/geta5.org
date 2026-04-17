@@ -3,7 +3,7 @@
   "subject": "ap-calculus-bc",
   "year": 2023,
   "source": "released",
-  "title": "Parametric Equations",
+  "title": "Parametric Equations — Particle Motion",
   "frq_type": "multi_part_math",
   "related_units": [
     2,
@@ -15,106 +15,130 @@
   ],
   "calculator_allowed": true,
   "total_points": 9,
-  "stimulus": "For 0 £ t £ p , a particle is moving along the curve shown so that its position at time t is (x",
+  "stimulus": "For $0 \\leq t \\leq \\pi$, a particle is moving along a curve so that its position at time $t$ is $(x(t),\\, y(t))$. It is given that $\\dfrac{dx}{dt} = \\sin(t^2)$ and $y(t) = \\cos(2t) + 2\\sin(t)$. At time $t = 0$, the particle is at position $(1, 2)$.",
   "stimulus_image": "/data/ap-calculus-bc/frq/images/calc-bc-2023-frq-2-stimulus.png",
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Find the acceleration vector of the particle at time t = 1. Show the setup for your calculations.",
+      "prompt": "Find the acceleration vector of the particle at time $t = 1$. Show the setup for your calculations.",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "Acceleration vector $= \\left(\\dfrac{d^2x}{dt^2},\\, \\dfrac{d^2y}{dt^2}\\right)$ evaluated at $t = 1$. $\\dfrac{d^2x}{dt^2} = \\dfrac{d}{dt}[\\sin(t^2)] = 2t\\cos(t^2)$; at $t=1$: $2\\cos(1)$. $\\dfrac{dy}{dt} = -2\\sin(2t) + 2\\cos(t)$; $\\dfrac{d^2y}{dt^2} = -4\\cos(2t) - 2\\sin(t)$; at $t=1$: $-4\\cos(2) - 2\\sin(1)$. Acceleration vector $\\approx (1.080,\\, -3.328)$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct setup",
+          "description": "Correct $x$-component of acceleration: $\\dfrac{d^2x}{dt^2}\\bigg|_{t=1} = 2(1)\\cos(1^2) = 2\\cos(1) \\approx 1.080$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct setup"
+                "$\\dfrac{d^2x}{dt^2} = 2t\\cos(t^2)$",
+                "Evaluated at $t = 1$: $2\\cos(1)$"
               ]
             }
+          ],
+          "common_traps": [
+            "Forgetting the chain rule when differentiating $\\sin(t^2)$",
+            "Not evaluating at $t = 1$"
           ]
         },
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Correct setup",
+          "description": "Correct $y$-component of acceleration: $\\dfrac{d^2y}{dt^2}\\bigg|_{t=1} = -4\\cos(2) - 2\\sin(1) \\approx -3.328$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct setup"
+                "$\\dfrac{d^2y}{dt^2} = -4\\cos(2t) - 2\\sin(t)$",
+                "Evaluated at $t = 1$: $-4\\cos(2) - 2\\sin(1)$"
               ]
             }
+          ],
+          "common_traps": [
+            "Sign error when differentiating $\\cos(2t)$",
+            "Differentiating only once to get velocity instead of twice for acceleration"
           ]
         }
       ]
     },
     {
       "letter": "b",
-      "prompt": "For 0 £ t £ p, find the first time t at which the speed of the particle is 1.5. Show the work that leads to\nyour answer.",
+      "prompt": "For $0 \\leq t \\leq \\pi$, find the first time $t$ at which the speed of the particle is $1.5$. Show the work that leads to your answer.",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "Speed $= \\sqrt{\\left(\\dfrac{dx}{dt}\\right)^2 + \\left(\\dfrac{dy}{dt}\\right)^2} = \\sqrt{\\sin^2(t^2) + (-2\\sin(2t) + 2\\cos(t))^2}$. Set equal to $1.5$ and solve with a calculator. The first time is $t \\approx 0.443$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 1",
+          "description": "Correct speed expression set equal to $1.5$: $\\sqrt{\\sin^2(t^2) + (-2\\sin(2t) + 2\\cos(t))^2} = 1.5$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 1"
+                "$\\sqrt{\\left(\\dfrac{dx}{dt}\\right)^2 + \\left(\\dfrac{dy}{dt}\\right)^2} = 1.5$",
+                "Correct components $\\dfrac{dx}{dt} = \\sin(t^2)$ and $\\dfrac{dy}{dt} = -2\\sin(2t) + 2\\cos(t)$"
               ]
             }
+          ],
+          "common_traps": [
+            "Using velocity components instead of their squares under the radical",
+            "Incorrect derivative of $y(t)$"
           ]
         },
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (b), point 2",
+          "description": "Correct first time: $t \\approx 0.443$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (b), point 2"
+                "$t \\approx 0.443$"
               ]
             }
+          ],
+          "common_traps": [
+            "Reporting a later value of $t$ instead of the first",
+            "Rounding error"
           ]
         }
       ]
     },
     {
       "letter": "c",
-      "prompt": "Find the slope of the line tangent to the path of the particle at time t = 1. Find the x-coordinate of the\nposition of the particle at time t = 1. Show the work that leads to your answers.",
+      "prompt": "Find the slope of the line tangent to the path of the particle at time $t = 1$. Find the $x$-coordinate of the position of the particle at time $t = 1$. Show the work that leads to your answers.",
       "point_value": 3,
-      "scoring_notes": null,
+      "scoring_notes": "Slope $= \\dfrac{dy/dt}{dx/dt}\\bigg|_{t=1} = \\dfrac{-2\\sin(2)+2\\cos(1)}{\\sin(1)} \\approx \\dfrac{-1.801}{0.841} \\approx -2.141$. $x$-position: $x(1) = x(0) + \\int_0^1 \\sin(t^2)\\,dt = 1 + \\int_0^1 \\sin(t^2)\\,dt \\approx 1 + 0.310 = 1.310$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 1",
+          "description": "Correct slope formula: $\\dfrac{dy/dt}{dx/dt}\\bigg|_{t=1} = \\dfrac{-2\\sin(2)+2\\cos(1)}{\\sin(1)}$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 1"
+                "$\\dfrac{dy/dt}{dx/dt}$ evaluated at $t=1$",
+                "Numerator $-2\\sin(2) + 2\\cos(1)$ and denominator $\\sin(1)$"
               ]
             }
+          ],
+          "common_traps": [
+            "Inverting numerator and denominator",
+            "Incorrect derivative components"
           ]
         },
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 2",
+          "description": "Correct slope value: $\\approx -2.141$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 2"
+                "Slope $\\approx -2.141$"
               ]
             }
           ]
@@ -122,50 +146,62 @@
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "See College Board scoring guidelines for part (c), point 3",
+          "description": "Correct $x$-coordinate: $x(1) = 1 + \\int_0^1 \\sin(t^2)\\,dt \\approx 1.310$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response for part (c), point 3"
+                "$x(1) = x(0) + \\int_0^1 \\sin(t^2)\\,dt$",
+                "$x(0) = 1$ used as initial condition",
+                "$x(1) \\approx 1.310$"
               ]
             }
+          ],
+          "common_traps": [
+            "Forgetting to add the initial $x$-value of $1$",
+            "Using incorrect limits of integration"
           ]
         }
       ]
     },
     {
       "letter": "d",
-      "prompt": "Find the total distance traveled by the particle over the time interval 0 £ t £ p. Show the setup for your\ncalculations.\n__________________________________________________________\nWrite your responses to this question only on the designated pages in the separate Free Response\nbooklet. Write your solution to each part in the space provided for that part.",
+      "prompt": "Find the total distance traveled by the particle over the time interval $0 \\leq t \\leq \\pi$. Show the setup for your calculations.",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "Total distance $= \\int_0^{\\pi} \\sqrt{\\sin^2(t^2) + (-2\\sin(2t)+2\\cos(t))^2}\\,dt \\approx 4.706$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "Correct integral setup",
+          "description": "Correct integral setup for arc length: $\\int_0^{\\pi} \\sqrt{\\left(\\dfrac{dx}{dt}\\right)^2 + \\left(\\dfrac{dy}{dt}\\right)^2}\\,dt = \\int_0^{\\pi}\\sqrt{\\sin^2(t^2) + (-2\\sin(2t)+2\\cos(t))^2}\\,dt$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct integral setup"
+                "$\\int_0^{\\pi} \\sqrt{(dx/dt)^2 + (dy/dt)^2}\\,dt$",
+                "Correct components under the radical",
+                "Limits $0$ to $\\pi$"
               ]
             }
           ],
           "common_traps": [
-            "Using incorrect limits of integration"
+            "Using incorrect limits of integration",
+            "Omitting one component under the radical"
           ]
         },
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "Correct answer",
+          "description": "Correct answer: approximately $4.706$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "$\\approx 4.706$"
               ]
             }
+          ],
+          "common_traps": [
+            "Arithmetic error or calculator mode error (degrees vs. radians)"
           ]
         }
       ]
