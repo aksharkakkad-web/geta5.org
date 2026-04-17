@@ -7,6 +7,7 @@
 import React, { useState, useEffect } from 'react'
 import type { FRQ } from '@/utils/frqSession'
 import InlineMath from '@/components/InlineMath'
+import FRQDocumentContent from '@/components/frq/FRQDocumentContent'
 
 interface FRQEBQLayoutProps {
   question: FRQ
@@ -280,18 +281,7 @@ function DesktopEBQ({ question, responses, onResponseChange, onSubmit, onSaveDra
 
               {/* Text source */}
               {activeDoc.content && (
-                <p
-                  style={{
-                    fontSize: '14.5px',
-                    color: 'var(--text-primary)',
-                    lineHeight: 2,
-                    letterSpacing: '0.01em',
-                    margin: 0,
-                    whiteSpace: 'pre-wrap',
-                  }}
-                >
-                  {activeDoc.content}
-                </p>
+                <FRQDocumentContent content={activeDoc.content} />
               )}
             </div>
           )}
@@ -528,17 +518,7 @@ function MobileEBQ({ question, responses, onResponseChange, onSubmit, onSaveDraf
                     </div>
                   )}
                   {doc.content && (
-                    <p
-                      style={{
-                        margin: 0,
-                        fontSize: '12px',
-                        color: 'var(--text-secondary)',
-                        lineHeight: 1.7,
-                        whiteSpace: 'pre-wrap',
-                      }}
-                    >
-                      {doc.content}
-                    </p>
+                    <FRQDocumentContent content={doc.content} />
                   )}
                 </div>
               )}
