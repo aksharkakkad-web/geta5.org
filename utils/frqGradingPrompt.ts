@@ -162,7 +162,9 @@ SUGGESTION RULE: For each missed point (earned=0), the suggestion MUST:
 5. If the student was completely off-topic, explain what the rubric required and adapt the correct_example to a student-friendly model response.
 Set suggestion to null for earned points.
 
-EVIDENCE RULE: student_evidence_quote MUST be a verbatim substring of the student's response for that part. If you cannot find supporting text, use empty string "" and mark met: false. Do NOT paraphrase or invent quotes.`
+EVIDENCE RULE: student_evidence_quote MUST be a verbatim substring of the student's response for that part. If you cannot find supporting text, use empty string "" and mark met: false. Do NOT paraphrase or invent quotes.
+
+ESSAY COMPLETENESS RULE: For essay-type questions (DBQ, LEQ, argument_essay), the student writes ONE essay graded against MULTIPLE rubric parts. You MUST return a result for EVERY part listed in the rubric — do NOT skip parts just because the response is a single essay. Grade each part's criteria independently against the full essay text. The "parts" array in your output MUST have one entry per rubric part.`
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -198,13 +200,19 @@ function renderPartBlock(part: FRQPart): string {
   return `${header}\n${renderLegacyCriteria(part)}`
 }
 
-function renderStudentBlock(parts: FRQPart[], responses: Record<string, string>): string {
+function renderStudentBlock(parts: FRQPart[], responses: Record<string, string>, frqType?: string): string {
   // Essay-type FRQs (DBQ, LEQ, essay, argument_essay) store the full response
-  // under the 'essay' key, not under individual part letters. When a part letter
-  // has no response but 'essay' exists, use the essay text. This applies to ALL
-  // essay types — DBQ has 1 part, argument_essay has 4 parts (a-d), but the
-  // student writes a single essay that covers all parts.
-  const essayText = responses['essay'] ?? ''
+  // under the 'essay' key. The student writes ONE essay that is graded against
+  // multiple rubric rows. Present the essay ONCE — do NOT repeat it per part,
+  // as this confuses the LLM into thinking there are separate responses.
+  const essayText = (responses['essay'] ?? '').trim()
+  const isEssay = ['dbq', 'leq', 'essay', 'argument_essay'].includes(frqType ?? '')
+
+  if (isEssay && essayText) {
+    return `STUDENT ESSAY (this is a SINGLE essay — grade it against ALL rubric parts below. Each part's criteria should be evaluated independently against this same essay text):\n\n${essayText}`
+  }
+
+  // Multi-part FRQs: each part has its own response
   const lines = parts.map(p => {
     const raw = responses[p.letter] || essayText || ''
     const text = typeof raw === 'string' ? raw.trim() : ''
@@ -386,7 +394,7 @@ Total Gradable Points: ${gradablePoints}${question.stimulus ? `\n\nSTIMULUS:\n${
 SCORING RUBRIC (per part):
 ${gradableParts.map(renderPartBlock).join('\n\n')}`
 
-  const studentBlock = renderStudentBlock(gradableParts, responses)
+  const studentBlock = renderStudentBlock(gradableParts, responses, question.frq_type)
 
   // FRQ-type-specific calibration examples (anchors grading to College Board standard)
   const typeCalibration = FRQ_TYPE_CALIBRATION[question.frq_type] ?? ''
@@ -428,7 +436,7 @@ If any check fails: set earned to 0, set all sub_results met to false, clear the
 Do NOT raise any earned value that was 0 in the first pass.
 Do NOT change scores that are already 0.`
 
-  const studentBlock = renderStudentBlock(gradableParts, responses)
+  const studentBlock = renderStudentBlock(gradableParts, responses, question.frq_type)
 
   const firstPassBlock = `FIRST-PASS GRADING RESULT (review this):
 ${JSON.stringify(firstPassResult, null, 2)}`
