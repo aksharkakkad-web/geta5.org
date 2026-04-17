@@ -15,6 +15,7 @@ import FRQMultiPartMathLayout from '@/components/frq/FRQMultiPartMathLayout'
 import FRQSAQLayout from '@/components/frq/FRQSAQLayout'
 import FRQSubmitModal from '@/components/frq/FRQSubmitModal'
 import FRQResults from '@/components/frq/FRQResults'
+import FRQBreakdown from '@/components/frq/FRQBreakdown'
 import FRQMathTutorial from '@/components/frq/FRQMathTutorial'
 import FRQShortcutsModal from '@/components/frq/FRQShortcutsModal'
 import InlineMath from '@/components/InlineMath'
@@ -79,6 +80,8 @@ export default function FRQPage({ params }: PageProps) {
   const [responses, setResponses] = useState<Record<string, string>>({})
   const [gradingResult, setGradingResult] = useState<FRQGradingResult | null>(null)
   const [gradingStrictness, setGradingStrictness] = useState<GradingStrictness>('moderate')
+  const [gradingSubmissionId, setGradingSubmissionId] = useState<string | undefined>(undefined)
+  const [gradingResponses, setGradingResponses] = useState<Record<string, string>>({})
   const [showSubmitModal, setShowSubmitModal] = useState(false)
   const [showShortcuts, setShowShortcuts] = useState(false)
   const [showMathTutorial, setShowMathTutorial] = useState(false)
@@ -261,6 +264,8 @@ export default function FRQPage({ params }: PageProps) {
     setSelectedQuestion(null)
     setResponses({})
     setGradingResult(null)
+    setGradingSubmissionId(undefined)
+    setGradingResponses({})
     setError(null)
     setPhase('select')
   }
@@ -290,6 +295,8 @@ export default function FRQPage({ params }: PageProps) {
       if (data.status === 'graded') {
         setGradingResult(data.result)
         setGradingStrictness(strictness)
+        setGradingSubmissionId(data.submissionId ?? undefined)
+        setGradingResponses({ ...responses })
         clearFRQDraft(subject)
         setPhase('results')
 
@@ -344,6 +351,8 @@ export default function FRQPage({ params }: PageProps) {
     setSelectedQuestion(null)
     setResponses({})
     setGradingResult(null)
+    setGradingSubmissionId(undefined)
+    setGradingResponses({})
     setError(null)
     setPhase('select')
   }
@@ -354,6 +363,8 @@ export default function FRQPage({ params }: PageProps) {
     setShowTimesUp(false)
     setResponses({})
     setGradingResult(null)
+    setGradingSubmissionId(undefined)
+    setGradingResponses({})
     setError(null)
     setTimedMode(getTimedModePreference())
     setPhase('ready')
@@ -698,10 +709,13 @@ export default function FRQPage({ params }: PageProps) {
         )}
 
         {/* ── Results ────────────────────────────────────────────────────── */}
-        {phase === 'results' && gradingResult && (
-          <FRQResults
+        {phase === 'results' && gradingResult && selectedQuestion && (
+          <FRQBreakdown
+            question={selectedQuestion}
             result={gradingResult}
+            responses={gradingResponses}
             strictness={gradingStrictness}
+            submissionId={gradingSubmissionId}
             onAskAdi={handleAskAdi}
             onNextQuestion={handleNextQuestion}
             onRetry={handleRetry}
