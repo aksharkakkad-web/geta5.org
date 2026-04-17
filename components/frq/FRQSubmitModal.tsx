@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import { X } from 'lucide-react'
 import type { GradingStrictness } from '@/utils/frqSession'
 import { getLastStrictness, setLastStrictness } from '@/utils/frqSession'
@@ -60,7 +61,7 @@ export default function FRQSubmitModal({ open, onClose, onSubmit, remainingCalls
     onSubmit(selected)
   }
 
-  return (
+  const modal = (
     <div
       role="dialog"
       aria-modal="true"
@@ -340,4 +341,6 @@ export default function FRQSubmitModal({ open, onClose, onSubmit, remainingCalls
       </div>
     </div>
   )
+
+  return createPortal(modal, document.body)
 }

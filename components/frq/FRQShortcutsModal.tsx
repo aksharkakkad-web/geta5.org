@@ -2,6 +2,7 @@
 
 import 'katex/dist/katex.min.css'
 import React, { useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import katex from 'katex'
 import { X } from 'lucide-react'
 import { MATH_SHORTCUTS } from '@/utils/mathShortcuts'
@@ -36,7 +37,7 @@ export default function FRQShortcutsModal({ open, onClose }: FRQShortcutsModalPr
 
   if (!open) return null
 
-  return (
+  const modal = (
     <div
       role="dialog"
       aria-modal="true"
@@ -204,4 +205,6 @@ export default function FRQShortcutsModal({ open, onClose }: FRQShortcutsModalPr
       </div>
     </div>
   )
+
+  return createPortal(modal, document.body)
 }
