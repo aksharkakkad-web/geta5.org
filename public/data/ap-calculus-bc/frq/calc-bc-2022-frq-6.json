@@ -3,7 +3,7 @@
   "subject": "ap-calculus-bc",
   "year": 2022,
   "source": "released",
-  "title": "Power Series & Convergence",
+  "title": "Power Series — Arctangent Series",
   "frq_type": "multi_part_math",
   "related_units": [
     1,
@@ -12,26 +12,26 @@
   ],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": "The function f is defined by the power series f (x ) = x − + − + \u0002 + + \u0002 for all\n3 5 7 2n + 1\nreal numbers x for which the series converges.",
+  "stimulus": "The function $f$ is defined by the power series\n$$f(x) = x - \\frac{x^3}{3} + \\frac{x^5}{5} - \\frac{x^7}{7} + \\cdots + \\frac{(-1)^n x^{2n+1}}{2n+1} + \\cdots$$\nfor all real numbers $x$ for which the series converges.",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Using the ratio test, find the interval of convergence of the power series for f . Justify your answer.\n⎛1 ⎞ 1",
+      "prompt": "Using the ratio test, find the interval of convergence of the power series for $f$. Justify your answer.",
       "point_value": 4,
-      "scoring_notes": null,
+      "scoring_notes": "The general term is $a_n = \\dfrac{(-1)^n x^{2n+1}}{2n+1}$. The ratio test gives $\\lim_{n\\to\\infty}\\left|\\dfrac{a_{n+1}}{a_n}\\right| = |x|^2 \\cdot \\lim_{n\\to\\infty}\\dfrac{2n+1}{2n+3} = x^2$. The series converges when $|x|^2 < 1$, i.e., $|x| < 1$, and diverges when $|x| > 1$. At the endpoints, the series at $x = 1$ is $\\sum_{n=0}^{\\infty}\\frac{(-1)^n}{2n+1}$, which converges by the Alternating Series Test; the series at $x = -1$ is $\\sum_{n=0}^{\\infty}\\frac{(-1)^{n+1}}{2n+1} = -\\sum_{n=0}^{\\infty}\\frac{(-1)^n}{2n+1}$, which also converges by the Alternating Series Test. Therefore the interval of convergence is $-1 \\leq x \\leq 1$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Sets up ratio",
+          "description": "Sets up the ratio test correctly with consecutive terms:\n$$\\lim_{n\\to\\infty}\\left|\\frac{a_{n+1}}{a_n}\\right| = \\lim_{n\\to\\infty}\\left|\\frac{(-1)^{n+1}x^{2n+3}}{2n+3} \\cdot \\frac{2n+1}{(-1)^n x^{2n+1}}\\right| = |x|^2 \\cdot \\lim_{n\\to\\infty}\\frac{2n+1}{2n+3}$$",
           "alternatives": [
             {
               "required_elements": [
-                "Sets up ratio"
+                "Correct ratio of consecutive terms leading to $|x|^2 \\cdot \\lim_{n\\to\\infty}\\dfrac{2n+1}{2n+3}$"
               ]
             }
           ]
@@ -39,11 +39,11 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Identifies interior of interval ofconvergence",
+          "description": "Correctly evaluates the limit to $|x|^2 < 1$, giving $|x| < 1$, so the interior of the interval of convergence is $-1 < x < 1$.",
           "alternatives": [
             {
               "required_elements": [
-                "Identifies interior of interval ofconvergence"
+                "Limit equals $x^2$; concludes the series converges for $|x| < 1$"
               ]
             }
           ]
@@ -51,11 +51,11 @@
         {
           "point_id": "a3",
           "point_value": 1,
-          "description": "Considers both endpoi nts",
+          "description": "Correctly considers both endpoints. At $x = 1$: the series becomes $\\displaystyle\\sum_{n=0}^{\\infty} \\dfrac{(-1)^n}{2n+1}$, which converges by the Alternating Series Test (terms decrease to zero). At $x = -1$: the series becomes $\\displaystyle\\sum_{n=0}^{\\infty} \\dfrac{(-1)^{n+1}}{2n+1}$, which also converges by the Alternating Series Test.",
           "alternatives": [
             {
               "required_elements": [
-                "Considers both endpoi nts"
+                "Checks $x = 1$ and $x = -1$ and applies the Alternating Series Test at both endpoints"
               ]
             }
           ]
@@ -63,11 +63,11 @@
         {
           "point_id": "a4",
           "point_value": 1,
-          "description": "Analysis and intervalof convergence",
+          "description": "Correct conclusion: the interval of convergence is $-1 \\leq x \\leq 1$ (a closed interval including both endpoints).",
           "alternatives": [
             {
               "required_elements": [
-                "Analysis and intervalof convergence"
+                "Interval of convergence is $-1 \\leq x \\leq 1$"
               ]
             }
           ]
@@ -76,20 +76,20 @@
     },
     {
       "letter": "b",
-      "prompt": "Show that f ⎜ ⎜ ⎜⎝ 2 ⎟ ⎟ ⎟⎠ − 2 < 10 . Justify your answer.",
+      "prompt": "Show that $\\left|f\\!\\left(\\dfrac{1}{2}\\right) - \\dfrac{1}{2}\\right| < \\dfrac{1}{10}$. Justify your answer.",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "The series for $f$ evaluated at $x = \\frac{1}{2}$ is an alternating series: $\\frac{1}{2} - \\frac{1}{3}\\cdot\\frac{1}{8} + \\frac{1}{5}\\cdot\\frac{1}{32} - \\cdots$. By the Alternating Series Estimation Theorem, the error from truncating after the first term $\\frac{1}{2}$ is bounded by the absolute value of the second term: $\\left|{-\\frac{1}{3}\\cdot\\frac{1}{2^3}}\\right| = \\frac{1}{24} < \\frac{1}{10}$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Uses second term",
+          "description": "Identifies that the series for $f\\!\\left(\\dfrac{1}{2}\\right)$ is alternating with decreasing terms approaching zero, so the Alternating Series Estimation Theorem applies. The error from using only the first term $\\dfrac{1}{2}$ is bounded by the absolute value of the second term:\n$$\\left|f\\!\\left(\\frac{1}{2}\\right) - \\frac{1}{2}\\right| \\leq \\left|{-\\frac{1}{3}\\cdot\\left(\\frac{1}{2}\\right)^3}\\right| = \\frac{1}{24}$$",
           "alternatives": [
             {
               "required_elements": [
-                "Uses second term"
+                "Applies the Alternating Series Estimation Theorem with the second term $\\left|{-\\dfrac{1}{3}\\cdot\\dfrac{1}{8}}\\right| = \\dfrac{1}{24}$"
               ]
             }
           ]
@@ -97,11 +97,11 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct justification",
+          "description": "Correct justification and conclusion: since $\\dfrac{1}{24} < \\dfrac{1}{10}$, we have $\\left|f\\!\\left(\\dfrac{1}{2}\\right) - \\dfrac{1}{2}\\right| \\leq \\dfrac{1}{24} < \\dfrac{1}{10}$, as required.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct justification"
+                "Concludes $\\dfrac{1}{24} < \\dfrac{1}{10}$, so the bound is established"
               ]
             }
           ]
@@ -110,20 +110,20 @@
     },
     {
       "letter": "c",
-      "prompt": "Write the first four nonzero terms and the general term for an infinite series that represents f ¢(x ).\n⎛1⎞",
+      "prompt": "Write the first four nonzero terms and the general term for an infinite series that represents $f'(x)$.",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "Differentiating term-by-term: $f'(x) = 1 - x^2 + x^4 - x^6 + \\cdots + (-1)^n x^{2n} + \\cdots$. This is a geometric series with first term $1$ and common ratio $-x^2$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "First four terms",
+          "description": "Writes the first four nonzero terms correctly by differentiating the given series term-by-term:\n$$f'(x) = 1 - x^2 + x^4 - x^6 + \\cdots$$",
           "alternatives": [
             {
               "required_elements": [
-                "First four terms"
+                "First four terms: $1 - x^2 + x^4 - x^6$"
               ]
             }
           ]
@@ -131,11 +131,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "General term",
+          "description": "Writes the correct general term: $(-1)^n x^{2n}$ for $n = 0, 1, 2, 3, \\ldots$",
           "alternatives": [
             {
               "required_elements": [
-                "General term"
+                "General term $(-1)^n x^{2n}$"
               ]
             }
           ]
@@ -144,20 +144,20 @@
     },
     {
       "letter": "d",
-      "prompt": "Use the result from part (c) to find the value of f ¢ ⎜ ⎜ ⎜⎝6⎠⎟ ⎟ ⎟.\n__________________________________________________________\nWrite your responses to this question only on the designated pages in the separate Free Response\nbooklet. Write your solution to each part in the space provided for that part.\nSTOP\nEND OF EXAM",
+      "prompt": "Use the result from part (c) to find the value of $f'\\!\\left(\\dfrac{1}{\\sqrt{6}}\\right)$.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "Substituting $x = \\dfrac{1}{\\sqrt{6}}$ into the geometric series $f'(x) = \\displaystyle\\sum_{n=0}^{\\infty}(-1)^n x^{2n}$ gives $f'\\!\\left(\\dfrac{1}{\\sqrt{6}}\\right) = \\sum_{n=0}^{\\infty}(-1)^n \\left(\\dfrac{1}{\\sqrt{6}}\\right)^{2n} = \\sum_{n=0}^{\\infty}\\left(-\\dfrac{1}{6}\\right)^n = \\dfrac{1}{1-(-1/6)} = \\dfrac{1}{7/6} = \\dfrac{6}{7}$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "Correct answer",
+          "description": "Substitutes $x = \\dfrac{1}{\\sqrt{6}}$ into the geometric series $f'(x) = \\displaystyle\\sum_{n=0}^{\\infty}(-1)^n x^{2n}$, giving a geometric series with first term $1$ and common ratio $-\\dfrac{1}{6}$, and applies the geometric series sum formula:\n$$f'\\!\\left(\\frac{1}{\\sqrt{6}}\\right) = \\frac{1}{1-\\left(-\\frac{1}{6}\\right)} = \\frac{1}{\\frac{7}{6}} = \\frac{6}{7}$$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "$f'\\!\\left(\\dfrac{1}{\\sqrt{6}}\\right) = \\dfrac{6}{7}$"
               ]
             }
           ]

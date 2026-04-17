@@ -27,11 +27,12 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "At $x = \\sqrt{6}$, the general term becomes $\\dfrac{(n+1)(\\sqrt{6})^{2n}}{6^n} = \\dfrac{(n+1) \\cdot 6^n}{6^n} = n + 1$. Identifies the terms of the series at $x = \\sqrt{6}$ as $n+1$.",
+          "description": "At $x = \\sqrt{6}$, the general term becomes $\\dfrac{(n+1)(\\sqrt{6})^{2n}}{6^n} = \\dfrac{(n+1) \\cdot 6^n}{6^n} = n + 1$. Correctly evaluates or simplifies the terms of the series at $x = \\sqrt{6}$.",
           "alternatives": [
             {
               "required_elements": [
-                "Substitutes $x = \\sqrt{6}$ to get terms equal to $n+1$"
+                "Substitutes $x = \\sqrt{6}$ to get terms equal to $n+1$",
+                "$(\\sqrt{6})^{2n} = 6^n$ so terms simplify to $n+1$"
               ]
             }
           ]
@@ -43,22 +44,22 @@
           "alternatives": [
             {
               "required_elements": [
-                "Diverges",
-                "$\\lim_{n \\to \\infty}(n+1) \\neq 0$ or terms do not approach $0$",
+                "The series diverges",
+                "$\\lim_{n \\to \\infty}(n+1) \\neq 0$",
                 "Divergence Test (nth Term Test)"
               ]
             }
           ],
           "common_traps": [
-            "Forgetting that $x = \\sqrt{6}$ is the boundary of the radius of convergence and cannot be assumed to converge",
-            "Not simplifying $(\\sqrt{6})^{2n}/6^n = 1$ before evaluating the limit"
+            "Assuming convergence at the boundary because the interval of convergence is $|x| < \\sqrt{6}$",
+            "Not simplifying $(\\sqrt{6})^{2n}/6^n = 1$ before evaluating the limit of terms"
           ]
         }
       ]
     },
     {
       "letter": "b",
-      "prompt": "It can be shown that $f(-\\sqrt{3}) = \\displaystyle\\sum_{n=0}^{\\infty} \\frac{n+1}{2^n}$ and that the first three terms of this series sum to $S_3 = \\dfrac{11}{4}$. Show that $\\left|f(-\\sqrt{3}) - S_3\\right| < \\dfrac{1}{2}$.",
+      "prompt": "It can be shown that $f(-\\sqrt{3}) = \\displaystyle\\sum_{n=0}^{\\infty} \\frac{n+1}{2^n}$. Let $S_3 = \\dfrac{11}{4}$ be the sum of the first three terms of this series. Show that $f(-\\sqrt{3}) - S_3 < 2$.",
       "point_value": 2,
       "scoring_notes": null,
       "requires_drawing": false,
@@ -67,12 +68,12 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Identifies that the error is bounded by the 4th term ($n = 3$) of the series: the 4th term is $\\dfrac{4}{2^3} = \\dfrac{4}{8} = \\dfrac{1}{2}$. Sets up the bound using the 4th term as a comparison.",
+          "description": "Substitutes $x = -\\sqrt{3}$ into the Maclaurin series to obtain the series $\\displaystyle\\sum_{n=0}^{\\infty} \\frac{n+1}{2^n}$ since $(-\\sqrt{3})^{2n} = 3^n$ and $\\dfrac{3^n}{6^n} = \\dfrac{1}{2^n}$. Verifies $S_3 = \\dfrac{1}{1} + \\dfrac{2}{2} + \\dfrac{3}{4} = 1 + 1 + \\dfrac{3}{4} = \\dfrac{11}{4}$.",
           "alternatives": [
             {
               "required_elements": [
-                "4th term is $\\dfrac{4}{8} = \\dfrac{1}{2}$",
-                "Uses the 4th term to bound the error"
+                "$S_3 = 1 + 1 + \\dfrac{3}{4} = \\dfrac{11}{4}$",
+                "Uses $(-\\sqrt{3})^{2n} = 3^n$ to simplify"
               ]
             }
           ]
@@ -80,17 +81,18 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Verification: $S_3 = 1 + \\dfrac{2}{2} + \\dfrac{3}{4} = 1 + 1 + \\dfrac{3}{4} = \\dfrac{11}{4}$. Since $f(-\\sqrt{3}) = \\displaystyle\\sum_{n=0}^{\\infty} \\frac{n+1}{2^n} = \\dfrac{1}{(1 - 1/2)^2} = 4$, the error is $\\left|4 - \\dfrac{11}{4}\\right| = \\dfrac{5}{4} < \\dfrac{1}{2}$... Note: For the AP exam, students bound the remainder by the first omitted term and compare it to the stated bound.",
+          "description": "Bounds the remainder (tail of the series from $n = 3$ onward). The full sum is $\\displaystyle\\sum_{n=0}^{\\infty} \\frac{n+1}{2^n} = \\frac{1}{(1 - 1/2)^2} = 4$. Therefore $f(-\\sqrt{3}) - S_3 = 4 - \\dfrac{11}{4} = \\dfrac{5}{4} < 2$. Alternatively, bounds the tail $\\displaystyle\\sum_{n=3}^{\\infty} \\frac{n+1}{2^n}$ using a geometric series comparison to show it is finite and less than the stated bound.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct bound showing remainder $< \\dfrac{1}{2}$ via the 4th term"
+                "Correctly bounds or computes the remainder",
+                "Concludes $f(-\\sqrt{3}) - S_3 < 2$"
               ]
             }
           ],
           "common_traps": [
-            "This series is NOT alternating — the alternating series error bound does not apply; bound must be established by comparison or direct calculation",
-            "Miscalculating $S_3$ by starting the index at $n = 1$ instead of $n = 0$"
+            "This series is NOT alternating — the alternating series error bound does not directly apply; a different bounding strategy is needed",
+            "Miscalculating $S_3$ by using indices $n = 1, 2, 3$ instead of $n = 0, 1, 2$"
           ]
         }
       ]
@@ -106,7 +108,7 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Differentiates the series term by term. Since $f(x) = \\displaystyle\\sum_{n=0}^{\\infty} \\dfrac{(n+1)x^{2n}}{6^n}$, differentiating: $f'(x) = \\displaystyle\\sum_{n=1}^{\\infty} \\dfrac{(n+1) \\cdot 2n \\cdot x^{2n-1}}{6^n}$. The general term is $\\dfrac{2n(n+1)x^{2n-1}}{6^n}$ for $n \\geq 1$.",
+          "description": "Differentiates the series term by term. Since $f(x) = \\displaystyle\\sum_{n=0}^{\\infty} \\dfrac{(n+1)x^{2n}}{6^n}$, differentiating gives $f'(x) = \\displaystyle\\sum_{n=1}^{\\infty} \\dfrac{(n+1) \\cdot 2n \\cdot x^{2n-1}}{6^n}$. The general term of the Maclaurin series for $f'$ is $\\dfrac{2n(n+1)x^{2n-1}}{6^n}$ for $n \\geq 1$.",
           "alternatives": [
             {
               "required_elements": [
@@ -115,14 +117,14 @@
             }
           ],
           "common_traps": [
-            "Forgetting to apply the chain rule factor of $2n$ when differentiating $x^{2n}$",
-            "Starting the index at $n = 0$ (the $n=0$ term is a constant so its derivative is 0; the series for $f'$ starts at $n=1$)"
+            "Forgetting the chain rule factor of $2n$ when differentiating $x^{2n}$",
+            "Keeping the $n = 0$ term (the constant term differentiates to zero, so the series for $f'$ starts at $n = 1$)"
           ]
         },
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "The radius of convergence of the Maclaurin series for $f'$ equals the radius of convergence of the original series for $f$, which is $\\sqrt{6}$. (Differentiating a power series term by term does not change the radius of convergence.)",
+          "description": "The radius of convergence of the Maclaurin series for $f'$ equals the radius of convergence of the original series for $f$, which is $\\sqrt{6}$. Term-by-term differentiation of a power series does not change the radius of convergence.",
           "alternatives": [
             {
               "required_elements": [
@@ -131,8 +133,8 @@
             }
           ],
           "common_traps": [
-            "Claiming the radius of convergence changes when differentiating",
-            "Forgetting to state the radius of convergence explicitly"
+            "Claiming differentiation changes the radius of convergence",
+            "Reporting the radius as 6 instead of $\\sqrt{6}$"
           ]
         }
       ]
@@ -148,51 +150,51 @@
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "Correctly sets up the ratio for the Ratio Test. Let $a_n = \\dfrac{(n+1)x^{2n}}{n \\cdot 6^n}$. Then:\n$$\\left|\\frac{a_{n+1}}{a_n}\\right| = \\left|\\frac{(n+2)x^{2(n+1)}}{(n+1) \\cdot 6^{n+1}} \\cdot \\frac{n \\cdot 6^n}{(n+1)x^{2n}}\\right| = \\frac{n(n+2)}{(n+1)^2} \\cdot \\frac{x^2}{6}$$",
+          "description": "Correctly sets up the ratio for the Ratio Test. Let $a_n = \\dfrac{(n+1)x^{2n}}{n \\cdot 6^n}$. Then:\n$$\\left|\\frac{a_{n+1}}{a_n}\\right| = \\left|\\frac{(n+2)x^{2n+2}}{(n+1) \\cdot 6^{n+1}} \\cdot \\frac{n \\cdot 6^n}{(n+1)x^{2n}}\\right| = \\frac{n(n+2)}{(n+1)^2} \\cdot \\frac{x^2}{6}$$",
           "alternatives": [
             {
               "required_elements": [
                 "Sets up $\\left|\\dfrac{a_{n+1}}{a_n}\\right|$ correctly",
-                "$\\dfrac{n(n+2)}{(n+1)^2} \\cdot \\dfrac{x^2}{6}$"
+                "Simplifies to $\\dfrac{n(n+2)}{(n+1)^2} \\cdot \\dfrac{x^2}{6}$"
               ]
             }
           ],
           "common_traps": [
-            "Forgetting to take the absolute value",
-            "Arithmetic errors when simplifying the ratio of consecutive terms"
+            "Forgetting to take the absolute value of the ratio",
+            "Arithmetic errors when canceling $x^{2n}$ and $6^n$ factors"
           ]
         },
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "Takes the limit as $n \\to \\infty$:\n$$L = \\lim_{n \\to \\infty} \\frac{n(n+2)}{(n+1)^2} \\cdot \\frac{x^2}{6} = 1 \\cdot \\frac{x^2}{6} = \\frac{x^2}{6}$$\nbecause $\\lim_{n \\to \\infty} \\dfrac{n(n+2)}{(n+1)^2} = \\lim_{n \\to \\infty} \\dfrac{n^2 + 2n}{n^2 + 2n + 1} = 1$.",
+          "description": "Takes the limit as $n \\to \\infty$:\n$$L = \\lim_{n \\to \\infty} \\frac{n(n+2)}{(n+1)^2} \\cdot \\frac{|x|^2}{6} = 1 \\cdot \\frac{x^2}{6} = \\frac{x^2}{6}$$\nbecause $\\displaystyle\\lim_{n \\to \\infty} \\dfrac{n(n+2)}{(n+1)^2} = \\lim_{n \\to \\infty} \\dfrac{n^2 + 2n}{n^2 + 2n + 1} = 1$.",
           "alternatives": [
             {
               "required_elements": [
-                "$\\lim_{n \\to \\infty} \\left|\\dfrac{a_{n+1}}{a_n}\\right| = \\dfrac{x^2}{6}$"
+                "$\\displaystyle\\lim_{n \\to \\infty} \\left|\\dfrac{a_{n+1}}{a_n}\\right| = \\dfrac{x^2}{6}$"
               ]
             }
           ],
           "common_traps": [
-            "Incorrectly computing the limit of $\\dfrac{n(n+2)}{(n+1)^2}$ as something other than 1",
-            "Not simplifying the ratio before taking the limit"
+            "Incorrectly evaluating the limit of $\\dfrac{n(n+2)}{(n+1)^2}$ (it equals 1, not 0 or $\\infty$)",
+            "Not recognizing that only the leading coefficient matters in the limit"
           ]
         },
         {
           "point_id": "d3",
           "point_value": 1,
-          "description": "By the Ratio Test, the series converges when $L = \\dfrac{x^2}{6} < 1$, i.e., $x^2 < 6$, i.e., $|x| < \\sqrt{6}$. Therefore the radius of convergence of the Maclaurin series for $g$ is $\\sqrt{6}$.",
+          "description": "By the Ratio Test, the series for $g$ converges when $L = \\dfrac{x^2}{6} < 1$, i.e., $x^2 < 6$, i.e., $|x| < \\sqrt{6}$. The radius of convergence of the Maclaurin series for $g$ is $\\sqrt{6}$.",
           "alternatives": [
             {
               "required_elements": [
-                "Sets $\\dfrac{x^2}{6} < 1$",
+                "Sets $\\dfrac{x^2}{6} < 1$ to find convergence condition",
                 "Radius of convergence $= \\sqrt{6}$"
               ]
             }
           ],
           "common_traps": [
             "Reporting the radius as 6 instead of $\\sqrt{6}$ (confusing $x^2 < 6$ with $|x| < 6$)",
-            "Not converting the inequality to the radius of convergence form"
+            "Forgetting to state the conclusion about the radius of convergence"
           ]
         }
       ]

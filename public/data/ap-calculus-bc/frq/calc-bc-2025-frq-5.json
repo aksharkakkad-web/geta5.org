@@ -3,7 +3,7 @@
   "subject": "ap-calculus-bc",
   "year": 2025,
   "source": "released",
-  "title": "Differential Equation — Slope Field & Taylor Polynomial",
+  "title": "Differential Equation — Euler's Method & Taylor Polynomial",
   "frq_type": "multi_part_math",
   "related_units": [2, 3, 7, 9, 10],
   "calculator_allowed": false,
@@ -23,7 +23,7 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correctly computes $f'(1)$: using the differential equation, $f'(1) = 2(1)^2 - f(1) = 2 - (-1) = 3$.",
+          "description": "Correctly computes $f'(1)$ using the differential equation: $f'(1) = 2(1)^2 - f(1) = 2(1) - (-1) = 2 + 1 = 3$.",
           "alternatives": [
             {
               "required_elements": [
@@ -35,11 +35,11 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Correctly differentiates the differential equation implicitly to find $f''$: differentiating $\\frac{dy}{dx} = 2x^2 - y$ with respect to $x$ gives $\\frac{d^2y}{dx^2} = 4x - \\frac{dy}{dx} = 4x - (2x^2 - y)$.",
+          "description": "Correctly differentiates the differential equation implicitly with respect to $x$: differentiating $\\frac{dy}{dx} = 2x^2 - y$ gives $\\frac{d^2y}{dx^2} = 4x - \\frac{dy}{dx}$. Therefore $f''(x) = 4x - f'(x) = 4x - (2x^2 - y)$.",
           "alternatives": [
             {
               "required_elements": [
-                "$f''(x) = 4x - f'(x)$ or $f''(x) = 4x - (2x^2 - y)$"
+                "$f''(x) = 4x - f'(x)$ or equivalently $\\frac{d^2y}{dx^2} = 4x - \\frac{dy}{dx}$"
               ]
             }
           ]
@@ -69,11 +69,11 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct Taylor polynomial form with correct coefficients for the first-degree term: $P_2(x) = f(1) + f'(1)(x-1) + \\frac{f''(1)}{2}(x-1)^2 = -1 + 3(x-1) + \\frac{1}{2}(x-1)^2$.",
+          "description": "Correct Taylor polynomial form with correct coefficients from part (a): uses $f(1) = -1$, $f'(1) = 3$, $f''(1) = 1$ to write $P_2(x) = -1 + 3(x-1) + \\frac{1}{2}(x-1)^2$.",
           "alternatives": [
             {
               "required_elements": [
-                "Coefficient $f'(1) = 3$ used in the $(x-1)$ term"
+                "All three terms present with correct coefficients: constant $-1$, linear term $3(x-1)$, quadratic term $\\frac{1}{2}(x-1)^2$"
               ]
             }
           ]
@@ -85,7 +85,7 @@
           "alternatives": [
             {
               "required_elements": [
-                "$P_2(x) = -1 + 3(x-1) + \\frac{1}{2}(x-1)^2$"
+                "$P_2(x) = -1 + 3(x-1) + \\frac{1}{2}(x-1)^2$ (or equivalent expanded form)"
               ]
             }
           ]
@@ -103,11 +103,11 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Correctly states the Lagrange error bound formula: $|f(1.1) - P_2(1.1)| \\leq \\frac{M}{(n+1)!}|x - a|^{n+1}$ with $n = 2$, $M = 60$, $a = 1$, $x = 1.1$, giving $\\frac{60}{3!}(0.1)^3 = \\frac{60}{6}(0.001) = 10 \\cdot 0.001 = 0.01$.",
+          "description": "Correctly states and applies the Lagrange error bound for the second-degree Taylor polynomial ($n = 2$): $$|f(1.1) - P_2(1.1)| \\leq \\frac{M}{(n+1)!}|x - a|^{n+1} = \\frac{60}{3!}(1.1 - 1)^3 = \\frac{60}{6}(0.1)^3$$",
           "alternatives": [
             {
               "required_elements": [
-                "Lagrange error bound: $\\frac{60}{3!}(1.1-1)^3$ or $\\frac{60}{6}(0.1)^3$"
+                "Lagrange error bound expression $\\frac{60}{3!}(0.1)^3$ or $\\frac{60}{6}(0.1)^3$ with $M = 60$, $n = 2$"
               ]
             }
           ]
@@ -115,11 +115,11 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Correct conclusion: since $\\frac{60}{6}(0.1)^3 = 10(0.001) = 0.01$, the Lagrange error bound shows the approximation error is at most $0.01$.",
+          "description": "Correct computation and conclusion: $\\frac{60}{6}(0.1)^3 = 10 \\cdot 0.001 = 0.01$. Therefore the Lagrange error bound guarantees $|f(1.1) - P_2(1.1)| \\leq 0.01$.",
           "alternatives": [
             {
               "required_elements": [
-                "Correct computation yielding exactly $0.01$ with conclusion that error $\\leq 0.01$"
+                "Correct computation yielding exactly $0.01$ with conclusion that the error $\\leq 0.01$"
               ]
             }
           ]
@@ -137,11 +137,11 @@
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "Correct first Euler step with $\\Delta x = 0.2$: starting at $(1, -1)$ with slope $f'(1) = 3$, the approximation at $x = 1.2$ is $y_1 = -1 + 3(0.2) = -1 + 0.6 = -0.4$.",
+          "description": "Correct first Euler step with step size $\\Delta x = 0.2$: starting at $(1, -1)$, the slope is $f'(1) = 2(1)^2 - (-1) = 3$. The new $y$-value is $y_1 = -1 + 3(0.2) = -1 + 0.6 = -0.4$. So the approximation at $x = 1.2$ is $y_1 = -0.4$.",
           "alternatives": [
             {
               "required_elements": [
-                "First step: $y_1 = -1 + (2(1)^2 - (-1))(0.2) = -1 + 3(0.2) = -0.4$"
+                "First step: slope $= 3$, $y_1 = -1 + 3(0.2) = -0.4$ at $x = 1.2$"
               ]
             }
           ]
@@ -149,11 +149,11 @@
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "Correct second Euler step: at $(1.2, -0.4)$, slope $= 2(1.2)^2 - (-0.4) = 2(1.44) + 0.4 = 2.88 + 0.4 = 3.28$, so $y_2 = -0.4 + 3.28(0.2) = -0.4 + 0.656 = 0.256$. Thus $f(1.4) \\approx 0.256$.",
+          "description": "Correct second Euler step: at $(1.2, -0.4)$, the slope is $2(1.2)^2 - (-0.4) = 2(1.44) + 0.4 = 2.88 + 0.4 = 3.28$. The new $y$-value is $y_2 = -0.4 + 3.28(0.2) = -0.4 + 0.656 = 0.256$. Therefore $f(1.4) \\approx 0.256$.",
           "alternatives": [
             {
               "required_elements": [
-                "Second step correctly computed: slope at $(1.2, -0.4)$ is $3.28$; $f(1.4) \\approx 0.256$"
+                "Second step: slope $= 3.28$, $f(1.4) \\approx -0.4 + 3.28(0.2) = 0.256$"
               ]
             }
           ]
