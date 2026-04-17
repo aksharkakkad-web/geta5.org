@@ -227,11 +227,17 @@ function verifyEvidence(grading: FRQGradingResult, responses: Record<string, str
         const quote = sr.student_evidence_quote ?? ''
         if (quote.trim() === '') return { ...sr, met: false }
         const quoteNorm = normalize(quote)
-        // Pass 1: exact normalized match
+        // Pass 1: exact normalized match (contiguous substring)
         if (studentNorm.includes(quoteNorm)) return sr
         // Pass 2: LaTeX-stripped match (for math subjects)
         const quoteLaTeX = normalize(normalizeLaTeX(quote))
         if (studentLaTeX.includes(quoteLaTeX)) return sr
+        // Pass 3: sentence-level match — the LLM sometimes combines
+        // non-adjacent sentences into one "quote". Split the quote into
+        // sentences and check if each sentence individually appears in
+        // the student's response. If ALL sentences are found, accept it.
+        const sentences = quoteNorm.split(/[.!?]+/).map(s => s.trim()).filter(s => s.length > 10)
+        if (sentences.length > 1 && sentences.every(s => studentNorm.includes(s))) return sr
         // Neither matched
         return { ...sr, met: false }
       })

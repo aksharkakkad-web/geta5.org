@@ -163,6 +163,7 @@ SUGGESTION RULE: For each missed point (earned=0), the suggestion MUST:
 Set suggestion to null for earned points.
 
 EVIDENCE RULE: student_evidence_quote MUST be a verbatim substring of the student's response for that part. If you cannot find supporting text, use empty string "" and mark met: false. Do NOT paraphrase or invent quotes.
+QUOTING RULE: Quote SHORT contiguous substrings — one sentence or key phrase at most. Do NOT combine non-adjacent sentences into a single quote. If evidence spans multiple sentences, quote the MOST relevant single sentence. The server will reject quotes that skip text in the middle.
 
 ESSAY COMPLETENESS RULE: For essay-type questions (DBQ, LEQ, argument_essay), the student writes ONE essay graded against MULTIPLE rubric parts. You MUST return a result for EVERY part listed in the rubric — do NOT skip parts just because the response is a single essay. Grade each part's criteria independently against the full essay text. The "parts" array in your output MUST have one entry per rubric part.`
 
