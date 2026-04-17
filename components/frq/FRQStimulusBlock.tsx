@@ -148,7 +148,7 @@ function SectionBody({ body }: { body: string }) {
                             whiteSpace: 'nowrap',
                           }}
                         >
-                          {cell}
+                          <InlineMath text={cell} />
                         </th>
                       ))}
                     </tr>
@@ -165,7 +165,7 @@ function SectionBody({ body }: { body: string }) {
                     >
                       {row.map((cell, ci) => (
                         <td key={ci} style={{ padding: '8px 12px', lineHeight: 1.6 }}>
-                          {cell}
+                          <InlineMath text={cell} />
                         </td>
                       ))}
                     </tr>
@@ -289,7 +289,7 @@ export default function FRQStimulusBlock({ stimulus, stimulusImage }: FRQStimulu
             padding: '16px',
           }}
         >
-          <InlineMath text={stimulus} />
+          <SectionBody body={stimulus} />
         </div>
       )}
     </div>
