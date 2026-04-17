@@ -214,9 +214,11 @@ function normalizeLaTeX(s: string): string {
 // Server-verify because LLM can fabricate quotes — strip any awarded point
 // whose evidence quote is not a verbatim substring of the student's response.
 function verifyEvidence(grading: FRQGradingResult, responses: Record<string, string>): FRQGradingResult {
+  // Essay-type FRQs store the response under 'essay' key, not part letters
+  const essayText = responses['essay'] ?? ''
   const parts = grading.parts.map(part => {
     if (!part.point_results || part.point_results.length === 0) return part
-    const studentRaw = responses[part.letter] ?? ''
+    const studentRaw = responses[part.letter] || essayText || ''
     const studentNorm = normalize(studentRaw)
     const studentLaTeX = normalize(normalizeLaTeX(studentRaw))
     const pointResults = part.point_results.map(pr => {
@@ -318,8 +320,12 @@ export async function POST(req: Request) {
   // Without this, an empty response hash means the grading prompt would
   // show no student text but the full answer key — the model hallucinates
   // credit (observed: 5/6 on a blank precalc FRQ). Also saves rate-limit calls.
+  // Note: essay-type FRQs (DBQ, LEQ, essay, argument_essay) store their response
+  // under the 'essay' key, not under part letters. Check both.
   const gradableLetters = question.parts.filter(p => !p.requires_drawing).map(p => p.letter)
-  const allBlank = gradableLetters.every(letter => isBlankResponse(responses[letter]))
+  const allResponseValues = Object.values(responses)
+  const allBlank = allResponseValues.every(v => isBlankResponse(v)) &&
+    gradableLetters.every(letter => isBlankResponse(responses[letter]))
 
   const admin = getSupabaseAdmin()
 

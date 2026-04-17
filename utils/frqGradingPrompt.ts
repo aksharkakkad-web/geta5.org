@@ -199,8 +199,12 @@ function renderPartBlock(part: FRQPart): string {
 }
 
 function renderStudentBlock(parts: FRQPart[], responses: Record<string, string>): string {
+  // Essay-type FRQs (DBQ, LEQ, essay, argument_essay) store the full response
+  // under the 'essay' key. If a part letter has no response but 'essay' exists,
+  // use the essay text for single-part essay questions.
+  const essayText = responses['essay'] ?? ''
   const lines = parts.map(p => {
-    const raw = responses[p.letter] ?? ''
+    const raw = responses[p.letter] ?? (parts.length === 1 ? essayText : '') ?? ''
     const text = typeof raw === 'string' ? raw.trim() : ''
     return `(${p.letter}): ${text || '[NO RESPONSE]'}`
   })
