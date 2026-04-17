@@ -88,6 +88,7 @@ export default function FRQPage({ params }: PageProps) {
   const [showShortcuts, setShowShortcuts] = useState(false)
   const [showMathTutorial, setShowMathTutorial] = useState(false)
   const [remainingCalls, setRemainingCalls] = useState(30)
+  const [subjectUnits, setSubjectUnits] = useState<Array<{ unit_number: number; unit_name: string }>>([])
   const [error, setError] = useState<string | null>(null)
   const [queuedMessage, setQueuedMessage] = useState<string>('Your answer has been saved. Adi will grade it when your daily limit resets.')
   const [desmosOpen, setDesmosOpen] = useState(false)
@@ -107,10 +108,11 @@ export default function FRQPage({ params }: PageProps) {
 
     async function load() {
       try {
-        // Fetch manifest and usage in parallel
-        const [manifestRes, usageRes] = await Promise.allSettled([
+        // Fetch manifest, usage, and meta in parallel
+        const [manifestRes, usageRes, metaRes] = await Promise.allSettled([
           fetch(`/data/${subject}/frq/manifest.json`),
           fetch('/api/adi-usage'),
+          fetch(`/data/${subject}/meta.json`),
         ])
 
         // Parse usage
@@ -121,6 +123,21 @@ export default function FRQPage({ params }: PageProps) {
             setRemainingCalls(Math.max(0, remaining))
           } catch {
             // Non-blocking — keep default
+          }
+        }
+
+        // Parse meta (unit names)
+        if (metaRes.status === 'fulfilled' && metaRes.value.ok) {
+          try {
+            const metaData = await metaRes.value.json()
+            if (Array.isArray(metaData.units)) {
+              setSubjectUnits(metaData.units.map((u: { unit_number: number; unit_name: string }) => ({
+                unit_number: u.unit_number,
+                unit_name: u.unit_name,
+              })))
+            }
+          } catch {
+            // Non-blocking — grouping just falls back to unit numbers
           }
         }
 
@@ -539,6 +556,7 @@ export default function FRQPage({ params }: PageProps) {
               <FRQQuestionSelect
                 questions={questions}
                 subject={subject}
+                units={subjectUnits}
                 onSelect={handleSelect}
               />
             )}
