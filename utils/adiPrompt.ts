@@ -4,10 +4,24 @@ import path from 'path'
 export interface AdiContext {
   subject: string
   unit: string
-  page: 'drill' | 'mcq' | 'practice-test' | 'study-guide' | 'home'
+  page: 'drill' | 'mcq' | 'practice-test' | 'study-guide' | 'home' | 'frq'
   questionId?: string
   userAnswer?: string
   isCorrect?: boolean
+  // FRQ-specific — populated when page === 'frq'
+  frqResponses?: Record<string, string>
+  frqResult?: {
+    total_score: number
+    max_score: number
+    takeaway?: string
+    parts?: Array<{
+      letter: string
+      earned: number
+      max: number
+      feedback: string
+      missed: string | null
+    }>
+  }
 }
 
 const ROLE = `You are Adi, a friendly AP exam tutor built into Ascendly. You help students understand AP course material. You speak clearly, use formatting (headers, bullets, tip callouts), and always tie explanations back to what's tested on the AP exam.`
@@ -38,8 +52,29 @@ async function loadJson(filePath: string): Promise<unknown | null> {
   }
 }
 
+async function loadFRQContext(ctx: AdiContext): Promise<string> {
+  if (ctx.page !== 'frq' || !ctx.questionId) return ''
+
+  const frqFile = `data/${ctx.subject}/frq/${ctx.questionId}.json`
+  const question = await loadJson(frqFile) as Record<string, unknown> | null
+  if (!question) return ''
+
+  const blocks: string[] = []
+  blocks.push(`FRQ QUESTION:\n${JSON.stringify(question, null, 2)}`)
+
+  if (ctx.frqResponses && Object.keys(ctx.frqResponses).length > 0) {
+    blocks.push(`STUDENT'S RESPONSES:\n${JSON.stringify(ctx.frqResponses, null, 2)}`)
+  }
+
+  if (ctx.frqResult) {
+    blocks.push(`GRADING RESULT:\n${JSON.stringify(ctx.frqResult, null, 2)}`)
+  }
+
+  return '\n' + blocks.join('\n\n')
+}
+
 async function loadQuestionContext(ctx: AdiContext): Promise<string> {
-  if (!ctx.questionId || ctx.page === 'home') return ''
+  if (!ctx.questionId || ctx.page === 'home' || ctx.page === 'frq') return ''
 
   const folder = ctx.page === 'drill' ? 'drills' : 'mcq'
   const unitFile = `data/${ctx.subject}/${folder}/${ctx.unit}.json`
@@ -106,14 +141,15 @@ async function loadAdiContext(ctx: AdiContext): Promise<string> {
 }
 
 export async function buildSystemPrompt(ctx: AdiContext): Promise<string> {
-  const [questionCtx, guideCtx, metaCtx, adiCtx] = await Promise.all([
+  const [questionCtx, guideCtx, metaCtx, adiCtx, frqCtx] = await Promise.all([
     loadQuestionContext(ctx),
     loadStudyGuideContext(ctx),
     loadMeta(ctx),
     loadAdiContext(ctx),
+    loadFRQContext(ctx),
   ])
 
-  return [ROLE, GROUNDING, FORMATTING, metaCtx, adiCtx, guideCtx, questionCtx]
+  return [ROLE, GROUNDING, FORMATTING, metaCtx, adiCtx, guideCtx, questionCtx, frqCtx]
     .filter(Boolean)
     .join('\n\n')
 }

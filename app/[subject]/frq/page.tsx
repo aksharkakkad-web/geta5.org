@@ -40,6 +40,7 @@ import type { FRQ, FRQGradingResult, GradingStrictness, FRQDraft } from '@/utils
 import { logEvent } from '@/utils/analytics'
 import { lsGet, lsSet, LS_KEYS } from '@/utils/localStorage'
 import { syncStats } from '@/utils/persistence'
+import { useAdi } from '@/components/adi/AdiProvider'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -73,6 +74,7 @@ function getDisplayName(subject: string): string {
 
 export default function FRQPage({ params }: PageProps) {
   const { subject } = use(params)
+  const adi = useAdi()
 
   const [phase, setPhase] = useState<Phase>('loading')
   const [questions, setQuestions] = useState<FRQ[]>([])
@@ -341,7 +343,29 @@ export default function FRQPage({ params }: PageProps) {
   // ─── Results ──────────────────────────────────────────────────────────────
 
   function handleAskAdi() {
-    console.log('TODO: open adi panel')
+    if (!selectedQuestion || !gradingResult) return
+    const unit = selectedQuestion.related_units?.[0]
+      ? `unit-${selectedQuestion.related_units[0]}`
+      : ''
+    adi.setFRQContext({
+      questionId: selectedQuestion.id,
+      unit,
+      frqResponses: gradingResponses,
+      frqResult: {
+        total_score: gradingResult.total_score,
+        max_score: gradingResult.max_score,
+        takeaway: gradingResult.takeaway,
+        parts: gradingResult.parts.map(p => ({
+          letter: p.letter,
+          earned: p.earned,
+          max: p.max,
+          feedback: p.feedback,
+          missed: p.missed,
+        })),
+      },
+    })
+    adi.open()
+    adi.sendMessage(`I just finished this FRQ and got ${gradingResult.total_score}/${gradingResult.max_score}. Can you explain what I did right and wrong, and how I can improve?`)
   }
 
   function handleNextQuestion() {

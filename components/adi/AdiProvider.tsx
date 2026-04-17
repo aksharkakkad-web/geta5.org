@@ -14,6 +14,13 @@ interface QuestionInfo {
   isCorrect?: boolean
 }
 
+interface FRQContextData {
+  questionId: string
+  unit?: string
+  frqResponses: Record<string, string>
+  frqResult: AdiContext['frqResult']
+}
+
 interface AdiState {
   isOpen: boolean
   open: () => void
@@ -27,6 +34,7 @@ interface AdiState {
   sendMessage: (text: string) => void
   context: AdiContext
   setQuestion: (info: QuestionInfo | null) => void
+  setFRQContext: (data: FRQContextData | null) => void
   nudgeText: string | null
   showNudge: (text: string) => void
   dismissNudge: () => void
@@ -51,6 +59,7 @@ export function AdiProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false)
   const [nudgeText, setNudgeText] = useState<string | null>(null)
   const [questionInfo, setQuestionInfo] = useState<QuestionInfo | null>(null)
+  const [frqContextData, setFRQContextData] = useState<FRQContextData | null>(null)
   const [input, setInput] = useState('')
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
   const nudgeDismissCountRef = useRef(lsGet(LS_KEYS.adiDismissCount, 0))
@@ -65,6 +74,7 @@ export function AdiProvider({ children }: { children: ReactNode }) {
       practice: 'mcq',
       'practice-test': 'practice-test',
       'study-guide': 'study-guide',
+      frq: 'frq',
     }
     return { subject, unit: '', page: pageMap[mode] ?? 'home' }
   }, [pathname])
@@ -76,6 +86,13 @@ export function AdiProvider({ children }: { children: ReactNode }) {
       questionId: questionInfo.questionId,
       userAnswer: questionInfo.userAnswer,
       isCorrect: questionInfo.isCorrect,
+    }),
+    ...(frqContextData && {
+      page: 'frq' as const,
+      questionId: frqContextData.questionId,
+      unit: frqContextData.unit ?? baseContext.unit,
+      frqResponses: frqContextData.frqResponses,
+      frqResult: frqContextData.frqResult,
     }),
   }
 
@@ -160,6 +177,20 @@ export function AdiProvider({ children }: { children: ReactNode }) {
     }
   }, [])
 
+  const setFRQContext = useCallback((data: FRQContextData | null) => {
+    setFRQContextData(data)
+    if (data) {
+      contextRef.current = {
+        ...contextRef.current,
+        page: 'frq',
+        questionId: data.questionId,
+        unit: data.unit ?? contextRef.current.unit,
+        frqResponses: data.frqResponses,
+        frqResult: data.frqResult,
+      }
+    }
+  }, [])
+
   const showNudge = useCallback((text: string) => {
     if (nudgeDismissCountRef.current >= 3) return
     setNudgeText(text)
@@ -182,7 +213,7 @@ export function AdiProvider({ children }: { children: ReactNode }) {
         isOpen: isHidden ? false : isOpen,
         open, close, toggle,
         messages, input, setInput, handleSubmit, isLoading, sendMessage,
-        context, setQuestion,
+        context, setQuestion, setFRQContext,
         nudgeText: isHidden ? null : nudgeText,
         showNudge, dismissNudge, nudgeDismissCount: nudgeDismissCountRef.current,
         errorMessage, clearError,
