@@ -9,6 +9,7 @@ import FRQQuestionSelect from '@/components/frq/FRQQuestionSelect'
 import FRQReadyScreen from '@/components/frq/FRQReadyScreen'
 import FRQTimerBar from '@/components/frq/FRQTimerBar'
 import FRQDBQLayout from '@/components/frq/FRQDBQLayout'
+import FRQEBQLayout from '@/components/frq/FRQEBQLayout'
 import FRQEssayLayout from '@/components/frq/FRQEssayLayout'
 import FRQMultiPartLayout from '@/components/frq/FRQMultiPartLayout'
 import FRQMultiPartMathLayout from '@/components/frq/FRQMultiPartMathLayout'
@@ -23,6 +24,7 @@ import {
   hasFRQs,
   isMathSubject,
   isDBQType,
+  isEBQType,
   isMathType,
   isSAQType,
   isEssayType,
@@ -406,6 +408,9 @@ export default function FRQPage({ params }: PageProps) {
       onSaveDraft: handleSaveDraft,
     }
 
+    if (isEBQType(selectedQuestion.frq_type)) {
+      return <FRQEBQLayout {...props} />
+    }
     if (isDBQType(selectedQuestion.frq_type)) {
       return <FRQDBQLayout {...props} />
     }

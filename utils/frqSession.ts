@@ -12,6 +12,7 @@ export type FRQType =
   | 'saq'                    // World History — short answer, 3 parts (a,b,c)
   | 'leq'                    // World History — single long essay
   | 'essay'                  // Psych — scenario + single essay response
+  | 'ebq'                    // Psych — Evidence-Based Question: 3 sources + multi-part responses
   | 'argument_essay'         // Gov — prompt + single argumentative essay
   | 'concept_application'    // Gov — scenario + multi-part text
   | 'scotus_comparison'      // Gov — two cases + multi-part comparison
@@ -126,6 +127,7 @@ export interface FRQDraft {
 /** Seconds per FRQ type (per-question average from official CB timing) */
 export const FRQ_TYPE_SECONDS: Record<FRQType, number> = {
   essay:                35 * 60, // AP Psych: 70 min ÷ 2 questions
+  ebq:                  45 * 60, // AP Psych: Evidence-Based Question — 45 min
   multi_part_text:      20 * 60, // generic multi-part
   saq:                  13 * 60, // AP World: 40 min ÷ 3 questions
   leq:                  40 * 60, // AP World: 40 min
@@ -215,6 +217,11 @@ export function isEssayType(type: FRQType): boolean {
 /** Determine if the FRQ type uses the DBQ split-screen layout */
 export function isDBQType(type: FRQType): boolean {
   return type === 'dbq'
+}
+
+/** Determine if the FRQ type uses the EBQ split-screen layout (3 sources + multi-part) */
+export function isEBQType(type: FRQType): boolean {
+  return type === 'ebq'
 }
 
 /** Determine if the FRQ type uses math input */

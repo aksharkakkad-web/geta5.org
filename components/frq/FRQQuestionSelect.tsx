@@ -64,6 +64,7 @@ const TYPE_LABELS: Record<FRQType, string> = {
   multi_part_math: 'Math',
   multi_part_text: 'Multi-Part',
   dbq: 'DBQ',
+  ebq: 'EBQ',
   saq: 'SAQ',
   leq: 'LEQ',
   essay: 'Essay',
