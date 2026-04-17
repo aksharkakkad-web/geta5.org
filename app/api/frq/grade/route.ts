@@ -112,6 +112,71 @@ function sanitizeGrading(question: FRQ, raw: FRQGradingResult): FRQGradingResult
   return { total_score, max_score, parts, takeaway }
 }
 
+// Server-side enforcement of cross-point dependencies.
+// The prompt tells the AI about these, but we enforce them here as a safety net.
+function enforceDependencies(question: FRQ, grading: FRQGradingResult): FRQGradingResult {
+  const frqType = question.frq_type
+  const parts = grading.parts.map(part => ({ ...part }))
+
+  // Helper: find a point_result by ID across all parts
+  function findPoint(pointId: string): { earned: number } | undefined {
+    for (const p of parts) {
+      const pr = p.point_results?.find(r => r.point_id === pointId)
+      if (pr) return pr
+    }
+    return undefined
+  }
+
+  // Helper: zero out a point_result by ID
+  function zeroPoint(pointId: string, reason: string) {
+    for (const part of parts) {
+      if (!part.point_results) continue
+      const pr = part.point_results.find(r => r.point_id === pointId)
+      if (pr && pr.earned > 0) {
+        pr.earned = 0
+        pr.reasoning = `${pr.reasoning} [server: ${reason}]`
+        if (pr.sub_results) pr.sub_results = pr.sub_results.map(sr => ({ ...sr, met: false }))
+      }
+    }
+  }
+
+  if (frqType === 'argument_essay') {
+    const thesis = findPoint('a1')
+    if (!thesis || thesis.earned === 0) {
+      // Rebuttal (d1) requires Thesis (a1)
+      zeroPoint('d1', 'rebuttal requires thesis')
+      // Evidence tier 3 (b3) requires Thesis
+      zeroPoint('b3', 'evidence tier 3 requires thesis')
+    }
+  }
+
+  if (frqType === 'dbq') {
+    // Evidence+ (a4) requires Evidence (a3)
+    const ev3 = findPoint('a3')
+    if (!ev3 || ev3.earned === 0) {
+      zeroPoint('a4', 'evidence+ requires evidence base')
+    }
+  }
+
+  if (frqType === 'leq') {
+    // Evidence+ requires basic Evidence
+    const ev1 = findPoint('a3')
+    if (!ev1 || ev1.earned === 0) {
+      zeroPoint('a4', 'evidence+ requires evidence base')
+    }
+  }
+
+  // Recalculate totals after dependency enforcement
+  for (const part of parts) {
+    if (part.point_results) {
+      part.earned = part.point_results.reduce((sum, pr) => sum + pr.earned, 0)
+    }
+  }
+  const total_score = parts.reduce((sum, p) => sum + p.earned, 0)
+
+  return { ...grading, parts, total_score }
+}
+
 function normalize(s: string): string {
   return s.toLowerCase().replace(/\s+/g, ' ').trim()
 }
@@ -341,7 +406,7 @@ export async function POST(req: Request) {
       model: getModelForStrictness(validStrictness),
       system: systemPrompt,
       messages: [{ role: 'user', content: gradingUserContent }],
-      maxOutputTokens: 2048,
+      maxOutputTokens: 3072,
       temperature: 0,
     })
 
@@ -380,7 +445,7 @@ export async function POST(req: Request) {
           model: getModelForStrictness(validStrictness),
           system: auditorPrompt,
           messages: [{ role: 'user', content: auditorUserContent }],
-          maxOutputTokens: 2048,
+          maxOutputTokens: 3072,
           temperature: 0,
         })
         const cleanAuditor = auditorResult.text.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim()
@@ -391,6 +456,7 @@ export async function POST(req: Request) {
       }
     }
 
+    grading = enforceDependencies(question, grading)
     grading = verifyEvidence(grading, responses)
 
     // 7. Save grading result

@@ -155,10 +155,11 @@ const OUTPUT_SCHEMA = `OUTPUT FORMAT — respond with raw JSON only (no markdown
 CONFIDENCE RULE: Set confidence between 0 and 1 for each point_result. Use 0.9+ when the rubric criteria clearly match or clearly don't match the student's response. Use 0.6-0.9 when the response is ambiguous or borderline. Use below 0.6 only when you genuinely cannot determine if the criterion is met. Be calibrated — don't default to 0.95 on everything.
 
 SUGGESTION RULE: For each missed point (earned=0), the suggestion MUST:
-1. Reference what the student actually wrote (quote their words)
+1. Reference what the student actually wrote (quote their words if they wrote anything relevant)
 2. Explain specifically what was missing or incorrect
-3. Show how their response could be revised to earn the point — build on their attempt, don't replace it
-4. If the student was completely off-topic, explain what the rubric required and give a model response
+3. Show how their response could be revised to earn the point — build on their attempt, don't replace it entirely
+4. ANCHOR to the correct_example: your suggested improvement MUST be consistent with the "Reference example" from the scoring rubric. Do NOT invent criteria beyond what the rubric specifies.
+5. If the student was completely off-topic, explain what the rubric required and adapt the correct_example to a student-friendly model response.
 Set suggestion to null for earned points.
 
 EVIDENCE RULE: student_evidence_quote MUST be a verbatim substring of the student's response for that part. If you cannot find supporting text, use empty string "" and mark met: false. Do NOT paraphrase or invent quotes.`
@@ -293,7 +294,8 @@ ARGUMENTATION (2pt tier):
 
 // ─── Strict Mode Blocks ───────────────────────────────────────────────────────
 
-const STRICT_MODE_BLOCK = `STRICT MODE: You are grading as a rigorous AP reader preparing a student for the real exam. Do not award sympathy points. Do not credit vague or hand-wavy answers. Do not accept "the student probably meant X" — grade what they literally wrote. If the student's words match the required elements but are in the wrong context (e.g., they defined a term without applying it to the scenario), award 0.`
+const STRICT_MODE_BLOCK = `STRICT MODE: You are grading as a rigorous AP reader preparing a student for the real exam. Do not award sympathy points. Do not credit vague or hand-wavy answers. Do not accept "the student probably meant X" — grade what they literally wrote. If the student's words match the required elements but are in the wrong context (e.g., they defined a term without applying it to the scenario), award 0.
+SUGGESTION TONE (strict): Be clinical and precise. Do not sugarcoat. State exactly why the point was not earned and what the rubric required. Use language like "This does not earn the point because..." or "The rubric requires X — the response provided Y, which is insufficient because..." Show the correct approach without hedging.`
 
 const STRICT_CALIBRATION = `CALIBRATION EXAMPLES (strict mode):
 
@@ -338,8 +340,10 @@ export function buildFRQGradingPrompt(
   const strictnessBlock = strictness === 'strict'
     ? `${STRICT_MODE_BLOCK}\n\n${STRICT_CALIBRATION}`
     : strictness === 'light'
-    ? `LIGHT MODE: Give benefit of the doubt on partially correct reasoning. Award points if the student demonstrates understanding even with imprecise language. Focus feedback on what was done right.`
-    : `MODERATE MODE: Follow the rubric criteria as written — no extra generosity, no extra harshness. Award points only when criteria are clearly met.`
+    ? `LIGHT MODE: Give benefit of the doubt on partially correct reasoning. Award points if the student demonstrates understanding even with imprecise language. Focus feedback on what was done right.
+SUGGESTION TONE (light): Be encouraging and constructive. Lead with what the student did well. Frame improvements as "next time, try adding..." or "you're close — to strengthen this, consider..." Never say "you failed to" or "this does not earn the point."`
+    : `MODERATE MODE: Follow the rubric criteria as written — no extra generosity, no extra harshness. Award points only when criteria are clearly met.
+SUGGESTION TONE (moderate): Be balanced and direct. Acknowledge what was done correctly, then clearly state what was missing. Use neutral language like "to earn this point, the response needed..." or "the rubric requires X, but the response only provided Y."`
 
   const generalRules = `GENERAL RULES:
 - BLANK OR MISSING RESPONSES EARN ZERO POINTS. If a part's response is "[NO RESPONSE]", empty, or clearly non-substantive (e.g., "idk", "?"), award 0 for every point of that part.
@@ -349,7 +353,14 @@ export function buildFRQGradingPrompt(
 - For essays: grammar/spelling are not graded — focus on content and reasoning.
 - For legacy parts without scoring_points, synthesize one point_result per rubric_criterion with inferred sub_results.
 - earned in each part MUST equal the sum of its point_results[].earned.
-- total_score MUST equal the sum of parts[].earned.`
+- total_score MUST equal the sum of parts[].earned.
+
+CROSS-POINT DEPENDENCY RULES (enforce these strictly):
+- AP Gov Argument Essay: Row D (Rebuttal) can only be earned if Row A (Thesis) is earned. If Thesis=0, set Rebuttal=0 regardless of response quality.
+- AP Gov Argument Essay: Row B Evidence tier 3 (foundational documents) requires Row A (Thesis). If Thesis=0, Evidence caps at tier 2.
+- DBQ: Evidence from Docs+ (4-doc argument) can only be earned if Evidence from Docs (3-doc descriptive) is also earned. The tiers are progressive.
+- LEQ: Evidence+ (evidence supporting argument) can only be earned if basic Evidence (two specific examples) is earned.
+- These dependencies reflect real AP scoring — readers enforce them. Do NOT award a dependent point if its prerequisite is not met.`
 
   const questionBlock = `QUESTION: ${question.title}
 Total Gradable Points: ${gradablePoints}${question.stimulus ? `\n\nSTIMULUS:\n${question.stimulus}` : ''}${question.documents?.length ? `\n\n${renderDocumentsBlock(question.documents)}` : ''}

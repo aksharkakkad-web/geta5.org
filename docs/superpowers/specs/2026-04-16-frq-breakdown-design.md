@@ -123,18 +123,32 @@ CREATE TABLE frq_feedback (
 | Math multi-part (9pt) | 4 parts, 2-3pt each | P1/P2/P3 sub-point pills | Show setup vs. answer distinction |
 | Chemistry (4-10pt) | Mixed parts | Calc + justify + drawing-skipped | Flag "justify required" vs. calc-only |
 
-## UI Design Direction
+## UI Design Direction — Option A: Rubric Sidebar (Approved 2026-04-16)
 
-Reference mockup: `docs/superpowers/mockups/frq-breakdown-v2.html`
+Reference mockups: `docs/superpowers/mockups/frq-breakdown-options.html` (Option A tab)
 
+### Essay types (DBQ, LEQ, argument_essay, essay)
+- 60/40 split layout: student essay (left, scrollable) + rubric sidebar (right, sticky)
+- Inline highlights in essay text: indigo underlines for earned quotes, amber for missed
+- Clicking a rubric row scrolls to and flashes the corresponding passage in the essay
+- Score ring floats at top of sidebar
+
+### Non-essay types (SAQ, concept_application, quantitative_analysis, scotus_comparison, multi_part_math, multi_part_text)
+- Single-column layout: each part as an expandable card
+- Within each card: student's response text with inline highlights + rubric rows below
+- Collapsed for full-credit parts, expanded for missed
+- Math parts show P1/P2/P3 sub-point pills
+
+### Shared design elements
 - Glass morphism cards with backdrop-blur, subtle borders
 - Indigo accent (earned), amber accent (missed) — no green/red
-- Left accent bars on rubric rows
+- Left accent bars on rubric rows (2px, color-coded)
 - Evidence highlights as soft translucent underlines, not solid blocks
 - Adi suggestion blocks with diamond icon, "Why you missed this" + "A stronger response"
-- Expandable cards (collapsed for full-credit parts, expanded for missed)
+- Confidence badge (?) on uncertain points (confidence < 0.7)
 - Score ring with gradient glow at top
 - Thumbs up/down as small ghost icons, bottom-right of each rubric row, no label
+- Light/moderate/strict visual differentiation in tone and weight
 
 ## Scoring Guideline PDF Inventory
 
