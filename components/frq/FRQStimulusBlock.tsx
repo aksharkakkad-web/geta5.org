@@ -7,124 +7,32 @@
 
 import React from 'react'
 import InlineMath from '@/components/InlineMath'
+import {
+  parseMultiSection,
+  parseBodyBlocks,
+  splitCitationBlock,
+  type ParsedSection,
+  type TextBlock,
+} from './frqContentParser'
 
 interface FRQStimulusBlockProps {
   stimulus: string | null
   stimulusImage: string | null
 }
 
-// ─── Section parsing ──────────────────────────────────────────────────────────
-
-const SECTION_NAMES = [
-  'Introduction',
-  'Participants',
-  'Method',
-  'Results and Discussion',
-  'Results',
-  'Discussion',
-]
-
-// Matches one of the known section headers on its own line
-const SECTION_HEADER_RE = new RegExp(
-  `^(${SECTION_NAMES.map(n => n.replace(/ /g, ' ')).join('|')})$`,
-  'gm'
-)
-
-interface ParsedSection {
-  name: string
-  body: string
-}
-
-function parseMultiSection(text: string): ParsedSection[] | null {
-  const matches = [...text.matchAll(SECTION_HEADER_RE)]
-  if (matches.length < 2) return null
-
-  return matches.map((m, i) => {
-    const bodyStart = (m.index ?? 0) + m[0].length
-    const bodyEnd = i + 1 < matches.length ? (matches[i + 1].index ?? text.length) : text.length
-    return {
-      name: m[1],
-      body: text.slice(bodyStart, bodyEnd).trim(),
-    }
-  })
-}
-
-// ─── Table rendering ──────────────────────────────────────────────────────────
-
-// A line is a table row if it starts and ends with | (allowing whitespace)
-function isTableRow(line: string): boolean {
-  const t = line.trim()
-  return t.startsWith('|') && t.endsWith('|')
-}
-
-function isSeparatorRow(line: string): boolean {
-  return /^\|[\s|:-]+\|$/.test(line.trim())
-}
-
-interface TextBlock {
-  type: 'text' | 'table'
-  content: string
-  rows?: string[][]
-}
-
-function parseBodyBlocks(body: string): TextBlock[] {
-  const lines = body.split('\n')
-  const blocks: TextBlock[] = []
-  let i = 0
-
-  while (i < lines.length) {
-    const line = lines[i]
-    if (isTableRow(line)) {
-      // Collect consecutive table rows
-      const tableLines: string[] = []
-      while (i < lines.length && isTableRow(lines[i])) {
-        tableLines.push(lines[i])
-        i++
-      }
-      // Parse into rows×cells
-      const rows = tableLines
-        .filter(l => !isSeparatorRow(l))
-        .map(l =>
-          l
-            .trim()
-            .slice(1, -1) // strip leading/trailing |
-            .split('|')
-            .map(c => c.trim())
-        )
-      blocks.push({ type: 'table', content: '', rows })
-    } else {
-      // Collect consecutive non-table lines
-      const textLines: string[] = []
-      while (i < lines.length && !isTableRow(lines[i])) {
-        textLines.push(lines[i])
-        i++
-      }
-      const text = textLines.join('\n').trim()
-      if (text) blocks.push({ type: 'text', content: text })
-    }
-  }
-
-  return blocks
-}
-
 // ─── Section body renderer ────────────────────────────────────────────────────
 
 function SectionBody({ body }: { body: string }) {
-  const blocks = parseBodyBlocks(body)
+  const { body: cleanBody, citations, footnotes } = splitCitationBlock(body)
+  const blocks = parseBodyBlocks(cleanBody)
 
   return (
     <>
-      {blocks.map((block, idx) => {
+      {blocks.map((block: TextBlock, idx: number) => {
         if (block.type === 'table' && block.rows) {
           const [head, ...dataRows] = block.rows
           return (
-            <div
-              key={idx}
-              style={{
-                overflowX: 'auto',
-                margin: '10px 0',
-              }}
-            >
+            <div key={idx} style={{ overflowX: 'auto', margin: '10px 0' }}>
               <table
                 style={{
                   width: '100%',
@@ -148,7 +56,7 @@ function SectionBody({ body }: { body: string }) {
                             whiteSpace: 'nowrap',
                           }}
                         >
-                          <InlineMath text={cell} />
+                          {cell}
                         </th>
                       ))}
                     </tr>
@@ -165,7 +73,7 @@ function SectionBody({ body }: { body: string }) {
                     >
                       {row.map((cell, ci) => (
                         <td key={ci} style={{ padding: '8px 12px', lineHeight: 1.6 }}>
-                          <InlineMath text={cell} />
+                          {cell}
                         </td>
                       ))}
                     </tr>
@@ -175,7 +83,6 @@ function SectionBody({ body }: { body: string }) {
             </div>
           )
         }
-
         return (
           <p
             key={idx}
@@ -191,6 +98,22 @@ function SectionBody({ body }: { body: string }) {
           </p>
         )
       })}
+      {citations.map((cite, i) => (
+        <p
+          key={`cite-${i}`}
+          style={{ margin: '12px 0 0', fontSize: '12px', color: 'var(--text-muted)', lineHeight: 1.6, fontStyle: 'italic' }}
+        >
+          {cite}
+        </p>
+      ))}
+      {footnotes.map((fn, i) => (
+        <p
+          key={`fn-${i}`}
+          style={{ margin: '8px 0 0', fontSize: '11px', color: 'var(--text-muted)', lineHeight: 1.5, opacity: 0.7 }}
+        >
+          {fn}
+        </p>
+      ))}
     </>
   )
 }
@@ -216,14 +139,9 @@ function MultiSectionStimulus({ sections }: { sections: ParsedSection[] }) {
           {idx > 0 && (
             <div
               aria-hidden="true"
-              style={{
-                height: '1px',
-                background: 'var(--bg-border)',
-                margin: '16px 0',
-              }}
+              style={{ height: '1px', background: 'var(--bg-border)', margin: '16px 0' }}
             />
           )}
-          {/* Section header */}
           <div
             style={{
               fontSize: '0.6875rem',
@@ -236,7 +154,6 @@ function MultiSectionStimulus({ sections }: { sections: ParsedSection[] }) {
           >
             {section.name}
           </div>
-          {/* Section body */}
           <SectionBody body={section.body} />
         </div>
       ))}
@@ -249,7 +166,6 @@ function MultiSectionStimulus({ sections }: { sections: ParsedSection[] }) {
 export default function FRQStimulusBlock({ stimulus, stimulusImage }: FRQStimulusBlockProps) {
   if (!stimulus && !stimulusImage) return null
 
-  // Try to parse multi-section stimulus
   const sections = stimulus ? parseMultiSection(stimulus) : null
 
   return (
@@ -267,12 +183,7 @@ export default function FRQStimulusBlock({ stimulus, stimulusImage }: FRQStimulu
           <img
             src={stimulusImage}
             alt="Question stimulus"
-            style={{
-              maxWidth: '100%',
-              height: 'auto',
-              display: 'block',
-              borderRadius: 'var(--radius-md)',
-            }}
+            style={{ maxWidth: '100%', height: 'auto', display: 'block', borderRadius: 'var(--radius-md)' }}
           />
         </div>
       )}
@@ -289,7 +200,7 @@ export default function FRQStimulusBlock({ stimulus, stimulusImage }: FRQStimulu
             padding: '16px',
           }}
         >
-          <SectionBody body={stimulus} />
+          <InlineMath text={stimulus} />
         </div>
       )}
     </div>
