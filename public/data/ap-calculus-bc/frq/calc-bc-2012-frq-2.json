@@ -21,47 +21,162 @@
       "letter": "a",
       "prompt": "Is the horizontal movement of the particle to the left or to the right at time t (cid:32) 2? Explain your answer.\nFind the slope of the path of the particle at time t (cid:32) 2.",
       "point_value": 1,
-      "rubric_criteria": [
-        "Is the horizontal movement of the particle to the left or to the right at time t = 2? Explain your answer.",
-        "Find the slope of the path of the particle at time t = 2."
-      ],
       "scoring_notes": null,
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Correct direction (to the right) with reason based on sign of dx/dt",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$dx/dt|_{t=2} = 2/e^4 > 0$, so moving to the right"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Correct slope of path at t = 2",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$dy/dx = (dy/dt)/(dx/dt)$ at $t = 2$"
+              ],
+              "correct_example": "$\\frac{dy}{dx}\\big|_{t=2} \\approx 3.055$"
+            }
+          ]
+        },
+        {
+          "point_id": "a3",
+          "point_value": 1,
+          "description": "Correct chain rule setup for dy/dx",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$dy/dx = (dy/dt)/(dx/dt)$ with both derivatives computed"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "Find the x-coordinate of the particle’s position at time t (cid:32) 4.",
       "point_value": 1,
-      "rubric_criteria": [
-        "Find the x-coordinate of the particle’s position at time t = 4."
-      ],
       "scoring_notes": null,
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Correct integral setup for x-coordinate at t = 4",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$x(4) = x(2) + \\int_2^4 x'(t)\\, dt$"
+              ],
+              "correct_example": "$x(4) = 1 + \\int_2^4 \\frac{t}{e^{t+2}}\\, dt \\approx 1.032$"
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Correct x(4) value",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Uses initial condition $x(2) = 1$",
+                "Correct numerical answer"
+              ],
+              "correct_example": "$x(4) \\approx 1.032$ or $1.033$"
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "Find the speed of the particle at time t (cid:32) 4. Find the acceleration vector of the particle at time t (cid:32) 4.",
       "point_value": 1,
-      "rubric_criteria": [
-        "Find the speed of the particle at time t = 4. Find the acceleration vector of the particle at time t = 4."
-      ],
       "scoring_notes": null,
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Correct speed at t = 4",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Speed $= \\sqrt{(x'(4))^2 + (y'(4))^2}$"
+              ],
+              "correct_example": "$\\approx 1.484$"
+            }
+          ],
+          "common_traps": [
+            "Computing velocity vector instead of speed (must take magnitude)"
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Correct acceleration vector at t = 4",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$\\langle x''(4), y''(4) \\rangle$"
+              ],
+              "correct_example": "$\\langle -0.012, -2.619 \\rangle$ (or $\\langle -0.013, -2.620 \\rangle$)"
+            }
+          ],
+          "common_traps": [
+            "Reporting scalar acceleration instead of vector"
+          ]
+        }
+      ]
     },
     {
       "letter": "d",
       "prompt": "Find the distance traveled by the particle from time t (cid:32) 2 to t (cid:32) 4.",
       "point_value": 1,
-      "rubric_criteria": [
-        "Find the distance traveled by the particle from time t = 2 to t = 4.",
-        "dx 2"
-      ],
       "scoring_notes": null,
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "d1",
+          "point_value": 1,
+          "description": "Correct arc length integral $\\int_2^4 \\sqrt{(x')^2+(y')^2}\\, dt$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$\\int_2^4 \\sqrt{(x'(t))^2 + (y'(t))^2}\\, dt$"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "d2",
+          "point_value": 1,
+          "description": "Correct distance ≈ 4.450",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct numerical answer"
+              ],
+              "correct_example": "$\\approx 4.450$"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

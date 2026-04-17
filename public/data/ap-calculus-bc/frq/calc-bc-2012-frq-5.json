@@ -21,39 +21,114 @@
       "letter": "a",
       "prompt": "Is the bird gaining weight faster when it weighs 40 grams or when it weighs 70 grams? Explain your\nreasoning.\nd2B d2B",
       "point_value": 1,
-      "rubric_criteria": [
-        "Is the bird gaining weight faster when it weighs 40 grams or when it",
-        "weighs 70 grams? Explain your reasoning.",
-        "d2B d2B"
-      ],
       "scoring_notes": null,
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Correct comparison: gaining weight faster at B = 40",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$dB/dt|_{B=40} = \\frac{1}{5}(60) = 12 > 6 = \\frac{1}{5}(30) = dB/dt|_{B=70}$"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "Find in terms of B. Use to explain why the graph of B cannot resemble the following graph.\ndt2 dt",
       "point_value": 1,
-      "rubric_criteria": [
-        "Find in terms of B. Use to explain why the graph of B",
-        "dt2 dt2",
-        "cannot resemble the following graph."
-      ],
       "scoring_notes": null,
       "requires_drawing": true,
-      "reference_image": "/data/ap-calculus-bc/frq/images/calc-bc-2012-frq-5-b-ref.png"
+      "reference_image": "/data/ap-calculus-bc/frq/images/calc-bc-2012-frq-5-b-ref.png",
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Correct expression for $d^2B/dt^2 = -\\frac{1}{25}(100-B)$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$d^2B/dt^2 = -\\frac{1}{25}(100-B)$"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Correct explanation: graph cannot have inflection (always concave down)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Since $B < 100$, $d^2B/dt^2 < 0$ always — B is always concave down; no inflection point"
+              ]
+            }
+          ],
+          "common_traps": [
+            "Stating the solution can be concave up"
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "Use separation of variables to find y (cid:32) B(cid:11)t(cid:12), the particular solution to the differential equation with initial\ncondition B(cid:11)0(cid:12) (cid:32) 20.",
       "point_value": 1,
-      "rubric_criteria": [
-        "Use separation of variables to find y = B ( t ) , the particular solution to",
-        "the differential equation with initial condition B ( 0 ) = 20."
-      ],
       "scoring_notes": null,
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Correct separation of variables: $dB/(100-B) = (1/5)dt$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$\\frac{dB}{100-B} = \\frac{1}{5}\\, dt$"
+              ]
+            }
+          ],
+          "common_traps": [
+            "Failing to separate variables — earns 0 if variables not separated"
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Correct antiderivatives: $-\\ln|100-B| = t/5 + C$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$-\\ln|100-B| = \\frac{t}{5} + C$"
+              ]
+            }
+          ],
+          "common_traps": [
+            "Missing +C"
+          ]
+        },
+        {
+          "point_id": "c3",
+          "point_value": 1,
+          "description": "Initial condition B(0) = 20 applied, solves for particular solution",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Substitutes $B = 20, t = 0$ to find constant",
+                "$B(t) = 100 - 80e^{-t/5}$"
+              ],
+              "correct_example": "$B(t) = 100 - 80e^{-t/5}$"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

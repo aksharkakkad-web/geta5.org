@@ -20,36 +20,121 @@
       "letter": "a",
       "prompt": "Using the ratio test, determine the interval of convergence of the Maclaurin series for g.",
       "point_value": 1,
-      "rubric_criteria": [
-        "Using the ratio test, determine the interval of convergence of the Maclaurin series for g."
-      ],
       "scoring_notes": null,
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "Ratio test applied correctly: $\\lim |a_{n+1}/a_n| = x^2$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$\\lim_{n\\to\\infty}|a_{n+1}/a_n| = x^2$"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Interior interval $-1 < x < 1$ from $|x^2| < 1$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$|x^2| < 1 \\Rightarrow |x| < 1$"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "a3",
+          "point_value": 1,
+          "description": "Endpoints checked: both endpoints converge; interval $[-1, 1]$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "At $x = \\pm 1$: alternating series converges by AST",
+                "Final interval: $-1 \\le x \\le 1$"
+              ]
+            }
+          ],
+          "common_traps": [
+            "Not checking endpoints for convergence"
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "The Maclaurin series for g evaluated at x (cid:32) is an alternating series whose terms decrease in absolute\n(cid:11)1(cid:12) 17\nvalue to 0. The approximation for g using the first two nonzero terms of this series is . Show that\n2 120\n(cid:11)1(cid:12) 1\nthis approximation differs from g by less than .\n2",
       "point_value": 1,
-      "rubric_criteria": [
-        "The Maclaurin series for g evaluated at x = is an alternating series whose terms decrease in absolute"
-      ],
       "scoring_notes": null,
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "Identifies error bound by Alternating Series Estimation Theorem",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Error $\\le |a_3| = (1/2)^5/5 = 1/160$"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Shows the approximation differs from g(1/2) by less than 1/200",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Shows the error bound $< 1/200$"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "Write the first three nonzero terms and the general term of the Maclaurin series for g(cid:132)(cid:11)x(cid:12).\nSTOP\nEND OF EXAM",
       "point_value": 1,
-      "rubric_criteria": [
-        "Write the first three nonzero terms and the general term of the Maclaurin series for g x .",
-        "( )",
-        "x2n+3 2n + 3 2n + 3"
-      ],
       "scoring_notes": null,
       "requires_drawing": false,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Correct first three nonzero terms of g'(x)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$g'(x) = 1 - x^2 + x^4$"
+              ],
+              "correct_example": "$g'(x) = 1 - x^2 + x^4 - \\ldots$"
+            }
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Correct general term $(-1)^n x^{2n}$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "General term: $(-1)^n x^{2n}$"
+              ],
+              "correct_example": "$g'(x) = \\sum_{n=0}^{\\infty} (-1)^n x^{2n}$"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
