@@ -238,8 +238,12 @@ CRITICAL DISTINCTION: If a criterion says "Explain" and the student only "Descri
 
 const FRQ_TYPE_CALIBRATION: Record<string, string> = {
   'dbq': `DBQ CALIBRATION:
-THESIS (1pt) — EARNS: "Communist rule fundamentally transformed Soviet and Chinese societies by restructuring class hierarchies, but the extent of transformation varied as traditional gender roles and rural-urban divides persisted." — HAS a defensible claim WITH a line of reasoning (categories of argument).
-THESIS (1pt) — DOES NOT EARN: "Communist rule transformed Soviet and Chinese societies between 1930 and 1990." — Restates the prompt without establishing HOW or WHY.
+THESIS (1pt) — The bar for thesis is LOW. It must: (1) take a defensible position, AND (2) establish a line of reasoning (give at least one reason). Sophistication is NOT required.
+THESIS (1pt) — EARNS (sophisticated): "Communist rule fundamentally transformed Soviet and Chinese societies by restructuring class hierarchies, but the extent of transformation varied as traditional gender roles and rural-urban divides persisted." — Defensible claim with analytic categories.
+THESIS (1pt) — EARNS (simple but valid): "Communist rule transformed Soviet and Chinese societies because it changed the economy and the role of women in society." — Takes a position ("transformed") AND gives reasons ("economy" + "role of women"). This earns the point even though it's simple.
+THESIS (1pt) — DOES NOT EARN: "Communist rule transformed Soviet and Chinese societies between 1930 and 1990." — Restates the prompt without any reasoning about HOW or WHY.
+THESIS (1pt) — DOES NOT EARN: "There were many changes under communist rule." — Too vague, no specific claim.
+CRITICAL: A "because" clause with at least one reason = line of reasoning = thesis point earned. Do NOT reject theses for being simple, conversational, or lacking sophistication. AP readers award the thesis point generously.
 SOURCING (1pt) — EARNS: "Document 3 was written by a Soviet official in 1946, so its positive portrayal of women's liberation likely served propaganda purposes to legitimize the regime abroad." — Explains HOW the purpose/audience affects the document's meaning.
 SOURCING (1pt) — DOES NOT EARN: "Document 3 was written by Alexandra Kollontai, a Russian politician." — Only identifies the source without explaining relevance to the argument.`,
 
@@ -271,6 +275,13 @@ EXPLAIN comparison (1pt) — EARNS: "In Lopez, the Court found that possessing a
 EXPLAIN comparison (1pt) — DOES NOT EARN: "Lopez was about guns and Katzenbach was about restaurants. The Court ruled differently in each case." — Describes each case but does not explain the CONNECTION between facts and holdings.`,
 
   'argument_essay': `GOV ARGUMENT ESSAY CALIBRATION:
+THESIS (1pt) — The bar for thesis is LOW. A thesis earns the point when it: (1) takes a clear position on the prompt, AND (2) provides at least one reason ("because..."). Complexity, sophistication, or document references are NOT required for the thesis point.
+THESIS (1pt) — EARNS: "The expanded powers of the national government benefit policy making because it allows for more consistency across states and makes it easier to respond to large scale problems." — Takes a position ("benefit") AND establishes reasoning ("consistency" + "large scale problems"). This IS a line of reasoning even though the language is simple.
+THESIS (1pt) — EARNS: "Expanded national power hinders policy making because it reduces state autonomy and creates one-size-fits-all policies that ignore local needs." — Position + two reasons = line of reasoning.
+THESIS (1pt) — DOES NOT EARN: "The national government has expanded its powers over time." — This is a factual statement, not a claim about whether it benefits or hinders policy making. No position taken.
+THESIS (1pt) — DOES NOT EARN: "Federalism is important in the United States." — Generic statement with no position on the specific prompt and no reasoning.
+THESIS (1pt) — DOES NOT EARN: "There are pros and cons to expanded national power." — Acknowledges both sides without taking a position.
+CRITICAL: Do NOT deny the thesis point because the language is "too simple" or "not sophisticated enough." If the student takes a position and gives a reason, the thesis point is earned. AP scoring explicitly states the thesis is about clarity and defensibility, not complexity.
 EVIDENCE (3pts tiered):
   1pt: Names one relevant piece of evidence (e.g., "The First Amendment")
   2pts: Uses one specific piece of evidence to SUPPORT the thesis (e.g., "The First Amendment protects free speech, which allows citizens to criticize the government — a check on tyranny")
@@ -341,7 +352,8 @@ export function buildFRQGradingPrompt(
 
   const answerKeyFirewall = `ANSWER-KEY FIREWALL: The REFERENCE answers below are your answer key — they show what a correct student response looks like. You may NOT credit the student for anything that appears only in the reference. Your job is to check whether the STUDENT'S OWN WORDS demonstrate the required elements.`
 
-  const pessimisticPrior = `PESSIMISTIC PRIOR: Every scoring point starts at 0. You may only raise a point to its full value if you can quote the exact student text that satisfies every required element of at least one alternative. If you cannot find such a quote, the point MUST remain at 0. There is no partial credit — AP points are binary.`
+  const pessimisticPrior = `PESSIMISTIC PRIOR: Every scoring point starts at 0. You may only raise a point to its full value if the student's response satisfies the required elements of at least one alternative. Quote the relevant student text as evidence. If no supporting text exists, the point MUST remain at 0. There is no partial credit — AP points are binary.
+IMPORTANT BALANCE: While you start at 0, you must also be FAIR. Real AP readers err on the side of awarding points when the response is defensible. Do NOT set an artificially high bar. If the student's response reasonably meets the criteria — even with simple or informal language — award the point. The goal is accuracy, not harshness.`
 
   const strictnessBlock = strictness === 'strict'
     ? `${STRICT_MODE_BLOCK}\n\n${STRICT_CALIBRATION}`
