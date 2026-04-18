@@ -32,7 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={outfit.variable} suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: `try{var t=localStorage.getItem('ascendly-theme');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark');}catch(e){}` }} />
+        <script dangerouslySetInnerHTML={{ __html: `try{var t=localStorage.getItem('ascendly-theme'),e=document.documentElement;if(t==='light'){e.setAttribute('data-theme','light');var l={'--bg-primary':'#fafafa','--bg-secondary':'#f2f2f8','--bg-card':'#ffffff','--bg-card-hover':'#ebebf5','--bg-border':'#ddddf0','--text-primary':'#111118','--text-secondary':'#555566','--text-muted':'#9494a8','--mastery-empty':'#e2e2f0','--bg-header-alpha':'rgba(250,250,250,0.9)','--bg-overlay':'rgba(255,255,255,0.92)','--bg-overlay-subtle':'rgba(255,255,255,0.7)','--border-subtle':'rgba(0,0,0,0.05)','--border-medium':'rgba(0,0,0,0.07)','--border-strong':'rgba(0,0,0,0.09)','--border-interactive':'rgba(0,0,0,0.12)','--border-interactive-hover':'rgba(0,0,0,0.20)'};for(var k in l)e.style.setProperty(k,l[k]);}else{e.setAttribute('data-theme','dark');}}catch(ex){}` }} />
       </head>
       <body style={{ backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)', minHeight: '100dvh', fontFamily: 'var(--font-outfit), -apple-system, BlinkMacSystemFont, sans-serif' }}>
         <Providers>
