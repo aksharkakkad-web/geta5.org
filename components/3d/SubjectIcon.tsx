@@ -175,8 +175,8 @@ const DEFAULT_ICON = {
 export function SubjectIcon({ subject, size = 56 }: SubjectIconProps) {
   const icon = ICONS[subject] ?? DEFAULT_ICON
   const { resolvedTheme } = useTheme()
-  const colors = resolvedTheme === 'dark' ? icon.colors : icon.lightColors
-  const glow = resolvedTheme === 'dark' ? icon.glow : icon.lightGlow
+  const colors = resolvedTheme === 'light' ? icon.lightColors : icon.colors
+  const glow = resolvedTheme === 'light' ? icon.lightGlow : icon.glow
   const gid = `grad-${subject}`
 
   return (

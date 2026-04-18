@@ -66,7 +66,7 @@ const DEFAULT_THEME = {
 export function SubjectCard({ name, slug, index = 0 }: SubjectCardProps) {
   const subjectTheme = SUBJECT_THEMES[slug] ?? DEFAULT_THEME
   const { resolvedTheme } = useTheme()
-  const gradient = resolvedTheme === 'dark' ? subjectTheme.dark : subjectTheme.light
+  const gradient = resolvedTheme === 'light' ? subjectTheme.light : subjectTheme.dark
   const glowRef = useRef<HTMLDivElement>(null)
 
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
