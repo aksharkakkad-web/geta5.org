@@ -19,39 +19,55 @@
       "letter": "a",
       "prompt": "(i) Solve $\\frac{1}{2}e^{2x} - 3e^x + 4 = 0$ for $x$. Express your answers as exact values. Show the computations that lead to your answer.\n\n(ii) The function $h(x) = \\frac{1}{2}e^{2x} - 3e^x + 4$ has two $x$-intercepts. For $x > \\ln 2$, is $h$ positive or negative? Justify your answer.",
       "point_value": 2,
-      "scoring_notes": "For part (i), multiplying through by 2 gives the standard quadratic in $u = e^x$. Both roots $x = \\ln 2$ and $x = 2\\ln 2$ must appear. For part (ii), the answer is nuanced: the function changes sign at both intercepts. A response that correctly identifies the sign on each sub-interval of $(\\ln 2, \\infty)$ earns full credit. A response that says only 'positive' without specifying the sub-intervals is accepted if it implies $x > 2\\ln 2$.",
+      "scoring_notes": "For part (i), multiply through by 2 to get $e^{2x} - 6e^x + 8 = 0$; substituting $u = e^x$ gives $(u-2)(u-4) = 0$; so $x = \\ln 2$ and $x = \\ln 4 = 2\\ln 2$. Both solutions required; decimal approximations not accepted. For part (ii), the two intercepts are at $x = \\ln 2$ and $x = 2\\ln 2$. On $(\\ln 2,\\, 2\\ln 2)$, the factor $(u-2) > 0$ but $(u-4) < 0$, so $h < 0$. For $x > 2\\ln 2$, both factors are positive, so $h > 0$. Accept a response stating 'negative on $(\\ln 2, 2\\ln 2)$ and positive for $x > 2\\ln 2$' — both sub-intervals are expected. A bare 'positive' or 'negative' without sub-interval qualification earns no credit.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Both correct exact solutions — substituting $u = e^x$: $\\frac{1}{2}u^2 - 3u + 4 = 0 \\Rightarrow u^2 - 6u + 8 = (u-2)(u-4) = 0$; so $u = 2 \\Rightarrow x = \\ln 2$ and $u = 4 \\Rightarrow x = \\ln 4 = 2\\ln 2$; both solutions required",
+          "description": "Both correct exact solutions $x = \\ln 2$ and $x = 2\\ln 2$ with supporting substitution $u = e^x$ and factoring shown",
           "alternatives": [
             {
               "required_elements": [
-                "Both correct exact solutions — substituting $u = e^x$: $\\frac{1}{2}u^2 - 3u + 4 = 0 \\Rightarrow u^2 - 6u + 8 = (u-2)(u-4) = 0$; so $u = 2 \\Rightarrow x = \\ln 2$ and $u = 4 \\Rightarrow x = \\ln 4 = 2\\ln 2$; both solutions required"
+                "substitution $u = e^x$ and multiply by $2$: $u^2 - 6u + 8 = 0$",
+                "factor $(u-2)(u-4) = 0$",
+                "$x = \\ln 2$ and $x = \\ln 4 = 2\\ln 2$"
               ],
-              "correct_example": "Both correct exact solutions — substituting $u = e^x$: $\\frac{1}{2}u^2 - 3u + 4 = 0 \\Rightarrow u^2 - 6u + 8 = (u-2)(u-4) = 0$; so $u = 2 \\Rightarrow x = \\ln 2$ and $u = 4 \\Rightarrow x = \\ln 4 = 2\\ln 2$; both solutions required"
+              "correct_example": "Let $u = e^x$: $\\frac{1}{2}u^2 - 3u + 4 = 0 \\Rightarrow u^2 - 6u + 8 = (u-2)(u-4) = 0 \\Rightarrow u = 2$ or $u = 4 \\Rightarrow x = \\ln 2$ or $x = \\ln 4 = 2\\ln 2$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "$x = 2$ and $x = 4$ — forgot to take the natural log; the values of $u$ are not the values of $x$",
+            "Only $x = \\ln 2$ — partial credit only; both solutions are required"
+          ],
+          "common_traps": [
+            "Do not divide by $e^x$ at the start — that loses the solution $x = 2\\ln 2$; the substitution $u = e^x$ is required",
+            "$\\ln 4 = 2\\ln 2$ — either form is accepted but must be exact (not decimal)"
+          ]
         },
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Correct answer 'positive' with valid justification — for $x > \\ln 4 = 2\\ln 2$, both factors $(u-2)$ and $(u-4)$ are positive (since $e^x > 4 > 2$), so $h > 0$; for $\\ln 2 < x < 2\\ln 2$, $(u-2) > 0$ but $(u-4) < 0$, so $h < 0$; since the question asks for $x > \\ln 2$, the answer depends on the sub-interval — accept 'negative on $(\\ln 2, 2\\ln 2)$ and positive for $x > 2\\ln 2$' with justification referencing the sign of the factors",
+          "description": "Correct sign analysis on both sub-intervals of $(\\ln 2, \\infty)$ using the factored form or sign chart; 'negative on $(\\ln 2, 2\\ln 2)$ and positive for $x > 2\\ln 2$'",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer 'positive' with valid justification — for $x > \\ln 4 = 2\\ln 2$, both factors $(u-2)$ and $(u-4)$ are positive (since $e^x > 4 > 2$), so $h > 0$; for $\\ln 2 < x < 2\\ln 2$, $(u-2) > 0$ but $(u-4) < 0$, so $h < 0$; since the question asks for $x > \\ln 2$, the answer depends on the sub-interval — accept 'negative on $(\\ln 2, 2\\ln 2)$ and positive for $x > 2\\ln 2$' with justification referencing the sign of the factors"
+                "$h < 0$ on $(\\ln 2, 2\\ln 2)$ because $(u-2) > 0$ and $(u-4) < 0$",
+                "$h > 0$ for $x > 2\\ln 2$ because both factors are positive",
+                "explicit reference to both sub-intervals"
               ],
-              "correct_example": "Correct answer 'positive' with valid justification — for $x > \\ln 4 = 2\\ln 2$, both factors $(u-2)$ and $(u-4)$ are positive (since $e^x > 4 > 2$), so $h > 0$; for $\\ln 2 < x < 2\\ln 2$, $(u-2) > 0$ but $(u-4) < 0$, so $h < 0$; since the question asks for $x > \\ln 2$, the answer depends on the sub-interval — accept 'negative on $(\\ln 2, 2\\ln 2)$ and positive for $x > 2\\ln 2$' with justification referencing the sign of the factors"
+              "correct_example": "On $(\\ln 2, 2\\ln 2)$: $u = e^x \\in (2, 4)$, so $(u-2) > 0$ and $(u-4) < 0$, giving $h = \\frac{1}{2}(u-2)(u-4) < 0$. For $x > 2\\ln 2$: $u > 4$, both factors positive, so $h > 0$."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "'Positive' only — incomplete; ignores the negative sub-interval $(\\ln 2, 2\\ln 2)$",
+            "'Negative' only — incomplete; ignores the positive sub-interval $x > 2\\ln 2$"
+          ],
+          "common_traps": [
+            "The interval $x > \\ln 2$ contains two sub-intervals with different signs — both must be identified to earn the point",
+            "Using a test value in the factored expression is a valid method; a sketch of the parabola in $u$ is also acceptable"
+          ]
         }
       ]
     },
@@ -59,39 +75,56 @@
       "letter": "b",
       "prompt": "(i) Find the exact value of $\\cos\\left(\\arcsin\\left(-\\frac{5}{13}\\right)\\right)$. Show supporting work using a right triangle.\n\n(ii) Find all solutions to $\\sin(2\\theta) = \\sin(\\theta)$ on the interval $0 \\leq \\theta < 2\\pi$. Express answers as exact values. Show the identity or algebraic step used.",
       "point_value": 2,
-      "scoring_notes": "For part (i), the key insight is that $\\arcsin$ outputs angles in $[-\\pi/2, \\pi/2]$, so the cosine is always non-negative. $\\cos = 12/13 > 0$. For part (ii), the double angle identity $\\sin 2\\theta = 2\\sin\\theta\\cos\\theta$ must be applied to factor the equation. All four solutions must be present with no extras. Note: do not divide by $\\sin\\theta$ (loses solutions) — must factor.",
+      "scoring_notes": "For part (i), $\\arcsin$ outputs values in $[-\\pi/2, \\pi/2]$, where cosine is non-negative. Drawing a right triangle with opposite side $5$ (taken as magnitude), hypotenuse $13$, adjacent $= 12$ (from $5^2 + 12^2 = 169 = 13^2$) gives $\\cos = 12/13 > 0$. The sign reasoning (range of $\\arcsin$) is required for full credit. For part (ii), the double angle identity $\\sin 2\\theta = 2\\sin\\theta\\cos\\theta$ must be applied. Do NOT divide both sides by $\\sin\\theta$ — that loses solutions. Factor to get $\\sin\\theta(2\\cos\\theta - 1) = 0$. All four solutions are $\\theta = 0, \\pi/3, \\pi, 5\\pi/3$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct value $\\cos\\left(\\arcsin\\left(-\\frac{5}{13}\\right)\\right) = \\frac{12}{13}$; supporting work must show: let $\\phi = \\arcsin(-5/13)$, so $\\sin\\phi = -5/13$; right triangle with opposite $= -5$ (or opposite $= 5$, angle in fourth quadrant), adjacent $= 12$, hypotenuse $= 13$ (from $5^2 + 12^2 = 25 + 144 = 169 = 13^2$); $\\cos\\phi = 12/13 > 0$ since $\\arcsin$ outputs values in $[-\\pi/2, \\pi/2]$ where cosine is non-negative",
+          "description": "Correct value $\\frac{12}{13}$ with right-triangle work showing $5$-$12$-$13$ triangle and sign argument from range of $\\arcsin$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct value $\\cos\\left(\\arcsin\\left(-\\frac{5}{13}\\right)\\right) = \\frac{12}{13}$; supporting work must show: let $\\phi = \\arcsin(-5/13)$, so $\\sin\\phi = -5/13$; right triangle with opposite $= -5$ (or opposite $= 5$, angle in fourth quadrant), adjacent $= 12$, hypotenuse $= 13$ (from $5^2 + 12^2 = 25 + 144 = 169 = 13^2$); $\\cos\\phi = 12/13 > 0$ since $\\arcsin$ outputs values in $[-\\pi/2, \\pi/2]$ where cosine is non-negative"
+                "let $\\phi = \\arcsin(-5/13)$, so $\\sin\\phi = -5/13$",
+                "right triangle: opposite $= 5$, hypotenuse $= 13$, adjacent $= 12$ (from $5^2 + 12^2 = 169$)",
+                "$\\cos\\phi = 12/13 > 0$ because $\\arcsin$ range is $[-\\pi/2, \\pi/2]$ where $\\cos \\geq 0$"
               ],
-              "correct_example": "Correct value $\\cos\\left(\\arcsin\\left(-\\frac{5}{13}\\right)\\right) = \\frac{12}{13}$; supporting work must show: let $\\phi = \\arcsin(-5/13)$, so $\\sin\\phi = -5/13$; right triangle with opposite $= -5$ (or opposite $= 5$, angle in fourth quadrant), adjacent $= 12$, hypotenuse $= 13$ (from $5^2 + 12^2 = 25 + 144 = 169 = 13^2$); $\\cos\\phi = 12/13 > 0$ since $\\arcsin$ outputs values in $[-\\pi/2, \\pi/2]$ where cosine is non-negative"
+              "correct_example": "Let $\\phi = \\arcsin(-5/13)$. Then $\\sin\\phi = -5/13$. Right triangle: opposite $5$, hypotenuse $13$, adjacent $= \\sqrt{13^2 - 5^2} = 12$. Since $\\phi \\in [-\\pi/2, \\pi/2]$, $\\cos\\phi \\geq 0$, so $\\cos(\\arcsin(-5/13)) = 12/13$."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "$\\cos(\\arcsin(-5/13)) = -12/13$ — sign error; the range of $\\arcsin$ guarantees a non-negative cosine",
+            "$\\cos(\\arcsin(-5/13)) = 5/13$ — used sine instead of cosine from the triangle"
+          ],
+          "common_traps": [
+            "$\\arcsin$ always outputs angles in $[-\\pi/2, \\pi/2]$, so cosine is never negative — the negative inside $\\arcsin$ does not make the cosine negative",
+            "Supporting work must show the right-triangle construction and the $5$-$12$-$13$ relationship explicitly"
+          ]
         },
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "All correct solutions — using the double angle identity: $\\sin(2\\theta) = 2\\sin\\theta\\cos\\theta$; equation becomes $2\\sin\\theta\\cos\\theta = \\sin\\theta \\Rightarrow \\sin\\theta(2\\cos\\theta - 1) = 0$; solutions: $\\sin\\theta = 0 \\Rightarrow \\theta = 0, \\pi$; and $\\cos\\theta = \\frac{1}{2} \\Rightarrow \\theta = \\frac{\\pi}{3}, \\frac{5\\pi}{3}$; all four values: $0$, $\\frac{\\pi}{3}$, $\\pi$, $\\frac{5\\pi}{3}$",
+          "description": "All four exact solutions $\\theta = 0, \\frac{\\pi}{3}, \\pi, \\frac{5\\pi}{3}$ using double angle identity and factoring",
           "alternatives": [
             {
               "required_elements": [
-                "All correct solutions — using the double angle identity: $\\sin(2\\theta) = 2\\sin\\theta\\cos\\theta$; equation becomes $2\\sin\\theta\\cos\\theta = \\sin\\theta \\Rightarrow \\sin\\theta(2\\cos\\theta - 1) = 0$; solutions: $\\sin\\theta = 0 \\Rightarrow \\theta = 0, \\pi$; and $\\cos\\theta = \\frac{1}{2} \\Rightarrow \\theta = \\frac{\\pi}{3}, \\frac{5\\pi}{3}$; all four values: $0$, $\\frac{\\pi}{3}$, $\\pi$, $\\frac{5\\pi}{3}$"
+                "apply $\\sin(2\\theta) = 2\\sin\\theta\\cos\\theta$",
+                "factor: $\\sin\\theta(2\\cos\\theta - 1) = 0$",
+                "$\\sin\\theta = 0 \\Rightarrow \\theta = 0, \\pi$",
+                "$\\cos\\theta = \\frac{1}{2} \\Rightarrow \\theta = \\frac{\\pi}{3}, \\frac{5\\pi}{3}$"
               ],
-              "correct_example": "All correct solutions — using the double angle identity: $\\sin(2\\theta) = 2\\sin\\theta\\cos\\theta$; equation becomes $2\\sin\\theta\\cos\\theta = \\sin\\theta \\Rightarrow \\sin\\theta(2\\cos\\theta - 1) = 0$; solutions: $\\sin\\theta = 0 \\Rightarrow \\theta = 0, \\pi$; and $\\cos\\theta = \\frac{1}{2} \\Rightarrow \\theta = \\frac{\\pi}{3}, \\frac{5\\pi}{3}$; all four values: $0$, $\\frac{\\pi}{3}$, $\\pi$, $\\frac{5\\pi}{3}$"
+              "correct_example": "$2\\sin\\theta\\cos\\theta - \\sin\\theta = 0 \\Rightarrow \\sin\\theta(2\\cos\\theta - 1) = 0$; $\\sin\\theta = 0 \\Rightarrow \\theta = 0, \\pi$; $\\cos\\theta = 1/2 \\Rightarrow \\theta = \\pi/3, 5\\pi/3$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Only $\\theta = \\pi/3, 5\\pi/3$ — lost $\\theta = 0$ and $\\pi$ by dividing both sides by $\\sin\\theta$",
+            "Including $\\theta = 2\\pi$ — not in the half-open interval $[0, 2\\pi)$"
+          ],
+          "common_traps": [
+            "NEVER divide both sides by $\\sin\\theta$ — this loses the solutions where $\\sin\\theta = 0$; always factor instead",
+            "The double angle identity must appear explicitly to earn the point"
+          ]
         }
       ]
     },
@@ -99,39 +132,56 @@
       "letter": "c",
       "prompt": "Consider the polar curve $r = 3\\cos(\\theta)$.\n\n(i) Convert the polar equation $r = 3\\cos(\\theta)$ to a rectangular equation. Show the algebraic step used, then identify the shape, center, and radius.\n\n(ii) Find all values of $\\theta$ in $[0, 2\\pi)$ at which the curve passes through the pole (where $r = 0$). Then determine, for $\\theta$ slightly greater than the value found, whether $r$ is positive or negative, and explain what this means about the direction of the curve relative to the pole.",
       "point_value": 2,
-      "scoring_notes": "For part (i), $x^2 + y^2 = 3x$ or the completed form $(x-3/2)^2 + y^2 = 9/4$ earns the conversion point; center $(3/2, 0)$ and radius $3/2$ are both needed for the identification. For part (ii), $r = 0$ when $\\cos\\theta = 0$, giving $\\theta = \\pi/2$ and $\\theta = 3\\pi/2$. For $\\theta$ slightly past $\\pi/2$: $\\cos$ becomes negative, so $r < 0$. In polar coordinates, $r < 0$ means the point is reflected through the pole — so the curve traces the same circle again. This is a key insight about polar curve behavior. A response that identifies both zero values and explains $r < 0$ means the point is in the opposite direction earns the point. Accept 'the curve is being retraced' or 'the point is plotted opposite to the angle $\\theta$' as equivalent explanations.",
+      "scoring_notes": "For part (i), multiply both sides by $r$ to get $r^2 = 3r\\cos\\theta$, then substitute $r^2 = x^2 + y^2$ and $r\\cos\\theta = x$: $x^2 + y^2 = 3x$. Complete the square: $(x-3/2)^2 + y^2 = 9/4$. This is a circle with center $(3/2, 0)$ and radius $3/2$. Supporting work must show the multiplication by $r$ step. For part (ii), $r = 0$ when $\\cos\\theta = 0$, giving $\\theta = \\pi/2$ and $\\theta = 3\\pi/2$ in $[0, 2\\pi)$. For $\\theta$ slightly greater than $\\pi/2$: $\\cos\\theta < 0$, so $r = 3\\cos\\theta < 0$. A negative $r$ value means the point is plotted in the direction opposite to $\\theta$; the curve retraces the same circle in the second and third quadrants.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Correct rectangular equation with identification — multiplying both sides by $r$: $r^2 = 3r\\cos\\theta \\Rightarrow x^2 + y^2 = 3x \\Rightarrow (x - \\frac{3}{2})^2 + y^2 = \\frac{9}{4}$; the curve is a circle with center $\\left(\\frac{3}{2}, 0\\right)$ and radius $\\frac{3}{2}$; supporting work must show the multiplication by $r$ step",
+          "description": "Correct rectangular equation $(x - \\frac{3}{2})^2 + y^2 = \\frac{9}{4}$ with identification of circle, center $(\\frac{3}{2}, 0)$, and radius $\\frac{3}{2}$; multiplication by $r$ step shown",
           "alternatives": [
             {
               "required_elements": [
-                "Correct rectangular equation with identification — multiplying both sides by $r$: $r^2 = 3r\\cos\\theta \\Rightarrow x^2 + y^2 = 3x \\Rightarrow (x - \\frac{3}{2})^2 + y^2 = \\frac{9}{4}$; the curve is a circle with center $\\left(\\frac{3}{2}, 0\\right)$ and radius $\\frac{3}{2}$; supporting work must show the multiplication by $r$ step"
+                "multiply both sides by $r$: $r^2 = 3r\\cos\\theta$",
+                "substitute $r^2 = x^2 + y^2$ and $r\\cos\\theta = x$: $x^2 + y^2 = 3x$",
+                "complete the square: $(x - \\frac{3}{2})^2 + y^2 = \\frac{9}{4}$",
+                "circle with center $(\\frac{3}{2}, 0)$ and radius $\\frac{3}{2}$"
               ],
-              "correct_example": "Correct rectangular equation with identification — multiplying both sides by $r$: $r^2 = 3r\\cos\\theta \\Rightarrow x^2 + y^2 = 3x \\Rightarrow (x - \\frac{3}{2})^2 + y^2 = \\frac{9}{4}$; the curve is a circle with center $\\left(\\frac{3}{2}, 0\\right)$ and radius $\\frac{3}{2}$; supporting work must show the multiplication by $r$ step"
+              "correct_example": "Multiply by $r$: $r^2 = 3r\\cos\\theta \\Rightarrow x^2 + y^2 = 3x \\Rightarrow (x-3/2)^2 + y^2 = 9/4$. Circle, center $(3/2, 0)$, radius $3/2$."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "$(x - 3)^2 + y^2 = 9$ — error completing the square; half of $3$ is $3/2$, not $3$",
+            "Skipping the multiplication by $r$ step and writing $x^2 + y^2 = 3x$ directly without justification — work must show the substitution"
+          ],
+          "common_traps": [
+            "The key step is multiplying BOTH sides by $r$ first; without that step, the substitutions $r^2 = x^2+y^2$ and $r\\cos\\theta = x$ cannot be applied",
+            "The circle passes through the origin — its center $(3/2, 0)$ is NOT the origin"
+          ]
         },
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Correct analysis — $r = 0$ when $3\\cos\\theta = 0$, i.e., $\\cos\\theta = 0$; in $[0, 2\\pi)$: $\\theta = \\frac{\\pi}{2}$ and $\\theta = \\frac{3\\pi}{2}$; both values required; for $\\theta$ slightly greater than $\\frac{\\pi}{2}$ (e.g., $\\theta = \\frac{\\pi}{2} + \\epsilon$), $\\cos\\theta < 0$, so $r = 3\\cos\\theta < 0$; a negative $r$ means the point is plotted in the direction opposite to $\\theta$, i.e., the curve re-enters from the opposite side of the pole — but since $r = 3\\cos\\theta \\leq 0$ for $\\theta \\in (\\frac{\\pi}{2}, \\frac{3\\pi}{2})$ and the circle is already fully traced for $\\theta \\in [0, \\frac{\\pi}{2}]$, the curve is retracing itself in the third and fourth quadrants",
+          "description": "Both values $\\theta = \\frac{\\pi}{2}$ and $\\theta = \\frac{3\\pi}{2}$ from $\\cos\\theta = 0$; AND correct sign $r < 0$ just past $\\theta = \\pi/2$ with explanation that negative $r$ plots the point in the opposite direction",
           "alternatives": [
             {
               "required_elements": [
-                "Correct analysis — $r = 0$ when $3\\cos\\theta = 0$, i.e., $\\cos\\theta = 0$; in $[0, 2\\pi)$: $\\theta = \\frac{\\pi}{2}$ and $\\theta = \\frac{3\\pi}{2}$; both values required; for $\\theta$ slightly greater than $\\frac{\\pi}{2}$ (e.g., $\\theta = \\frac{\\pi}{2} + \\epsilon$), $\\cos\\theta < 0$, so $r = 3\\cos\\theta < 0$; a negative $r$ means the point is plotted in the direction opposite to $\\theta$, i.e., the curve re-enters from the opposite side of the pole — but since $r = 3\\cos\\theta \\leq 0$ for $\\theta \\in (\\frac{\\pi}{2}, \\frac{3\\pi}{2})$ and the circle is already fully traced for $\\theta \\in [0, \\frac{\\pi}{2}]$, the curve is retracing itself in the third and fourth quadrants"
+                "$r = 0 \\Rightarrow \\cos\\theta = 0 \\Rightarrow \\theta = \\frac{\\pi}{2}$ and $\\theta = \\frac{3\\pi}{2}$",
+                "for $\\theta$ slightly $> \\pi/2$: $\\cos\\theta < 0$, so $r < 0$",
+                "$r < 0$ means the point is plotted in the direction opposite to $\\theta$ (or the curve retraces itself)"
               ],
-              "correct_example": "Correct analysis — $r = 0$ when $3\\cos\\theta = 0$, i.e., $\\cos\\theta = 0$; in $[0, 2\\pi)$: $\\theta = \\frac{\\pi}{2}$ and $\\theta = \\frac{3\\pi}{2}$; both values required; for $\\theta$ slightly greater than $\\frac{\\pi}{2}$ (e.g., $\\theta = \\frac{\\pi}{2} + \\epsilon$), $\\cos\\theta < 0$, so $r = 3\\cos\\theta < 0$; a negative $r$ means the point is plotted in the direction opposite to $\\theta$, i.e., the curve re-enters from the opposite side of the pole — but since $r = 3\\cos\\theta \\leq 0$ for $\\theta \\in (\\frac{\\pi}{2}, \\frac{3\\pi}{2})$ and the circle is already fully traced for $\\theta \\in [0, \\frac{\\pi}{2}]$, the curve is retracing itself in the third and fourth quadrants"
+              "correct_example": "$3\\cos\\theta = 0 \\Rightarrow \\theta = \\pi/2, 3\\pi/2$. Just past $\\theta = \\pi/2$: $\\cos\\theta < 0 \\Rightarrow r < 0$. In polar coordinates, negative $r$ reflects the point through the pole, so the curve continues tracing the same circle in the opposite direction."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Only $\\theta = \\pi/2$ — missed $\\theta = 3\\pi/2$; both zeros are required",
+            "'$r$ is positive just past $\\pi/2$' — incorrect; $\\cos(\\pi/2 + \\epsilon) < 0$, making $r = 3\\cos\\theta < 0$"
+          ],
+          "common_traps": [
+            "Both zeros of $\\cos\\theta$ in $[0, 2\\pi)$ must be stated ($\\pi/2$ and $3\\pi/2$), not just one",
+            "Negative $r$ in polar coordinates does not mean the point is in the third quadrant — it means it is plotted $180°$ away from the direction of $\\theta$"
+          ]
         }
       ]
     }

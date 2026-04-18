@@ -3,15 +3,9 @@
   "subject": "ap-chemistry",
   "year": 2025,
   "source": "released",
-  "title": "Lewis Structures & Molecular Geometry",
+  "title": "Molecular Geometry, Hydrogen Bonding & Phase Changes",
   "frq_type": "multi_part_math",
-  "related_units": [
-    1,
-    2,
-    3,
-    4,
-    6
-  ],
+  "related_units": [1, 2, 3, 4, 6],
   "calculator_allowed": true,
   "total_points": 4,
   "stimulus": null,
@@ -22,24 +16,29 @@
       "letter": "a",
       "prompt": "Identify the hybridization of the valence orbitals of the C atom in the 2 molecule.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "The question refers to H₂CO (formaldehyde). The C atom has 3 electron domains (2 single bonds + 1 double bond), giving sp² hybridization.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "For the correct answer",
+          "description": "For the correct hybridization (sp²): 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct answer: Point 01 sp2"
+                "sp²"
               ],
-              "correct_example": "sp2"
+              "correct_example": "The carbon atom in H₂CO (formaldehyde) has 3 electron domains: two C–H single bonds and one C=O double bond. Three electron domains correspond to sp² hybridization."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "sp³ — that would require 4 single bonds with no double bond.",
+            "sp — that requires only 2 electron domains (linear geometry)."
+          ],
+          "common_traps": [
+            "Counting the C=O bond as two separate domains — a double bond counts as one electron domain for hybridization and geometry."
+          ]
         }
       ]
     },
@@ -47,35 +46,60 @@
       "letter": "b",
       "prompt": "In the diagram provided, draw a SINGLE dashed line (----) to represent a strong hydrogen-\nCH OH H CO\nbonding attraction between one 3 molecule and one 2 molecule in the mixture.\nCH OH H CO",
       "point_value": 1,
-      "rubric_criteria": [
-        "For a correct diagram: Point 02 The diagram should show a dashed line between the O atom in one H CO molecule and the H atom in the −OH group of one CH OH molecule. See example response below."
-      ],
-      "scoring_notes": null,
+      "scoring_notes": "The dashed line must connect the O atom of H₂CO (acceptor) with the H atom of the –OH group of CH₃OH (donor). Do not accept H–H or O–O connections.",
       "requires_drawing": true,
-      "reference_image": "/data/ap-chemistry/frq/images/chem-2025-frq-4-b-ref.png"
+      "reference_image": "/data/ap-chemistry/frq/images/chem-2025-frq-4-b-ref.png",
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "For a correct dashed line showing hydrogen bond from O(H₂CO) to H–O(CH₃OH): 1 point",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Dashed line connects the O atom of H₂CO to the H atom in the –OH group of CH₃OH."
+              ],
+              "correct_example": "The hydrogen bond forms between the lone pair on the C=O oxygen of formaldehyde (hydrogen bond acceptor) and the O–H hydrogen of methanol (hydrogen bond donor): O(H₂CO)····H–O(CH₃OH)."
+            }
+          ],
+          "wrong_examples": [
+            "Drawing the dashed line from the C of H₂CO — only the O can accept a hydrogen bond.",
+            "Drawing the dashed line from the C–H of CH₃OH — C–H bonds do not participate in conventional hydrogen bonding."
+          ],
+          "common_traps": [
+            "Hydrogen bonding requires N–H, O–H, or F–H as donor; and N, O, or F as acceptor."
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "The scientist plans to cool a gaseous mixture of 3 and 2 to form a liquid mixture\nand finds data on the two compounds. The data are summarized in the table.\nMelting Point Boiling Point Enthalpy of Vaporization\nSubstance (K) (K) (\nkJ/mol\n)\nCH OH\n3 176 338 37.6\nH $CO_2$ 181 254 24.2\nCH OH\ni. Propose a temperature to which the mixture should be cooled such that 3 and\nH $CO_2$ will both be liquids.\nii. The scientist analyzes the mixture after it is cooled and determines that 8.59 g of\nCH\nOH(l)\nis present. Calculate the amount of thermal energy, in kJ, that was removed to\ncondense the 8.59 g of\nCH\nOH\n(molar mass 32.04\ng/mol\n) at its boiling point.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "Part (c)(i): both substances are liquid between their respective melting and boiling points. The overlap range where both are liquid is 181 K–254 K (H₂CO boiling point is lower than CH₃OH boiling point). Any temperature in 181–254 K range is acceptable. Part (c)(ii): q = n × ΔH_vap; sign must be negative (energy removed).",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Provide a correct response",
+          "description": "For a proposed temperature in the range 181 K–254 K and correct q calculation: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "The proposed temperature should be in the range 181 K−254 K."
+                "(i) Any temperature between 181 K and 254 K (inclusive) is acceptable.",
+                "(ii) $q = \\frac{8.59\\text{ g}}{32.04\\text{ g/mol}} \\times 37.6\\text{ kJ/mol} = 10.1\\text{ kJ}$ removed (energy released = −10.1 kJ)"
               ],
-              "correct_example": "The proposed temperature should be in the range 181 K−254 K."
+              "correct_example": "(i) A temperature of 220 K would make both substances liquid, since 181 K < 220 K < 254 K. \n(ii) $n(\\text{CH}_3\\text{OH}) = 8.59/32.04 = 0.268\\text{ mol}$ \n$q = 0.268\\text{ mol} \\times 37.6\\text{ kJ/mol} = 10.1\\text{ kJ removed}$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Proposing a temperature above 338 K — CH₃OH would be gaseous.",
+            "Proposing a temperature below 176 K — CH₃OH would be solid."
+          ],
+          "common_traps": [
+            "H₂CO has a lower boiling point (254 K) than CH₃OH (338 K); the upper bound for both being liquid is 254 K."
+          ]
         }
       ]
     }

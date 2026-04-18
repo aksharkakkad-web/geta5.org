@@ -5,9 +5,7 @@
   "source": "generated",
   "title": "Sinusoidal Modeling: Ferris Wheel & Passenger Height",
   "frq_type": "multi_part_math",
-  "related_units": [
-    3
-  ],
+  "related_units": [3],
   "calculator_allowed": false,
   "total_points": 6,
   "stimulus": "A Ferris wheel has a diameter of $60$ meters and its center is $35$ meters above the ground. The wheel completes one full revolution every $4$ minutes. A passenger boards at the lowest point of the wheel at time $t = 0$ minutes. The sinusoidal function $H$ models the height of the passenger above the ground, in meters, as a function of time $t$, in minutes.",
@@ -18,39 +16,35 @@
       "letter": "a",
       "prompt": "The function $H$ can be written in the form $H(t) = a\\sin(b(t + c)) + d$.\n\n(i) Find the values of constants $a$, $b$, $c$, and $d$.\n\n(ii) Find the height of the passenger at $t = 1$ minute. Show the computations that lead to your answer.",
       "point_value": 2,
-      "scoring_notes": "Multiple valid parameterizations exist. The canonical form is $H(t) = -30\\sin\\left(\\frac{\\pi}{2}(t+1)\\right) + 35$. Also accept $H(t) = 30\\sin\\left(\\frac{\\pi}{2}(t-1)\\right) + 35$ or $H(t) = -30\\cos\\left(\\frac{\\pi}{2}(t-2)\\right) + 35$. The key constraints are: maximum height $= 65$ m, minimum height $= 5$ m, period $= 4$ min, starts at minimum at $t = 0$. Verify: $H(0) = -30\\sin(\\frac{\\pi}{2}) + 35 = -30 + 35 = 5$ ✓. For part (ii), $H(1) = -30\\sin(\\frac{\\pi}{2}(2)) + 35 = -30\\sin(\\pi) + 35 = 0 + 35 = 35$ m. If student uses an alternate valid form, full credit if the substitution is correct.",
+      "scoring_notes": "Multiple valid parameterizations. Canonical: $H(t) = -30\\sin(\\frac{\\pi}{2}(t+1)) + 35$ (starts at minimum). Also accept $H(t) = 30\\sin(\\frac{\\pi}{2}(t-1)) + 35$. Key constraints: max $= 65$ m, min $= 5$ m, period $= 4$ min, $H(0) = 5$ (minimum). Verify: $-30\\sin(\\pi/2) + 35 = -30 + 35 = 5$ ✓. For part (ii), $H(1) = -30\\sin(\\pi) + 35 = 35$ m. If student uses an alternate valid form, full credit if substitution is correct.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct parameter values — $a = -30$ (amplitude, negative because passenger starts at minimum), $d = 35$ (midline = center height), $b = \\frac{\\pi}{2}$ (period $= 4$ minutes, so $b = \\frac{2\\pi}{4} = \\frac{\\pi}{2}$), $c = 1$ (phase shift needed: $H(0) = -30\\sin(\\frac{\\pi}{2}(0+1)) + 35 = -30\\sin(\\frac{\\pi}{2}) + 35 = -30(1) + 35 = 5$ ✓, the minimum at $t = 0$); accept $a = 30$ with appropriate $c$ value (e.g., $c = -1$ for $H(t) = 30\\sin(\\frac{\\pi}{2}(t-1)) + 35$)",
+          "description": "Correct parameter values with $|a| = 30$, $d = 35$, $b = \\frac{\\pi}{2}$, and $c$ consistent with $H(0) = 5$ (minimum)",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct parameter values — $a = -30$ (amplitude, negative because passenger starts at minimum), $d = 35$ (midline = center height), $b = \\frac{\\pi}{2}$ (period $= 4$ minutes, so $b = \\frac{2\\pi}{4} = \\frac{\\pi}{2}$), $c = 1$ (phase shift needed: $H(0) = -30\\sin(\\frac{\\pi}{2}(0+1)) + 35 = -30\\sin(\\frac{\\pi}{2}) + 35 = -30(1) + 35 = 5$ ✓, the minimum at $t = 0$); accept $a = 30$ with appropriate $c$ value (e.g., $c = -1$ for $H(t) = 30\\sin(\\frac{\\pi}{2}(t-1)) + 35$)"
-              ],
-              "correct_example": "Correct parameter values — $a = -30$ (amplitude, negative because passenger starts at minimum), $d = 35$ (midline = center height), $b = \\frac{\\pi}{2}$ (period $= 4$ minutes, so $b = \\frac{2\\pi}{4} = \\frac{\\pi}{2}$), $c = 1$ (phase shift needed: $H(0) = -30\\sin(\\frac{\\pi}{2}(0+1)) + 35 = -30\\sin(\\frac{\\pi}{2}) + 35 = -30(1) + 35 = 5$ ✓, the minimum at $t = 0$); accept $a = 30$ with appropriate $c$ value (e.g., $c = -1$ for $H(t) = 30\\sin(\\frac{\\pi}{2}(t-1)) + 35$)"
+              "required_elements": ["$a = -30$ (or $a = 30$ with appropriate $c$)", "$d = 35$", "$b = \\frac{\\pi}{2}$", "$c = 1$ (for $a = -30$) or $c = -1$ (for $a = 30$)"],
+              "correct_example": "$a = -30$ (amplitude $= 30$, negative for minimum start), $d = 35$ (midline = center height), $b = \\pi/2$ (period $= 4$ min), $c = 1$ (phase: $H(0) = -30\\sin(\\pi/2) + 35 = 5$ ✓)"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["$a = 30$ with $c = 0$ — gives $H(0) = 30\\sin(0) + 35 = 35$ (midline, not minimum)", "$d = 0$ (forgetting the vertical shift — center is 35 m above ground)", "$b = 2$ (forgetting the $2\\pi$ in the period formula)"],
+          "common_traps": ["Since the passenger starts at the lowest point, the function must give its minimum at $t = 0$ — this requires either $a < 0$ (with appropriate $c$) or $a > 0$ with a phase shift"]
         },
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Correct height $H(1) = -30\\sin\\left(\\frac{\\pi}{2}(1+1)\\right) + 35 = -30\\sin(\\pi) + 35 = -30(0) + 35 = 35$ meters; supporting work must show substitution of $t = 1$",
+          "description": "Correct height $H(1) = 35$ meters; supporting work must show substitution of $t = 1$ into the function",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct height $H(1) = -30\\sin\\left(\\frac{\\pi}{2}(1+1)\\right) + 35 = -30\\sin(\\pi) + 35 = -30(0) + 35 = 35$ meters; supporting work must show substitution of $t = 1$"
-              ],
-              "correct_example": "Correct height $H(1) = -30\\sin\\left(\\frac{\\pi}{2}(1+1)\\right) + 35 = -30\\sin(\\pi) + 35 = -30(0) + 35 = 35$ meters; supporting work must show substitution of $t = 1$"
+              "required_elements": ["substitution $t = 1$", "$H(1) = 35$ meters"],
+              "correct_example": "$H(1) = -30\\sin(\\frac{\\pi}{2}(1+1)) + 35 = -30\\sin(\\pi) + 35 = -30(0) + 35 = 35$ meters"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["$H(1) = 65$ m (maximum height — incorrect for $t = 1$)", "$H(1) = 5$ m (minimum height — that is $t = 0$)"],
+          "common_traps": ["At $t = 1$ the passenger is at the midline height (halfway up), not at the maximum — $\\sin(\\pi) = 0$, so $H = d = 35$ m"]
         }
       ]
     },
@@ -58,39 +52,35 @@
       "letter": "b",
       "prompt": "A passenger boards the Ferris wheel at the lowest point at $t = 0$ and rides for a full $12$ minutes (three complete revolutions).\n\n(i) Find all values of $t$ in $0 < t < 12$ at which the passenger is at a height of exactly $35$ meters (the center height). Express your answers as exact values.\n\n(ii) On the interval $0 < t < 1$, is the rate of change of $H$ positive or negative? Justify your answer using the graph of $H$.",
       "point_value": 2,
-      "scoring_notes": "For part (i), the midline of $H$ is $35$ m. Using $H(t) = -30\\sin(\\frac{\\pi}{2}(t+1)) + 35$, setting $H = 35$ gives $\\sin(\\frac{\\pi}{2}(t+1)) = 0$, so $t+1 = 2k$ for integer $k$; $t = 2k - 1$. Within $(0, 12)$: $t = 1, 3, 5, 7, 9, 11$. All six must be listed. For part (ii), the justification must connect the passenger's upward movement (from minimum to midline) to the positive rate of change. A response that correctly states 'positive' and references the increasing height on $(0,1)$ earns the point. No calculus required.",
+      "scoring_notes": "For part (i), $H = 35$ means $\\sin(\\frac{\\pi}{2}(t+1)) = 0$, giving $t + 1 = 2k$ so $t = 2k - 1$. In $(0, 12)$: $t = 1, 3, 5, 7, 9, 11$. All six values required. For part (ii), on $(0, 1)$ the passenger rises from minimum $5$ m toward midline $35$ m, so $H$ is increasing and the rate of change is positive. No calculus required — a reference to the increasing height is sufficient.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct times — setting $H(t) = 35$: $-30\\sin\\left(\\frac{\\pi}{2}(t+1)\\right) + 35 = 35 \\Rightarrow \\sin\\left(\\frac{\\pi}{2}(t+1)\\right) = 0 \\Rightarrow \\frac{\\pi}{2}(t+1) = k\\pi$ for integer $k$; so $t + 1 = 2k$, i.e., $t = 2k - 1$; solutions in $(0, 12)$ are $t = 1, 3, 5, 7, 9, 11$; all six values required with no incorrect extras",
+          "description": "All six correct times $t = 1, 3, 5, 7, 9, 11$ in $(0, 12)$; no incorrect values",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct times — setting $H(t) = 35$: $-30\\sin\\left(\\frac{\\pi}{2}(t+1)\\right) + 35 = 35 \\Rightarrow \\sin\\left(\\frac{\\pi}{2}(t+1)\\right) = 0 \\Rightarrow \\frac{\\pi}{2}(t+1) = k\\pi$ for integer $k$; so $t + 1 = 2k$, i.e., $t = 2k - 1$; solutions in $(0, 12)$ are $t = 1, 3, 5, 7, 9, 11$; all six values required with no incorrect extras"
-              ],
-              "correct_example": "Correct times — setting $H(t) = 35$: $-30\\sin\\left(\\frac{\\pi}{2}(t+1)\\right) + 35 = 35 \\Rightarrow \\sin\\left(\\frac{\\pi}{2}(t+1)\\right) = 0 \\Rightarrow \\frac{\\pi}{2}(t+1) = k\\pi$ for integer $k$; so $t + 1 = 2k$, i.e., $t = 2k - 1$; solutions in $(0, 12)$ are $t = 1, 3, 5, 7, 9, 11$; all six values required with no incorrect extras"
+              "required_elements": ["$t = 1$", "$t = 3$", "$t = 5$", "$t = 7$", "$t = 9$", "$t = 11$"],
+              "correct_example": "$\\sin(\\frac{\\pi}{2}(t+1)) = 0 \\Rightarrow t + 1 = 2k \\Rightarrow t = 1, 3, 5, 7, 9, 11$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["Only $t = 1, 3, 5$ (missing the second and third revolution values)", "Including $t = 0$ or $t = 12$ (not in the open interval $(0, 12)$)"],
+          "common_traps": ["There are two midline crossings per revolution and three full revolutions in 12 minutes — six total midline crossings in $(0, 12)$"]
         },
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct answer 'positive' with justification — on $(0, 1)$ the passenger rises from the minimum height of $5$ m at $t = 0$ to the midline height of $35$ m at $t = 1$, so $H$ is increasing and its rate of change is positive on this interval",
+          "description": "Correct answer 'positive' with justification that on $(0, 1)$ the passenger rises from minimum $5$ m to midline $35$ m, so $H$ is increasing",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct answer 'positive' with justification — on $(0, 1)$ the passenger rises from the minimum height of $5$ m at $t = 0$ to the midline height of $35$ m at $t = 1$, so $H$ is increasing and its rate of change is positive on this interval"
-              ],
-              "correct_example": "Correct answer 'positive' with justification — on $(0, 1)$ the passenger rises from the minimum height of $5$ m at $t = 0$ to the midline height of $35$ m at $t = 1$, so $H$ is increasing and its rate of change is positive on this interval"
+              "required_elements": ["rate of change is positive", "passenger is rising (or $H$ is increasing) on $(0, 1)$"],
+              "correct_example": "On $(0, 1)$, the passenger rises from the minimum height $5$ m toward the midline $35$ m, so $H$ is increasing on this interval. The rate of change of $H$ is therefore positive."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["'Negative' — incorrect; the passenger starts at the lowest point and moves upward", "'Positive because the Ferris wheel rotates' — not a mathematical justification"],
+          "common_traps": ["The passenger boards at the minimum ($t = 0$, $H = 5$ m) and moves toward the midline at $t = 1$ ($H = 35$ m) — height is increasing, so rate of change is positive"]
         }
       ]
     },
@@ -98,39 +88,35 @@
       "letter": "c",
       "prompt": "(i) On the interval $0 < t < 2$, which of the following is true about $H$?\na. $H$ is positive and increasing.\nb. $H$ is positive and decreasing.\nc. $H$ is negative and increasing.\nd. $H$ is negative and decreasing.\n\n(ii) A second Ferris wheel at the same amusement park has a function $H_2(t) = 20\\sin\\left(\\frac{\\pi}{3}(t - 1.5)\\right) + 40$ modeling passenger height, in meters. Find the first positive time $t$ at which both passengers are at the same height. Show the computations that lead to your answer, or indicate if no such $t$ exists on $0 < t \\leq 6$.",
       "point_value": 2,
-      "scoring_notes": "For part (i), if both letter and written description are given, the written description is scored. For part (ii), the equation $H(t) = H_2(t)$ must be set up correctly using $H(t) = -30\\sin\\left(\\frac{\\pi}{2}(t+1)\\right) + 35$. At $t = 0$: $H = 5$ m and $H_2 = 20\\sin(-\\frac{\\pi}{2}) + 40 = 20$ m (so $H < H_2$); at $t = 1$: $H = 35$ m and $H_2 = 20\\sin(-\\frac{\\pi}{6}) + 40 = 30$ m (so $H > H_2$). The crossing occurs on $(0, 1)$ near $t \\approx 0.85$. An exact closed-form solution does not exist; a numerical or graphical method is required. The first positive intersection near $t \\approx 0.85$ earns the point if the setup is shown. Accept any value in $[0.80, 0.90]$ obtained with a valid setup. Numerical methods are expected; accept any approach that correctly equates the two height functions and solves graphically or numerically.",
+      "scoring_notes": "For part (i), on $(0, 2)$ the passenger rises from $5$ m (minimum) through $35$ m (midline) to $65$ m (maximum) — heights are positive and $H$ is increasing throughout. Answer: (a). For part (ii), setting $H = H_2$ gives a transcendental equation requiring numerical/graphical solution. At $t = 0$: $H = 5$ and $H_2 = 20\\sin(-\\pi/2) + 40 = 20$; at $t = 1$: $H = 35$ and $H_2 = 20\\sin(-\\pi/6) + 40 = 30$. The crossing occurs near $t \\approx 0.85$ (accept $[0.80, 0.90]$). Must show the equal-height setup.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Correct answer — choice (a): $H$ is positive and increasing on $(0, 2)$ (the passenger rises from the minimum of $5$ m at $t = 0$ through the midline of $35$ m at $t = 1$ to the maximum of $65$ m at $t = 2$; all heights are positive and the function is increasing throughout this interval)",
+          "description": "Correct answer — choice (a): $H$ is positive and increasing on $(0, 2)$",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct answer — choice (a): $H$ is positive and increasing on $(0, 2)$ (the passenger rises from the minimum of $5$ m at $t = 0$ through the midline of $35$ m at $t = 1$ to the maximum of $65$ m at $t = 2$; all heights are positive and the function is increasing throughout this interval)"
-              ],
-              "correct_example": "Correct answer — choice (a): $H$ is positive and increasing on $(0, 2)$ (the passenger rises from the minimum of $5$ m at $t = 0$ through the midline of $35$ m at $t = 1$ to the maximum of $65$ m at $t = 2$; all heights are positive and the function is increasing throughout this interval)"
+              "required_elements": ["choice (a) or 'positive and increasing'"],
+              "correct_example": "(a) $H$ is positive and increasing on $(0, 2)$: the passenger rises from minimum $5$ m at $t=0$ through midline $35$ m at $t=1$ to maximum $65$ m at $t=2$ — always positive, always increasing."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["(b) positive and decreasing — incorrect, $H$ increases from min to max on $(0, 2)$", "(c) or (d) negative — incorrect, minimum height is $5 > 0$"],
+          "common_traps": ["If both a letter choice and a written description are given, the written description is scored — ensure the written description matches choice (a)"]
         },
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Correct first time — setting $-30\\sin\\left(\\frac{\\pi}{2}(t+1)\\right) + 35 = 20\\sin\\left(\\frac{\\pi}{3}(t-1.5)\\right) + 40$ and solving numerically or by inspection; accept $t \\approx 0.85$ (from numerical/graphical approach); show the equal-height setup with both functions equated",
+          "description": "Correct setup $H(t) = H_2(t)$ and solution $t \\approx 0.85$ (accept $[0.80, 0.90]$) obtained graphically or numerically",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct first time — setting $-30\\sin\\left(\\frac{\\pi}{2}(t+1)\\right) + 35 = 20\\sin\\left(\\frac{\\pi}{3}(t-1.5)\\right) + 40$ and solving numerically or by inspection; accept $t \\approx 0.85$ (from numerical/graphical approach); show the equal-height setup with both functions equated"
-              ],
-              "correct_example": "Correct first time — setting $-30\\sin\\left(\\frac{\\pi}{2}(t+1)\\right) + 35 = 20\\sin\\left(\\frac{\\pi}{3}(t-1.5)\\right) + 40$ and solving numerically or by inspection; accept $t \\approx 0.85$ (from numerical/graphical approach); show the equal-height setup with both functions equated"
+              "required_elements": ["$H(t) = H_2(t)$ (equal-height equation set up)", "$t \\approx 0.85$"],
+              "correct_example": "Setting $-30\\sin(\\frac{\\pi}{2}(t+1)) + 35 = 20\\sin(\\frac{\\pi}{3}(t-1.5)) + 40$; numerically/graphically, first positive intersection $\\approx t \\approx 0.85$ minutes."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["Solving for intersections without showing the equal-height equation", "Stating 'no solution exists' without justification"],
+          "common_traps": ["An exact closed-form solution does not exist — numerical or graphical methods are required and expected; showing the equation setup earns partial credit even without a precise numerical answer"]
         }
       ]
     }

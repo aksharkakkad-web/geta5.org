@@ -3,104 +3,125 @@
   "subject": "ap-chemistry",
   "year": 2022,
   "source": "released",
-  "title": "Chemical Kinetics & Rate Laws",
+  "title": "N₂O₅ Decomposition: Kinetics & Rate Law",
   "frq_type": "multi_part_math",
-  "related_units": [
-    5
-  ],
+  "related_units": [5],
   "calculator_allowed": true,
   "total_points": 4,
-  "stimulus": "The following equation represents the decomposition of $N_2O_5$, for which the rate law is rate = k[$N_2O_5$].\n\n2 $N_2O_5$(g) → 4 $NO_2$(g) + $O_2$(g)\n\nA sample of pure $N_2O_5$(g) is placed in an evacuated container and allowed to decompose at a constant temperature of 300 K. The concentration of $N_2O_5$(g) in the container is measured over a period of time, and the measurements are recorded in the following table.\n\n| Time (hr) | [$N_2O_5$] (M) |\n|-----------|----------------|\n| 0 | 0.160 |\n| 1.67 | 0.0800 |\n| 3.33 | 0.0400 |\n| 5.00 | 0.0200 |",
+  "stimulus": "The following equation represents the decomposition of $\\text{N}_2\\text{O}_5$, for which the rate law is rate $= k[\\text{N}_2\\text{O}_5]$.\n\n$2\\text{N}_2\\text{O}_5(g) \\rightarrow 4\\text{NO}_2(g) + \\text{O}_2(g)$\n\nA sample of pure $\\text{N}_2\\text{O}_5(g)$ is placed in an evacuated container and allowed to decompose at a constant temperature of 300 K. The concentration of $\\text{N}_2\\text{O}_5(g)$ in the container is measured over a period of time, and the measurements are recorded in the following table.\n\n| Time (hr) | $[\\text{N}_2\\text{O}_5]$ (M) |\n|---|---|\n| 0 | 0.160 |\n| 1.67 | 0.0800 |\n| 3.33 | 0.0400 |\n| 5.00 | 0.0200 |",
   "stimulus_image": "/data/ap-chemistry/frq/images/chem-2022-frq-5-table.png",
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Determine the value of the rate constant, k , for the reaction. Include units in your answer.",
+      "prompt": "Determine the value of the rate constant, $k$, for the reaction. Include units in your answer.",
       "point_value": 2,
-      "scoring_notes": "Accept one of the following:",
+      "scoring_notes": "The rate law rate = $k[\\text{N}_2\\text{O}_5]$ is first order. For a first-order reaction, $t_{1/2} = 0.693/k$. From the data: concentration halves every 1.67 hr (0.160 → 0.0800 → 0.0400 at 1.67 hr intervals), so $t_{1/2} = 1.67$ hr. Therefore $k = 0.693/1.67 = 0.415$ hr$^{-1}$. Alternatively, use the first-order integrated rate law: $\\ln([\\text{N}_2\\text{O}_5]_t/[\\text{N}_2\\text{O}_5]_0) = -kt$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "For the correct calculated value: 1 point",
+          "description": "For the correct calculated value of $k$: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "Provide a correct response from the accepted alternatives"
+                "$k = 0.693/t_{1/2} = 0.693/1.67\\text{ hr} = 0.415\\text{ hr}^{-1}$",
+                "OR using integrated rate law: $k = -\\ln([A]_t/[A]_0)/t = 0.415\\text{ hr}^{-1}$"
               ],
-              "correct_example": "0.693 0.693 1−k = = = 0.415 hr 1.67 hr 12 t"
+              "correct_example": "From the data, $[\\text{N}_2\\text{O}_5]$ halves every 1.67 hr, so $t_{1/2} = 1.67$ hr.\n$k = \\dfrac{0.693}{t_{1/2}} = \\dfrac{0.693}{1.67\\text{ hr}} = 0.415\\text{ hr}^{-1}$\n\nOR: $k = \\dfrac{-\\ln(0.0800/0.160)}{1.67\\text{ hr}} = \\dfrac{0.693}{1.67} = 0.415\\text{ hr}^{-1}$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Using a second-order formula $k = 1/(t[A])$ — the given rate law shows first order.",
+            "Using the half-life formula for zero order — must use $k = 0.693/t_{1/2}$ for first order."
+          ],
+          "common_traps": [
+            "First-order: $t_{1/2} = 0.693/k$; $k = 0.693/t_{1/2}$. Confirm first-order by checking that concentration halves in equal time intervals. Here each 1.67 hr interval shows exactly halving."
+          ]
         },
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "For the correct units, consistent with the calculated value: 1 point",
+          "description": "For the correct units of $k$ consistent with the calculated value and first-order rate law: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct units, consistent with the calculated value: 1 point"
+                "Units: hr$^{-1}$ (or s$^{-1}$ if time converted to seconds)"
               ],
-              "correct_example": ""
+              "correct_example": "Units of $k$ for a first-order reaction: hr$^{-1}$ (reciprocal time). Since the data uses hours, $k = 0.415$ hr$^{-1}$.\n\nIf converting: $0.415\\text{ hr}^{-1} \\times \\dfrac{1\\text{ hr}}{3600\\text{ s}} = 1.15 \\times 10^{-4}\\text{ s}^{-1}$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Writing units as M/s or M$^{-1}$s$^{-1}$ — those are units for zero-order and second-order rate constants, respectively.",
+            "No units provided — the question explicitly asks for units."
+          ],
+          "common_traps": [
+            "Rate constant units depend on reaction order: zero-order → M/time; first-order → 1/time; second-order → 1/(M·time). The given rate law (first-order in $[\\text{N}_2\\text{O}_5]$) requires $k$ in units of reciprocal time."
+          ]
         }
       ]
     },
     {
       "letter": "b",
-      "prompt": "The following mechanism is proposed for the decomposition of $N_2O_5$(g).\n\nStep 1: $N_2O_5$(g) → $NO_2$(g) + $NO_3$(g)\nStep 2: $NO_2$(g) + $NO_3$(g) → $NO_2$(g) + NO(g) + $O_2$(g)\nStep 3: $N_2O_5$(g) + NO(g) → 3 $NO_2$(g)\n\nIdentify which step of the proposed mechanism (1, 2, or 3) is the rate-determining step. Justify your answer in terms of the rate law given.",
+      "prompt": "The following mechanism is proposed for the decomposition of $\\text{N}_2\\text{O}_5(g)$.\n\nStep 1: $\\text{N}_2\\text{O}_5(g) \\rightarrow \\text{NO}_2(g) + \\text{NO}_3(g)$\nStep 2: $\\text{NO}_2(g) + \\text{NO}_3(g) \\rightarrow \\text{NO}_2(g) + \\text{NO}(g) + \\text{O}_2(g)$\nStep 3: $\\text{N}_2\\text{O}_5(g) + \\text{NO}(g) \\rightarrow 3\\text{NO}_2(g)$\n\nIdentify which step of the proposed mechanism (1, 2, or 3) is the rate-determining step. Justify your answer in terms of the rate law given.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "Step 1 is the rate-determining step. The rate-determining step (slowest step) determines the overall rate law. Step 1 has only one reactant, $\\text{N}_2\\text{O}_5$, giving rate = $k_1[\\text{N}_2\\text{O}_5]$, which matches the experimentally determined rate law (first order in $[\\text{N}_2\\text{O}_5]$). Steps 2 and 3 would give rate expressions involving intermediates or other species, inconsistent with the observed rate law.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "For the correct answer and a valid justification: 1 point",
+          "description": "For Step 1 as the rate-determining step with valid justification matching the rate law: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct answer and a valid justification: 1 point"
+                "Step 1 is the rate-determining step.",
+                "Step 1's elementary rate law is rate = $k[\\text{N}_2\\text{O}_5]$, which matches the given overall rate law."
               ],
-              "correct_example": "Step 1 is the rate-determining step. The rate law of elementary step 1 is rate = k[$N_2O_5$], which matches the given rate law."
+              "correct_example": "Step 1 is the rate-determining step. For Step 1 (elementary reaction), the rate law is rate = $k_1[\\text{N}_2\\text{O}_5]$, consistent with the given overall rate law: rate = $k[\\text{N}_2\\text{O}_5]$. Since the rate-determining step controls the overall rate, and Step 1 predicts first-order dependence on $[\\text{N}_2\\text{O}_5]$ only, Step 1 must be the slowest step."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Choosing Step 2 — Step 2 involves $\\text{NO}_2$ and $\\text{NO}_3$ (intermediates), which would appear in the rate law if it were rate-determining.",
+            "Choosing Step 3 — Step 3 involves NO (an intermediate) and would give rate = $k[\\text{N}_2\\text{O}_5][\\text{NO}]$ if it were rate-determining."
+          ],
+          "common_traps": [
+            "The rate-determining step (slowest) gives the overall rate law when its elementary reactants are not intermediates. Step 1: only $\\text{N}_2\\text{O}_5$ (not an intermediate) → rate = $k[\\text{N}_2\\text{O}_5]$ matches the given law."
+          ]
         }
       ]
     },
     {
       "letter": "c",
-      "prompt": "If this experiment was repeated at the same temperature but with twice the initial concentration of $N_2O_5$, would the value of k increase, decrease, or remain the same? Explain your reasoning.",
+      "prompt": "If this experiment was repeated at the same temperature but with twice the initial concentration of $\\text{N}_2\\text{O}_5$, would the value of $k$ increase, decrease, or remain the same? Explain your reasoning.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "The rate constant $k$ remains the same. The rate constant depends only on temperature (via the Arrhenius equation $k = Ae^{-E_a/RT}$) and is independent of reactant concentration. Doubling $[\\text{N}_2\\text{O}_5]$ changes the initial rate (doubles it) but does not change $k$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "For the correct answer: 1 point",
+          "description": "For 'remain the same' with a correct explanation: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct answer: 1 point"
+                "Remain the same.",
+                "The rate constant $k$ depends only on temperature, not on concentration. Temperature is unchanged."
               ],
-              "correct_example": "Remain the same. The rate constant, k, is independent of concentration and will remain the"
+              "correct_example": "The value of $k$ remains the same. The rate constant is determined by temperature (via the Arrhenius equation) and is independent of reactant concentration. Since the temperature is unchanged, $k$ does not change. Doubling $[\\text{N}_2\\text{O}_5]$ would double the initial rate (since rate = $k[\\text{N}_2\\text{O}_5]$), but $k$ itself is unaffected."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Saying $k$ doubles — concentration changes the rate, not $k$.",
+            "Saying $k$ decreases — there is no mechanism by which increased concentration would decrease $k$."
+          ],
+          "common_traps": [
+            "$k$ depends on temperature only. Changing concentration changes the rate but not $k$. Changing temperature changes $k$. These are the two most commonly confused factors."
+          ]
         }
       ]
     }

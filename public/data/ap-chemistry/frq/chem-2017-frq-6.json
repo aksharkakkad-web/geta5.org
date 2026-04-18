@@ -5,12 +5,7 @@
   "source": "released",
   "title": "Solubility Equilibrium & Ksp",
   "frq_type": "multi_part_math",
-  "related_units": [
-    1,
-    2,
-    4,
-    7
-  ],
+  "related_units": [1, 2, 4, 7],
   "calculator_allowed": true,
   "total_points": 4,
   "stimulus": "Answer the following questions about $Mg(OH)_2$\n. At 25°C, the value of the solubility product constant, $K_{sp}$\n, for\n$Mg(OH)_2$(s) is 1.8 × 10$^{-11}$.",
@@ -20,50 +15,104 @@
     {
       "letter": "a",
       "prompt": "Calculate the number of grams of $Mg(OH)_2$\n(molar mass 58.32 g/mol) that is dissolved in 100. mL of a\nsaturated solution of $Mg(OH)_2$\nat 25°C.",
-      "point_value": 1,
-      "scoring_notes": null,
+      "point_value": 2,
+      "scoring_notes": "Dissolution: Mg(OH)$_2$(s) ⇌ Mg$^{2+}$(aq) + 2 OH$^-$(aq). Let molar solubility = $s$. $K_{sp} = [\\text{Mg}^{2+}][\\text{OH}^-]^2 = s(2s)^2 = 4s^3 = 1.8 \\times 10^{-11}$. $s^3 = 4.5 \\times 10^{-12}$; $s = 1.65 \\times 10^{-4}$ mol/L. Mass in 100. mL = (1.65 × 10$^{-4}$ mol/L)(0.100 L)(58.32 g/mol) = 9.6 × 10$^{-4}$ g.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Calculate the number of grams of $Mg(OH)_2$ (molar mass 58.32 g/mol) that is dissolved in 100. mL of a",
+          "description": "For the correct molar solubility from $K_{sp} = 4s^3$: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "Calculate the number of grams of $Mg(OH)_2$ (molar mass 58.32 g/mol) that is dissolved in 100. mL of a"
+                "$K_{sp} = [\\text{Mg}^{2+}][\\text{OH}^-]^2 = (s)(2s)^2 = 4s^3 = 1.8 \\times 10^{-11}$",
+                "$s = \\sqrt[3]{\\frac{1.8 \\times 10^{-11}}{4}} = 1.65 \\times 10^{-4}\\text{ mol/L}$"
               ],
-              "correct_example": "I point is earned for"
+              "correct_example": "Mg(OH)$_2$ ⇌ Mg$^{2+}$ + 2 OH$^-$\n$K_{sp} = s \\cdot (2s)^2 = 4s^3 = 1.8 \\times 10^{-11}$\n$s = \\left(\\frac{1.8 \\times 10^{-11}}{4}\\right)^{1/3} = (4.5 \\times 10^{-12})^{1/3} = 1.65 \\times 10^{-4}\\text{ mol/L}$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Writing $K_{sp} = s^2$ — Mg(OH)$_2$ produces 1 Mg$^{2+}$ and 2 OH$^-$; the OH$^-$ concentration is $2s$, so $K_{sp} = s(2s)^2 = 4s^3$.",
+            "Writing $K_{sp} = s \\cdot 2s$ — the exponent on [OH$^-$] must be squared (power = 2 from stoichiometry)."
+          ],
+          "common_traps": [
+            "Mg(OH)$_2$ dissociation gives [OH$^-$] = 2s, not s. Therefore $K_{sp} = (s)(2s)^2 = 4s^3$, not $s^3$ or $s^2$."
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "For the correct mass of Mg(OH)$_2$ in 100. mL: 1 point",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Moles = $s \\times 0.100\\text{ L} = 1.65 \\times 10^{-5}\\text{ mol}$",
+                "Mass = $(1.65 \\times 10^{-5}\\text{ mol})(58.32\\text{ g/mol}) \\approx 9.6 \\times 10^{-4}\\text{ g}$"
+              ],
+              "correct_example": "Moles dissolved = $(1.65 \\times 10^{-4}\\text{ mol/L})(0.100\\text{ L}) = 1.65 \\times 10^{-5}\\text{ mol}$\nMass = $(1.65 \\times 10^{-5}\\text{ mol})(58.32\\text{ g/mol}) = 9.6 \\times 10^{-4}\\text{ g}$"
+            }
+          ],
+          "wrong_examples": [
+            "Forgetting to convert 100. mL to 0.100 L — must use liters in the concentration calculation.",
+            "Multiplying by the molar mass of Mg only — use the molar mass of Mg(OH)$_2$ = 58.32 g/mol."
+          ],
+          "common_traps": [
+            "The molar solubility $s$ is the concentration of Mg(OH)$_2$ dissolved per liter. Multiply by volume (in liters) to get moles, then by molar mass to get grams."
+          ]
         }
       ]
     },
     {
       "letter": "b",
-      "prompt": "The energy required to separate the ions in the $Mg(OH)_2$\ncrystal lattice into individual Mg2+(g) and $OH^-$ (g)\nions, as represented in the table below, is known as the lattice energy of $Mg(OH)_2$(s). As shown in the table,\nthe lattice energy of $Sr(OH)_2$(s) is less than the lattice energy of $Mg(OH)_2$(s). Explain why in terms of\nperiodic properties and Coulomb’s law.\nReaction Lattice Energy (kJ/mol)\n$Mg(OH)_2$(s) → Mg2+(g) + 2 $OH^-$ (g) 2900\n$Sr(OH)_2$(s) → Sr2+(g) + 2 $OH^-$ (g) 2300",
-      "point_value": 1,
-      "scoring_notes": null,
+      "prompt": "The energy required to separate the ions in the $Mg(OH)_2$\ncrystal lattice into individual Mg2+(g) and $OH^-$ (g)\nions, as represented in the table below, is known as the lattice energy of $Mg(OH)_2$(s). As shown in the table,\nthe lattice energy of $Sr(OH)_2$(s) is less than the lattice energy of $Mg(OH)_2$(s). Explain why in terms of\nperiodic properties and Coulomb's law.\nReaction Lattice Energy (kJ/mol)\n$Mg(OH)_2$(s) → Mg2+(g) + 2 $OH^-$ (g) 2900\n$Sr(OH)_2$(s) → Sr2+(g) + 2 $OH^-$ (g) 2300",
+      "point_value": 2,
+      "scoring_notes": "Sr$^{2+}$ is larger than Mg$^{2+}$ because Sr is in period 5 and Mg is in period 3 — more electron shells. According to Coulomb's law, the electrostatic force (and hence lattice energy) is inversely proportional to the square of the distance between ions: $F \\propto \\frac{q_1 q_2}{r^2}$. A larger ionic radius means a greater interionic distance, resulting in weaker electrostatic attraction and lower lattice energy for Sr(OH)$_2$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "The energy required to separate the ions in the $Mg(OH)_2$, crystal lattice into individual Mg2+(g) and",
+          "description": "For identifying Sr$^{2+}$ as larger than Mg$^{2+}$ with a periodic trend explanation: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "The energy required to separate the ions in the $Mg(OH)_2$, crystal lattice into individual Mg2+(g) and"
+                "Sr$^{2+}$ is larger than Mg$^{2+}$.",
+                "Going down a group (Mg → Sr), atomic/ionic radius increases due to additional electron shells."
               ],
-              "correct_example": "OH (g) ions, as represented in the table below, is known as the lattice energy of $Mg(OH)_2$(s). As shown Reaction Lattice Energy (kJ/mol) $Mg(OH)_2$(s)  Mg2+C~) + 2 OH (g) 2900 $Sr(OH)_2$z(s)  sr2+(g) + 2 OH (g) 2300 The Sr2+ ion is larger than the Mg2+ ion because it has Mg(OHh are stronger and, therefore, its lattice energy is lead to a greater lattice energy."
+              "correct_example": "Mg is in Period 3 and Sr is in Period 5. Both are in Group 2 and both form 2+ ions. Going down the group, ionic radius increases because more electron shells are added. Therefore Sr$^{2+}$ is larger than Mg$^{2+}$."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Saying Sr has a higher charge — both Mg$^{2+}$ and Sr$^{2+}$ have the same +2 charge; it is the size that differs.",
+            "Saying Mg has more electrons than Sr — Mg (Z=12) has fewer electrons than Sr (Z=38)."
+          ],
+          "common_traps": [
+            "Ionic radius increases going DOWN a group (more electron shells). Sr is below Mg in Group 2, so Sr$^{2+}$ > Mg$^{2+}$ in size."
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "For applying Coulomb's law to explain lower lattice energy of Sr(OH)$_2$: 1 point",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Coulomb's law: electrostatic force (and lattice energy) $\\propto \\frac{q_1 q_2}{r^2}$.",
+                "Larger ionic radius → larger $r$ → smaller force → lower lattice energy for Sr(OH)$_2$."
+              ],
+              "correct_example": "Coulomb's law states that the electrostatic attraction between ions is proportional to the product of charges and inversely proportional to the square of the distance: $F \\propto \\frac{q_1 q_2}{r^2}$. Both compounds have the same charges (M$^{2+}$ and OH$^-$). However, Sr$^{2+}$ is larger than Mg$^{2+}$, so the distance $r$ between Sr$^{2+}$ and OH$^-$ is greater. Greater distance → weaker electrostatic attraction → lower lattice energy for Sr(OH)$_2$."
+            }
+          ],
+          "wrong_examples": [
+            "Saying Sr(OH)$_2$ has lower lattice energy because Sr is heavier — mass has nothing to do with lattice energy; it is charge and distance.",
+            "Using Coulomb's law backwards — lattice energy decreases as distance increases (inverse relationship)."
+          ],
+          "common_traps": [
+            "Lattice energy $\\propto q_1 q_2 / r$. When charges are the same, larger ionic size (larger $r$) → lower lattice energy."
+          ]
         }
       ]
     }

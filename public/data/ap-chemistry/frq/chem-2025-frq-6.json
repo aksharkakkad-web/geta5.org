@@ -5,10 +5,7 @@
   "source": "released",
   "title": "Electrochemical Cells & Cell Potential",
   "frq_type": "multi_part_math",
-  "related_units": [
-    4,
-    9
-  ],
+  "related_units": [4, 9],
   "calculator_allowed": true,
   "total_points": 4,
   "stimulus": null,
@@ -19,24 +16,29 @@
       "letter": "a",
       "prompt": "Write the half-reaction for the oxidation that occurs at the anode.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "Al is oxidized at the anode in the Al/Zn galvanic cell. State symbols not required.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "For the correct equation (state symbols not required)",
+          "description": "For the correct balanced oxidation half-reaction at the anode: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct equation (state symbols not required): Point 01 Al(s) → Al3+ (aq) + 3 e −"
+                "$\\text{Al}(s) \\rightarrow \\text{Al}^{3+}(aq) + 3e^-$"
               ],
-              "correct_example": "Al(s) → Al3+ (aq) + 3 e −"
+              "correct_example": "$\\text{Al}(s) \\rightarrow \\text{Al}^{3+}(aq) + 3e^-$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Writing a reduction half-reaction at the anode — oxidation occurs at the anode.",
+            "$\\text{Al}^{3+} + 3e^- \\rightarrow \\text{Al}(s)$ — this is reduction, not oxidation."
+          ],
+          "common_traps": [
+            "Anode = oxidation (loss of electrons); cathode = reduction (gain of electrons). Al is the stronger reducing agent (more negative E°) so it is oxidized."
+          ]
         }
       ]
     },
@@ -44,49 +46,59 @@
       "letter": "b",
       "prompt": "Write the balanced net ionic equation for the overall reaction that occurs in the galvanic cell.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "Must balance electrons: Al loses 3e⁻ per atom (×2 = 6e⁻); Zn²⁺ gains 2e⁻ per ion (×3 = 6e⁻). State symbols not required.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "For the correct balanced net ionic equation (state symbols not required)",
+          "description": "For the correct balanced net ionic equation with electrons canceled: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct balanced net ionic equation (state symbols not required): Point 02 2 Al(s) + 3 Zn2+ (aq) → 2 Al3+ (aq) + 3 Zn(s)"
+                "$2\\text{Al}(s) + 3\\text{Zn}^{2+}(aq) \\rightarrow 2\\text{Al}^{3+}(aq) + 3\\text{Zn}(s)$"
               ],
-              "correct_example": "2 Al(s) + 3 Zn2+ (aq) → 2 Al3+ (aq) + 3 Zn(s)"
+              "correct_example": "Oxidation: $2\\text{Al}(s) \\rightarrow 2\\text{Al}^{3+}(aq) + 6e^-$ \nReduction: $3\\text{Zn}^{2+}(aq) + 6e^- \\rightarrow 3\\text{Zn}(s)$ \nOverall: $2\\text{Al}(s) + 3\\text{Zn}^{2+}(aq) \\rightarrow 2\\text{Al}^{3+}(aq) + 3\\text{Zn}(s)$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Writing 1 Al + 1 Zn²⁺ → 1 Al³⁺ + 1 Zn — electrons are not balanced.",
+            "Including spectator ions (e.g., NO₃⁻) — net ionic equation excludes spectators."
+          ],
+          "common_traps": [
+            "Electron balance requires LCM(3,2) = 6 electrons: multiply Al half-reaction by 2 and Zn half-reaction by 3."
+          ]
         }
       ]
     },
     {
       "letter": "c",
-      "prompt": "Initially, each electrode has a mass of 50.0 g. The cell is allowed to run for a period of time\nand is then stopped. Which electrode’s mass changed the most? Justify your answer with a\ncalculation.\n\nReduction Half-Reaction Ec V\n\nAu3+(aq)+ 3 e - \" Au(s) +1.50\nZn2+(aq)+ 2 e - \" Zn(s) -0.76\nMn2+(aq)+ 2 e - \" Mn(s) -1.19\nAl3+(aq)+ 3 e - \" Al(s) -1.66\nBe2+(aq)+ 2 e - \" Be(s) -1.85",
+      "prompt": "Initially, each electrode has a mass of 50.0 g. The cell is allowed to run for a period of time\nand is then stopped. Which electrode's mass changed the most? Justify your answer with a\ncalculation.\n\nReduction Half-Reaction Ec V\n\nAu3+(aq)+ 3 e - \" Au(s) +1.50\nZn2+(aq)+ 2 e - \" Zn(s) -0.76\nMn2+(aq)+ 2 e - \" Mn(s) -1.19\nAl3+(aq)+ 3 e - \" Al(s) -1.66\nBe2+(aq)+ 2 e - \" Be(s) -1.85",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "For every 6 mol e⁻ transferred: 2 mol Al dissolved (mass change per 6e⁻: 2×27.0 = 54.0 g) vs. 3 mol Zn deposited (mass change per 6e⁻: 3×65.4 = 196.2 g). Zn electrode gains more mass than Al loses. Accept any correct comparison.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "For the correct answer and a valid justification that correctly compares the masses of Al Point 03",
+          "description": "For correctly identifying the Zn electrode with a valid comparative calculation: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct answer and a valid justification that correctly compares the masses of Al Point 03"
+                "Per 6 mol electrons: Al electrode loses $2 \\times 27.0 = 54.0$ g; Zn electrode gains $3 \\times 65.4 = 196.2$ g.",
+                "The Zn electrode undergoes the greater mass change."
               ],
-              "correct_example": "Examples of acceptable responses may include the following: Thus, for however many moles of reaction that proceed, the mass of Zn"
+              "correct_example": "For every 6 mol of electrons transferred: \nAl anode loses: $2\\text{ mol Al} \\times 27.0\\text{ g/mol} = 54.0\\text{ g}$ \nZn cathode gains: $3\\text{ mol Zn} \\times 65.4\\text{ g/mol} = 196.2\\text{ g}$ \nThe Zn electrode's mass changes the most (gains 196.2 g per 6 mol e⁻ vs. Al losing 54.0 g)."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Saying the Al electrode changes more — Zn has a much higher molar mass and more moles deposit per mole of electrons."
+          ],
+          "common_traps": [
+            "Must compare molar mass × stoichiometric coefficient for each electrode per unit charge transferred."
+          ]
         }
       ]
     },
@@ -94,24 +106,31 @@
       "letter": "d",
       "prompt": "The standard\nZn/Al\ncell has a value of E c\n%\nell equal to 0.90 V. The scientist needs a galvanic cell\nthat produces a greater voltage. The scientist has access to the chemical systems in the table.\nZn\nIf the scientist uses the half-cell and one of the other options from the table, what is the\nMAXIMUM voltage that could be generated at standard conditions?\n\nC $H_2O$ -",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "Maximizing voltage: pair Zn (oxidized, E°_ox = +0.76 V) with the half-cell with the highest reduction potential from the table. Au³⁺/Au has E° = +1.50 V. E°_cell = E°_cathode − E°_anode = 1.50 − (−0.76) = 2.26 V.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "For the correct calculated value. Point 04",
+          "description": "For the correct maximum voltage (2.26 V) using Zn/Au pair: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct calculated value. Point 04"
+                "Use Zn as anode (oxidized): $\\text{Zn}(s) \\rightarrow \\text{Zn}^{2+}(aq) + 2e^-$, $E°_{\\text{ox}} = +0.76\\text{ V}$",
+                "Use Au³⁺/Au as cathode: $E°_{\\text{red}} = +1.50\\text{ V}$",
+                "$E°_{\\text{cell}} = E°_{\\text{cathode}} - E°_{\\text{anode}} = 1.50 - (-0.76) = 2.26\\text{ V}$"
               ],
-              "correct_example": "Examples of acceptable responses may include the following: Zn(s) → Zn2+ (aq) + 2 e − + 0.76 V"
+              "correct_example": "To maximize voltage, pair Zn (anode) with the half-cell with the highest reduction potential: Au³⁺/Au ($E° = +1.50\\text{ V}$). \n$E°_{\\text{cell}} = E°_{\\text{cathode}} - E°_{\\text{anode}} = 1.50\\text{ V} - (-0.76\\text{ V}) = 2.26\\text{ V}$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Using Be²⁺/Be as cathode — it has a more negative E°, which would give a lower cell voltage.",
+            "Adding the reduction potentials directly without reversing the anode."
+          ],
+          "common_traps": [
+            "$E°_{\\text{cell}} = E°_{\\text{cathode}} - E°_{\\text{anode}}$ (both as reduction potentials); equivalently, $E°_{\\text{cell}} = E°_{\\text{red,cathode}} + E°_{\\text{ox,anode}}$."
+          ]
         }
       ]
     }

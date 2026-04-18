@@ -8,59 +8,133 @@ import type { FRQ, FRQDocument, FRQPart, FRQScoringPoint, GradingStrictness } fr
 // Math subjects have no general rubric — scoring is entirely question-specific.
 
 const RUBRICS: Record<string, string> = {
-  'ap-psychology': `## AP Psychology FRQ General Rubric (from CED 2024)
-TWO FRQ TYPES, each worth 7 points:
+  'ap-psychology': `## AP Psychology FRQ General Rubric (New 2024-2025 Format, first administered May 2025)
+Section I: 75 MCQs, 90 minutes, 66.7% of score. Section II: AAQ + EBQ, 70 min total, 33.3% of score.
+  - AAQ: 25 min (10 reading + 15 writing)
+  - EBQ: 45 min (15 reading + 30 writing)
 
-FRQ 1: ARTICLE ANALYSIS QUESTION (AAQ) — 7 points
-- Part A: Research Method (1 pt) — Accurately identify the research method used
-- Part B: Research Variable (1 pt) — State a measurable/quantifiable operational definition of the identified variable
-- Part C: Statistic Interpretation (1 pt) — Accurately describe what the statistic indicates in relation to the study
-- Part D: Ethical Guidelines (1 pt) — Identify AND describe one ethical guideline applied by researchers (must do both)
-- Part E: Generalizability (1 pt) — Explain extent of generalizability using specific participant variables from the study
-- Part F: Argumentation (2 pts) — 1 pt for using results but not explaining; 2 pts for using specific results to explain how they support/refute the hypothesis
+Both FRQs worth 7 points. The old "use these concepts to explain" FRQs are obsolete.
 
-FRQ 2: EVIDENCE-BASED QUESTION (EBQ) — 7 points
-- Part A: Claim (1 pt) — Propose a specific claim relevant to the question
-- Part B(i): Evidence (1 pt) — Correctly cite specific, accurate evidence from one source
-- Part B(ii): Explanation + Application (2 pts) — 1 pt for explaining evidence-claim relationship; 2 pts for also applying a psychological concept/theory
-- Part C(i): Evidence (1 pt) — Correctly cite different evidence from a different source
-- Part C(ii): Explanation + Application (2 pts) — Same as B(ii) but must use a DIFFERENT psychological concept
+FRQ 1: ARTICLE ANALYSIS QUESTION (AAQ) — 7 points across SIX parts (A–F)
+- Part A: Research Method (1 pt) — Accurately identify the methodology (experiment, correlational, case study, naturalistic observation, meta-analysis)
+- Part B: Research Variable (1 pt) — Measurable/quantifiable (operational) definition as used in the study
+- Part C: Statistic Interpretation (1 pt) — Explains what the identified statistic means in context (not a restatement)
+- Part D: Ethical Guidelines (1 pt) — Identifies an ethical guideline ACTUALLY APPLIED in the study (not one that should have been)
+- Part E: Generalizability (1 pt) — Explains extent using specific participant-variable evidence
+- Part F: Argumentation (2 pts — tiered):
+    1 pt = uses a specific result OR names a concept (not both)
+    2 pts = uses specific accurately-interpreted finding AND explains how it supports/refutes the concept/hypothesis
+
+FRQ 2: EVIDENCE-BASED QUESTION (EBQ) — 7 points: distribution 1 + 1 + 2 + 1 + 2
+- Part A: Claim (1 pt) — Defensible, specific claim relevant to the question
+- Part B(i): Evidence from Source 1 (1 pt) — One correctly cited, specific, accurate, relevant piece
+- Part B(ii): Explanation + Application (2 pts — tiered):
+    1 pt = explains evidence-claim relationship
+    2 pts = additionally applies a CED-named psych perspective/theory/concept/research finding
+- Part C(i): Evidence from Different Source (1 pt) — Different source, different evidence
+- Part C(ii): Explanation + Application (2 pts — tiered): Same two-tier as B(ii), but must apply a DIFFERENT CED-named concept
+
+KEY EBQ RULES (2025 SG):
+- Citations delimit evidence from reasoning ("All text before the citation will be considered evidence")
+- The claim (Part A) can earn regardless of whether B/C succeed
+- Certain concepts that appear in the source materials themselves (e.g. "confederate", "statistically significant", "operant conditioning" per 2025 SG) may not earn the application point — the concept must come from student knowledge
 
 GENERAL SCORING NOTES:
 - Each point earned independently
-- Definitions alone are NOT sufficient — must connect to the specific scenario/study
+- Definitions alone are NOT sufficient — must connect to the scenario/study
 - Accept reasonable synonyms for AP terms
-- No penalty for extra incorrect info unless it contradicts the correct answer`,
+- No penalty for extra incorrect info unless it contradicts the correct answer
+- AAQ Ethical Guidelines point is STRICT — the guideline must be one the researchers actually applied, not one they should have applied`,
 
-  'ap-world-history': `## AP World History: Modern FRQ General Rubric (from CED 2020)
-TYPES: SAQ (Short Answer), LEQ (Long Essay), DBQ (Document-Based)
+  'ap-world-history': `## AP World History: Modern FRQ General Rubric (CED 2020, 2023 refinement, current through May 2026)
+
+Exam weighting:
+- Section I Part B: 3 SAQs, 40 min, 20% of score (Q1/Q2 required; Q3 OR Q4 choice)
+- Section II: 1 DBQ (60 min recommended including 15-min reading, 25%) + 1 LEQ (40 min recommended, 15%)
 
 GENERAL NOTES (all types):
-- Each point earned independently
-- Historically defensible content required; minor errors acceptable if they don't detract from overall quality
-- Essays are first drafts — grammar errors don't count against unless they obscure content
-- "Describe" = provide relevant characteristics (more than just mentioning a term)
-- "Explain" = provide info about how/why a relationship, process, or outcome occurs
+- Each row scored independently
+- Historically defensible content required; minor errors acceptable if they don't detract
+- Essays are first-draft prose — grammar/spelling not penalized unless meaning is obscured
+- "Identify" = specific answer (name, term, phrase)
+- "Describe" = relevant characteristics with detail
+- "Explain" = how/why reasoning
 
-SAQ SCORING (3 points): 1 pt per part. Must be specific: name events, people, dates, processes.
-LEQ SCORING (6 points): Thesis (1), Contextualization (1), Evidence (0-2), Analysis & Reasoning (0-2).
-DBQ SCORING (7 points): Thesis (1), Contextualization (1), Evidence (0-3), Analysis & Reasoning (0-2).`,
+DBQ SCORING (7 points) — scoring rows (2024 SG):
+- A Thesis/Claim (1 pt): Historically defensible thesis that establishes a line of reasoning, located in intro or conclusion, more than a restatement
+- B Contextualization (1 pt): Broader events/developments/processes before, during, or continuing after the time frame relevant to prompt. More than a phrase or reference
+- C Evidence from Documents (1 pt): ACCURATELY DESCRIBES (not just quotes) content of at least 3 documents
+- C Evidence from Documents+ (+1 pt, total 2): SUPPORTS an argument using at least 4 documents. The 4 may be spread across sub-arguments or counterarguments
+- C Evidence Beyond Documents (1 pt): At least one ADDITIONAL specific piece of evidence beyond the documents, different from contextualization, more than a phrase
+- D Sourcing (HAPP) (1 pt): For at least 2 documents, EXPLAIN how or why the doc's Historical situation, Audience, Purpose, OR Point of view is relevant to an argument. Merely identifying HAPP does NOT earn
+- D Complex Understanding (1 pt): Sophisticated argumentation (multiple themes, causes/effects, continuities/changes, cross-period) OR effective evidence use (all 7 docs, sourcing 4+ docs, or combining docs with outside evidence). Must be developed — more than a phrase
 
-  'ap-government': `## AP U.S. Government and Politics FRQ General Rubric (from CED 2023)
-4 QUESTION TYPES:
+LEQ SCORING (6 points):
+- A Thesis/Claim (1 pt): Same criteria as DBQ thesis
+- B Contextualization (1 pt): Same criteria as DBQ contextualization
+- C Evidence (1 pt): At least 2 specific and relevant pieces of evidence
+- C Evidence supports argument (+1 pt, total 2): Uses at least 2 specific + relevant pieces to SUPPORT an argument
+- D Historical Reasoning (1 pt): Uses comparison, causation, or continuity/change to frame an argument (may be uneven)
+- D Complexity (1 pt): Same as DBQ complexity. Effective-evidence path for LEQ requires at least 4 pieces supporting a nuanced argument
 
-QUESTION 1: CONCEPT APPLICATION (3 pts) — Describe (1), Explain effect (1), Explain alternate (1)
-QUESTION 2: QUANTITATIVE ANALYSIS (4 pts) — Identify (1), Describe (1), Conclude (1), Explain (1)
-QUESTION 3: SCOTUS COMPARISON (4 pts) — Identify clause (1), Explain required case (1), Explain non-required case (1), Describe action (1)
-QUESTION 4: ARGUMENT ESSAY (6 pts) — Thesis (1), Evidence (0-3), Reasoning (1), Rebuttal (1)
+SAQ SCORING (3 points per question): Parts (a), (b), (c) scored 1 pt each independently
+- Q1 has a secondary-source stimulus; Q2 has a primary-source stimulus; Q3 and Q4 have no stimulus
+
+SCORING NOTES:
+- Complex Understanding is the lowest-earned row — requires development, not just a phrase
+- HAPP requires explaining how/why the element matters, not just identification
+- 2023 refinement: 4 documents may be used across sub-arguments or counterarguments — this language held through 2024 and 2025`,
+
+  'ap-government': `## AP U.S. Government and Politics FRQ General Rubric (CED 2023, 2024/2025 SG — current through May 2026)
+
+Section II: 100 minutes, 50% of exam. Always 4 FRQs in this fixed order:
+
+QUESTION 1: CONCEPT APPLICATION (3 pts, ~20 min)
+- A Describe (1 pt): Describe a concept illustrated in the scenario
+- B Explain (1 pt): Explain HOW that concept affects/produces a political outcome in the scenario
+- C Explain (1 pt): Explain HOW a DIFFERENT actor/institution could respond, counteract, or apply the concept. (Must apply to a NEW actor — restating B fails)
+
+QUESTION 2: QUANTITATIVE ANALYSIS (4 pts, ~20 min)
+- A Identify (1 pt): Specific data value/category
+- B Describe (1 pt): Pattern, trend, similarity, or difference
+- C Conclude (1 pt): Draw a conclusion about what the data imply
+- D Explain (1 pt): HOW the data/trend relates to a political principle, institution, process, policy, or behavior
+
+QUESTION 3: SCOTUS COMPARISON (4 pts, ~20 min) — THREE lettered parts (NOT four):
+- A Identify (1 pt): Identify a constitutional clause/provision/amendment common to the required AND non-required cases
+- B TIERED (1 or 2 pts):
+    1 pt = Describe relevant facts OR the holding of the REQUIRED case
+    2 pts = Explain HOW the facts of BOTH cases led to similar or different holdings
+- C Explain (1 pt): Explain how the decision relates to a political institution, process, behavior, or democratic principle
+(A non-required case on this FRQ is always accompanied by a summary of facts, issue, and holding per CED p.27)
+
+QUESTION 4: ARGUMENT ESSAY (6 pts, ~40 min) — four rows:
+- A Claim/Thesis (1 pt): Defensible claim/thesis establishing a line of reasoning. May appear anywhere in response
+- B Evidence (0-3 pts tiered):
+    1 pt = one relevant piece
+    2 pts = one specific + relevant piece supporting thesis, OR two relevant pieces
+    3 pts = two specific + relevant pieces supporting thesis, AT LEAST ONE from a listed foundational document. Requires Row A
+- C Reasoning (1 pt): Use classification, process, causation, or comparison to explain how/why evidence supports the argument. Requires specific + relevant evidence
+- D Alternate Perspectives (1 pt): DESCRIBE an alternate perspective AND REBUT/REFUTE it. Merely stating the opposing view fails. Requires Row A
+
+REQUIRED FOUNDATIONAL DOCUMENTS (9):
+Declaration of Independence; Articles of Confederation; U.S. Constitution; Federalist 10; Brutus 1; Federalist 51; Federalist 70; Federalist 78; Letter from a Birmingham Jail.
+
+REQUIRED SUPREME COURT CASES (14 — Roe v. Wade REMOVED Fall 2023):
+Marbury v. Madison (1803); McCulloch v. Maryland (1819); Schenck v. U.S. (1919); Brown v. Board (1954); Baker v. Carr (1962); Engel v. Vitale (1962); Gideon v. Wainwright (1963); Tinker v. Des Moines (1969); NYT v. U.S. (1971); Wisconsin v. Yoder (1972); Shaw v. Reno (1993); U.S. v. Lopez (1995); McDonald v. Chicago (2010); Citizens United v. FEC (2010).
 
 GENERAL NOTES:
-- "Describe" = provide relevant characteristics (more than mentioning a term)
-- "Explain" = provide info about how or why a relationship exists
-- "Identify" = indicate or provide info without elaboration`,
+- "Identify" = indicate/provide info without elaboration
+- "Describe" = relevant characteristics (more than mentioning a term)
+- "Explain" = how/why a relationship exists
+- Row D phrase "rebuttal or refutation" is load-bearing — identifying without refuting fails
+- Row B evidence tier 3 requires Row A thesis
+- Row D rebuttal requires Row A thesis`,
 
-  'ap-calculus-ab': `## AP Calculus AB FRQ General Scoring Notes (from CED)
-6 FRQs: 2 calculator-active, 4 no-calculator. Each 9 points across 2–4 parts.
+  'ap-calculus-ab': `## AP Calculus AB FRQ General Scoring Notes (CED 2024, current through May 2026)
+Section II: 6 FRQs × 9 points = 54 total points, 90 minutes, 50% of exam.
+Part A: 2 FRQs (Q1-Q2), GRAPHING CALCULATOR REQUIRED, 30 minutes.
+Part B: 4 FRQs (Q3-Q6), NO calculator, 60 minutes.
 
 GENERAL SCORING CONVENTIONS:
 - Each point is earned independently — no deductions for wrong work elsewhere
@@ -74,8 +148,11 @@ GENERAL SCORING CONVENTIONS:
 - Simplification is NOT required unless the problem says "simplify"
 - Limit notation: must use proper limit notation, not just "plug in" or "as x approaches"`,
 
-  'ap-calculus-bc': `## AP Calculus BC FRQ General Scoring Notes (from CED)
-6 FRQs: 2 calculator-active, 4 no-calculator. Each 9 points across 2–4 parts.
+  'ap-calculus-bc': `## AP Calculus BC FRQ General Scoring Notes (CED 2024, current through May 2026)
+Section II: 6 FRQs × 9 points = 54 total points, 90 minutes, 50% of exam.
+Part A: 2 FRQs (Q1-Q2), CALCULATOR REQUIRED, 30 minutes.
+Part B: 4 FRQs (Q3-Q6), NO calculator, 60 minutes.
+Q1, Q3, Q4 typically shared with AB; Q2, Q5, Q6 are BC-only.
 BC includes all AB content plus series, parametric/polar, and advanced integration.
 
 GENERAL SCORING CONVENTIONS:
@@ -88,8 +165,25 @@ GENERAL SCORING CONVENTIONS:
 - Euler's method: must show the iterative steps, not just the final approximation
 - Lagrange error bound: must state and apply the bound formula with correct (n+1)th derivative bound`,
 
-  'ap-precalculus': `## AP Precalculus FRQ General Scoring Notes (from CED)
-4 FRQs across 2 sections. Questions 1-2 require graphing calculator; Questions 3-4 do not.
+  'ap-precalculus': `## AP Precalculus FRQ General Scoring Notes (CED 2025, current through May 2026)
+Section II: 4 FRQs × 6 points = 24 total points, 60 minutes, 37.5% of exam.
+
+FIXED TASK MODELS in order:
+- Q1: Function Concepts — calculator REQUIRED, Part A (2-2-2 distribution)
+- Q2: Modeling a Non-Periodic Context — calculator REQUIRED, Part A (2-3-1 distribution; Part B has i/ii/iii = 3pts, Part C = 1pt)
+- Q3: Modeling a Periodic Context — calculator NOT PERMITTED, Part B (2-2-2)
+- Q4: Symbolic Manipulations — calculator NOT PERMITTED, Part B (2-2-2)
+
+Unit 4 (vectors/matrices/parametric) is NOT assessed.
+Calculator capabilities required: plot graphs, find zeros/intersections/min/max, tabulate, numerically solve, compute regression equations (linear/quadratic/cubic/quartic/exponential/logarithmic/sinusoidal) with residual plotting. Does NOT require numerical derivative/integral.
+
+PARTIAL CREDIT: 2-point parts use "First Column / Second Column" grading — student earns 1 pt by meeting one criterion from each of two columns.
+
+DECIMAL ACCURACY (Q1 & Q2 only): 3 decimal places (rounded or truncated). Trailing zeros not required. The FIRST decimal-presentation error per question is FORGIVEN; subsequent parts remain eligible. Q2 additionally penalizes the first part where exact form is given when decimals were required.
+
+LIMIT NOTATION (end behavior): Response must include all four components — \`lim\`, \`x → ∞\` (or -∞), the function, and the value. Missing "x → ∞" earns only partial credit.
+
+SINUSOIDAL Q3(B): Must use form $h(t) = a\\sin(b(t+c))+d$. Cosine-form answers receive partial credit only.
 
 GENERAL SCORING CONVENTIONS:
 - Each point is earned independently
@@ -103,8 +197,12 @@ GENERAL SCORING CONVENTIONS:
 - Inverse functions: verify domain/range swap is stated when required
 - Logarithmic/exponential equivalence: either form accepted if mathematically correct`,
 
-  'ap-chemistry': `## AP Chemistry FRQ General Scoring Notes (from CED)
-7 FRQs. Questions 1-3 are long (multi-part), Questions 4-7 are short. No calculator restrictions.
+  'ap-chemistry': `## AP Chemistry FRQ General Scoring Notes (CED 2024, current through May 2026)
+Section II: 7 FRQs = 46 total points, 105 minutes. Calculators PERMITTED throughout Section II.
+- Q1, Q2, Q3: LONG FRQs, 10 points each (23 minutes each recommended). Q1 is almost always lab-based with explicit error-propagation analysis.
+- Q4, Q5, Q6, Q7: SHORT FRQs, 4 points each (9 minutes each recommended).
+- Every exam requires at least one particulate-level drawing.
+- Periodic Table and Equations/Constants sheet provided.
 
 GENERAL SCORING CONVENTIONS:
 - Each point is earned independently
@@ -165,7 +263,13 @@ Set suggestion to null for earned points.
 EVIDENCE RULE: student_evidence_quote MUST be a verbatim substring of the student's response for that part. If you cannot find supporting text, use empty string "" and mark met: false. Do NOT paraphrase or invent quotes.
 QUOTING RULE: Quote SHORT contiguous substrings — one sentence or key phrase at most. Do NOT combine non-adjacent sentences into a single quote. If evidence spans multiple sentences, quote the MOST relevant single sentence. The server will reject quotes that skip text in the middle.
 
-ESSAY COMPLETENESS RULE: For essay-type questions (DBQ, LEQ, argument_essay), the student writes ONE essay graded against MULTIPLE rubric parts. You MUST return a result for EVERY part listed in the rubric — do NOT skip parts just because the response is a single essay. Grade each part's criteria independently against the full essay text. The "parts" array in your output MUST have one entry per rubric part.`
+ESSAY COMPLETENESS RULE (CRITICAL — violations will be rejected): For essay-type questions (DBQ, LEQ, argument_essay, essay, ebq), the student writes ONE essay or one body of text that is graded against MULTIPLE rubric parts. You MUST return a result for EVERY part listed in the rubric — do NOT skip parts just because the response is a single essay. Grade each part's criteria independently against the full response text.
+
+HARD REQUIREMENTS for your JSON output:
+1. The "parts" array MUST have EXACTLY one entry per rubric part (same letters as the rubric).
+2. Each part's "point_results" array MUST have EXACTLY one entry per point_id listed in that part's rubric. If the rubric says part "b" has points b1, b2, and b3, you must return point_results for b1, b2, AND b3 — even if all three are 0.
+3. If a criterion is not met, set earned=0 and describe what was missing in reasoning + suggestion. Do NOT omit the entry.
+4. Count your output: if the rubric has N parts and M total scoring_points across those parts, your output must have N entries in "parts" and M total entries across all "point_results" arrays. Verify before submitting.`
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -279,9 +383,24 @@ DESCRIBE (1pt) — DOES NOT EARN: "Spending changed over time." — Does not spe
 CONCLUDE (1pt) — EARNS: "Congress has decreased discretionary spending as mandatory spending has grown, suggesting that entitlement programs are crowding out other budget priorities." — Goes BEYOND restating the data to draw an inference.
 CONCLUDE (1pt) — DOES NOT EARN: "Mandatory spending went up and discretionary went down." — Restates the data without drawing a conclusion.`,
 
-  'scotus_comparison': `GOV SCOTUS COMPARISON CALIBRATION:
-EXPLAIN comparison (1pt) — EARNS: "In Lopez, the Court found that possessing a firearm in a school zone was not economic activity connected to interstate commerce, while in Katzenbach, the restaurant's refusal to serve Black customers directly affected interstate commerce through food supply chains." — Explains WHY the facts led to different holdings.
-EXPLAIN comparison (1pt) — DOES NOT EARN: "Lopez was about guns and Katzenbach was about restaurants. The Court ruled differently in each case." — Describes each case but does not explain the CONNECTION between facts and holdings.`,
+  'scotus_comparison': `GOV SCOTUS COMPARISON CALIBRATION (3 lettered parts A/B/C — Part B is tiered 1-or-2 pts):
+
+PART A — Identify constitutional clause/provision/amendment (1pt):
+EARNS: "Both cases deal with the Commerce Clause in Article I, Section 8 of the Constitution." — Names a specific clause/provision/amendment common to BOTH cases.
+DOES NOT EARN: "Both cases are about the Constitution." — Too vague; doesn't identify the specific clause.
+
+PART B — TIERED (1 pt OR 2 pts):
+TIER 1 (1 pt) EARNS: "In Citizens United v. FEC, the Court ruled that corporate political spending is a form of protected free speech under the First Amendment." — Describes facts or holding of the REQUIRED case.
+TIER 1 (1 pt) DOES NOT EARN: "The Court made a decision about campaign finance." — Too vague; doesn't describe facts or holding.
+
+TIER 2 (2 pts) EARNS: "In Lopez, the Court found that possessing a firearm in a school zone was not economic activity connected to interstate commerce, while in Katzenbach, the restaurant's refusal to serve Black customers directly affected interstate commerce through food supply chains — so the Court ruled the federal government had commerce power in Katzenbach but not Lopez." — EXPLAINS HOW the facts of BOTH cases led to similar or different holdings.
+TIER 2 (2 pts) DOES NOT EARN: "Lopez was about guns and Katzenbach was about restaurants. The Court ruled differently in each case." — Describes each case separately but does NOT explain the connection between facts and holdings.
+
+IMPORTANT: Award Tier 1 (1pt) OR Tier 2 (2pts) — NOT both. Model these as two scoring_points b1 (1pt describe) and b2 (1pt, the +1 for explaining both cases). Award b2 only if the response explains how BOTH cases' facts led to their holdings (comparative reasoning).
+
+PART C — Explain relation to political institution/process/behavior/principle (1pt):
+EARNS: "The Lopez decision illustrates judicial review by showing how the Supreme Court limits congressional power when Congress exceeds its enumerated authority under the Commerce Clause." — Connects the decision to a specific institution/principle.
+DOES NOT EARN: "The case is important for the government." — No specific connection to an institution, process, or principle.`,
 
   'argument_essay': `GOV ARGUMENT ESSAY CALIBRATION:
 THESIS (1pt) — The bar for thesis is LOW. A thesis earns the point when it: (1) takes a clear position on the prompt, AND (2) provides at least one reason ("because..."). Complexity, sophistication, or document references are NOT required for the thesis point.
@@ -373,7 +492,8 @@ SUGGESTION TONE (light): Be encouraging and constructive. Lead with what the stu
 SUGGESTION TONE (moderate): Be balanced and direct. Acknowledge what was done correctly, then clearly state what was missing. Use neutral language like "to earn this point, the response needed..." or "the rubric requires X, but the response only provided Y."`
 
   const generalRules = `GENERAL RULES:
-- BLANK OR MISSING RESPONSES EARN ZERO POINTS. If a part's response is "[NO RESPONSE]", empty, or clearly non-substantive (e.g., "idk", "?"), award 0 for every point of that part.
+- COMPLETENESS IS MANDATORY. Your output MUST contain one entry in "parts" for EVERY rubric part listed below, and within each part, one entry in "point_results" for EVERY point_id in that part's rubric. Skipping a part or a point_id is not acceptable — if the student's response does not address a criterion, set earned=0 and provide feedback explaining what was missing. This applies especially to essay-type FRQs (DBQ, LEQ, argument_essay, essay, ebq) where the single essay must be evaluated against every rubric row.
+- BLANK OR MISSING RESPONSES EARN ZERO POINTS. If a part's response is "[NO RESPONSE]", empty, or clearly non-substantive (e.g., "idk", "?"), award 0 for every point of that part — but you must STILL return a point_result for each point_id with earned=0 and feedback.
 - Grade ONLY what the student actually wrote. Never credit the student for content that appears only in the rubric.
 - Equivalent mathematical expressions earn full credit (e.g., 1-cos(9) = -cos(9)+1).
 - Alternative valid solution methods earn full credit if they reach the correct answer.

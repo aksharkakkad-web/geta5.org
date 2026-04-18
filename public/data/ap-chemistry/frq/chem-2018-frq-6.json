@@ -5,10 +5,7 @@
   "source": "released",
   "title": "Electrochemical Cells & Cell Potential",
   "frq_type": "multi_part_math",
-  "related_units": [
-    4,
-    9
-  ],
+  "related_units": [4, 9],
   "calculator_allowed": true,
   "total_points": 4,
   "stimulus": "A student sets up a galvanic cell at 298 K that has an electrode of Ag(s) immersed in a 1.0 M solution of\nAg+(aq) and an electrode of Cr(s) immersed in a 1.0 M solution of Cr3+(aq), as shown in the diagram above.",
@@ -19,49 +16,102 @@
       "letter": "a",
       "prompt": "The student measures the voltage of the cell shown above and discovers that it is zero. Identify the missing\ncomponent of the cell, and explain its importance for obtaining a nonzero voltage.\nHalf-Reaction E° (V)\nAg+(aq) + e − → Ag(s) +0.80\nCr3+(aq) + 3 e − → Cr(s) ?",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "The missing component is a salt bridge (or porous disk/membrane). The salt bridge allows ions to migrate between the two half-cells to maintain electrical neutrality. Without a salt bridge, positive charge builds up in one half-cell (where reduction occurs, consuming cations) and negative charge builds up in the other (where oxidation produces ions). This charge buildup prevents further electron flow and results in zero voltage.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "the correct answer and a valid explanation. Half-Reaction E (V) Ag+(aq) + e Ag(s) +0.80 Cr3+(aq) + 3 e Cr(s) ?",
+          "description": "For identifying the salt bridge and explaining that it maintains charge balance/electrical neutrality: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "the correct answer and a valid explanation. Half-Reaction E (V) Ag+(aq) + e Ag(s) +0.80 Cr3+(aq) + 3 e Cr(s) ?"
+                "Salt bridge (or porous disk/membrane).",
+                "The salt bridge allows ions to migrate between half-cells to maintain electrical neutrality, enabling continued electron flow and a nonzero voltage."
               ],
-              "correct_example": "The student measures the voltage of the cell shown above and discovers that it is zero. Identify the missing component of the cell, and explain its importance for obtaining a nonzero voltage. The salt bridge is missing. The salt bridge allows for the"
+              "correct_example": "The missing component is a salt bridge. Without the salt bridge, as electrons flow through the external circuit, one solution becomes positively charged (Ag$^+$ is consumed but no anions enter) and the other becomes negatively charged (Cr$^{3+}$ is produced). This charge imbalance stops electron flow. The salt bridge allows ions to migrate between the half-cells, maintaining electrical neutrality and enabling a continuous current."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Saying the wire/external circuit is missing — the external circuit is already present (otherwise no measurement could be made at all).",
+            "Saying the electrodes are missing — both Ag and Cr electrodes are described as present."
+          ],
+          "common_traps": [
+            "A galvanic cell requires: (1) two electrodes, (2) two solutions, (3) an external circuit for electrons, and (4) a salt bridge for ion migration. The salt bridge completes the internal circuit."
+          ]
         }
       ]
     },
     {
       "letter": "b",
       "prompt": "The student adds the missing component to the cell and measures\nE\nto be +1.54 V. As the cell operates,\ncell\nAg+ ions are reduced. Use this information and the information in the table above to do the following.\n(i) Calculate the value of E° for the half-reaction Cr3+(aq) + 3 e − → Cr(s).\n(ii) Write the balanced net-ionic equation for the overall reaction that occurs as the cell operates.\n(iii) Calculate the value of ΔG° for the overall cell reaction in J/mol\nrxn\n.",
-      "point_value": 1,
-      "scoring_notes": null,
+      "point_value": 3,
+      "scoring_notes": "Part (b)(i): Ag$^+$ is reduced → Ag is the cathode (E° = +0.80 V). Cr is oxidized → Cr is the anode. $E°_{\\text{cell}} = E°_{\\text{cathode}} - E°_{\\text{anode}} = 0.80 - E°(\\text{Cr}^{3+}/\\text{Cr}) = 1.54\\text{ V}$. $E°(\\text{Cr}^{3+}/\\text{Cr}) = 0.80 - 1.54 = -0.74\\text{ V}$. Part (b)(ii): Cr is oxidized (+3 per Cr, 3e$^-$ per Cr). Ag$^+$ gains 1e$^-$ per Ag. To balance electrons: multiply Ag/Ag$^+$ by 3. Overall: Cr(s) + 3 Ag$^+$(aq) → Cr$^{3+}$(aq) + 3 Ag(s). Part (b)(iii): n = 3 electrons. $\\Delta G° = -nFE° = -(3)(96,485\\text{ C/mol})(1.54\\text{ V}) = -446,000\\text{ J/mol} \\approx -4.46 \\times 10^5\\text{ J/mol}$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
-          "point_id": "b1",
+          "point_id": "bi1",
           "point_value": 1,
-          "description": "Provide a correct response",
+          "description": "For the correct E° for Cr$^{3+}$/Cr = −0.74 V: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "Provide a correct response"
+                "$E°_{\\text{cell}} = E°_{\\text{cathode}} - E°_{\\text{anode}}$",
+                "$1.54 = 0.80 - E°_{\\text{anode}}$ → $E°(\\text{Cr}^{3+}/\\text{Cr}) = 0.80 - 1.54 = -0.74\\text{ V}$"
               ],
-              "correct_example": "The student adds the missing component to the cell and measures cellE0 to be+ 1.54 V. As the cell operates, Ag+ ions are reduced. Use this information and the information in the table above to do the"
+              "correct_example": "$E°_{\\text{cell}} = E°_{\\text{cathode}} - E°_{\\text{anode}}$\n$1.54\\text{ V} = 0.80\\text{ V} - E°(\\text{Cr}^{3+}/\\text{Cr})$\n$E°(\\text{Cr}^{3+}/\\text{Cr}) = 0.80 - 1.54 = -0.74\\text{ V}$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Adding 0.80 + 1.54 to get E° for Cr — the formula is E°$_{cell}$ = E°$_{cathode}$ − E°$_{anode}$, not the sum.",
+            "Getting a positive value for E°(Cr$^{3+}$/Cr) — since Cr must be oxidized (anode) for Ag$^+$ to be reduced, Cr's reduction potential must be more negative."
+          ],
+          "common_traps": [
+            "$E°_{\\text{cell}} = E°_{\\text{cathode}} - E°_{\\text{anode}}$. Rearrange to find E°$_{\\text{anode}}$ = E°$_{\\text{cathode}}$ − E°$_{\\text{cell}}$ = 0.80 − 1.54 = −0.74 V."
+          ]
+        },
+        {
+          "point_id": "bii1",
+          "point_value": 1,
+          "description": "For the correct balanced overall net ionic equation: 1 point",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$\\text{Cr}(\\text{s}) + 3\\text{ Ag}^+(\\text{aq}) \\rightarrow \\text{Cr}^{3+}(\\text{aq}) + 3\\text{ Ag}(\\text{s})$"
+              ],
+              "correct_example": "Cr → Cr$^{3+}$ + 3e$^-$ (oxidation, × 1)\nAg$^+$ + e$^-$ → Ag (reduction, × 3)\nOverall: Cr(s) + 3 Ag$^+$(aq) → Cr$^{3+}$(aq) + 3 Ag(s)"
+            }
+          ],
+          "wrong_examples": [
+            "Writing Cr + Ag$^+$ → Cr$^{3+}$ + Ag without balancing electrons (need × 3 for Ag).",
+            "Reversing the reaction direction — Ag$^+$ is reduced (stated in the problem), Cr is oxidized."
+          ],
+          "common_traps": [
+            "Balance electrons: Cr loses 3e$^-$; each Ag$^+$ gains 1e$^-$. Multiply the Ag half-reaction by 3 to balance the 3 electrons."
+          ]
+        },
+        {
+          "point_id": "biii1",
+          "point_value": 1,
+          "description": "For the correct ΔG° using n = 3 and E° = +1.54 V: 1 point",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$\\Delta G° = -nFE° = -(3)(96,485\\text{ C/mol})(1.54\\text{ V}) \\approx -4.46 \\times 10^5\\text{ J/mol}$",
+                "n = 3 electrons transferred"
+              ],
+              "correct_example": "$\\Delta G° = -nFE° = -(3)(96,485)(1.54) = -446,000\\text{ J/mol} = -4.46 \\times 10^5\\text{ J/mol}_{\\text{rxn}}$\n(Negative: confirms thermodynamically favorable reaction)"
+            }
+          ],
+          "wrong_examples": [
+            "Using n = 1 — 3 electrons are transferred in the balanced equation.",
+            "Using n = 6 — the total electrons transferred is 3 (not doubled since we used × 1 for Cr and × 3 for Ag, and 3 × 1 = 3)."
+          ],
+          "common_traps": [
+            "n = total electrons transferred in the balanced equation. Cr loses 3e$^-$ and 3 Ag$^+$ each gain 1e$^-$ = 3e$^-$ total. n = 3."
+          ]
         }
       ]
     }

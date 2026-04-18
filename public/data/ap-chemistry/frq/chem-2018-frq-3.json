@@ -3,14 +3,9 @@
   "subject": "ap-chemistry",
   "year": 2018,
   "source": "released",
-  "title": "Acid-Base Titration & Buffer Chemistry",
+  "title": "Iron Chemistry: Electron Configuration, Coulomb's Law & Redox Titration",
   "frq_type": "multi_part_math",
-  "related_units": [
-    1,
-    3,
-    4,
-    7
-  ],
+  "related_units": [1, 3, 4, 7],
   "calculator_allowed": true,
   "total_points": 10,
   "stimulus": "Answer the following questions relating to Fe and its ions, Fe2+ and Fe3+.",
@@ -21,24 +16,29 @@
       "letter": "a",
       "prompt": "Write the ground-state electron configuration of the Fe2+ ion.\nIon Ionic Radius (pm)\nFe2+ 92\nFe3+ 79",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "Fe is [Ar]3d$^6$4s$^2$ (Z = 26). Fe$^{2+}$ loses 2 electrons from the 4s orbital first (4s is higher in energy for ions): [Ar]3d$^6$ or written fully as 1s$^2$2s$^2$2p$^6$3s$^2$3p$^6$3d$^6$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "for a correct electron configuration",
+          "description": "For the correct ground-state electron configuration of Fe$^{2+}$: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "for a correct electron configuration"
+                "[Ar]3d$^6$ OR 1s$^2$2s$^2$2p$^6$3s$^2$3p$^6$3d$^6$"
               ],
-              "correct_example": "(a) Write the ground-state electron configuration of the Fe2+ ion 1s2 2s2 2p6 3s2 3p6 3d6 OR [Ar] 3d6 1 poi nt is earned Ion Ionic Radius (pm)"
+              "correct_example": "Fe$^{2+}$: 1s$^2$2s$^2$2p$^6$3s$^2$3p$^6$3d$^6$ or [Ar]3d$^6$\n(Fe loses both 4s electrons to form Fe$^{2+}$; the 3d$^6$ configuration remains.)"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Writing [Ar]3d$^4$4s$^2$ — this is the neutral Fe atom ground state, not Fe$^{2+}$.",
+            "Writing [Ar]3d$^5$4s$^1$ — this is wrong for Fe$^{2+}$; both electrons come from 4s."
+          ],
+          "common_traps": [
+            "Transition metal ions lose valence electrons from the 4s orbital before the 3d. Fe$^{2+}$ loses both 4s electrons, leaving [Ar]3d$^6$."
+          ]
         }
       ]
     },
@@ -46,49 +46,61 @@
       "letter": "b",
       "prompt": "The radii of the ions are given in the table above. Using principles of atomic structure, explain why\nthe radius of the Fe2+ ion is larger than the radius of the Fe3+ ion.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "Fe$^{2+}$ has 24 electrons; Fe$^{3+}$ has 23 electrons. Both have the same nuclear charge (+26). In Fe$^{2+}$, there are 6 electrons in the 3d subshell. In Fe$^{3+}$, there are only 5 electrons in 3d. With more electrons (Fe$^{2+}$), electron–electron repulsion in the 3d subshell is greater, causing the electron cloud to expand. Additionally, the higher electron-to-proton ratio in Fe$^{2+}$ results in less effective nuclear attraction per electron → larger radius.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "a valid explanation",
+          "description": "For correct atomic structure reasoning (more electrons, greater repulsion, or less effective nuclear charge per electron): 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "a valid explanation"
+                "Fe$^{2+}$ has more electrons than Fe$^{3+}$ (24 vs. 23), same nuclear charge (+26).",
+                "More electrons → greater electron-electron repulsion → larger radius. OR: Fe$^{3+}$ has the same nuclear charge but fewer electrons → greater effective nuclear attraction per electron → more contracted."
               ],
-              "correct_example": "The radii of the ions are given in the table above. Using principles of atomic structure, explain why the radius of the Fe2+ ion is larger than the radius of the"
+              "correct_example": "Fe$^{2+}$ has 24 electrons and Fe$^{3+}$ has 23 electrons, but both have the same nuclear charge of +26. Fe$^{2+}$ has one more 3d electron, leading to greater electron–electron repulsion and a higher electron-to-proton ratio. The effective nuclear charge per electron is lower for Fe$^{2+}$, so the electron cloud is less contracted. Therefore Fe$^{2+}$ (92 pm) is larger than Fe$^{3+}$ (79 pm)."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Saying Fe$^{3+}$ has a larger nuclear charge — both ions come from the same element (Fe, Z = 26); the nuclear charge is the same.",
+            "Attributing the difference to different orbital occupancy without connecting to radius — must link electron count or repulsion to size."
+          ],
+          "common_traps": [
+            "Isoelectronic comparison: same nuclear charge, more electrons = larger radius (less nuclear attraction per electron). Removing an electron reduces repulsion and contracts the ion."
+          ]
         }
       ]
     },
     {
       "letter": "c",
-      "prompt": "Fe3+ ions interact more strongly with water molecules in aqueous solution than Fe2+ ions do.\nGive one reason for this stronger interaction, and justify your answer using Coulomb’s law.\nA student obtains a solution that contains an unknown concentration of Fe2+(aq). To determine the concentration\nof Fe2+(aq) in the solution, the student titrates a sample of the solution with MnO\n− (aq), which converts\nFe2+(aq) to Fe3+(aq), as represented by the following equation.\n5 Fe2+(aq) + MnO − (aq) + 8 H+(aq) → 5 Fe3+(aq) + Mn2+(aq) + 4 $H_2O$(l)\n4 2",
+      "prompt": "Fe3+ ions interact more strongly with water molecules in aqueous solution than Fe2+ ions do.\nGive one reason for this stronger interaction, and justify your answer using Coulomb's law.\nA student obtains a solution that contains an unknown concentration of Fe2+(aq). To determine the concentration\nof Fe2+(aq) in the solution, the student titrates a sample of the solution with MnO\n− (aq), which converts\nFe2+(aq) to Fe3+(aq), as represented by the following equation.\n5 Fe2+(aq) + MnO − (aq) + 8 H+(aq) → 5 Fe3+(aq) + Mn2+(aq) + 4 $H_2O$(l)\n4 2",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "Fe$^{3+}$ has a higher charge (+3 vs. +2) than Fe$^{2+}$. Additionally, Fe$^{3+}$ is smaller (79 pm vs. 92 pm). By Coulomb's law, the force between ions is $F \\propto q_1 q_2 / r^2$. For ion-dipole interactions between Fe$^{n+}$ and water (with its partial negative oxygen): higher charge (+3) and smaller radius (79 pm) both increase the force. Either reason (higher charge or smaller size) with proper Coulomb's law justification earns the point.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Provide a correct response",
+          "description": "For identifying higher charge (+3 vs. +2) or smaller radius as the reason, with Coulomb's law justification: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "Provide a correct response"
+                "Fe$^{3+}$ has higher charge (+3) than Fe$^{2+}$ (+2), OR Fe$^{3+}$ has smaller ionic radius (79 pm vs. 92 pm).",
+                "Coulomb's law: $F \\propto q_1 q_2 / r^2$ — higher charge or smaller distance → stronger attraction to polar water molecules."
               ],
-              "correct_example": "Fe3+ ions interact more strongly with water molecules in aqueous solution than Fe2+ ions do. Give one reason for this stronger interaction, and justify your answer using Coulomb's law. Coulomb's law:"
+              "correct_example": "Fe$^{3+}$ has a charge of +3 compared to +2 for Fe$^{2+}$. By Coulomb's law, the attractive force between ions is proportional to the product of charges ($F \\propto q_1 q_2 / r^2$). A larger positive charge on Fe$^{3+}$ results in stronger attraction to the partial negative charge on the oxygen atoms of water molecules (ion-dipole interaction). Additionally, Fe$^{3+}$ is smaller (79 pm vs. 92 pm), meaning the charges are closer together, further increasing the force."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Saying Fe$^{3+}$ is larger than Fe$^{2+}$ — Fe$^{3+}$ is actually smaller.",
+            "Citing H-bonding as the interaction type — Fe$^{3+}$ and water interact via ion-dipole forces, not hydrogen bonding."
+          ],
+          "common_traps": [
+            "Ion-water interactions are ion-dipole forces. Coulomb's law: $F \\propto q/r^2$. For the same type of ion, higher charge and/or smaller size → stronger interaction with water."
+          ]
         }
       ]
     },
@@ -96,49 +108,80 @@
       "letter": "d",
       "prompt": "Write the balanced equation for the half-reaction for the oxidation of Fe2+(aq) to Fe3+(aq).",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "Oxidation of Fe$^{2+}$ to Fe$^{3+}$: Fe$^{2+}$(aq) → Fe$^{3+}$(aq) + e$^-$. One electron is lost (charge increases from +2 to +3). This is the oxidation half-reaction. Balance: one electron lost per Fe atom.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "for the correct half -reaction",
+          "description": "For the correct oxidation half-reaction: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "for the correct half -reaction"
+                "$\\text{Fe}^{2+}(\\text{aq}) \\rightarrow \\text{Fe}^{3+}(\\text{aq}) + e^-$"
               ],
-              "correct_example": "(d) Write the balanced equation for the half-reaction for the oxidation of Fe2+(aq) to Fe3+(aq) Fe3+(aq) + e 1 poi nt is earned"
+              "correct_example": "$\\text{Fe}^{2+}(\\text{aq}) \\rightarrow \\text{Fe}^{3+}(\\text{aq}) + e^-$\n(One electron lost — oxidation means loss of electrons. OIL: Oxidation Is Loss.)"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Writing Fe$^{3+}$ + e$^-$ → Fe$^{2+}$ — this is the reduction half-reaction (Fe$^{3+}$ gains an electron). The question asks for oxidation.",
+            "Forgetting to include the electron: Fe$^{2+}$ → Fe$^{3+}$ — charge is not balanced without the electron."
+          ],
+          "common_traps": [
+            "Oxidation = loss of electrons. Oxidation half-reaction: reactant → product + e$^-$. The electron is written as a product."
+          ]
         }
       ]
     },
     {
       "letter": "e",
       "prompt": "The student titrates a 10.0 mL sample of the Fe2+(aq) solution. Calculate the value of [Fe2+] in the solution\nif it takes 17.48 mL of added 0.0350 M KMnO\n(aq) to reach the equivalence point of the titration.\nTo deliver the 10.0 mL sample of the Fe2+(aq) solution in part (e), the student has the choice of using one of the\npieces of glassware listed below.\n• 25 mL buret • 25 mL beaker\n• 25 mL graduated cylinder • 25 mL volumetric flask",
-      "point_value": 1,
-      "scoring_notes": null,
+      "point_value": 2,
+      "scoring_notes": "Moles KMnO$_4$ = (0.0350 M)(0.01748 L) = 6.118 × 10$^{-4}$ mol. From balanced equation: 5 Fe$^{2+}$ react per 1 MnO$_4^-$. Moles Fe$^{2+}$ = 5 × 6.118 × 10$^{-4}$ mol = 3.059 × 10$^{-3}$ mol. [Fe$^{2+}$] = 3.059 × 10$^{-3}$ mol / 0.0100 L = 0.306 M.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "e1",
           "point_value": 1,
-          "description": "Provide a correct response",
+          "description": "For correct moles of KMnO$_4$ and applying the 5:1 stoichiometric ratio: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "Provide a correct response"
+                "Moles KMnO$_4$ = (0.0350 M)(0.01748 L) = 6.12 × 10$^{-4}$ mol.",
+                "Moles Fe$^{2+}$ = 5 × 6.12 × 10$^{-4}$ = 3.06 × 10$^{-3}$ mol (using 5:1 ratio from balanced equation)."
               ],
-              "correct_example": "The student titrates a 10.0 mL sample of the Fe2+(aq) solution. Calculate the value of [Fe2+] in the solution if it takes 17.48 mL of added 0.0350 M KMnOiaq) to reach the equivalence point of the tit"
+              "correct_example": "Moles KMnO$_4$ = (0.0350)(0.01748) = 6.118 × 10$^{-4}$ mol. From 5 Fe$^{2+}$ : 1 MnO$_4^-$: moles Fe$^{2+}$ = 5 × 6.118 × 10$^{-4}$ = 3.059 × 10$^{-3}$ mol."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Using a 1:1 ratio — the balanced equation shows 5 Fe$^{2+}$ per 1 MnO$_4^-$; must use 5:1 ratio.",
+            "Not converting mL to L — 17.48 mL = 0.01748 L."
+          ],
+          "common_traps": [
+            "Always check stoichiometric coefficients: 5 Fe$^{2+}$ react per 1 MnO$_4^-$. Multiply moles of titrant by 5."
+          ]
+        },
+        {
+          "point_id": "e2",
+          "point_value": 1,
+          "description": "For the correct [Fe$^{2+}$] = 0.306 M: 1 point",
+          "alternatives": [
+            {
+              "required_elements": [
+                "[Fe$^{2+}$] = 3.059 × 10$^{-3}$ mol / 0.0100 L = 0.306 M"
+              ],
+              "correct_example": "[Fe$^{2+}$] = (3.059 × 10$^{-3}$ mol) / (0.0100 L) = 0.306 M"
+            }
+          ],
+          "wrong_examples": [
+            "Dividing by 17.48 mL (volume of KMnO$_4$) instead of 10.0 mL (volume of the Fe$^{2+}$ sample).",
+            "Forgetting to convert 10.0 mL to 0.0100 L."
+          ],
+          "common_traps": [
+            "Concentration of analyte = moles of analyte / volume of analyte sample (0.010 L), not volume of titrant."
+          ]
         }
       ]
     },
@@ -146,74 +189,130 @@
       "letter": "f",
       "prompt": "Explain why the 25 mL volumetric flask would be a poor choice to use for delivering the required volume of\nthe Fe2+(aq) solution.\nIn a separate experiment, the student is given a sample of powdered Fe(s) that contains an inert impurity. The\nstudent uses a procedure to oxidize the Fe(s) in the sample to Fe\nO\n(s). The student collects the following data\nduring the experiment.\nMass of Fe(s) with inert impurity 6.724 g\nMass of Fe O (s) produced 7.531 g\n2 3",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "A volumetric flask is designed to contain a single precise volume (its rated volume) at a specific temperature, not to deliver or dispense variable volumes. It cannot accurately measure 10.0 mL (it is only calibrated for 25.00 mL). To deliver 10.0 mL precisely, a buret or pipette is needed.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "f1",
           "point_value": 1,
-          "description": "Provide a correct response",
+          "description": "For the correct explanation that a volumetric flask is for containing, not delivering, a precise volume: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "Provide a correct response"
+                "A volumetric flask is calibrated to contain only 25.00 mL precisely — it cannot be used to accurately deliver 10.0 mL.",
+                "Alternatively: a volumetric flask has only a single calibration mark (at its full capacity) and cannot measure or dispense partial volumes accurately."
               ],
-              "correct_example": "Explain why the 25 mL volumetric flask would be a poor choice to use for delivering the required volume of the Fe2+(aq) solution. The vol umetric flask is designed to contain only 25.00 mL precisely.1"
+              "correct_example": "The volumetric flask is designed to contain exactly 25.00 mL (when filled to the calibration mark) at a specified temperature. It is not designed to deliver a specific volume — it has no graduation marks below the 25 mL mark. The student would be unable to measure precisely 10.0 mL using only a volumetric flask. A buret would be the best choice, as it can deliver any volume up to 25 mL with high precision."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Saying a volumetric flask is inaccurate — it is very accurate, but only for its single rated volume. The issue is that it's designed to CONTAIN, not deliver, that volume.",
+            "Saying a beaker would be better — beakers are not precision glassware and also cannot accurately measure 10.0 mL."
+          ],
+          "common_traps": [
+            "Glassware purposes: volumetric flask = precise single volume (TC, 'to contain'); buret/pipette = precise dispensing (TD, 'to deliver'). Graduated cylinders and beakers are lower precision."
+          ]
         }
       ]
     },
     {
       "letter": "g",
       "prompt": "Calculate the number of moles of Fe in the Fe\nO\n(s) produced.",
-      "point_value": 1,
-      "scoring_notes": null,
+      "point_value": 2,
+      "scoring_notes": "Molar mass of Fe$_2$O$_3$ = 2(55.85) + 3(16.00) = 111.7 + 48.0 = 159.7 g/mol. Moles Fe$_2$O$_3$ = 7.531 g / 159.7 g/mol = 0.04715 mol. Each formula unit of Fe$_2$O$_3$ contains 2 Fe atoms. Moles Fe = 2 × 0.04715 mol = 0.09430 mol.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "g1",
           "point_value": 1,
-          "description": "Calculate the number of moles of Fe in the Fe O (s) produced.",
+          "description": "For the correct moles of Fe$_2$O$_3$: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "Calculate the number of moles of Fe in the Fe O (s) produced."
+                "Moles Fe$_2$O$_3$ = 7.531 g / 159.7 g/mol = 0.04715 mol"
               ],
-              "correct_example": "Calculate the number of moles of Fe in the Fe2O3(s) produced. 23 2 3 2 3 231 mol Fe O7.531 g Fe O 0.04716 mol Fe O159.70 g Fe O ´= 23 232 mol Fe0.04716 mol Fe O 0.09431 mol Fe1 mol Fe O ´="
+              "correct_example": "Molar mass Fe$_2$O$_3$ = 2(55.85) + 3(16.00) = 159.7 g/mol\nMoles Fe$_2$O$_3$ = 7.531 g / 159.7 g/mol = 0.04715 mol"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Using molar mass of Fe (55.85 g/mol) instead of Fe$_2$O$_3$ (159.7 g/mol)."
+          ],
+          "common_traps": [
+            "Convert grams of Fe$_2$O$_3$ to moles using the molar mass of the COMPOUND, not just the element Fe."
+          ]
+        },
+        {
+          "point_id": "g2",
+          "point_value": 1,
+          "description": "For the correct moles of Fe = 2 × moles Fe$_2$O$_3$: 1 point",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Moles Fe = 2 × 0.04715 mol = 0.09430 mol"
+              ],
+              "correct_example": "Fe$_2$O$_3$ contains 2 mol Fe per mol compound.\nMoles Fe = 2 × 0.04715 mol = 0.09430 mol Fe"
+            }
+          ],
+          "wrong_examples": [
+            "Using a 1:1 ratio (1 mol Fe per mol Fe$_2$O$_3$) — the formula Fe$_2$O$_3$ has 2 Fe per formula unit."
+          ],
+          "common_traps": [
+            "Fe$_2$O$_3$: the subscript 2 means 2 moles of Fe per mole of compound. Multiply moles of compound by 2."
+          ]
         }
       ]
     },
     {
       "letter": "h",
       "prompt": "Calculate the percent by mass of Fe in the original sample of powdered Fe(s) with the inert impurity.\n(i) If the oxidation of the Fe(s) in the original sample was incomplete so that some of the 7.531 g of product\nwas FeO(s) instead of Fe\nO\n(s), would the calculated mass percent of Fe(s) in the original sample be\nhigher, lower, or the same as the actual mass percent of Fe(s)? Justify your answer.\nBoiling Point at 1 atm\nCompound Molecular Structure\n(K)\nCS 319\nCOS 223",
-      "point_value": 1,
-      "scoring_notes": null,
+      "point_value": 2,
+      "scoring_notes": "Part (h): Mass Fe = 0.09430 mol × 55.85 g/mol = 5.267 g. % Fe = (5.267 g / 6.724 g) × 100% = 78.3%. Part (h)(i): If some product is FeO instead of Fe$_2$O$_3$: FeO has a higher mass ratio of Fe per gram of oxide (72.3% Fe in FeO vs. 69.9% Fe in Fe$_2$O$_3$). If the assumption is that ALL product is Fe$_2$O$_3$, but some is actually FeO (which has more Fe per gram), then the calculated mass of Fe (using Fe$_2$O$_3$ formula) would be LESS than the actual Fe mass. Therefore the calculated % Fe would be LOWER than the actual % Fe.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "h1",
           "point_value": 1,
-          "description": "Calculate the percent by mass of Fe in the original sample of powdered Fe(s) with the inert impurity.",
+          "description": "For the correct percent by mass of Fe ≈ 78.3%: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "Calculate the percent by mass of Fe in the original sample of powdered Fe(s) with the inert impurity."
+                "Mass Fe = (0.09430 mol)(55.85 g/mol) = 5.267 g",
+                "% Fe = (5.267 / 6.724) × 100% = 78.3%"
               ],
-              "correct_example": "The calculated mass percent of Fe would be lower than the actual A sample that contains any FeO (rather than Fe OJ will have a"
+              "correct_example": "Mass Fe = (0.09430 mol)(55.85 g/mol) = 5.267 g\n% Fe = (5.267 g / 6.724 g) × 100% = 78.3%"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Dividing mass Fe by mass of Fe$_2$O$_3$ instead of mass of original sample (6.724 g).",
+            "Using the wrong moles from part (g) — the answer should be consistent with part (g) (accept consistent answers)."
+          ],
+          "common_traps": [
+            "% by mass = (mass of Fe / mass of original sample) × 100%. Denominator is the ORIGINAL impure sample mass (6.724 g), not the Fe$_2$O$_3$ mass."
+          ]
+        },
+        {
+          "point_id": "hi1",
+          "point_value": 1,
+          "description": "For 'lower' with reasoning about FeO having a higher Fe:O mass ratio than Fe$_2$O$_3$: 1 point",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Lower.",
+                "FeO has a higher proportion of Fe per gram than Fe$_2$O$_3$. If some FeO is present, the 7.531 g of product contains MORE Fe than if it were all Fe$_2$O$_3$. Assuming all Fe$_2$O$_3$ underestimates the actual Fe content → calculated % Fe is lower."
+              ],
+              "correct_example": "Lower. FeO has molar mass 71.85 g/mol with 55.85 g Fe per mol (77.8% Fe), while Fe$_2$O$_3$ has 159.7 g/mol with 111.7 g Fe per mol (69.9% Fe). If some product is FeO rather than Fe$_2$O$_3$, the actual number of moles of Fe in 7.531 g is greater than what is calculated assuming all Fe$_2$O$_3$. The student's calculation using only Fe$_2$O$_3$ gives a lower mole count for Fe → lower mass of Fe → lower % Fe. The calculated value is an underestimate."
+            }
+          ],
+          "wrong_examples": [
+            "Saying 'higher' — if some product is FeO (which has MORE Fe per gram), the actual Fe mass is larger than calculated. The calculated value would be lower, not higher.",
+            "Saying 'the same' — FeO and Fe$_2$O$_3$ have different Fe:O mass ratios."
+          ],
+          "common_traps": [
+            "Compare Fe mass fraction: FeO = 55.85/71.85 = 77.8% Fe; Fe$_2$O$_3$ = 111.7/159.7 = 69.9% Fe. FeO is richer in Fe. If some FeO is mistakenly counted as Fe$_2$O$_3$, the calculated Fe is less than actual → calculated % Fe is lower."
+          ]
         }
       ]
     }

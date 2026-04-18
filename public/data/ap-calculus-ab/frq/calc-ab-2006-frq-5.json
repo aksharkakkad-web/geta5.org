@@ -3,7 +3,7 @@
   "subject": "ap-calculus-ab",
   "year": 2006,
   "source": "released",
-  "title": "Differential Equations & Slope Fields",
+  "title": "Differential Equation $dy/dx = y/x$ — Slope Field, Particular Solution & Concavity",
   "frq_type": "multi_part_math",
   "related_units": [
     2,
@@ -20,19 +20,19 @@
     {
       "letter": "a",
       "prompt": "On the axes provided, sketch a slope field for the given differential equation at the eight points indicated. (Note: Use the axes provided in the pink exam booklet.)",
-      "point_value": 1,
-      "scoring_notes": null,
+      "point_value": 2,
+      "scoring_notes": "Slope field: at any point (x,y) the slope is y/x. In Q1 (x>0,y>0) and Q3 (x<0,y<0) slopes are positive; in Q2 (x<0,y>0) and Q4 (x>0,y<0) slopes are negative. At points on the axes the slope is 0 or undefined.",
       "requires_drawing": true,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct zero slopes in slope field",
+          "description": "Correct zero slopes at points where $y = 0$ (slopes are $0/x = 0$)",
           "alternatives": [
             {
               "required_elements": [
-                "Zero slopes where $x = 0$ or $y = 0$"
+                "Zero slopes where $y = 0$"
               ]
             }
           ]
@@ -40,12 +40,12 @@
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Correct nonzero slopes with correct sign pattern",
+          "description": "Correct sign pattern: positive slopes in Q1 and Q3, negative slopes in Q2 and Q4",
           "alternatives": [
             {
               "required_elements": [
-                "Positive slopes in Q1 and Q3",
-                "Negative slopes in Q2 and Q4"
+                "Positive slopes in Q1 ($x>0, y>0$) and Q3 ($x<0, y<0$)",
+                "Negative slopes in Q2 ($x<0, y>0$) and Q4 ($x>0, y<0$)"
               ]
             }
           ]
@@ -55,35 +55,112 @@
     {
       "letter": "b",
       "prompt": "Find the particular solution $y = f(x)$ to the differential equation with the initial condition $f(-1) = 1$ and state its domain.",
-      "point_value": 1,
-      "scoring_notes": null,
+      "point_value": 5,
+      "scoring_notes": "Separate variables: dy/y = dx/x. Integrate: ln|y| = ln|x| + C. Exponentiate: |y| = e^C |x|, so y = Ax for constant A. Apply f(-1)=1: 1 = A(-1) => A = -1. Particular solution: y = -x. Domain: x < 0 (since f(-1) = 1 > 0 and y = -x > 0 requires x < 0).",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
-          "point_value": 2,
-          "description": "Correct derivation using product rule for $\\frac{d^2y}{dx^2}$",
+          "point_value": 1,
+          "description": "Correctly separates variables: $\\frac{dy}{y} = \\frac{dx}{x}$",
           "alternatives": [
             {
               "required_elements": [
-                "$\\frac{d^2y}{dx^2} = \\frac{d}{dx}(xy) = y + x\\frac{dy}{dx}$",
-                "Substituting $\\frac{dy}{dx} = xy$: $= y + x(xy) = y(1+x^2)$"
+                "$\\frac{dy}{y} = \\frac{dx}{x}$"
               ],
-              "correct_example": "$\\frac{d^2y}{dx^2} = y + x \\cdot xy = y(1 + x^2)$"
+              "correct_example": "$\\frac{dy}{y} = \\frac{dx}{x}$"
             }
           ]
         },
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct answer for sign of $\\frac{d^2y}{dx^2}$ at $(1,1)$ with reason",
+          "description": "Correct antiderivative of left side: $\\ln|y|$",
           "alternatives": [
             {
               "required_elements": [
-                "$f''(1) = 1(1+1) = 2 > 0$",
-                "Concave up at $(1,1)$"
+                "$\\ln|y|$"
               ]
+            }
+          ]
+        },
+        {
+          "point_id": "b3",
+          "point_value": 1,
+          "description": "Correct antiderivative of right side: $\\ln|x| + C$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$\\ln|x| + C$"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "b4",
+          "point_value": 1,
+          "description": "Uses initial condition $f(-1) = 1$ to find $A = -1$, giving $y = -x$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Applies $f(-1) = 1$: $1 = A(-1) \\Rightarrow A = -1$",
+                "Particular solution $y = -x$"
+              ],
+              "correct_example": "$y = Ax$; $1 = A(-1) \\Rightarrow A = -1 \\Rightarrow y = -x$"
+            }
+          ]
+        },
+        {
+          "point_id": "b5",
+          "point_value": 1,
+          "description": "Correct domain: $x < 0$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Domain: $x < 0$"
+              ],
+              "correct_example": "Since $y = -x$ and the solution passes through $(-1, 1)$ (where $x < 0$), the domain is $x < 0$."
+            }
+          ],
+          "common_traps": [
+            "Stating domain as all real numbers or $x \\ne 0$ without restricting to the branch containing the initial condition"
+          ]
+        }
+      ]
+    },
+    {
+      "letter": "c",
+      "prompt": "Find $\\frac{d^2y}{dx^2}$ in terms of $x$ and $y$. Determine the concavity of the particular solution found in part (b) at $x = -1$. Give a reason for your answer.",
+      "point_value": 2,
+      "scoring_notes": "Differentiate dy/dx = y/x implicitly: d^2y/dx^2 = (x*y' - y)/x^2 = (x*(y/x) - y)/x^2 = (y - y)/x^2 = 0... wait: (x*(y/x) - y)/x^2 = (y - y)/x^2 = 0. That gives 0 which is not helpful. Actually use quotient rule: d/dx[y/x] = (xy' - y)/x^2 = (x*(y/x) - y)/x^2 = (y - y)/x^2 = 0? Let me recalculate: d^2y/dx^2 = d/dx[y/x] = (x * dy/dx - y * 1)/x^2 = (x*(y/x) - y)/x^2 = (y - y)/x^2 = 0. So d^2y/dx^2 = 0? For particular solution y = -x: y'' = 0 (linear). Concavity is neither concave up nor concave down (linear).",
+      "requires_drawing": false,
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "c1",
+          "point_value": 1,
+          "description": "Correctly differentiates $\\frac{dy}{dx} = \\frac{y}{x}$ with respect to $x$: $\\frac{d^2y}{dx^2} = \\frac{x \\frac{dy}{dx} - y}{x^2} = \\frac{x \\cdot \\frac{y}{x} - y}{x^2} = \\frac{y - y}{x^2} = 0$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$\\frac{d^2y}{dx^2} = \\frac{x \\cdot (y/x) - y}{x^2} = 0$"
+              ],
+              "correct_example": "$\\frac{d^2y}{dx^2} = \\frac{x \\frac{dy}{dx} - y}{x^2} = 0$"
+            }
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "At $x = -1$, $\\frac{d^2y}{dx^2} = 0$, so the particular solution is neither concave up nor concave down (it is linear: $y = -x$)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$\\frac{d^2y}{dx^2} = 0$ at $x = -1$",
+                "Neither concave up nor concave down (linear)"
+              ],
+              "correct_example": "$y'' = 0$ everywhere, so the solution $y = -x$ is linear — neither concave up nor concave down at $x = -1$."
             }
           ]
         }

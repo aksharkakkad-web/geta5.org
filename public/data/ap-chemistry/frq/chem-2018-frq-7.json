@@ -5,9 +5,7 @@
   "source": "released",
   "title": "Chemical Kinetics & Rate Laws",
   "frq_type": "multi_part_math",
-  "related_units": [
-    5
-  ],
+  "related_units": [5],
   "calculator_allowed": true,
   "total_points": 4,
   "stimulus": "The complete photoelectron spectrum of an element is represented above.",
@@ -18,24 +16,29 @@
       "letter": "a",
       "prompt": "Identify the element.\nA radioactive isotope of the element decays with a half-life of 10. minutes.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "The photoelectron spectrum shows peaks corresponding to subshells. Count the total number of electrons from the peak intensities to identify the element. The spectrum shows peaks at energies consistent with 1s (2 electrons), 2s (2 electrons), and 2p (3 electrons) = 7 electrons total → Nitrogen (N, Z = 7).",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Identify the element.",
+          "description": "For identifying the element as nitrogen (N): 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "Identify the element."
+                "Nitrogen (N)"
               ],
-              "correct_example": "The element is nitrogen, N."
+              "correct_example": "The photoelectron spectrum shows three peaks with relative intensities 2:2:3 (1s, 2s, 2p). Total electrons = 2 + 2 + 3 = 7. The element with 7 electrons (atomic number 7) is nitrogen (N)."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Saying oxygen (O, Z = 8) — the 2p subshell has 3 electrons (not 4) for nitrogen.",
+            "Saying carbon (C, Z = 6) — carbon has only 2 electrons in the 2p subshell."
+          ],
+          "common_traps": [
+            "In a photoelectron spectrum, the relative peak heights represent the number of electrons in each subshell. Sum the electron counts from all peaks to find the total (atomic number)."
+          ]
         }
       ]
     },
@@ -43,49 +46,79 @@
       "letter": "b",
       "prompt": "Calculate the value of the rate constant, k, for the radioactive decay. Include units with your answer.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "Radioactive decay is first-order. $k = \\ln 2 / t_{1/2} = 0.6931 / 10.\\text{ min} = 0.069\\text{ min}^{-1}$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Calculate the value of the rate constant, k, for the radioactive decay. Include units with your answer.",
+          "description": "For the correct rate constant k with units: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "Calculate the value of the rate constant, k, for the radioactive decay. Include units with your answer."
+                "$k = \\ln 2 / t_{1/2} = 0.693 / 10.\\text{ min} = 0.069\\text{ min}^{-1}$"
               ],
-              "correct_example": "OR"
+              "correct_example": "All radioactive decay is first-order.\n$k = \\frac{\\ln 2}{t_{1/2}} = \\frac{0.693}{10.\\text{ min}} = 0.069\\text{ min}^{-1}$\nOR: $6.9 \\times 10^{-2}\\text{ min}^{-1}$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Not including units for k — first-order rate constant has units of min$^{-1}$ (or s$^{-1}$, etc.).",
+            "Using $k = t_{1/2} / \\ln 2$ — this gives the inverse; the formula is $k = \\ln 2 / t_{1/2}$."
+          ],
+          "common_traps": [
+            "First-order half-life relationship: $t_{1/2} = \\ln 2 / k$. Rearrange: $k = \\ln 2 / t_{1/2} = 0.693 / t_{1/2}$. Units of k = units of (1/time)."
+          ]
         }
       ]
     },
     {
       "letter": "c",
       "prompt": "If 64 atoms of the radioactive isotope are originally present in a sample, what is the expected amount of time\nthat will pass until only one atom of the isotope remains? Show how you arrived at your answer.",
-      "point_value": 1,
-      "scoring_notes": null,
+      "point_value": 2,
+      "scoring_notes": "Starting with 64 atoms, each half-life reduces the count by half. 64 → 32 → 16 → 8 → 4 → 2 → 1. Six half-lives reduce 64 to 1 atom. Time = 6 × 10. min = 60. min. Alternatively: use the first-order equation $\\ln(N_t/N_0) = -kt$: $\\ln(1/64) = -kt$ → $-\\ln 64 = -(0.0693)(t)$ → $t = \\ln 64 / 0.0693 = 4.158 / 0.0693 = 60.\\text{ min}$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "the correct answer and a valid method. © 2018 The College Board. Visit the College Board on the Web: www.collegeboard.org",
+          "description": "For the correct number of half-lives = 6 or using the integrated first-order equation: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "the correct answer and a valid method. © 2018 The College Board. Visit the College Board on the Web: www.collegeboard.org"
+                "6 half-lives are needed to reduce 64 → 1 atom: 64 → 32 → 16 → 8 → 4 → 2 → 1. OR: $\\ln(1/64) = -k \\cdot t$ → $t = \\ln 64 / k$."
               ],
-              "correct_example": "lives are required. 6 10. min= 60. min OR ln[A]1 ln[A] = kt t= ln(l) ln(64) = 60. min min"
+              "correct_example": "64 → 32 (1 t½) → 16 (2) → 8 (3) → 4 (4) → 2 (5) → 1 (6). Six half-lives required.\nOR: $\\ln(N_t/N_0) = -kt$ → $\\ln(1/64) = -(0.0693/\\text{min}) \\cdot t$ → $t = \\ln(64)/0.0693 = 60.\\text{ min}$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Stopping at 2 atoms (5 half-lives = 50 min) — need to reach 1 atom, requiring 6 half-lives.",
+            "Using 64 half-lives — each half-life halves the count; it only takes 6 halvings to go from 64 to 1."
+          ],
+          "common_traps": [
+            "Count successive halvings: $64 / 2^n = 1$ → $2^n = 64$ → $n = 6$. Or use logarithms: $n = \\log_2(64) = 6$ half-lives."
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "For the correct time = 60. min: 1 point",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Time = 6 × 10. min = 60. min"
+              ],
+              "correct_example": "Time = 6 half-lives × 10. min/half-life = 60. min"
+            }
+          ],
+          "wrong_examples": [
+            "Calculating 6 × 10 = 60.0 min but reporting 600 min — arithmetic error; 6 × 10 = 60.",
+            "Reporting 50 min (5 half-lives) — need 6 half-lives to reduce to 1 atom."
+          ],
+          "common_traps": [
+            "Total time = (number of half-lives) × (half-life duration). Verify: 6 × 10. min = 60. min. Report with correct sig figs (2 sig figs: 60. min)."
+          ]
         }
       ]
     }

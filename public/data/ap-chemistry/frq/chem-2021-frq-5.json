@@ -5,12 +5,10 @@
   "source": "released",
   "title": "Electrochemistry & Electrolysis",
   "frq_type": "multi_part_math",
-  "related_units": [
-    4
-  ],
+  "related_units": [4],
   "calculator_allowed": true,
   "total_points": 4,
-  "stimulus": "5. Molten $\\text{MgCl}_2$ can be decomposed into its elements if a sufficient voltage is applied using inert electrodes. The products of the reaction are liquid Mg (at the cathode) and $\\text{Cl}_2$ gas (at the anode). A simplified representation of the cell is shown above. The reduction half-reactions related to the overall reaction in the cell are given in the table.",
+  "stimulus": "Molten $\\text{MgCl}_2$ can be decomposed into its elements if a sufficient voltage is applied using inert electrodes. The products of the reaction are liquid Mg (at the cathode) and $\\text{Cl}_2$ gas (at the anode). A simplified representation of the cell is shown above. The reduction half-reactions related to the overall reaction in the cell are given in the table.\n\n| Half-Reaction | $E^\\circ$ (V) |\n|---|---|\n| $\\text{Mg}^{2+}(l) + 2e^- \\rightarrow \\text{Mg}(l)$ | $-2.37$ |\n| $\\text{Cl}_2(g) + 2e^- \\rightarrow 2\\text{Cl}^-(l)$ | $+1.36$ |",
   "stimulus_image": "/data/ap-chemistry/frq/images/chem-2021-frq-5-stimulus.png",
   "documents": null,
   "parts": [
@@ -18,11 +16,7 @@
       "letter": "a",
       "prompt": "Draw an arrow on the diagram to show the direction of electron flow through the external circuit as the cell operates.",
       "point_value": 1,
-      "rubric_criteria": [
-        "For the correct answer: 1 point",
-        "Electron flow should be indicated only in a counter-clockwise direction in the external circuit."
-      ],
-      "scoring_notes": null,
+      "scoring_notes": "In an electrolytic cell, electrons flow from the power source through the external circuit to the cathode (where reduction occurs). Since Mg is produced at the cathode, electrons flow from the anode toward the cathode in the external circuit — counter-clockwise as drawn in the standard diagram.",
       "requires_drawing": true,
       "reference_image": null
     },
@@ -30,24 +24,30 @@
       "letter": "b",
       "prompt": "Would an applied voltage of 2.0 V be sufficient for the reaction to occur? Support your claim with a calculation as part of your answer.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "The minimum voltage needed equals the magnitude of $E^\\circ_{cell}$ for the spontaneous reverse reaction. Overall electrolysis: $\\text{MgCl}_2(l) \\rightarrow \\text{Mg}(l) + \\text{Cl}_2(g)$. $E^\\circ_{cell} = E^\\circ_{cathode} - E^\\circ_{anode} = (-2.37) - (+1.36) = -3.73$ V. The cell has a negative $E^\\circ$, so an external voltage of at least 3.73 V is required. 2.0 V < 3.73 V, so it is NOT sufficient.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "For the correct answer and calculated value: 1 point",
+          "description": "For the correct answer ('No, 2.0 V is insufficient') with the correct calculated minimum voltage: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct answer and calculated value: 1 point"
+                "No, 2.0 V is not sufficient.",
+                "$E^\\circ_{cell} = (-2.37) - (+1.36) = -3.73$ V; minimum applied voltage must be at least 3.73 V."
               ],
-              "correct_example": "No, because 2.0 V is less than 3.73 V, which is the minimum voltage needed for electrolysis. $E^\\circ = -2.37 \\text{ V} + (-1.36 \\text{ V}) = -3.73 \\text{ V}$"
+              "correct_example": "No, 2.0 V is insufficient. The minimum voltage required is:\n$E^\\circ_{applied} \\geq |E^\\circ_{cathode} - E^\\circ_{anode}| = |{-2.37} - ({+1.36})| = 3.73$ V\n\nSince 2.0 V < 3.73 V, the applied voltage cannot overcome the unfavorable cell potential."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Adding the two reduction potentials: $-2.37 + 1.36 = -1.01$ V — must subtract $E^\\circ_{anode}$ from $E^\\circ_{cathode}$.",
+            "Saying 2.0 V is sufficient — the required minimum is 3.73 V; 2.0 V is less than this."
+          ],
+          "common_traps": [
+            "For electrolysis, $E^\\circ_{cell} = E^\\circ_{cathode} - E^\\circ_{anode}$ will be negative (non-spontaneous). The external voltage must exceed this magnitude. Cathode = where reduction occurs (Mg deposited); anode = where oxidation occurs ($\\text{Cl}^-$ oxidized to $\\text{Cl}_2$)."
+          ]
         }
       ]
     },
@@ -55,39 +55,49 @@
       "letter": "c",
       "prompt": "If the current in the cell is kept at a constant 5.00 amps, how many seconds does it take to produce 2.00 g of Mg(l) at the cathode?",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "Step 1: Moles of Mg = $2.00 \\text{ g} / 24.31 \\text{ g/mol} = 0.0823$ mol. Step 2: Moles of electrons = $0.0823 \\text{ mol Mg} \\times 2 \\text{ mol } e^-/\\text{mol Mg} = 0.1646$ mol $e^-$. Step 3: Charge = $0.1646 \\text{ mol} \\times 96485 \\text{ C/mol} = 15,880$ C. Step 4: Time = $15880 \\text{ C} / 5.00 \\text{ A} = 3180$ s (accept 3170–3190 s).",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "For the correct calculated value of moles of electrons (may be implicit): 1 point",
+          "description": "For the correct calculated moles of electrons (may be implicit in the calculation): 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct calculated value of moles of electrons (may be implicit): 1 point"
+                "$n(e^-) = \\dfrac{2.00\\text{ g}}{24.31\\text{ g/mol}} \\times \\dfrac{2\\text{ mol } e^-}{1\\text{ mol Mg}} = 0.165\\text{ mol } e^-$"
               ],
-              "correct_example": "1 mol Mg 2 mol 2.00 g Mg 0.165 mol 24.30 g Mg 1 mol Mgee−"
+              "correct_example": "$n(\\text{Mg}) = \\dfrac{2.00\\text{ g}}{24.31\\text{ g/mol}} = 0.0823\\text{ mol}$\n$n(e^-) = 0.0823\\text{ mol Mg} \\times \\dfrac{2\\text{ mol } e^-}{1\\text{ mol Mg}} = 0.165\\text{ mol } e^-$\n\n($\\text{Mg}^{2+} + 2e^- \\rightarrow \\text{Mg}$, so 2 mol electrons per mol Mg)"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Using 1 mol $e^-$ per mol Mg — Mg has a +2 charge, requiring 2 electrons per ion.",
+            "Using molar mass of MgCl₂ instead of Mg — the question asks about Mg produced at the cathode."
+          ],
+          "common_traps": [
+            "Half-reaction: $\\text{Mg}^{2+} + 2e^- \\rightarrow \\text{Mg}$. Always use the charge of the metal ion (here +2) as the electron-to-metal ratio. Molar mass of Mg = 24.31 g/mol."
+          ]
         },
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "For the correct calculated number of seconds: 1 point",
+          "description": "For the correct calculated time in seconds: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct calculated number of seconds: 1 point"
+                "$t = \\dfrac{n(e^-) \\times 96485\\text{ C/mol}}{I} = \\dfrac{0.165 \\times 96485}{5.00} \\approx 3180\\text{ s}$"
               ],
-              "correct_example": "96, 485 C 1 s0.165 mol 3180 s1 mol 5.00 Cee−"
+              "correct_example": "Charge = $0.165\\text{ mol} \\times 96485\\text{ C/mol} = 15,920\\text{ C}$\n$t = \\dfrac{Q}{I} = \\dfrac{15920\\text{ C}}{5.00\\text{ A}} \\approx 3180\\text{ s}$\n\n(Accept answer consistent with student's mol $e^-$ from c1.)"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Using 96485 J/mol instead of C/mol — Faraday's constant has units of C/mol.",
+            "Using the formula $t = n \\times F / I$ but plugging in mol Mg instead of mol $e^-$."
+          ],
+          "common_traps": [
+            "Faraday's constant $F = 96485$ C/mol $e^-$. Current $I$ in amperes = C/s. Time (s) = Total charge (C) / Current (A). Follow through from c1 mol $e^-$."
+          ]
         }
       ]
     }

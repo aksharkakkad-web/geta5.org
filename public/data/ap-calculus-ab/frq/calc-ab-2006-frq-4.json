@@ -42,7 +42,7 @@
     {
       "letter": "b",
       "prompt": "Using correct units, explain the meaning of $\\int_{10}^{70} v(t)\\, dt$ in terms of the rocket's flight. Use a midpoint Riemann sum with 3 subintervals of equal length to approximate $\\int_{10}^{70} v(t)\\, dt$.",
-      "point_value": 1,
+      "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
       "reference_image": null,
@@ -90,36 +90,77 @@
     {
       "letter": "c",
       "prompt": "Rocket B is launched upward with an acceleration of $a(t) = \\dfrac{3}{\\sqrt{t+1}}$ feet per second per second. At time $t = 0$ seconds, the initial height of the rocket is 0 feet, and the initial velocity is 2 feet per second. Which of the two rockets is traveling faster at time $t = 80$ seconds? Explain your answer.",
-      "point_value": 1,
-      "scoring_notes": null,
+      "point_value": 5,
+      "scoring_notes": "v_B(t) = 2 + integral from 0 to t of 3/sqrt(s+1) ds. Antiderivative of 3/sqrt(s+1) = 6*sqrt(s+1). So v_B(t) = 2 + [6*sqrt(s+1)] from 0 to t = 2 + 6*sqrt(t+1) - 6 = 6*sqrt(t+1) - 4. v_B(80) = 6*sqrt(81) - 4 = 6*9 - 4 = 54 - 4 = 50. v_A(80) = 49. So Rocket B is faster.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Sets up correct integral for Rocket B's velocity",
+          "description": "Correct integral setup for Rocket B's velocity: $v_B(t) = 2 + \\int_0^t \\frac{3}{\\sqrt{s+1}}\\, ds$",
           "alternatives": [
             {
               "required_elements": [
-                "$v_B(t) = 2 + \\int_0^t a(s)\\, ds = 2 + \\int_0^t \\frac{3}{\\sqrt{1+s}}\\, ds$"
+                "$v_B(t) = 2 + \\int_0^t \\frac{3}{\\sqrt{s+1}}\\, ds$"
               ],
-              "correct_example": "$v_B(t) = 2 + \\int_0^t \\frac{3}{\\sqrt{1+s}}\\, ds$"
+              "correct_example": "$v_B(t) = v_B(0) + \\int_0^t a(s)\\, ds = 2 + \\int_0^t \\frac{3}{\\sqrt{s+1}}\\, ds$"
             }
           ]
         },
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Correct value $v_B(80)$ and comparison",
+          "description": "Correct antiderivative $\\int \\frac{3}{\\sqrt{s+1}}\\, ds = 6\\sqrt{s+1} + C$",
           "alternatives": [
             {
               "required_elements": [
-                "$v_B(80) = 2 + [6\\sqrt{1+t}]_0^{80} = 2 + 6(9-1) = 50$",
-                "$v_A(80) = 49 < v_B(80) = 50$, so rocket B is faster"
+                "$6\\sqrt{s+1}$"
               ],
-              "correct_example": "$v_B(80) = 2 + 6(\\sqrt{81}-1) = 2 + 48 = 50 > 49 = v_A(80)$; Rocket B is faster"
+              "correct_example": "$\\int_0^t \\frac{3}{\\sqrt{s+1}}\\, ds = \\left[6\\sqrt{s+1}\\right]_0^t = 6\\sqrt{t+1} - 6$"
             }
+          ]
+        },
+        {
+          "point_id": "c3",
+          "point_value": 1,
+          "description": "Correct use of initial condition $v_B(0) = 2$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Adds initial velocity $2$"
+              ]
+            }
+          ]
+        },
+        {
+          "point_id": "c4",
+          "point_value": 1,
+          "description": "Correct $v_B(80) = 6\\sqrt{81} - 6 + 2 = 54 - 6 + 2 = 50$ ft/sec",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$v_B(80) = 50$ ft/sec"
+              ],
+              "correct_example": "$v_B(80) = 2 + 6\\sqrt{81} - 6 = 2 + 54 - 6 = 50$ ft/sec"
+            }
+          ]
+        },
+        {
+          "point_id": "c5",
+          "point_value": 1,
+          "description": "Correct comparison and conclusion: Rocket B is traveling faster since $v_B(80) = 50 > 49 = v_A(80)$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$v_B(80) = 50 > v_A(80) = 49$",
+                "Rocket B is traveling faster"
+              ],
+              "correct_example": "Since $v_B(80) = 50 > 49 = v_A(80)$, Rocket B is traveling faster at $t = 80$ seconds."
+            }
+          ],
+          "common_traps": [
+            "Not identifying the correct initial velocity (2 ft/sec, not 0)"
           ]
         }
       ]

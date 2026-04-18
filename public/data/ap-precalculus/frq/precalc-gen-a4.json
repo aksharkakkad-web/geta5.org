@@ -5,10 +5,7 @@
   "source": "generated",
   "title": "Symbolic Manipulation: Logarithm Properties, Trig Identities & Inverse Functions",
   "frq_type": "multi_part_math",
-  "related_units": [
-    2,
-    3
-  ],
+  "related_units": [2, 3],
   "calculator_allowed": false,
   "total_points": 6,
   "stimulus": null,
@@ -19,39 +16,35 @@
       "letter": "a",
       "prompt": "(i) Rewrite $\\log_3(81x^2) - \\log_3(9x)$ as a single logarithm or simplified expression. Show the properties of logarithms used.\n\n(ii) Solve $2^{3x-1} = 5^x$ for $x$. Express your answer as an exact value.",
       "point_value": 2,
-      "scoring_notes": "For part (i), the key steps are quotient rule then simplification; $\\log_3(9x) = \\log_3 9 + \\log_3 x = 2 + \\log_3 x$. Either form is correct. For part (ii), decimal approximations are not accepted — must be an exact form involving $\\ln$ or $\\log$. Common error: forgetting to distribute $\\ln 2$ across $(3x-1)$.",
+      "scoring_notes": "For part (i), quotient rule then simplification: $\\log_3(81x^2/9x) = \\log_3(9x) = 2 + \\log_3 x$. Either equivalent form is correct. Decimal approximations not accepted. For part (ii), take $\\ln$ of both sides: $(3x-1)\\ln 2 = x\\ln 5$; collecting $x$: $x(3\\ln 2 - \\ln 5) = \\ln 2$; $x = \\frac{\\ln 2}{3\\ln 2 - \\ln 5}$. Accept equivalent exact forms. Common error: forgetting to distribute $\\ln 2$ across $(3x-1)$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct simplification — $\\log_3(81x^2) - \\log_3(9x) = \\log_3\\left(\\frac{81x^2}{9x}\\right) = \\log_3(9x) = 2 + \\log_3(x)$; equivalent forms such as $\\log_3(9x)$ or $2 + \\log_3 x$ all earn the point",
+          "description": "Correct simplification to $\\log_3(9x)$ or $2 + \\log_3 x$; supporting work must show the quotient rule and the evaluation of $\\log_3(9) = 2$",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct simplification — $\\log_3(81x^2) - \\log_3(9x) = \\log_3\\left(\\frac{81x^2}{9x}\\right) = \\log_3(9x) = 2 + \\log_3(x)$; equivalent forms such as $\\log_3(9x)$ or $2 + \\log_3 x$ all earn the point"
-              ],
-              "correct_example": "Correct simplification — $\\log_3(81x^2) - \\log_3(9x) = \\log_3\\left(\\frac{81x^2}{9x}\\right) = \\log_3(9x) = 2 + \\log_3(x)$; equivalent forms such as $\\log_3(9x)$ or $2 + \\log_3 x$ all earn the point"
+              "required_elements": ["quotient rule: $\\log_3(81x^2/9x) = \\log_3(9x)$", "$\\log_3(9x) = 2 + \\log_3 x$"],
+              "correct_example": "$\\log_3(81x^2) - \\log_3(9x) = \\log_3\\left(\\frac{81x^2}{9x}\\right) = \\log_3(9x) = \\log_3 9 + \\log_3 x = 2 + \\log_3 x$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["$\\log_3(72x)$ (subtracted arguments instead of dividing)", "$\\log_3(9x^2)$ (cancelled wrong powers of $x$)"],
+          "common_traps": ["Quotient rule: $\\log_3 A - \\log_3 B = \\log_3(A/B)$, not $\\log_3(A - B)$", "$\\log_3 9 = 2$ since $3^2 = 9$ — this simplification step must appear"]
         },
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Correct exact solution — taking $\\ln$ of both sides: $(3x-1)\\ln 2 = x\\ln 5 \\Rightarrow 3x\\ln 2 - \\ln 2 = x\\ln 5 \\Rightarrow x(3\\ln 2 - \\ln 5) = \\ln 2 \\Rightarrow x = \\frac{\\ln 2}{3\\ln 2 - \\ln 5}$; accept equivalent exact forms such as $x = \\frac{\\ln 2}{\\ln 8 - \\ln 5} = \\frac{\\ln 2}{\\ln(8/5)}$",
+          "description": "Correct exact solution $x = \\frac{\\ln 2}{3\\ln 2 - \\ln 5}$; accept equivalent forms such as $\\frac{\\ln 2}{\\ln 8 - \\ln 5} = \\frac{\\ln 2}{\\ln(8/5)}$; supporting work must show taking $\\ln$ of both sides and collecting $x$ terms",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct exact solution — taking $\\ln$ of both sides: $(3x-1)\\ln 2 = x\\ln 5 \\Rightarrow 3x\\ln 2 - \\ln 2 = x\\ln 5 \\Rightarrow x(3\\ln 2 - \\ln 5) = \\ln 2 \\Rightarrow x = \\frac{\\ln 2}{3\\ln 2 - \\ln 5}$; accept equivalent exact forms such as $x = \\frac{\\ln 2}{\\ln 8 - \\ln 5} = \\frac{\\ln 2}{\\ln(8/5)}$"
-              ],
-              "correct_example": "Correct exact solution — taking $\\ln$ of both sides: $(3x-1)\\ln 2 = x\\ln 5 \\Rightarrow 3x\\ln 2 - \\ln 2 = x\\ln 5 \\Rightarrow x(3\\ln 2 - \\ln 5) = \\ln 2 \\Rightarrow x = \\frac{\\ln 2}{3\\ln 2 - \\ln 5}$; accept equivalent exact forms such as $x = \\frac{\\ln 2}{\\ln 8 - \\ln 5} = \\frac{\\ln 2}{\\ln(8/5)}$"
+              "required_elements": ["$(3x-1)\\ln 2 = x\\ln 5$", "$x(3\\ln 2 - \\ln 5) = \\ln 2$", "$x = \\frac{\\ln 2}{3\\ln 2 - \\ln 5}$"],
+              "correct_example": "$(3x-1)\\ln 2 = x\\ln 5 \\Rightarrow 3x\\ln 2 - \\ln 2 = x\\ln 5 \\Rightarrow x(3\\ln 2 - \\ln 5) = \\ln 2 \\Rightarrow x = \\frac{\\ln 2}{3\\ln 2 - \\ln 5}$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["$x = \\frac{\\ln 2}{2\\ln 2 - \\ln 5}$ (distributing $(3x-1)\\ln 2$ as $3x\\ln 2 - 1$ instead of $3x\\ln 2 - \\ln 2$)", "Decimal approximation without exact form"],
+          "common_traps": ["$(3x-1)\\ln 2 = 3x\\ln 2 - \\ln 2$, NOT $3x\\ln 2 - 1$ — the $-1$ is an exponent on $2$, so it becomes $-\\ln 2$ after taking the natural log"]
         }
       ]
     },
@@ -59,39 +52,35 @@
       "letter": "b",
       "prompt": "(i) Use a trigonometric identity to simplify $\\frac{\\sin^2(\\theta)}{1 - \\cos^2(\\theta)} \\cdot \\tan(\\theta)$. Show the identities used and simplify completely.\n\n(ii) Find all solutions to $2\\cos^2(\\theta) - \\cos(\\theta) - 1 = 0$ on the interval $0 \\leq \\theta < 2\\pi$. Express answers as exact values.",
       "point_value": 2,
-      "scoring_notes": "For part (i), the Pythagorean identity $\\sin^2\\theta + \\cos^2\\theta = 1$ must be explicitly invoked (at least implicitly by substituting $1 - \\cos^2\\theta = \\sin^2\\theta$). The simplified result $\\tan\\theta$ must appear. For part (ii), the equation is a quadratic in $\\cos\\theta$. All three solutions ($0$, $2\\pi/3$, $4\\pi/3$) must be present. Note: $\\theta = 2\\pi$ is not in the domain $[0, 2\\pi)$.",
+      "scoring_notes": "For part (i), the Pythagorean identity $1 - \\cos^2\\theta = \\sin^2\\theta$ must be applied explicitly; substituting gives $\\frac{\\sin^2\\theta}{\\sin^2\\theta}\\cdot\\tan\\theta = \\tan\\theta$. For part (ii), the equation factors as $(2\\cos\\theta + 1)(\\cos\\theta - 1) = 0$, giving $\\cos\\theta = -1/2$ or $\\cos\\theta = 1$; solutions: $\\theta = 0, 2\\pi/3, 4\\pi/3$. All three required with no incorrect values. Note $\\theta = 2\\pi$ is not in $[0, 2\\pi)$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct simplification — $1 - \\cos^2(\\theta) = \\sin^2(\\theta)$, so $\\frac{\\sin^2(\\theta)}{\\sin^2(\\theta)} \\cdot \\tan(\\theta) = 1 \\cdot \\tan(\\theta) = \\tan(\\theta)$; supporting work must show the Pythagorean identity being applied",
+          "description": "Correct simplification to $\\tan\\theta$; supporting work must show $1 - \\cos^2\\theta = \\sin^2\\theta$ being applied",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct simplification — $1 - \\cos^2(\\theta) = \\sin^2(\\theta)$, so $\\frac{\\sin^2(\\theta)}{\\sin^2(\\theta)} \\cdot \\tan(\\theta) = 1 \\cdot \\tan(\\theta) = \\tan(\\theta)$; supporting work must show the Pythagorean identity being applied"
-              ],
-              "correct_example": "Correct simplification — $1 - \\cos^2(\\theta) = \\sin^2(\\theta)$, so $\\frac{\\sin^2(\\theta)}{\\sin^2(\\theta)} \\cdot \\tan(\\theta) = 1 \\cdot \\tan(\\theta) = \\tan(\\theta)$; supporting work must show the Pythagorean identity being applied"
+              "required_elements": ["$1 - \\cos^2\\theta = \\sin^2\\theta$", "$\\frac{\\sin^2\\theta}{\\sin^2\\theta} \\cdot \\tan\\theta = \\tan\\theta$"],
+              "correct_example": "$1 - \\cos^2\\theta = \\sin^2\\theta$, so $\\frac{\\sin^2\\theta}{\\sin^2\\theta} \\cdot \\tan\\theta = 1 \\cdot \\tan\\theta = \\tan\\theta$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["$\\tan^2\\theta$ (multiplied rather than cancelled)", "Correct identity but no simplification to a final answer"],
+          "common_traps": ["The Pythagorean identity must appear explicitly — the shortcut $\\frac{\\sin^2}{\\sin^2} = 1$ is only valid after showing $1 - \\cos^2 = \\sin^2$"]
         },
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct factoring and all solutions — $2\\cos^2\\theta - \\cos\\theta - 1 = (2\\cos\\theta + 1)(\\cos\\theta - 1) = 0$, giving $\\cos\\theta = -\\frac{1}{2}$ or $\\cos\\theta = 1$; solutions are $\\theta = \\frac{2\\pi}{3}$, $\\theta = \\frac{4\\pi}{3}$, and $\\theta = 0$; all three required with no incorrect values",
+          "description": "All three correct solutions $\\theta = 0$, $\\theta = \\frac{2\\pi}{3}$, $\\theta = \\frac{4\\pi}{3}$ from factoring the quadratic; no incorrect values",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct factoring and all solutions — $2\\cos^2\\theta - \\cos\\theta - 1 = (2\\cos\\theta + 1)(\\cos\\theta - 1) = 0$, giving $\\cos\\theta = -\\frac{1}{2}$ or $\\cos\\theta = 1$; solutions are $\\theta = \\frac{2\\pi}{3}$, $\\theta = \\frac{4\\pi}{3}$, and $\\theta = 0$; all three required with no incorrect values"
-              ],
-              "correct_example": "Correct factoring and all solutions — $2\\cos^2\\theta - \\cos\\theta - 1 = (2\\cos\\theta + 1)(\\cos\\theta - 1) = 0$, giving $\\cos\\theta = -\\frac{1}{2}$ or $\\cos\\theta = 1$; solutions are $\\theta = \\frac{2\\pi}{3}$, $\\theta = \\frac{4\\pi}{3}$, and $\\theta = 0$; all three required with no incorrect values"
+              "required_elements": ["$(2\\cos\\theta + 1)(\\cos\\theta - 1) = 0$", "$\\theta = 0$", "$\\theta = \\frac{2\\pi}{3}$", "$\\theta = \\frac{4\\pi}{3}$"],
+              "correct_example": "$(2\\cos\\theta + 1)(\\cos\\theta - 1) = 0 \\Rightarrow \\cos\\theta = -\\frac{1}{2}$ or $\\cos\\theta = 1$; solutions: $\\theta = \\frac{2\\pi}{3}$, $\\frac{4\\pi}{3}$, $0$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["Including $\\theta = 2\\pi$ (not in $[0, 2\\pi)$)", "Only $\\theta = 2\\pi/3$ and $4\\pi/3$ (missing $\\theta = 0$ from $\\cos\\theta = 1$)"],
+          "common_traps": ["$\\cos\\theta = 1$ gives $\\theta = 0$ (and $2\\pi$, but $2\\pi$ is excluded from $[0, 2\\pi)$) — do not forget this solution"]
         }
       ]
     },
@@ -99,39 +88,35 @@
       "letter": "c",
       "prompt": "(i) Evaluate $\\sin\\left(\\arctan\\left(\\frac{3}{4}\\right)\\right)$ without a calculator. Express your answer as an exact fraction. Show supporting work.\n\n(ii) The function $m$ is given by $m(x) = \\arccos\\left(\\tan\\left(\\frac{x}{2}\\right)\\right)$. Find all values of $x$ in the interval $\\left[0, \\pi\\right)$ for which $m(x) = \\frac{\\pi}{3}$. Show the computations that lead to your answer.",
       "point_value": 2,
-      "scoring_notes": "For part (i), the triangle method is the expected approach. Accept equivalent fractions. For part (ii), the key insight is that $\\arccos$ is the outer function, so first evaluate what its argument must equal: $\\tan(x/2) = \\cos(\\pi/3) = 1/2$. Then apply $\\arctan$ to both sides and multiply by 2. The domain constraint from $\\arccos$ is that its argument must lie in $[-1, 1]$, which $\\tan(x/2)$ satisfies near $x = 0$. The unique solution is $x = 2\\arctan(1/2)$. A response that correctly identifies $\\tan(x/2) = 1/2$ earns the first criterion point even if the final exact form is written differently. Do not accept $x = \\frac{\\pi}{3}$ without supporting work showing the composition was correctly unwrapped.",
+      "scoring_notes": "For part (i), right triangle with opposite $= 3$, adjacent $= 4$, hypotenuse $= \\sqrt{9+16} = 5$; so $\\sin(\\arctan(3/4)) = 3/5$. For part (ii), $m(x) = \\pi/3$ requires $\\arccos(\\tan(x/2)) = \\pi/3$, so $\\tan(x/2) = \\cos(\\pi/3) = 1/2$; then $x/2 = \\arctan(1/2)$, giving $x = 2\\arctan(1/2) \\approx 0.927$ in $[0, \\pi)$. Do not accept $x = \\pi/3$ without the intermediate work. Supporting work required.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Correct exact value $\\sin\\left(\\arctan\\left(\\frac{3}{4}\\right)\\right) = \\frac{3}{5}$; supporting work must show a right triangle with opposite $= 3$, adjacent $= 4$, hypotenuse $= \\sqrt{9+16} = 5$, so $\\sin = \\frac{3}{5}$",
+          "description": "Correct exact value $\\frac{3}{5}$; supporting work must show a right triangle with opposite $= 3$, adjacent $= 4$, hypotenuse $= 5$",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct exact value $\\sin\\left(\\arctan\\left(\\frac{3}{4}\\right)\\right) = \\frac{3}{5}$; supporting work must show a right triangle with opposite $= 3$, adjacent $= 4$, hypotenuse $= \\sqrt{9+16} = 5$, so $\\sin = \\frac{3}{5}$"
-              ],
-              "correct_example": "Correct exact value $\\sin\\left(\\arctan\\left(\\frac{3}{4}\\right)\\right) = \\frac{3}{5}$; supporting work must show a right triangle with opposite $= 3$, adjacent $= 4$, hypotenuse $= \\sqrt{9+16} = 5$, so $\\sin = \\frac{3}{5}$"
+              "required_elements": ["right triangle: opposite $= 3$, adjacent $= 4$, hypotenuse $= 5$", "$\\sin = \\frac{3}{5}$"],
+              "correct_example": "Let $\\phi = \\arctan(3/4)$. Draw a right triangle with opposite $= 3$, adjacent $= 4$; hypotenuse $= \\sqrt{9+16} = 5$. Therefore $\\sin\\phi = \\frac{3}{5}$."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["$\\frac{3}{4}$ (gave $\\tan$ instead of $\\sin$)", "$\\frac{4}{5}$ (gave $\\cos$ instead of $\\sin$)"],
+          "common_traps": ["$\\arctan(3/4)$ is the angle, not the value — the triangle method is needed to find $\\sin$ of that angle"]
         },
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Correct solution — $m(x) = \\frac{\\pi}{3}$ requires $\\arccos\\left(\\tan\\left(\\frac{x}{2}\\right)\\right) = \\frac{\\pi}{3}$, so $\\tan\\left(\\frac{x}{2}\\right) = \\cos\\left(\\frac{\\pi}{3}\\right) = \\frac{1}{2}$; solving $\\tan\\left(\\frac{x}{2}\\right) = \\frac{1}{2}$: $\\frac{x}{2} = \\arctan\\left(\\frac{1}{2}\\right)$, giving $x = 2\\arctan\\left(\\frac{1}{2}\\right)$; this is the unique solution in $[0, \\pi)$ since $\\arctan$ outputs values in $\\left(-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right)$, so $\\frac{x}{2} \\in \\left(-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right)$ and $x = 2\\arctan\\left(\\frac{1}{2}\\right) \\approx 0.927$ is in $[0, \\pi)$",
+          "description": "Correct solution $x = 2\\arctan(\\frac{1}{2})$; supporting work must show $\\tan(x/2) = \\cos(\\pi/3) = \\frac{1}{2}$ as the key step",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct solution — $m(x) = \\frac{\\pi}{3}$ requires $\\arccos\\left(\\tan\\left(\\frac{x}{2}\\right)\\right) = \\frac{\\pi}{3}$, so $\\tan\\left(\\frac{x}{2}\\right) = \\cos\\left(\\frac{\\pi}{3}\\right) = \\frac{1}{2}$; solving $\\tan\\left(\\frac{x}{2}\\right) = \\frac{1}{2}$: $\\frac{x}{2} = \\arctan\\left(\\frac{1}{2}\\right)$, giving $x = 2\\arctan\\left(\\frac{1}{2}\\right)$; this is the unique solution in $[0, \\pi)$ since $\\arctan$ outputs values in $\\left(-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right)$, so $\\frac{x}{2} \\in \\left(-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right)$ and $x = 2\\arctan\\left(\\frac{1}{2}\\right) \\approx 0.927$ is in $[0, \\pi)$"
-              ],
-              "correct_example": "Correct solution — $m(x) = \\frac{\\pi}{3}$ requires $\\arccos\\left(\\tan\\left(\\frac{x}{2}\\right)\\right) = \\frac{\\pi}{3}$, so $\\tan\\left(\\frac{x}{2}\\right) = \\cos\\left(\\frac{\\pi}{3}\\right) = \\frac{1}{2}$; solving $\\tan\\left(\\frac{x}{2}\\right) = \\frac{1}{2}$: $\\frac{x}{2} = \\arctan\\left(\\frac{1}{2}\\right)$, giving $x = 2\\arctan\\left(\\frac{1}{2}\\right)$; this is the unique solution in $[0, \\pi)$ since $\\arctan$ outputs values in $\\left(-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right)$, so $\\frac{x}{2} \\in \\left(-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right)$ and $x = 2\\arctan\\left(\\frac{1}{2}\\right) \\approx 0.927$ is in $[0, \\pi)$"
+              "required_elements": ["$\\arccos(\\tan(x/2)) = \\pi/3$", "$\\tan(x/2) = \\cos(\\pi/3) = \\frac{1}{2}$", "$x = 2\\arctan(\\frac{1}{2})$"],
+              "correct_example": "$m(x) = \\pi/3 \\Rightarrow \\arccos(\\tan(x/2)) = \\pi/3 \\Rightarrow \\tan(x/2) = \\cos(\\pi/3) = \\frac{1}{2} \\Rightarrow x/2 = \\arctan(1/2) \\Rightarrow x = 2\\arctan(1/2)$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["$x = \\pi/3$ without supporting work showing the composition was correctly unwrapped", "$\\tan(x/2) = \\pi/3$ (using the output of $\\arccos$ as its input)"],
+          "common_traps": ["$m(x) = \\pi/3$ does NOT mean $\\tan(x/2) = \\pi/3$ — the outer function is $\\arccos$, so $\\arccos(\\tan(x/2)) = \\pi/3$ means $\\tan(x/2) = \\cos(\\pi/3)$"]
         }
       ]
     }

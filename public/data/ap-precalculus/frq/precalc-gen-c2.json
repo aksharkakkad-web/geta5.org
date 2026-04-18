@@ -5,9 +5,7 @@
   "source": "generated",
   "title": "Logarithmic Regression: Soil Temperature & Depth",
   "frq_type": "multi_part_math",
-  "related_units": [
-    2
-  ],
+  "related_units": [2],
   "calculator_allowed": true,
   "total_points": 6,
   "stimulus": "A geologist measures soil temperature (in degrees Celsius) at various depths below the surface and records the following data:\n\n| Depth $d$ (meters) | Temperature $T$ ($^\\circ$C) |\n|---|---|\n| 1 | 12.0 |\n| 4 | 18.4 |\n| 9 | 22.6 |\n| 16 | 26.0 |\n| 25 | 28.7 |\n\nThe geologist proposes the model $T(d) = a + b\\ln(d)$ to represent soil temperature as a function of depth.",
@@ -18,39 +16,35 @@
       "letter": "a",
       "prompt": "(i) Use the data at $d = 1$ and $d = 25$ to write two equations that can be used to find the values of constants $a$ and $b$.\n\n(ii) Find the values of $a$ and $b$ as decimal approximations. Show the computations that lead to your answer.",
       "point_value": 2,
-      "scoring_notes": "The first equation immediately gives $a = 12$ since $\\ln(1) = 0$. The second equation then gives $b = 16.7 / \\ln(25) \\approx 5.189$. Decimal must be correct to three decimal places. Full credit for both values if shown correctly. Accept $T(d) = 12 + 5.189\\ln(d)$ as a complete response.",
+      "scoring_notes": "First equation: $a + b\\ln(1) = 12.0 \\Rightarrow a = 12.0$ (since $\\ln(1) = 0$). Second equation: $12 + b\\ln(25) = 28.7$. Solving: $b = 16.7/\\ln(25) \\approx 16.7/3.2189 \\approx 5.189$ (accept $[5.18, 5.20]$). Decimal accuracy: 3 places. Full credit for $T(d) = 12 + 5.189\\ln(d)$ as a complete response.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Two correct equations — $a + b\\ln(1) = 12.0$, which simplifies to $a = 12.0$; and $a + b\\ln(25) = 28.7$; equivalently, $12 + b\\ln(25) = 28.7$",
+          "description": "Two correct equations: $a + b\\ln(1) = 12.0$ (giving $a = 12$) and $a + b\\ln(25) = 28.7$",
           "alternatives": [
             {
-              "required_elements": [
-                "Two correct equations — $a + b\\ln(1) = 12.0$, which simplifies to $a = 12.0$; and $a + b\\ln(25) = 28.7$; equivalently, $12 + b\\ln(25) = 28.7$"
-              ],
-              "correct_example": "Two correct equations — $a + b\\ln(1) = 12.0$, which simplifies to $a = 12.0$; and $a + b\\ln(25) = 28.7$; equivalently, $12 + b\\ln(25) = 28.7$"
+              "required_elements": ["$a = 12.0$", "$12 + b\\ln(25) = 28.7$"],
+              "correct_example": "$T(1) = a + b\\ln(1) = a = 12.0$; $T(25) = 12 + b\\ln(25) = 28.7$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["$a + b(1) = 12.0$ and $a + b(25) = 28.7$ (used $d$ instead of $\\ln(d)$)", "Writing only one equation"],
+          "common_traps": ["$\\ln(1) = 0$, so the first equation immediately gives $a = 12.0$ — this simplification is key"]
         },
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Correct values $a = 12.0$ and $b = \\frac{28.7 - 12.0}{\\ln(25)} = \\frac{16.7}{3.2189} \\approx 5.189$ (accept values in $[5.18, 5.20]$); supporting work must show the substitution and division step",
+          "description": "Correct values $a = 12.0$ and $b \\approx 5.189$; supporting work must show the division step",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct values $a = 12.0$ and $b = \\frac{28.7 - 12.0}{\\ln(25)} = \\frac{16.7}{3.2189} \\approx 5.189$ (accept values in $[5.18, 5.20]$); supporting work must show the substitution and division step"
-              ],
-              "correct_example": "Correct values $a = 12.0$ and $b = \\frac{28.7 - 12.0}{\\ln(25)} = \\frac{16.7}{3.2189} \\approx 5.189$ (accept values in $[5.18, 5.20]$); supporting work must show the substitution and division step"
+              "required_elements": ["$a = 12.0$", "$b = 16.7/\\ln(25) \\approx 5.189$"],
+              "correct_example": "$12 + b\\ln(25) = 28.7 \\Rightarrow b = (28.7 - 12)/\\ln(25) = 16.7/3.2189 \\approx 5.189$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["$b = 16.7/25 = 0.668$ (used $d$ instead of $\\ln(d)$ in denominator)", "$b = 5.19$ (decimal presentation error — not 3 decimal places)"],
+          "common_traps": ["Decimal presentation: $b$ must be given to at least 3 decimal places — $5.189$, not $5.19$"]
         }
       ]
     },
@@ -58,39 +52,35 @@
       "letter": "b",
       "prompt": "(i) Use the model $T(d) = 12 + 5.189\\ln(d)$ to predict the soil temperature at a depth of $d = 50$ meters. Express your answer as a decimal approximation.\n\n(ii) Find the depth $d$ at which the model predicts a soil temperature of $30^\\circ$C. Express your answer as a decimal approximation. Show the computations that lead to your answer.",
       "point_value": 2,
-      "scoring_notes": "For part (i), $\\ln(50) \\approx 3.9120$, so $5.189 \\times 3.9120 \\approx 20.30$, giving $T \\approx 32.30$°C. For part (ii), solving $5.189\\ln(d) = 18$ gives $\\ln(d) = 18/5.189 \\approx 3.469$, so $d = e^{3.469} \\approx 32.1$ m. Supporting work must show both the isolation of $\\ln(d)$ and the conversion $d = e^{3.469}$.",
+      "scoring_notes": "For part (i), $T(50) = 12 + 5.189 \\cdot \\ln(50) \\approx 12 + 5.189 \\cdot 3.912 \\approx 12 + 20.30 \\approx 32.30$°C (accept $[32.2, 32.4]$). For part (ii), $5.189\\ln(d) = 18 \\Rightarrow \\ln(d) = 18/5.189 \\approx 3.469 \\Rightarrow d = e^{3.469} \\approx 32.1$ m (accept $[31.5, 32.7]$). Supporting work must show both the isolation of $\\ln(d)$ and the conversion.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct prediction — $T(50) = 12 + 5.189\\ln(50) = 12 + 5.189 \\cdot 3.912 = 12 + 20.299 \\approx 32.299$ degrees Celsius (accept values in $[32.2, 32.4]$); supporting work must show substitution",
+          "description": "Correct prediction $T(50) \\approx 32.30$°C (accept $[32.2, 32.4]$); supporting work must show substitution of $d = 50$",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct prediction — $T(50) = 12 + 5.189\\ln(50) = 12 + 5.189 \\cdot 3.912 = 12 + 20.299 \\approx 32.299$ degrees Celsius (accept values in $[32.2, 32.4]$); supporting work must show substitution"
-              ],
-              "correct_example": "Correct prediction — $T(50) = 12 + 5.189\\ln(50) = 12 + 5.189 \\cdot 3.912 = 12 + 20.299 \\approx 32.299$ degrees Celsius (accept values in $[32.2, 32.4]$); supporting work must show substitution"
+              "required_elements": ["$T(50) = 12 + 5.189\\ln(50)$", "$\\approx 32.30$°C"],
+              "correct_example": "$T(50) = 12 + 5.189 \\cdot \\ln(50) = 12 + 5.189 \\cdot 3.912 \\approx 12 + 20.30 \\approx 32.30$°C"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["$T(50) = 12 + 5.189 \\cdot 50 \\approx 271.5$ (used $d$ instead of $\\ln(d)$)", "Not showing the substitution step"],
+          "common_traps": ["The model uses $\\ln(d)$, not $d$ — substituting $50$ directly without taking $\\ln$ gives a completely wrong answer"]
         },
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct depth — $12 + 5.189\\ln(d) = 30 \\Rightarrow 5.189\\ln(d) = 18 \\Rightarrow \\ln(d) = \\frac{18}{5.189} \\approx 3.469 \\Rightarrow d = e^{3.469} \\approx 32.1$ meters (accept values in $[31.5, 32.7]$); supporting work must show isolating $\\ln(d)$ and converting to exponential form",
+          "description": "Correct depth $d \\approx 32.1$ meters (accept $[31.5, 32.7]$); supporting work must show isolating $\\ln(d)$ and converting to exponential form",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct depth — $12 + 5.189\\ln(d) = 30 \\Rightarrow 5.189\\ln(d) = 18 \\Rightarrow \\ln(d) = \\frac{18}{5.189} \\approx 3.469 \\Rightarrow d = e^{3.469} \\approx 32.1$ meters (accept values in $[31.5, 32.7]$); supporting work must show isolating $\\ln(d)$ and converting to exponential form"
-              ],
-              "correct_example": "Correct depth — $12 + 5.189\\ln(d) = 30 \\Rightarrow 5.189\\ln(d) = 18 \\Rightarrow \\ln(d) = \\frac{18}{5.189} \\approx 3.469 \\Rightarrow d = e^{3.469} \\approx 32.1$ meters (accept values in $[31.5, 32.7]$); supporting work must show isolating $\\ln(d)$ and converting to exponential form"
+              "required_elements": ["$5.189\\ln(d) = 18$", "$\\ln(d) = 18/5.189 \\approx 3.469$", "$d = e^{3.469} \\approx 32.1$"],
+              "correct_example": "$12 + 5.189\\ln(d) = 30 \\Rightarrow 5.189\\ln(d) = 18 \\Rightarrow \\ln(d) = 3.469 \\Rightarrow d = e^{3.469} \\approx 32.1$ m"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["$d = 18/5.189 \\approx 3.469$ (forgot to take $e^{3.469}$)", "$d = 30/5.189$ (did not subtract $12$ first)"],
+          "common_traps": ["Two steps required: (1) isolate $\\ln(d)$ by dividing by $b$, (2) convert to exponential form $d = e^{\\text{result}}$"]
         }
       ]
     },
@@ -98,39 +88,35 @@
       "letter": "c",
       "prompt": "(i) The geologist considers a linear model $T_L(d) = 12 + 0.68d$ fitted through $d = 1$ and $d = 25$. Find the value of $T_L(9)$ and compare it to the actual data value $T(9) = 22.6$°C. Determine whether the linear model overestimates or underestimates at $d = 9$.\n\n(ii) Use the logarithmic model $T(d) = 12 + 5.189\\ln(d)$ to solve the inequality $T(d) > 25$. Determine the range of depths $d$ for which the model predicts the soil temperature exceeds $25^\\circ$C. Express your answer as a decimal approximation with supporting work.",
       "point_value": 2,
-      "scoring_notes": "For part (i), the linear slope is $(28.7 - 12.0)/(25 - 1) = 16.7/24 \\approx 0.696$; using $0.68$ from the prompt gives $T_L(9) \\approx 18.12$°C vs. actual $22.6$°C, so the linear model underestimates. Accept any correct comparison that identifies the sign of the error. For part (ii), $13/5.189 \\approx 2.506$, $e^{2.506} \\approx 12.26$ m. Both the isolation of $\\ln(d)$ and the conversion $d = e^{2.506}$ must appear.",
+      "scoring_notes": "For part (i), $T_L(9) = 12 + 0.68(9) = 12 + 6.12 = 18.12$°C vs. actual $22.6$°C — the linear model underestimates. For part (ii), $5.189\\ln(d) > 13 \\Rightarrow \\ln(d) > 13/5.189 \\approx 2.506 \\Rightarrow d > e^{2.506} \\approx 12.26$ m (accept $[12.1, 12.4]$). Supporting work must show isolating $\\ln(d)$ and converting.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Correct value and comparison — $T_L(9) = 12 + 0.68(9) = 12 + 6.12 = 18.12^\\circ$C; this is less than the actual $22.6^\\circ$C, so the linear model underestimates the temperature at $d = 9$",
+          "description": "$T_L(9) = 18.12$°C; the linear model underestimates the actual temperature of $22.6$°C at $d = 9$",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct value and comparison — $T_L(9) = 12 + 0.68(9) = 12 + 6.12 = 18.12^\\circ$C; this is less than the actual $22.6^\\circ$C, so the linear model underestimates the temperature at $d = 9$"
-              ],
-              "correct_example": "Correct value and comparison — $T_L(9) = 12 + 0.68(9) = 12 + 6.12 = 18.12^\\circ$C; this is less than the actual $22.6^\\circ$C, so the linear model underestimates the temperature at $d = 9$"
+              "required_elements": ["$T_L(9) = 12 + 0.68(9) = 18.12$°C", "linear model underestimates (since $18.12 < 22.6$)"],
+              "correct_example": "$T_L(9) = 12 + 0.68(9) = 12 + 6.12 = 18.12$°C. Since $18.12 < 22.6$, the linear model underestimates the actual temperature at $d = 9$ meters."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["'Overestimates' — incorrect; $18.12 < 22.6$, so the linear model gives a lower temperature than actual", "Not comparing to the actual data value $22.6$°C"],
+          "common_traps": ["Underestimate means the model predicts LESS than reality; $T_L(9) = 18.12 < 22.6 = T(9)$, so the linear model underestimates"]
         },
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Correct inequality solution — $12 + 5.189\\ln(d) > 25 \\Rightarrow 5.189\\ln(d) > 13 \\Rightarrow \\ln(d) > \\frac{13}{5.189} \\approx 2.506 \\Rightarrow d > e^{2.506} \\approx 12.26$ meters (accept values in $[12.1, 12.4]$); supporting work must show the isolation of $\\ln(d)$ and the conversion to exponential form",
+          "description": "Correct depth range $d > 12.26$ meters (accept $[12.1, 12.4]$); supporting work must show isolating $\\ln(d)$ and converting to exponential form",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct inequality solution — $12 + 5.189\\ln(d) > 25 \\Rightarrow 5.189\\ln(d) > 13 \\Rightarrow \\ln(d) > \\frac{13}{5.189} \\approx 2.506 \\Rightarrow d > e^{2.506} \\approx 12.26$ meters (accept values in $[12.1, 12.4]$); supporting work must show the isolation of $\\ln(d)$ and the conversion to exponential form"
-              ],
-              "correct_example": "Correct inequality solution — $12 + 5.189\\ln(d) > 25 \\Rightarrow 5.189\\ln(d) > 13 \\Rightarrow \\ln(d) > \\frac{13}{5.189} \\approx 2.506 \\Rightarrow d > e^{2.506} \\approx 12.26$ meters (accept values in $[12.1, 12.4]$); supporting work must show the isolation of $\\ln(d)$ and the conversion to exponential form"
+              "required_elements": ["$5.189\\ln(d) > 13$", "$\\ln(d) > 13/5.189 \\approx 2.506$", "$d > e^{2.506} \\approx 12.26$"],
+              "correct_example": "$12 + 5.189\\ln(d) > 25 \\Rightarrow 5.189\\ln(d) > 13 \\Rightarrow \\ln(d) > 2.506 \\Rightarrow d > e^{2.506} \\approx 12.26$ meters"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["$d > 13/5.189 \\approx 2.506$ (forgot to take $e$)", "Giving a specific value instead of an interval ($d > 12.26$, not $d = 12.26$)"],
+          "common_traps": ["The answer is an inequality $d > 12.26$ because we are solving $T(d) > 25$, not $T(d) = 25$ — express as a range"]
         }
       ]
     }

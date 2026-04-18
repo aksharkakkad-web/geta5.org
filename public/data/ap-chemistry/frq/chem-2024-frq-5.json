@@ -5,13 +5,10 @@
   "source": "released",
   "title": "Chemical Equilibrium & Le Chatelier's Principle",
   "frq_type": "multi_part_math",
-  "related_units": [
-    4,
-    7
-  ],
+  "related_units": [4, 7],
   "calculator_allowed": true,
   "total_points": 4,
-  "stimulus": "5. Hydrogen gas and iodine gas react to form hydrogen iodide at an elevated temperature, as represented by the\nfollowing equation.\nH (g ) + I (g )  2 HI(g) ΔH = −12.19 kJ / mol\n2 2 rxn rxn",
+  "stimulus": "5. Hydrogen gas and iodine gas react to form hydrogen iodide at an elevated temperature, as represented by the following equation.\n$H_2$(g) + $I_2$(g) ⇌ 2 HI(g)     $\\Delta H_{rxn}$ = −12.19 kJ/mol rxn",
   "stimulus_image": null,
   "documents": null,
   "parts": [
@@ -19,24 +16,29 @@
       "letter": "a",
       "prompt": "Write the expression for the equilibrium constant, K , for this reaction.\nc",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "Accept $K_c$ or $K_{eq}$ notation.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "For the correct expression: 1 point",
+          "description": "For the correct equilibrium constant expression: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct expression: 1 point"
+                "$K_c = \\frac{[\\text{HI}]^2}{[\\text{H}_2][\\text{I}_2]}$"
               ],
-              "correct_example": "22[HI] [H ][I ]cK="
+              "correct_example": "$K_c = \\frac{[\\text{HI}]^2}{[\\text{H}_2][\\text{I}_2]}$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "$K_c = \\frac{[\\text{H}_2][\\text{I}_2]}{[\\text{HI}]^2}$ — this is the expression for the reverse reaction.",
+            "$K_c = \\frac{[\\text{HI}]}{[\\text{H}_2][\\text{I}_2]}$ — must include the stoichiometric exponent of 2 on HI."
+          ],
+          "common_traps": [
+            "Stoichiometric coefficients become exponents in the equilibrium expression; 2 HI → [HI]²."
+          ]
         }
       ]
     },
@@ -44,15 +46,74 @@
       "letter": "b",
       "prompt": "H (g )and I (g ) are added to a previously evacuated container and allowed to react.\n(i)At a certain time, the value of the reaction quotient, Q, is 0.67. The following particle diagram is an\nincomplete representation of the system at this time. The diagram shows the relative number of H (g)\nand I (g ) molecules, but the HI(g ) molecules are not included. Draw the number of HI(g ) molecules\nneeded to complete the diagram so that it accurately represents the system.\n\n(ii)A student monitors the number of moles of HI(g ) over time. Hypothesize an experimental change that\ncould have been applied to the system in the rigid container at time t to result in the change in the\nnumber of moles of HI(g ) shown in the graph. Assume that the student did not add more HI(g ) to the\nsystem.\n(iii)After equilibrium is established, the mixture is transferred to a larger container at constant\ntemperature. As a result, would the number of moles of HI(g ) increase, decrease, or remain the same?\nJustify your answer.",
       "point_value": 3,
-      "rubric_criteria": [
-        "(i) For the correct drawing consistent with part (a): 1 point",
-        "(ii) For a valid hypothesis: 1 point",
-        "Accept one of the following:",
-        "(iii) For the correct answer and a valid justification: 1 point"
-      ],
-      "scoring_notes": "Accept one of the following: Accept one of the following:",
+      "scoring_notes": "Part (b)(i): Q = [HI]²/([H₂][I₂]) = 0.67; read H₂ and I₂ particle counts from diagram; back-calculate HI count. Part (b)(ii): accept removing H₂ or I₂ (shifting reverse); decreasing temperature for an exothermic reaction shifts reverse; accept adding an inert gas if volume is fixed (no effect) — but the graph shows moles decreasing, so must shift reverse. Part (b)(iii): equal moles — Δn_gas = 0 for this reaction (1+1=2), so changing volume does not shift equilibrium.",
       "requires_drawing": true,
-      "reference_image": "/data/ap-chemistry/frq/images/chem-2024-frq-5-b-ref.png"
+      "reference_image": "/data/ap-chemistry/frq/images/chem-2024-frq-5-b-ref.png",
+      "scoring_points": [
+        {
+          "point_id": "bi1",
+          "point_value": 1,
+          "description": "For drawing the correct number of HI molecules consistent with Q = 0.67: 1 point",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Using the H₂ and I₂ particle counts from the diagram, solve for n(HI): $Q = \\frac{n(\\text{HI})^2}{n(\\text{H}_2) \\cdot n(\\text{I}_2)} = 0.67$",
+                "Draw the calculated number of HI molecules in the diagram."
+              ],
+              "correct_example": "If the diagram shows 4 H₂ and 4 I₂ particles: $0.67 = \\frac{n^2}{4 \\times 4}$; $n^2 = 10.72$; $n \\approx 3$ (round to nearest integer). Draw 3 HI molecules."
+            }
+          ],
+          "wrong_examples": [
+            "Drawing HI molecules without calculating from Q."
+          ],
+          "common_traps": [
+            "In particle diagrams, each particle represents a relative count; the ratio must satisfy the given Q value."
+          ]
+        },
+        {
+          "point_id": "bii1",
+          "point_value": 1,
+          "description": "For a valid hypothesis that would decrease moles of HI: 1 point",
+          "alternatives": [
+            {
+              "required_elements": [
+                "An experimental change that shifts the equilibrium toward reactants (decreasing HI).",
+                "Examples: removing H₂ or I₂ (reverse shift); increasing temperature (reaction is exothermic, so heating shifts reverse); removing HI from the container."
+              ],
+              "correct_example": "Accept any of the following: (1) Increasing the temperature — since the reaction is exothermic ($\\Delta H = -12.19$ kJ/mol), adding heat shifts the equilibrium toward reactants, decreasing [HI]. (2) Removing H₂ or I₂ — shifts the reaction in reverse. (3) Adding a catalyst to accelerate equilibrium in the reverse direction is not a valid answer (catalysts do not shift equilibrium)."
+            }
+          ],
+          "wrong_examples": [
+            "Adding an inert gas (no effect on concentrations in rigid container — does not shift equilibrium).",
+            "Adding a catalyst — catalysts do not shift equilibrium."
+          ],
+          "common_traps": [
+            "Only changes that affect Q (concentrations, T, or volume) can shift equilibrium; catalysts and inert gases do not."
+          ]
+        },
+        {
+          "point_id": "biii1",
+          "point_value": 1,
+          "description": "For 'remain the same' with correct reasoning based on Δn_gas = 0: 1 point",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Remain the same.",
+                "The reaction H₂(g) + I₂(g) ⇌ 2HI(g) has equal moles of gas on both sides (Δn = 2 − 2 = 0).",
+                "Changing volume does not shift this equilibrium; the number of moles of HI remains constant."
+              ],
+              "correct_example": "Remain the same. The total moles of gas on each side of the equation are equal: 1 mol H₂ + 1 mol I₂ = 2 mol reactant gas; 2 mol HI product gas. Since $\\Delta n_{\\text{gas}} = 0$, dilution (increasing volume) has no effect on the equilibrium position, and the moles of HI do not change."
+            }
+          ],
+          "wrong_examples": [
+            "Saying moles decrease — for reactions with Δn = 0, volume changes do not shift equilibrium.",
+            "Invoking Le Châtelier without noting Δn = 0."
+          ],
+          "common_traps": [
+            "Le Châtelier pressure/volume changes only affect equilibrium when Δn_gas ≠ 0."
+          ]
+        }
+      ]
     }
   ]
 }

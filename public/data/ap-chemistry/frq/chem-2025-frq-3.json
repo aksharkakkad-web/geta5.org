@@ -3,13 +3,9 @@
   "subject": "ap-chemistry",
   "year": 2025,
   "source": "released",
-  "title": "Thermochemistry & Calorimetry",
+  "title": "Thermochemistry: Entropy, Enthalpy & Hess's Law",
   "frq_type": "multi_part_math",
-  "related_units": [
-    2,
-    4,
-    6
-  ],
+  "related_units": [2, 4, 6],
   "calculator_allowed": true,
   "total_points": 10,
   "stimulus": "White phosphorus is composed of $P_4$ molecules with a tetrahedral structure. Each P atom is bonded to the other three P atoms by single bonds.\n\nThe reaction of white phosphorus with oxygen to form $P_4O_{10}$(s) is thermodynamically favorable at 298 K, represented by:\n\nEquation 1: $P_4$(s) + 5 $O_2$(g) → $P_4O_{10}$(s)",
@@ -20,35 +16,61 @@
       "letter": "a",
       "prompt": "In the box in part A, complete the Lewis diagram for $P_4$ by drawing the nonbonding\nelectrons.",
       "point_value": 1,
-      "rubric_criteria": [
-        "For the correct diagram: Point 01"
-      ],
-      "scoring_notes": null,
+      "scoring_notes": "Each P atom in P₄ forms 3 single bonds and has one lone pair. The completed diagram must show one lone pair on each of the four P atoms.",
       "requires_drawing": true,
-      "reference_image": null
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "a1",
+          "point_value": 1,
+          "description": "For a correct Lewis diagram showing one lone pair on each P atom: 1 point",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Each P atom has one lone pair (2 nonbonding electrons) and three single bonds to other P atoms.",
+                "Total of 4 lone pairs shown on the 4 P atoms."
+              ],
+              "correct_example": "Each P atom has 5 valence electrons. Three are used in P–P single bonds, leaving one lone pair per P atom. The completed Lewis diagram shows a tetrahedral P₄ cage with a lone pair on each vertex."
+            }
+          ],
+          "wrong_examples": [
+            "Drawing no lone pairs — each P uses 3 electrons in bonds but retains 2 as a lone pair.",
+            "Drawing 2 lone pairs per P (10 valence electrons per P is incorrect)."
+          ],
+          "common_traps": [
+            "P has 5 valence electrons; 3 bonds use 3 electrons, leaving 1 lone pair (not 2)."
+          ]
+        }
+      ]
     },
     {
       "letter": "b",
       "prompt": "The reaction of white phosphorus with oxygen to form $P_4O_{10}$(s) is thermodynamically favorable at 298 K. The reaction is represented by equation 1.\n\nEquation 1: $P_4$(s) + 5 $O_2$(g) → $P_4O_{10}$(s)\n\ni. The entropy change of the reaction, $\\Delta S°$, is negative. Using particle-level reasoning, explain why the entropy decreases as the reaction progresses.\n\nii. The enthalpy change of the reaction, $\\Delta H°$, is also negative. A student claims that the favorability of the reaction is driven by enthalpy and not by entropy. Is the student's claim correct? Justify your answer by using the relationship between $\\Delta G°$, $\\Delta H°$, and $\\Delta S°$.\n\n$P_4O_{10}$(s) reacts exothermically with water to form phosphoric acid, as represented by equation 2.\n\nEquation 2: $P_4O_{10}$(s) + 6 $H_2O$(l) → 4 $H_3PO_4$(aq)",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "Part (b)(i): requires particle-level reasoning about entropy decrease (gas → solid reduces dispersal). Part (b)(ii): must invoke $\\Delta G = \\Delta H - T\\Delta S$ and show that negative $\\Delta H$ makes $\\Delta G$ negative despite negative $\\Delta S$.",
       "requires_drawing": false,
       "reference_image": "/data/ap-chemistry/frq/images/chem-2025-frq-3-b-ref.png",
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Because gas particles are more dispersed (have more microstates) than solids, the entropy",
+          "description": "For a correct particle-level entropy explanation and correct Gibbs justification: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "Because gas particles are more dispersed (have more microstates) than solids, the entropy"
+                "(i) The reaction converts 5 moles of gas (O₂) and solid P₄ into solid P₄O₁₀; gas particles are more dispersed (have more microstates/positional freedom) than solid particles, so entropy decreases.",
+                "(ii) Since $\\Delta H° < 0$ and $\\Delta S° < 0$, $\\Delta G° = \\Delta H° - T\\Delta S°$; the negative $\\Delta H°$ must outweigh the $-T\\Delta S°$ term (positive when $\\Delta S° < 0$). At 298 K the enthalpy term dominates, making $\\Delta G° < 0$. The student's claim is correct."
               ],
-              "correct_example": "Yes. Given that ∆G =∆H −T∆S , the reaction must haGve ∆  <0 to be"
+              "correct_example": "(i) The reaction consumes 5 mol of gaseous O₂ (highly dispersed) and produces 1 mol of solid P₄O₁₀ (tightly ordered). Gas molecules have far more positional freedom and microstates than solids, so converting gas to solid greatly reduces entropy. \n(ii) Yes. $\\Delta G° = \\Delta H° - T\\Delta S°$. Since $\\Delta H° < 0$ (exothermic) and $\\Delta S° < 0$, the $-T\\Delta S°$ term is positive. For the reaction to be favorable ($\\Delta G° < 0$), $|\\Delta H°|$ must be greater than $T|\\Delta S°|$. At 298 K, the large negative $\\Delta H°$ dominates, confirming the student's claim that enthalpy drives favorability."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Saying entropy increases because a solid is more ordered than a gas — that is backwards.",
+            "Claiming $\\Delta S° < 0$ means the reaction is unfavorable without invoking enthalpy."
+          ],
+          "common_traps": [
+            "Forgetting that $\\Delta G° = \\Delta H° - T\\Delta S°$; a negative $\\Delta S°$ makes $-T\\Delta S°$ positive, opposing spontaneity."
+          ]
         }
       ]
     },
@@ -56,24 +78,31 @@
       "letter": "c",
       "prompt": "The chemist carries out the calorimetry experiment and records the following information.\n\n| Quantity | Value |\n|----------|-------|\n| Mass of $P_4O_{10}$ | 0.100 g |\n| Mass of $H_2O$ | 100.0 g |\n| Initial temperature | 22.00°C |\n| Final temperature | 22.38°C |\n| Molar mass of $P_4O_{10}$ | 283.9 g/mol |\n| Specific heat of $H_2O$ | 4.18 J/g·°C |\n\ni. Calculate the amount of heat, q, released during the experiment, in kJ. Assume that the specific heat of the solution is the same as that of water.\n\nii. Calculate the value of $\\Delta H°_{rxn}$ for equation 2 in kJ/mol rxn. Include the sign in your answer.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "Part (c)(i): q = mcΔT using total mass ≈ 100.1 g. Part (c)(ii): moles of P₄O₁₀ = 0.100/283.9; ΔH = –q/n. Sign must be negative (exothermic).",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "For the correct sign",
+          "description": "For the correct sign (negative) on $\\Delta H°_{rxn}$ and correct magnitude: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct sign: −450 kJ/mol rxn"
+                "$q = mc\\Delta T = (100.0\\text{ g})(4.18\\text{ J/g}\\cdot°\\text{C})(0.38°\\text{C}) = 159\\text{ J} = 0.159\\text{ kJ}$",
+                "$n(P_4O_{10}) = \\frac{0.100\\text{ g}}{283.9\\text{ g/mol}} = 3.52 \\times 10^{-4}\\text{ mol}$",
+                "$\\Delta H_{rxn} = \\frac{-q}{n} = \\frac{-0.159\\text{ kJ}}{3.52 \\times 10^{-4}\\text{ mol}} \\approx -450\\text{ kJ/mol}$"
               ],
-              "correct_example": "−450 kJ/mol rxn"
+              "correct_example": "$q_{\\text{soln}} = (100.0\\text{ g})(4.18\\text{ J/g·°C})(0.38°\\text{C}) = 159\\text{ J}$ \n$n(P_4O_{10}) = 0.100/283.9 = 3.52 \\times 10^{-4}\\text{ mol}$ \n$\\Delta H_{rxn} = -q/n = -0.159\\text{ kJ} / (3.52 \\times 10^{-4}\\text{ mol}) = -450\\text{ kJ/mol rxn}$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Using only the mass of P₄O₁₀ (0.100 g) for mass in $q = mc\\Delta T$ — must use mass of the solution.",
+            "Reporting a positive ΔH for an exothermic reaction."
+          ],
+          "common_traps": [
+            "The heat released to the solution equals q = mcΔT; the sign of ΔH_rxn is negative because the system releases heat."
+          ]
         }
       ]
     },
@@ -81,24 +110,29 @@
       "letter": "d",
       "prompt": "The chemist weighed out 0.100 g of $P_4O_{10}$ and 100.0 g of $H_2O$ to perform a second trial. In the second trial, some of the solid $P_4O_{10}$ stuck to the weighing paper and was not transferred to the calorimeter. Given that $P_4O_{10}$ is the limiting reactant, would $\\Delta T$ for the second trial be greater than, less than, or equal to the value in the first trial? Justify your answer.\n\n$P_4$(s) also reacts readily with $Cl_2$(g) to produce phosphorus trichloride, $PCl_3$(g), which in turn reacts with $Cl_2$(g) in an equilibrium process to produce $PCl_5$(g). The reactions are represented by equations 3 and 4.\n\nEquation 3: $P_4$(s) + 6 $Cl_2$(g) → 4 $PCl_3$(g)     $\\Delta H°_1$ = −1148 kJ/mol rxn\nEquation 4: $PCl_3$(g) + $Cl_2$(g) ⇌ $PCl_5$(g)     $\\Delta H°_2$ = −88 kJ/mol rxn",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "Accept any correct reasoning that less P₄O₁₀ → less heat released → smaller ΔT.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "For the correct answer and a valid justification",
+          "description": "For 'less than' with a valid calorimetric justification: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct answer and a valid justification: Less than. If less $P_4O_{10}$ is present, less thermal energy will be transferred to the water during the reaction, causing the temperature increase to be less than it was with 0.100 g of $P_4O_{10}$."
+                "Less than.",
+                "If less P₄O₁₀ reacts, less thermal energy is released to the water, causing a smaller temperature increase (ΔT)."
               ],
-              "correct_example": "Less than. If less $P_4O_{10}$ is present, less thermal energy will be transferred to the water during the reaction, causing the temperature increase to be less than it was with 0.100 g of $P_4O_{10}$."
+              "correct_example": "Less than. The heat released is $q = n \\cdot |\\Delta H_{rxn}|$. With less P₄O₁₀ (the limiting reactant), fewer moles react, less heat is produced, and the water temperature rises less — giving a smaller ΔT than in trial 1."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Saying ΔT is greater because less mass of solute means less mass to heat — the mass in the denominator is the solution (≈100 g water), not P₄O₁₀."
+          ],
+          "common_traps": [
+            "Confusing the mass used in q = mcΔT (water/solution) with the mass of limiting reactant."
+          ]
         }
       ]
     },
@@ -106,24 +140,30 @@
       "letter": "e",
       "prompt": "Calculate the standard enthalpy of formation of $PCl_5$(g) represented by equation 5.\n\nEquation 5: $\\frac{1}{4}$ $P_4$(s) + $\\frac{5}{2}$ $Cl_2$(g) → $PCl_5$(g)     $\\Delta H°_f$ = ?\\n\\nThe following particle-level diagram represents the contents of the vessel in an equilibrium mixture at 546 K involving equation 4.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "Equation 5 = (1/4)×Eq.3 + Eq.4. ΔH°_f = (1/4)(−1148) + (−88) = −287 + (−88) = −375 kJ/mol.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "e1",
           "point_value": 1,
-          "description": "For the correct calculated value. Using Hess's law",
+          "description": "For the correct application of Hess's law and the correct calculated value: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct calculated value. Using Hess's law: $\\Delta H_{f, PCl_5(g)} = \\frac{1}{4}\\Delta H_1 + \\Delta H_2 = \\frac{1}{4}(-1148) + (-88) = -375$ kJ/mol"
+                "Equation 5 = $\\frac{1}{4}$(Equation 3) + Equation 4",
+                "$\\Delta H°_f = \\frac{1}{4}(-1148) + (-88) = -287 + (-88) = -375\\text{ kJ/mol}$"
               ],
-              "correct_example": "$\\Delta H_{f, PCl_5(g)} = \\frac{1}{4}\\Delta H_1 + \\Delta H_2 = \\frac{1}{4}(-1148) + (-88) = -375$ kJ/mol"
+              "correct_example": "Equation 5 is obtained by multiplying equation 3 by $\\frac{1}{4}$ and adding equation 4:\n$\\Delta H°_f(PCl_5) = \\frac{1}{4}\\Delta H°_1 + \\Delta H°_2 = \\frac{1}{4}(-1148) + (-88) = -287 + (-88) = -375\\text{ kJ/mol}$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Using (1/4)(−1148) alone without adding ΔH°_2.",
+            "Forgetting to multiply Eq.3 by 1/4 before adding."
+          ],
+          "common_traps": [
+            "Equation 3 gives ΔH for 4 mol PCl₃, but equation 5 forms only 1 mol PCl₅ from 1/4 mol P₄."
+          ]
         }
       ]
     },
@@ -131,24 +171,31 @@
       "letter": "f",
       "prompt": "Equation 4 for the reaction that occurs is shown.\n\nEquation 4: $PCl_3$(g) + $Cl_2$(g) ⇌ $PCl_5$(g)     $\\Delta H°_2$ = −88 kJ/mol rxn\n\ni. If each particle in the diagram represents a partial pressure of 1.00 atm, what is the value of $K_p$ for the equilibrium mixture at 546 K?\n\nii. Does the value of $K_p$ increase, decrease, or remain the same when the temperature is increased to 596 K? Justify your answer based on $\\Delta H°$.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "Part (f)(i): read particle counts from diagram (referenced as PCl₅=5, PCl₃=2, Cl₂=6 per diagram; Kp = 5/[(2)(6)] ≈ 0.42 — accept values consistent with diagram). Part (f)(ii): reaction is exothermic; increasing T shifts equilibrium left, decreasing Kp.",
       "requires_drawing": false,
       "reference_image": "/data/ap-chemistry/frq/images/chem-2025-frq-3-f-ref.png",
       "scoring_points": [
         {
           "point_id": "f1",
           "point_value": 1,
-          "description": "$K_p = \\frac{P_{PCl_5}}{P_{PCl_3} \\cdot P_{Cl_2}} = \\frac{5}{(2.00)(6.00)} = \\frac{5}{12} \\approx 0.333$",
+          "description": "For the correct $K_p$ expression and calculation, and correct direction of $K_p$ change with temperature: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "$K_p = \\frac{P_{PCl_5}}{P_{PCl_3} \\cdot P_{Cl_2}} = \\frac{5}{(2.00)(6.00)} = \\frac{5}{12} \\approx 0.333$"
+                "$K_p = \\frac{P_{PCl_5}}{P_{PCl_3} \\cdot P_{Cl_2}}$",
+                "Using particle counts from diagram: $K_p \\approx \\frac{5}{(2)(6)} \\approx 0.42$ (accept values consistent with diagram)",
+                "(ii) $K_p$ decreases. The reaction is exothermic ($\\Delta H° = -88\\text{ kJ/mol}$); increasing temperature shifts equilibrium toward reactants, decreasing $K_p$."
               ],
-              "correct_example": "Decrease. The negative value of $\\Delta H°$ indicates that the reaction is exothermic. Because the forward reaction is exothermic, increasing temperature shifts the equilibrium toward reactants, decreasing $K_p$."
+              "correct_example": "(i) $K_p = \\frac{P_{PCl_5}}{P_{PCl_3} \\cdot P_{Cl_2}} = \\frac{5\\text{ atm}}{(2\\text{ atm})(6\\text{ atm})} \\approx 0.42$ \n(ii) Decrease. Since the forward reaction is exothermic ($\\Delta H° < 0$), increasing temperature treats heat as a product. By Le Châtelier's principle, the equilibrium shifts toward reactants, reducing $K_p$."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Writing $K_p = P_{PCl_3} \\cdot P_{Cl_2} / P_{PCl_5}$ — that is the inverse.",
+            "Saying $K_p$ increases when temperature increases for an exothermic reaction."
+          ],
+          "common_traps": [
+            "For an exothermic forward reaction, raising T always decreases K."
+          ]
         }
       ]
     }

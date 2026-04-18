@@ -78,16 +78,19 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correctly classifies $x = \\frac{7}{4}$ as a relative minimum (or provides correct sign analysis of $f'$)",
+          "description": "Correctly classifies $x = \\frac{7}{4}$ as a relative maximum using a sign analysis of $f'$. Since $f'(x) = -\\dfrac{4x-7}{(2x^2-7x+5)^2}$ and the denominator is always positive (when defined), the sign of $f'$ is determined by $-(4x-7)$. For $x < \\frac{7}{4}$, $4x - 7 < 0$ so $f'(x) > 0$. For $x > \\frac{7}{4}$, $4x - 7 > 0$ so $f'(x) < 0$. Since $f'$ changes from positive to negative at $x = \\frac{7}{4}$, $f$ has a relative maximum there.",
           "alternatives": [
             {
               "required_elements": [
-                "$x = \\frac{7}{4}$ is a relative minimum",
-                "$f'$ changes from negative to positive at $x = \\frac{7}{4}$"
+                "$x = \\frac{7}{4}$ is a relative maximum",
+                "$f'$ changes from positive to negative at $x = \\frac{7}{4}$"
               ]
             }
           ],
-          "correct_example": "$f'(x) = -\\frac{4x-7}{(2x^2-7x+5)^2}$. For $x < \\frac{7}{4}$, $4x-7 < 0$ so $f' > 0$. For $x > \\frac{7}{4}$, $4x-7 > 0$ so $f' < 0$. Thus $f$ has a relative maximum at $x = \\frac{7}{4}$."
+          "common_traps": [
+            "Confusing the sign analysis: for $x < 7/4$, the numerator $4x-7$ is negative, and the leading minus sign makes $f' > 0$, not $< 0$",
+            "Concluding relative minimum instead of relative maximum"
+          ]
         }
       ]
     },
@@ -128,15 +131,18 @@
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "Evaluates the limit correctly: $\\frac{1}{3}\\ln 2$ (the integral converges)",
+          "description": "Evaluates the limit correctly and concludes the integral converges. As $b \\to \\infty$, $\\dfrac{2b-5}{b-1} \\to 2$, so $\\displaystyle\\lim_{b\\to\\infty}\\frac{1}{3}\\ln\\frac{2b-5}{b-1} = \\frac{1}{3}\\ln 2$. Subtracting the lower bound value: $\\frac{1}{3}\\ln 2 - \\frac{1}{3}\\ln\\frac{5}{4} = \\frac{1}{3}\\ln\\frac{8}{5}$. The integral converges to $\\dfrac{1}{3}\\ln\\dfrac{8}{5}$.",
           "alternatives": [
             {
               "required_elements": [
-                "$\\frac{1}{3}\\ln 2$"
+                "$\\dfrac{1}{3}\\ln\\dfrac{8}{5}$ or equivalently $\\dfrac{1}{3}(\\ln 8 - \\ln 5)$"
               ]
             }
           ],
-          "correct_example": "$\\displaystyle\\lim_{b\\to\\infty}\\frac{1}{3}\\ln\\frac{2b-5}{b-1} - \\frac{1}{3}\\ln\\frac{5}{4} = \\frac{1}{3}\\ln 2 - \\frac{1}{3}\\ln\\frac{5}{4} = \\frac{1}{3}\\ln\\frac{8}{5}$"
+          "common_traps": [
+            "Forgetting to subtract the lower-bound evaluation: the answer is $\\frac{1}{3}\\ln 2 - \\frac{1}{3}\\ln\\frac{5}{4} = \\frac{1}{3}\\ln\\frac{8}{5}$, not simply $\\frac{1}{3}\\ln 2$",
+            "Evaluating $\\ln|2x-5|$ as $\\frac{1}{2}\\ln|2x-5|$ — the $u$-substitution factor of $\\frac{1}{2}$ is already absorbed by the coefficient $2$ in the partial fraction decomposition"
+          ]
         }
       ]
     },

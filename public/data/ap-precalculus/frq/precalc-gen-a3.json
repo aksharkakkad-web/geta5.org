@@ -5,9 +5,7 @@
   "source": "generated",
   "title": "Sinusoidal Modeling: Ocean Tides & Periodic Water Depth",
   "frq_type": "multi_part_math",
-  "related_units": [
-    3
-  ],
+  "related_units": [3],
   "calculator_allowed": false,
   "total_points": 6,
   "stimulus": "At a coastal harbor, the depth of the water changes periodically due to tides. On a particular day, the water reaches its maximum depth of $14$ feet at $2{:}00$ AM and its minimum depth of $6$ feet at $8{:}00$ AM. The sinusoidal function $D$ models the depth of the water, in feet, as a function of time $t$, in hours after midnight.",
@@ -18,39 +16,39 @@
       "letter": "a",
       "prompt": "The function $D$ can be written in the form $D(t) = a\\cos(b(t - c)) + d$.\n\n(i) Find the values of constants $a$, $b$, $c$, and $d$.\n\n(ii) Explain the meaning of the value of $d$ in the context of this problem.",
       "point_value": 2,
-      "scoring_notes": "Accept $a = -4$ with $c = 8$ (using minimum as reference point). Also accept $D(t) = 4\\cos\\left(\\frac{\\pi}{6}(t - 2)\\right) + 10$. For part (ii), the explanation must reference the context (water depth) and the meaning of 'average' or 'midline.' A response stating only '$d$ is the vertical shift' without contextual meaning does not earn the point.",
+      "scoring_notes": "Amplitude $a = (14-6)/2 = 4$; midline $d = (14+6)/2 = 10$; half-period from max to min is $8 - 2 = 6$ hours, so period $= 12$, giving $b = 2\\pi/12 = \\pi/6$; cosine reaches maximum at $t = c$, so $c = 2$. Accept $a = -4$ with $c = 8$ (minimum as reference). For part (ii), the explanation must reference the context (water depth) and the midline meaning. Stating only '$d$ is the vertical shift' without contextual meaning does not earn the point.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct values — $a = 4$ (amplitude $= \\frac{14-6}{2} = 4$), $d = 10$ (midline $= \\frac{14+6}{2} = 10$), $b = \\frac{\\pi}{6}$ (period $= 12$ hours from max at 2 AM to next max; $b = \\frac{2\\pi}{12} = \\frac{\\pi}{6}$), $c = 2$ (phase shift — cosine reaches maximum at $t = c = 2$)",
+          "description": "Correct values $a = 4$, $d = 10$, $b = \\frac{\\pi}{6}$, $c = 2$; accept $a = -4$ with $c = 8$ (minimum as reference point)",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct values — $a = 4$ (amplitude $= \\frac{14-6}{2} = 4$), $d = 10$ (midline $= \\frac{14+6}{2} = 10$), $b = \\frac{\\pi}{6}$ (period $= 12$ hours from max at 2 AM to next max; $b = \\frac{2\\pi}{12} = \\frac{\\pi}{6}$), $c = 2$ (phase shift — cosine reaches maximum at $t = c = 2$)"
-              ],
-              "correct_example": "Correct values — $a = 4$ (amplitude $= \\frac{14-6}{2} = 4$), $d = 10$ (midline $= \\frac{14+6}{2} = 10$), $b = \\frac{\\pi}{6}$ (period $= 12$ hours from max at 2 AM to next max; $b = \\frac{2\\pi}{12} = \\frac{\\pi}{6}$), $c = 2$ (phase shift — cosine reaches maximum at $t = c = 2$)"
+              "required_elements": ["$a = 4$", "$d = 10$", "$b = \\frac{\\pi}{6}$", "$c = 2$"],
+              "correct_example": "$a = 4$ (amplitude $= (14-6)/2 = 4$), $d = 10$ (midline $= (14+6)/2 = 10$), $b = \\pi/6$ (period $= 12$ hours), $c = 2$ (cosine maximum at $t = 2$)"
+            },
+            {
+              "required_elements": ["$a = -4$", "$d = 10$", "$b = \\frac{\\pi}{6}$", "$c = 8$"],
+              "correct_example": "$D(t) = -4\\cos(\\frac{\\pi}{6}(t - 8)) + 10$ (minimum at $t = 8$)"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["$a = 8$ (using full range instead of amplitude)", "$d = 0$ (forgetting the vertical shift)", "$b = 2\\pi/6 = \\pi/3$ (using half-period instead of full period for period formula)"],
+          "common_traps": ["Amplitude is half the range: $(14 - 6)/2 = 4$, not $8$", "Period is $12$ hours (max to next max), not $6$ hours (max to min which is only half-period)"]
         },
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Correct contextual meaning — $d = 10$ feet represents the average (midline) depth of the water, i.e., halfway between the maximum and minimum depths",
+          "description": "$d = 10$ represents the average (midline) depth of the water — the depth halfway between the maximum and minimum; explanation must reference the context of water depth",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct contextual meaning — $d = 10$ feet represents the average (midline) depth of the water, i.e., halfway between the maximum and minimum depths"
-              ],
-              "correct_example": "Correct contextual meaning — $d = 10$ feet represents the average (midline) depth of the water, i.e., halfway between the maximum and minimum depths"
+              "required_elements": ["$d = 10$ feet", "average OR midline depth"],
+              "correct_example": "$d = 10$ feet represents the average depth of the water at the harbor — the midline of the tidal variation, halfway between the maximum depth of $14$ feet and the minimum depth of $6$ feet."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["'$d$ is the vertical shift' without contextual meaning", "'$d$ is the maximum depth'"],
+          "common_traps": ["Must connect $d = 10$ to a real-world meaning about average or midline water depth — a purely mathematical statement is insufficient"]
         }
       ]
     },
@@ -58,39 +56,35 @@
       "letter": "b",
       "prompt": "(i) Find all times $t$, in hours after midnight, where $0 \\leq t < 24$, at which the water depth equals $10$ feet. Express exact values.\n\n(ii) On the interval where $2 < t < 8$, describe whether $D$ is increasing or decreasing, and describe the concavity of the graph of $D$.",
       "point_value": 2,
-      "scoring_notes": "For part (i), exact values in hours are expected (decimals not appropriate here since answers are whole numbers). All four values must appear with no extras. For part (ii), 'decreasing' must be stated. Full credit requires noting the concavity change at $t = 5$: the graph is concave down on $(2, 5)$ because the rate of decrease is speeding up (the function falls more steeply toward the minimum), and concave up on $(5, 8)$ because the rate of decrease is slowing. The midline crossing at $t = 5$ is the inflection point. Stating only 'concave up' or only 'concave down' for the entire interval does not earn the point.",
+      "scoring_notes": "Setting $D = 10$ gives $\\cos(\\frac{\\pi}{6}(t-2)) = 0$, so $\\frac{\\pi}{6}(t-2) = \\frac{\\pi}{2} + k\\pi$; solving: $t = 5, 11, 17, 23$ in $[0, 24)$. All four values required. For part (ii), $D$ is decreasing on $(2, 8)$ (from max to min). Concavity changes at $t = 5$ (inflection at midline): concave down on $(2, 5)$ (rate of decrease accelerating) and concave up on $(5, 8)$ (rate of decrease decelerating). Stating only 'concave up' or only 'concave down' without noting the change does not earn the point.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct times — $t = 5$, $t = 11$, $t = 17$, and $t = 23$ hours after midnight (from $4\\cos\\left(\\frac{\\pi}{6}(t-2)\\right) = 0 \\Rightarrow \\frac{\\pi}{6}(t-2) = \\frac{\\pi}{2} + k\\pi \\Rightarrow t = 5, 11, 17, 23$); all four values required, no extra incorrect values",
+          "description": "All four correct times $t = 5, 11, 17, 23$ hours after midnight, with no incorrect values",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct times — $t = 5$, $t = 11$, $t = 17$, and $t = 23$ hours after midnight (from $4\\cos\\left(\\frac{\\pi}{6}(t-2)\\right) = 0 \\Rightarrow \\frac{\\pi}{6}(t-2) = \\frac{\\pi}{2} + k\\pi \\Rightarrow t = 5, 11, 17, 23$); all four values required, no extra incorrect values"
-              ],
-              "correct_example": "Correct times — $t = 5$, $t = 11$, $t = 17$, and $t = 23$ hours after midnight (from $4\\cos\\left(\\frac{\\pi}{6}(t-2)\\right) = 0 \\Rightarrow \\frac{\\pi}{6}(t-2) = \\frac{\\pi}{2} + k\\pi \\Rightarrow t = 5, 11, 17, 23$); all four values required, no extra incorrect values"
+              "required_elements": ["$t = 5$", "$t = 11$", "$t = 17$", "$t = 23$"],
+              "correct_example": "$\\cos\\left(\\frac{\\pi}{6}(t-2)\\right) = 0 \\Rightarrow \\frac{\\pi}{6}(t-2) = \\frac{\\pi}{2} + k\\pi \\Rightarrow t = 5, 11, 17, 23$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["Only $t = 5$ and $t = 11$ (missing the second cycle values)", "Including $t = 2$ or $t = 8$ (these are the max/min, not midline crossings)"],
+          "common_traps": ["There are four midline crossings per day (two per cycle, two full cycles in 24 hours) — missing any of the four does not earn the point"]
         },
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Both descriptions correct — $D$ is decreasing on $(2, 8)$. Concavity changes at $t = 5$: concave down on $(2, 5)$ (rate of decrease is increasing) and concave up on $(5, 8)$ (rate of decrease is slowing). The inflection point is at $t = 5$ where $D = 10$ (the midline crossing).",
+          "description": "$D$ is decreasing on $(2, 8)$; concavity changes: concave down on $(2, 5)$ and concave up on $(5, 8)$, with inflection at $t = 5$ (the midline crossing)",
           "alternatives": [
             {
-              "required_elements": [
-                "Both descriptions correct — $D$ is decreasing on $(2, 8)$. Concavity changes at $t = 5$: concave down on $(2, 5)$ (rate of decrease is increasing) and concave up on $(5, 8)$ (rate of decrease is slowing). The inflection point is at $t = 5$ where $D = 10$ (the midline crossing)."
-              ],
-              "correct_example": "Both descriptions correct — $D$ is decreasing on $(2, 8)$. Concavity changes at $t = 5$: concave down on $(2, 5)$ (rate of decrease is increasing) and concave up on $(5, 8)$ (rate of decrease is slowing). The inflection point is at $t = 5$ where $D = 10$ (the midline crossing)."
+              "required_elements": ["$D$ is decreasing on $(2, 8)$", "concave down on $(2, 5)$ AND concave up on $(5, 8)$"],
+              "correct_example": "$D$ is decreasing on $(2, 8)$ (from maximum $14$ ft to minimum $6$ ft). The concavity changes at $t = 5$: concave down on $(2, 5)$ (the rate of decrease is increasing) and concave up on $(5, 8)$ (the rate of decrease is slowing as it approaches the minimum)."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["Stating only 'decreasing and concave down' (misses the concavity change)", "Stating 'increasing' on any part of $(2, 8)$"],
+          "common_traps": ["The inflection point is at the midline crossing $t = 5$, halfway between max and min — concavity changes there, not at the max or min"]
         }
       ]
     },
@@ -98,39 +92,35 @@
       "letter": "c",
       "prompt": "A fishing boat can only safely enter the harbor when the water depth is at least $11$ feet. Determine all time intervals during $0 \\leq t < 24$ when the boat can safely enter the harbor. Express exact values.",
       "point_value": 2,
-      "scoring_notes": "Exact answers involve $\\arccos(1/4)$ and are acceptable. Decimal approximations $t \\approx 4.52$ and $t \\approx 11.48$ are also acceptable. The three safe-entry intervals within one day are: $[0, 4.52)$, $(11.48, 16.52)$, and $(23.48, 24)$. Common error: forgetting that the interval wraps around midnight (the 24-hour period starts mid-cycle). Full credit if all three intervals are correctly identified with supporting work.",
+      "scoring_notes": "Setting $D \\geq 11$ gives $4\\cos(\\frac{\\pi}{6}(t-2)) \\geq 1$, so $\\cos(\\frac{\\pi}{6}(t-2)) \\geq 1/4$. Critical times: $\\frac{\\pi}{6}(t-2) = \\pm\\arccos(1/4)$, so $t = 2 \\pm \\frac{6}{\\pi}\\arccos(1/4) \\approx 2 \\pm 2.52$. First safe window: $[-0.52, 4.52]$ — since $t \\geq 0$, this becomes $[0, 4.52)$. Second window centered at $t = 14$: $(11.48, 16.52)$. Third partial window: $(23.48, 24)$. Decimal approximations acceptable. Partial credit for correct setup without all three intervals.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Correct setup — solving $4\\cos\\left(\\frac{\\pi}{6}(t-2)\\right) + 10 \\geq 11$, which gives $\\cos\\left(\\frac{\\pi}{6}(t-2)\\right) \\geq \\frac{1}{4}$; finding critical times from $\\frac{\\pi}{6}(t-2) = \\pm\\arccos\\left(\\frac{1}{4}\\right)$, yielding $t = 2 \\pm \\frac{6}{\\pi}\\arccos\\left(\\frac{1}{4}\\right)$; approximate decimal values $t \\approx 2 \\pm 2.52$, giving $t \\approx -0.52$ (before midnight, equivalent to $23.48$) and $t \\approx 4.52$ for the first cycle",
+          "description": "Correct setup leading to critical times $t \\approx 4.52$ and $t \\approx -0.52$ (or $23.48$) from $\\cos(\\frac{\\pi}{6}(t-2)) \\geq \\frac{1}{4}$",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct setup — solving $4\\cos\\left(\\frac{\\pi}{6}(t-2)\\right) + 10 \\geq 11$, which gives $\\cos\\left(\\frac{\\pi}{6}(t-2)\\right) \\geq \\frac{1}{4}$; finding critical times from $\\frac{\\pi}{6}(t-2) = \\pm\\arccos\\left(\\frac{1}{4}\\right)$, yielding $t = 2 \\pm \\frac{6}{\\pi}\\arccos\\left(\\frac{1}{4}\\right)$; approximate decimal values $t \\approx 2 \\pm 2.52$, giving $t \\approx -0.52$ (before midnight, equivalent to $23.48$) and $t \\approx 4.52$ for the first cycle"
-              ],
-              "correct_example": "Correct setup — solving $4\\cos\\left(\\frac{\\pi}{6}(t-2)\\right) + 10 \\geq 11$, which gives $\\cos\\left(\\frac{\\pi}{6}(t-2)\\right) \\geq \\frac{1}{4}$; finding critical times from $\\frac{\\pi}{6}(t-2) = \\pm\\arccos\\left(\\frac{1}{4}\\right)$, yielding $t = 2 \\pm \\frac{6}{\\pi}\\arccos\\left(\\frac{1}{4}\\right)$; approximate decimal values $t \\approx 2 \\pm 2.52$, giving $t \\approx -0.52$ (before midnight, equivalent to $23.48$) and $t \\approx 4.52$ for the first cycle"
+              "required_elements": ["$4\\cos(\\frac{\\pi}{6}(t-2)) + 10 \\geq 11$", "$\\cos(\\frac{\\pi}{6}(t-2)) \\geq \\frac{1}{4}$", "$t = 2 \\pm \\frac{6}{\\pi}\\arccos(\\frac{1}{4})$"],
+              "correct_example": "$D \\geq 11 \\Rightarrow 4\\cos(\\frac{\\pi}{6}(t-2)) \\geq 1 \\Rightarrow \\cos(\\frac{\\pi}{6}(t-2)) \\geq \\frac{1}{4}$; critical times at $t = 2 \\pm \\frac{6}{\\pi}\\arccos(\\frac{1}{4}) \\approx 2 \\pm 2.52$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["Setting $D = 10$ instead of $D = 11$ (solving for midline crossing instead of safe threshold)", "Setting $\\cos = -1/4$ (wrong direction of inequality)"],
+          "common_traps": ["The inequality direction: cosine $\\geq 1/4$ (not $\\leq$) corresponds to depth $\\geq 11$ ft since cosine is the function value relative to amplitude"]
         },
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Correct intervals stated — $0 \\leq t < 4.52$ (approximately) AND $11.48 < t < 16.52$ (approximately) AND $23.48 < t < 24$; exact form: $\\left[0, 2 + \\frac{6}{\\pi}\\arccos\\frac{1}{4}\\right)$, $\\left(14 - \\frac{6}{\\pi}\\arccos\\frac{1}{4},\\ 14 + \\frac{6}{\\pi}\\arccos\\frac{1}{4}\\right)$, and $\\left(26 - \\frac{6}{\\pi}\\arccos\\frac{1}{4},\\ 24\\right]$",
+          "description": "All three correct safe-entry intervals within $[0, 24)$: approximately $[0, 4.52)$, $(11.48, 16.52)$, and $(23.48, 24)$",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct intervals stated — $0 \\leq t < 4.52$ (approximately) AND $11.48 < t < 16.52$ (approximately) AND $23.48 < t < 24$; exact form: $\\left[0, 2 + \\frac{6}{\\pi}\\arccos\\frac{1}{4}\\right)$, $\\left(14 - \\frac{6}{\\pi}\\arccos\\frac{1}{4},\\ 14 + \\frac{6}{\\pi}\\arccos\\frac{1}{4}\\right)$, and $\\left(26 - \\frac{6}{\\pi}\\arccos\\frac{1}{4},\\ 24\\right]$"
-              ],
-              "correct_example": "Correct intervals stated — $0 \\leq t < 4.52$ (approximately) AND $11.48 < t < 16.52$ (approximately) AND $23.48 < t < 24$; exact form: $\\left[0, 2 + \\frac{6}{\\pi}\\arccos\\frac{1}{4}\\right)$, $\\left(14 - \\frac{6}{\\pi}\\arccos\\frac{1}{4},\\ 14 + \\frac{6}{\\pi}\\arccos\\frac{1}{4}\\right)$, and $\\left(26 - \\frac{6}{\\pi}\\arccos\\frac{1}{4},\\ 24\\right]$"
+              "required_elements": ["$[0, 4.52)$ (or equivalent exact form)", "$(11.48, 16.52)$", "$(23.48, 24)$"],
+              "correct_example": "Safe intervals: $\\left[0,\\ 2 + \\frac{6}{\\pi}\\arccos\\tfrac{1}{4}\\right)$, $\\left(14 - \\frac{6}{\\pi}\\arccos\\tfrac{1}{4},\\ 14 + \\frac{6}{\\pi}\\arccos\\tfrac{1}{4}\\right)$, and $\\left(26 - \\frac{6}{\\pi}\\arccos\\tfrac{1}{4},\\ 24\\right]$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["Only listing two intervals (forgetting the wrap-around interval near $t = 23.48$)", "Listing intervals where depth is less than $11$ ft (inverted inequality)"],
+          "common_traps": ["The cycle straddles midnight: the first safe window starts before $t = 0$, so within $[0, 24)$ it begins at $t = 0$; the last safe window wraps around to just before $t = 24$"]
         }
       ]
     }

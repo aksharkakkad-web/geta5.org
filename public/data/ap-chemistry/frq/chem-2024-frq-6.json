@@ -3,15 +3,12 @@
   "subject": "ap-chemistry",
   "year": 2024,
   "source": "released",
-  "title": "Lewis Structures & Molecular Geometry",
+  "title": "Reaction Kinetics & Lewis Structures",
   "frq_type": "multi_part_math",
-  "related_units": [
-    2,
-    5
-  ],
+  "related_units": [2, 5],
   "calculator_allowed": true,
   "total_points": 4,
-  "stimulus": "6. At elevated temperatures, NO undergoes decomposition in the gas phase, forming NO and O as represented by\nthe following equation.\n2 NO → 2 NO + $O_2$ 2\nA scientist measures the change in [NO ] over the first 100. s of the reaction at 546°C. The scientist uses the data\ncollected from the experiment to generate the following two graphs.\nBased on these data, the scientist makes the claim that the rate law for the reaction is rate = k [ NO ]2 .",
+  "stimulus": "6. At elevated temperatures, $NO_2$ undergoes decomposition in the gas phase, forming NO and $O_2$ as represented by the following equation.\n$2\\text{ NO}_2$(g) → $2\\text{ NO}$(g) + $O_2$(g)\nA scientist measures the change in [$NO_2$] over the first 100. s of the reaction at 546°C. The scientist uses the data collected from the experiment to generate the following two graphs.\nBased on these data, the scientist makes the claim that the rate law for the reaction is rate = $k[\\text{NO}_2]^2$.",
   "stimulus_image": "/data/ap-chemistry/frq/images/chem-2024-frq-6-stimulus.png",
   "documents": null,
   "parts": [
@@ -19,24 +16,30 @@
       "letter": "a",
       "prompt": "Explain how the graphs indicate that the reaction is second order with respect to NO .",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "The second graph plots 1/[NO₂] vs. time. A linear plot of 1/[A] vs. t is the diagnostic for second-order kinetics.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "For a correct explanation: 1 point",
+          "description": "For a correct explanation citing the linearity of 1/[NO₂] vs. time: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For a correct explanation: 1 point"
+                "The plot of $1/[\\text{NO}_2]$ vs. time is linear.",
+                "A linear $1/[A]$ vs. $t$ plot is the hallmark of a second-order reaction."
               ],
-              "correct_example": "The plot of 1 versus time is the most linear, indicating that the reaction is second"
+              "correct_example": "The graph of $1/[\\text{NO}_2]$ vs. time is linear (constant slope), while the graph of $[\\text{NO}_2]$ vs. time is not linear. For a second-order reaction, the integrated rate law is $\\frac{1}{[A]_t} = kt + \\frac{1}{[A]_0}$, predicting a linear $1/[A]$ vs. $t$ plot. The linearity of the $1/[\\text{NO}_2]$ graph confirms second-order kinetics."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Citing the [NO₂] vs. t graph as evidence — a curved [A] vs. t plot is consistent with any non-zero order.",
+            "Saying the slope is constant — that is just restating linearity."
+          ],
+          "common_traps": [
+            "First order: linear ln[A] vs. t. Second order: linear 1/[A] vs. t. Zero order: linear [A] vs. t."
+          ]
         }
       ]
     },
@@ -44,40 +47,82 @@
       "letter": "b",
       "prompt": "At a certain point in the reaction, the rate of disappearance of NO is determined to be 6.52 × 10 − 7 M/s.\nDetermine the rate of appearance, in M /s, of O at this same point in the reaction.\n\n+",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "Rate of O₂ appearance = (1/2) × rate of NO₂ disappearance, from stoichiometry (2 NO₂ → 2 NO + O₂).",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "For the correct calculated value: 1 point",
+          "description": "For the correct calculated rate of O₂ appearance: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct calculated value: 1 point"
+                "$\\frac{d[\\text{O}_2]}{dt} = \\frac{1}{2} \\times 6.52 \\times 10^{-7}\\text{ M/s} = 3.26 \\times 10^{-7}\\text{ M/s}$"
               ],
-              "correct_example": "21 mol O6.52 10 /s 3.26 10 /s2 mol NOMM−−×× = ×"
+              "correct_example": "From the stoichiometry $2\\text{ NO}_2 \\rightarrow 2\\text{ NO} + \\text{O}_2$:\n$\\frac{d[\\text{O}_2]}{dt} = -\\frac{1}{2}\\frac{d[\\text{NO}_2]}{dt} = \\frac{1}{2} \\times 6.52 \\times 10^{-7}\\text{ M/s} = 3.26 \\times 10^{-7}\\text{ M/s}$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Saying rate of O₂ = rate of NO₂ disappearance — stoichiometry ratio is 1:2 (O₂:NO₂).",
+            "Multiplying by 2 instead of dividing by 2."
+          ],
+          "common_traps": [
+            "Rate of formation of O₂ = (coeff O₂ / coeff NO₂) × rate of disappearance of NO₂ = (1/2) × 6.52×10⁻⁷."
+          ]
         }
       ]
     },
     {
       "letter": "c",
-      "prompt": "NO is a molecule that contains an odd number of electrons and can be oxidized to form the NO ion. In\nNO , the unpaired electron is presumed to be localized on the nitrogen atom, as shown in the Lewis diagram in\nthe box on the left.\n+\n(i)In the box on the right, complete the Lewis diagram for NO . Be sure to show all bonding and\nnonbonding electrons.\n+\n(ii)A student makes the claim that the bond angles in NO and NO are different from each other. Do\nyou agree or disagree with the student’s claim? Justify your answer.",
+      "prompt": "NO is a molecule that contains an odd number of electrons and can be oxidized to form the NO ion. In\nNO , the unpaired electron is presumed to be localized on the nitrogen atom, as shown in the Lewis diagram in\nthe box on the left.\n+\n(i)In the box on the right, complete the Lewis diagram for NO . Be sure to show all bonding and\nnonbonding electrons.\n+\n(ii)A student makes the claim that the bond angles in NO and NO are different from each other. Do\nyou agree or disagree with the student's claim? Justify your answer.",
       "point_value": 2,
-      "rubric_criteria": [
-        "(i) For the correct Lewis diagram: 1 point",
-        "(ii) For the correct answer and a valid justification, consistent with part (c)(i): 1 point",
-        "Accept one of the following:",
-        "O atoms would spread farther apart, forming a linear structure with a 180"
-      ],
-      "scoring_notes": "Accept one of the following:",
+      "scoring_notes": "NO₂ has 17 electrons (odd); its geometry is bent (~134°). NO₂⁺ has 16 electrons (even); it is isoelectronic with CO₂ (linear, 180°). Part (c)(i): NO₂⁺ has a triple bond N≡O... no — NO₂⁺ has 16 electrons: linear with two double bonds (N=O). Part (c)(ii): agree — NO₂ is bent, NO₂⁺ is linear.",
       "requires_drawing": true,
-      "reference_image": "/data/ap-chemistry/frq/images/chem-2024-frq-6-c-ref.png"
+      "reference_image": "/data/ap-chemistry/frq/images/chem-2024-frq-6-c-ref.png",
+      "scoring_points": [
+        {
+          "point_id": "ci1",
+          "point_value": 1,
+          "description": "For a correct Lewis diagram of NO₂⁺ (16 electrons, linear, N=O double bonds): 1 point",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$\\text{NO}_2^+$ has $5 + 2(6) - 1 = 16$ valence electrons.",
+                "Structure: $[\\text{O} = \\text{N} = \\text{O}]^+$ with each O having 2 lone pairs and N having no lone pairs."
+              ],
+              "correct_example": "$\\text{NO}_2^+$: 16 valence electrons. Linear structure: $[:O=N=O:]^+$ where each O has 2 lone pairs and the formal charge on each O is 0 and N is 0 (or resonance structures)."
+            }
+          ],
+          "wrong_examples": [
+            "Drawing a bent NO₂⁺ with a lone pair on N — removing an electron from NO₂ removes the unpaired electron from N, leaving no lone pair and giving a linear molecule."
+          ],
+          "common_traps": [
+            "NO₂ (17e⁻): bent, N has 1 unpaired electron. NO₂⁺ (16e⁻): linear, isoelectronic with CO₂."
+          ]
+        },
+        {
+          "point_id": "cii1",
+          "point_value": 1,
+          "description": "For 'agree' with correct VSEPR justification for different geometries: 1 point",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Agree.",
+                "NO₂ is bent (bond angle ~134°) because N has one unpaired electron acting as a partial lone pair.",
+                "NO₂⁺ is linear (bond angle 180°) because N has no lone pairs — consistent with part (c)(i)."
+              ],
+              "correct_example": "Agree. In NO₂, the nitrogen atom has an unpaired electron that acts like a partial lone pair, compressing the bond angle to ~134° (bent geometry). In NO₂⁺, the N atom has no lone pairs and no unpaired electrons. The two O atoms spread as far apart as possible, giving a linear structure with a 180° bond angle. Since the two molecules have different electron geometries, their bond angles differ."
+            }
+          ],
+          "wrong_examples": [
+            "Disagree — the bond angles are indeed different between the bent NO₂ and linear NO₂⁺."
+          ],
+          "common_traps": [
+            "An unpaired electron in VSEPR behaves like a lone pair and causes the angle to be less than 180°."
+          ]
+        }
+      ]
     }
   ]
 }

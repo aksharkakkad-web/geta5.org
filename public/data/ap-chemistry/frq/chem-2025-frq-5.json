@@ -3,13 +3,9 @@
   "subject": "ap-chemistry",
   "year": 2025,
   "source": "released",
-  "title": "Intermolecular Forces & Physical Properties",
+  "title": "Intermolecular Forces, Vapor Pressure & Ideal Gas Law",
   "frq_type": "multi_part_math",
-  "related_units": [
-    2,
-    3,
-    4
-  ],
+  "related_units": [2, 3, 4],
   "calculator_allowed": true,
   "total_points": 4,
   "stimulus": null,
@@ -20,24 +16,29 @@
       "letter": "a",
       "prompt": "Based on VSEPR theory, predict the geometry around the atom in compound Y.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "Compound Y contains a Si atom with 4 bonding pairs and no lone pairs — tetrahedral geometry.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "For the correct answer",
+          "description": "For the correct molecular geometry (tetrahedral): 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct answer: Point 01 Tetrahedral"
+                "Tetrahedral"
               ],
-              "correct_example": "Tetrahedral"
+              "correct_example": "Compound Y has a Si central atom with 4 bonding pairs and 0 lone pairs. By VSEPR theory, 4 electron domains → tetrahedral electron geometry and tetrahedral molecular geometry."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Square planar — that requires 4 bonding pairs + 2 lone pairs.",
+            "Pyramidal — that requires 3 bonding pairs + 1 lone pair."
+          ],
+          "common_traps": [
+            "Distinguish electron geometry from molecular geometry; both are tetrahedral when there are 4 bonding pairs and 0 lone pairs."
+          ]
         }
       ]
     },
@@ -45,24 +46,31 @@
       "letter": "b",
       "prompt": "A student claims that compound Y has a higher boiling point than that of compound X\nbecause compound Y has stronger London dispersion forces. Do you agree or disagree?\nJustify your answer.\n82°C",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "Compound X contains C (smaller, fewer electrons), compound Y contains Si (larger, more electrons). Si has more occupied electron shells and a larger, more polarizable electron cloud → stronger LDF → higher boiling point. Agree with student's claim.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "For the correct answer and a valid justification",
+          "description": "For 'agree' with a valid explanation referencing Si's larger/more polarizable electron cloud: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct answer and a valid justification: Point 02 Agree. Compound Y has a larger, more polarizable electron cloud because the Si atom has more occupied electron shells than the C atom, giving compound Y stronger London dispersion forces and a higher boiling point than compound X."
+                "Agree.",
+                "Si has more occupied electron shells than C, giving compound Y a larger, more polarizable electron cloud.",
+                "Larger polarizability → stronger London dispersion forces → higher boiling point."
               ],
-              "correct_example": "Agree. Compound Y has a larger, more polarizable electron cloud because the Si atom has more occupied electron shells than the C atom, giving compound Y stronger London dispersion forces and a higher boiling point than compound X."
+              "correct_example": "Agree. Compound Y contains Si, which has 3 occupied electron shells (vs. 2 for C in compound X). The larger Si atom has a greater number of electrons in a more spatially extended cloud, making it more polarizable. Stronger London dispersion forces between Y molecules require more energy to overcome, resulting in a higher boiling point."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Disagreeing — the student's claim is correct.",
+            "Arguing C has more electrons than Si — Si (Z=14) has more electrons than C (Z=6)."
+          ],
+          "common_traps": [
+            "Molar mass alone is not sufficient justification; must connect to electron cloud size and polarizability."
+          ]
         }
       ]
     },
@@ -70,24 +78,30 @@
       "letter": "c",
       "prompt": "An equimolar mixture of the two compounds is heated. When the mixture reaches ,\nwhich compound will have the higher vapor pressure? Justify your answer.\n198°C",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "At 198°C (471 K), compound X (with C, lower boiling point ~82°C) has already boiled and is entirely gas-phase if unconfined; but in a sealed system both are gases. Compound X has weaker IMF, so at any temperature its vapor pressure is higher than Y. Accept compound X with reasoning about weaker LDF.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "For the correct answer and a valid justification. Point 03",
+          "description": "For identifying compound X with correct justification based on weaker IMF: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct answer and a valid justification. Point 03"
+                "Compound X has the higher vapor pressure at 198°C.",
+                "Compound X has weaker London dispersion forces (smaller C atom, less polarizable) than compound Y (larger Si atom), so molecules of X escape the liquid phase more readily."
               ],
-              "correct_example": "Examples of acceptable responses may include the following: Y, so molecules of X are more likely to be in the gas phase at 82°C and would"
+              "correct_example": "Compound X has the higher vapor pressure at 198°C. Compound X contains C and has weaker London dispersion forces than compound Y (which contains Si). Because the intermolecular forces in X are weaker, molecules of X require less thermal energy to escape into the vapor phase, giving X a higher vapor pressure at any given temperature."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Compound Y has a higher vapor pressure — Y has stronger LDF and therefore a lower vapor pressure at a given temperature.",
+            "Claiming both have equal vapor pressure — they have different molar masses and IMF strengths."
+          ],
+          "common_traps": [
+            "Higher boiling point corresponds to lower vapor pressure at a given temperature (stronger IMF)."
+          ]
         }
       ]
     },
@@ -95,24 +109,30 @@
       "letter": "d",
       "prompt": "The mixture is heated to in a sealed, rigid 12.5 L container, at which point both\nsubstances are gases and the total pressure in the container is 2.30 atm. Calculate the number\nof moles of gas particles in the container.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "Use ideal gas law: $n = PV/RT$ where T = 198°C = 471 K.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "For the correct calculated value",
+          "description": "For the correct calculated number of moles using $PV = nRT$: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct calculated value: Point 04 PV = nRT PV (2.30 atm)(12.5 L) n = = = 0.744 mol RT (0.08206 L⋅atm)(471K) K⋅mol"
+                "$n = \\frac{PV}{RT} = \\frac{(2.30\\text{ atm})(12.5\\text{ L})}{(0.08206\\text{ L·atm/mol·K})(471\\text{ K})}$",
+                "$n = 0.744\\text{ mol}$"
               ],
-              "correct_example": "PV = nRT PV (2.30 atm)(12.5 L) n = = = 0.744 mol RT (0.08206 L⋅atm)(471K) K⋅mol"
+              "correct_example": "$PV = nRT$ \n$n = \\frac{PV}{RT} = \\frac{(2.30)(12.5)}{(0.08206)(471)} = \\frac{28.75}{38.65} = 0.744\\text{ mol}$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Using T = 198 K instead of 471 K — must convert °C to K.",
+            "Using R = 8.314 J/mol·K with atm·L units — creates inconsistent units."
+          ],
+          "common_traps": [
+            "Always convert temperature to Kelvin: T(K) = T(°C) + 273."
+          ]
         }
       ]
     }

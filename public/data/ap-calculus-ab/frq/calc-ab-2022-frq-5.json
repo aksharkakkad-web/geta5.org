@@ -42,33 +42,34 @@
       "letter": "b",
       "prompt": "Write an equation for the line tangent to the solution curve in part (a) at the point $(1, 2)$. Use the equation to approximate $f(0.8)$.",
       "point_value": 2,
-      "scoring_notes": "From the scoring key, the slope at $(1,2)$ is $\\frac{3}{2}$. This corresponds to $\\frac{1}{2}\\sin(\\frac{\\pi}{2}\\cdot 1)\\cdot\\sqrt{2+7} = \\frac{1}{2}\\cdot 1 \\cdot 3 = \\frac{3}{2}$ if the DE has $\\sqrt{y+7}$ instead of $y+7$. Accept slope $\\frac{3}{2}$ and $f(0.8) \\approx 1.7$. An incorrect tangent with slope $\\frac{3}{2}$ is eligible for the second point. A response of only $2 + \\frac{3}{2}(0.8-1)$ earns P2 but not P1.",
+      "scoring_notes": "Slope at $(1,2)$: $\\frac{dy}{dx}\\big|_{(1,2)} = \\frac{1}{2}\\sin\\left(\\frac{\\pi}{2}\\right)(2+7) = \\frac{1}{2}(1)(9) = \\frac{9}{2}$. Tangent line: $y = 2 + \\frac{9}{2}(x-1)$. Approximation: $f(0.8) \\approx 2 + \\frac{9}{2}(0.8-1) = 2 - 0.9 = 1.1$. A response of only the expression $2 + \\frac{9}{2}(0.8-1)$ earns P2 but not P1.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct tangent line equation: slope $= \\frac{1}{2}\\sin\\left(\\frac{\\pi}{2}\\right)(2+7) = \\frac{1}{2}(1)(9) = \\frac{9}{2}$... wait",
+          "description": "Correct tangent line equation at $(1, 2)$ with slope $\\frac{9}{2}$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct tangent line equation: slope $= \\frac{1}{2}\\sin\\left(\\frac{\\pi}{2}\\right)(2+7) = \\frac{1}{2}(1)(9) = \\frac{9}{2}$... wait"
+                "Slope $= \\frac{1}{2}\\sin\\left(\\frac{\\pi}{2}\\right)(2+7) = \\frac{9}{2}$",
+                "Tangent line: $y - 2 = \\frac{9}{2}(x-1)$"
               ],
-              "correct_example": "$\\frac{dy}{dx}\\big|_{(1,2)} = \\frac{1}{2}\\sin\\left(\\frac{\\pi}{2}\\cdot 1\\right)(2+7) = \\frac{1}{2}(1)(9) = \\frac{9}{2}$... but scoring key says $\\frac{3}{2}$: $\\frac{dy}{dx} = \\frac{1}{2}\\sin(\\frac{\\pi}{2}\\cdot 1)(2+7) = \\frac{1}{2}\\cdot 1 \\cdot 9 = \\frac{9}{2}$... re-checking: scoring key slope $= \\frac{3}{2}$, so perhaps $y+7$ is actually just $y$: $\\frac{1}{2}\\sin(\\frac{\\pi}{2})(2) = \\frac{1}{2}\\cdot 1 \\cdot 2 = 1$... No, scoring key says $\\frac{3}{2}$. Perhaps: $\\frac{1}{2}\\sin(\\frac{\\pi}{2}\\cdot 1)(y+7)$ at $y = 2$: $\\frac{1}{2}\\cdot 3\\cdot\\sin(\\frac{\\pi}{2}) = \\frac{3}{2}$... checking: maybe the DE is $\\frac{dy}{dx} = \\frac{1}{2}\\sin(\\frac{\\pi}{2}x)(y+7)$ but College Board scored slope as $\\frac{3}{2}$, meaning $(2+7)$ somehow gives $3$... possibly $\\sqrt{2+7} = 3$, but that seems unlikely. Accept the scoring key: slope $= \\frac{3}{2}$, tangent line: $y = 2 + \\frac{3}{2}(x-1)$"
+              "correct_example": "$\\frac{dy}{dx}\\big|_{(1,2)} = \\frac{1}{2}\\sin\\left(\\frac{\\pi}{2}\\right)(9) = \\frac{9}{2}$; tangent line: $y = 2 + \\frac{9}{2}(x-1)$"
             }
           ]
         },
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct approximation",
+          "description": "Correct approximation using tangent line",
           "alternatives": [
             {
               "required_elements": [
-                "Correct approximation"
+                "$f(0.8) \\approx 1.1$"
               ],
-              "correct_example": "$f(0.8) \\approx 2 + \\frac{3}{2}(0.8-1) = 2 - 0.3 = 1.7$"
+              "correct_example": "$f(0.8) \\approx 2 + \\frac{9}{2}(0.8-1) = 2 - 0.9 = 1.1$"
             }
           ]
         }
@@ -101,7 +102,7 @@
       "letter": "d",
       "prompt": "Use separation of variables to find $y = f(x)$, the particular solution to the differential equation $\\frac{dy}{dx} = \\frac{1}{2}\\sin\\left(\\frac{\\pi}{2}x\\right)(y+7)$ with the initial condition $f(1) = 2$.",
       "point_value": 5,
-      "scoring_notes": "No separation = 0/5. No constant of integration = at most 3/5. Must earn separation and at least one antiderivative point to earn constant point. From scoring key: separating with $\\frac{dy}{\\sqrt{y+7}} = \\frac{1}{2}\\sin(\\frac{\\pi}{2}x)dx$ gives $2\\sqrt{y+7} = -\\frac{1}{\\pi}\\cos(\\frac{\\pi}{2}x)+C$. At $(1,2)$: $2\\sqrt{9} = -\\frac{1}{\\pi}(0)+C \\Rightarrow C=6$. Final: $y = \\left(3-\\frac{1}{2\\pi}\\cos\\frac{\\pi x}{2}\\right)^2 - 7$.",
+      "scoring_notes": "No separation = 0/5. No constant of integration = at most 3/5. Must earn separation and at least one antiderivative point to earn constant point. Separation: $\\frac{dy}{y+7} = \\frac{1}{2}\\sin\\left(\\frac{\\pi}{2}x\\right)dx$. Left antiderivative: $\\ln|y+7|$. Right antiderivative: $-\\frac{1}{\\pi}\\cos\\left(\\frac{\\pi}{2}x\\right) + C$. Initial condition at $(1,2)$: $\\ln(9) = -\\frac{1}{\\pi}\\cos\\left(\\frac{\\pi}{2}\\right) + C = 0 + C$, so $C = \\ln 9$. Solving: $y + 7 = 9e^{-(1/\\pi)\\cos(\\pi x/2)}$, so $y = 9e^{-\\frac{1}{\\pi}\\cos\\left(\\frac{\\pi x}{2}\\right)} - 7$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
@@ -112,77 +113,72 @@
           "alternatives": [
             {
               "required_elements": [
-                "Correctly separates variables"
+                "$\\frac{dy}{y+7} = \\frac{1}{2}\\sin\\left(\\frac{\\pi}{2}x\\right)\\, dx$"
               ],
               "correct_example": "$\\frac{dy}{y+7} = \\frac{1}{2}\\sin\\left(\\frac{\\pi}{2}x\\right)\\, dx$"
             }
           ],
           "common_traps": [
-            "Incorrect antiderivative"
+            "Leaving $y+7$ in denominator without separating"
           ]
         },
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "Correct antiderivative of left side",
+          "description": "Correct antiderivative of left side: $\\ln|y+7|$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct antiderivative of left side"
+                "$\\ln|y+7|$"
               ],
-              "correct_example": "$\\ln|y+7|$"
+              "correct_example": "$\\int \\frac{dy}{y+7} = \\ln|y+7|$"
             }
-          ],
-          "common_traps": [
-            "Incorrect antiderivative"
           ]
         },
         {
           "point_id": "d3",
           "point_value": 1,
-          "description": "Correct antiderivative of right side",
+          "description": "Correct antiderivative of right side: $-\\frac{1}{\\pi}\\cos\\left(\\frac{\\pi}{2}x\\right) + C$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct antiderivative of right side"
+                "$-\\frac{1}{\\pi}\\cos\\left(\\frac{\\pi}{2}x\\right) + C$"
               ],
-              "correct_example": "$-\\frac{1}{\\pi}\\cos\\left(\\frac{\\pi}{2}x\\right) + C$"
+              "correct_example": "$\\int \\frac{1}{2}\\sin\\left(\\frac{\\pi}{2}x\\right)\\, dx = -\\frac{1}{\\pi}\\cos\\left(\\frac{\\pi}{2}x\\right) + C$"
             }
           ],
           "common_traps": [
-            "Incorrect antiderivative"
+            "Forgetting to divide by $\\frac{\\pi}{2}$ when integrating $\\sin(\\frac{\\pi}{2}x)$"
           ]
         },
         {
           "point_id": "d4",
           "point_value": 1,
-          "description": "Uses initial condition $f(1) = 2$",
+          "description": "Uses initial condition $f(1) = 2$ to find constant of integration",
           "alternatives": [
             {
               "required_elements": [
-                "Uses initial condition $f(1) = 2$"
+                "$\\ln|2+7| = -\\frac{1}{\\pi}\\cos\\left(\\frac{\\pi}{2}\\right) + C$",
+                "$C = \\ln 9$"
               ],
-              "correct_example": "$\\ln(9) = -\\frac{1}{\\pi}\\cos\\left(\\frac{\\pi}{2}\\right) + C = 0 + C$, so $C = \\ln 9$... or: $2\\sqrt{y+7} = -\\frac{1}{\\pi}\\cos(\\frac{\\pi}{2}x) + C$ approach per scoring key. Accept the scoring key approach with $C = 6$"
+              "correct_example": "$\\ln(9) = -\\frac{1}{\\pi}(0) + C \\Rightarrow C = \\ln 9$"
             }
-          ],
-          "common_traps": [
-            "Incorrect antiderivative"
           ]
         },
         {
           "point_id": "d5",
           "point_value": 1,
-          "description": "Solves for $y$",
+          "description": "Solves for $y$: $y = 9e^{-\\frac{1}{\\pi}\\cos\\left(\\frac{\\pi x}{2}\\right)} - 7$",
           "alternatives": [
             {
               "required_elements": [
-                "Solves for $y$"
+                "$y = 9e^{-\\frac{1}{\\pi}\\cos\\left(\\frac{\\pi x}{2}\\right)} - 7$"
               ],
-              "correct_example": "$y = \\left(3 - \\frac{1}{2\\pi}\\cos\\left(\\frac{\\pi}{2}x\\right)\\right)^2 - 7$ or equivalent"
+              "correct_example": "$\\ln(y+7) = \\ln 9 - \\frac{1}{\\pi}\\cos\\left(\\frac{\\pi x}{2}\\right) \\Rightarrow y+7 = 9e^{-\\frac{1}{\\pi}\\cos\\left(\\frac{\\pi x}{2}\\right)} \\Rightarrow y = 9e^{-\\frac{1}{\\pi}\\cos\\left(\\frac{\\pi x}{2}\\right)} - 7$"
             }
           ],
           "common_traps": [
-            "Incorrect antiderivative"
+            "Not solving explicitly for $y$"
           ]
         }
       ]

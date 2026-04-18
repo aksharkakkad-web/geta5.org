@@ -44,15 +44,33 @@ function sanitizeGrading(question: FRQ, raw: FRQGradingResult): FRQGradingResult
   const rawParts = Array.isArray(raw.parts) ? raw.parts : []
   const rawByLetter = new Map(rawParts.map(p => [p.letter, p]))
 
+  // Helper: build a zero-credit point_result from a rubric scoring_point.
+  // Used when the LLM skipped the part — the UI (FRQBreakdownEssay) renders
+  // point_results only, so a part without them renders as nothing.
+  function synthesizeZeroPointResult(sp: { point_id: string; point_value: number; description: string }): FRQGradingPointResult {
+    return {
+      point_id: sp.point_id,
+      description: sp.description,
+      earned: 0,
+      max: sp.point_value,
+      confidence: 0.5,
+      sub_results: [],
+      reasoning: 'The grader did not return a breakdown for this rubric row. Please retry grading for a detailed evaluation.',
+      suggestion: 'Adi\'s detailed evaluation for this row is unavailable — retry grading to see specific feedback on what earned or missed this point.',
+    }
+  }
+
   const parts: FRQGradingPart[] = gradableParts.map(p => {
     const rp = rawByLetter.get(p.letter)
     const maxForPart = p.point_value
+    const expectedPoints = Array.isArray(p.scoring_points) ? p.scoring_points : []
 
     let earned: number
     let pointResults: FRQGradingPointResult[] | undefined
 
     if (Array.isArray(rp?.point_results) && rp.point_results.length > 0) {
-      pointResults = rp.point_results.map((pr: FRQGradingPointResult) => {
+      const returnedByPointId = new Map<string, FRQGradingPointResult>()
+      for (const pr of rp.point_results) {
         const prMax = typeof pr.max === 'number' && Number.isFinite(pr.max) ? pr.max : 1
         const prEarned = typeof pr.earned === 'number' && Number.isFinite(pr.earned)
           ? Math.max(0, Math.min(prMax, Math.round(pr.earned)))
@@ -63,7 +81,7 @@ function sanitizeGrading(question: FRQ, raw: FRQGradingResult): FRQGradingResult
         const suggestion = prEarned === 0 && typeof pr.suggestion === 'string' && pr.suggestion.trim()
           ? pr.suggestion
           : null
-        return {
+        returnedByPointId.set(pr.point_id, {
           point_id: pr.point_id,
           description: pr.description,
           earned: prEarned,
@@ -72,20 +90,47 @@ function sanitizeGrading(question: FRQ, raw: FRQGradingResult): FRQGradingResult
           sub_results: Array.isArray(pr.sub_results) ? pr.sub_results : [],
           reasoning: typeof pr.reasoning === 'string' ? pr.reasoning : '',
           suggestion,
-        }
-      })
+        })
+      }
+
+      // If the question defines scoring_points, return one per expected point
+      // (fills gaps where the LLM skipped specific points within a part).
+      // Otherwise fall back to whatever the LLM returned.
+      if (expectedPoints.length > 0) {
+        pointResults = expectedPoints.map(sp => {
+          const returned = returnedByPointId.get(sp.point_id)
+          return returned ?? synthesizeZeroPointResult(sp)
+        })
+      } else {
+        pointResults = Array.from(returnedByPointId.values())
+      }
       earned = Math.min(maxForPart, pointResults.reduce((sum, pr) => sum + pr.earned, 0))
+    } else if (expectedPoints.length > 0) {
+      // LLM returned no point_results but the question defines scoring_points.
+      // Synthesize zero-credit results so the UI can still render per-point rows.
+      // Conservative: when the LLM gives scalar earned with no breakdown, we
+      // don't know which sub-points scored, so we treat the whole part as 0.
+      pointResults = expectedPoints.map(synthesizeZeroPointResult)
+      earned = 0
     } else {
       const earnedRaw = typeof rp?.earned === 'number' && Number.isFinite(rp.earned) ? rp.earned : 0
       earned = Math.max(0, Math.min(maxForPart, Math.round(earnedRaw)))
     }
 
+    // Default feedback depends on whether the part was scored at all.
+    const fallbackFeedback = rp
+      ? 'No feedback provided.'
+      : 'Adi did not return a scored breakdown for this rubric row. Retry grading to get per-row feedback.'
+    const fallbackMissed = rp
+      ? null
+      : 'This row was not evaluated by the grader on this pass — retry to see specific criteria feedback.'
+
     return {
       letter: p.letter,
       earned,
       max: maxForPart,
-      feedback: typeof rp?.feedback === 'string' && rp.feedback.trim() ? rp.feedback : 'No feedback provided.',
-      missed: typeof rp?.missed === 'string' && rp.missed.trim() ? rp.missed : null,
+      feedback: typeof rp?.feedback === 'string' && rp.feedback.trim() ? rp.feedback : fallbackFeedback,
+      missed: typeof rp?.missed === 'string' && rp.missed.trim() ? rp.missed : fallbackMissed,
       ...(pointResults !== undefined ? { point_results: pointResults } : {}),
     }
   })

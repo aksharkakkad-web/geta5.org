@@ -18,39 +18,35 @@
       "letter": "a",
       "prompt": "(i) Use the data at $t = 0$ and $t = 18$ to find the value of $b$ as a decimal approximation. Show the computations that lead to your answer.\n\n(ii) Use the model to determine the half-life of the medication — the time at which the amount remaining equals half the initial dose. Express your answer as a decimal approximation. Show the computations that lead to your answer.",
       "point_value": 2,
-      "scoring_notes": "For part (i), $\\ln(29/400) = \\ln(0.0725) \\approx -2.624$, so $\\ln b = -2.624/18 \\approx -0.1458$, giving $b \\approx 0.864$. For part (ii), $t_{1/2} = \\ln(0.5)/\\ln(b) = (-0.6931)/(-0.1458) \\approx 4.75$ hours. Note: students who use a different data pair from the table (e.g., $t=3$ and $t=18$) will get a slightly different $b$; award credit for correct algebra regardless. A student who writes $t = \\frac{\\ln 2}{-\\ln b}$ earns credit for the logarithm step.",
+      "scoring_notes": "For part (i), students must use $400 \\cdot b^{18} = 29$ and isolate $b$ by taking an 18th root or using logarithms. Accept $b \\approx 0.864$ (accept values in $[0.862, 0.867]$); supporting work must show the root-taking or logarithm step. For part (ii), students solve $400 \\cdot b^t = 200$, reducing to $b^t = 0.5$ and applying logarithms to get $t = \\frac{\\ln(0.5)}{\\ln(b)} \\approx 4.753$ hours (accept values in $[4.7, 4.8]$). First decimal presentation error per question does not earn the point. A student who uses a different data pair from the table receives credit for correct algebra regardless of the resulting $b$ value.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct value of $b$ — from $400 \\cdot b^{18} = 29$: $b^{18} = \\frac{29}{400} = 0.0725 \\Rightarrow b = (0.0725)^{1/18} = e^{\\ln(0.0725)/18} \\approx e^{-2.624/18} \\approx e^{-0.1458} \\approx 0.8643$ (accept values in $[0.862, 0.867]$); supporting work must show the root-taking or logarithm step",
+          "description": "Correct value of $b \\approx 0.864$ — from $400 \\cdot b^{18} = 29$: $b^{18} = \\frac{29}{400} = 0.0725$, so $b = (0.0725)^{1/18} \\approx 0.864$ (accept values in $[0.862, 0.867]$); supporting work must show the root-taking or logarithm step",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct value of $b$ — from $400 \\cdot b^{18} = 29$: $b^{18} = \\frac{29}{400} = 0.0725 \\Rightarrow b = (0.0725)^{1/18} = e^{\\ln(0.0725)/18} \\approx e^{-2.624/18} \\approx e^{-0.1458} \\approx 0.8643$ (accept values in $[0.862, 0.867]$); supporting work must show the root-taking or logarithm step"
-              ],
-              "correct_example": "Correct value of $b$ — from $400 \\cdot b^{18} = 29$: $b^{18} = \\frac{29}{400} = 0.0725 \\Rightarrow b = (0.0725)^{1/18} = e^{\\ln(0.0725)/18} \\approx e^{-2.624/18} \\approx e^{-0.1458} \\approx 0.8643$ (accept values in $[0.862, 0.867]$); supporting work must show the root-taking or logarithm step"
+              "required_elements": ["$400 \\cdot b^{18} = 29$", "$b = (0.0725)^{1/18}$ or $b = e^{\\ln(0.0725)/18}$", "$b \\approx 0.864$"],
+              "correct_example": "$400 \\cdot b^{18} = 29 \\Rightarrow b^{18} = 0.0725 \\Rightarrow b = (0.0725)^{1/18} \\approx 0.864$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["$b = 29/400 = 0.0725$ (confusing $b$ with $b^{18}$)", "$b = 0.864$ with no supporting work (supporting work required)"],
+          "common_traps": ["Forgetting to take the 18th root — $b^{18} = 0.0725$ gives $b$, not $b^{18}$", "Decimal presentation error: fewer than 3 decimal places on first occurrence does not earn the point"]
         },
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Correct half-life — solving $400 \\cdot b^t = 200 \\Rightarrow b^t = 0.5 \\Rightarrow t = \\frac{\\ln(0.5)}{\\ln(b)} = \\frac{-0.6931}{\\ln(0.8643)} \\approx \\frac{-0.6931}{-0.1458} \\approx 4.753$ hours (accept values in $[4.7, 4.8]$); supporting work must show the logarithm step",
+          "description": "Correct half-life $t \\approx 4.753$ hours — solving $400 \\cdot b^t = 200 \\Rightarrow b^t = 0.5 \\Rightarrow t = \\frac{\\ln(0.5)}{\\ln(b)} \\approx 4.753$ (accept values in $[4.7, 4.8]$ based on $b$ value from part (i)); supporting work must show the logarithm step",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct half-life — solving $400 \\cdot b^t = 200 \\Rightarrow b^t = 0.5 \\Rightarrow t = \\frac{\\ln(0.5)}{\\ln(b)} = \\frac{-0.6931}{\\ln(0.8643)} \\approx \\frac{-0.6931}{-0.1458} \\approx 4.753$ hours (accept values in $[4.7, 4.8]$); supporting work must show the logarithm step"
-              ],
-              "correct_example": "Correct half-life — solving $400 \\cdot b^t = 200 \\Rightarrow b^t = 0.5 \\Rightarrow t = \\frac{\\ln(0.5)}{\\ln(b)} = \\frac{-0.6931}{\\ln(0.8643)} \\approx \\frac{-0.6931}{-0.1458} \\approx 4.753$ hours (accept values in $[4.7, 4.8]$); supporting work must show the logarithm step"
+              "required_elements": ["$400 \\cdot b^t = 200$ or $b^t = 0.5$", "$t = \\frac{\\ln(0.5)}{\\ln(b)}$", "$t \\approx 4.753$"],
+              "correct_example": "$400 \\cdot b^t = 200 \\Rightarrow b^t = 0.5 \\Rightarrow t = \\frac{\\ln(0.5)}{\\ln(0.864)} \\approx 4.753$ hours"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["$t = 18/2 = 9$ (erroneously halving the time endpoint rather than solving the equation)", "$t = \\frac{\\ln(200)}{\\ln(b)}$ (forgot to divide $200$ by $400$ first)"],
+          "common_traps": ["Must show the logarithm step — setting up $b^t = 0.5$ alone is insufficient without solving for $t$", "Use the $b$ value from part (i) — accept any $t$ consistent with the student's $b$"]
         }
       ]
     },
@@ -58,39 +54,35 @@
       "letter": "b",
       "prompt": "(i) Using the values at $t = 0$ and $t = 18$, find the slope and $y$-intercept of the line through $(0,\\ \\ln(400))$ and $(18,\\ \\ln(29))$ on a plot of $\\ln(Q)$ versus $t$. Show the computations that lead to your answer.\n\n(ii) Use the exponential model $Q(t) = 400 \\cdot b^t$ with $b$ from part (a) to estimate the amount of medication remaining at $t = 7$ hours. Then compare this estimate to the actual data value $Q = 152$ mg at $t = 7$. Express your estimate as a decimal approximation.",
       "point_value": 2,
-      "scoring_notes": "For part (i), slope $= (\\ln 29 - \\ln 400)/18 \\approx -2.624/18 \\approx -0.1458$ and $y$-intercept $= \\ln(400) \\approx 5.991$. For part (ii), $Q(7) = 400 \\cdot b^7$ where $b \\approx 0.8643$; $(0.8643)^7 \\approx 0.340$, so $Q(7) \\approx 136$ mg. This is somewhat less than the actual $152$ mg, showing the model fit is approximate. Award the point for correct substitution into $Q(t)$ and a valid comparison to $152$ mg.",
+      "scoring_notes": "For part (i), slope $= \\frac{\\ln 29 - \\ln 400}{18 - 0} \\approx \\frac{-2.624}{18} \\approx -0.146$ (accept $[-0.147, -0.145]$) and $y$-intercept $= \\ln(400) \\approx 5.991$ (accept $[5.98, 6.00]$); supporting work must show the slope as a ratio of differences of $\\ln$ values. For part (ii), $Q(7) = 400 \\cdot (0.864)^7 \\approx 136$ mg (accept $[130, 145]$ based on $b$ from part (a)). The comparison must note the estimate is less than $152$ mg — the model underestimates at $t = 7$. Award point for correct substitution and a valid comparison stated.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct slope and intercept — slope $= \\frac{\\ln(29) - \\ln(400)}{18 - 0} = \\frac{3.367 - 5.991}{18} = \\frac{-2.624}{18} \\approx -0.1458$ (accept values in $[-0.147, -0.145]$) and $y$-intercept $= \\ln(400) \\approx 5.991$ (accept values in $[5.98, 6.00]$); supporting work must show the slope as a quotient of $\\ln$ values",
+          "description": "Correct slope $\\approx -0.146$ and $y$-intercept $\\approx 5.991$ — slope $= \\frac{\\ln(29) - \\ln(400)}{18 - 0} = \\frac{3.367 - 5.991}{18} \\approx -0.146$ (accept $[-0.147, -0.145]$); $y$-intercept $= \\ln(400) \\approx 5.991$ (accept $[5.98, 6.00]$); supporting work must show slope as a ratio",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct slope and intercept — slope $= \\frac{\\ln(29) - \\ln(400)}{18 - 0} = \\frac{3.367 - 5.991}{18} = \\frac{-2.624}{18} \\approx -0.1458$ (accept values in $[-0.147, -0.145]$) and $y$-intercept $= \\ln(400) \\approx 5.991$ (accept values in $[5.98, 6.00]$); supporting work must show the slope as a quotient of $\\ln$ values"
-              ],
-              "correct_example": "Correct slope and intercept — slope $= \\frac{\\ln(29) - \\ln(400)}{18 - 0} = \\frac{3.367 - 5.991}{18} = \\frac{-2.624}{18} \\approx -0.1458$ (accept values in $[-0.147, -0.145]$) and $y$-intercept $= \\ln(400) \\approx 5.991$ (accept values in $[5.98, 6.00]$); supporting work must show the slope as a quotient of $\\ln$ values"
+              "required_elements": ["$\\frac{\\ln(29) - \\ln(400)}{18 - 0}$", "slope $\\approx -0.146$", "$y$-intercept $= \\ln(400) \\approx 5.991$"],
+              "correct_example": "slope $= \\frac{\\ln(29) - \\ln(400)}{18} = \\frac{3.367 - 5.991}{18} \\approx -0.146$; $y$-intercept $= \\ln(400) \\approx 5.991$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["slope $= \\frac{29 - 400}{18} \\approx -20.6$ (used $Q$ values instead of $\\ln Q$ values)", "slope $= \\frac{\\ln(400) - \\ln(29)}{18} \\approx +0.146$ (subtracted in wrong order)"],
+          "common_traps": ["The plot is $\\ln(Q)$ vs $t$, so slope uses $\\ln$ values, not raw $Q$ values", "Supporting work must show the slope formula with $\\ln$ values in the numerator"]
         },
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct estimate — $Q(7) = 400 \\cdot (0.8643)^7 \\approx 400 \\cdot 0.340 \\approx 136$ mg (accept values in $[130, 145]$, depending on $b$ value from part (a)); comparison must note that the model estimate is close to but does not exactly match the data value of $152$ mg, indicating approximate but not perfect fit",
+          "description": "Correct estimate $Q(7) \\approx 136$ mg (accept $[130, 145]$ based on $b$ from part (a)) with a stated comparison to the actual value $152$ mg noting the model underestimates",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct estimate — $Q(7) = 400 \\cdot (0.8643)^7 \\approx 400 \\cdot 0.340 \\approx 136$ mg (accept values in $[130, 145]$, depending on $b$ value from part (a)); comparison must note that the model estimate is close to but does not exactly match the data value of $152$ mg, indicating approximate but not perfect fit"
-              ],
-              "correct_example": "Correct estimate — $Q(7) = 400 \\cdot (0.8643)^7 \\approx 400 \\cdot 0.340 \\approx 136$ mg (accept values in $[130, 145]$, depending on $b$ value from part (a)); comparison must note that the model estimate is close to but does not exactly match the data value of $152$ mg, indicating approximate but not perfect fit"
+              "required_elements": ["$Q(7) = 400 \\cdot b^7$", "estimate $\\approx 136$ mg (or in range)", "comparison to $152$ mg noting underestimate or discrepancy"],
+              "correct_example": "$Q(7) = 400 \\cdot (0.864)^7 \\approx 136$ mg; this underestimates the actual value of $152$ mg at $t = 7$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["Reading $Q(7) = 152$ directly from the table rather than computing from the model", "$Q(7) = 400 \\cdot 7b = 400 \\cdot 7(0.864)$ (additive rather than exponential computation)"],
+          "common_traps": ["Must use the model $Q(t) = 400 \\cdot b^t$ not the data table", "Comparison must address whether the model overestimates or underestimates — a comparison statement is required"]
         }
       ]
     },
@@ -98,39 +90,35 @@
       "letter": "c",
       "prompt": "(i) A hospital protocol requires a second dose to be administered when the amount of medication in the patient's bloodstream falls below $50$ milligrams. Using the model $Q(t) = 400 \\cdot b^t$ with $b$ from part (a), write and solve an inequality to find the earliest time $t$ at which a second dose should be given. Express your answer as a decimal approximation.\n\n(ii) A colleague suggests using a linear model $L(t) = 400 - 20.6t$ to approximate $Q(t)$ for $t \\geq 0$. Determine whether $L(t)$ overestimates or underestimates $Q(t)$ for all $t > 0$, and justify your answer using the concavity of $Q$.",
       "point_value": 2,
-      "scoring_notes": "For part (i), $\\ln(1/8)/\\ln(0.8643) = (-2.079)/(-0.1458) \\approx 14.26$ hours. The inequality direction flips when dividing by $\\ln(b) < 0$; the rubric checks for this. For part (ii), the expected answer is 'overestimates.' The key reasoning is that $L$ decreases more slowly than the exponential $Q$: the data show $Q$ falling from $400$ to $263$ mg in $3$ hours (a drop of $137$ mg), while $L$ would drop only $3 \\times 20.6 = 61.8$ mg over the same interval. Since the exponential is concave up and drops steeply at first, $L$ lies above the curve for small to moderate $t$. Award the point for the correct conclusion plus any justification referencing the faster-than-linear decay of $Q$ or the concave-up shape of the graph.",
+      "scoring_notes": "For part (i), $400 \\cdot b^t < 50 \\Rightarrow b^t < 1/8 \\Rightarrow t > \\frac{\\ln(1/8)}{\\ln(b)} \\approx 14.26$ hours (accept $[14.1, 14.5]$ based on $b$ from part (a)). The inequality direction flips when dividing by $\\ln(b) < 0$; the rubric checks for the correct direction. For part (ii), $Q$ is concave up (exponential decay function has positive second derivative). $L$ and $Q$ agree at $t = 0$ only; since $Q$ is concave up, its graph lies above any tangent line and above any secant line from $t = 0$, so $L$ overestimates $Q$ for $t > 0$ in the context of the problem (where $L > Q$). Award the point for correct conclusion plus reasoning referencing the concave-up shape.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Correct inequality and solution — $400 \\cdot b^t < 50 \\Rightarrow b^t < \\frac{1}{8} \\Rightarrow t > \\frac{\\ln(1/8)}{\\ln(b)} = \\frac{-\\ln 8}{\\ln(0.8643)} \\approx \\frac{-2.079}{-0.1458} \\approx 14.26$ hours (accept values in $[14.1, 14.5]$); supporting work must show the inequality setup with direction preserved when dividing by negative $\\ln(b)$, and the logarithm step",
+          "description": "Correct inequality $t > \\frac{\\ln(1/8)}{\\ln(b)} \\approx 14.26$ hours (accept $[14.1, 14.5]$) — from $400 \\cdot b^t < 50 \\Rightarrow b^t < 1/8$, then applying $\\ln$ and noting $\\ln(b) < 0$ flips the inequality; supporting work must show the inequality setup and the logarithm step",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct inequality and solution — $400 \\cdot b^t < 50 \\Rightarrow b^t < \\frac{1}{8} \\Rightarrow t > \\frac{\\ln(1/8)}{\\ln(b)} = \\frac{-\\ln 8}{\\ln(0.8643)} \\approx \\frac{-2.079}{-0.1458} \\approx 14.26$ hours (accept values in $[14.1, 14.5]$); supporting work must show the inequality setup with direction preserved when dividing by negative $\\ln(b)$, and the logarithm step"
-              ],
-              "correct_example": "Correct inequality and solution — $400 \\cdot b^t < 50 \\Rightarrow b^t < \\frac{1}{8} \\Rightarrow t > \\frac{\\ln(1/8)}{\\ln(b)} = \\frac{-\\ln 8}{\\ln(0.8643)} \\approx \\frac{-2.079}{-0.1458} \\approx 14.26$ hours (accept values in $[14.1, 14.5]$); supporting work must show the inequality setup with direction preserved when dividing by negative $\\ln(b)$, and the logarithm step"
+              "required_elements": ["$400 \\cdot b^t < 50$", "$b^t < \\frac{1}{8}$", "logarithm step with inequality direction correctly reversed", "$t > 14.26$ (or in range)"],
+              "correct_example": "$400 \\cdot b^t < 50 \\Rightarrow b^t < \\frac{1}{8} \\Rightarrow \\ln(b^t) < \\ln(1/8) \\Rightarrow t\\ln(b) < \\ln(1/8) \\Rightarrow t > \\frac{\\ln(1/8)}{\\ln(b)} \\approx 14.26$ hours"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["$t < 14.26$ (inequality direction not reversed when dividing by negative $\\ln(b)$)", "$400 \\cdot b^t = 50$ solved as an equation without inequality setup"],
+          "common_traps": ["Dividing by $\\ln(b) < 0$ reverses the inequality direction — $t > \\frac{\\ln(1/8)}{\\ln(b)}$, not $t <$", "Must show the inequality setup with $< 50$, not just solve the equation"]
         },
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Correct conclusion '$L$ overestimates $Q$ for $t > 0$ in the clinically relevant domain' with justification — $L(0) = Q(0) = 400$ (both start at the same value); the exponential function $Q$ is concave up (its graph curves upward), so the graph of $Q$ lies above any secant line drawn from $t = 0$; since $L$ decreases more gradually than $Q$ (the data show $Q$ drops from $400$ to $263$ in just $3$ hours, much faster than $L$ would predict), $L(t) > Q(t)$ for $t > 0$",
+          "description": "Correct conclusion '$L$ overestimates $Q$ for $t > 0$' with justification referencing the concave-up shape of $Q$ — since $Q$ is an exponential decay function, $Q'' > 0$ (concave up); $L$ and $Q$ agree at $t = 0$, and because $Q$ is concave up the graph of $Q$ lies below any line tangent or secant from $t = 0$, so $L(t) > Q(t)$ for $t > 0$",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct conclusion '$L$ overestimates $Q$ for $t > 0$ in the clinically relevant domain' with justification — $L(0) = Q(0) = 400$ (both start at the same value); the exponential function $Q$ is concave up (its graph curves upward), so the graph of $Q$ lies above any secant line drawn from $t = 0$; since $L$ decreases more gradually than $Q$ (the data show $Q$ drops from $400$ to $263$ in just $3$ hours, much faster than $L$ would predict), $L(t) > Q(t)$ for $t > 0$"
-              ],
-              "correct_example": "Correct conclusion '$L$ overestimates $Q$ for $t > 0$ in the clinically relevant domain' with justification — $L(0) = Q(0) = 400$ (both start at the same value); the exponential function $Q$ is concave up (its graph curves upward), so the graph of $Q$ lies above any secant line drawn from $t = 0$; since $L$ decreases more gradually than $Q$ (the data show $Q$ drops from $400$ to $263$ in just $3$ hours, much faster than $L$ would predict), $L(t) > Q(t)$ for $t > 0$"
+              "required_elements": ["$L$ overestimates $Q$ (or $L(t) > Q(t)$)", "justification using concave up nature of $Q$"],
+              "correct_example": "$Q$ is concave up (exponential functions have this property), so a linear function starting at $Q(0) = L(0) = 400$ lies above $Q$ for $t > 0$; therefore $L$ overestimates $Q$."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["'$L$ underestimates $Q$' (incorrect — $Q$ falls faster than $L$ due to concavity)", "Stating '$L$ overestimates' without any reference to concavity or shape of $Q$"],
+          "common_traps": ["Must reference concavity of $Q$ (concave up) to earn the point — a purely numerical comparison without reasoning about concavity is insufficient", "Concave up means the curve falls away from a straight line tangent — linear model stays above the curve for $t > 0$"]
         }
       ]
     }

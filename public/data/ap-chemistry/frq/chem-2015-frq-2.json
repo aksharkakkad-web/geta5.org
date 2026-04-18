@@ -3,15 +3,9 @@
   "subject": "ap-chemistry",
   "year": 2015,
   "source": "released",
-  "title": "Chemical Equilibrium & Le Chatelier's Principle",
+  "title": "Ethanol Dehydration: Yield, Thermodynamics & IMF",
   "frq_type": "multi_part_math",
-  "related_units": [
-    2,
-    3,
-    4,
-    5,
-    7
-  ],
+  "related_units": [2, 3, 4, 5, 7],
   "calculator_allowed": true,
   "total_points": 10,
   "stimulus": null,
@@ -21,112 +15,119 @@
     {
       "letter": "a",
       "prompt": "Calculate the number of moles of $C_2H_4$(g)\n(i) that are actually produced in the experiment and measured in the gas collection tube and\n(ii) that would be produced if the dehydration reaction went to completion.",
-      "point_value": 1,
-      "scoring_notes": null,
+      "point_value": 2,
+      "scoring_notes": "Part (a)(i): Use ideal gas law with measured gas volume, atmospheric pressure, and room temperature from the data table. $n = PV/RT$. Part (a)(ii): Stoichiometry from C$_2$H$_5$OH → C$_2$H$_4$ + H$_2$O (1:1 ratio); $n$(theoretical) = $n$(C$_2$H$_5$OH initially).",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "ai1",
           "point_value": 1,
-          "description": "correct calculated number of moles of C2H4 actually produced",
+          "description": "For correct moles of C$_2$H$_4$ from ideal gas law with data from stimulus: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response addressing the question"
+                "Correct setup $n = PV/RT$ using measured volume, pressure, and temperature from the data.",
+                "Correct numerical answer consistent with the experimental data."
               ],
-              "correct_example": "Using PV = nRT: n = PV/RT = (1 atm × V) / (0.08206 L·atm/mol·K × T). Calculate from the measured gas volume and conditions."
+              "correct_example": "Using ideal gas law: $n(\\text{C}_2\\text{H}_4) = \\frac{PV}{RT}$, where $P$ = atmospheric pressure (atm), $V$ = measured gas volume (L), $T$ = room temperature (K). Consistent with stimulus data."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Using °C for temperature — must convert to Kelvin before applying ideal gas law."
+          ],
+          "common_traps": [
+            "Temperature must be in Kelvin: T(K) = T(°C) + 273."
+          ]
         },
         {
           "point_id": "aii1",
           "point_value": 1,
-          "description": "correct calculated number of moles based on stoichiometry",
+          "description": "For correct theoretical moles from stoichiometry: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "Correct response addressing the question"
+                "C$_2$H$_5$OH → C$_2$H$_4$ + H$_2$O is 1:1.",
+                "$n$(theoretical C$_2$H$_4$) = $n$(C$_2$H$_5$OH) used = mass/molar mass."
               ],
-              "correct_example": "From the stoichiometry C2H5OH → C2H4 + H2O: moles C2H4 theoretical = moles C2H5OH used."
+              "correct_example": "The dehydration reaction has a 1:1 mole ratio. If the student used $m$ grams of ethanol: $n = m / 46.07\\text{ g/mol}$ = theoretical moles of C$_2$H$_4$."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Using a 2:1 ratio — the stoichiometry of C$_2$H$_5$OH → C$_2$H$_4$ + H$_2$O is 1:1."
+          ],
+          "common_traps": [
+            "One mole of ethanol produces exactly one mole of ethylene."
+          ]
         }
       ]
     },
     {
       "letter": "b",
-      "prompt": "Calculate the percent yield of $C_2H_4$(g) in the experiment.\nBecause the dehydration reaction is not observed to occur at 298 K, the student claims that the reaction has an\nequilibrium constant less than 1.00 at 298 K.",
+      "prompt": "Calculate the percent yield of $C_2H_4$(g) in the experiment.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "% yield = (actual moles C$_2$H$_4$ from part (a)(i) / theoretical moles from part (a)(ii)) × 100%. Answer must be consistent with parts (a)(i) and (a)(ii).",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "correct calculated percent yield",
+          "description": "For correct percent yield formula and calculation consistent with part (a): 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "Correct mathematical setup or formula application",
-                "Correct numerical answer with appropriate sig figs and units"
+                "% yield = (actual / theoretical) × 100%",
+                "Numerically consistent with parts (a)(i) and (a)(ii)."
               ],
-              "correct_example": "% yield = (actual moles C2H4 / theoretical moles C2H4) × 100%"
+              "correct_example": "% yield = $\\frac{n_{\\text{actual}}}{n_{\\text{theoretical}}} \\times 100\\%$ where $n_{\\text{actual}}$ comes from part (a)(i) and $n_{\\text{theoretical}}$ comes from part (a)(ii)."
             }
           ],
           "wrong_examples": [
-            "Correct setup but arithmetic error",
-            "Answer without units"
+            "Inverting actual and theoretical — theoretical is the maximum possible, always ≥ actual.",
+            "Not multiplying by 100 to convert to percent."
           ],
           "common_traps": [
-            "Incorrect significant figures",
-            "Missing units"
+            "Percent yield = (actual/theoretical) × 100%. Actual ≤ theoretical always (≤100%)."
           ]
         }
       ]
     },
     {
       "letter": "c",
-      "prompt": "Do the thermodynamic data for the reaction support the student’s claim? Justify your answer, including a\ncalculation of DG for the reaction.",
+      "prompt": "Do the thermodynamic data for the reaction support the student's claim? Justify your answer, including a\ncalculation of $\\Delta G°$ for the reaction.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "The student claims $K < 1$ at 298 K. $\\Delta G° = \\Delta H° - T\\Delta S° = 45.5\\text{ kJ/mol} - (298)(0.1256\\text{ kJ/mol·K}) = 45.5 - 37.4 = +8.1\\text{ kJ/mol}$. Since $\\Delta G° > 0$, $K < 1$ at 298 K (using $\\Delta G° = -RT\\ln K$). The data support the student's claim.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "correct evaluation of thermodynamic data with ΔG° calculation",
+          "description": "For correct $\\Delta G°$ calculation and conclusion that the data support K < 1: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer stated explicitly",
-                "Valid justification based on chemical principles"
+                "$\\Delta G° = \\Delta H° - T\\Delta S°$ calculation giving a positive value at 298 K.",
+                "Since $\\Delta G° > 0$, $K < 1$ — this supports the student's claim."
               ],
-              "correct_example": "ΔG° = ΔH° − TΔS° = 45.5 kJ/mol − (298 K)(0.126 kJ/mol·K) = 45.5 − 37.5 = +8.0 kJ/mol. Since ΔG° > 0 at 298 K, the reaction is not spontaneous at room temperature, consistent with the observation."
+              "correct_example": "$\\Delta G° = \\Delta H° - T\\Delta S° = 45.5\\text{ kJ} - (298\\text{ K})(0.1256\\text{ kJ/mol·K}) = 45.5 - 37.4 = +8.1\\text{ kJ/mol}$\nSince $\\Delta G° > 0$, the reaction is not spontaneous at 298 K and $K < 1$. This supports the student's claim."
             }
           ],
           "wrong_examples": [
-            "Correct answer but no justification",
-            "Vague reasoning"
+            "Concluding K > 1 from a positive $\\Delta G°$ — the relationship is $\\Delta G° = -RT\\ln K$; positive $\\Delta G°$ means $\\ln K < 0$, so $K < 1$."
           ],
           "common_traps": [
-            "Stating answer without connecting to the underlying chemical principle"
+            "$\\Delta G° > 0 \\Rightarrow K < 1$. $\\Delta G° < 0 \\Rightarrow K > 1$."
           ]
         }
       ]
     },
     {
       "letter": "d",
-      "prompt": "The Lewis electron-dot diagram for $C_2H_4$\nis shown below in the box on the left. In the box on the right,\ncomplete the Lewis electron-dot diagram for $C_2H_5OH$ by drawing in all of the electron pairs.",
+      "prompt": "The Lewis electron-dot diagram for $C_2H_4$ is shown below in the box on the left. In the box on the right,\ncomplete the Lewis electron-dot diagram for $C_2H_5OH$ by drawing in all of the electron pairs.",
       "point_value": 1,
-      "rubric_criteria": [],
-      "scoring_notes": null,
+      "scoring_notes": "C$_2$H$_5$OH: all single bonds (C–C, C–H, C–O, O–H), with two lone pairs on oxygen. No multiple bonds. Total of 20 valence electrons: 2(4) + 6(1) + 6 = 20.",
       "requires_drawing": true,
       "reference_image": "/data/ap-chemistry/frq/images/chem-2015-frq-2-d-ref.png"
     },
@@ -134,79 +135,99 @@
       "letter": "e",
       "prompt": "What is the approximate value of the C–O–H bond angle in the ethanol molecule?",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "~109.5°. The O in ethanol has 2 bonding pairs and 2 lone pairs (tetrahedral electron geometry → bent molecular geometry). The ideal tetrahedral angle is 109.5°; the actual angle may be slightly less due to lone pair repulsion, but 109° or 109.5° is acceptable.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "e1",
           "point_value": 1,
-          "description": "correct C-O-H bond angle in ethanol",
+          "description": "For ~109.5° with correct VSEPR reasoning: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "Correct and complete response"
+                "Approximately 109° or 109.5°.",
+                "The O atom has 2 bonding pairs + 2 lone pairs → tetrahedral electron geometry → bent shape → ~109.5° bond angle."
               ],
-              "correct_example": "Approximately 109.5°. The oxygen in ethanol has two bonding pairs and two lone pairs (tetrahedral electron geometry), giving a bent molecular geometry with an approximately tetrahedral bond angle."
+              "correct_example": "Approximately 109.5°. The oxygen atom in ethanol has four electron domains: two single bonds (to C and to H) and two lone pairs. Four electron domains give tetrahedral electron geometry (VSEPR), corresponding to a bond angle of approximately 109.5°."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "120° — that is sp$^2$ (trigonal planar). Oxygen in ethanol is sp$^3$ (tetrahedral).",
+            "180° — that is linear. Oxygen is not linear here."
+          ],
+          "common_traps": [
+            "O with 2 bonds + 2 lone pairs = 4 electron domains = tetrahedral electron geometry = ~109.5° bond angle (bent molecular geometry)."
+          ]
         }
       ]
     },
     {
       "letter": "f",
-      "prompt": "During the dehydration experiment, $C_2H_4$",
-      "point_value": 1,
-      "scoring_notes": null,
+      "prompt": "During the dehydration experiment, $C_2H_4$ and unreacted $C_2H_5OH$(g) passed through the tube into the\nwater. The $C_2H_4$ was quantitatively collected as a gas, but the unreacted $C_2H_5OH$ was not. Explain this\nobservation in terms of the intermolecular forces between water and each of the two gases.",
+      "point_value": 3,
+      "scoring_notes": "C$_2$H$_4$ is nonpolar — only London dispersion forces (LDF) with water. These IMFs are too weak to cause dissolution. Ethanol (C$_2$H$_5$OH) has an –OH group that forms hydrogen bonds with water molecules. The strong hydrogen bonding between ethanol and water causes ethanol to dissolve rather than remain as a gas.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "f1",
           "point_value": 1,
-          "description": "correct explanation of why C2H4 does not dissolve in water",
+          "description": "For identifying C$_2$H$_4$ as nonpolar with only LDFs with water: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "Correct and complete response"
+                "C$_2$H$_4$ is nonpolar.",
+                "Only London dispersion forces between C$_2$H$_4$ and water — too weak for significant dissolution."
               ],
-              "correct_example": "C2H4 is a nonpolar molecule and cannot form hydrogen bonds with water. Because like dissolves like, nonpolar C2H4 is essentially insoluble in polar water."
-            }
-          ],
-          "wrong_examples": [],
-          "common_traps": []
-        }
-      ]
-    },
-    {
-      "letter": "g",
-      "prompt": "and unreacted $C_2H_5OH$(g) passed through the tube into the\nwater. The $C_2H_4$\nwas quantitatively collected as a gas, but the unreacted $C_2H_5OH$ was not. Explain this\nobservation in terms of the intermolecular forces between water and each of the two gases.",
-      "point_value": 1,
-      "scoring_notes": null,
-      "requires_drawing": false,
-      "reference_image": null,
-      "scoring_points": [
-        {
-          "point_id": "g1",
-          "point_value": 1,
-          "description": "correct explanation of why C2H5OH does dissolve in water",
-          "alternatives": [
-            {
-              "required_elements": [
-                "Correct answer stated explicitly",
-                "Valid justification based on chemical principles"
-              ],
-              "correct_example": "Ethanol (C2H5OH) contains an -OH group that can form hydrogen bonds with water molecules, allowing it to dissolve readily in water."
+              "correct_example": "C$_2$H$_4$ is a nonpolar molecule. The only intermolecular forces between C$_2$H$_4$ and water are London dispersion forces (induced dipole–induced dipole). These are weak and insufficient to dissolve C$_2$H$_4$ in water, so it remains as a gas and is collected."
             }
           ],
           "wrong_examples": [
-            "Correct answer but no justification",
-            "Vague reasoning"
+            "Saying C$_2$H$_4$ forms hydrogen bonds with water — it has no O–H or N–H groups and is nonpolar."
           ],
           "common_traps": [
-            "Stating answer without connecting to the underlying chemical principle"
+            "C$_2$H$_4$ has a C=C double bond and is symmetric (nonpolar). It cannot form hydrogen bonds or dipole–dipole interactions with water."
+          ]
+        },
+        {
+          "point_id": "f2",
+          "point_value": 1,
+          "description": "For identifying hydrogen bonding between C$_2$H$_5$OH and water: 1 point",
+          "alternatives": [
+            {
+              "required_elements": [
+                "C$_2$H$_5$OH has an –OH group.",
+                "The –OH can form hydrogen bonds with water molecules, so ethanol dissolves in water and is not collected as gas."
+              ],
+              "correct_example": "Ethanol (C$_2$H$_5$OH) contains an –OH group. The O–H bond allows ethanol to act as both a hydrogen bond donor and acceptor with water molecules. These strong hydrogen bonds cause ethanol to dissolve in the water trap, so it is not collected as a gas."
+            }
+          ],
+          "wrong_examples": [
+            "Saying ethanol only has dipole–dipole forces — it specifically has hydrogen bonding due to the –OH group."
+          ],
+          "common_traps": [
+            "Hydrogen bonding requires O–H (or N–H or F–H) groups. Ethanol's –OH provides this; ethylene has no such group."
+          ]
+        },
+        {
+          "point_id": "f3",
+          "point_value": 1,
+          "description": "For comparing the two: stronger IMFs with water for ethanol vs. C$_2$H$_4$: 1 point",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Hydrogen bonds (ethanol–water) are much stronger than LDFs (ethylene–water).",
+                "This difference in IMF strength explains why one dissolves and the other does not."
+              ],
+              "correct_example": "The hydrogen bonds between ethanol and water are much stronger than the LDFs between ethylene and water. The strong attraction between ethanol and water molecules is sufficient to pull ethanol into solution, while the weak LDFs with ethylene are not sufficient to prevent it from remaining as a gas."
+            }
+          ],
+          "wrong_examples": [
+            "Not comparing the two — must contrast both gases explicitly."
+          ],
+          "common_traps": [
+            "'Like dissolves like': polar/hydrogen-bonding solutes dissolve in polar (water) solvent; nonpolar solutes do not."
           ]
         }
       ]

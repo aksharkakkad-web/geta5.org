@@ -5,9 +5,7 @@
   "source": "released",
   "title": "Atomic Structure & Periodic Trends",
   "frq_type": "multi_part_math",
-  "related_units": [
-    1
-  ],
+  "related_units": [1],
   "calculator_allowed": true,
   "total_points": 4,
   "stimulus": "The complete photoelectron spectrum of an element in its ground state is represented below.",
@@ -17,50 +15,101 @@
     {
       "letter": "a",
       "prompt": "Based on the spectrum,\n(i) write the ground-state electron configuration of the element, and\n(ii) identify the element.",
-      "point_value": 1,
-      "scoring_notes": null,
+      "point_value": 2,
+      "scoring_notes": "The photoelectron spectrum shows peaks corresponding to subshells. Calcium (Ca, Z = 20) has the configuration 1s$^2$2s$^2$2p$^6$3s$^2$3p$^6$4s$^2$ = [Ar]4s$^2$. The spectrum shows 5 peaks with relative intensities 2:2:6:2:6:2 consistent with Ca. The highest-energy ionization peaks correspond to the most tightly bound (innermost) electrons; the lowest-energy peak corresponds to the valence 4s electrons.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
-          "point_id": "a1",
+          "point_id": "ai1",
           "point_value": 1,
-          "description": "Based on the spectrum,",
+          "description": "For the correct ground-state electron configuration of calcium: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "Based on the spectrum,"
+                "1s$^2$2s$^2$2p$^6$3s$^2$3p$^6$4s$^2$ OR [Ar]4s$^2$"
               ],
-              "correct_example": "Ca"
+              "correct_example": "1s$^2$2s$^2$2p$^6$3s$^2$3p$^6$4s$^2$ or [Ar]4s$^2$\n(Total electrons: 2+2+6+2+6+2 = 20 → Z = 20 → Calcium)"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Writing [Ar]3d$^2$ — this is a common error; for Ca (Period 4, Group 2), the electrons fill 4s before 3d.",
+            "Writing [Ar]3d$^1$4s$^1$ — this is an excited state, not the ground state."
+          ],
+          "common_traps": [
+            "Ca fills the 4s orbital before the 3d subshell. Ground state of Ca: [Ar]4s$^2$. The 3d subshell is not occupied in Ca."
+          ]
+        },
+        {
+          "point_id": "aii1",
+          "point_value": 1,
+          "description": "For identifying the element as calcium (Ca): 1 point",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Calcium (Ca)"
+              ],
+              "correct_example": "The element is Calcium (Ca). The PES shows 6 peaks consistent with 6 occupied subshells in Ca (1s, 2s, 2p, 3s, 3p, 4s), with a total of 20 electrons."
+            }
+          ],
+          "wrong_examples": [
+            "Saying potassium (K) — K has 19 electrons [Ar]4s$^1$; the spectrum shows 2 electrons in the valence shell (4s$^2$) → Ca.",
+            "Saying Ti or Sc — these fill 3d first after Ar; Ca fills 4s."
+          ],
+          "common_traps": [
+            "Sum the electrons from all peaks: 2 (1s) + 2 (2s) + 6 (2p) + 2 (3s) + 6 (3p) + 2 (4s) = 20 → Z = 20 → Ca."
+          ]
         }
       ]
     },
     {
       "letter": "b",
       "prompt": "Calculate the wavelength, in meters, of electromagnetic radiation needed to remove an electron from the\nvalence shell of an atom of the element.",
-      "point_value": 1,
-      "scoring_notes": null,
+      "point_value": 2,
+      "scoring_notes": "The ionization energy of the valence (4s) electrons of Ca is read from the PES as 0.980 × 10$^{-18}$ J per atom (given in the spectrum). Use E = hc/λ: λ = hc/E = (6.626 × 10$^{-34}$ J·s)(3.00 × 10$^8$ m/s) / (0.980 × 10$^{-18}$ J) = 1.99 × 10$^{-25}$ / 9.80 × 10$^{-19}$ = 2.03 × 10$^{-7}$ m.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Calculate the wavelength, in meters, of electromagnetic radiation needed to remove an electron from the",
+          "description": "For the correct setup E = hc/λ with the valence ionization energy from the spectrum: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "Calculate the wavelength, in meters, of electromagnetic radiation needed to remove an electron from the"
+                "$\\lambda = hc/E = (6.626 \\times 10^{-34})(3.00 \\times 10^8) / (E_{\\text{valence}})$",
+                "Valence ionization energy read from the lowest binding energy peak in the PES."
               ],
-              "correct_example": "Energy (E) required= 0.980 ´10-18J"
+              "correct_example": "Ionization energy (valence 4s electrons) = 0.980 × 10$^{-18}$ J/atom (from PES).\n$\\lambda = hc/E = \\frac{(6.626 \\times 10^{-34})(3.00 \\times 10^8)}{0.980 \\times 10^{-18}} = \\frac{1.988 \\times 10^{-25}}{9.80 \\times 10^{-19}} = 2.03 \\times 10^{-7}\\text{ m}$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Using the innermost (highest binding energy) peak — the question asks about the valence shell (lowest binding energy peak).",
+            "Using ionization energy in kJ/mol without converting to J/atom — divide by 6.022 × 10$^{23}$ to get per atom."
+          ],
+          "common_traps": [
+            "Valence electron = lowest binding energy (leftmost/smallest peak in PES). E = hc/λ: use per-atom ionization energy in Joules. If given in MJ/mol, convert: divide by 6.022 × 10$^{23}$."
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "For the correct wavelength ≈ 2.03 × 10$^{-7}$ m: 1 point",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$\\lambda \\approx 2.03 \\times 10^{-7}\\text{ m}$"
+              ],
+              "correct_example": "$\\lambda = 2.03 \\times 10^{-7}\\text{ m}$ (in the ultraviolet region of the electromagnetic spectrum)"
+            }
+          ],
+          "wrong_examples": [
+            "Getting λ in nm but not converting to m — answer must be in meters.",
+            "Inverting the equation (E = λ/hc) — correct form is λ = hc/E."
+          ],
+          "common_traps": [
+            "Rearrange E = hf = hc/λ: λ = hc/E. Answer in meters. UV region: ~10$^{-7}$ m = ~200 nm."
+          ]
         }
       ]
     }

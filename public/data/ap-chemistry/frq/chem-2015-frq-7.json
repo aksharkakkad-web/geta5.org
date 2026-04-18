@@ -3,11 +3,9 @@
   "subject": "ap-chemistry",
   "year": 2015,
   "source": "released",
-  "title": "Intermolecular Forces & Properties",
+  "title": "Thermochemistry: Recycling vs. Extracting Aluminum",
   "frq_type": "multi_part_math",
-  "related_units": [
-    3
-  ],
+  "related_units": [6],
   "calculator_allowed": true,
   "total_points": 4,
   "stimulus": "Aluminum metal can be recycled from scrap metal by melting the metal to evaporate impurities.",
@@ -17,62 +15,99 @@
     {
       "letter": "a",
       "prompt": "Calculate the amount of heat needed to purify 1.00 mole of Al originally at 298 K by melting it. The\nmelting point of Al is 933 K. The molar heat capacity of Al is 24 J/(mol⋅K), and the heat of fusion\nof Al is 10.7 kJ/mol.",
-      "point_value": 1,
-      "scoring_notes": null,
+      "point_value": 2,
+      "scoring_notes": "Two-step process: (1) heat Al from 298 K to 933 K using $q_1 = nC_p\\Delta T$; (2) melt Al at 933 K using $q_2 = n\\Delta H_{fus}$. $q_1 = (1.00)(24)(933 - 298) = (24)(635) = 15,240$ J = 15.2 kJ. $q_2 = (1.00)(10.7) = 10.7$ kJ. $q_{total} = 15.2 + 10.7 = 25.9$ kJ ≈ 26 kJ.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "correct calculated heat needed to melt 1.00 mol Al from 298 K",
+          "description": "For correct heating step ($q = nC_p\\Delta T$): 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "Correct mathematical setup or formula application",
-                "Correct numerical answer with appropriate sig figs and units"
+                "$q_1 = nC_p\\Delta T = (1.00\\text{ mol})(24\\text{ J/mol·K})(933 - 298\\text{ K}) = 15240\\text{ J} = 15.2\\text{ kJ}$"
               ],
-              "correct_example": "q = q_heating + q_melting = nCp,s(Tmp − 298 K) + n·ΔHfus = (1.00 mol)(24.4 J/mol·K)(933 K − 298 K) + (1.00 mol)(10,700 J/mol) ≈ 15,500 J + 10,700 J ≈ 26,200 J = 26.2 kJ"
+              "correct_example": "$q_1 = (1.00\\text{ mol})(24\\text{ J/mol·K})(933\\text{ K} - 298\\text{ K}) = (24)(635) = 15,240\\text{ J} = 15.24\\text{ kJ}$"
             }
           ],
           "wrong_examples": [
-            "Correct setup but arithmetic error",
-            "Answer without units"
+            "Using ΔT = 933 K (treating melting point as the temperature change rather than the final temperature)."
           ],
           "common_traps": [
-            "Incorrect significant figures",
-            "Missing units"
+            "$\\Delta T = T_{final} - T_{initial} = 933 - 298 = 635$ K, not 933 K."
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "For correct fusion step and total heat: 1 point",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$q_2 = n\\Delta H_{fus} = (1.00\\text{ mol})(10.7\\text{ kJ/mol}) = 10.7\\text{ kJ}$",
+                "$q_{total} = 15.2 + 10.7 = 25.9\\text{ kJ}$ (accept 26 kJ)"
+              ],
+              "correct_example": "$q_2 = (1.00)(10.7\\text{ kJ/mol}) = 10.7\\text{ kJ}$\n$q_{total} = 15.24\\text{ kJ} + 10.7\\text{ kJ} = 25.9\\text{ kJ}$"
+            }
+          ],
+          "wrong_examples": [
+            "Not adding the heat of fusion to the sensible heat — both steps must be included."
+          ],
+          "common_traps": [
+            "Two steps required: (1) heat solid from 298 K to melting point (sensible heat), THEN (2) melt at constant temperature (latent heat of fusion)."
           ]
         }
       ]
     },
     {
       "letter": "b",
-      "prompt": "The equation for the overall process of extracting Al from $Al_2O_3$\nis shown below. Which requires less\nenergy, recycling existing Al or extracting Al from $Al_2O_3$\n? Justify your answer with a calculation.\n$Al_2O_3$ (s) 2Al(s) $O_2$(g) DH =1675kJ/mol\n2 3 2 2 rxn",
-      "point_value": 1,
-      "scoring_notes": null,
+      "prompt": "The equation for the overall process of extracting Al from $Al_2O_3$ is shown below. Which requires less\nenergy, recycling existing Al or extracting Al from $Al_2O_3$? Justify your answer with a calculation.\n$Al_2O_3$(s) → 2 Al(s) + $\\frac{3}{2}$ $O_2$(g)  $\\Delta H°_{rxn}$ = +1675 kJ/mol",
+      "point_value": 2,
+      "scoring_notes": "The extraction reaction produces 2 mol Al per 1675 kJ, so per mole Al = 1675/2 = 837.5 kJ/mol Al. Recycling costs ~26 kJ/mol Al (from part a). Recycling requires far less energy (26 kJ vs. 838 kJ per mole of Al).",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "correct answer identifying recycling as requiring less energy than extraction",
+          "description": "For identifying recycling as requiring less energy with numerical comparison: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer stated explicitly",
-                "Valid justification based on chemical principles"
+                "Recycling requires less energy.",
+                "Extraction: $1675/2 = 837.5$ kJ per mol Al; Recycling: ~26 kJ per mol Al."
               ],
-              "correct_example": "Recycling requires less energy. Extracting Al from Al2O3 requires large amounts of electrical energy (electrolysis) to reduce Al3+ to Al. Recycling requires only enough energy to melt the Al (much less than the electrolysis energy needed for extraction from ore)."
+              "correct_example": "Extraction of Al from Al$_2$O$_3$: $1675\\text{ kJ} / 2\\text{ mol Al} = 837.5\\text{ kJ/mol Al}$.\nRecycling requires only ~26 kJ/mol Al (from part a).\nRecycling requires far less energy per mole of Al ($\\approx 26$ kJ vs. $\\approx 838$ kJ)."
             }
           ],
           "wrong_examples": [
-            "Correct answer but no justification",
-            "Vague reasoning"
+            "Extraction requires less — 1675 kJ to extract 2 mol from Al$_2$O$_3$ is enormously more than 26 kJ to melt 1 mol of Al."
           ],
           "common_traps": [
-            "Stating answer without connecting to the underlying chemical principle"
+            "The extraction equation produces 2 mol Al. Divide 1675 kJ by 2 to get energy per mole of Al."
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "For correct energy comparison per mole of Al: 1 point",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Recycling energy per mol Al ≈ 26 kJ (from part a).",
+                "Extraction energy per mol Al = 1675/2 ≈ 838 kJ.",
+                "Recycling needs ~32 times less energy."
+              ],
+              "correct_example": "Energy comparison: Extraction needs 837.5 kJ/mol Al; recycling needs ~26 kJ/mol Al. Recycling uses about 3% as much energy as primary production from Al$_2$O$_3$."
+            }
+          ],
+          "wrong_examples": [
+            "Comparing 1675 kJ to 26 kJ without adjusting for 2 mol Al produced in extraction."
+          ],
+          "common_traps": [
+            "Must normalize to per mole of Al before comparing: extraction equation gives 2 mol Al per 1675 kJ."
           ]
         }
       ]

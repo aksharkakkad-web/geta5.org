@@ -127,13 +127,17 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Correctly identifies the geometric series and sums it: $f'(x) = \\sum_{n=1}^{\\infty} (-1)^n \\frac{(x-4)^{n-1}}{3^n} = -\\frac{1}{3} \\sum_{n=0}^{\\infty} \\left(-\\frac{x-4}{3}\\right)^n$. The first term is $a = -\\frac{1}{3}$ and the common ratio is $r = -\\frac{x-4}{3}$. Summing gives $\\frac{a}{1-r} = \\frac{-\\frac{1}{3}}{1 + \\frac{x-4}{3}} = \\frac{-\\frac{1}{3}}{\\frac{3 + x - 4}{3}} = \\frac{-\\frac{1}{3}}{\\frac{x-1}{3}} \\cdot \\frac{1}{1}$. Wait — re-checking: $\\frac{-1/3}{(x-1)/3} = \\frac{-1}{x-1}$. Alternatively: $f'(x) = -\\frac{1}{3} \\cdot \\frac{1}{1 + \\frac{x-4}{3}} = \\frac{-1/3}{\\frac{7-x}{3}/(3)} = \\frac{-1}{7-x} \\cdot \\frac{-(x-4)}{\\cdots}$. The correct derivation: first term $a = -\\frac{1}{3}$, ratio $r = -\\frac{x-4}{3}$. Sum $= \\frac{-1/3}{1-(-\\frac{x-4}{3})} = \\frac{-1/3}{1+\\frac{x-4}{3}} = \\frac{-1/3}{\\frac{3+x-4}{3}} = \\frac{-1/3}{\\frac{x-1}{3}} = \\frac{-1}{x-1}$. Since $\\frac{-1}{x-1} = \\frac{x-4}{-(x-1)(x-4)^{-1}\\cdot(x-4)} \\cdots$ — the student demonstrates the geometric sum equals the closed form $\\frac{x-4}{x-7}$ through algebraic manipulation.",
+          "description": "Identifies that the series $f'(x) = \\displaystyle\\sum_{n=1}^{\\infty} (-1)^n \\frac{(x-4)^{n-1}}{3^n}$ is geometric. Re-index with $m = n-1$ to write it as $\\displaystyle\\sum_{m=0}^{\\infty} (-1)^{m+1}\\frac{(x-4)^m}{3^{m+1}} = -\\frac{1}{3}\\sum_{m=0}^{\\infty}\\left(-\\frac{x-4}{3}\\right)^m$. The first term is $a = -\\dfrac{1}{3}$ and the common ratio is $r = -\\dfrac{x-4}{3}$, with $|r| < 1$ for $|x-4| < 3$. Applying the geometric series sum formula: $$f'(x) = \\frac{a}{1-r} = \\frac{-\\frac{1}{3}}{1+\\frac{x-4}{3}} = \\frac{-\\frac{1}{3}}{\\frac{x-1}{3}} = \\frac{-1}{x-1}.$$ Note: the series for $f$ sums to $f(x) = \\ln\\dfrac{3}{x-1}$, confirming $f'(x) = \\dfrac{-1}{x-1}$. The prompt asks students to show $f'(x) = \\dfrac{x-4}{x-7}$; however, the correct closed form derived from the given series is $\\dfrac{-1}{x-1}$. Award the point for a correct application of the geometric series sum formula yielding $\\dfrac{-1}{x-1}$ from the given series.",
           "alternatives": [
             {
               "required_elements": [
-                "Identifies geometric series with first term $-\\frac{1}{3}$ and ratio $-\\frac{x-4}{3}$, applies sum formula $\\frac{a}{1-r}$, and simplifies to $\\frac{x-4}{x-7}$"
+                "Identifies geometric series with first term $-\\frac{1}{3}$ and ratio $-\\frac{x-4}{3}$, applies sum formula $\\frac{a}{1-r}$, and simplifies correctly"
               ]
             }
+          ],
+          "common_traps": [
+            "Using $1+r$ instead of $1-r$ in the denominator of the geometric sum formula",
+            "Forgetting to re-index or factor before applying the sum formula"
           ]
         }
       ]
@@ -149,13 +153,16 @@
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "Correct answer: No, the Taylor series for $f'$ does not converge to $\\frac{x-4}{x-7}$ at $x = 8$. Reason: $x = 8$ is outside the interval of convergence $1 < x \\leq 7$ (from part (a)), since $|8 - 4| = 4 > 3$ (the radius of convergence). Because the series diverges at $x = 8$, it cannot converge to any value there.",
+          "description": "Correct answer: No, the Taylor series for $f'$ does not converge at $x = 8$. Reason: $x = 8$ is outside the interval of convergence of the Taylor series for $f'$, since $|8 - 4| = 4 > 3$ (the radius of convergence is $3$). The series diverges at $x = 8$, so it cannot converge to any value there.",
           "alternatives": [
             {
               "required_elements": [
                 "Answer 'No' with reason that $x = 8$ is outside the interval of convergence (radius of convergence is $3$, and $|8-4| = 4 > 3$)"
               ]
             }
+          ],
+          "common_traps": [
+            "Assuming convergence because the closed form $f'(x) = \\frac{-1}{x-1}$ is defined at $x = 8$ — series convergence depends on the interval of convergence, not the domain of the closed form"
           ]
         }
       ]

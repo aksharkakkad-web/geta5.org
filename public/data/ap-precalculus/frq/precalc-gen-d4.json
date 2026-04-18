@@ -19,39 +19,39 @@
       "letter": "a",
       "prompt": "(i) Rewrite $\\log_5(x^2 - 9) - \\log_5(x + 3)$ as a single simplified expression. State the domain of the resulting expression. Show the logarithm property used.\n\n(ii) Solve $3^{x+2} = 4^{x-1}$ for $x$. Express your answer as an exact value involving logarithms.",
       "point_value": 2,
-      "scoring_notes": "For part (i), the factoring step $x^2 - 9 = (x+3)(x-3)$ is required. The domain $x > 3$ (not just $x \\neq -3$) is necessary because $\\log_5(x^2-9)$ requires $x^2 - 9 > 0$ AND $\\log_5(x+3)$ requires $x + 3 > 0$; the intersection is $x > 3$. For part (ii), apply $\\ln$ to both sides and collect $x$ terms. Exact form is required; decimal approximations not accepted.",
+      "scoring_notes": "For part (i), factor $x^2 - 9 = (x+3)(x-3)$, apply the quotient rule, and cancel to get $\\log_5(x-3)$. Domain is $x > 3$ (not just $x \\neq -3$): need $x + 3 > 0$ and $x^2 - 9 > 0$, both requiring $x > 3$. Supporting work must show the factoring step and logarithm property. For part (ii), take $\\ln$ of both sides, expand, collect $x$ terms, and express in exact logarithmic form. Exact form required — decimal approximations not accepted. Accept equivalent exact forms such as $x = \\frac{\\ln 36}{\\ln(4/3)}$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct simplification — $\\log_5(x^2 - 9) - \\log_5(x + 3) = \\log_5\\left(\\frac{x^2 - 9}{x + 3}\\right) = \\log_5\\left(\\frac{(x+3)(x-3)}{x+3}\\right) = \\log_5(x - 3)$ for $x > 3$; domain must be stated as $x > 3$",
+          "description": "Correct simplified expression $\\log_5(x-3)$ for $x > 3$ — using the quotient rule: $\\log_5\\left(\\frac{x^2-9}{x+3}\\right) = \\log_5\\left(\\frac{(x+3)(x-3)}{x+3}\\right) = \\log_5(x-3)$; domain $x > 3$ must be stated",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct simplification — $\\log_5(x^2 - 9) - \\log_5(x + 3) = \\log_5\\left(\\frac{x^2 - 9}{x + 3}\\right) = \\log_5\\left(\\frac{(x+3)(x-3)}{x+3}\\right) = \\log_5(x - 3)$ for $x > 3$; domain must be stated as $x > 3$"
-              ],
-              "correct_example": "Correct simplification — $\\log_5(x^2 - 9) - \\log_5(x + 3) = \\log_5\\left(\\frac{x^2 - 9}{x + 3}\\right) = \\log_5\\left(\\frac{(x+3)(x-3)}{x+3}\\right) = \\log_5(x - 3)$ for $x > 3$; domain must be stated as $x > 3$"
+              "required_elements": ["quotient rule $\\log_5\\left(\\frac{x^2-9}{x+3}\\right)$", "factoring $x^2-9 = (x+3)(x-3)$", "$\\log_5(x-3)$", "domain $x > 3$"],
+              "correct_example": "$\\log_5(x^2-9) - \\log_5(x+3) = \\log_5\\left(\\frac{(x+3)(x-3)}{x+3}\\right) = \\log_5(x-3)$, for $x > 3$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["Domain stated as $x > -3$ or $x \\neq -3$ (incorrect — cancellation still requires $x - 3 > 0$, i.e., $x > 3$)", "$\\log_5(x^2-9) - \\log_5(x+3) = \\log_5((x^2-9)(x+3))$ (applied product rule instead of quotient rule)"],
+          "common_traps": ["The domain after cancellation is still $x > 3$, not $x \\neq -3$ — the original expression requires $x^2 - 9 > 0$", "Both the factoring step and the logarithm property must appear in supporting work"]
         },
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Correct exact solution — $(x+2)\\ln 3 = (x-1)\\ln 4 \\Rightarrow x\\ln 3 + 2\\ln 3 = x\\ln 4 - \\ln 4 \\Rightarrow x(\\ln 3 - \\ln 4) = -\\ln 4 - 2\\ln 3 \\Rightarrow x = \\frac{-\\ln 4 - 2\\ln 3}{\\ln 3 - \\ln 4} = \\frac{\\ln 4 + 2\\ln 3}{\\ln 4 - \\ln 3}$; accept equivalent exact forms such as $x = \\frac{\\ln(4 \\cdot 9)}{\\ln(4/3)} = \\frac{\\ln 36}{\\ln(4/3)}$",
+          "description": "Correct exact solution $x = \\frac{\\ln 4 + 2\\ln 3}{\\ln 4 - \\ln 3}$ or equivalent — from $(x+2)\\ln 3 = (x-1)\\ln 4$: $x(\\ln 3 - \\ln 4) = -\\ln 4 - 2\\ln 3$, so $x = \\frac{\\ln 4 + 2\\ln 3}{\\ln 4 - \\ln 3}$; accept equivalent forms such as $x = \\frac{\\ln 36}{\\ln(4/3)}$",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct exact solution — $(x+2)\\ln 3 = (x-1)\\ln 4 \\Rightarrow x\\ln 3 + 2\\ln 3 = x\\ln 4 - \\ln 4 \\Rightarrow x(\\ln 3 - \\ln 4) = -\\ln 4 - 2\\ln 3 \\Rightarrow x = \\frac{-\\ln 4 - 2\\ln 3}{\\ln 3 - \\ln 4} = \\frac{\\ln 4 + 2\\ln 3}{\\ln 4 - \\ln 3}$; accept equivalent exact forms such as $x = \\frac{\\ln(4 \\cdot 9)}{\\ln(4/3)} = \\frac{\\ln 36}{\\ln(4/3)}$"
-              ],
-              "correct_example": "Correct exact solution — $(x+2)\\ln 3 = (x-1)\\ln 4 \\Rightarrow x\\ln 3 + 2\\ln 3 = x\\ln 4 - \\ln 4 \\Rightarrow x(\\ln 3 - \\ln 4) = -\\ln 4 - 2\\ln 3 \\Rightarrow x = \\frac{-\\ln 4 - 2\\ln 3}{\\ln 3 - \\ln 4} = \\frac{\\ln 4 + 2\\ln 3}{\\ln 4 - \\ln 3}$; accept equivalent exact forms such as $x = \\frac{\\ln(4 \\cdot 9)}{\\ln(4/3)} = \\frac{\\ln 36}{\\ln(4/3)}$"
+              "required_elements": ["$(x+2)\\ln 3 = (x-1)\\ln 4$", "collected $x$ terms", "$x = \\frac{\\ln 4 + 2\\ln 3}{\\ln 4 - \\ln 3}$ or equivalent"],
+              "correct_example": "$(x+2)\\ln 3 = (x-1)\\ln 4 \\Rightarrow x\\ln 3 - x\\ln 4 = -\\ln 4 - 2\\ln 3 \\Rightarrow x = \\frac{\\ln 4 + 2\\ln 3}{\\ln 4 - \\ln 3}$"
+            },
+            {
+              "required_elements": ["$x = \\frac{\\ln 36}{\\ln(4/3)}$"],
+              "correct_example": "$x = \\frac{\\ln(4 \\cdot 9)}{\\ln(4/3)} = \\frac{\\ln 36}{\\ln(4/3)}$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["$x = \\frac{\\ln 4 - 2\\ln 3}{\\ln 3 - \\ln 4}$ (sign error in numerator or denominator)", "Reporting a decimal approximation — exact form required"],
+          "common_traps": ["Apply $\\ln$ to both sides before expanding — do not try to combine $3^{x+2}$ and $4^{x-1}$ directly", "Collect all $x$ terms on one side before dividing — both $x$ terms appear after expanding $(x+2)\\ln 3$ and $(x-1)\\ln 4$"]
         }
       ]
     },
@@ -59,39 +59,35 @@
       "letter": "b",
       "prompt": "(i) Use the double angle identity to simplify $\\frac{\\sin(2\\theta)}{2\\sin(\\theta)}$ for $\\sin(\\theta) \\neq 0$. Show the identity used.\n\n(ii) Find all solutions to $\\sin(2\\theta) + \\sqrt{3}\\cos(2\\theta) = 0$ on $0 \\leq \\theta < 2\\pi$. Express your answers as exact values.",
       "point_value": 2,
-      "scoring_notes": "For part (i), the cancellation is valid for $\\sin\\theta \\neq 0$. The double angle identity $\\sin 2\\theta = 2\\sin\\theta\\cos\\theta$ must appear explicitly. For part (ii), dividing by $\\cos(2\\theta)$ (assuming $\\cos 2\\theta \\neq 0$) gives $\\tan(2\\theta) = -\\sqrt{3}$. The reference angle is $\\pi/3$ (since $\\tan(\\pi/3) = \\sqrt{3}$). The general solution for $2\\theta$ gives four values of $\\theta$ in $[0, 2\\pi)$. All four solutions ($\\pi/3$, $5\\pi/6$, $4\\pi/3$, $11\\pi/6$) are required. Check: when $\\cos 2\\theta = 0$, $2\\theta = \\pi/2$ so $\\theta = \\pi/4$; at $\\theta = \\pi/4$: $\\sin(\\pi/2) + \\sqrt{3}\\cos(\\pi/2) = 1 + 0 = 1 \\neq 0$, so no additional solutions.",
+      "scoring_notes": "For part (i), the double angle identity $\\sin 2\\theta = 2\\sin\\theta\\cos\\theta$ must appear explicitly. Canceling $2\\sin\\theta$ yields $\\cos\\theta$. For part (ii), divide by $\\cos(2\\theta)$ (verify $\\cos 2\\theta = 0$ gives no solutions): $\\tan(2\\theta) = -\\sqrt{3}$; reference angle is $\\pi/3$. General solution $2\\theta = \\pi - \\pi/3 + k\\pi = 2\\pi/3 + k\\pi$, so $\\theta = \\pi/3 + k\\pi/2$. Four solutions in $[0, 2\\pi)$: $\\pi/3$, $5\\pi/6$, $4\\pi/3$, $11\\pi/6$. All four required.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct simplification — $\\sin(2\\theta) = 2\\sin\\theta\\cos\\theta$, so $\\frac{\\sin(2\\theta)}{2\\sin\\theta} = \\frac{2\\sin\\theta\\cos\\theta}{2\\sin\\theta} = \\cos\\theta$; the double angle identity must be stated",
+          "description": "Correct simplification $\\cos\\theta$ — using $\\sin(2\\theta) = 2\\sin\\theta\\cos\\theta$: $\\frac{2\\sin\\theta\\cos\\theta}{2\\sin\\theta} = \\cos\\theta$; the double angle identity $\\sin(2\\theta) = 2\\sin\\theta\\cos\\theta$ must be stated explicitly",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct simplification — $\\sin(2\\theta) = 2\\sin\\theta\\cos\\theta$, so $\\frac{\\sin(2\\theta)}{2\\sin\\theta} = \\frac{2\\sin\\theta\\cos\\theta}{2\\sin\\theta} = \\cos\\theta$; the double angle identity must be stated"
-              ],
-              "correct_example": "Correct simplification — $\\sin(2\\theta) = 2\\sin\\theta\\cos\\theta$, so $\\frac{\\sin(2\\theta)}{2\\sin\\theta} = \\frac{2\\sin\\theta\\cos\\theta}{2\\sin\\theta} = \\cos\\theta$; the double angle identity must be stated"
+              "required_elements": ["$\\sin(2\\theta) = 2\\sin\\theta\\cos\\theta$ stated", "$\\frac{2\\sin\\theta\\cos\\theta}{2\\sin\\theta} = \\cos\\theta$"],
+              "correct_example": "$\\sin(2\\theta) = 2\\sin\\theta\\cos\\theta$, so $\\frac{\\sin(2\\theta)}{2\\sin\\theta} = \\frac{2\\sin\\theta\\cos\\theta}{2\\sin\\theta} = \\cos\\theta$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["$\\frac{\\sin(2\\theta)}{2\\sin\\theta} = \\cos\\theta$ stated as a result without showing the identity (supporting work required)", "Using the half-angle formula instead of the double angle formula"],
+          "common_traps": ["The double angle identity must appear explicitly — writing the answer without it does not earn the point", "Simplification is valid only for $\\sin\\theta \\neq 0$, as stated in the problem"]
         },
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "All correct solutions — $\\sin(2\\theta) + \\sqrt{3}\\cos(2\\theta) = 0 \\Rightarrow \\tan(2\\theta) = -\\sqrt{3}$; solving $\\tan(2\\theta) = -\\sqrt{3}$: $2\\theta = \\pi - \\frac{\\pi}{3} + k\\pi = \\frac{2\\pi}{3} + k\\pi$ for integers $k$; so $\\theta = \\frac{\\pi}{3} + \\frac{k\\pi}{2}$; in $[0, 2\\pi)$: $\\theta = \\frac{\\pi}{3}$, $\\frac{\\pi}{3} + \\frac{\\pi}{2} = \\frac{5\\pi}{6}$, $\\frac{\\pi}{3} + \\pi = \\frac{4\\pi}{3}$, $\\frac{\\pi}{3} + \\frac{3\\pi}{2} = \\frac{11\\pi}{6}$; all four required",
+          "description": "All four correct solutions $\\theta = \\frac{\\pi}{3}$, $\\frac{5\\pi}{6}$, $\\frac{4\\pi}{3}$, $\\frac{11\\pi}{6}$ with no incorrect values — from $\\tan(2\\theta) = -\\sqrt{3}$: $2\\theta = \\frac{2\\pi}{3} + k\\pi$, so $\\theta = \\frac{\\pi}{3} + \\frac{k\\pi}{2}$ for integers $k$; all four values in $[0, 2\\pi)$ required",
           "alternatives": [
             {
-              "required_elements": [
-                "All correct solutions — $\\sin(2\\theta) + \\sqrt{3}\\cos(2\\theta) = 0 \\Rightarrow \\tan(2\\theta) = -\\sqrt{3}$; solving $\\tan(2\\theta) = -\\sqrt{3}$: $2\\theta = \\pi - \\frac{\\pi}{3} + k\\pi = \\frac{2\\pi}{3} + k\\pi$ for integers $k$; so $\\theta = \\frac{\\pi}{3} + \\frac{k\\pi}{2}$; in $[0, 2\\pi)$: $\\theta = \\frac{\\pi}{3}$, $\\frac{\\pi}{3} + \\frac{\\pi}{2} = \\frac{5\\pi}{6}$, $\\frac{\\pi}{3} + \\pi = \\frac{4\\pi}{3}$, $\\frac{\\pi}{3} + \\frac{3\\pi}{2} = \\frac{11\\pi}{6}$; all four required"
-              ],
-              "correct_example": "All correct solutions — $\\sin(2\\theta) + \\sqrt{3}\\cos(2\\theta) = 0 \\Rightarrow \\tan(2\\theta) = -\\sqrt{3}$; solving $\\tan(2\\theta) = -\\sqrt{3}$: $2\\theta = \\pi - \\frac{\\pi}{3} + k\\pi = \\frac{2\\pi}{3} + k\\pi$ for integers $k$; so $\\theta = \\frac{\\pi}{3} + \\frac{k\\pi}{2}$; in $[0, 2\\pi)$: $\\theta = \\frac{\\pi}{3}$, $\\frac{\\pi}{3} + \\frac{\\pi}{2} = \\frac{5\\pi}{6}$, $\\frac{\\pi}{3} + \\pi = \\frac{4\\pi}{3}$, $\\frac{\\pi}{3} + \\frac{3\\pi}{2} = \\frac{11\\pi}{6}$; all four required"
+              "required_elements": ["$\\tan(2\\theta) = -\\sqrt{3}$", "$2\\theta = \\frac{2\\pi}{3} + k\\pi$", "all four values $\\frac{\\pi}{3}, \\frac{5\\pi}{6}, \\frac{4\\pi}{3}, \\frac{11\\pi}{6}$"],
+              "correct_example": "$\\tan(2\\theta) = -\\sqrt{3} \\Rightarrow 2\\theta = \\frac{2\\pi}{3} + k\\pi \\Rightarrow \\theta = \\frac{\\pi}{3} + \\frac{k\\pi}{2}$; in $[0, 2\\pi)$: $\\theta = \\frac{\\pi}{3}, \\frac{5\\pi}{6}, \\frac{4\\pi}{3}, \\frac{11\\pi}{6}$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["Only two solutions $\\frac{\\pi}{3}$ and $\\frac{4\\pi}{3}$ (missing the solutions from the second branch $5\\pi/6$ and $11\\pi/6$)", "Solutions in degrees instead of radians (exact radian values required)"],
+          "common_traps": ["Dividing by $\\pi$ in the formula $2\\theta = 2\\pi/3 + k\\pi$ — the period of $\\tan(2\\theta)$ is $\\pi/2$, so there are four solutions in $[0, 2\\pi)$", "Check that $\\cos(2\\theta) = 0$ gives no additional solutions before dividing by it"]
         }
       ]
     },
@@ -99,39 +95,35 @@
       "letter": "c",
       "prompt": "The polar curve $r = 2 + 2\\cos(\\theta)$ is called a cardioid.\n\n(i) Find the rectangular coordinates of the point on the cardioid where $\\theta = \\frac{\\pi}{3}$. Show supporting work.\n\n(ii) For what values of $\\theta$ in $[0, 2\\pi)$ does the cardioid pass through the pole (origin, where $r = 0$)? Explain your reasoning.",
       "point_value": 2,
-      "scoring_notes": "For part (i), the exact values $\\cos(\\pi/3) = 1/2$ and $\\sin(\\pi/3) = \\sqrt{3}/2$ are standard and expected without a calculator. The final coordinates are $(3/2, 3\\sqrt{3}/2)$. For part (ii), $r = 0 \\Leftrightarrow \\cos\\theta = -1 \\Leftrightarrow \\theta = \\pi$. There is exactly one such $\\theta$ in $[0, 2\\pi)$. The cardioid $r = 2 + 2\\cos\\theta$ touches the pole at $\\theta = \\pi$ (the cusp).",
+      "scoring_notes": "For part (i), $r = 2 + 2\\cos(\\pi/3) = 2 + 2(1/2) = 3$; then $x = r\\cos\\theta = 3 \\cdot \\frac{1}{2} = \\frac{3}{2}$ and $y = r\\sin\\theta = 3 \\cdot \\frac{\\sqrt{3}}{2} = \\frac{3\\sqrt{3}}{2}$. Exact values $\\cos(\\pi/3) = 1/2$ and $\\sin(\\pi/3) = \\sqrt{3}/2$ are standard and expected. Final answer: $\\left(\\frac{3}{2}, \\frac{3\\sqrt{3}}{2}\\right)$. For part (ii), $r = 0 \\Leftrightarrow 2 + 2\\cos\\theta = 0 \\Leftrightarrow \\cos\\theta = -1 \\Leftrightarrow \\theta = \\pi$. The cardioid passes through the pole only at $\\theta = \\pi$ (the cusp). Reasoning must show setting $r = 0$ and solving.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Correct rectangular coordinates — at $\\theta = \\pi/3$: $r = 2 + 2\\cos(\\pi/3) = 2 + 2(1/2) = 3$; $x = r\\cos\\theta = 3\\cos(\\pi/3) = 3 \\cdot \\frac{1}{2} = \\frac{3}{2}$; $y = r\\sin\\theta = 3\\sin(\\pi/3) = 3 \\cdot \\frac{\\sqrt{3}}{2} = \\frac{3\\sqrt{3}}{2}$; rectangular coordinates $\\left(\\frac{3}{2}, \\frac{3\\sqrt{3}}{2}\\right)$",
+          "description": "Correct rectangular coordinates $\\left(\\frac{3}{2}, \\frac{3\\sqrt{3}}{2}\\right)$ with supporting work — evaluate $r = 3$, then $x = 3\\cos(\\pi/3) = \\frac{3}{2}$ and $y = 3\\sin(\\pi/3) = \\frac{3\\sqrt{3}}{2}$",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct rectangular coordinates — at $\\theta = \\pi/3$: $r = 2 + 2\\cos(\\pi/3) = 2 + 2(1/2) = 3$; $x = r\\cos\\theta = 3\\cos(\\pi/3) = 3 \\cdot \\frac{1}{2} = \\frac{3}{2}$; $y = r\\sin\\theta = 3\\sin(\\pi/3) = 3 \\cdot \\frac{\\sqrt{3}}{2} = \\frac{3\\sqrt{3}}{2}$; rectangular coordinates $\\left(\\frac{3}{2}, \\frac{3\\sqrt{3}}{2}\\right)$"
-              ],
-              "correct_example": "Correct rectangular coordinates — at $\\theta = \\pi/3$: $r = 2 + 2\\cos(\\pi/3) = 2 + 2(1/2) = 3$; $x = r\\cos\\theta = 3\\cos(\\pi/3) = 3 \\cdot \\frac{1}{2} = \\frac{3}{2}$; $y = r\\sin\\theta = 3\\sin(\\pi/3) = 3 \\cdot \\frac{\\sqrt{3}}{2} = \\frac{3\\sqrt{3}}{2}$; rectangular coordinates $\\left(\\frac{3}{2}, \\frac{3\\sqrt{3}}{2}\\right)$"
+              "required_elements": ["$r = 2 + 2\\cos(\\pi/3) = 3$", "$x = r\\cos(\\pi/3) = \\frac{3}{2}$", "$y = r\\sin(\\pi/3) = \\frac{3\\sqrt{3}}{2}$"],
+              "correct_example": "$r = 2 + 2\\cos(\\pi/3) = 2 + 1 = 3$; $x = 3\\cos(\\pi/3) = 3 \\cdot \\frac{1}{2} = \\frac{3}{2}$; $y = 3\\sin(\\pi/3) = 3 \\cdot \\frac{\\sqrt{3}}{2} = \\frac{3\\sqrt{3}}{2}$; rectangular coordinates $\\left(\\frac{3}{2}, \\frac{3\\sqrt{3}}{2}\\right)$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["$(3, \\pi/3)$ reported as the answer (polar coordinates, not rectangular)", "$x = \\cos(\\pi/3) = 1/2$ and $y = \\sin(\\pi/3) = \\sqrt{3}/2$ without multiplying by $r$ (forgot to use $r = 3$)"],
+          "common_traps": ["Must first compute $r$ at $\\theta = \\pi/3$, then convert using $x = r\\cos\\theta$ and $y = r\\sin\\theta$", "Supporting work must show the intermediate value of $r = 3$"]
         },
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Correct value and reasoning — $r = 0$ when $2 + 2\\cos\\theta = 0 \\Rightarrow \\cos\\theta = -1 \\Rightarrow \\theta = \\pi$; the cardioid passes through the pole only at $\\theta = \\pi$ (this is the cusp of the cardioid); reasoning must show setting $r = 0$ and solving",
+          "description": "Correct value $\\theta = \\pi$ with reasoning — $r = 0$ when $2 + 2\\cos\\theta = 0 \\Rightarrow \\cos\\theta = -1 \\Rightarrow \\theta = \\pi$; reasoning must show setting $r = 0$ and solving for $\\theta$",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct value and reasoning — $r = 0$ when $2 + 2\\cos\\theta = 0 \\Rightarrow \\cos\\theta = -1 \\Rightarrow \\theta = \\pi$; the cardioid passes through the pole only at $\\theta = \\pi$ (this is the cusp of the cardioid); reasoning must show setting $r = 0$ and solving"
-              ],
-              "correct_example": "Correct value and reasoning — $r = 0$ when $2 + 2\\cos\\theta = 0 \\Rightarrow \\cos\\theta = -1 \\Rightarrow \\theta = \\pi$; the cardioid passes through the pole only at $\\theta = \\pi$ (this is the cusp of the cardioid); reasoning must show setting $r = 0$ and solving"
+              "required_elements": ["set $r = 0$: $2 + 2\\cos\\theta = 0$", "$\\cos\\theta = -1$", "$\\theta = \\pi$"],
+              "correct_example": "$r = 0 \\Rightarrow 2 + 2\\cos\\theta = 0 \\Rightarrow \\cos\\theta = -1 \\Rightarrow \\theta = \\pi$; the cardioid passes through the pole only at $\\theta = \\pi$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["$\\theta = 0$ and $\\theta = \\pi$ (incorrect — at $\\theta = 0$: $r = 2 + 2 = 4 \\neq 0$)", "$\\theta = \\pi/2$ (at $\\theta = \\pi/2$: $r = 2 + 0 = 2 \\neq 0$)"],
+          "common_traps": ["Substitute $r = 0$ directly into the polar equation, then solve for $\\theta$ — do not guess based on the shape", "Only one value of $\\theta$ in $[0, 2\\pi)$ makes $r = 0$: $\\theta = \\pi$"]
         }
       ]
     }

@@ -3,16 +3,9 @@
   "subject": "ap-chemistry",
   "year": 2024,
   "source": "released",
-  "title": "Buffer Solutions & Acid-Base Equilibrium",
+  "title": "Reaction Rates, Stoichiometry & Acid-Base Buffers",
   "frq_type": "multi_part_math",
-  "related_units": [
-    4,
-    5,
-    6,
-    7,
-    8,
-    9
-  ],
+  "related_units": [4, 5, 6, 7, 8, 9],
   "calculator_allowed": true,
   "total_points": 10,
   "stimulus": "A chemical reaction between maleic acid ($H_2C_4H_2O_4$) and sodium bicarbonate ($NaHCO_3$) occurs in the presence of water to produce carbon dioxide and sodium maleate ($Na_2C_4H_2O_4$), as represented by the following equation.\n\n$H_2C_4H_2O_4$(aq) + 2$NaHCO_3$(aq) → 2$CO_2$(g) + 2$H_2O$(l) + $Na_2C_4H_2O_4$(aq)",
@@ -23,39 +16,48 @@
       "letter": "a",
       "prompt": "A student combines equal masses of $H_2C_4H_2O_4$(s) chunks and $NaHCO_3$(s) chunks with sufficient water at 20.0°C. The student determines that 0.0114 mol of $CO_2$(g) is produced after the reaction goes to completion.\n\n(i) Calculate the number of grams of $CO_2$(g) produced.\n\n(ii) The $CO_2$(g) produced from the reaction at 20.0°C was collected and found to have a pressure of 1.25 atm. Calculate the volume of $CO_2$(g), in liters.",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "Part (a)(i): mass = moles × molar mass = 0.0114 mol × 44.01 g/mol. Part (a)(ii): V = nRT/P using T = 293 K.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "ai1",
           "point_value": 1,
-          "description": "For the correct calculated value: 1 point",
+          "description": "For the correct calculated mass of CO₂: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct calculated value: 1 point"
+                "$m = 0.0114\\text{ mol} \\times 44.01\\text{ g/mol} = 0.502\\text{ g}$"
               ],
-              "correct_example": "2244.01 g0.0114 mol CO 0.502 g CO1 mol×="
+              "correct_example": "$m(\\text{CO}_2) = 0.0114\\text{ mol} \\times 44.01\\text{ g/mol} = 0.502\\text{ g}$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Using molar mass of CO = 28 g/mol instead of CO₂ = 44.01 g/mol."
+          ],
+          "common_traps": [
+            "CO₂ molar mass = 12.01 + 2(16.00) = 44.01 g/mol."
+          ]
         },
         {
           "point_id": "aii1",
           "point_value": 1,
-          "description": "For the correct calculated value: 1 point",
+          "description": "For the correct calculated volume using ideal gas law: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct calculated value: 1 point"
+                "$V = \\frac{nRT}{P} = \\frac{(0.0114)(0.08206)(293)}{1.25} = 0.219\\text{ L}$"
               ],
-              "correct_example": "V = nRT = mol⋅K = 0.219 L"
+              "correct_example": "$T = 20.0°\\text{C} + 273 = 293\\text{ K}$ \n$V = \\frac{nRT}{P} = \\frac{(0.0114\\text{ mol})(0.08206\\text{ L·atm/mol·K})(293\\text{ K})}{1.25\\text{ atm}} = 0.219\\text{ L}$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Using T = 20.0 K instead of 293 K.",
+            "Dividing n by P without multiplying by RT."
+          ],
+          "common_traps": [
+            "Always convert °C to K for ideal gas calculations."
+          ]
         }
       ]
     },
@@ -63,79 +65,96 @@
       "letter": "b",
       "prompt": "The student performs a second experiment that is identical to the first except that the student grinds the chunks of $H_2C_4H_2O_4$(s) and $NaHCO_3$(s) into powder before combining the powder with water.\n\n(i) What happens to the surface area of the reactants when the student grinds the chunks into powder?\n\n(ii) The rate-determining step for the overall reaction is the dissolving of the solids. Would the time required for the dissolving of the solids in the second experiment be longer than, shorter than, or the same as the time required in the first experiment? Justify your answer based on the collisions between particles.\n\n(iii) When the reaction is complete, will the volume of $CO_2$(g) at the end of the second experiment be greater than, less than, or equal to the volume at the end of the first experiment? Justify your answer.\n\nThe student conducts additional trials of the experiment and produces the following data table.\n\n| Trial | Mass of $H_2C_4H_2O_4$ (g) | Mass of $NaHCO_3$ (g) | Moles of $CO_2$ Produced (mol) |\n|-------|---------------------------|----------------------|-------------------------------|\n| 3 | 1.543 | 1.251 | 0.01489 |\n| 4 | 1.543 | 1.686 | 0.02007 |",
       "point_value": 3,
-      "scoring_notes": null,
+      "scoring_notes": "Part (b)(i): surface area increases. Part (b)(ii): shorter — larger surface area means more frequent collisions between solid particles and water. Part (b)(iii): equal — same amounts of reactant produce same amount of product.",
       "requires_drawing": false,
       "reference_image": "/data/ap-chemistry/frq/images/chem-2024-frq-2-table.png",
       "scoring_points": [
         {
           "point_id": "bi1",
           "point_value": 1,
-          "description": "For a correct claim: 1 point",
+          "description": "For the correct claim that surface area increases: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For a correct claim: 1 point"
+                "The surface area of the solid reactants increases when ground into powder."
               ],
-              "correct_example": "The surface area of the solid reactants increases."
+              "correct_example": "Grinding the chunks into powder breaks them into smaller particles, greatly increasing the total surface area exposed to the solvent."
             }
           ],
-          "wrong_examples": [],
+          "wrong_examples": [
+            "Surface area decreases — grinding into smaller pieces always increases total surface area."
+          ],
           "common_traps": []
         },
         {
           "point_id": "bii1",
           "point_value": 1,
-          "description": "For the correct answer and a valid justification: 1 point",
+          "description": "For 'shorter than' with collision-based justification: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct answer and a valid justification: 1 point"
+                "Shorter than.",
+                "Powdered reactants have greater surface area, leading to more frequent collisions between solid and water molecules, increasing the rate of dissolving."
               ],
-              "correct_example": "Shorter than. The powdered solids have a larger surface area than the solid chunks, thus"
+              "correct_example": "Shorter than. Powdering the solids increases the surface area available for contact with water. More surface area means more collisions between solid particles and water molecules per unit time, increasing the dissolving rate and reducing the time required."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Longer than — greater surface area speeds up dissolving, not slows it."
+          ],
+          "common_traps": [
+            "Surface area affects rate (and therefore time), but not the amount of product formed."
+          ]
         },
         {
           "point_id": "biii1",
           "point_value": 1,
-          "description": "For the correct answer and a valid justification: 1 point",
+          "description": "For 'equal to' with stoichiometric justification: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct answer and a valid justification: 1 point"
+                "Equal to.",
+                "Both experiments start with the same masses (amounts) of reactants, so the same number of moles of CO₂ is produced."
               ],
-              "correct_example": "Equal to. Both experiments begin with the same amount of reactants, so they will produce"
+              "correct_example": "Equal to. The same masses of reactants are used in both experiments. Since the amount of product depends on the amount of limiting reactant, not the rate of reaction, the final volume of CO₂ is equal in both experiments."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Greater than or less than — changing particle size affects only the rate, not the stoichiometric yield."
+          ],
+          "common_traps": [
+            "Rate and yield are independent; particle size affects rate but not equilibrium yield."
+          ]
         }
       ]
     },
     {
       "letter": "c",
-      "prompt": "Based on the student’s data, identify the limiting reactant in trial 3. Justify your answer.",
+      "prompt": "Based on the student's data, identify the limiting reactant in trial 3. Justify your answer.",
       "point_value": 1,
-      "scoring_notes": "Accept one of the following:",
+      "scoring_notes": "Accept either a mole comparison or a rate-of-change argument. In trials 3 and 4: mass of H₂C₄H₂O₄ is constant but NaHCO₃ increases from trial 3 to 4, and CO₂ increases — so NaHCO₃ is limiting in trial 3.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "For the correct answer and a valid justification: 1 point",
+          "description": "For identifying NaHCO₃ as the limiting reactant with valid justification: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "Provide a correct response from the accepted alternatives"
+                "$NaHCO_3$ is the limiting reactant.",
+                "When the mass of NaHCO₃ increases from trial 3 to trial 4 (while H₂C₄H₂O₄ is constant), more CO₂ is produced — indicating NaHCO₃ was not in excess in trial 3."
               ],
-              "correct_example": "3 NaHCO is the limiting reactant because changing the mass of 3 NaHCO alters the amount of 2CO produced"
+              "correct_example": "$NaHCO_3$ is the limiting reactant in trial 3. Comparing trials 3 and 4, the mass of $H_2C_4H_2O_4$ is the same (1.543 g) but the mass of $NaHCO_3$ increases from 1.251 g to 1.686 g. The amount of CO₂ also increases, showing that more NaHCO₃ produces more product — therefore NaHCO₃ was limiting in trial 3."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "H₂C₄H₂O₄ is limiting — if it were, increasing NaHCO₃ in trial 4 would not increase the yield."
+          ],
+          "common_traps": [
+            "The limiting reactant is identified by determining which reactant, when increased, increases the product yield."
+          ]
         }
       ]
     },
@@ -143,24 +162,29 @@
       "letter": "d",
       "prompt": "The reaction has a value of ΔS° greater than zero. Using particle-level reasoning, explain why the entropy\nincreases as the reaction progresses.\n\nThe student notices that the temperature of the reaction mixture decreases as the reaction takes place and correctly\ndetermines that the reaction is endothermic.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "Accept any particle-level reasoning referencing production of gas (CO₂) from aqueous/solid reactants.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "For a valid explanation: 1 point",
+          "description": "For a particle-level explanation of entropy increase: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For a valid explanation: 1 point"
+                "The reaction produces CO₂(g) from aqueous or solid reactants.",
+                "Gas molecules have far more positional freedom and microstates than aqueous or solid species, so entropy increases."
               ],
-              "correct_example": "The entropy change is positive because the aqueous reactants produce 2 moles of gas"
+              "correct_example": "The reaction produces 2 moles of CO₂(g) for every mole of reaction. Gas molecules are highly dispersed compared to the aqueous reactants, having many more possible positions and orientations (microstates). This greater disorder results in a positive $\\Delta S°$."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Saying entropy increases because the products are more ordered — more order means less entropy."
+          ],
+          "common_traps": [
+            "Gas production is the main driver of entropy increase in solution chemistry."
+          ]
         }
       ]
     },
@@ -168,24 +192,30 @@
       "letter": "e",
       "prompt": "The student claims that the reaction is thermodynamically favorable at all temperatures because $\\Delta S°_{rxn}$ > 0 and the reaction is endothermic. Do you agree or disagree with the student's claim? Justify your answer.\n\nNext, the student investigates the acid-base behavior of maleic acid. The student notes that maleic acid is a diprotic acid. The two acid dissociation processes that occur are represented by the following equations.\n\n$H_2C_4H_2O_4$ + $H_2O$ ⇌ $HC_4H_2O_4^-$ + $H_3O^+$     $K_{a1}$ = 1.5 × 10$^{-2}$\n$HC_4H_2O_4^-$ + $H_2O$ ⇌ $C_4H_2O_4^{2-}$ + $H_3O^+$     $K_{a2}$ = 8.5 × 10$^{-7}$",
       "point_value": 1,
-      "scoring_notes": "Accept one of the following:",
+      "scoring_notes": "Disagree. When ΔH > 0 and ΔS > 0: ΔG = ΔH − TΔS < 0 only when T > ΔH/ΔS. Below that temperature, ΔG > 0 (not favorable).",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "e1",
           "point_value": 1,
-          "description": "For the correct answer and a valid justification: 1 point",
+          "description": "For 'disagree' with correct Gibbs free energy reasoning: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "Provide a correct response from the accepted alternatives"
+                "Disagree.",
+                "$\\Delta G° = \\Delta H° - T\\Delta S°$; with $\\Delta H° > 0$ and $\\Delta S° > 0$, $\\Delta G° < 0$ only when $T > \\Delta H°/\\Delta S°$ (at sufficiently high temperature).",
+                "At low temperatures, $\\Delta G° > 0$ and the reaction is not thermodynamically favorable."
               ],
-              "correct_example": "Disagree. The reaction is endothermic and has a positive entropy change. Thus, the reaction is only thermodynamically favorable at a high enough temperature such that the magnitude of TS−∆ is greater than that of H∆"
+              "correct_example": "Disagree. $\\Delta G° = \\Delta H° - T\\Delta S°$. When $\\Delta H° > 0$ (endothermic) and $\\Delta S° > 0$, the sign of $\\Delta G°$ depends on temperature: $\\Delta G° < 0$ only when $T > \\Delta H°/\\Delta S°$. At temperatures below this threshold, $\\Delta G° > 0$ and the reaction is not spontaneous. Therefore, the reaction is favorable only at sufficiently high temperatures, not at all temperatures."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Agreeing — positive ΔS does not guarantee spontaneity at all temperatures when ΔH > 0."
+          ],
+          "common_traps": [
+            "When both ΔH and ΔS are positive, the reaction is only favorable at high T. This is unlike ΔH < 0, ΔS > 0 (favorable at all T)."
+          ]
         }
       ]
     },
@@ -193,24 +223,28 @@
       "letter": "f",
       "prompt": "Calculate the p$K_a$ value for the $HC_4H_2O_4^-$ ion.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "pKa2 = −log(Ka2) = −log(8.5×10⁻⁷).",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "f1",
           "point_value": 1,
-          "description": "For the correct calculated value: 1 point",
+          "description": "For the correct calculated pKa2: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct calculated value: 1 point"
+                "$\\text{p}K_{a2} = -\\log(8.5 \\times 10^{-7}) = 6.07$"
               ],
-              "correct_example": "( )27p log 8.5 10 6.07aK−= − ×="
+              "correct_example": "$\\text{p}K_{a2} = -\\log(K_{a2}) = -\\log(8.5 \\times 10^{-7}) = 6.07$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Using Ka1 = 1.5×10⁻² — the question asks for the pKa of the HC₄H₂O₄⁻ ion, which corresponds to Ka2."
+          ],
+          "common_traps": [
+            "HC₄H₂O₄⁻ is the conjugate acid of the second dissociation step; its Ka = Ka2 = 8.5×10⁻⁷."
+          ]
         }
       ]
     },
@@ -218,24 +252,31 @@
       "letter": "g",
       "prompt": "A buffer solution with a pH of 7.00 is prepared using $C_4H_2O_4^{2-}$ and $HC_4H_2O_4^-$. Calculate the ratio $\\frac{[C_4H_2O_4^{2-}]}{[HC_4H_2O_4^-]}$ in this solution.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "Use Henderson–Hasselbalch: pH = pKa2 + log([A²⁻]/[HA⁻]).",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "g1",
           "point_value": 1,
-          "description": "For the correct calculated value: 1 point",
+          "description": "For the correct calculated ratio using Henderson–Hasselbalch: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct calculated value: 1 point"
+                "$7.00 = 6.07 + \\log\\frac{[C_4H_2O_4^{2-}]}{[HC_4H_2O_4^-]}$",
+                "$\\log\\frac{[C_4H_2O_4^{2-}]}{[HC_4H_2O_4^-]} = 0.93$",
+                "$\\frac{[C_4H_2O_4^{2-}]}{[HC_4H_2O_4^-]} = 10^{0.93} \\approx 8.5$"
               ],
-              "correct_example": "2(pH p ) (7.00 6.07) 424 424[C H O ]pH = p log [HC H O ] [C H O ]10 10 8.5"
+              "correct_example": "$\\text{pH} = \\text{p}K_{a2} + \\log\\frac{[\\text{base}]}{[\\text{acid}]}$ \n$7.00 = 6.07 + \\log\\frac{[C_4H_2O_4^{2-}]}{[HC_4H_2O_4^-]}$ \n$\\log\\frac{[C_4H_2O_4^{2-}]}{[HC_4H_2O_4^-]} = 0.93$ \n$\\frac{[C_4H_2O_4^{2-}]}{[HC_4H_2O_4^-]} = 10^{0.93} \\approx 8.5$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Using pKa1 = 1.70 instead of pKa2 = 6.07 — the buffer consists of the second acid/base pair.",
+            "Getting the ratio inverted (HA⁻/A²⁻ instead of A²⁻/HA⁻)."
+          ],
+          "common_traps": [
+            "Henderson–Hasselbalch: $\\text{pH} = \\text{p}K_a + \\log\\frac{[\\text{conjugate base}]}{[\\text{weak acid}]}$."
+          ]
         }
       ]
     }

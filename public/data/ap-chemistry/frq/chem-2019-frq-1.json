@@ -3,17 +3,9 @@
   "subject": "ap-chemistry",
   "year": 2019,
   "source": "released",
-  "title": "Chemical Equilibrium & Le Chatelier's Principle",
+  "title": "Urea: Structure, Solubility, Entropy & Thermodynamics",
   "frq_type": "multi_part_math",
-  "related_units": [
-    1,
-    2,
-    3,
-    4,
-    6,
-    7,
-    9
-  ],
+  "related_units": [1, 2, 3, 4, 6, 7, 9],
   "calculator_allowed": true,
   "total_points": 10,
   "stimulus": "The compound urea, H\nNCONH\n, is widely used in chemical fertilizers. The complete Lewis electron-dot\ndiagram for the urea molecule is shown above.",
@@ -24,24 +16,29 @@
       "letter": "a",
       "prompt": "Identify the hybridization of the valence orbitals of the carbon atom in the urea molecule.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "In urea (H$_2$N−CO−NH$_2$), the carbon atom forms: 1 double bond to O (counts as 1 electron domain), 2 single bonds to N = 3 total electron domains around carbon → sp$^2$ hybridization. The double bond C=O uses one p orbital for the π bond; carbon is sp$^2$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "the correct answer",
+          "description": "For identifying sp$^2$ hybridization of the carbon atom in urea: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "the correct answer"
+                "sp$^2$"
               ],
-              "correct_example": "Identify the hybridization of the valence orbitals of the carbon atom in the urea molecule."
+              "correct_example": "The carbon atom in urea forms 3 electron domains: a double bond to O (counts as 1 domain) and 2 single bonds to N. Three electron domains → sp$^2$ hybridization."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "sp$^3$ — only applies when carbon has 4 single bonds or 4 electron domains. The C=O double bond reduces domains to 3.",
+            "sp — only when carbon has 2 electron domains (as in a triple bond or two double bonds)."
+          ],
+          "common_traps": [
+            "Count electron domains (bonding + lone pairs), NOT bond count. A double bond = 1 electron domain. C in urea: 1 (C=O) + 1 (C−N) + 1 (C−N) = 3 domains → sp$^2$."
+          ]
         }
       ]
     },
@@ -49,73 +46,87 @@
       "letter": "b",
       "prompt": "Urea has a high solubility in water, due in part to its ability to form hydrogen bonds. A urea molecule and\nfour water molecules are represented in the box below. Draw ONE dashed line (----) to indicate a possible\nlocation of a hydrogen bond between a water molecule and the urea molecule.\n→\nH NCONH (s) ← H NCONH (aq)\n2 2 2 2\nThe dissolution of urea is represented by the equation above. A student determines that 5.39 grams of\nH NCONH (molar mass 60.06 g/mol) can dissolve in water to make 5.00 mL of a saturated solution at 20.°C.",
       "point_value": 1,
-      "rubric_criteria": [],
-      "scoring_notes": null,
+      "scoring_notes": "A hydrogen bond between urea and water can form between: (1) an N−H of urea and the lone pair of O in water (H−N···O), or (2) the O=C of urea (lone pair on O) and the H−O of a water molecule (H−O···O=C). Any one valid H-bond drawn with a dashed line between H and an electronegative atom (N or O) earns the point.",
       "requires_drawing": true,
       "reference_image": "/data/ap-chemistry/frq/images/chem-2019-frq-1-b-ref.png"
     },
     {
       "letter": "c",
       "prompt": "Calculate the concentration of urea, in mol/L, in the saturated solution at 20.°C.",
-      "point_value": 1,
-      "scoring_notes": null,
+      "point_value": 2,
+      "scoring_notes": "Moles urea = 5.39 g / 60.06 g/mol = 0.08974 mol. Volume = 5.00 mL = 0.00500 L. Molarity = 0.08974 mol / 0.00500 L = 17.9 M.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "the correct number of moles of urea (may be implicit)",
+          "description": "For the correct moles of urea: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "the correct number of moles of urea (may be implicit)"
+                "Moles urea = 5.39 g / 60.06 g/mol = 0.0897 mol"
               ],
-              "correct_example": "Calculate the concentration of urea, i n mol/L, in the saturated solution at 20.°C. 5.39 g H2NCONH2 x = 0.089 7 mol - 60.06 g"
+              "correct_example": "Moles H$_2$NCONH$_2$ = 5.39 g / 60.06 g/mol = 0.08974 mol"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Not dividing by molar mass — must convert grams to moles first."
+          ],
+          "common_traps": [
+            "Moles = mass / molar mass. Molar mass of urea (H$_2$NCONH$_2$) = 60.06 g/mol."
+          ]
         },
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "the correct molarity",
+          "description": "For the correct molarity = 17.9 M: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "the correct molarity"
+                "Molarity = 0.0897 mol / 0.00500 L = 17.9 M"
               ],
-              "correct_example": "0.0897 mol / 0.00500 L = 17.9 M"
+              "correct_example": "Molarity = 0.08974 mol / 0.00500 L = 17.9 M"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Dividing by 5.00 mL directly instead of 0.00500 L — volume must be in liters.",
+            "Dividing mol by the mass of urea — denominator must be volume in liters."
+          ],
+          "common_traps": [
+            "Molarity = moles / volume(L). Convert 5.00 mL → 0.00500 L before dividing."
+          ]
         }
       ]
     },
     {
       "letter": "d",
-      "prompt": "The student also determines that the concentration of urea in a saturated solution at 25°C is 19.8 M. Based\non this information, is the dissolution of urea endothermic or exothermic? Justify your answer in terms of\nLe Chatelier’s principle.",
+      "prompt": "The student also determines that the concentration of urea in a saturated solution at 25°C is 19.8 M. Based\non this information, is the dissolution of urea endothermic or exothermic? Justify your answer in terms of\nLe Chatelier's principle.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "Endothermic. The solubility increases from 17.9 M (20°C) to 19.8 M (25°C) when temperature increases. By Le Chatelier's principle, increasing temperature shifts the equilibrium in the direction that absorbs heat. If higher temperature increases solubility, the dissolution reaction must be absorbing heat (endothermic) to shift toward more dissolved urea.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "Provide a correct response",
+          "description": "For 'endothermic' with Le Chatelier's reasoning from the solubility increase with temperature: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "Provide a correct response"
+                "Endothermic.",
+                "Solubility increases (17.9 M → 19.8 M) with increasing temperature. Le Chatelier: temperature increase favors the endothermic direction → dissolution is endothermic."
               ],
-              "correct_example": "The student also determines that the concentration of urea in a saturated solution at 25°C is 19.8 M. Based on this information, is the dissolution of urea endothermic or exothermic? Justify your an"
+              "correct_example": "Endothermic. Increasing temperature from 20°C to 25°C increases the solubility of urea (17.9 M → 19.8 M). By Le Chatelier's principle, increasing temperature shifts equilibrium toward the products for an endothermic reaction (the system absorbs the added heat). Since more urea dissolves at higher temperature, the dissolution process absorbs heat and is endothermic."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Saying exothermic — if dissolution were exothermic, increasing temperature would decrease solubility (Le Chatelier shifts left). The solubility increased, not decreased.",
+            "Confusing direction: for exothermic reactions, higher T decreases K; for endothermic reactions, higher T increases K."
+          ],
+          "common_traps": [
+            "Le Chatelier and temperature: endothermic reaction → higher T → more product (higher solubility). Exothermic reaction → higher T → less product (lower solubility). Solubility went up with T → endothermic."
+          ]
         }
       ]
     },
@@ -123,99 +134,124 @@
       "letter": "e",
       "prompt": "The equipment shown above is provided so that the student can determine the value of the molar heat of\nsolution for urea. Knowing that the specific heat of the solution is 4.18 J/(g⋅°C), list the specific\nmeasurements that are required to be made during the experiment.\nS° (J/(mol⋅K))\nH NCONH (s) 104.6\nH NCONH (aq)?\n2 2",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "To calculate heat of solution ($\\Delta H_{soln}$) using $q = mc\\Delta T$ and then convert to kJ/mol, the student must measure: (1) mass of water (or solution) in the calorimeter, (2) initial temperature of the water (before adding urea), (3) final temperature of the solution (after urea dissolves), and (4) mass of urea dissolved (to calculate moles).",
       "requires_drawing": false,
       "reference_image": "/data/ap-chemistry/frq/images/chem-2019-frq-1-e-ref.png",
       "scoring_points": [
         {
           "point_id": "e1",
           "point_value": 1,
-          "description": "Provide a correct response",
+          "description": "For listing the required measurements: mass of solution, temperature change (initial and final), and mass of urea: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "Provide a correct response"
+                "Mass of water (or solution) to use in $q = mc\\Delta T$.",
+                "Initial and final temperatures (or ΔT) of the solution.",
+                "Mass of urea dissolved (to calculate moles)."
               ],
-              "correct_example": "The equipment shown above is provided so that the student can determine the value of the molar heat of solution for urea. Knowing that the specific heat of the solution is 4.18 J/(g.°C) , list the spe"
+              "correct_example": "Required measurements:\n(1) Mass of water (solvent) in the calorimeter (g)\n(2) Initial temperature of the water (°C)\n(3) Final temperature of the solution after urea dissolves (°C)\n(4) Mass of urea added to the calorimeter (g)\nThese allow calculation of $q = mc\\Delta T$ (heat absorbed/released) and moles urea = mass/M$_r$, then $\\Delta H_{soln}$ = q/moles."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Listing only temperature change without mass — both are needed for $q = mc\\Delta T$.",
+            "Forgetting mass of urea — moles of urea must be calculated to express results as kJ/mol."
+          ],
+          "common_traps": [
+            "$\\Delta H_{soln}$ = q/n. Need q (from $mc\\Delta T$) and n (from mass/molar mass). Both mass of solvent AND mass of solute AND temperature change are required measurements."
+          ]
         }
       ]
     },
     {
       "letter": "f",
-      "prompt": "The entropy change for the dissolution of urea, DS , is 70.1 J/(mol⋅K) at 25°C. Using the information in\nsoln\nthe table above, calculate the absolute molar entropy, S°, of aqueous urea.",
+      "prompt": "The entropy change for the dissolution of urea, DS , is 70.1 J/(mol⋅K) at 25°C. Using the information in\nsoln\nthe table above, calculate the absolute molar entropy, S°, of aqueous urea.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "$\\Delta S°_{soln} = S°(\\text{urea(aq)}) - S°(\\text{urea(s)})$. $70.1 = S°(\\text{urea(aq)}) - 104.6$. $S°(\\text{urea(aq)}) = 70.1 + 104.6 = 174.7\\text{ J/(mol·K)}$.",
       "requires_drawing": false,
       "reference_image": "/data/ap-chemistry/frq/images/chem-2019-frq-1-table.png",
       "scoring_points": [
         {
           "point_id": "f1",
           "point_value": 1,
-          "description": "The entropy change for the dissolution of urea, ^S^soln , is 70.1 J/(mol.K) at 25°C. Using the information in",
+          "description": "For the correct S° of urea(aq) = 174.7 J/(mol·K): 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "The entropy change for the dissolution of urea, ^S^soln , is 70.1 J/(mol.K) at 25°C. Using the information in"
+                "$\\Delta S°_{soln} = S°_{\\text{products}} - S°_{\\text{reactants}} = S°(\\text{urea(aq)}) - S°(\\text{urea(s)})$",
+                "$S°(\\text{urea(aq)}) = \\Delta S°_{soln} + S°(\\text{urea(s)}) = 70.1 + 104.6 = 174.7\\text{ J/(mol·K)}$"
               ],
-              "correct_example": "S° (H2NCONH2(aq)) = 174.7 J/(mol.K)"
+              "correct_example": "$\\Delta S°_{soln} = S°(\\text{urea(aq)}) - S°(\\text{urea(s)})$\n$70.1 = S°(\\text{urea(aq)}) - 104.6$\n$S°(\\text{urea(aq)}) = 174.7\\text{ J/(mol·K)}$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Subtracting instead of adding: $70.1 - 104.6 = -34.5$ — this is not correct; must add ΔS to S° of reactant.",
+            "Using the wrong formula for ΔS — ΔS = S$_{products}$ − S$_{reactants}$, so S$_{product}$ = ΔS + S$_{reactant}$."
+          ],
+          "common_traps": [
+            "$\\Delta S = S°(\\text{products}) - S°(\\text{reactants})$. For dissolution: urea(s) → urea(aq). $S°(\\text{aq}) = \\Delta S + S°(\\text{s})$."
+          ]
         }
       ]
     },
     {
       "letter": "g",
-      "prompt": "Using particle-level reasoning, explain why DS is positive for the dissolution of urea in water.\nsoln",
+      "prompt": "Using particle-level reasoning, explain why DS is positive for the dissolution of urea in water.\nsoln",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "ΔS$_{soln}$ > 0 because the dissolution of solid urea into aqueous solution greatly increases the number of possible arrangements (microstates) of the urea molecules. In the solid, urea molecules are arranged in a regular crystal lattice — low entropy. When dissolved, urea molecules are dispersed randomly throughout the solution, can move and rotate in many more orientations and positions — high entropy. More possible arrangements → higher entropy.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "g1",
           "point_value": 1,
-          "description": "Using particle-level reasoning, explain why AS°soln is positive for the dissolution of urea in water.",
+          "description": "For particle-level reasoning: solid → solution increases positions/arrangements available to urea molecules: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "Using particle-level reasoning, explain why AS°soln is positive for the dissolution of urea in water."
+                "In the solid, urea molecules are fixed in an ordered crystal lattice with limited motion.",
+                "In solution, urea molecules are randomly dispersed and have many more possible positions/orientations/arrangements → greater entropy."
               ],
-              "correct_example": "Urea molecules in solution have a greater number of possible"
+              "correct_example": "In solid urea, molecules are held in fixed positions in an ordered crystal lattice, limiting their motion and possible arrangements. When urea dissolves, the molecules separate and are distributed throughout the solution. The dissolved urea molecules have far more possible positions, orientations, and translational/rotational degrees of freedom. More microstates (possible arrangements) means higher entropy in solution → ΔS$_{soln}$ > 0."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Saying entropy increases because the solid melts — dissolution into solution, not melting into liquid. The key is dispersion of particles throughout the solvent.",
+            "Saying entropy decreases because water molecules organize around urea — while water hydration shell ordering decreases entropy slightly, the overall dissolution entropy is positive because urea dispersion dominates."
+          ],
+          "common_traps": [
+            "Focus on the urea particles: solid = ordered (low S) → dispersed in solution = disordered (high S). More possible arrangements → ΔS > 0."
+          ]
         }
       ]
     },
     {
       "letter": "h",
-      "prompt": "The student claims that ΔS ° for the process contributes to the thermodynamic favorability of the dissolution\nof urea at 25°C. Use the thermodynamic information above to support the student’s claim.",
+      "prompt": "The student claims that ΔS ° for the process contributes to the thermodynamic favorability of the dissolution\nof urea at 25°C. Use the thermodynamic information above to support the student's claim.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "For thermodynamic favorability: $\\Delta G° = \\Delta H° - T\\Delta S°$. ΔS$°_{soln}$ = +70.1 J/(mol·K) > 0. The −TΔS° term = −(298 K)(0.0701 kJ/mol·K) = −20.9 kJ/mol (negative). A negative −TΔS° term makes ΔG° more negative (more favorable). Therefore the positive ΔS° contributes to the thermodynamic favorability (makes ΔG° more negative).",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "h1",
           "point_value": 1,
-          "description": "The student claims that AS° for the process contributes to the thermodynamic favorability of the dissolution",
+          "description": "For using ΔG° = ΔH° − TΔS° to show that positive ΔS° makes ΔG° more negative (favorable): 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "The student claims that AS° for the process contributes to the thermodynamic favorability of the dissolution"
+                "ΔS° = +70.1 J/(mol·K) > 0",
+                "The −TΔS° term is negative at 298 K → contributes negatively to ΔG° → more thermodynamically favorable."
               ],
-              "correct_example": "Thermodynamic favorability for a process at standard conditions is"
+              "correct_example": "$\\Delta G° = \\Delta H° - T\\Delta S°$. ΔS° = +70.1 J/(mol·K) = +0.0701 kJ/(mol·K). At T = 298 K: $-T\\Delta S° = -(298)(0.0701) = -20.9\\text{ kJ/mol}$. This negative contribution to ΔG° makes dissolution more thermodynamically favorable (more negative ΔG°). The student's claim is correct: positive entropy change contributes to favorability."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Saying ΔS > 0 always makes a reaction spontaneous — ΔG° = ΔH° − TΔS° must be overall negative for spontaneity. ΔS > 0 helps but ΔH also matters.",
+            "Not connecting ΔS to ΔG° — must explicitly use the Gibbs equation to support the claim."
+          ],
+          "common_traps": [
+            "ΔG° = ΔH° − TΔS°. A positive ΔS° means −TΔS° is negative, which REDUCES ΔG° (makes it more negative). This is the thermodynamic contribution of entropy to favorability."
+          ]
         }
       ]
     }

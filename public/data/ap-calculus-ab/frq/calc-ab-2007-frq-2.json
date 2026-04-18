@@ -42,7 +42,7 @@
     {
       "letter": "b",
       "prompt": "For $0 \\le t \\le 7$, find the time intervals during which the amount of water in the tank is decreasing. Give a reason for each answer.",
-      "point_value": 1,
+      "point_value": 3,
       "scoring_notes": null,
       "requires_drawing": false,
       "reference_image": null,
@@ -90,19 +90,20 @@
     {
       "letter": "c",
       "prompt": "For $0 \\le t \\le 7$, at what time $t$ is the amount of water in the tank greatest? To the nearest gallon, compute the amount of water at this time. Justify your answer.",
-      "point_value": 1,
-      "scoring_notes": null,
+      "point_value": 3,
+      "scoring_notes": "Maximum at t=5.076 where f(t)=g(t) and f-g changes from positive to negative. W(5.076) = 5000 + integral_0^{5.076} [f(t)-g(t)] dt ≈ 4976 gallons. Justification: W'(t) = f(t) - g(t) changes from positive to negative at t=5.076.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Identifies $t = 5.076$ as location of maximum",
+          "description": "Identifies $t = 5.076$ as location of maximum with reason: $f(t) - g(t)$ changes sign from positive to negative",
           "alternatives": [
             {
               "required_elements": [
-                "Maximum at $t \\approx 5.076$"
+                "Maximum at $t \\approx 5.076$",
+                "$f(t) > g(t)$ for $1.617 < t < 5.076$ (tank increasing) and $f(t) < g(t)$ for $5.076 < t \\le 7$ (tank decreasing)"
               ]
             }
           ]
@@ -110,27 +111,65 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Correct amount at that time",
+          "description": "Sets up correct integral expression: $W(5.076) = 5000 + \\int_0^{5.076}[f(t)-g(t)]\\, dt$",
           "alternatives": [
             {
               "required_elements": [
-                "Evaluates $W(5.076) = 5000 + \\int_0^{5.076}[f(t)-g(t)]\\, dt$"
-              ],
-              "correct_example": "$W(5.076) \\approx 4976$ gallons"
+                "$5000 + \\int_0^{5.076}[f(t)-g(t)]\\, dt$"
+              ]
             }
           ]
         },
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "Justification (global comparison or sign change of $W'$)",
+          "description": "Correct numerical answer $W(5.076) \\approx 4976$ gallons",
           "alternatives": [
             {
               "required_elements": [
-                "$W'(t) = f(t) - g(t)$ changes from positive to negative at $t = 5.076$",
-                "Or: compare values at $t=0, 5.076, 7$"
-              ]
+                "$W(5.076) \\approx 4976$ gallons"
+              ],
+              "correct_example": "$W(5.076) = 5000 + \\int_0^{5.076}[f(t)-g(t)]\\, dt \\approx 4976$ gallons"
             }
+          ]
+        }
+      ]
+    },
+    {
+      "letter": "d",
+      "prompt": "Write, but do not evaluate, an integral expression that gives the total amount of water in the tank, in gallons, at time $t = 7$.",
+      "point_value": 2,
+      "scoring_notes": "W(7) = 5000 + integral from 0 to 7 of [f(t) - g(t)] dt. Both the initial condition 5000 and the correct net rate integrand are required.",
+      "requires_drawing": false,
+      "reference_image": null,
+      "scoring_points": [
+        {
+          "point_id": "d1",
+          "point_value": 1,
+          "description": "Correct net rate integrand $f(t) - g(t)$ in integral from $0$ to $7$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$\\int_0^7 [f(t) - g(t)]\\, dt$"
+              ],
+              "correct_example": "$\\int_0^7 [f(t) - g(t)]\\, dt$ with $f(t) = 100t^2\\sin t$ and piecewise $g(t)$"
+            }
+          ]
+        },
+        {
+          "point_id": "d2",
+          "point_value": 1,
+          "description": "Includes initial condition 5000 gallons",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$5000 + \\int_0^7 [f(t) - g(t)]\\, dt$"
+              ],
+              "correct_example": "$W(7) = 5000 + \\int_0^7 [f(t) - g(t)]\\, dt$ gallons"
+            }
+          ],
+          "common_traps": [
+            "Omitting initial condition 5000"
           ]
         }
       ]

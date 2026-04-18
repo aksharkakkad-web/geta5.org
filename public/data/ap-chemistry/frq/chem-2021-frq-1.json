@@ -3,223 +3,264 @@
   "subject": "ap-chemistry",
   "year": 2021,
   "source": "released",
-  "title": "Chemical Equilibrium & Le Chatelier's Principle",
+  "title": "Methanoic Acid: Equilibrium, pH, Lewis Structure & Catalysis",
   "frq_type": "multi_part_math",
-  "related_units": [
-    2,
-    4,
-    5,
-    7
-  ],
+  "related_units": [2, 4, 5, 7],
   "calculator_allowed": true,
   "total_points": 10,
-  "stimulus": "1.8 × 10$^{-4}$\n1. Methanoicacid, HCOOH, ionizes according to the equation above.",
+  "stimulus": "Methanoic acid (formic acid), HCOOH, ionizes in water: HCOOH(aq) ⇌ H⁺(aq) + HCOO⁻(aq), $K_a = 1.8 \\times 10^{-4}$.",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Write the expression for the equilibrium constant, K , for the reaction.\na",
+      "prompt": "Write the expression for the equilibrium constant, $K_a$, for the reaction.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "The Ka expression places products over reactants, each raised to the power of its stoichiometric coefficient. Pure liquid water is omitted. Ka = [H⁺][HCOO⁻] / [HCOOH] = [H₃O⁺][HCOO⁻] / [HCOOH].",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "For the correct expression: 1 point",
+          "description": "For the correct Ka expression with products over reactants and water omitted: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct expression: 1 point"
+                "$K_a = \\dfrac{[\\text{H}^+][\\text{HCOO}^-]}{[\\text{HCOOH}]}$ (or $K_a = \\dfrac{[\\text{H}_3\\text{O}^+][\\text{HCOO}^-]}{[\\text{HCOOH}]}$)"
               ],
-              "correct_example": "3[H O ][HCOO ] [HCOOH]aK+−"
+              "correct_example": "$K_a = \\dfrac{[\\text{H}^+][\\text{HCOO}^-]}{[\\text{HCOOH}]}$\n\nProducts (H⁺ and HCOO⁻) in numerator; reactant HCOOH in denominator. Water is a pure liquid and is not included in the equilibrium expression."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Including [H₂O] in the denominator — water is a pure liquid and is excluded from the Ka expression.",
+            "Writing Ka = [HCOOH]/[H⁺][HCOO⁻] — this is the inverse (1/Ka), not Ka."
+          ],
+          "common_traps": [
+            "Ka = [products]/[reactants]. Omit pure liquids (H₂O) and pure solids. Each concentration is raised to its stoichiometric coefficient (all 1 here)."
+          ]
         }
       ]
     },
     {
       "letter": "b",
-      "prompt": "Calculate the pH of a 0.25 M solution of HCOOH.\nUse a pencil or pen with black or dark blue ink only. Do NOT write your name. Do NOT write outside the box.",
+      "prompt": "Calculate the pH of a 0.25 M solution of HCOOH.",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "ICE table: HCOOH ⇌ H⁺ + HCOO⁻. Initial: [HCOOH] = 0.25 M, [H⁺] = [HCOO⁻] = 0. Change: −x, +x, +x. Equilibrium: Ka = x²/(0.25 − x) ≈ x²/0.25 = 1.8×10⁻⁴. x = √(1.8×10⁻⁴ × 0.25) = √(4.5×10⁻⁵) = 6.71×10⁻³ M. Check: x/0.25 = 2.7% < 5%, approximation valid. pH = −log(6.71×10⁻³) ≈ 2.17.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "For the correct calculated concentration of $H_2O$+: 1 point",
+          "description": "For the correct calculated [H⁺] using ICE table and Ka: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct calculated concentration of $H_2O$+: 1 point"
+                "ICE table setup: $K_a = x^2/(0.25 - x) \\approx x^2/0.25 = 1.8 \\times 10^{-4}$",
+                "$[\\text{H}^+] = x \\approx 6.7 \\times 10^{-3}$ M"
               ],
-              "correct_example": "HCOOH + $H_2O$ ←→ $H_2O$+ + HCOO– Let [$H_2O$+] = x, then 1.8× 10$^{-4}$ = Assume x << 0.25, then 1.8× 10$^{-4}$ = ⇒ x = 0.0067 M"
+              "correct_example": "ICE table:\n$\\begin{array}{lccc} & \\text{HCOOH} & \\text{H}^+ & \\text{HCOO}^- \\\\ I & 0.25 & 0 & 0 \\\\ C & -x & +x & +x \\\\ E & 0.25-x & x & x \\end{array}$\n\n$K_a = \\dfrac{x^2}{0.25 - x} \\approx \\dfrac{x^2}{0.25} = 1.8 \\times 10^{-4}$\n$x^2 = 4.5 \\times 10^{-5}$\n$x = [\\text{H}^+] = 6.71 \\times 10^{-3}$ M"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Using 1.8×10⁻⁴ directly as the [H⁺] — Ka is not the concentration; must solve the ICE table.",
+            "Setting up Ka = x/(0.25 − x) instead of x²/(0.25 − x) — both H⁺ and HCOO⁻ each contribute a factor of x."
+          ],
+          "common_traps": [
+            "Weak acid ICE: Ka = x²/(C − x). If x/C < 5%, approximate x²/C. Here x/0.25 ≈ 2.7% — valid. Then solve for x = √(Ka × C)."
+          ]
         },
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "For the correct calculated value of pH: 1 point",
+          "description": "For the correct pH consistent with [H⁺] from part b1: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct calculated value of pH: 1 point"
+                "$\\text{pH} = -\\log(6.71 \\times 10^{-3}) \\approx 2.17$"
               ],
-              "correct_example": "(b) For the corr ect calculated concentration of H3O+ HCOOH + H2O ←→ H3O+ + HCOO– I 0.25 0 0 C –x +x +x"
+              "correct_example": "$\\text{pH} = -\\log(6.71 \\times 10^{-3}) = 2.17$\n\n(Accept pH consistent with student's [H⁺] from part b1.)"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Writing pH = log(6.71×10⁻³) = −2.17 — pH = −log[H⁺], not +log[H⁺].",
+            "Using [H⁺] = 0.25 M → pH = 0.60 — this would only be correct for a strong acid."
+          ],
+          "common_traps": [
+            "pH = −log[H⁺]. Use the [H⁺] from the ICE table (not the initial concentration). Answer should be consistent with b1."
+          ]
         }
       ]
     },
     {
       "letter": "c",
-      "prompt": "In the box below, complete the Lewis electron-dot diagram for HCOOH. Show all bonding and nonbonding\nvalence electrons.\n$H_2$ NNH 2 (aq )  H 2 O(l)  $H_2$ NNH 3  (aq )  $OH^-$ (aq ) $K_{b}$ = 1.3  10 − 6",
+      "prompt": "In the box below, complete the Lewis electron-dot diagram for HCOOH. Show all bonding and nonbonding valence electrons.",
       "point_value": 1,
-      "rubric_criteria": [
-        "For the correct diagram: 1 point"
-      ],
-      "scoring_notes": null,
+      "scoring_notes": "HCOOH (formic acid) structure: H−O−C(=O)−H. Carbon is double-bonded to one oxygen and single-bonded to the −OH oxygen and to H. The carbonyl oxygen has 2 lone pairs; the hydroxyl oxygen has 2 lone pairs. Total valence electrons = 1+6+4+6+1 = 18. All lone pairs and the C=O double bond must be shown.",
       "requires_drawing": true,
       "reference_image": "/data/ap-chemistry/frq/images/chem-2021-frq-1-c-ref.png"
     },
     {
       "letter": "d",
-      "prompt": "In aqueous solution, the compound H NNH reacts according to the equation above. A 50.0 mL sample of\n0.25 M H NNH (aq)is combined with a 50.0 mL sample of 0.25 M HCOOH(aq).\n(i)Write the balanced net ionic equation for the reaction that occurs when H NNH is combined\nwith HCOOH.\n(ii) Is the resulting solution acidic, basic, or neutral? Justify your answer.\nUse a pencil or pen with black or dark blue ink only. Do NOT write your name. Do NOT write outside the box.\n\nWhen a catalyst is added to a solution of HCOOH(aq ), the reaction represented by the following equation\noccurs.\nHCOOH (aq ) → H (g )  CO (g)\n2 2",
+      "prompt": "In aqueous solution, the compound H₂NNH₂ reacts according to the equation: H₂NNH₂(aq) + H₂O(l) ⇌ H₂NNH₃⁺(aq) + OH⁻(aq), Kb = 1.3 × 10⁻⁶. A 50.0 mL sample of 0.25 M H₂NNH₂(aq) is combined with a 50.0 mL sample of 0.25 M HCOOH(aq).\n(i) Write the balanced net ionic equation for the reaction that occurs when H₂NNH₂ is combined with HCOOH.\n(ii) Is the resulting solution acidic, basic, or neutral? Justify your answer.",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "(i) Proton transfer: H₂NNH₂ (base) accepts H⁺ from HCOOH (acid). Net ionic: H₂NNH₂(aq) + HCOOH(aq) → H₂NNH₃⁺(aq) + HCOO⁻(aq). Equal moles of each reactant are present (0.0125 mol each), so reaction goes to completion producing equal moles of H₂NNH₃⁺ and HCOO⁻.\n(ii) Acidic. Ka(H₂NNH₃⁺) = Kw/Kb(H₂NNH₂) = 1×10⁻¹⁴ / 1.3×10⁻⁶ = 7.7×10⁻⁹. Ka(HCOO⁻) = Kw/Ka(HCOOH) = 1×10⁻¹⁴ / 1.8×10⁻⁴ = 5.6×10⁻¹¹. Since Ka(H₂NNH₃⁺) > Ka(HCOO⁻), H₂NNH₃⁺ is the stronger acid, so solution is acidic.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "di1",
           "point_value": 1,
-          "description": "For the correct balanced equation (state symbols not required): 1 point",
+          "description": "For the correct balanced net ionic equation (H₂NNH₂ + HCOOH → H₂NNH₃⁺ + HCOO⁻): 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct balanced equation (state symbols not required): 1 point"
+                "$\\text{H}_2\\text{NNH}_2(aq) + \\text{HCOOH}(aq) \\rightarrow \\text{H}_2\\text{NNH}_3^+(aq) + \\text{HCOO}^-(aq)$"
               ],
-              "correct_example": "H NNH (aq)+HCOOH(aq)→H NNH +(aq)+HCOO−(aq)"
+              "correct_example": "$\\text{H}_2\\text{NNH}_2(aq) + \\text{HCOOH}(aq) \\rightarrow \\text{H}_2\\text{NNH}_3^+(aq) + \\text{HCOO}^-(aq)$\n\nH₂NNH₂ acts as the base (accepts H⁺); HCOOH acts as the acid (donates H⁺). This is a proton-transfer (Brønsted–Lowry) neutralization."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Including spectator ions (Na⁺, K⁺) — the net ionic equation shows only species that participate in the reaction.",
+            "Writing H₂NNH₂ + HCOOH → H₂NNH₂·H⁺ + HCOO⁻ without proper formula for the conjugate acid H₂NNH₃⁺."
+          ],
+          "common_traps": [
+            "Identify the acid (HCOOH, donates H⁺) and base (H₂NNH₂, accepts H⁺). Net ionic: write the proton transfer directly without spectator ions. The conjugate acid is H₂NNH₃⁺ (protonated hydrazine)."
+          ]
         },
         {
           "point_id": "dii1",
           "point_value": 1,
-          "description": "For the correct answer and a valid justification: 1 point",
+          "description": "For identifying the solution as acidic with a correct Ka comparison justification: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct answer and a valid justification: 1 point"
+                "Acidic.",
+                "$K_a(\\text{H}_2\\text{NNH}_3^+) = K_w/K_b = 7.7 \\times 10^{-9}$ vs $K_a(\\text{HCOO}^-) = K_w/K_a(\\text{HCOOH}) = 5.6 \\times 10^{-11}$; H₂NNH₃⁺ is stronger acid → solution acidic."
               ],
-              "correct_example": "Acidic. The K of H NNH + is greater than the K of HCOO−, so the production of $H_2O$+(aq)"
+              "correct_example": "Acidic. After complete neutralization, equal amounts of H₂NNH₃⁺ and HCOO⁻ are produced.\n$K_a(\\text{H}_2\\text{NNH}_3^+) = \\dfrac{K_w}{K_b(\\text{H}_2\\text{NNH}_2)} = \\dfrac{1.0 \\times 10^{-14}}{1.3 \\times 10^{-6}} = 7.7 \\times 10^{-9}$\n$K_a(\\text{HCOO}^-) = \\dfrac{K_w}{K_a(\\text{HCOOH})} = \\dfrac{1.0 \\times 10^{-14}}{1.8 \\times 10^{-4}} = 5.6 \\times 10^{-11}$\nSince Ka(H₂NNH₃⁺) > Ka(HCOO⁻), the cation is a stronger acid than the anion is a base → solution is acidic."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Saying neutral — equal moles of acid and base reacted does NOT mean neutral if the conjugate ions have different Ka/Kb values.",
+            "Saying basic — H₂NNH₃⁺ has a larger Ka (7.7×10⁻⁹) than the Ka of HCOO⁻ (5.6×10⁻¹¹), making the solution net acidic."
+          ],
+          "common_traps": [
+            "When a weak acid reacts with a weak base in equimolar amounts, the resulting solution pH depends on the relative Ka of the conjugate acid vs. Ka of the conjugate base. Ka(conjugate acid) = Kw/Kb(parent base); Ka(conjugate base) = Kw/Ka(parent acid). The larger Ka wins."
+          ]
         }
       ]
     },
     {
       "letter": "e",
-      "prompt": "Is the reaction a redox reaction? Justify your answer.",
+      "prompt": "When a catalyst is added to a solution of HCOOH(aq), the reaction HCOOH(aq) → H₂(g) + CO₂(g) occurs. Is the reaction a redox reaction? Justify your answer.",
       "point_value": 1,
-      "scoring_notes": "Accept one of the following:",
+      "scoring_notes": "Yes, this is a redox reaction. In HCOOH: H bonded to O is +1 (decreases in H₂ to 0); C has oxidation state +2 (HCOOH: H=+1, O=−2 each, so +1 + C + (−2) + (−2) + 1 = 0 → C = +2). In CO₂: C = +4. H goes from +1 to 0 (reduced); C goes from +2 to +4 (oxidized). Accept either change as justification.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "e1",
           "point_value": 1,
-          "description": "For the correct answer and a valid justification: 1 point",
+          "description": "For 'Yes' with a correct oxidation state change justification: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "Provide a correct response from the accepted alternatives"
+                "Yes, the reaction is a redox reaction.",
+                "Either: H changes from +1 (in HCOOH) to 0 (in H₂), OR C changes from +2 (in HCOOH) to +4 (in CO₂)."
               ],
-              "correct_example": "Accept one of the following •Yes. The oxidation number of hydrogen changes from +1 in HCOOH to zero i n H2 •Yes. The oxidati on number of carbon changes from +2 in HCOOH to +4 in CO2"
+              "correct_example": "Yes, this is a redox reaction. In HCOOH, carbon has an oxidation state of +2 (calculated: +1 + C + 2(−2) + 1 = 0 → C = +2). In CO₂, carbon has an oxidation state of +4. Carbon is oxidized (+2 → +4). Additionally, hydrogen changes from +1 in HCOOH to 0 in H₂ (reduced). Since oxidation states change, the reaction is a redox reaction."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Saying no — oxidation states do change in this reaction; H goes from +1 to 0 and C goes from +2 to +4.",
+            "Citing only that hydrogen is produced — must cite an actual change in oxidation number."
+          ],
+          "common_traps": [
+            "Assign oxidation states in HCOOH: H(O-bonded) = +1, H(C-bonded) = +1, O = −2 each. Solve for C: +1 + C + 2(−2) + 1 = 0 → C = +2. In CO₂: C = +4. Redox = any oxidation number change."
+          ]
         }
       ]
     },
     {
       "letter": "f",
-      "prompt": "The reaction occurs inarigid 4.3 L vessel at 25°C, and the total pressure is monitored, as shown in the\ngraph above. The vessel originally did not containany gas. Calculate the number of moles of CO (g )\nproduced in the reaction. (Assume that the amount of CO (g )dissolved in the solution isnegligible.)",
+      "prompt": "The reaction occurs in a rigid 4.3 L vessel at 25°C, and the total pressure is monitored, as shown in the graph above. The vessel originally did not contain any gas. Calculate the number of moles of CO₂(g) produced in the reaction. (Assume that the amount of CO₂(g) dissolved in the solution is negligible.)",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "From the graph, total pressure at equilibrium ≈ 0.24 atm. Reaction: HCOOH(aq) → H₂(g) + CO₂(g). Equal moles of H₂ and CO₂ are produced (1:1 ratio), so P(CO₂) = P(H₂) = 0.24/2 = 0.12 atm. Use ideal gas law: n(CO₂) = PV/RT = (0.12 atm)(4.3 L) / [(0.08206 L·atm/mol·K)(298 K)] = 0.516/24.45 ≈ 0.021 mol.",
       "requires_drawing": false,
       "reference_image": "/data/ap-chemistry/frq/images/chem-2021-frq-1-f-ref.png",
       "scoring_points": [
         {
           "point_id": "f1",
           "point_value": 1,
-          "description": "For the correct calculated value of the pressure of CO (may be implicit): 1 point",
+          "description": "For the correct partial pressure of CO₂ using stoichiometry (half total pressure): 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct calculated value of the pressure of CO (may be implicit): 1 point"
+                "$P_{\\text{CO}_2} = P_{\\text{total}}/2 = 0.24/2 = 0.12$ atm (consistent with graph reading)"
               ],
-              "correct_example": "24 atm total × 1 atm CO2 / 2 atm of product = 12 atm CO"
+              "correct_example": "From the graph, total pressure = 0.24 atm. Since HCOOH → H₂ + CO₂ produces equal moles of each gas:\n$P_{\\text{CO}_2} = P_{\\text{H}_2} = P_{\\text{total}}/2 = 0.24/2 = 0.12$ atm"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Using the total pressure as P(CO₂) — the total pressure equals P(H₂) + P(CO₂), and both gases are produced in equal amounts.",
+            "Reading the wrong value from the graph — use the final plateau pressure, not an intermediate value."
+          ],
+          "common_traps": [
+            "Two gases are produced in a 1:1 ratio (HCOOH → H₂ + CO₂). So P(CO₂) = P(H₂) = P(total)/2. Read the final equilibrium pressure from the graph plateau."
+          ]
         },
         {
           "point_id": "f2",
           "point_value": 1,
-          "description": "For the correct calculated number of moles of CO : 1 point",
+          "description": "For the correct moles of CO₂ using PV = nRT: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct calculated number of moles of CO : 1 point"
+                "$n = \\dfrac{PV}{RT} = \\dfrac{(0.12)(4.3)}{(0.08206)(298)} \\approx 0.021$ mol CO₂"
               ],
-              "correct_example": "PV (12 atm)(4.3 L) RT (0.08206 L atm mol−1 K−1)(298 K) 2"
+              "correct_example": "$n(\\text{CO}_2) = \\dfrac{P_{\\text{CO}_2} \\cdot V}{RT} = \\dfrac{(0.12 \\text{ atm})(4.3 \\text{ L})}{(0.08206 \\text{ L·atm/mol·K})(298 \\text{ K})} = \\dfrac{0.516}{24.45} \\approx 0.021 \\text{ mol}$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Using total pressure 0.24 atm instead of P(CO₂) = 0.12 atm — must account for equal moles of H₂ also present.",
+            "Not converting — temperature must be in Kelvin (25°C = 298 K)."
+          ],
+          "common_traps": [
+            "PV = nRT: n = PV/RT. Use P in atm, V in L, T in K. Accept student's pressure from f1 (follow-through)."
+          ]
         }
       ]
     },
     {
       "letter": "g",
-      "prompt": "After the reaction has proceeded for several minutes, does the amount of catalyst increase, decrease, or\nremain the same? Justify your answer.\nUse a pencil or pen with black or dark blue ink only. Do NOT write your name. Do NOT write outside the box.",
+      "prompt": "After the reaction has proceeded for several minutes, does the amount of catalyst increase, decrease, or remain the same? Justify your answer.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "The amount of catalyst remains the same. A catalyst speeds up a reaction by providing an alternative lower-activation-energy pathway, but is not consumed in the overall reaction. It is regenerated at the end of the catalytic cycle, so the amount present before and after the reaction is unchanged.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "g1",
           "point_value": 1,
-          "description": "For the correct answer and a valid justification: 1 point",
+          "description": "For 'remains the same' with a correct catalysis justification: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct answer and a valid justification: 1 point"
+                "The amount of catalyst remains the same.",
+                "A catalyst is not consumed in the reaction — it is regenerated and provides only an alternative lower-activation-energy pathway."
               ],
-              "correct_example": "It would remain the same. In a catalyzed reaction the net amount of catalyst is constant."
+              "correct_example": "The amount of catalyst remains the same. By definition, a catalyst participates in the mechanism but is regenerated by the end of the reaction. It lowers the activation energy and increases the reaction rate but does not appear in the overall balanced equation as a reactant or product."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Saying the catalyst decreases — catalysts are not consumed; they are regenerated.",
+            "Saying the catalyst increases — catalysts are neither produced nor consumed; they end up in the same amount as when the reaction started."
+          ],
+          "common_traps": [
+            "Catalyst definition: speeds up reaction by providing lower Ea pathway; is NOT consumed. Net change in catalyst amount = 0. Do not confuse catalyst with reactant."
+          ]
         }
       ]
     }

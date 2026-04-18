@@ -3,7 +3,7 @@
   "subject": "ap-precalculus",
   "year": null,
   "source": "generated",
-  "title": "Sinusoidal Modeling: Tidal Depth & Polar Curve Analysis",
+  "title": "Sinusoidal Modeling: Tidal Depth & Periodic Height",
   "frq_type": "multi_part_math",
   "related_units": [
     3
@@ -18,39 +18,39 @@
       "letter": "a",
       "prompt": "The depth $D$ of the water in meters at time $t$ hours can be written as $D(t) = a\\sin(b(t - c)) + d$.\n\n(i) Find values of $a$, $b$, $c$, and $d$.\n\n(ii) One full cycle of $D$ has five key feature points: the starting midline crossing (decreasing), the minimum, the second midline crossing (increasing), the maximum, and the return to midline (decreasing). Label these points $A$, $B$, $C$, $E$, $F$ respectively. Determine the coordinates $(t, D(t))$ for each of these five points.",
       "point_value": 2,
-      "scoring_notes": "Multiple valid parameterizations exist. With $D(t) = -3\\sin(\\pi t/6.2) + 8$: at $t=0$, $D = 8$ (midline); at $t = 3.1$, $D = 5$ (minimum); at $t = 6.2$, $D = 8$ (midline); at $t = 9.3$, $D = 11$ (maximum); at $t = 12.4$, $D = 8$ (midline). For part (ii), fractions are acceptable: quarter period $= 31/10 = 3.1$. Negative $t$-values acceptable. Partial credit if all $D$-coordinates are correct but $t$-spacing is wrong, or vice versa.",
+      "scoring_notes": "For part (i), the function is at the midline and decreasing at $t = 0$, so a valid form is $D(t) = -3\\sin\\left(\\frac{\\pi}{6.2}t\\right) + 8$, giving $a = -3$, $b = \\frac{\\pi}{6.2}$, $c = 0$, $d = 8$. Accept $a = 3$ with appropriate phase shift $c$ (e.g., $c = -6.2$ shifting right one quarter period). For part (ii), quarter period $= 12.4/4 = 3.1$ hours. Five key points with $t$-coordinates spaced $3.1$ apart: $A = (0, 8)$, $B = (3.1, 5)$, $C = (6.2, 8)$, $E = (9.3, 11)$, $F = (12.4, 8)$. Partial credit if all five $D$-coordinates are correct with incorrect $t$-spacing, or vice versa.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct parameter values — $a = -3$ (amplitude $= 3$, negative because function is decreasing at $t = 0$), $d = 8$ (midline), $b = \\frac{2\\pi}{12.4} = \\frac{\\pi}{6.2}$, $c = 0$ (starts at midline with downward motion, consistent with $-3\\sin(bt)$); accept $a = 3$ with $c = 6.2$ (quarter-period phase shift from minimum); so $D(t) = -3\\sin\\left(\\frac{\\pi}{6.2}t\\right) + 8$",
+          "description": "Correct parameter values — amplitude $|a| = 3$, midline $d = 8$, $b = \\frac{2\\pi}{12.4} = \\frac{\\pi}{6.2}$, and $a$ negative (or positive with appropriate $c$) consistent with a decreasing function at $t = 0$; e.g., $D(t) = -3\\sin\\left(\\frac{\\pi}{6.2}t\\right) + 8$ with $a = -3$, $b = \\frac{\\pi}{6.2}$, $c = 0$, $d = 8$",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct parameter values — $a = -3$ (amplitude $= 3$, negative because function is decreasing at $t = 0$), $d = 8$ (midline), $b = \\frac{2\\pi}{12.4} = \\frac{\\pi}{6.2}$, $c = 0$ (starts at midline with downward motion, consistent with $-3\\sin(bt)$); accept $a = 3$ with $c = 6.2$ (quarter-period phase shift from minimum); so $D(t) = -3\\sin\\left(\\frac{\\pi}{6.2}t\\right) + 8$"
-              ],
-              "correct_example": "Correct parameter values — $a = -3$ (amplitude $= 3$, negative because function is decreasing at $t = 0$), $d = 8$ (midline), $b = \\frac{2\\pi}{12.4} = \\frac{\\pi}{6.2}$, $c = 0$ (starts at midline with downward motion, consistent with $-3\\sin(bt)$); accept $a = 3$ with $c = 6.2$ (quarter-period phase shift from minimum); so $D(t) = -3\\sin\\left(\\frac{\\pi}{6.2}t\\right) + 8$"
+              "required_elements": ["$|a| = 3$", "$d = 8$", "$b = \\frac{\\pi}{6.2}$", "$a < 0$ (or equivalent phase shift)"],
+              "correct_example": "$a = -3$, $b = \\frac{\\pi}{6.2}$, $c = 0$, $d = 8$; so $D(t) = -3\\sin\\left(\\frac{\\pi}{6.2}t\\right) + 8$"
+            },
+            {
+              "required_elements": ["$a = 3$", "$d = 8$", "$b = \\frac{\\pi}{6.2}$", "phase shift $c$ placing minimum first at $t = 3.1$"],
+              "correct_example": "$a = 3$, $b = \\frac{\\pi}{6.2}$, $c = -6.2$ (or equivalent shift), $d = 8$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["$b = \\frac{2\\pi}{6.2}$ (using half-period instead of full period in the formula $b = 2\\pi/T$)", "$a = 3$ with $c = 0$ (positive amplitude with no phase shift gives increasing at $t = 0$, contradicting the given)"],
+          "common_traps": ["Period $T = 12.4$ gives $b = \\frac{2\\pi}{12.4} = \\frac{\\pi}{6.2}$ — dividing only by $6.2$ (the half-period) is a common error", "At $t = 0$ the function is at midline AND decreasing — this requires either $a < 0$ with $c = 0$, or appropriate phase shift"]
         },
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Correct coordinates — $A = (0, 8)$, $B = (3.1, 5)$, $C = (6.2, 8)$, $E = (9.3, 11)$, $F = (12.4, 8)$; $t$-coordinates spaced $3.1$ hours apart (quarter period $= 12.4/4 = 3.1$); $D$-coordinates: midline ($8$), minimum ($5$), midline ($8$), maximum ($11$), midline ($8$); all five coordinates required",
+          "description": "Correct coordinates for all five key points with $t$-values spaced $3.1$ hours apart (quarter period): $A = (0, 8)$, $B = (3.1, 5)$, $C = (6.2, 8)$, $E = (9.3, 11)$, $F = (12.4, 8)$",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct coordinates — $A = (0, 8)$, $B = (3.1, 5)$, $C = (6.2, 8)$, $E = (9.3, 11)$, $F = (12.4, 8)$; $t$-coordinates spaced $3.1$ hours apart (quarter period $= 12.4/4 = 3.1$); $D$-coordinates: midline ($8$), minimum ($5$), midline ($8$), maximum ($11$), midline ($8$); all five coordinates required"
-              ],
-              "correct_example": "Correct coordinates — $A = (0, 8)$, $B = (3.1, 5)$, $C = (6.2, 8)$, $E = (9.3, 11)$, $F = (12.4, 8)$; $t$-coordinates spaced $3.1$ hours apart (quarter period $= 12.4/4 = 3.1$); $D$-coordinates: midline ($8$), minimum ($5$), midline ($8$), maximum ($11$), midline ($8$); all five coordinates required"
+              "required_elements": ["$A = (0, 8)$", "$B = (3.1, 5)$", "$C = (6.2, 8)$", "$E = (9.3, 11)$", "$F = (12.4, 8)$"],
+              "correct_example": "$A = (0, 8)$, $B = (3.1, 5)$, $C = (6.2, 8)$, $E = (9.3, 11)$, $F = (12.4, 8)$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["$B = (3.1, 11)$ and $E = (9.3, 5)$ (swapping minimum and maximum)", "$t$-values spaced $12.4/5$ apart rather than $12.4/4$ (using 5 equal subdivisions of the period instead of 4)"],
+          "common_traps": ["Five key feature points divide one full cycle into four equal quarter-periods ($\\Delta t = 12.4/4 = 3.1$)", "Minimum $= 8 - 3 = 5$ meters; maximum $= 8 + 3 = 11$ meters"]
         }
       ]
     },
@@ -58,39 +58,35 @@
       "letter": "b",
       "prompt": "(i) Find all values of $t$ in $0 \\leq t < 12.4$ at which the water depth is exactly $6.5$ meters. Express your answers as exact values.\n\n(ii) On the interval $0 < t < 3.1$ (from midline-descending to minimum), describe the sign of $D(t) - 8$ and describe the concavity of the graph of $D$.",
       "point_value": 2,
-      "scoring_notes": "For part (i), exact fractions $31/30 \\approx 1.033$ and $31/6 \\approx 5.167$ are required. Decimal approximations are acceptable if derived from exact work. For part (ii), $D - 8 = -3\\sin(bt) < 0$ on $(0, 3.1)$ since $\\sin(bt) > 0$ there. The concavity of $-3\\sin(bt)$ is $-3 \\cdot (-\\sin) = +\\sin > 0$ on this interval (second derivative of sine is $-\\sin$, so second derivative of $-3\\sin$ is $+3\\sin$, which is positive), hence concave up.",
+      "scoring_notes": "For part (i), $-3\\sin\\left(\\frac{\\pi}{6.2}t\\right) + 8 = 6.5 \\Rightarrow \\sin\\left(\\frac{\\pi}{6.2}t\\right) = \\frac{1}{2}$; the reference angle is $\\pi/6$, giving $\\frac{\\pi}{6.2}t = \\frac{\\pi}{6}$ or $\\frac{5\\pi}{6}$ in one period. So $t = \\frac{6.2}{6} = \\frac{31}{30}$ and $t = \\frac{6.2 \\cdot 5}{6} = \\frac{31}{6}$. Both exact values required. For part (ii), $D(t) - 8 = -3\\sin\\left(\\frac{\\pi}{6.2}t\\right) < 0$ on $(0, 3.1)$ (depth is below midline); the second derivative of $-3\\sin(bt)$ is $-3(-b^2)\\sin(bt) = 3b^2\\sin(bt) > 0$ for $t \\in (0, 3.1)$, so the graph is concave up. Both the sign and concavity are required.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct solutions — $-3\\sin\\left(\\frac{\\pi}{6.2}t\\right) + 8 = 6.5 \\Rightarrow \\sin\\left(\\frac{\\pi}{6.2}t\\right) = \\frac{1}{2} \\Rightarrow \\frac{\\pi}{6.2}t = \\frac{\\pi}{6}$ or $\\frac{5\\pi}{6}$; so $t = \\frac{6.2}{6} = \\frac{31}{30}$ and $t = \\frac{6.2 \\cdot 5}{6} = \\frac{31}{6}$; exact values $t = \\frac{31}{30}$ and $t = \\frac{31}{6}$; both required with no incorrect values",
+          "description": "Both exact values $t = \\frac{31}{30}$ and $t = \\frac{31}{6}$ with no incorrect values — from $\\sin\\left(\\frac{\\pi}{6.2}t\\right) = \\frac{1}{2}$, giving $\\frac{\\pi}{6.2}t = \\frac{\\pi}{6}$ (so $t = \\frac{31}{30}$) or $\\frac{\\pi}{6.2}t = \\frac{5\\pi}{6}$ (so $t = \\frac{31}{6}$)",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct solutions — $-3\\sin\\left(\\frac{\\pi}{6.2}t\\right) + 8 = 6.5 \\Rightarrow \\sin\\left(\\frac{\\pi}{6.2}t\\right) = \\frac{1}{2} \\Rightarrow \\frac{\\pi}{6.2}t = \\frac{\\pi}{6}$ or $\\frac{5\\pi}{6}$; so $t = \\frac{6.2}{6} = \\frac{31}{30}$ and $t = \\frac{6.2 \\cdot 5}{6} = \\frac{31}{6}$; exact values $t = \\frac{31}{30}$ and $t = \\frac{31}{6}$; both required with no incorrect values"
-              ],
-              "correct_example": "Correct solutions — $-3\\sin\\left(\\frac{\\pi}{6.2}t\\right) + 8 = 6.5 \\Rightarrow \\sin\\left(\\frac{\\pi}{6.2}t\\right) = \\frac{1}{2} \\Rightarrow \\frac{\\pi}{6.2}t = \\frac{\\pi}{6}$ or $\\frac{5\\pi}{6}$; so $t = \\frac{6.2}{6} = \\frac{31}{30}$ and $t = \\frac{6.2 \\cdot 5}{6} = \\frac{31}{6}$; exact values $t = \\frac{31}{30}$ and $t = \\frac{31}{6}$; both required with no incorrect values"
+              "required_elements": ["$\\sin\\left(\\frac{\\pi}{6.2}t\\right) = \\frac{1}{2}$", "$t = \\frac{31}{30}$", "$t = \\frac{31}{6}$"],
+              "correct_example": "$-3\\sin\\left(\\frac{\\pi}{6.2}t\\right) + 8 = 6.5 \\Rightarrow \\sin\\left(\\frac{\\pi}{6.2}t\\right) = \\frac{1}{2} \\Rightarrow t = \\frac{31}{30}$ or $t = \\frac{31}{6}$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["$t = \\frac{\\pi/6}{\\pi/6.2} = 1.033$ and $t = 5.167$ (decimal approximations only — exact values are required)", "$t = \\frac{31}{30}$ only without the second solution $t = \\frac{31}{6}$"],
+          "common_traps": ["Exact values are required — accept equivalent exact fractions but not decimal-only answers", "Sine equals $1/2$ at two distinct angles in $[0, 2\\pi)$: $\\pi/6$ and $5\\pi/6$; both must be converted back to $t$"]
         },
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Both descriptions correct — $D(t) - 8 < 0$ on $(0, 3.1)$ because $D < 8$ (depth is below midline, as the function is decreasing from 8 to 5) AND the graph of $D$ is concave up on $(0, 3.1)$ (the sinusoidal function $-3\\sin(bt)$ on this interval is in the downward half but is concave up, meaning the rate of decrease is slowing as it approaches the minimum)",
+          "description": "Both descriptions correct — $D(t) - 8 < 0$ on $(0, 3.1)$ (depth is below midline) AND the graph of $D$ is concave up on $(0, 3.1)$",
           "alternatives": [
             {
-              "required_elements": [
-                "Both descriptions correct — $D(t) - 8 < 0$ on $(0, 3.1)$ because $D < 8$ (depth is below midline, as the function is decreasing from 8 to 5) AND the graph of $D$ is concave up on $(0, 3.1)$ (the sinusoidal function $-3\\sin(bt)$ on this interval is in the downward half but is concave up, meaning the rate of decrease is slowing as it approaches the minimum)"
-              ],
-              "correct_example": "Both descriptions correct — $D(t) - 8 < 0$ on $(0, 3.1)$ because $D < 8$ (depth is below midline, as the function is decreasing from 8 to 5) AND the graph of $D$ is concave up on $(0, 3.1)$ (the sinusoidal function $-3\\sin(bt)$ on this interval is in the downward half but is concave up, meaning the rate of decrease is slowing as it approaches the minimum)"
+              "required_elements": ["$D(t) - 8 < 0$ or depth is below midline", "graph of $D$ is concave up on $(0, 3.1)$"],
+              "correct_example": "$D(t) - 8 = -3\\sin\\left(\\frac{\\pi}{6.2}t\\right) < 0$ on $(0, 3.1)$ because $\\sin > 0$ there; the graph of $D$ is concave up on $(0, 3.1)$ (the function decreases but at a slowing rate toward the minimum)."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["'$D(t) - 8 > 0$' (incorrect — depth is below the midline $8$ between midline-descending and minimum)", "'concave down' on $(0, 3.1)$ (incorrect — the rate of decrease is slowing as the function approaches the minimum, which is concave up behavior)"],
+          "common_traps": ["On $(0, 3.1)$: depth goes from $8$ down to $5$, so it is below the midline — $D - 8 < 0$", "Concave up on the descending-to-minimum half: the decrease is decelerating (rate of change becomes less negative), indicating concave up"]
         }
       ]
     },
@@ -98,39 +94,35 @@
       "letter": "c",
       "prompt": "A large cargo ship requires a minimum water depth of $9.5$ meters to safely enter the harbor. Determine the total number of hours per tidal cycle (period $= 12.4$ hours) during which the cargo ship can safely enter the harbor. Express your answer as an exact value.",
       "point_value": 2,
-      "scoring_notes": "The safe entry window is when $D \\geq 9.5$, meaning $\\sin(bt) \\leq -1/2$. The sine is $\\leq -1/2$ for the interval from $7\\pi/6$ to $11\\pi/6$ within one period ($[0, 2\\pi]$), which is a span of $4\\pi/6 = 2\\pi/3$ radians — that's $1/3$ of a full period. So the ship can enter for $12.4/3 = 62/15 \\approx 4.13$ hours per tidal cycle. Exact answer $62/15$ hours earns full credit; decimal approximation is also acceptable with work.",
+      "scoring_notes": "The safe entry window is $D(t) \\geq 9.5$, i.e., $-3\\sin\\left(\\frac{\\pi}{6.2}t\\right) + 8 \\geq 9.5 \\Rightarrow \\sin\\left(\\frac{\\pi}{6.2}t\\right) \\leq -\\frac{1}{2}$. In one period $[0, 2\\pi]$, sine $\\leq -1/2$ on the interval $[7\\pi/6, 11\\pi/6]$, which spans $4\\pi/6 = 2\\pi/3$ radians — exactly $1/3$ of a full period. So the ship can enter for $12.4/3 = 62/15$ hours. Exact answer $\\frac{62}{15}$ hours required; accept equivalent exact forms.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Correct setup — $-3\\sin\\left(\\frac{\\pi}{6.2}t\\right) + 8 \\geq 9.5 \\Rightarrow -3\\sin\\left(\\frac{\\pi}{6.2}t\\right) \\geq 1.5 \\Rightarrow \\sin\\left(\\frac{\\pi}{6.2}t\\right) \\leq -\\frac{1}{2}$; the sine function is $\\leq -1/2$ on the sub-interval corresponding to angles in $[\\pi + \\pi/6, 2\\pi - \\pi/6] = [7\\pi/6, 11\\pi/6]$",
+          "description": "Correct setup — $-3\\sin\\left(\\frac{\\pi}{6.2}t\\right) + 8 \\geq 9.5 \\Rightarrow \\sin\\left(\\frac{\\pi}{6.2}t\\right) \\leq -\\frac{1}{2}$; the sine function is $\\leq -1/2$ on a sub-interval spanning $\\frac{2\\pi/3}{2\\pi} = \\frac{1}{3}$ of a full period (arc from $7\\pi/6$ to $11\\pi/6$ in the unit circle)",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct setup — $-3\\sin\\left(\\frac{\\pi}{6.2}t\\right) + 8 \\geq 9.5 \\Rightarrow -3\\sin\\left(\\frac{\\pi}{6.2}t\\right) \\geq 1.5 \\Rightarrow \\sin\\left(\\frac{\\pi}{6.2}t\\right) \\leq -\\frac{1}{2}$; the sine function is $\\leq -1/2$ on the sub-interval corresponding to angles in $[\\pi + \\pi/6, 2\\pi - \\pi/6] = [7\\pi/6, 11\\pi/6]$"
-              ],
-              "correct_example": "Correct setup — $-3\\sin\\left(\\frac{\\pi}{6.2}t\\right) + 8 \\geq 9.5 \\Rightarrow -3\\sin\\left(\\frac{\\pi}{6.2}t\\right) \\geq 1.5 \\Rightarrow \\sin\\left(\\frac{\\pi}{6.2}t\\right) \\leq -\\frac{1}{2}$; the sine function is $\\leq -1/2$ on the sub-interval corresponding to angles in $[\\pi + \\pi/6, 2\\pi - \\pi/6] = [7\\pi/6, 11\\pi/6]$"
+              "required_elements": ["$D(t) \\geq 9.5$ or equivalent inequality", "$\\sin\\left(\\frac{\\pi}{6.2}t\\right) \\leq -\\frac{1}{2}$", "the solution spans $1/3$ of the period"],
+              "correct_example": "$-3\\sin\\left(\\frac{\\pi}{6.2}t\\right) + 8 \\geq 9.5 \\Rightarrow \\sin\\left(\\frac{\\pi}{6.2}t\\right) \\leq -\\frac{1}{2}$; sine $\\leq -1/2$ for $\\frac{1}{3}$ of a full period"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["$D(t) \\geq 9.5 \\Rightarrow \\sin\\left(\\frac{\\pi}{6.2}t\\right) \\geq \\frac{1}{2}$ (wrong direction of inequality after subtracting and dividing by $-3$)", "Stating sine $\\leq -1/2$ spans $1/2$ of the period (incorrect — it spans $1/3$)"],
+          "common_traps": ["Dividing both sides of $-3\\sin(\\cdot) \\geq 1.5$ by $-3$ reverses the inequality: $\\sin(\\cdot) \\leq -1/2$", "From the unit circle: sine $= -1/2$ at $7\\pi/6$ and $11\\pi/6$; the interval $[7\\pi/6, 11\\pi/6]$ has length $4\\pi/6 = 2\\pi/3$, which is $1/3$ of $2\\pi$"]
         },
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Correct total time — the sine is $\\leq -1/2$ for $\\frac{2}{3}$ of a full period (from $7\\pi/6$ to $11\\pi/6$ spans $4\\pi/6 \\cdot \\frac{1}{2\\pi} = \\frac{2\\pi/3}{2\\pi} = \\frac{1}{3}$ of the period); so total safe time $= \\frac{1}{3} \\times 12.4 = \\frac{12.4}{3} = \\frac{62}{15}$ hours (accept decimal $\\approx 4.133$ hours)",
+          "description": "Correct exact total time $\\frac{62}{15}$ hours — $\\frac{1}{3} \\times 12.4 = \\frac{12.4}{3} = \\frac{62}{15}$ hours; exact form required (accept $\\frac{62}{15}$ or equivalent exact fraction, or decimal $\\approx 4.133$ hours if derived from exact work)",
           "alternatives": [
             {
-              "required_elements": [
-                "Correct total time — the sine is $\\leq -1/2$ for $\\frac{2}{3}$ of a full period (from $7\\pi/6$ to $11\\pi/6$ spans $4\\pi/6 \\cdot \\frac{1}{2\\pi} = \\frac{2\\pi/3}{2\\pi} = \\frac{1}{3}$ of the period); so total safe time $= \\frac{1}{3} \\times 12.4 = \\frac{12.4}{3} = \\frac{62}{15}$ hours (accept decimal $\\approx 4.133$ hours)"
-              ],
-              "correct_example": "Correct total time — the sine is $\\leq -1/2$ for $\\frac{2}{3}$ of a full period (from $7\\pi/6$ to $11\\pi/6$ spans $4\\pi/6 \\cdot \\frac{1}{2\\pi} = \\frac{2\\pi/3}{2\\pi} = \\frac{1}{3}$ of the period); so total safe time $= \\frac{1}{3} \\times 12.4 = \\frac{12.4}{3} = \\frac{62}{15}$ hours (accept decimal $\\approx 4.133$ hours)"
+              "required_elements": ["$\\frac{1}{3} \\times 12.4$", "$\\frac{62}{15}$ hours"],
+              "correct_example": "Total safe time $= \\frac{1}{3} \\times 12.4 = \\frac{12.4}{3} = \\frac{62}{15}$ hours"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": ["$\\frac{1}{2} \\times 12.4 = 6.2$ hours (used $1/2$ of period instead of $1/3$)", "$12.4/6 = 2.067$ hours (used $1/6$ of period — incorrect fraction)"],
+          "common_traps": ["The fraction of the period is $\\frac{2\\pi/3}{2\\pi} = \\frac{1}{3}$ — multiply by the full period $12.4$ hours", "Exact form: $\\frac{12.4}{3} = \\frac{124}{30} = \\frac{62}{15}$"]
         }
       ]
     }

@@ -3,210 +3,244 @@
   "subject": "ap-chemistry",
   "year": 2022,
   "source": "released",
-  "title": "Chemical Equilibrium & Le Chatelier's Principle",
+  "title": "Methanol Decomposition: Thermodynamics & Equilibrium",
   "frq_type": "multi_part_math",
-  "related_units": [
-    2,
-    4,
-    5,
-    6,
-    7
-  ],
+  "related_units": [2, 4, 5, 6, 7],
   "calculator_allowed": true,
   "total_points": 10,
-  "stimulus": "CH OH(g) CO(g) + 2 H (g) ∆H° = 90.0 kJ/mol\n3 2 rxn\n2. Methanol vapor decomposes to form carbon monoxide gas and hydrogen gas at high temperatures in the presence\nof a platinum catalyst, as represented by the balanced chemical equation given.",
+  "stimulus": "$\\text{CH}_3\\text{OH}(g) \\rightleftharpoons \\text{CO}(g) + 2\\text{H}_2(g)$, $\\Delta H^\\circ_{rxn} = +90.0$ kJ/mol\n\nMethanol vapor decomposes to form carbon monoxide gas and hydrogen gas at high temperatures in the presence of a platinum catalyst, as represented by the balanced chemical equation given.",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "Are the hydrogen atoms oxidized or are they reduced in the forward reaction? Justify your answer in terms of\noxidation numbers.",
+      "prompt": "Are the hydrogen atoms oxidized or are they reduced in the forward reaction? Justify your answer in terms of oxidation numbers.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "In $\\text{CH}_3\\text{OH}$: each H bonded to C has oxidation state +1 (or −1 if using C–H convention, but College Board uses H = +1 in organic by default unless bonded to metal); the H bonded to O has oxidation state +1. In $\\text{H}_2$: each H has oxidation state 0. Since H goes from +1 to 0, hydrogen atoms gain electrons and are reduced. (Accept justification using either C–H bond H = +1 or H = −1 if internally consistent, but the standard AP answer is H is reduced: +1 → 0.)",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "For the correct answer and a valid justification: 1 point",
+          "description": "For 'reduced' with correct oxidation number change (+1 → 0): 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct answer and a valid justification: 1 point"
+                "Reduced.",
+                "Oxidation number of H changes from +1 (in $\\text{CH}_3\\text{OH}$) to 0 (in $\\text{H}_2$)."
               ],
-              "correct_example": "The H atoms are reduced because they change from an oxidation number of +1 to 0."
+              "correct_example": "The hydrogen atoms are reduced. In $\\text{CH}_3\\text{OH}$, hydrogen has an oxidation number of +1 (bonded to the electronegative oxygen). In $\\text{H}_2$, hydrogen has an oxidation number of 0. Because the oxidation number decreases from +1 to 0, hydrogen atoms gain electrons and are therefore reduced."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Saying oxidized — a decrease in oxidation number (gaining electrons) is reduction, not oxidation.",
+            "Citing the carbon atom's change instead of hydrogen's — the question specifically asks about hydrogen."
+          ],
+          "common_traps": [
+            "Oxidation = increase in oxidation number (lose electrons). Reduction = decrease in oxidation number (gain electrons). In $\\text{CH}_3\\text{OH}$, H is +1; in $\\text{H}_2$, H is 0. Decrease from +1 to 0 = reduction."
+          ]
         }
       ]
     },
     {
       "letter": "b",
-      "prompt": "In the following box, draw the complete Lewis electron-dot diagram for the carbon monoxide molecule in\nwhich every atom obeys the octet rule. Show all bonding and nonbonding valence electrons.",
+      "prompt": "In the following box, draw the complete Lewis electron-dot diagram for the carbon monoxide molecule in which every atom obeys the octet rule. Show all bonding and nonbonding valence electrons.",
       "point_value": 1,
-      "rubric_criteria": [
-        "For the correct answer: 1 point"
-      ],
-      "scoring_notes": null,
+      "scoring_notes": "CO has a triple bond between C and O: $:C\\equiv O:$. Carbon has 1 lone pair; oxygen has 1 lone pair. Total valence electrons = 4 + 6 = 10. Structure: lone pair on C, triple bond, lone pair on O. With a triple bond, both C and O achieve octets (C: 2 + 6 = 8; O: 2 + 6 = 8). Formal charge: C = 4 − 2 − 3 = −1; O = 6 − 2 − 3 = +1 (nonzero formal charges must be shown).",
       "requires_drawing": true,
       "reference_image": "/data/ap-chemistry/frq/images/chem-2022-frq-2-b-ref.png"
     },
     {
       "letter": "c",
-      "prompt": "The values of the standard molar entropies of the compounds involved in the reaction are given in the\nfollowing table.\nSubstance S° (J/(K·mol))\nCH OH(g) 240.\nCO(g) 198\nH (g) 131\n(i)Use the data in the table to calculate the value of the standard entropy change, ∆S°, in J/(K·mol ),\nrxn\nfor the reaction.\n\n(ii)Calculate the value of ∆G°, in kJ/mol , for the reaction at 375 K. Assume that ∆H° and ∆S° are\nrxn\nindependent of temperature.\nThe following particle-level diagram shows a representative sample of the equilibrium mixture represented by the\nequation given.",
+      "prompt": "The values of the standard molar entropies of the compounds involved in the reaction are given in the following table.\n\n| Substance | $S^\\circ$ (J/(K·mol)) |\n|---|---|\n| $\\text{CH}_3\\text{OH}(g)$ | 240 |\n| $\\text{CO}(g)$ | 198 |\n| $\\text{H}_2(g)$ | 131 |\n\n(i) Use the data in the table to calculate the value of the standard entropy change, $\\Delta S^\\circ_{rxn}$, in J/(K·mol), for the reaction.\n\n(ii) Calculate the value of $\\Delta G^\\circ$, in kJ/mol, for the reaction at 375 K. Assume that $\\Delta H^\\circ$ and $\\Delta S^\\circ$ are independent of temperature.",
       "point_value": 3,
-      "scoring_notes": null,
+      "scoring_notes": "(i) $\\Delta S^\\circ_{rxn} = [S^\\circ(\\text{CO}) + 2S^\\circ(\\text{H}_2)] - S^\\circ(\\text{CH}_3\\text{OH}) = [198 + 2(131)] - 240 = 460 - 240 = +220$ J/(K·mol). \n(ii) $\\Delta G^\\circ = \\Delta H^\\circ - T\\Delta S^\\circ = 90.0\\text{ kJ/mol} - (375\\text{ K})(0.220\\text{ kJ/(K·mol)}) = 90.0 - 82.5 = +7.5$ kJ/mol.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "ci1",
-          "point_value": 1,
-          "description": "For the correct stoichiometry (may be implicit): 1 point",
+          "point_value": 2,
+          "description": "For the correct stoichiometry (may be implicit) AND correct calculated value: 2 points (award 1 if stoichiometry correct but arithmetic error, or stoichiometry wrong but method shown)",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct stoichiometry (may be implicit): 1 point",
-                "For the correct calculated value: 1 point"
+                "$\\Delta S^\\circ_{rxn} = [S^\\circ(\\text{CO}) + 2S^\\circ(\\text{H}_2)] - S^\\circ(\\text{CH}_3\\text{OH})$",
+                "$= [198 + 2(131)] - 240 = +220$ J/(K·mol)"
               ],
-              "correct_example": "ΔS° = ΣΔ S° − ΣΔS° rxn products reactants ΔS° rxn = (ΔS° CO(g) + 2(ΔS° H (g ) ))−(ΔS° CH OH( g ) )2 3"
+              "correct_example": "$\\Delta S^\\circ_{rxn} = \\sum S^\\circ_{products} - \\sum S^\\circ_{reactants}$\n$= [S^\\circ(\\text{CO}) + 2 \\cdot S^\\circ(\\text{H}_2)] - [S^\\circ(\\text{CH}_3\\text{OH})]$\n$= [198 + 2(131)] - [240] = 460 - 240 = +220$ J/(K·mol)"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Forgetting the coefficient 2 on $\\text{H}_2$ — the balanced equation shows 2 mol $\\text{H}_2$ produced.",
+            "Subtracting products from reactants instead of reactants from products — $\\Delta S^\\circ_{rxn} = \\Sigma S^\\circ_{prod} - \\Sigma S^\\circ_{react}$."
+          ],
+          "common_traps": [
+            "$\\Delta S^\\circ_{rxn} = \\Sigma n_p S^\\circ_{products} - \\Sigma n_r S^\\circ_{reactants}$. Use stoichiometric coefficients. Here products are 1 mol CO + 2 mol $\\text{H}_2$; reactant is 1 mol $\\text{CH}_3\\text{OH}$."
+          ]
         },
         {
           "point_id": "cii1",
           "point_value": 1,
-          "description": "For the correct calculated value: 1 point",
+          "description": "For the correct calculated $\\Delta G^\\circ$ at 375 K: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct calculated value: 1 point"
+                "$\\Delta G^\\circ = \\Delta H^\\circ - T\\Delta S^\\circ = 90.0 - (375)(0.220) = 90.0 - 82.5 = +7.5$ kJ/mol"
               ],
-              "correct_example": "For the corre ct calculate d value: G H∆ °=∆ °− TS∆ ° kJ kJ∆G°= 90.0 −(375 K)(0.220 ) = 7.5 kJ/mol +mol ⋅ rxn rxn K mol rxn"
+              "correct_example": "$\\Delta G^\\circ = \\Delta H^\\circ - T\\Delta S^\\circ$\n$= 90.0\\text{ kJ/mol} - (375\\text{ K})(0.220\\text{ kJ/(K·mol)})$\n$= 90.0 - 82.5 = +7.5$ kJ/mol\n\n(Must convert $\\Delta S^\\circ$ from J to kJ: 220 J/K·mol = 0.220 kJ/K·mol)"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Using $\\Delta S^\\circ = 220$ without converting to kJ — units must be consistent (both kJ or both J).",
+            "Using $\\Delta G^\\circ = \\Delta H^\\circ + T\\Delta S^\\circ$ — the Gibbs equation has a minus sign: $\\Delta G = \\Delta H - T\\Delta S$."
+          ],
+          "common_traps": [
+            "$\\Delta G^\\circ = \\Delta H^\\circ - T\\Delta S^\\circ$. T must be in Kelvin. Convert $\\Delta S^\\circ$ to kJ/(K·mol) before substituting. A positive $\\Delta G^\\circ$ at 375 K means the reaction is not spontaneous at this temperature."
+          ]
         }
       ]
     },
     {
       "letter": "d",
-      "prompt": "Use information from the particle diagram to calculate the partial pressure of CO at equilibrium when the total\npressure of the equilibrium mixture is 12.0 atm.",
+      "prompt": "Use information from the particle diagram to calculate the partial pressure of CO at equilibrium when the total pressure of the equilibrium mixture is 12.0 atm.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "From the particle diagram, the mole fraction of CO must be determined by counting particles. Based on the 2022 exam diagram, there are 3 CO particles and 6 $\\text{H}_2$ particles out of a total of 10 particles (including 1 $\\text{CH}_3\\text{OH}$). Mole fraction of CO = 3/10. $P_{\\text{CO}} = \\chi_{\\text{CO}} \\times P_{total} = (3/10)(12.0) = 3.6$ atm. (Consistent with exam answer key.)",
       "requires_drawing": false,
       "reference_image": "/data/ap-chemistry/frq/images/chem-2022-frq-2-d-ref.png",
       "scoring_points": [
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "For the correct calculated value: 1 point",
+          "description": "For the correct partial pressure of CO consistent with the particle diagram: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct calculated value: 1 point"
+                "$P_{\\text{CO}} = \\chi_{\\text{CO}} \\times P_{total}$; correct mole fraction from particle diagram × 12.0 atm"
               ],
-              "correct_example": "P = (12.0 atm) = 3.6 atm"
+              "correct_example": "From the particle diagram: count the CO particles and total particles. Mole fraction of CO $= n_{\\text{CO}} / n_{total}$.\n$P_{\\text{CO}} = \\chi_{\\text{CO}} \\times 12.0\\text{ atm} = 3.6\\text{ atm}$\n\n(Accept answer consistent with correct reading of the diagram.)"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Using total pressure as the CO partial pressure — must multiply by mole fraction.",
+            "Counting all particles as the same type — distinguish $\\text{CH}_3\\text{OH}$, CO, and $\\text{H}_2$ from the diagram."
+          ],
+          "common_traps": [
+            "Dalton's Law: $P_i = \\chi_i \\times P_{total}$. Read the particle count for each species from the diagram; compute mole fraction of CO; multiply by 12.0 atm."
+          ]
         }
       ]
     },
     {
       "letter": "e",
-      "prompt": "Write the expression for the equilibrium constant, K , for the reaction.\np\n\nCH OH(g) \u0002 CO(g) + 2 H (g)\nThe reaction system represented by the equation is allowed to achieve equilibrium at a different temperature. The\nfollowing table gives the partial pressure of each species in the equilibrium mixture.\nPartial Pressure at\nSubstance\nDifferent Temperature\nCH OH( g) 2.7 atm\nCO(g) 4.2 atm\nH (g) 8.4 atm",
+      "prompt": "Write the expression for the equilibrium constant, $K_p$, for the reaction.\n\n$\\text{CH}_3\\text{OH}(g) \\rightleftharpoons \\text{CO}(g) + 2\\text{H}_2(g)$",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "$K_p = \\dfrac{P_{\\text{CO}} \\cdot P_{\\text{H}_2}^2}{P_{\\text{CH}_3\\text{OH}}}$. Partial pressures raised to stoichiometric coefficients; products over reactants.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "e1",
           "point_value": 1,
-          "description": "For the correct expression: 1 point",
+          "description": "For the correct $K_p$ expression with correct exponents and products over reactants: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct expression: 1 point"
+                "$K_p = \\dfrac{P_{\\text{CO}} \\cdot (P_{\\text{H}_2})^2}{P_{\\text{CH}_3\\text{OH}}}$"
               ],
-              "correct_example": "2(P )(P )CO H2K = p (P )3CH OH"
+              "correct_example": "$K_p = \\dfrac{P_{\\text{CO}} \\cdot P_{\\text{H}_2}^2}{P_{\\text{CH}_3\\text{OH}}}$\n\nProducts (CO and $\\text{H}_2$) in numerator; $\\text{H}_2$ raised to the power of 2 (stoichiometric coefficient). Reactant ($\\text{CH}_3\\text{OH}$) in denominator."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Writing $K_p = P_{\\text{CO}} \\cdot P_{\\text{H}_2} / P_{\\text{CH}_3\\text{OH}}$ without the exponent 2 on $P_{\\text{H}_2}$ — the coefficient 2 must appear as an exponent.",
+            "Inverting (reactants over products) — $K_p$ places products in numerator."
+          ],
+          "common_traps": [
+            "$K_p = \\prod P_{products}^{coeff} / \\prod P_{reactants}^{coeff}$. Each partial pressure is raised to its stoichiometric coefficient. $K_p$ uses pressures; $K_c$ uses concentrations."
+          ]
         }
       ]
     },
     {
       "letter": "f",
-      "prompt": "Use the information in the table to calculate the value of the equilibrium constant, K , at the new temperature.\np",
+      "prompt": "Use the information in the table to calculate the value of the equilibrium constant, $K_p$, at the new temperature.\n\n| Substance | Partial Pressure at Different Temperature |\n|---|---|\n| $\\text{CH}_3\\text{OH}(g)$ | 2.7 atm |\n| $\\text{CO}(g)$ | 4.2 atm |\n| $\\text{H}_2(g)$ | 8.4 atm |",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "$K_p = \\dfrac{(4.2)(8.4)^2}{(2.7)} = \\dfrac{(4.2)(70.56)}{2.7} = \\dfrac{296.4}{2.7} \\approx 110$",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "f1",
           "point_value": 1,
-          "description": "For the correct calculated value: 1 point",
+          "description": "For the correct calculated value of $K_p$: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct calculated value: 1 point"
+                "$K_p = \\dfrac{(4.2)(8.4)^2}{2.7} = \\dfrac{(4.2)(70.56)}{2.7} \\approx 110$"
               ],
-              "correct_example": "K = (P C O )(P $H_2$ )2 = (4.2)(8.4) 2 = 110"
+              "correct_example": "$K_p = \\dfrac{P_{\\text{CO}} \\cdot P_{\\text{H}_2}^2}{P_{\\text{CH}_3\\text{OH}}} = \\dfrac{(4.2\\text{ atm})(8.4\\text{ atm})^2}{(2.7\\text{ atm})} = \\dfrac{(4.2)(70.56)}{2.7} \\approx 110$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Writing $K_p = (4.2)(8.4)/(2.7) = 13$ — forgetting to square $P_{\\text{H}_2}$.",
+            "Inverting numerator and denominator — products go in numerator."
+          ],
+          "common_traps": [
+            "Substitute directly from the table into the $K_p$ expression from part (e). Square $P_{\\text{H}_2} = 8.4$ atm (gives 70.56) before multiplying by $P_{\\text{CO}}$."
+          ]
         }
       ]
     },
     {
       "letter": "g",
-      "prompt": "The volume of the container is rapidly doubled with no change in temperature. As equilibrium is\nre-established, does the number of moles of CH OH(g ) increase, decrease, or remain the same? Justify your\nanswer by comparing the value of the reaction quotient, Q, with the value of the equilibrium constant, K .\np",
+      "prompt": "The volume of the container is rapidly doubled with no change in temperature. As equilibrium is re-established, does the number of moles of $\\text{CH}_3\\text{OH}(g)$ increase, decrease, or remain the same? Justify your answer by comparing the value of the reaction quotient, $Q$, with the value of the equilibrium constant, $K_p$.",
       "point_value": 2,
-      "scoring_notes": "Accept one of the following:",
+      "scoring_notes": "When volume doubles, all partial pressures are halved. New pressures: $P_{\\text{CH}_3\\text{OH}} = 2.7/2 = 1.35$, $P_{\\text{CO}} = 4.2/2 = 2.1$, $P_{\\text{H}_2} = 8.4/2 = 4.2$ atm. $Q = \\frac{(2.1)(4.2)^2}{1.35} = \\frac{(2.1)(17.64)}{1.35} = \\frac{37.0}{1.35} \\approx 27.4$. Since $Q \\approx 27.4 < K_p \\approx 110$, the reaction proceeds in the forward direction (toward products), consuming $\\text{CH}_3\\text{OH}$ → moles of $\\text{CH}_3\\text{OH}$ decrease.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "g1",
           "point_value": 1,
-          "description": "For a correct comparison of Q and K: 1 point",
+          "description": "For a correct calculation showing $Q < K_p$ after volume doubling: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "Provide a correct response from the accepted alternatives"
+                "After doubling volume, all partial pressures are halved.",
+                "$Q = \\dfrac{(2.1)(4.2)^2}{1.35} \\approx 27 < K_p \\approx 110$, so $Q < K_p$."
               ],
-              "correct_example": "(g) + 2(ΔS° H"
+              "correct_example": "Doubling the volume halves all partial pressures:\n$P_{\\text{CH}_3\\text{OH}} = 1.35$ atm, $P_{\\text{CO}} = 2.1$ atm, $P_{\\text{H}_2} = 4.2$ atm\n$Q = \\dfrac{(2.1)(4.2)^2}{1.35} = \\dfrac{(2.1)(17.64)}{1.35} \\approx 27 < K_p \\approx 110$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Not halving pressures after volume doubling — Boyle's Law: at constant T, doubling V halves P for each gas.",
+            "Calculating $Q$ with the original pressures — $Q$ must be calculated at the new conditions."
+          ],
+          "common_traps": [
+            "When volume doubles at constant T and constant n: $P_{new} = P_{old}/2$ for each species (Boyle's Law). Calculate $Q$ with new pressures and compare to $K_p$."
+          ]
         },
         {
           "point_id": "g2",
           "point_value": 1,
-          "description": "For the correct answer and a valid justification: 1 point",
+          "description": "For the correct answer ('decrease') and valid justification using Q vs. $K_p$: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct answer and a valid justification: 1 point"
+                "Decrease.",
+                "Because $Q < K_p$, the reaction proceeds in the forward direction, consuming $\\text{CH}_3\\text{OH}$."
               ],
-              "correct_example": "Decrease. Given that Q < K , the partial pressures (moles) of the products will increase"
+              "correct_example": "Since $Q < K_p$, the reaction proceeds forward to produce more CO and $\\text{H}_2$, consuming $\\text{CH}_3\\text{OH}$. Therefore, the number of moles of $\\text{CH}_3\\text{OH}(g)$ decreases as equilibrium is re-established."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Saying $\\text{CH}_3\\text{OH}$ increases — $Q < K_p$ drives the forward reaction, which consumes $\\text{CH}_3\\text{OH}$.",
+            "Citing Le Chatelier's principle without calculating $Q$ — the question explicitly asks for a $Q$ vs. $K_p$ comparison."
+          ],
+          "common_traps": [
+            "$Q < K_p$: reaction proceeds forward (toward products). Forward direction consumes $\\text{CH}_3\\text{OH}$ (reactant) and produces CO and $\\text{H}_2$. This is also consistent with Le Chatelier: increasing volume (decreasing pressure) favors the side with more moles of gas (products: 3 mol vs. reactant: 1 mol)."
+          ]
         }
       ]
     }

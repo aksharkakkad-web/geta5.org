@@ -3,14 +3,12 @@
   "subject": "ap-chemistry",
   "year": 2014,
   "source": "released",
-  "title": "Chemical Kinetics & Rate Laws",
+  "title": "Chemical Kinetics: First-Order Isomerization",
   "frq_type": "multi_part_math",
-  "related_units": [
-    5
-  ],
+  "related_units": [5],
   "calculator_allowed": true,
   "total_points": 4,
-  "stimulus": "The half-life (t ) of the catalyzed isomerization of cis-2-butene gas to produce trans-2-butene gas, represented\n1/2\nabove, was measured under various conditions, as shown in the table below.\nTrial Number Initial P\ncis-2-butene\n(torr) V (L) T (K) t\n1/2\n(s)\n1 300. 2.00 350. 100.\n2 600. 2.00 350. 100.\n3 300. 4.00 350. 100.\n4 300. 2.00 365 50.",
+  "stimulus": "The half-life ($t_{1/2}$) of the catalyzed isomerization of cis-2-butene gas to produce trans-2-butene gas was\nmeasured under various conditions, as shown in the table below.\nTrial Number Initial $P_{\\text{cis-2-butene}}$ (torr) V (L) T (K) $t_{1/2}$ (s)\n1 300. 2.00 350. 100.\n2 600. 2.00 350. 100.\n3 300. 4.00 350. 100.\n4 300. 2.00 365 50.",
   "stimulus_image": "/data/ap-chemistry/frq/images/chem-2014-frq-7-table.png",
   "documents": null,
   "parts": [
@@ -18,61 +16,58 @@
       "letter": "a",
       "prompt": "The reaction is first order. Explain how the data in the table are consistent with a first-order reaction.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "For a first-order reaction, $t_{1/2} = 0.693/k$ — the half-life is independent of reactant concentration. Trials 1, 2, and 3 compare different concentrations/volumes at the same temperature and all give $t_{1/2} = 100$ s. This constant half-life regardless of reactant pressure/concentration is the hallmark of first-order kinetics.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "State the correct answer with a valid chemical justification",
+          "description": "For stating that constant $t_{1/2}$ regardless of concentration is characteristic of first order: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer stated explicitly",
-                "Valid justification based on chemical principles"
+                "For a first-order reaction, $t_{1/2}$ is independent of the initial concentration (or pressure).",
+                "Trials 1, 2, and 3 show the same $t_{1/2} = 100$ s at different initial pressures/volumes."
               ],
-              "correct_example": "The reaction is first order. Explain how the data in the table are consistent with a first-order reaction. For a first -order reaction, the half -life is independent of reactant concentration (or pressure) at constant T, as shown in trials 1, 2, and 3"
+              "correct_example": "For a first-order reaction, $t_{1/2} = \\ln 2 / k$, which is independent of the initial concentration. In trials 1 and 2, the initial pressure doubles from 300 to 600 torr, yet $t_{1/2}$ remains 100 s. In trials 1 and 3, the volume doubles (same pressure, more moles) yet $t_{1/2}$ still equals 100 s. The constant half-life is consistent with first-order kinetics."
             }
           ],
           "wrong_examples": [
-            "Correct answer but no justification",
-            "Vague reasoning"
+            "Citing trial 4 — trial 4 changes temperature, which changes $k$; it is not evidence for the order."
           ],
           "common_traps": [
-            "Stating answer without connecting to the underlying chemical principle"
+            "First-order: $t_{1/2}$ = constant (independent of [A]). Second-order: $t_{1/2} = 1/(k[A]_0)$, which increases as [A]$_0$ decreases. The data show constant $t_{1/2}$ → first order."
           ]
         }
       ]
     },
     {
       "letter": "b",
-      "prompt": "Calculate the rate constant, k, for the reaction at 350. K. Include appropriate units with your answer.",
+      "prompt": "Calculate the rate constant, $k$, for the reaction at 350. K. Include appropriate units with your answer.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "For a first-order reaction: $k = \\ln 2 / t_{1/2} = 0.693 / 100.\\text{ s} = 6.93 \\times 10^{-3}\\text{ s}^{-1}$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Calculate the correct value with setup and answer",
+          "description": "For the correct $k$ value with correct units s$^{-1}$: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "Correct mathematical setup or formula application",
-                "Correct numerical answer with appropriate sig figs and units"
+                "$k = \\frac{\\ln 2}{t_{1/2}} = \\frac{0.693}{100.\\text{ s}} = 6.93\\times10^{-3}\\text{ s}^{-1}$"
               ],
-              "correct_example": "Calculate the rate constant, k, for the reaction at 350. K. Include appropriate units with your answer. 1/21 0.693 0.693 = = = 0.00693 s100. skt-"
+              "correct_example": "$k = \\frac{0.693}{t_{1/2}} = \\frac{0.693}{100.\\text{ s}} = 6.93\\times10^{-3}\\text{ s}^{-1}$"
             }
           ],
           "wrong_examples": [
-            "Correct setup but arithmetic error",
-            "Answer without units"
+            "Reporting $k$ in units of M$^{-1}$s$^{-1}$ — those are second-order units. First-order $k$ has units of s$^{-1}$.",
+            "Using $t_{1/2} = 0.693/k$ and forgetting to invert."
           ],
           "common_traps": [
-            "Incorrect significant figures",
-            "Missing units"
+            "First-order rate constant: $k = \\ln 2 / t_{1/2}$. Units are s$^{-1}$ (or time$^{-1}$)."
           ]
         }
       ]
@@ -81,29 +76,28 @@
       "letter": "c",
       "prompt": "Is the initial rate of the reaction in trial 1 greater than, less than, or equal to the initial rate in trial 2? Justify\nyour answer.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "Less than. For a first-order reaction, rate = k[cis-2-butene]. Trial 2 has double the initial pressure/concentration of cis-2-butene compared to trial 1 (600 torr vs. 300 torr) at the same temperature (same $k$). Higher [reactant] → higher rate.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "State the correct answer with a valid chemical justification",
+          "description": "For 'less than' with correct rate law reasoning: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer stated explicitly",
-                "Valid justification based on chemical principles"
+                "Less than.",
+                "Rate = $k[\\text{cis-2-butene}]$. Trial 2 has twice the initial concentration (600 vs. 300 torr), so its rate is twice that of trial 1."
               ],
-              "correct_example": "Is the initial rate of the reaction in trial 1 greater than, less than, or equal to the initial rate in trial 2 ? Justify your answer. The initial rate in trial 1 is less than that in trial 2 because rate = k[cis-2-butene] or rate = k -2-butenecisP (with reference to values from both trials ). OR because t he initial conc entration of cis-2-butene in trial 1 is less than that in trial 2 and k is constant"
+              "correct_example": "Less than. The rate law is rate = $k[\\text{cis-2-butene}]$ (first order). Trial 2 has an initial pressure of 600 torr vs. 300 torr in trial 1 (same $T$ → same $k$). Since rate is proportional to concentration, the initial rate in trial 2 is twice that in trial 1; trial 1's rate is less."
             }
           ],
           "wrong_examples": [
-            "Correct answer but no justification",
-            "Vague reasoning"
+            "Saying equal — even though $t_{1/2}$ is the same, the initial rate depends on the initial concentration. Higher [A]$_0$ → higher initial rate."
           ],
           "common_traps": [
-            "Stating answer without connecting to the underlying chemical principle"
+            "The same $t_{1/2}$ means the same $k$, but initial rates differ if [A]$_0$ differs: rate = k × [A]$_0$."
           ]
         }
       ]
@@ -112,29 +106,29 @@
       "letter": "d",
       "prompt": "The half-life of the reaction in trial 4 is less than the half-life in trial 1. Explain why, in terms of activation\nenergy.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "Higher temperature increases the fraction of molecules with energy ≥ E$_a$ (activation energy). More successful collisions per unit time → larger $k$ → shorter $t_{1/2}$. The Arrhenius equation ($k = Ae^{-E_a/RT}$) shows that increasing $T$ increases $k$ exponentially.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "State the correct answer with a valid chemical justification",
+          "description": "For explaining higher $T$ → more molecules with energy ≥ E$_a$ → larger $k$ → shorter $t_{1/2}$: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer stated explicitly",
-                "Valid justification based on chemical principles"
+                "Trial 4 is at higher temperature (365 K vs. 350 K).",
+                "At higher temperature, a greater fraction of molecules have kinetic energy greater than or equal to the activation energy E$_a$.",
+                "More effective collisions per unit time → larger $k$ → shorter $t_{1/2}$."
               ],
-              "correct_example": "The half-life of the reaction in trial 4 is less than the half-life in trial 1. Explain why, in terms of activation energy. The temperatu re is higher in trial 4, meaning that the KEavg of the molecules is greater . Consequently, in this trial a greater fraction of collisions have sufficient energy to overcome the activation energy barrier, thus the rate is greater"
+              "correct_example": "Trial 4 is at 365 K, which is higher than the 350 K in trial 1. At higher temperature, molecules have greater average kinetic energy. A larger fraction of collisions now have energy ≥ E$_a$ (the activation energy). More successful (effective) collisions per unit time means the rate constant $k$ is larger, and since $t_{1/2} = \\ln 2 / k$, a larger $k$ gives a shorter half-life."
             }
           ],
           "wrong_examples": [
-            "Correct answer but no justification",
-            "Vague reasoning"
+            "Saying molecules move faster so collide more often — this is partially correct, but must specifically reference overcoming the activation energy barrier."
           ],
           "common_traps": [
-            "Stating answer without connecting to the underlying chemical principle"
+            "The Arrhenius equation: $k = Ae^{-E_a/RT}$. Higher $T$ → larger $k$. Must connect temperature to the fraction of molecules exceeding E$_a$."
           ]
         }
       ]

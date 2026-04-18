@@ -3,7 +3,7 @@
   "subject": "ap-calculus-ab",
   "year": 2007,
   "source": "released",
-  "title": "Analysis of Functions",
+  "title": "Analysis of $f(x) = kx^2 + \\ln x$",
   "frq_type": "multi_part_math",
   "related_units": [
     2,
@@ -19,20 +19,34 @@
     {
       "letter": "a",
       "prompt": "Find $f'(x)$ and $f''(x)$.",
-      "point_value": 1,
-      "scoring_notes": null,
+      "point_value": 2,
+      "scoring_notes": "f'(x) = 2kx + 1/x; f''(x) = 2k - 1/x^2.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct value(s) or answer",
+          "description": "Correct $f'(x) = 2kx + \\frac{1}{x}$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer to part a"
-              ]
+                "$f'(x) = 2kx + \\frac{1}{x}$"
+              ],
+              "correct_example": "$f'(x) = 2kx + \\frac{1}{x}$"
+            }
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Correct $f''(x) = 2k - \\frac{1}{x^2}$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$f''(x) = 2k - \\frac{1}{x^2}$"
+              ],
+              "correct_example": "$f''(x) = 2k - \\frac{1}{x^2}$"
             }
           ]
         }
@@ -41,21 +55,52 @@
     {
       "letter": "b",
       "prompt": "For what value of the constant $k$ does $f$ have a critical point at $x = 1$? For this value of $k$, determine whether $f$ has a relative minimum, relative maximum, or neither at $x = 1$. Justify your answer.",
-      "point_value": 1,
-      "scoring_notes": null,
+      "point_value": 3,
+      "scoring_notes": "f'(1) = 0 => 2k + 1 = 0 => k = -1/2. Then f''(1) = 2(-1/2) - 1 = -2 < 0, so relative maximum at x=1.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct answer to part b",
+          "description": "Sets $f'(1) = 0$: $2k + 1 = 0 \\Rightarrow k = -\\frac{1}{2}$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "$f'(1) = 2k(1) + \\frac{1}{1} = 2k + 1 = 0$",
+                "$k = -\\frac{1}{2}$"
+              ],
+              "correct_example": "$f'(1) = 2k + 1 = 0 \\Rightarrow k = -\\frac{1}{2}$"
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "With $k = -\\frac{1}{2}$, computes $f''(1) = 2(-\\frac{1}{2}) - 1 = -2 < 0$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$f''(1) = 2(-\\frac{1}{2}) - 1 = -2 < 0$"
               ]
             }
+          ]
+        },
+        {
+          "point_id": "b3",
+          "point_value": 1,
+          "description": "Correct conclusion: relative maximum at $x = 1$ because $f''(1) < 0$ (second derivative test)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Relative maximum at $x = 1$",
+                "$f''(1) < 0$"
+              ],
+              "correct_example": "Since $f''(1) = -2 < 0$, $f$ has a relative maximum at $x = 1$."
+            }
+          ],
+          "common_traps": [
+            "Concluding relative minimum when $f'' < 0$ — negative second derivative means concave down, relative maximum"
           ]
         }
       ]
@@ -63,21 +108,65 @@
     {
       "letter": "c",
       "prompt": "For a certain value of the constant $k$, the graph of $f$ has a point of inflection on the $x$-axis. Find this value of $k$.",
-      "point_value": 1,
-      "scoring_notes": null,
-      "requires_drawing": true,
+      "point_value": 4,
+      "scoring_notes": "Point of inflection on x-axis means: (1) f(x) = 0 at the inflection point, so kx^2 + ln x = 0; (2) f''(x) = 0 at that point, so 2k - 1/x^2 = 0 => x^2 = 1/(2k) => x = 1/sqrt(2k) (k>0). Substitute into f(x)=0: k*(1/2k) + ln(1/sqrt(2k)) = 0 => 1/2 + ln(1/sqrt(2k)) = 0 => ln(1/sqrt(2k)) = -1/2 => 1/sqrt(2k) = e^{-1/2} => sqrt(2k) = e^{1/2} => 2k = e => k = e/2.",
+      "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Correct answer to part c",
+          "description": "Sets up condition for inflection point on $x$-axis: $f(x_0) = 0$ AND $f''(x_0) = 0$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer"
+                "$kx_0^2 + \\ln x_0 = 0$",
+                "$2k - \\frac{1}{x_0^2} = 0$"
               ]
             }
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "From $f''(x_0) = 0$: $x_0 = \\frac{1}{\\sqrt{2k}}$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$2k = \\frac{1}{x_0^2} \\Rightarrow x_0^2 = \\frac{1}{2k} \\Rightarrow x_0 = \\frac{1}{\\sqrt{2k}}$"
+              ],
+              "correct_example": "$x_0 = \\frac{1}{\\sqrt{2k}}$"
+            }
+          ]
+        },
+        {
+          "point_id": "c3",
+          "point_value": 1,
+          "description": "Substitutes $x_0 = \\frac{1}{\\sqrt{2k}}$ into $f(x_0) = 0$ and simplifies",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$k \\cdot \\frac{1}{2k} + \\ln\\frac{1}{\\sqrt{2k}} = 0$",
+                "$\\frac{1}{2} - \\frac{1}{2}\\ln(2k) = 0$"
+              ],
+              "correct_example": "$\\frac{1}{2} + \\ln\\frac{1}{\\sqrt{2k}} = 0 \\Rightarrow \\frac{1}{2} - \\frac{1}{2}\\ln(2k) = 0 \\Rightarrow \\ln(2k) = 1$"
+            }
+          ]
+        },
+        {
+          "point_id": "c4",
+          "point_value": 1,
+          "description": "Correct value $k = \\frac{e}{2}$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$k = \\frac{e}{2}$"
+              ],
+              "correct_example": "$\\ln(2k) = 1 \\Rightarrow 2k = e \\Rightarrow k = \\frac{e}{2}$"
+            }
+          ],
+          "common_traps": [
+            "Setting only $f''(x_0) = 0$ without the additional condition $f(x_0) = 0$"
           ]
         }
       ]

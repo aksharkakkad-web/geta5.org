@@ -3,69 +3,74 @@
   "subject": "ap-chemistry",
   "year": 2016,
   "source": "released",
-  "title": "Acid-Base Chemistry",
+  "title": "Phenol: Weak Acid pH and Buffer",
   "frq_type": "multi_part_math",
-  "related_units": [
-    7
-  ],
+  "related_units": [7, 8],
   "calculator_allowed": true,
   "total_points": 4,
-  "stimulus": "Phenol is a weak acid that partially dissociates in water according to the equation above.",
+  "stimulus": "Phenol is a weak acid that partially dissociates in water: C$_6$H$_5$OH(aq) + H$_2$O(l) ⇌ C$_6$H$_5$O$^-$(aq) + H$_3$O$^+$(aq)  $K_a$ = 1.12 × 10$^{-10}$.",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "What is the pH of a 0.75 M C\nH\nOH(aq) solution?",
+      "prompt": "What is the pH of a 0.75 M C$_6$H$_5$OH(aq) solution?",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "Let x = [H$_3$O$^+$] = [C$_6$H$_5$O$^-$] at equilibrium. $K_a = x^2/(0.75 - x) \\approx x^2/0.75 = 1.12 \\times 10^{-10}$. $x^2 = 8.4 \\times 10^{-11}$; $x = 9.2 \\times 10^{-6}$ M. pH = −log(9.2 × 10$^{-6}$) = 5.04.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Provide a correct response for part (a)",
+          "description": "For the correct pH ≈ 5.04 with valid ICE table setup: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "Correct and complete response"
+                "$K_a = x^2/0.75 = 1.12\\times10^{-10}$",
+                "$x = 9.2\\times10^{-6}\\text{ M}$",
+                "pH = $-\\log(9.2\\times10^{-6}) = 5.04$"
               ],
-              "correct_example": "What is the pH of a 0.75 M C H OH(aq)solution? 6 5 3 65[C H O ][H O ] [C H OH]aK-+ = 2101.12 10 =(0.75 )x x-´- Assume that x << 0.75. 2 11= 8.4 10x-´ 11= 8.4 10x-´ x = 9.2  10 M pH = log[H ] = log ( 9.2  10 ) = 5.04"
+              "correct_example": "ICE table: [H$_3$O$^+$] = x, [C$_6$H$_5$O$^-$] = x, [C$_6$H$_5$OH] ≈ 0.75 M\n$K_a = x^2/0.75 = 1.12\\times10^{-10}$\n$x^2 = 8.4\\times10^{-11}$\n$x = 9.17\\times10^{-6}\\text{ M}$\npH = $-\\log(9.17\\times10^{-6}) = 5.04$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Taking the square root without first computing $x^2 = K_a \\times C$.",
+            "Not making the weak-acid approximation — x << 0.75 is valid here."
+          ],
+          "common_traps": [
+            "Verify approximation: x/C = 9.2 × 10$^{-6}$ / 0.75 << 1% ✓. The approximation is valid and simplifies calculation."
+          ]
         }
       ]
     },
     {
       "letter": "b",
-      "prompt": "For a certain reaction involving C\nH\nOH(aq) to proceed at a significant rate, the phenol must be primarily\n−\nin its deprotonated form, C\n $H_2O$(aq). In order to ensure that the C\nH\nOH(aq) is deprotonated, the reaction\nmust be conducted in a buffered solution. On the number scale below, circle each pH for which more than\n−\n50 percent of the phenol molecules are in the deprotonated form (C $H_2O$(aq)). Justify your answer.\n1 2 3 4 5 6 7 8 9 10 11 12 13 14\n2 C H (g) → C H (g)\n4 6 8 12",
+      "prompt": "For a certain reaction involving C$_6$H$_5$OH(aq) to proceed at a significant rate, the phenol must be primarily\nin its deprotonated form, C$_6$H$_5$O$^-$(aq). In order to ensure that the C$_6$H$_5$OH(aq) is deprotonated, the reaction\nmust be conducted in a buffered solution. On the number scale below, circle each pH for which more than\n50 percent of the phenol molecules are in the deprotonated form (C$_6$H$_5$O$^-$(aq)). Justify your answer.\n1 2 3 4 5 6 7 8 9 10 11 12 13 14",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "pK$_a$(phenol) = −log(1.12 × 10$^{-10}$) = 9.95. When pH > pK$_a$, more than 50% of phenol is in the deprotonated form. So pH values of 10, 11, 12, 13, and 14 should be circled.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "State the correct answer with a valid chemical justification",
+          "description": "For circling pH 10–14 with pK$_a$ = 9.95 reasoning: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "Correct answer stated explicitly",
-                "Valid justification based on chemical principles"
+                "Circle pH 10, 11, 12, 13, and 14.",
+                "pK$_a$ = 9.95; when pH > pK$_a$, [C$_6$H$_5$O$^-$] > [C$_6$H$_5$OH] (more than 50% deprotonated)."
               ],
-              "correct_example": "For a certain reaction involving C H OH(aq)to proceed at a significant rate, the phenol must be primarily in its deprotonated form, C H O(aq). In order to ensure that the C H OH(aq is deprotonated, the reaction must be conducted in a buffered solution. On the number scale below, circle each pH for which more than 50 percent of the phenol molecules are in the deprotonated form (C H O(aq)). Justify your answer. Numbers 10 through 14 should be circled. When pH > pKa , the deprotonated form wil..."
+              "correct_example": "pK$_a$ = $-\\log(1.12\\times10^{-10}) = 9.95$.\nFrom Henderson–Hasselbalch: $\\text{pH} = \\text{p}K_a + \\log([\\text{A}^-]/[\\text{HA}])$. When pH > pK$_a$, [A$^-$] > [HA] (more deprotonated than protonated). pH values of 10, 11, 12, 13, and 14 (all > 9.95) satisfy this condition."
             }
           ],
           "wrong_examples": [
-            "Correct answer but no justification",
-            "Vague reasoning"
+            "Circling pH values below 10 — below pK$_a$, the protonated form [HA] predominates.",
+            "Circling exactly pH 10 as the boundary — pK$_a$ = 9.95, so pH 10 > pK$_a$ and should be circled."
           ],
           "common_traps": [
-            "Stating answer without connecting to the underlying chemical principle"
+            "pH = pK$_a$: [HA] = [A$^-$], exactly 50/50. pH > pK$_a$: [A$^-$] > [HA], more deprotonated. Must find pK$_a$ from K$_a$ first."
           ]
         }
       ]

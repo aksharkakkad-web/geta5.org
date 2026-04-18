@@ -3,12 +3,9 @@
   "subject": "ap-chemistry",
   "year": 2024,
   "source": "released",
-  "title": "Thermochemistry & Calorimetry",
+  "title": "Specific Heat Capacity & Calorimetry",
   "frq_type": "multi_part_math",
-  "related_units": [
-    3,
-    6
-  ],
+  "related_units": [3, 6],
   "calculator_allowed": true,
   "total_points": 4,
   "stimulus": "4. A student performs an experiment to determine the specific heat capacity of a metal. The student places a cube of the metal in boiling water so its temperature will be $100.0^\\circ\\text{C}$. The student then places the metal cube into a calorimeter that contains water and records the highest temperature of the water. A data table and a diagram of the thermometer at the highest temperature are shown.",
@@ -19,24 +16,29 @@
       "letter": "a",
       "prompt": "What should the student report as the highest temperature of the water? _____________",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "The thermometer diagram shows a reading of 38.5°C. Must be reported to the correct decimal place (tenths).",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "For the correct answer, reported to the correct decimal place: 1 point",
+          "description": "For the correct temperature reading to the correct decimal place: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct answer, reported to the correct decimal place: 1 point"
+                "38.5°C"
               ],
-              "correct_example": "(a) For the correc t answer, reported to the correct decimal place 38.5 C°"
+              "correct_example": "The thermometer shows 38.5°C. The meniscus is between the 38 and 39 degree marks, at the 0.5 graduation, so the reading is 38.5°C."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "38°C or 39°C — thermometer readings should be estimated to one decimal place past the smallest graduation.",
+            "38.50°C — too many decimal places for this thermometer scale."
+          ],
+          "common_traps": [
+            "Read analog thermometers to one decimal place; the answer must include the tenths digit."
+          ]
         }
       ]
     },
@@ -44,36 +46,61 @@
       "letter": "b",
       "prompt": "A particle-level representation of water molecules in the calorimeter before and after the metal cube was added is shown. The length of the arrows in the Before diagram represents the speed of the water molecules in the system. In the After diagram, draw an arrow for each molecule to indicate how the speed of each of the molecules changes after the metal cube is added.",
       "point_value": 1,
-      "rubric_criteria": [
-        "For a correct drawing: 1 point",
-        "The “After” drawing should contain arrows that are longer, on average."
-      ],
-      "scoring_notes": null,
+      "scoring_notes": "After adding the hot metal, the water molecules gain kinetic energy, so they move faster on average. All arrows in the After diagram must be longer than those in the Before diagram.",
       "requires_drawing": true,
-      "reference_image": "/data/ap-chemistry/frq/images/chem-2024-frq-4-b-ref.png"
+      "reference_image": "/data/ap-chemistry/frq/images/chem-2024-frq-4-b-ref.png",
+      "scoring_points": [
+        {
+          "point_id": "b1",
+          "point_value": 1,
+          "description": "For a correct drawing with longer arrows (higher average speed) in the After diagram: 1 point",
+          "alternatives": [
+            {
+              "required_elements": [
+                "All arrows in the After diagram are longer on average than in the Before diagram."
+              ],
+              "correct_example": "The hot metal transfers thermal energy to the water. The water molecules gain kinetic energy, so their average speed increases. All arrows in the After diagram should be longer than those in the Before diagram."
+            }
+          ],
+          "wrong_examples": [
+            "Drawing shorter arrows after — the water temperature increased, so molecules move faster.",
+            "Drawing arrows of the same length — energy transfer changes particle speed."
+          ],
+          "common_traps": [
+            "Temperature is proportional to average kinetic energy. Higher temperature → higher average speed → longer arrows."
+          ]
+        }
+      ]
     },
     {
       "letter": "c",
       "prompt": "Assuming the metal transfers 2940 J of thermal energy to the water, calculate the specific heat of the metal in $\\text{J/(g}\\cdot^\\circ\\text{C)}$.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "q_metal = −q_water = −2940 J (metal loses heat). ΔT_metal = 38.5 − 100.0 = −61.5°C. c_metal = q/(m × ΔT); must use consistent values from part (a).",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "For the correct calculated value, consistent with part (a): 1 point",
+          "description": "For the correct calculated specific heat, consistent with part (a): 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct calculated value, consistent with part (a): 1 point"
+                "$q_{\\text{metal}} = -2940\\text{ J}$ (heat lost by metal)",
+                "$\\Delta T_{\\text{metal}} = T_f - T_i = 38.5 - 100.0 = -61.5°\\text{C}$",
+                "$c = \\frac{q}{m \\Delta T} = \\frac{-2940\\text{ J}}{(98.1\\text{ g})(-61.5°\\text{C})} = 0.487\\text{ J/(g·°C)}$"
               ],
-              "correct_example": "J gC= 2940 J0.487 (98.1 g)(38.5 C 100.0 C)metal metal metal metalq mc T qcmT⋅°∆ −= = =∆ −"
+              "correct_example": "$c_{\\text{metal}} = \\frac{q}{m\\Delta T} = \\frac{-2940\\text{ J}}{(98.1\\text{ g})(38.5 - 100.0)°\\text{C}} = \\frac{-2940}{(98.1)(-61.5)} = 0.487\\text{ J/(g·°C)}$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Using ΔT = 38.5 (the final T, not the change) — ΔT must be T_final − T_initial = 38.5 − 100.0.",
+            "Reporting a negative specific heat — specific heat is always positive; use |q| and |ΔT|."
+          ],
+          "common_traps": [
+            "The metal loses heat: q_metal = −2940 J and ΔT_metal = 38.5 − 100.0 = −61.5°C; the two negatives cancel, giving a positive c."
+          ]
         }
       ]
     },
@@ -81,24 +108,29 @@
       "letter": "d",
       "prompt": "In a second experiment, 2940 J of thermal energy is transferred from 98.1 g of aluminum, which has a specific heat capacity of $0.897 \\text{ J/(g}\\cdot^\\circ\\text{C)}$. Explain how the magnitude of the temperature change of the aluminum, $\\Delta T_{\\text{Al}}$, compares with the magnitude of the temperature change of the metal in the original experiment.",
       "point_value": 1,
-      "scoring_notes": "Accept one of the following:",
+      "scoring_notes": "Accept either a calculation showing ΔT_Al = 33.4°C (vs. ΔT_metal = 61.5°C) or a reasoning-only response: aluminum has a larger specific heat, so for the same q and same mass, ΔT is smaller.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "For a valid explanation, consistent with part (c): 1 point",
+          "description": "For a correct comparison (Al ΔT < original metal ΔT) with valid reasoning: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "Provide a correct response from the accepted alternatives"
+                "The temperature change of the aluminum is smaller in magnitude than that of the original metal.",
+                "Aluminum has a larger specific heat capacity (0.897 vs. 0.487 J/(g·°C)); for the same mass and same heat transferred, a larger c means a smaller ΔT."
               ],
-              "correct_example": "$q_{\\text{Al}} = m c \\Delta T_{\\text{Al}} = (98.1 \\text{ g})(0.897 \\text{ J/(g}\\cdot^\\circ\\text{C)}) \\Delta T_{\\text{Al}}$"
+              "correct_example": "$\\Delta T_{\\text{Al}} = \\frac{q}{mc} = \\frac{2940\\text{ J}}{(98.1\\text{ g})(0.897\\text{ J/(g·°C)})} = 33.4°\\text{C}$ \nThis is smaller in magnitude than the original metal's $\\Delta T = 61.5°\\text{C}$. Aluminum has a larger specific heat capacity, so it requires more energy per gram per degree — meaning the same amount of heat produces a smaller temperature change."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Saying ΔT_Al is larger — larger specific heat means smaller temperature change for the same q and m."
+          ],
+          "common_traps": [
+            "$\\Delta T = q/(mc)$: larger c → smaller ΔT for fixed q and m."
+          ]
         }
       ]
     }

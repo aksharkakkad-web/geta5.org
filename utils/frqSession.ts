@@ -11,7 +11,8 @@ export type FRQType =
   | 'dbq'                    // World History — split-screen docs + single essay
   | 'saq'                    // World History — short answer, 3 parts (a,b,c)
   | 'leq'                    // World History — single long essay
-  | 'essay'                  // Psych — scenario + single essay response
+  | 'essay'                  // Psych — scenario + single essay response (legacy pre-2025 format)
+  | 'aaq'                    // Psych — Article Analysis Question (6 parts A-F, Part F tiered 2pts)
   | 'ebq'                    // Psych — Evidence-Based Question: 3 sources + multi-part responses
   | 'argument_essay'         // Gov — prompt + single argumentative essay
   | 'concept_application'    // Gov — scenario + multi-part text
@@ -126,26 +127,36 @@ export interface FRQDraft {
 
 /** Seconds per FRQ type (per-question average from official CB timing) */
 export const FRQ_TYPE_SECONDS: Record<FRQType, number> = {
-  essay:                35 * 60, // AP Psych: 70 min ÷ 2 questions
-  ebq:                  45 * 60, // AP Psych: Evidence-Based Question — 45 min
-  multi_part_text:      20 * 60, // generic multi-part
-  saq:                  13 * 60, // AP World: 40 min ÷ 3 questions
-  leq:                  40 * 60, // AP World: 40 min
-  dbq:                  60 * 60, // AP World: 60 min
-  concept_application:  20 * 60, // AP Gov: ~20 min
-  scotus_comparison:    20 * 60, // AP Gov: ~20 min
-  quantitative_analysis:20 * 60, // AP Gov: ~20 min
-  argument_essay:       40 * 60, // AP Gov: 40 min
-  multi_part_math:      15 * 60, // Calc AB / Precalc: 30 min ÷ 2 (Part A or B)
+  // AP Psychology (2024-2025 new format: 70 min Section II split AAQ 25 + EBQ 45)
+  aaq:                  25 * 60, // AP Psych: Article Analysis Question — 25 min (10 reading + 15 writing)
+  ebq:                  45 * 60, // AP Psych: Evidence-Based Question — 45 min (15 reading + 30 writing)
+  essay:                25 * 60, // AP Psych legacy pre-2025 essay (closest analog to AAQ timing)
+  multi_part_text:      25 * 60, // AP Psych legacy AAQ stored as multi_part_text — use AAQ timing
+
+  // AP World History: Modern
+  saq:                  13 * 60, // 40 min ÷ 3 SAQs ≈ 13 min each
+  leq:                  40 * 60, // 40 min recommended
+  dbq:                  60 * 60, // 60 min recommended (incl. 15 min reading)
+
+  // AP U.S. Government and Politics (100 min for 4 FRQs, CB suggestion: 20+20+20+40)
+  concept_application:  20 * 60,
+  scotus_comparison:    20 * 60,
+  quantitative_analysis:20 * 60,
+  argument_essay:       40 * 60,
+
+  // AP Calculus AB / BC (Part A 30 min / 2 = 15 min; Part B 60 min / 4 = 15 min)
+  // AP Precalculus (60 min / 4 = 15 min per FRQ)
+  multi_part_math:      15 * 60,
 }
 
 /**
  * Returns the number of seconds for this question.
- * Chemistry differentiates long (≥8 pts → 23 min) vs short (<8 pts → 9 min).
+ * AP Chemistry: Q1-Q3 long FRQs (10 pts) → 23 min. Q4-Q7 short FRQs (4 pts) → 9 min.
+ * (Threshold ≥10 pts catches the 10-pt long Qs; anything less is a short Q.)
  */
 export function getQuestionSeconds(frq: Pick<FRQ, 'frq_type' | 'subject' | 'total_points'>): number {
   if (frq.subject === 'ap-chemistry' && frq.frq_type === 'multi_part_math') {
-    return frq.total_points >= 8 ? 23 * 60 : 9 * 60
+    return frq.total_points >= 10 ? 23 * 60 : 9 * 60
   }
   return FRQ_TYPE_SECONDS[frq.frq_type] ?? 15 * 60
 }

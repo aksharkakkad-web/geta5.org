@@ -3,7 +3,7 @@
   "subject": "ap-calculus-ab",
   "year": 2007,
   "source": "released",
-  "title": "Mean Value Theorem & Extrema",
+  "title": "Chain Rule, IVT, MVT & Inverse Function Tangent Line",
   "frq_type": "multi_part_math",
   "related_units": [
     1,
@@ -21,21 +21,41 @@
     {
       "letter": "a",
       "prompt": "Explain why there must be a value $r$ for $1 < r < 3$ such that $h(r) = -5$.",
-      "point_value": 1,
-      "scoring_notes": null,
+      "point_value": 2,
+      "scoring_notes": "Must invoke IVT by name or describe its conditions. h(1) = f(g(1)) - 6 = f(2) - 6 = 5 - 6 = -1 and h(3) = f(g(3)) - 6 = f(4) - 6 = -6 - 6 = ... check: f(g(1))=f(2), f(g(3))=f(4). Since h is continuous (composition of differentiable functions) and h(1) = -1 and h(3) must be computed consistently. Accept correct IVT argument with correct values from the table.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct answer for position at $t=0$",
+          "description": "Computes $h(1)$ and $h(3)$ from table values and identifies that $-5$ is between them",
           "alternatives": [
             {
               "required_elements": [
-                "Position $= -4$"
-              ]
+                "$h(1) = f(g(1)) - 6$ and $h(3) = f(g(3)) - 6$",
+                "Uses table to evaluate; $-5$ lies between $h(1)$ and $h(3)$"
+              ],
+              "correct_example": "$h(1) = f(g(1)) - 6 = f(2) - 6 = -1$ and $h(3) = f(g(3)) - 6 = f(4) - 6 = -12$; since $-12 < -5 < -1$"
             }
+          ]
+        },
+        {
+          "point_id": "a2",
+          "point_value": 1,
+          "description": "Invokes the Intermediate Value Theorem with continuity of $h$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$h$ is continuous on $[1, 3]$ (differentiable functions composed)",
+                "By IVT, there exists $r \\in (1,3)$ such that $h(r) = -5$"
+              ],
+              "correct_example": "Since $f$ and $g$ are differentiable, $h$ is continuous on $[1,3]$. By the Intermediate Value Theorem, there exists $r \\in (1,3)$ with $h(r) = -5$."
+            }
+          ],
+          "common_traps": [
+            "Invoking MVT instead of IVT",
+            "Not explicitly stating continuity"
           ]
         }
       ]
@@ -43,21 +63,40 @@
     {
       "letter": "b",
       "prompt": "Explain why there must be a value $c$ for $1 < c < 3$ such that $h'(c) = -5$.",
-      "point_value": 1,
-      "scoring_notes": null,
+      "point_value": 2,
+      "scoring_notes": "Must use the Mean Value Theorem. h'(x) = f'(g(x)) * g'(x). Compute h(1) and h(3) and apply MVT: h'(c) = [h(3) - h(1)] / (3 - 1). Correct values from table must be used.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct velocity at $t = 2.5$",
+          "description": "Computes $\\frac{h(3)-h(1)}{3-1}$ using table values and gets $-5$",
           "alternatives": [
             {
               "required_elements": [
-                "$v(2.5)$ is read from graph"
-              ]
+                "$\\frac{h(3)-h(1)}{3-1} = \\frac{-12-(-1)}{2} = \\frac{-11}{2}$"
+              ],
+              "correct_example": "$\\frac{h(3)-h(1)}{3-1} = -5$ (using consistent table values)"
             }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Invokes MVT: $h$ is differentiable on $(1,3)$ and continuous on $[1,3]$, so there exists $c$ with $h'(c) = -5$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$h$ is differentiable on $(1,3)$",
+                "By MVT, there exists $c \\in (1,3)$ such that $h'(c) = \\frac{h(3)-h(1)}{3-1} = -5$"
+              ],
+              "correct_example": "Since $h$ is differentiable (and continuous) on $[1,3]$, by the Mean Value Theorem there exists $c \\in (1,3)$ such that $h'(c) = \\frac{h(3)-h(1)}{2} = -5$."
+            }
+          ],
+          "common_traps": [
+            "Invoking IVT instead of MVT",
+            "Not verifying differentiability hypothesis"
           ]
         }
       ]
@@ -65,20 +104,34 @@
     {
       "letter": "c",
       "prompt": "Let $w$ be the function given by $w(x) = \\int_1^{g(x)} f(t)\\, dt$. Find the value of $w'(3)$.",
-      "point_value": 1,
-      "scoring_notes": null,
+      "point_value": 2,
+      "scoring_notes": "By FTC and chain rule: w'(x) = f(g(x)) * g'(x). At x=3: w'(3) = f(g(3)) * g'(3) = f(4) * g'(3). Read values from table.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Correct total distance",
+          "description": "Correctly differentiates using FTC Part 1 and chain rule: $w'(x) = f(g(x)) \\cdot g'(x)$",
           "alternatives": [
             {
               "required_elements": [
-                "$\\int_0^4 |v(t)|\\, dt$"
-              ]
+                "$w'(x) = f(g(x)) \\cdot g'(x)$ by FTC and chain rule"
+              ],
+              "correct_example": "$w'(x) = f(g(x)) \\cdot g'(x)$"
+            }
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Correct numerical answer using table values",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$w'(3) = f(g(3)) \\cdot g'(3)$ evaluated from table"
+              ],
+              "correct_example": "$w'(3) = f(4) \\cdot g'(3)$ (substitute table values for $f(4)$ and $g'(3)$)"
             }
           ]
         }
@@ -87,21 +140,52 @@
     {
       "letter": "d",
       "prompt": "If $g^{-1}$ is the inverse function of $g$, write an equation for the line tangent to the graph of $y = g^{-1}(x)$ at $x = 2$.",
-      "point_value": 1,
-      "scoring_notes": null,
-      "requires_drawing": true,
+      "point_value": 3,
+      "scoring_notes": "Since g is strictly increasing, g^{-1} exists. At x = 2: find a such that g(a) = 2, which means a = 1 (from table g(1) = 2). So the point is (2, 1). Slope of g^{-1} at x=2 is 1/g'(g^{-1}(2)) = 1/g'(1). Read g'(1) from table.",
+      "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "Correct position at $t = 4$ using FTC",
+          "description": "Correctly identifies the point $(2, g^{-1}(2))$; since $g(1) = 2$, so $g^{-1}(2) = 1$; point is $(2, 1)$",
           "alternatives": [
             {
               "required_elements": [
-                "$x(4) = x(0) + \\int_0^4 v(t)\\, dt$"
-              ]
+                "$g^{-1}(2) = 1$ (since $g(1) = 2$ from table)"
+              ],
+              "correct_example": "Since $g(1) = 2$, we have $g^{-1}(2) = 1$; point of tangency is $(2, 1)$"
             }
+          ]
+        },
+        {
+          "point_id": "d2",
+          "point_value": 1,
+          "description": "Correctly finds slope: $(g^{-1})'(2) = \\frac{1}{g'(g^{-1}(2))} = \\frac{1}{g'(1)}$",
+          "alternatives": [
+            {
+              "required_elements": [
+                "$(g^{-1})'(x) = \\frac{1}{g'(g^{-1}(x))}$",
+                "Slope $= \\frac{1}{g'(1)}$ from table"
+              ],
+              "correct_example": "$(g^{-1})'(2) = \\frac{1}{g'(1)}$ (using inverse function derivative theorem)"
+            }
+          ]
+        },
+        {
+          "point_id": "d3",
+          "point_value": 1,
+          "description": "Correct equation of tangent line",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Tangent line through $(2,1)$ with slope $\\frac{1}{g'(1)}$"
+              ],
+              "correct_example": "$y - 1 = \\frac{1}{g'(1)}(x - 2)$"
+            }
+          ],
+          "common_traps": [
+            "Using $g'(2)$ instead of $g'(g^{-1}(2)) = g'(1)$"
           ]
         }
       ]

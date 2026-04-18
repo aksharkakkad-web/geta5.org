@@ -3,185 +3,213 @@
   "subject": "ap-chemistry",
   "year": 2023,
   "source": "released",
-  "title": "Chemical Equilibrium & Le Chatelier's Principle",
+  "title": "AlCl₃: Stoichiometry, Hess's Law, Bonding & Equilibrium",
   "frq_type": "multi_part_math",
-  "related_units": [
-    2,
-    6,
-    7
-  ],
+  "related_units": [2, 6, 7],
   "calculator_allowed": true,
   "total_points": 10,
-  "stimulus": "2. In the gas phase, AlCl is a molecular substance. A reaction of gaseous AlCl at high temperature is represented\nby the following balanced equation.\nReaction 1: AlCl (g) → Al(g) + 3Cl(g) ΔH \u0002 = ?\n3 1",
+  "stimulus": "In the gas phase, $\\text{AlCl}_3$ is a molecular substance. A reaction of gaseous $\\text{AlCl}_3$ at high temperature is represented by the following balanced equation.\n\nReaction 1: $\\text{AlCl}_3(g) \\rightarrow \\text{Al}(g) + 3\\text{Cl}(g)$, $\\Delta H_1 = ?$\n\nAdditional reactions that involve Al or Cl:\n| Reaction | Equation | $\\Delta H^\\circ_{rxn}$ (kJ/mol) |\n|---|---|---|\n| 2 | $\\text{Al}(s) + \\text{Cl}_2(g) \\rightarrow \\text{AlCl}_3(g)$ | $-583$ |\n| 3 | $\\text{Al}(s) \\rightarrow \\text{Al}(g)$ | $+326$ |\n| 4 | $\\text{Cl}_2(g) \\rightarrow 2\\text{Cl}(g)$ | $+243$ |",
   "stimulus_image": null,
   "documents": null,
   "parts": [
     {
       "letter": "a",
-      "prompt": "How many grams of Cl(g) can be formed from 1.25 mol of AlCl (g) ?\nAdditional reactions that involve Al or Cl are shown in the following table.\n\u0002\nReaction Number Equation ΔH (kJ/mol )\nrxn rxn\n2 Al(s) + $Cl_2$ ( g) → AlCl 3 (g) −583\n3 Al(s) → Al(g) +326\n4 Cl (g) → 2Cl(g) +243",
+      "prompt": "How many grams of Cl(g) can be formed from 1.25 mol of $\\text{AlCl}_3(g)$?",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "From balanced equation: 1 mol $\\text{AlCl}_3$ → 3 mol Cl(g). Moles of Cl = $1.25 \\times 3 = 3.75$ mol. Mass = $3.75 \\text{ mol} \\times 35.45 \\text{ g/mol} = 133$ g (3 sig figs).",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "For the correct calculated value reported with the correct number of significant figures: 1 point",
+          "description": "For the correct calculated mass of Cl(g) with correct significant figures: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct calculated value reported with the correct number of significant figures: 1 point"
+                "$m = 1.25\\text{ mol AlCl}_3 \\times \\dfrac{3\\text{ mol Cl}}{1\\text{ mol AlCl}_3} \\times \\dfrac{35.45\\text{ g}}{1\\text{ mol Cl}} = 133\\text{ g}$"
               ],
-              "correct_example": "33 mol Cl 35.45 g Cl1.25 mol AlCl 133 g Cl1 mol AlCl 1 mol Cl× ×="
+              "correct_example": "$n(\\text{Cl}) = 1.25\\text{ mol AlCl}_3 \\times \\dfrac{3\\text{ mol Cl}}{1\\text{ mol AlCl}_3} = 3.75\\text{ mol Cl}$\n$m(\\text{Cl}) = 3.75\\text{ mol} \\times 35.45\\text{ g/mol} = 133\\text{ g}$"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Using 1 mol Cl per mol $\\text{AlCl}_3$ — the balanced equation shows 3 Cl atoms produced per formula unit.",
+            "Using molar mass of $\\text{Cl}_2$ (70.90 g/mol) instead of Cl (35.45 g/mol) — the product is Cl(g), not $\\text{Cl}_2(g)$."
+          ],
+          "common_traps": [
+            "Molar mass of Cl atom = 35.45 g/mol (not $\\text{Cl}_2 = 70.90$). The balanced equation gives exactly 3 mol Cl per mol $\\text{AlCl}_3$."
+          ]
         }
       ]
     },
     {
       "letter": "b",
-      "prompt": "Calculate the value of ΔH , in kJ/mol , for reaction 1 above using reactions 2, 3, and 4.\n1 rxn",
+      "prompt": "Calculate the value of $\\Delta H_1$, in kJ/mol, for reaction 1 using reactions 2, 3, and 4.",
       "point_value": 2,
-      "scoring_notes": "Accept one of the following:",
+      "scoring_notes": "Hess's Law: Target = Reaction 1: $\\text{AlCl}_3(g) \\rightarrow \\text{Al}(g) + 3\\text{Cl}(g)$.\nReverse Reaction 2: $\\text{AlCl}_3(g) \\rightarrow \\text{Al}(s) + \\text{Cl}_2(g)$, $\\Delta H = +583$ kJ/mol.\nReaction 3: $\\text{Al}(s) \\rightarrow \\text{Al}(g)$, $\\Delta H = +326$ kJ/mol.\n$1.5 \\times$ Reaction 4: $1.5\\text{Cl}_2(g) \\rightarrow 3\\text{Cl}(g)$, $\\Delta H = 1.5 \\times 243 = +364.5$ kJ/mol.\nSum: $\\Delta H_1 = 583 + 326 + 364.5 = +1274$ kJ/mol. (Need 3 mol Cl from 1.5 mol $\\text{Cl}_2$ since Reaction 4 makes 2 Cl per $\\text{Cl}_2$.)",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "For the correct algebraic manipulation of either",
+          "description": "For the correct algebraic manipulation of at least one reaction (reversing Reaction 2 or multiplying Reaction 4): 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "Provide a correct response from the accepted alternatives"
+                "Reverse Reaction 2: $\\text{AlCl}_3(g) \\rightarrow \\text{Al}(s) + \\text{Cl}_2(g)$, $\\Delta H = +583$ kJ/mol",
+                "Multiply Reaction 4 by 1.5: $1.5\\text{Cl}_2(g) \\rightarrow 3\\text{Cl}(g)$, $\\Delta H = +364.5$ kJ/mol"
               ],
-              "correct_example": "AlCl (g) → Al(s) + 3Cl (g) ∆H = −(−583) = +583 kJ/mol"
+              "correct_example": "Reverse Rxn 2: $\\text{AlCl}_3(g) \\rightarrow \\text{Al}(s) + \\dfrac{3}{2}\\text{Cl}_2(g)$, $\\Delta H = +583$ kJ/mol\nRxn 3 (as is): $\\text{Al}(s) \\rightarrow \\text{Al}(g)$, $\\Delta H = +326$ kJ/mol\n$\\frac{3}{2} \\times$ Rxn 4: $\\dfrac{3}{2}\\text{Cl}_2(g) \\rightarrow 3\\text{Cl}(g)$, $\\Delta H = \\frac{3}{2}(+243) = +364.5$ kJ/mol"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Reversing Reaction 3 — Reaction 1 produces Al(g), so Reaction 3 should be used as written (forward direction).",
+            "Multiplying Reaction 4 by 3 — only 1.5 mol $\\text{Cl}_2$ is needed to produce 3 mol Cl atoms."
+          ],
+          "common_traps": [
+            "Hess's Law: manipulate reactions so they cancel intermediates (Al(s), $\\text{Cl}_2(g)$). Target: $\\text{AlCl}_3(g)$ as reactant, $\\text{Al}(g)$ and $3\\text{Cl}(g)$ as products. Reverse Rxn 2 (makes $\\text{AlCl}_3$ reactant); use Rxn 3 (makes Al(g)); multiply Rxn 4 by $\\frac{3}{2}$ (makes 3 Cl)."
+          ]
         },
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "For the correct calculated value: 1 point",
+          "description": "For the correct calculated value of $\\Delta H_1 = +1274$ kJ/mol: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct calculated value: 1 point"
+                "$\\Delta H_1 = +583 + 326 + 364.5 = +1274$ kJ/mol"
               ],
-              "correct_example": "1 23 4 1.5( ) ( 583) 326 1.5(243) 1274 kJ/molrxn H HH H∆ = −∆ + ∆ + ∆ = − − + + =  "
+              "correct_example": "$\\Delta H_1 = (+583) + (+326) + (+364.5) = +1274$ kJ/mol"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Adding $1 \\times 243 = 243$ instead of $1.5 \\times 243 = 364.5$ — need $\\frac{3}{2}$ of Reaction 4 to get 3 mol Cl.",
+            "Getting a negative value — all three steps are endothermic here; the sum must be positive."
+          ],
+          "common_traps": [
+            "Sum the manipulated $\\Delta H$ values. All three are endothermic in this combination → $\\Delta H_1 > 0$. Decomposing $\\text{AlCl}_3$ into atoms requires substantial energy input (bond-breaking)."
+          ]
         }
       ]
     },
     {
       "letter": "c",
-      "prompt": "A potential energy diagram for Cl is shown in the following graph.\n(i) Based on the graph, what is the bond length, in picometers, for Cl ? _________\n(ii) A student finds that the average Al − Cl bond length is 220 picometers and the average bond energy is\n425 kJ/mol. Draw the potential energy curve for the average Al − Cl bond on the preceding graph.",
+      "prompt": "A potential energy diagram for $\\text{Cl}_2$ is shown in the following graph.\n\n(i) Based on the graph, what is the bond length, in picometers, for $\\text{Cl}_2$?\n\n(ii) A student finds that the average Al−Cl bond length is 220 picometers and the average bond energy is 425 kJ/mol. Draw the potential energy curve for the average Al−Cl bond on the preceding graph.",
       "point_value": 3,
-      "rubric_criteria": [
-        "(i) For the correct answer: 1 point",
-        "(ii) For a curve with a minimum at an internuclear distance of 220 ±10 pm: 1 point",
-        "See sample curve below",
-        "For a curve with a minimum energy value of −425± 20 kJ/mol that approaches zero as the 1 point"
-      ],
-      "scoring_notes": null,
+      "scoring_notes": "(i) The bond length is the internuclear distance at the minimum of the potential energy curve for $\\text{Cl}_2$. From the graph, this is approximately 200 pm (accept the correct graph reading). (ii) The Al−Cl PE curve must have: a minimum at 220 ± 10 pm on the x-axis; a minimum energy value of approximately −425 kJ/mol (relative to separated atoms at zero energy); the curve approaches zero asymptotically as internuclear distance increases; and it rises steeply at short distances.",
       "requires_drawing": true,
       "reference_image": "/data/ap-chemistry/frq/images/chem-2023-frq-2-c-ref.png"
     },
     {
       "letter": "d",
-      "prompt": "Three proposed Lewis diagrams for the AlCl (g) molecule are shown.\n(i) The AlCl (g) molecule has a trigonal planar geometry. Which diagram (1, 2, or 3) can be eliminated\nbased on geometry? Justify your choice based on VSEPR theory.\n\n(ii) Which of the three diagrams is the best representation for the bonding in AlCl ? Justify your choice\nbased on formal charges.\nAlCl is known to dimerize reversibly in the gas phase. The dimerization equilibrium is represented by the\nfollowing equation.\n2AlCl (g) \u0003 Al Cl (g)\n3 2 6",
+      "prompt": "Three proposed Lewis diagrams for the $\\text{AlCl}_3(g)$ molecule are shown.\n\n(i) The $\\text{AlCl}_3(g)$ molecule has a trigonal planar geometry. Which diagram (1, 2, or 3) can be eliminated based on geometry? Justify your choice based on VSEPR theory.\n\n(ii) Which of the three diagrams is the best representation for the bonding in $\\text{AlCl}_3$? Justify your choice based on formal charges.",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "(i) Diagram 2 should be eliminated. In Diagram 2, the Al atom has 4 electron domains (one lone pair + 3 bonding pairs), which VSEPR predicts as tetrahedral/trigonal pyramidal geometry, not trigonal planar. Trigonal planar requires 3 electron domains (no lone pairs on Al). (ii) Diagram 1 is the best representation. In Diagram 1, Al has no lone pair and forms 3 single bonds to Cl — all atoms have formal charge of zero (Al: 3 − 0 − 3 = 0; each Cl: 7 − 6 − 1 = 0). Structures with formal charges of zero on all atoms are preferred. (Diagram 3 may show a double bond, giving non-zero formal charges.)",
       "requires_drawing": false,
       "reference_image": "/data/ap-chemistry/frq/images/chem-2023-frq-2-d-ref.png",
       "scoring_points": [
         {
           "point_id": "di1",
           "point_value": 1,
-          "description": "For the correct answer and a valid justification: 1 point",
+          "description": "For the correct diagram identified and VSEPR justification: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct answer and a valid justification: 1 point"
+                "Diagram 2.",
+                "Diagram 2 has 4 electron domains on Al (including a lone pair), predicting tetrahedral/trigonal pyramidal geometry, not trigonal planar."
               ],
-              "correct_example": "Diagram 2. Al has four electron domains in Diagram 2, which would be trigonal pyramidal,"
+              "correct_example": "Diagram 2 can be eliminated. VSEPR theory predicts geometry based on the number of electron domains. In Diagram 2, Al has four electron domains (three bonding pairs + one lone pair), which predicts a trigonal pyramidal geometry. Since $\\text{AlCl}_3$ is known to be trigonal planar (3 bonding pairs, 0 lone pairs on Al), Diagram 2 is inconsistent with the observed geometry."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Eliminating Diagram 1 — Diagram 1 shows 3 bonding pairs on Al (no lone pairs), consistent with trigonal planar.",
+            "Citing bond angles without VSEPR reasoning — must explicitly invoke electron domains and VSEPR."
+          ],
+          "common_traps": [
+            "VSEPR: trigonal planar = 3 electron domains (no lone pairs on central atom). Any diagram with a lone pair on Al predicts non-planar geometry and should be eliminated."
+          ]
         },
         {
           "point_id": "dii1",
           "point_value": 1,
-          "description": "For the correct answer and a valid justification: 1 point",
+          "description": "For the correct best diagram and formal charge justification: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct answer and a valid justification: 1 point"
+                "Diagram 1.",
+                "All atoms in Diagram 1 have formal charge = 0; other diagrams have atoms with nonzero formal charges."
               ],
-              "correct_example": "Diagram 1. All atoms in diagram 1 have a formal charge of zero, whereas atoms in"
+              "correct_example": "Diagram 1 is the best representation. In Diagram 1, Al forms three single bonds to Cl with no lone pair on Al. Formal charge on Al = $3 - 0 - 3 = 0$; formal charge on each Cl = $7 - 6 - 1 = 0$. Structures in which all atoms have formal charge of zero are preferred. In Diagram 3 (with a double bond), atoms would have nonzero formal charges, making it a less favored resonance structure."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Choosing Diagram 3 — a double bond on Al would give nonzero formal charges, which are not preferred over a structure with zero formal charges.",
+            "Not calculating formal charges — must show formal charge reasoning explicitly."
+          ],
+          "common_traps": [
+            "Formal charge = (valence electrons) − (lone pair electrons) − (½ bonding electrons). Preferred Lewis structure: minimize formal charges, especially put negative formal charge on more electronegative atom. Zero formal charges on all atoms is ideal."
+          ]
         }
       ]
     },
     {
       "letter": "e",
-      "prompt": "Write the expression for the equilibrium constant, K , for this reaction.\np\nA particle-level diagram of an equilibrium mixture of AlCl (g) and Al Cl (g) at 400°C in a 25 L closed\n3 2 6\ncontainer is shown.",
+      "prompt": "Write the expression for the equilibrium constant, $K_p$, for this reaction.\n\n$2\\text{AlCl}_3(g) \\rightleftharpoons \\text{Al}_2\\text{Cl}_6(g)$",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "$K_p = \\dfrac{P_{\\text{Al}_2\\text{Cl}_6}}{P_{\\text{AlCl}_3}^2}$. Product in numerator; reactant in denominator raised to its stoichiometric coefficient.",
       "requires_drawing": false,
       "reference_image": "/data/ap-chemistry/frq/images/chem-2023-frq-2-e-ref.png",
       "scoring_points": [
         {
           "point_id": "e1",
           "point_value": 1,
-          "description": "For the correct answer: 1 point",
+          "description": "For the correct $K_p$ expression: 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct answer: 1 point"
+                "$K_p = \\dfrac{P_{\\text{Al}_2\\text{Cl}_6}}{(P_{\\text{AlCl}_3})^2}$"
               ],
-              "correct_example": "3Al Cl AlCl()pP"
+              "correct_example": "$K_p = \\dfrac{P_{\\text{Al}_2\\text{Cl}_6}}{P_{\\text{AlCl}_3}^2}$\n\nProduct $\\text{Al}_2\\text{Cl}_6$ in numerator (coefficient = 1 → exponent = 1). Reactant $\\text{AlCl}_3$ in denominator (coefficient = 2 → exponent = 2)."
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Writing $K_p = P_{\\text{AlCl}_3}^2 / P_{\\text{Al}_2\\text{Cl}_6}$ — products go in numerator.",
+            "Not squaring $P_{\\text{AlCl}_3}$ — the stoichiometric coefficient of 2 becomes the exponent."
+          ],
+          "common_traps": [
+            "$K_p = \\prod P_{products}^{n_p} / \\prod P_{reactants}^{n_r}$. Use stoichiometric coefficients as exponents. All species are gases — no pure solid/liquid omissions needed here."
+          ]
         }
       ]
     },
     {
       "letter": "f",
-      "prompt": "Using the particle-level diagram, calculate the value of K for the reaction if the total pressure in the container\np\nis 22.1 atm.",
+      "prompt": "Using the particle-level diagram, calculate the value of $K_p$ for the reaction if the total pressure in the container is 22.1 atm.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "From the 2023 particle-level diagram: count $\\text{AlCl}_3$ and $\\text{Al}_2\\text{Cl}_6$ particles. Based on exam answer key: 10 $\\text{AlCl}_3$ particles and 3 $\\text{Al}_2\\text{Cl}_6$ particles (total 13 particles). Mole fractions: $\\chi_{\\text{Al}_2\\text{Cl}_6} = 3/13$; $\\chi_{\\text{AlCl}_3} = 10/13$. Partial pressures: $P_{\\text{Al}_2\\text{Cl}_6} = (3/13)(22.1) = 5.10$ atm; $P_{\\text{AlCl}_3} = (10/13)(22.1) = 17.0$ atm. $K_p = 5.10/(17.0)^2 = 5.10/289 = 0.0176 \\approx 0.0177$. (Accept answer consistent with correct reading of particle diagram.)",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "f1",
           "point_value": 1,
-          "description": "For the correct calculated value, consistent with part (e): 1 point",
+          "description": "For the correct calculated $K_p$ value consistent with the particle diagram and part (e): 1 point",
           "alternatives": [
             {
               "required_elements": [
-                "For the correct calculated value, consistent with part (e): 1 point"
+                "Use mole fractions from the particle diagram to find partial pressures; substitute into $K_p$ expression from part (e)."
               ],
-              "correct_example": "K = Al2Cl6 total = 10 = 0.0277"
+              "correct_example": "From the diagram: $n_{\\text{AlCl}_3} = 10$, $n_{\\text{Al}_2\\text{Cl}_6} = 3$, total = 13 particles.\n$P_{\\text{Al}_2\\text{Cl}_6} = \\dfrac{3}{13} \\times 22.1 = 5.10$ atm\n$P_{\\text{AlCl}_3} = \\dfrac{10}{13} \\times 22.1 = 17.0$ atm\n$K_p = \\dfrac{5.10}{(17.0)^2} = 0.0177$\n\n(Accept answer consistent with correct particle count from diagram.)"
             }
           ],
-          "wrong_examples": [],
-          "common_traps": []
+          "wrong_examples": [
+            "Using raw particle counts as partial pressures — must use mole fractions × total pressure.",
+            "Not squaring $P_{\\text{AlCl}_3}$ — must apply the exponent from the $K_p$ expression."
+          ],
+          "common_traps": [
+            "Dalton's Law: $P_i = \\chi_i \\times P_{total}$. Count particles carefully from diagram; compute mole fractions; multiply by 22.1 atm; substitute into $K_p$ from part (e)."
+          ]
         }
       ]
     }

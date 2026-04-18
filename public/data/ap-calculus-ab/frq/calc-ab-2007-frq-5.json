@@ -3,7 +3,7 @@
   "subject": "ap-calculus-ab",
   "year": 2007,
   "source": "released",
-  "title": "Volume of Solids",
+  "title": "Balloon Radius — Tangent Line, Related Rates & Riemann Sum",
   "frq_type": "multi_part_math",
   "related_units": [
     2,
@@ -21,33 +21,51 @@
     {
       "letter": "a",
       "prompt": "Estimate the radius of the balloon when $t = 5.4$ using the tangent line approximation at $t = 5$. Is your estimate greater than or less than the true value? Give a reason for your answer.",
-      "point_value": 1,
-      "scoring_notes": null,
+      "point_value": 3,
+      "scoring_notes": "From table r(5) and r'(5) are given. Tangent line: r(5.4) ≈ r(5) + r'(5)(0.4). Since graph is concave down (r'' < 0), the tangent line overestimates the true value.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct zero slopes",
+          "description": "Correct linearization setup: $r(5.4) \\approx r(5) + r'(5)(5.4 - 5)$",
           "alternatives": [
             {
               "required_elements": [
-                "Zero slopes where $y = 3x$"
-              ]
+                "$r(5) + r'(5)(0.4)$"
+              ],
+              "correct_example": "$r(5.4) \\approx r(5) + r'(5)(0.4)$ using values from the table"
             }
           ]
         },
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Correct nonzero slopes",
+          "description": "Correct numerical estimate using table values",
           "alternatives": [
             {
               "required_elements": [
-                "Correct sign of slope at each labeled point"
+                "Correct numerical value from table substitution"
               ]
             }
+          ]
+        },
+        {
+          "point_id": "a3",
+          "point_value": 1,
+          "description": "Estimate is greater than the true value because the graph of $r$ is concave down on $(0, 12)$, so the tangent line lies above the curve",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Greater than the true value",
+                "Because $r$ is concave down (tangent line overestimates)"
+              ],
+              "correct_example": "The estimate is greater than $r(5.4)$ because the graph of $r$ is concave down, so the tangent line lies above the graph."
+            }
+          ],
+          "common_traps": [
+            "Saying 'less than' — concave down means tangent overestimates"
           ]
         }
       ]
@@ -55,24 +73,51 @@
     {
       "letter": "b",
       "prompt": "Find the rate of change of the volume of the balloon with respect to time when $t = 5$. Indicate units of measure.",
-      "point_value": 1,
-      "scoring_notes": null,
+      "point_value": 3,
+      "scoring_notes": "V = (4/3)pi r^3. dV/dt = 4pi r^2 * dr/dt. At t=5, use r(5) and r'(5) from the table.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
-          "point_value": 2,
-          "description": "Correct particular solution using separation of variables",
+          "point_value": 1,
+          "description": "Correct derivative expression using chain rule: $\\frac{dV}{dt} = 4\\pi r^2 \\frac{dr}{dt}$",
           "alternatives": [
             {
               "required_elements": [
-                "$\\frac{dy}{y-3x}$ ... separation",
-                "Integration",
-                "Constant of integration",
-                "Uses initial condition"
+                "$\\frac{dV}{dt} = 4\\pi r^2 \\frac{dr}{dt}$"
+              ],
+              "correct_example": "$\\frac{dV}{dt} = \\frac{d}{dt}\\left(\\frac{4}{3}\\pi r^3\\right) = 4\\pi r^2 \\cdot r'(t)$"
+            }
+          ]
+        },
+        {
+          "point_id": "b2",
+          "point_value": 1,
+          "description": "Substitutes $r(5)$ and $r'(5)$ from table",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Uses $r(5)$ and $r'(5)$ from table"
               ]
             }
+          ]
+        },
+        {
+          "point_id": "b3",
+          "point_value": 1,
+          "description": "Correct numerical answer with units (cubic feet per minute)",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Correct numerical value",
+                "Units: cubic feet per minute"
+              ],
+              "correct_example": "$\\frac{dV}{dt}\\big|_{t=5} = 4\\pi [r(5)]^2 \\cdot r'(5)$ cubic feet per minute"
+            }
+          ],
+          "common_traps": [
+            "Omitting units (cubic feet per minute)"
           ]
         }
       ]
@@ -80,20 +125,36 @@
     {
       "letter": "c",
       "prompt": "Use a right Riemann sum with the five subintervals indicated by the data in the table to approximate $\\int_0^{12} r'(t)\\, dt$. Using correct units, explain the meaning of $\\int_0^{12} r'(t)\\, dt$ in terms of the radius of the balloon.",
-      "point_value": 1,
-      "scoring_notes": null,
+      "point_value": 2,
+      "scoring_notes": "Right Riemann sum uses right endpoints of each subinterval. The integral equals r(12) - r(0) by FTC = total change in radius over [0,12]. Units: feet.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Correct range of $f$ analysis",
+          "description": "Correct right Riemann sum setup using table subintervals and right endpoint values of $r'$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct argument about whether particular solution is bounded"
-              ]
+                "Uses right endpoints of each subinterval",
+                "Multiplies each $r'$ value by the width of its subinterval"
+              ],
+              "correct_example": "Sum of $(\\Delta t_i) \\cdot r'(t_{i})$ using right endpoints from the table"
+            }
+          ]
+        },
+        {
+          "point_id": "c2",
+          "point_value": 1,
+          "description": "Correct interpretation: $\\int_0^{12} r'(t)\\, dt$ is the total change in radius (in feet) of the balloon from $t = 0$ to $t = 12$ minutes",
+          "alternatives": [
+            {
+              "required_elements": [
+                "Total change in radius",
+                "Units: feet"
+              ],
+              "correct_example": "$\\int_0^{12} r'(t)\\, dt = r(12) - r(0)$ represents the total increase in the radius, in feet, of the balloon from $t = 0$ to $t = 12$ minutes."
             }
           ]
         }
@@ -103,20 +164,25 @@
       "letter": "d",
       "prompt": "Is your approximation in part (c) greater than or less than $\\int_0^{12} r'(t)\\, dt$? Give a reason for your answer.",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "Since r is concave down, r' is decreasing. A right Riemann sum for a decreasing function underestimates the integral.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "Is your approximation in part (c) greater than or less than $\\int_0^{12} r'(t)\\, dt$? Give a reason for your answer",
+          "description": "The approximation is less than $\\int_0^{12} r'(t)\\, dt$ because $r$ is concave down, meaning $r'$ is decreasing; a right Riemann sum for a decreasing function is an underestimate",
           "alternatives": [
             {
               "required_elements": [
-                "Is your approximation in part (c) greater than or less than $\\int_0^{12} r'(t)\\, dt$? Give a reason for your answer"
-              ]
+                "Less than",
+                "$r$ is concave down, so $r'$ is decreasing; right sum underestimates a decreasing function"
+              ],
+              "correct_example": "The approximation is less than the integral because $r$ is concave down on $(0,12)$, so $r'$ is decreasing. For a decreasing function, right Riemann sums underestimate the definite integral."
             }
+          ],
+          "common_traps": [
+            "Saying 'greater than' — for a decreasing integrand, right Riemann sums underestimate"
           ]
         }
       ]
