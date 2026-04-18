@@ -33,10 +33,10 @@ const ICONS: Record<string, {
     ),
   },
   'ap-world-history': {
-    colors: ['#3b82f6', '#eab308', '#fde68a'],
-    lightColors: ['#1d4ed8', '#a16207', '#78350f'],
-    glow: '#3b82f6',
-    lightGlow: '#1d4ed8',
+    colors: ['#5bb8f5', '#2d6a4f', '#a8d5f5'],
+    lightColors: ['#2196c4', '#1a5c38', '#7ec8e3'],
+    glow: '#5bb8f5',
+    lightGlow: '#2196c4',
     render: (c, gid) => (
       <>
         <circle cx="40" cy="34" r="22" fill={`url(#${gid})`} />
