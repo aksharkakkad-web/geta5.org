@@ -12,8 +12,15 @@ function getCallCost(strictness: GradingStrictness): number {
   return strictness === 'strict' ? 3 : 2
 }
 
-function getModelForStrictness(strictness: GradingStrictness) {
-  return strictness === 'strict' ? openai('gpt-4o') : openai('gpt-4o-mini')
+function getModelForStrictness(_strictness: GradingStrictness) {
+  // All tiers use the same model (gpt-4o). Tier separation comes from the
+  // grading PROMPT (STRICT/MODERATE/LIGHT blocks with different rigor and
+  // tone directives), not from model capability. This produces a consistent
+  // ~1 point spread across tiers on borderline responses because the same
+  // reasoning engine applies different criteria, rather than a weaker model
+  // missing things a stronger one catches.
+  // Strict additionally runs a two-pass auditor that only downgrades scores.
+  return openai('gpt-4o')
 }
 
 function isBlankResponse(text: unknown): boolean {

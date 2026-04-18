@@ -414,8 +414,25 @@ EVIDENCE (3pts tiered):
   1pt: Names one relevant piece of evidence (e.g., "The First Amendment")
   2pts: Uses one specific piece of evidence to SUPPORT the thesis (e.g., "The First Amendment protects free speech, which allows citizens to criticize the government — a check on tyranny")
   3pts: Uses TWO specific pieces of evidence supporting the thesis, at least one from the listed foundational documents
-REBUTTAL (1pt) — EARNS: "Critics argue that judicial review gives unelected judges too much power, but the system of checks and balances ensures that constitutional amendments can override court decisions." — Acknowledges opposing view AND refutes it.
-REBUTTAL (1pt) — DOES NOT EARN: "Some people disagree with this." — Acknowledges opposition without refuting.`,
+REBUTTAL (1pt) — THIS IS THE MOST MIS-GRADED ROW. Read carefully.
+
+EARNS — student describes the opposing view AND then REFUTES, REBUTS, OR CONCEDES-and-REAFFIRMS it:
+  (refute): "Critics argue judicial review gives unelected judges too much power, BUT the system of checks and balances ensures constitutional amendments can override court decisions." — Acknowledges opposing view AND shows why it fails.
+  (concede + reaffirm): "Brutus 1 warned expanded national power would hurt states. This concern has merit — states have lost some autonomy. HOWEVER, federalism still reserves significant powers to states via the 10th Amendment and policy areas like education, so the benefits of uniform national policy outweigh the loss." — Acknowledges opposing view, concedes partial truth, then shows why the original thesis still stands.
+
+DOES NOT EARN — "validates the concern" without rebutting:
+  WRONG (validates, doesn't refute): "In Brutus 1, the author argues a strong central government could take away rights from states. This is an important concern because if the national government has too much power, it might ignore what states want." — This AGREES with the opposing view. No rebuttal, no concession+reaffirmation. 0 pts.
+  WRONG (acknowledges without engaging): "Some people disagree with this." or "There are arguments on both sides." — Mere acknowledgment. 0 pts.
+  WRONG (restates thesis without addressing opposition): "Some argue expanded power is bad, but I believe it helps." — No engagement with the specific opposing argument. 0 pts.
+
+CRITICAL DISTINCTION — the failure mode: students commonly describe the opposing view and then say "this is an important concern" or "this is a valid point" or similar VALIDATION language, then move on without engaging. This is AGREEMENT, not rebuttal. Do NOT award this row in that case.
+
+CHECKLIST for Row D:
+1. Is an alternate/opposing perspective DESCRIBED (with specific claim or source)?
+2. Does the student then REBUT it (show it's wrong), REFUTE it (counter with logic/evidence), or CONCEDE it + REAFFIRM the thesis (show why thesis still stands despite the concern)?
+3. Both 1 AND 2 must be true. If only (1), award 0.
+
+Also verify: Row D cannot earn if Row A (thesis) = 0. This is enforced server-side regardless.`,
 
   'multi_part_math': `MATH FRQ CALIBRATION:
 SETUP POINT (1pt) — EARNS: Shows the correct formula/integral/equation with appropriate notation. The setup alone earns the point even if the final computation has errors.
@@ -439,7 +456,20 @@ ARGUMENTATION (2pt tier):
 
 // ─── Strict Mode Blocks ───────────────────────────────────────────────────────
 
-const STRICT_MODE_BLOCK = `STRICT MODE: You are grading as a rigorous AP reader preparing a student for the real exam. Do not award sympathy points. Do not credit vague or hand-wavy answers. Do not accept "the student probably meant X" — grade what they literally wrote. If the student's words match the required elements but are in the wrong context (e.g., they defined a term without applying it to the scenario), award 0.
+const STRICT_MODE_BLOCK = `STRICT MODE: You are grading as a rigorous AP reader preparing a student for the real exam.
+
+RIGOR APPLIES TO:
+- Evidence rows: demand specificity — vague references to events without named people/dates/policies fail
+- Reasoning rows: demand explicit causal/logical connection between evidence and claim — restating evidence is not reasoning
+- Rebuttal/refutation rows: demand that the student actually REFUTES or rebuts the opposing view — merely describing or validating it fails
+- Sourcing/HAPP rows: demand explanation of HOW point-of-view/purpose/audience/situation affects document meaning — mere identification fails
+- Complexity/sophistication rows: demand genuine nuance (multiple perspectives, cross-period connections, acknowledged tensions) — restating thesis does not qualify
+
+RIGOR DOES NOT APPLY TO THESIS/CLAIM ROWS:
+Per official AP rubric guidance, thesis is graded GENEROUSLY even in strict mode. If a student takes a position and provides ANY reason (however simple), award the thesis point. A hedged "probably helped more because..." with a single reason still earns. Do NOT zero a thesis for lacking sophistication, being short, or using informal language — those are not rubric criteria. The AP rubric explicitly rewards clarity and defensibility, not complexity. Zeroing a valid thesis wrongly cascades (enforceDependencies server-side auto-zeros dependent rows), so read thesis rows carefully before assigning 0.
+
+DO NOT AWARD SYMPATHY POINTS on evidence, reasoning, rebuttal, sourcing, or complexity rows. Grade what the student literally wrote. If student words match rubric elements but in the wrong context (e.g., defined a term without applying it), award 0.
+
 SUGGESTION TONE (strict): Be clinical and precise. Do not sugarcoat. State exactly why the point was not earned and what the rubric required. Use language like "This does not earn the point because..." or "The rubric requires X — the response provided Y, which is insufficient because..." Show the correct approach without hedging.`
 
 const STRICT_CALIBRATION = `CALIBRATION EXAMPLES (strict mode):
@@ -486,9 +516,30 @@ IMPORTANT BALANCE: While you start at 0, you must also be FAIR. Real AP readers 
   const strictnessBlock = strictness === 'strict'
     ? `${STRICT_MODE_BLOCK}\n\n${STRICT_CALIBRATION}`
     : strictness === 'light'
-    ? `LIGHT MODE: Give benefit of the doubt on partially correct reasoning. Award points if the student demonstrates understanding even with imprecise language. Focus feedback on what was done right.
+    ? `LIGHT MODE: Grade as an encouraging teacher focused on student growth. Apply these tier-specific lenient rules:
+
+- EVIDENCE tier rows (including tiered evidence like Row B b1/b2/b3): Award the highest tier the student attempted. If student uses two relevant pieces of evidence roughly connected to thesis, award tier 3 even if connection is informal.
+- REBUTTAL/REFUTATION rows: Give benefit of the doubt. If student describes an opposing perspective and acknowledges its existence (even without explicit refutation), award the point. "This is an important concern" counts as engagement in light mode.
+- REASONING rows: Award if student makes any causal connection, even implicit. Do not demand explicit "because X → Y" structure.
+- HAPP/SOURCING rows: Award if student mentions purpose, audience, or historical situation near a document reference. Do not demand deep explanation.
+- COMPLEXITY rows: Award if any secondary perspective or tension appears in the response.
+
+Goal in light mode: encourage attempts. A thoughtful but imperfect response should earn most available points.
+
 SUGGESTION TONE (light): Be encouraging and constructive. Lead with what the student did well. Frame improvements as "next time, try adding..." or "you're close — to strengthen this, consider..." Never say "you failed to" or "this does not earn the point."`
-    : `MODERATE MODE: Follow the rubric criteria as written — no extra generosity, no extra harshness. Award points only when criteria are clearly met.
+    : `MODERATE MODE: Grade as a calibrated AP reader following the official scoring guidelines as written — no extra generosity, no extra harshness. This is the baseline mode real AP readers use.
+
+APPLY THE RUBRIC LITERALLY:
+- REBUTTAL/REFUTATION rows: Require actual rebuttal, refutation, or concession-plus-reaffirmation. Describing the opposing view and saying "this is a concern" without engaging does NOT earn — that is agreement, not rebuttal. This is a common failure mode: the response seems balanced but doesn't actually push back.
+- EVIDENCE tier rows: Tier 3 requires TWO SPECIFIC pieces supporting thesis (not just topically relevant). At least one must be from the listed foundational documents when specified.
+- REASONING rows: Require the student to explain HOW the evidence supports the claim, using causation, comparison, classification, or process. Restating the evidence is not reasoning.
+- HAPP/SOURCING rows: Require the student to EXPLAIN how or why the purpose/audience/situation/point-of-view affects the document's meaning for their argument. Mere identification fails.
+- COMPLEXITY rows: Require genuine nuance — acknowledged tensions, multiple themes, or cross-period connections. Not just a second idea.
+
+Thesis/Claim rows are graded GENEROUSLY in moderate mode (per the official rubric): if student takes a position AND provides reasoning (however simple), award the thesis point.
+
+Goal in moderate mode: match what an average AP reader would award — not adversarial, but not forgiving on rubric-specific failure modes either.
+
 SUGGESTION TONE (moderate): Be balanced and direct. Acknowledge what was done correctly, then clearly state what was missing. Use neutral language like "to earn this point, the response needed..." or "the rubric requires X, but the response only provided Y."`
 
   const generalRules = `GENERAL RULES:
