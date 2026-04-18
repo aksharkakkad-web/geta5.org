@@ -45,9 +45,25 @@ function sanitizeGrading(question: FRQ, raw: FRQGradingResult): FRQGradingResult
   const rawByLetter = new Map(rawParts.map(p => [p.letter, p]))
 
   // Helper: build a zero-credit point_result from a rubric scoring_point.
-  // Used when the LLM skipped the part — the UI (FRQBreakdownEssay) renders
-  // point_results only, so a part without them renders as nothing.
-  function synthesizeZeroPointResult(sp: { point_id: string; point_value: number; description: string }): FRQGradingPointResult {
+  // Used when the LLM skipped this specific point_id. Instead of a generic
+  // "please retry" message, surface the rubric criterion and an example of
+  // what an earning response looks like — so the student still learns what
+  // was needed even when the grader was incomplete.
+  function synthesizeZeroPointResult(
+    sp: { point_id: string; point_value: number; description: string; alternatives?: { required_elements: string[]; correct_example: string }[] }
+  ): FRQGradingPointResult {
+    const firstAlt = sp.alternatives?.[0]
+    const requiredElements = firstAlt?.required_elements?.filter(Boolean) ?? []
+    const correctExample = firstAlt?.correct_example?.trim() ?? ''
+
+    const reasoning = requiredElements.length > 0
+      ? `This point is earned when the response: ${requiredElements.join('; ')}.`
+      : `This rubric row requires: ${sp.description}`
+
+    const suggestion = correctExample
+      ? `To earn this point, your response would need to meet the criterion above. Example of an earning response: "${correctExample}"`
+      : `Your response did not demonstrate the criterion for this row. Review the rubric description above and revise to address it directly.`
+
     return {
       point_id: sp.point_id,
       description: sp.description,
@@ -55,8 +71,8 @@ function sanitizeGrading(question: FRQ, raw: FRQGradingResult): FRQGradingResult
       max: sp.point_value,
       confidence: 0.5,
       sub_results: [],
-      reasoning: 'The grader did not return a breakdown for this rubric row. Please retry grading for a detailed evaluation.',
-      suggestion: 'Adi\'s detailed evaluation for this row is unavailable — retry grading to see specific feedback on what earned or missed this point.',
+      reasoning,
+      suggestion,
     }
   }
 
@@ -300,6 +316,29 @@ function verifyEvidence(grading: FRQGradingResult, responses: Record<string, str
   return { ...grading, parts, total_score }
 }
 
+// Detect which rubric point_ids the LLM's raw response did not return.
+// The LLM sometimes skips parts it scores as all-zero, which strips detailed
+// feedback from the UI. Used to trigger a focused completeness retry.
+function detectMissingPointIds(question: FRQ, parsed: FRQGradingResult): string[] {
+  const gradableParts = question.parts.filter(p => !p.requires_drawing)
+  const returned = new Set<string>()
+  const rawParts = Array.isArray(parsed.parts) ? parsed.parts : []
+  for (const rp of rawParts) {
+    const pointResults = Array.isArray(rp.point_results) ? rp.point_results : []
+    for (const pr of pointResults) {
+      if (typeof pr.point_id === 'string' && pr.point_id) returned.add(pr.point_id)
+    }
+  }
+  const missing: string[] = []
+  for (const p of gradableParts) {
+    const scoringPoints = Array.isArray(p.scoring_points) ? p.scoring_points : []
+    for (const sp of scoringPoints) {
+      if (!returned.has(sp.point_id)) missing.push(sp.point_id)
+    }
+  }
+  return missing
+}
+
 function getSupabaseAdmin() {
   return createAdminClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -469,10 +508,11 @@ export async function POST(req: Request) {
 
     // Parse the primary grading result
     let grading: FRQGradingResult
+    let parsedPrimary: FRQGradingResult
     try {
       const cleanText = result.text.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim()
-      const parsed = JSON.parse(cleanText) as FRQGradingResult
-      grading = sanitizeGrading(question, parsed)
+      parsedPrimary = JSON.parse(cleanText) as FRQGradingResult
+      grading = sanitizeGrading(question, parsedPrimary)
     } catch {
       console.error('Failed to parse FRQ grading response:', result.text)
       await admin
@@ -485,6 +525,48 @@ export async function POST(req: Request) {
         submissionId: submission.id,
         message: 'Grading encountered an issue. Adi will retry shortly.',
       })
+    }
+
+    // Completeness retry: if the LLM skipped any rubric point_ids, re-call
+    // with a focused prompt that names the missing ones. LLMs commonly skip
+    // all-zero rows on weak essays, which strips detailed feedback. One
+    // retry typically recovers the missing rows.
+    const missingPointIds = detectMissingPointIds(question, parsedPrimary)
+    if (missingPointIds.length > 0) {
+      try {
+        const retrySystem = buildFRQGradingPrompt(question, responses, validStrictness)
+        const missingList = missingPointIds.join(', ')
+        const retryUserText = `Your previous grading attempt was INCOMPLETE. You did not return point_results for these rubric point_ids: ${missingList}. Grade the student's response AGAIN with a COMPLETE JSON output that includes EVERY rubric part and EVERY point_id — even those that earn 0. Pay special attention to the missing point_ids listed above; they must each appear in your output with a real reasoning explanation (not a generic "not evaluated" message). Respond with the JSON scoring object only.`
+        const retryUserContent = stimulusImageBuffer
+          ? [
+              { type: 'image' as const, image: stimulusImageBuffer },
+              { type: 'text' as const, text: retryUserText },
+            ]
+          : retryUserText
+
+        const retryResult = await generateText({
+          model: getModelForStrictness(validStrictness),
+          system: retrySystem,
+          messages: [{ role: 'user', content: retryUserContent }],
+          maxOutputTokens: 3072,
+          temperature: 0,
+        })
+        const cleanRetry = retryResult.text.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim()
+        const parsedRetry = JSON.parse(cleanRetry) as FRQGradingResult
+
+        // Only replace primary if the retry is MORE complete (fewer missing ids).
+        const retryMissing = detectMissingPointIds(question, parsedRetry)
+        if (retryMissing.length < missingPointIds.length) {
+          grading = sanitizeGrading(question, parsedRetry)
+          console.log('FRQ completeness retry improved response', {
+            question_id: question.id,
+            primary_missing: missingPointIds.length,
+            retry_missing: retryMissing.length,
+          })
+        }
+      } catch (retryErr) {
+        console.warn('FRQ completeness retry failed, using primary grading', retryErr)
+      }
     }
 
     // Two-pass grading for strict: auditor only lowers scores, never raises them.

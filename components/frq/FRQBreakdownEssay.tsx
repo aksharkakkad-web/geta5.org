@@ -4,7 +4,7 @@ import React, { useCallback, useRef } from 'react'
 import FRQRubricRow from '@/components/frq/FRQRubricRow'
 import FRQEvidenceHighlight from '@/components/frq/FRQEvidenceHighlight'
 import type { EvidenceSpan } from '@/components/frq/FRQEvidenceHighlight'
-import type { FRQGradingResult, FRQGradingPointResult, GradingStrictness, FRQ } from '@/utils/frqSession'
+import type { FRQGradingResult, FRQGradingPart, FRQGradingPointResult, GradingStrictness, FRQ } from '@/utils/frqSession'
 
 interface FRQBreakdownEssayProps {
   question: FRQ
@@ -275,16 +275,35 @@ export default function FRQBreakdownEssay({
           }}
         >
           {allPointResults.length > 0 ? (
-            allPointResults.map(pr => (
-              <FRQRubricRow
-                key={pr.point_id}
-                pointResult={pr}
-                strictness={strictness}
-                onScrollToEvidence={handleScrollToEvidence}
-                submissionId={submissionId}
-                forceExpanded={!pr.earned && strictness === 'strict'}
-              />
-            ))
+            result.parts.map(part => {
+              const partPointResults = part.point_results ?? []
+              // Single-row part: render FRQRubricRow directly (unchanged behavior)
+              if (partPointResults.length === 1) {
+                const pr = partPointResults[0]
+                return (
+                  <FRQRubricRow
+                    key={part.letter}
+                    pointResult={pr}
+                    strictness={strictness}
+                    onScrollToEvidence={handleScrollToEvidence}
+                    submissionId={submissionId}
+                    forceExpanded={!pr.earned && strictness === 'strict'}
+                  />
+                )
+              }
+              // No point_results for this part (rare — shouldn't happen after sanitizer)
+              if (partPointResults.length === 0) return null
+              // Multi-tier part: render Part header + nested sub-rows
+              return (
+                <TieredPartGroup
+                  key={part.letter}
+                  part={part}
+                  strictness={strictness}
+                  onScrollToEvidence={handleScrollToEvidence}
+                  submissionId={submissionId}
+                />
+              )
+            })
           ) : (
             // Fallback: show per-part summary rows when no point_results
             result.parts.map(part => {
@@ -338,6 +357,127 @@ export default function FRQBreakdownEssay({
             })
           )}
         </div>
+      </div>
+    </div>
+  )
+}
+
+// ─── Tiered Part Group ───────────────────────────────────────────────────────
+// Used for rubric parts with multiple scoring_points (e.g., Arg Essay Row B
+// with b1/b2/b3, SCOTUS Comparison Part B, AP Psych EBQ B(ii)/C(ii), AAQ F).
+// Renders a Part header + indented sub-rows showing each tier's scoring.
+
+interface TieredPartGroupProps {
+  part: FRQGradingPart
+  strictness: GradingStrictness
+  onScrollToEvidence: (pointId: string) => void
+  submissionId?: string
+}
+
+function TieredPartGroup({
+  part,
+  strictness,
+  onScrollToEvidence,
+  submissionId,
+}: TieredPartGroupProps) {
+  const pointResults = part.point_results ?? []
+  const fullyEarned = part.earned === part.max
+  const noneEarned = part.earned === 0
+
+  // Part-level accent: green if all tiers met, amber if some, red if none
+  const accentColor = fullyEarned
+    ? 'rgba(99,102,241,1)'
+    : noneEarned
+    ? 'rgba(245,158,11,1)'
+    : 'rgba(139,92,246,1)' // partial = purple
+
+  const badgeBg = fullyEarned
+    ? 'rgba(99,102,241,0.12)'
+    : noneEarned
+    ? 'rgba(245,158,11,0.10)'
+    : 'rgba(139,92,246,0.10)'
+
+  const badgeColor = fullyEarned ? '#818cf8' : noneEarned ? '#fbbf24' : '#a78bfa'
+
+  return (
+    <div
+      style={{
+        borderBottom: '1px solid rgba(255,255,255,0.04)',
+        borderLeft: `2px solid ${accentColor}`,
+      }}
+    >
+      {/* Part header row */}
+      <div
+        style={{
+          padding: '12px 20px 12px 18px',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '12px',
+          background: 'rgba(255,255,255,0.02)',
+          borderBottom: '1px solid rgba(255,255,255,0.03)',
+        }}
+      >
+        {/* Part letter badge */}
+        <div
+          aria-hidden="true"
+          style={{
+            width: '22px',
+            height: '22px',
+            borderRadius: 'var(--radius-sm)',
+            background: badgeBg,
+            color: badgeColor,
+            fontSize: '0.75rem',
+            fontWeight: 700,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexShrink: 0,
+          }}
+        >
+          {part.letter.toUpperCase()}
+        </div>
+
+        {/* Part label */}
+        <span
+          style={{
+            flex: 1,
+            fontSize: '0.8125rem',
+            fontWeight: 600,
+            color: 'var(--text-primary)',
+            letterSpacing: '0.01em',
+          }}
+        >
+          Part {part.letter.toUpperCase()} — Tiered Scoring
+        </span>
+
+        {/* Aggregate score badge */}
+        <span
+          style={{
+            background: badgeBg,
+            color: badgeColor,
+            padding: '3px 10px',
+            borderRadius: 'var(--radius-sm)',
+            fontSize: '0.75rem',
+            fontWeight: 700,
+            flexShrink: 0,
+          }}
+        >
+          {part.earned}/{part.max}
+        </span>
+      </div>
+
+      {/* Tier sub-rows — rendered with left indentation to visually nest */}
+      <div style={{ paddingLeft: '16px' }}>
+        {pointResults.map(pr => (
+          <FRQRubricRow
+            key={pr.point_id}
+            pointResult={pr}
+            strictness={strictness}
+            onScrollToEvidence={onScrollToEvidence}
+            submissionId={submissionId}
+            forceExpanded={!pr.earned && strictness === 'strict'}
+          />
+        ))}
       </div>
     </div>
   )
