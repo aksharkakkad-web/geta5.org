@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useRef } from 'react'
+import { useTheme } from 'next-themes'
 
 interface SubjectIconProps {
   subject: string
@@ -8,12 +8,16 @@ interface SubjectIconProps {
 
 const ICONS: Record<string, {
   colors: [string, string, string]
+  lightColors: [string, string, string]
   glow: string
+  lightGlow: string
   render: (c: [string, string, string], gid: string) => React.JSX.Element
 }> = {
   'ap-psychology': {
     colors: ['#f0abfc', '#d946ef', '#7e22ce'],
+    lightColors: ['#7e22ce', '#6b21a8', '#4c1d95'],
     glow: '#d946ef',
+    lightGlow: '#6b21a8',
     render: (c, gid) => (
       <>
         <path d="M28 18c-2-8 8-14 16-13 6 1 10 6 10 12 0 4-1 8-4 11-2 2-4 5-5 8h-8c-1-3-2-5-4-7-3-3-6-6-5-11z" fill={`url(#${gid})`} />
@@ -30,7 +34,9 @@ const ICONS: Record<string, {
   },
   'ap-world-history': {
     colors: ['#3b82f6', '#eab308', '#fde68a'],
+    lightColors: ['#1d4ed8', '#a16207', '#78350f'],
     glow: '#3b82f6',
+    lightGlow: '#1d4ed8',
     render: (c, gid) => (
       <>
         <circle cx="40" cy="34" r="22" fill={`url(#${gid})`} />
@@ -46,7 +52,9 @@ const ICONS: Record<string, {
   },
   'ap-government': {
     colors: ['#93c5fd', '#3b82f6', '#dbeafe'],
+    lightColors: ['#1d4ed8', '#1e3a8a', '#1e40af'],
     glow: '#60a5fa',
+    lightGlow: '#1d4ed8',
     render: (c, gid) => (
       <>
         <rect x="16" y="44" width="48" height="4" rx="1" fill={`url(#${gid})`} />
@@ -62,7 +70,9 @@ const ICONS: Record<string, {
   },
   'ap-calculus-ab': {
     colors: ['#99f6e4', '#14b8a6', '#5eead4'],
+    lightColors: ['#0f766e', '#134e4a', '#0d9488'],
     glow: '#14b8a6',
+    lightGlow: '#0f766e',
     render: (c, gid) => (
       <>
         <path d="M32 12c0-2 2-4 4-4s3 1 3 3c0 3-2 6-2 12s-1 9-1 12c0 2-1 4-3 5s-4 0-4-2 2-3 2-5c0-3 1-6 1-12s1-9 0-9z" fill={`url(#${gid})`} />
@@ -75,7 +85,9 @@ const ICONS: Record<string, {
   },
   'ap-precalculus': {
     colors: ['#c7d2fe', '#818cf8', '#a5b4fc'],
+    lightColors: ['#4338ca', '#3730a3', '#4f46e5'],
     glow: '#818cf8',
+    lightGlow: '#4338ca',
     render: (c, gid) => (
       <>
         <rect x="14" y="12" width="52" height="40" rx="2" fill="none" stroke={c[2]} strokeWidth="0.5" opacity={0.15} />
@@ -90,7 +102,9 @@ const ICONS: Record<string, {
   },
   'ap-csp': {
     colors: ['#86efac', '#22c55e', '#4ade80'],
+    lightColors: ['#15803d', '#14532d', '#166534'],
     glow: '#22c55e',
+    lightGlow: '#15803d',
     render: (c, gid) => (
       <>
         <rect x="14" y="10" width="52" height="36" rx="3" fill="#1a1a2e" stroke={c[1]} strokeWidth="1" opacity={0.6} />
@@ -109,23 +123,19 @@ const ICONS: Record<string, {
   },
   'ap-calculus-bc': {
     colors: ['#f9a8d4', '#ec4899', '#fce7f3'],
+    lightColors: ['#be185d', '#9d174d', '#db2777'],
     glow: '#ec4899',
+    lightGlow: '#be185d',
     render: (c, gid) => (
       <>
-        {/* Large Sigma */}
         <text x="11" y="44" fill={`url(#${gid})`} fontSize="30" fontWeight="700" fontFamily="Georgia, serif">Σ</text>
-        {/* n=0 subscript */}
         <text x="13" y="53" fill={c[0]} fontSize="7" fontFamily="Georgia, serif" opacity={0.85}>n=0</text>
-        {/* ∞ superscript */}
         <text x="16" y="19" fill={c[0]} fontSize="8" fontFamily="Georgia, serif" opacity={0.85}>∞</text>
-        {/* Baseline */}
         <line x1="43" y1="47" x2="72" y2="47" stroke={c[2]} strokeWidth="1" opacity={0.45} />
-        {/* Converging arches — each successive term shorter */}
         <path d="M44 47 Q47.5 18 51 47" fill="none" stroke={`url(#${gid})`} strokeWidth="2.5" strokeLinecap="round" />
         <path d="M52 47 Q55 27 58 47" fill="none" stroke={c[0]} strokeWidth="2" strokeLinecap="round" opacity={0.8} />
         <path d="M59 47 Q61.5 34 64 47" fill="none" stroke={c[0]} strokeWidth="1.5" strokeLinecap="round" opacity={0.6} />
         <path d="M65 47 Q66.5 39 68 47" fill="none" stroke={c[0]} strokeWidth="1" strokeLinecap="round" opacity={0.4} />
-        {/* Trailing dots */}
         <circle cx="70" cy="47" r="1.2" fill={c[0]} opacity={0.35} />
         <circle cx="73" cy="47" r="0.8" fill={c[0]} opacity={0.2} />
       </>
@@ -133,7 +143,9 @@ const ICONS: Record<string, {
   },
   'ap-chemistry': {
     colors: ['#fb923c', '#ea580c', '#fef3c7'],
+    lightColors: ['#c2410c', '#7c2d12', '#9a3412'],
     glow: '#ea580c',
+    lightGlow: '#c2410c',
     render: (c, gid) => (
       <>
         <path d="M34 20 L34 30 L22 46 C20 49 22 52 26 52 L54 52 C58 52 60 49 58 46 L46 30 L46 20" fill="none" stroke="#94a3b8" strokeWidth="1.5" opacity={0.5} />
@@ -152,7 +164,9 @@ const ICONS: Record<string, {
 
 const DEFAULT_ICON = {
   colors: ['#818cf8', '#6366f1', '#a5b4fc'] as [string, string, string],
+  lightColors: ['#4338ca', '#3730a3', '#4f46e5'] as [string, string, string],
   glow: '#6366f1',
+  lightGlow: '#4338ca',
   render: (c: [string, string, string], gid: string) => (
     <rect x="20" y="16" width="40" height="32" rx="8" fill={`url(#${gid})`} />
   ),
@@ -160,22 +174,13 @@ const DEFAULT_ICON = {
 
 export function SubjectIcon({ subject, size = 56 }: SubjectIconProps) {
   const icon = ICONS[subject] ?? DEFAULT_ICON
-  const ref = useRef<SVGSVGElement>(null)
+  const { resolvedTheme } = useTheme()
+  const colors = resolvedTheme === 'dark' ? icon.colors : icon.lightColors
+  const glow = resolvedTheme === 'dark' ? icon.glow : icon.lightGlow
   const gid = `grad-${subject}`
-
-  useEffect(() => {
-    const el = ref.current
-    if (!el || typeof window === 'undefined') return
-    const onScroll = () => {
-      el.style.transform = `perspective(400px) rotateY(${window.scrollY * 0.08}deg)`
-    }
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
 
   return (
     <svg
-      ref={ref}
       width={size}
       height={size}
       viewBox="0 0 80 64"
@@ -183,17 +188,17 @@ export function SubjectIcon({ subject, size = 56 }: SubjectIconProps) {
       xmlns="http://www.w3.org/2000/svg"
       className="subject-icon"
       style={{
-        filter: `drop-shadow(0 0 8px ${icon.glow}66) drop-shadow(0 0 20px ${icon.glow}33)`,
+        filter: `drop-shadow(0 0 8px ${glow}66) drop-shadow(0 0 20px ${glow}33)`,
         willChange: 'transform',
       }}
     >
       <defs>
         <linearGradient id={gid} x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor={icon.colors[0]} />
-          <stop offset="100%" stopColor={icon.colors[1]} />
+          <stop offset="0%" stopColor={colors[0]} />
+          <stop offset="100%" stopColor={colors[1]} />
         </linearGradient>
       </defs>
-      {icon.render(icon.colors, gid)}
+      {icon.render(colors, gid)}
     </svg>
   )
 }

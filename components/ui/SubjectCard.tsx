@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useCallback, useRef } from 'react'
+import { useTheme } from 'next-themes'
 import { SubjectIcon } from '@/components/3d/SubjectIcon'
 
 interface SubjectCardProps {
@@ -10,46 +11,62 @@ interface SubjectCardProps {
 }
 
 const SUBJECT_THEMES: Record<string, {
-  gradient: string
+  dark: string
+  light: string
   emoji: string
 }> = {
   'ap-psychology': {
-    gradient: 'linear-gradient(135deg, #1e1035 0%, #2d1b69 50%, #1a0f3d 100%)',
+    dark: 'linear-gradient(135deg, #1e1035 0%, #2d1b69 50%, #1a0f3d 100%)',
+    light: 'linear-gradient(135deg, #ede9fe 0%, #ddd6fe 50%, #c4b5fd 100%)',
     emoji: '🧠',
   },
   'ap-world-history': {
-    gradient: 'linear-gradient(135deg, #1a1200 0%, #3d2800 50%, #1a0e00 100%)',
+    dark: 'linear-gradient(135deg, #1a1200 0%, #3d2800 50%, #1a0e00 100%)',
+    light: 'linear-gradient(135deg, #fef9e7 0%, #fef3c7 50%, #fde68a 100%)',
     emoji: '🌍',
   },
   'ap-government': {
-    gradient: 'linear-gradient(135deg, #001a35 0%, #002d5c 50%, #001028 100%)',
+    dark: 'linear-gradient(135deg, #001a35 0%, #002d5c 50%, #001028 100%)',
+    light: 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 50%, #93c5fd 100%)',
     emoji: '🏛️',
   },
   'ap-calculus-ab': {
-    gradient: 'linear-gradient(135deg, #001a1a 0%, #003333 50%, #001212 100%)',
+    dark: 'linear-gradient(135deg, #001a1a 0%, #003333 50%, #001212 100%)',
+    light: 'linear-gradient(135deg, #ccfbf1 0%, #99f6e4 50%, #5eead4 100%)',
     emoji: '∫',
   },
   'ap-precalculus': {
-    gradient: 'linear-gradient(135deg, #0d1a2d 0%, #162844 50%, #080f1a 100%)',
+    dark: 'linear-gradient(135deg, #0d1a2d 0%, #162844 50%, #080f1a 100%)',
+    light: 'linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 50%, #a5b4fc 100%)',
     emoji: '📐',
   },
   'ap-csp': {
-    gradient: 'linear-gradient(135deg, #001a0d 0%, #003320 50%, #000f08 100%)',
+    dark: 'linear-gradient(135deg, #001a0d 0%, #003320 50%, #000f08 100%)',
+    light: 'linear-gradient(135deg, #dcfce7 0%, #bbf7d0 50%, #86efac 100%)',
     emoji: '💻',
   },
   'ap-chemistry': {
-    gradient: 'linear-gradient(135deg, #1a0a00 0%, #3d1500 50%, #120600 100%)',
+    dark: 'linear-gradient(135deg, #1a0a00 0%, #3d1500 50%, #120600 100%)',
+    light: 'linear-gradient(135deg, #ffedd5 0%, #fed7aa 50%, #fdba74 100%)',
     emoji: '⚗️',
+  },
+  'ap-calculus-bc': {
+    dark: 'linear-gradient(135deg, #0a001a 0%, #1a0035 50%, #06000f 100%)',
+    light: 'linear-gradient(135deg, #f5f3ff 0%, #ede9fe 50%, #ddd6fe 100%)',
+    emoji: '∮',
   },
 }
 
 const DEFAULT_THEME = {
-  gradient: 'linear-gradient(135deg, #111 0%, #222 100%)',
+  dark: 'linear-gradient(135deg, #111 0%, #222 100%)',
+  light: 'linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%)',
   emoji: '📚',
 }
 
 export function SubjectCard({ name, slug, index = 0 }: SubjectCardProps) {
-  const theme = SUBJECT_THEMES[slug] ?? DEFAULT_THEME
+  const subjectTheme = SUBJECT_THEMES[slug] ?? DEFAULT_THEME
+  const { resolvedTheme } = useTheme()
+  const gradient = resolvedTheme === 'dark' ? subjectTheme.dark : subjectTheme.light
   const glowRef = useRef<HTMLDivElement>(null)
 
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
@@ -71,10 +88,10 @@ export function SubjectCard({ name, slug, index = 0 }: SubjectCardProps) {
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         style={{
-          background: 'rgba(255, 255, 255, 0.03)',
+          background: 'var(--bg-card)',
           backdropFilter: 'blur(12px)',
           WebkitBackdropFilter: 'blur(12px)',
-          border: '1px solid rgba(255, 255, 255, 0.06)',
+          border: '1px solid var(--border-medium)',
           borderRadius: 'var(--radius-lg)',
           overflow: 'hidden',
           cursor: 'pointer',
@@ -106,7 +123,7 @@ export function SubjectCard({ name, slug, index = 0 }: SubjectCardProps) {
         <div
           style={{
             height: '100px',
-            background: theme.gradient,
+            background: gradient,
             display: 'flex',
             alignItems: 'center',
             padding: '0 20px',
