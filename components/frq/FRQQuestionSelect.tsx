@@ -1,12 +1,13 @@
 'use client'
 
 import React, { useState, useMemo } from 'react'
-import type { FRQ, FRQType } from '@/utils/frqSession'
+import type { FRQ, FRQType, FRQCompletion } from '@/utils/frqSession'
 import InlineMath from '@/components/InlineMath'
 
 interface FRQQuestionSelectProps {
   questions: FRQ[]
   subject: string
+  completions: Record<string, FRQCompletion>
   onSelect: (q: FRQ) => void
 }
 
@@ -102,6 +103,7 @@ const MATH_SUBJECTS = new Set(['ap-calculus-ab', 'ap-precalculus', 'ap-chemistry
 export default function FRQQuestionSelect({
   questions,
   subject,
+  completions,
   onSelect,
 }: FRQQuestionSelectProps) {
   const [activeFilter, setActiveFilter] = useState<string>('all')
@@ -177,10 +179,7 @@ export default function FRQQuestionSelect({
         {filtered.map(q => {
           const typeColors = getTypeChipColors(q.frq_type)
           const isHovered = hoveredId === q.id
-          const unitList = q.related_units.length > 0
-            ? `Units ${q.related_units.join(', ')}`
-            : 'All Units'
-          const partCount = q.parts.length
+          const completion = completions[q.id] ?? null
 
           return (
             <div
@@ -197,15 +196,22 @@ export default function FRQQuestionSelect({
               onMouseEnter={() => setHoveredId(q.id)}
               onMouseLeave={() => setHoveredId(null)}
               style={{
-                background: 'var(--bg-card)',
-                border: isHovered
-                  ? '1px solid color-mix(in srgb, var(--accent) 40%, transparent)'
-                  : '1px solid var(--bg-border)',
+                background: isHovered ? 'var(--bg-card-hover)' : 'var(--bg-card)',
+                border: completion
+                  ? '1px solid color-mix(in srgb, var(--accent-success) 35%, transparent)'
+                  : isHovered
+                    ? '1px solid color-mix(in srgb, var(--accent) 40%, transparent)'
+                    : '1px solid var(--bg-border)',
+                borderLeft: completion
+                  ? '3px solid var(--accent-success)'
+                  : isHovered
+                    ? '3px solid color-mix(in srgb, var(--accent) 40%, transparent)'
+                    : '3px solid var(--bg-border)',
                 borderRadius: 'var(--radius-lg)',
                 padding: '16px',
+                paddingLeft: '14px',
                 cursor: 'pointer',
                 transition: 'border-color 150ms ease, background 150ms ease',
-                backgroundColor: isHovered ? 'var(--bg-card-hover)' : 'var(--bg-card)',
               }}
             >
               {/* Title row */}
@@ -231,7 +237,7 @@ export default function FRQQuestionSelect({
                   {isMathSubject ? <InlineMath text={q.title} /> : q.title}
                 </span>
 
-                {/* Right side: type chip + year */}
+                {/* Right side: completion badge + type chip + year */}
                 <div
                   style={{
                     display: 'flex',
@@ -240,6 +246,27 @@ export default function FRQQuestionSelect({
                     flexShrink: 0,
                   }}
                 >
+                  {completion && (
+                    <span
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '4px',
+                        fontSize: '0.6875rem',
+                        fontWeight: 600,
+                        padding: '3px 8px',
+                        borderRadius: 'var(--radius-sm)',
+                        background: 'color-mix(in srgb, var(--accent-success) 12%, transparent)',
+                        color: 'var(--accent-success)',
+                        whiteSpace: 'nowrap',
+                      }}
+                    >
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+                        <path d="M1.5 5L4 7.5L8.5 2.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                      {completion.best_score} / {completion.max_score} pts
+                    </span>
+                  )}
                   <span
                     style={{
                       fontSize: '0.6875rem',

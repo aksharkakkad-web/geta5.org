@@ -37,8 +37,10 @@ import {
   getTimedModePreference,
   setTimedModePreference,
   getLastStrictness,
+  loadFRQCompletions,
+  saveFRQCompletion,
 } from '@/utils/frqSession'
-import type { FRQ, FRQGradingResult, GradingStrictness, FRQDraft } from '@/utils/frqSession'
+import type { FRQ, FRQGradingResult, GradingStrictness, FRQDraft, FRQCompletion } from '@/utils/frqSession'
 import { logEvent } from '@/utils/analytics'
 import { lsGet, lsSet, LS_KEYS } from '@/utils/localStorage'
 import { syncStats } from '@/utils/persistence'
@@ -96,6 +98,7 @@ export default function FRQPage({ params }: PageProps) {
   const [timedMode, setTimedMode] = useState(true)
   const [timerStartedAt, setTimerStartedAt] = useState<number | null>(null)
   const [showTimesUp, setShowTimesUp] = useState(false)
+  const [completions, setCompletions] = useState<Record<string, FRQCompletion>>({})
   const timerCancelledRef = useRef(false)
 
 
@@ -160,6 +163,10 @@ export default function FRQPage({ params }: PageProps) {
     }
 
     load()
+  }, [subject])
+
+  useEffect(() => {
+    setCompletions(loadFRQCompletions(subject))
   }, [subject])
 
   useEffect(() => {
@@ -302,6 +309,8 @@ export default function FRQPage({ params }: PageProps) {
         setGradingSubmissionId(data.submissionId ?? undefined)
         setGradingResponses({ ...responses })
         clearFRQDraft(subject)
+        saveFRQCompletion(subject, selectedQuestion.id, data.result.total_score, data.result.max_score, responses)
+        setCompletions(loadFRQCompletions(subject))
         setPhase('results')
 
         // Increment counters
@@ -544,6 +553,7 @@ export default function FRQPage({ params }: PageProps) {
               <FRQQuestionSelect
                 questions={questions}
                 subject={subject}
+                completions={completions}
                 onSelect={handleSelect}
               />
             )}

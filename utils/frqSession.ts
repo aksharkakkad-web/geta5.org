@@ -203,6 +203,37 @@ export function setLastStrictness(s: GradingStrictness): void {
   lsSet('ascendly_frq_strictness', s)
 }
 
+// ─── Completion Tracking ─────────────────────────────────────────────────────
+
+export interface FRQCompletion {
+  best_score: number
+  max_score: number
+}
+
+export function loadFRQCompletions(subject: string): Record<string, FRQCompletion> {
+  return lsGet<Record<string, FRQCompletion>>(LS_KEYS.frqCompletions(subject), {})
+}
+
+export function saveFRQCompletion(
+  subject: string,
+  questionId: string,
+  score: number,
+  maxScore: number,
+  responses: Record<string, string>,
+): void {
+  const hasContent = Object.values(responses).some(r => r.trim().length > 0)
+  if (!hasContent) return
+
+  const existing = loadFRQCompletions(subject)
+  const prev = existing[questionId]
+  if (!prev || score > prev.best_score) {
+    lsSet(LS_KEYS.frqCompletions(subject), {
+      ...existing,
+      [questionId]: { best_score: score, max_score: maxScore },
+    })
+  }
+}
+
 // ─── Layout Helpers ──────────────────────────────────────────────────────────
 
 /** Check if a subject uses math input (shortcuts + KaTeX preview) */

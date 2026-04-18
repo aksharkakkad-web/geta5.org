@@ -50,4 +50,5 @@ export const LS_KEYS = {
   mcqCorrect: 'ascendly_mcq_correct',
   totalSeconds: 'ascendly_total_seconds',
   frqTimedMode: 'ascendly_frq_timed_mode',
+  frqCompletions: (subject: string) => `ascendly_frq_completion_${subject}`,
 } as const
