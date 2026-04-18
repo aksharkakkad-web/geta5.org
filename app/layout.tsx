@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Outfit } from 'next/font/google'
+import { Providers } from '@/components/Providers'
 import './globals.css'
 import { Header } from '@/components/layout/Header'
 import { PageTransition } from '@/components/ui/PageTransition'
@@ -29,19 +30,21 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={outfit.variable}>
+    <html lang="en" className={outfit.variable} suppressHydrationWarning>
       <body style={{ backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)', minHeight: '100dvh', fontFamily: 'var(--font-outfit), -apple-system, BlinkMacSystemFont, sans-serif' }}>
-        <AuthProvider>
-          <AdiProvider>
-            <Header />
-            <main style={{ paddingTop: '56px' }}>
-              <PageTransition>{children}</PageTransition>
-            </main>
-            <AdiBubble />
-            <AdiChatPanel />
-            <ActiveTimeTracker />
-          </AdiProvider>
-        </AuthProvider>
+        <Providers>
+          <AuthProvider>
+            <AdiProvider>
+              <Header />
+              <main style={{ paddingTop: '56px' }}>
+                <PageTransition>{children}</PageTransition>
+              </main>
+              <AdiBubble />
+              <AdiChatPanel />
+              <ActiveTimeTracker />
+            </AdiProvider>
+          </AuthProvider>
+        </Providers>
       </body>
     </html>
   )
