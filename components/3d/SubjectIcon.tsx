@@ -1,5 +1,5 @@
 'use client'
-import { useTheme } from 'next-themes'
+import { useTheme } from '@/contexts/ThemeContext'
 
 interface SubjectIconProps {
   subject: string

@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useState, useEffect, useCallback } from 'react'
-import { useTheme } from 'next-themes'
+import { useTheme } from '@/contexts/ThemeContext'
 import { useScrollDirection } from '@/hooks/useScrollDirection'
 import { useAuth } from '@/contexts/AuthContext'
 

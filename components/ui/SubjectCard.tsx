@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useCallback, useRef } from 'react'
-import { useTheme } from 'next-themes'
+import { useTheme } from '@/contexts/ThemeContext'
 import { SubjectIcon } from '@/components/3d/SubjectIcon'
 
 interface SubjectCardProps {
