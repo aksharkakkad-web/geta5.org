@@ -456,21 +456,71 @@ ARGUMENTATION (2pt tier):
 
 // ─── Strict Mode Blocks ───────────────────────────────────────────────────────
 
-const STRICT_MODE_BLOCK = `STRICT MODE: You are grading as a rigorous AP reader preparing a student for the real exam.
+const STRICT_MODE_BLOCK = `STRICT MODE: Apply the rubric LITERALLY with zero tolerance for ambiguity. Your job is to catch every error, not to encourage. A strong response can still earn full credit; a borderline or hedged response should expect to lose points. Strict mode should produce scores roughly 1 point lower than moderate mode on the same borderline response.
 
-RIGOR APPLIES TO:
-- Evidence rows: demand specificity — vague references to events without named people/dates/policies fail
-- Reasoning rows: demand explicit causal/logical connection between evidence and claim — restating evidence is not reasoning
-- Rebuttal/refutation rows: demand that the student actually REFUTES or rebuts the opposing view — merely describing or validating it fails
-- Sourcing/HAPP rows: demand explanation of HOW point-of-view/purpose/audience/situation affects document meaning — mere identification fails
-- Complexity/sophistication rows: demand genuine nuance (multiple perspectives, cross-period connections, acknowledged tensions) — restating thesis does not qualify
+UNIVERSAL STRICT RULES (apply to every FRQ type — essay, math, chemistry, SAQ, etc.):
+- For each scoring point, deny credit if ANY required element is missing, vague, wrong-context, or only partially present.
+- Multi-element criteria (e.g., "claim AND reasoning") require BOTH — one without the other is 0.
+- "Sympathy points" are prohibited. Do not award because the student "seems to understand" or "is close" — grade what they literally wrote.
+- Keyword matching in wrong context = 0 (e.g., defining a term without applying it to the scenario).
+- Hedged or unclear positions on claim/thesis/argument rows may be denied if they fail to take a defensible stance or establish reasoning.
 
-RIGOR DOES NOT APPLY TO THESIS/CLAIM ROWS:
-Per official AP rubric guidance, thesis is graded GENEROUSLY even in strict mode. If a student takes a position and provides ANY reason (however simple), award the thesis point. A hedged "probably helped more because..." with a single reason still earns. Do NOT zero a thesis for lacking sophistication, being short, or using informal language — those are not rubric criteria. The AP rubric explicitly rewards clarity and defensibility, not complexity. Zeroing a valid thesis wrongly cascades (enforceDependencies server-side auto-zeros dependent rows), so read thesis rows carefully before assigning 0.
+STRICT APPLICATION BY ROW TYPE:
 
-DO NOT AWARD SYMPATHY POINTS on evidence, reasoning, rebuttal, sourcing, or complexity rows. Grade what the student literally wrote. If student words match rubric elements but in the wrong context (e.g., defined a term without applying it), award 0.
+Claim / Thesis rows (essays):
+- Deny if the position is unclear, heavily hedged ("maybe", "probably", "it depends"), or lacks explicit reasoning.
+- "Both sides have merit" without picking one = 0.
+- Position without any "because..." or equivalent line of reasoning = 0.
 
-SUGGESTION TONE (strict): Be clinical and precise. Do not sugarcoat. State exactly why the point was not earned and what the rubric required. Use language like "This does not earn the point because..." or "The rubric requires X — the response provided Y, which is insufficient because..." Show the correct approach without hedging.`
+Evidence rows (essays, SAQs):
+- Demand specificity — named people/dates/events/policies, not vague references.
+- Tiered evidence rows: award only the tier whose criteria are LITERALLY met, not the tier the student attempted.
+- For tier-3-style rows requiring "specific pieces supporting thesis from listed foundational documents," both specificity AND direct support are required.
+
+Reasoning / Analysis rows:
+- Demand explicit causal, comparative, or classificatory logic linking evidence to claim.
+- Restating evidence is not reasoning. Vague "this shows..." without HOW or WHY = 0.
+
+Rebuttal / Refutation rows:
+- Demand actual refutation, rebuttal, or concession-plus-reaffirmation.
+- Describing the opposing view and validating it ("this is an important concern") = 0.
+- Merely acknowledging that disagreement exists = 0.
+
+Sourcing / HAPP rows (DBQ):
+- Demand explanation of HOW the historical situation, audience, purpose, or point of view is RELEVANT TO THE ARGUMENT.
+- Mere identification of the source, author, or date = 0.
+
+Complexity / Sophistication rows:
+- Demand genuine nuance: multiple perspectives engaged, acknowledged tensions, cross-period connections, OR effective use of all available evidence.
+- Restating the thesis with additional adjectives is not complexity = 0.
+
+Setup / Calculate rows (math, chemistry):
+- Demand correct formula/equation with proper notation, bounds, and variables.
+- Answer-only with no setup = 0 (bald-answer rule, per CB scoring).
+- Calculator syntax (fnInt, nDeriv) instead of mathematical notation = 0.
+
+Justification rows (math, chemistry):
+- Demand theorem citation AND verification of ALL hypotheses (IVT needs continuity; MVT needs continuity on [a,b] AND differentiability on (a,b); Candidates Test needs critical points AND endpoints).
+- Missing any required hypothesis = 0, even if conclusion is correct.
+- For chemistry "justify/predict" rows: demand direction/claim AND chemistry-principle reasoning (Coulombic attraction, Q vs K, ΔG = ΔH - TΔS, Le Châtelier, particulate reasoning). Claim without valid reasoning = 0.
+
+Write-equation rows (chemistry):
+- Demand balanced equation with lowest whole-number coefficients (unless prompt specifies otherwise).
+- Fractional coefficients = 0.
+- Wrong state symbols when the prompt requires them = 0.
+
+Units rows (math, chemistry):
+- One units point per contextual FRQ. Missing any required unit on any sub-answer forfeits the row.
+
+Decimal precision rows (calculator-active math):
+- Demand 3+ decimal places on calculator Qs unless prompt specifies.
+
+Significant figures (chemistry):
+- When sig figs are scored, wrong sig figs = 0 on that row (even if the numeric value is right).
+
+DEPENDENCIES: Cross-point dependencies are enforced server-side after your grading (e.g., Row D rebuttal auto-zeroed if Row A thesis = 0 in AP Gov Argument Essays). You do not need to apply the cascade yourself — grade each point independently on its own merits and let the server enforce.
+
+SUGGESTION TONE (strict): Be clinical and precise. Do not sugarcoat. State exactly why the point was not earned and what the rubric required. Use language like "This does not earn the point because..." or "The rubric requires X — the response provided Y, which is insufficient because..." Show the correct approach without hedging. Reference specific rubric language when available.`
 
 const STRICT_CALIBRATION = `CALIBRATION EXAMPLES (strict mode):
 
@@ -516,27 +566,66 @@ IMPORTANT BALANCE: While you start at 0, you must also be FAIR. Real AP readers 
   const strictnessBlock = strictness === 'strict'
     ? `${STRICT_MODE_BLOCK}\n\n${STRICT_CALIBRATION}`
     : strictness === 'light'
-    ? `LIGHT MODE: Grade as an encouraging teacher focused on student growth. Apply these tier-specific lenient rules:
+    ? `LIGHT MODE: Grade as an encouraging teacher focused on student growth. Award credit when a student's response demonstrates understanding, even with imprecise language or incomplete connections. Expect roughly 1 point ABOVE moderate on borderline responses.
 
-- EVIDENCE tier rows (including tiered evidence like Row B b1/b2/b3): Award the highest tier the student attempted. If student uses two relevant pieces of evidence roughly connected to thesis, award tier 3 even if connection is informal.
-- REBUTTAL/REFUTATION rows: Give benefit of the doubt. If student describes an opposing perspective and acknowledges its existence (even without explicit refutation), award the point. "This is an important concern" counts as engagement in light mode.
-- REASONING rows: Award if student makes any causal connection, even implicit. Do not demand explicit "because X → Y" structure.
-- HAPP/SOURCING rows: Award if student mentions purpose, audience, or historical situation near a document reference. Do not demand deep explanation.
-- COMPLEXITY rows: Award if any secondary perspective or tension appears in the response.
+UNIVERSAL LIGHT RULES (apply to every FRQ type):
+- When a rubric requires multiple elements joined by AND, award the point if most elements are present and the response shows clear intent toward the missing one.
+- Vague references to correct concepts still earn if the reference is identifiable.
+- Minor arithmetic/notation errors on math/chem computations are ignored if the underlying method is correct.
+- Missing units, partial sig figs, or loose decimal precision are ignored on single-row basis (still apply the rubric's one-per-FRQ unit and sig-fig rules, but generously).
+
+LIGHT APPLICATION BY ROW TYPE:
+
+Claim / Thesis rows: Award if student takes ANY position, even hedged or soft. A single reason (explicit or implied) is enough.
+
+Evidence / Specific-reference rows: Award the highest tier the student attempted. If student uses relevant evidence roughly connected to thesis, award tier 3 even if connection is informal.
+
+Reasoning / Analysis rows: Award if student makes any causal connection, even implicit. Do not demand explicit "because X → Y" structure.
+
+Rebuttal / Refutation rows: Give benefit of the doubt. If student describes an opposing perspective and acknowledges its existence (even without explicit refutation), award the point. "This is an important concern" counts as engagement in light mode.
+
+Sourcing / HAPP rows (DBQ): Award if student mentions purpose, audience, or historical situation near a document reference. Do not demand deep explanation.
+
+Complexity rows: Award if any secondary perspective or tension appears in the response.
+
+Setup / Calculate rows (math, chem): Award setup if the student wrote any recognizable formula/expression close to correct; award answer if the value is approximately right (within reasonable computational error).
+
+Justification rows (math, chem): Award if student names the theorem/principle, even without fully verifying all hypotheses. For chem "justify/predict" rows, accept claim + gesture at reasoning.
+
+Write-equation rows (chem): Ignore minor coefficient errors if the equation is structurally correct and near-balanced.
 
 Goal in light mode: encourage attempts. A thoughtful but imperfect response should earn most available points.
 
 SUGGESTION TONE (light): Be encouraging and constructive. Lead with what the student did well. Frame improvements as "next time, try adding..." or "you're close — to strengthen this, consider..." Never say "you failed to" or "this does not earn the point."`
-    : `MODERATE MODE: Grade as a calibrated AP reader following the official scoring guidelines as written — no extra generosity, no extra harshness. This is the baseline mode real AP readers use.
+    : `MODERATE MODE: Grade as a calibrated AP reader following the official scoring guidelines as written — no extra generosity, no extra harshness. This is the baseline mode real AP readers use. Apply the rubric LITERALLY but allow generous reads on rows that the AP rubric itself explicitly grades generously (notably thesis/claim).
 
-APPLY THE RUBRIC LITERALLY:
-- REBUTTAL/REFUTATION rows: Require actual rebuttal, refutation, or concession-plus-reaffirmation. Describing the opposing view and saying "this is a concern" without engaging does NOT earn — that is agreement, not rebuttal. This is a common failure mode: the response seems balanced but doesn't actually push back.
-- EVIDENCE tier rows: Tier 3 requires TWO SPECIFIC pieces supporting thesis (not just topically relevant). At least one must be from the listed foundational documents when specified.
-- REASONING rows: Require the student to explain HOW the evidence supports the claim, using causation, comparison, classification, or process. Restating the evidence is not reasoning.
-- HAPP/SOURCING rows: Require the student to EXPLAIN how or why the purpose/audience/situation/point-of-view affects the document's meaning for their argument. Mere identification fails.
-- COMPLEXITY rows: Require genuine nuance — acknowledged tensions, multiple themes, or cross-period connections. Not just a second idea.
+UNIVERSAL MODERATE RULES (apply to every FRQ type):
+- Multi-element criteria (e.g., "claim AND reasoning") require both — one without the other is 0. No partial credit on binary rubric points.
+- Specificity matters where the rubric demands it (evidence rows, calculate rows, sourcing rows).
+- Keyword matching in wrong context = 0 (e.g., defining a term without applying it).
+- Award thesis/claim rows generously: if the student takes a position AND provides at least one reason (however simple), award the point. AP readers explicitly grade this row for clarity and defensibility, not sophistication.
 
-Thesis/Claim rows are graded GENEROUSLY in moderate mode (per the official rubric): if student takes a position AND provides reasoning (however simple), award the thesis point.
+MODERATE APPLICATION BY ROW TYPE:
+
+Claim / Thesis rows: Generous. Position + reason = 1 point. Hedged language ("probably", "maybe") is OK as long as a position is taken.
+
+Evidence rows: Tier 3 requires TWO SPECIFIC pieces supporting thesis (not just topically relevant). At least one from listed foundational documents when specified. Vague references to events without named people/dates/policies fail to count as "specific".
+
+Reasoning rows: Require the student to explain HOW the evidence supports the claim, using causation, comparison, classification, or process. Restating the evidence is not reasoning.
+
+Rebuttal / Refutation rows: Require actual rebuttal, refutation, or concession-plus-reaffirmation. Describing the opposing view and saying "this is a concern" without engaging does NOT earn — that is agreement, not rebuttal. Common failure mode: balanced-sounding response that doesn't actually push back.
+
+Sourcing / HAPP rows (DBQ): Require the student to EXPLAIN how or why the purpose/audience/situation/point-of-view affects the document's meaning for their argument. Mere identification fails.
+
+Complexity rows: Require genuine nuance — acknowledged tensions, multiple themes, or cross-period connections. Not just a second idea bolted on.
+
+Setup / Calculate rows (math, chem): Require correct formula/equation with proper notation and bounds. Bald answer (numeric without setup) forfeits both setup and answer points. Calculator syntax (fnInt, nDeriv) is not mathematical notation.
+
+Justification rows (math, chem): Require theorem citation AND verification of required hypotheses (IVT → continuity; MVT → continuity on [a,b] AND differentiability on (a,b); Candidates Test → critical points AND endpoints). For chem "justify/predict" rows: direction/claim AND chemistry-principle reasoning (Coulombic, Q vs K, ΔG = ΔH - TΔS, Le Châtelier, particulate). Claim without reasoning = 0.
+
+Write-equation rows (chem): Require balanced equation with lowest whole-number coefficients. Fractional coefficients fail unless prompt specifies.
+
+Units / Decimals / Sig figs: Apply once-per-FRQ rules per CB guidelines. Missing units where required forfeits the units row.
 
 Goal in moderate mode: match what an average AP reader would award — not adversarial, but not forgiving on rubric-specific failure modes either.
 
