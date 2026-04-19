@@ -34,7 +34,22 @@
             }
           ],
           "wrong_examples": ["$h(1) = g(1) = -0.167 + 1 - 1.834 = -1.001$ (skipped composition step, used $g(1)$ instead of $g(f(1))$)", "$h(1) = 0.33$ (decimal presentation error — fewer than 3 decimal places)"],
-          "common_traps": ["Forgetting to first evaluate $f(1) = 1.75$ before applying $g$", "Reporting fewer than 3 decimal places (first decimal presentation error does not earn the point)"]
+          "common_traps": ["Forgetting to first evaluate $f(1) = 1.75$ before applying $g$", "Reporting fewer than 3 decimal places (first decimal presentation error does not earn the point)"],
+          "official_rubric": "Point A1 is earned for a correct decimal approximation of 0.333 with supporting work of '$f(1)$' OR '$g(1.75)$' OR '$1.75$'.",
+          "sample_responses": [
+            {
+              "response": "$h(1) = g(f(1)) = g(1.75) = -0.167(1.75)^3 + (1.75)^2 - 1.834 \\approx 0.333$",
+              "earned": true,
+              "commentary": "Correctly reads $f(1) = 1.75$ from the table, substitutes into $g$, and reports the three-decimal approximation with the required intermediate step shown.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$h(1) = g(1) = -0.167(1)^3 + (1)^2 - 1.834 = -1.001$",
+              "earned": false,
+              "commentary": "Applies $g$ to the input $x = 1$ directly rather than first using the table to find $f(1) = 1.75$; the composition step is skipped.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "a2",
@@ -47,7 +62,22 @@
             }
           ],
           "wrong_examples": ["$f^{-1}(3.5) = 3.5$ (confusing input and output)", "$f^{-1}(3.5)$ is not defined (incorrect — the table shows $f(0) = 3.5$)"],
-          "common_traps": ["Confusing inverse notation — $f^{-1}(3.5)$ asks for the $x$ value such that $f(x) = 3.5$, not $1/f(3.5)$"]
+          "common_traps": ["Confusing inverse notation — $f^{-1}(3.5)$ asks for the $x$ value such that $f(x) = 3.5$, not $1/f(3.5)$"],
+          "official_rubric": "Point A2 does not require supporting work. Point A2 is earned with a response of '$0$'.",
+          "sample_responses": [
+            {
+              "response": "$f^{-1}(3.5) = 0$",
+              "earned": true,
+              "commentary": "Correctly identifies that $f(0) = 3.5$ from the table, so the inverse maps $3.5$ back to $0$; no supporting work is required.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$f^{-1}(3.5)$ is not defined.",
+              "earned": false,
+              "commentary": "Incorrect — the table explicitly gives $f(0) = 3.5$, so $f^{-1}(3.5) = 0$ is well-defined; $f$ is decreasing (one-to-one) so its inverse exists.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     },
@@ -70,7 +100,22 @@
             }
           ],
           "wrong_examples": ["Only two of the three values (missing one zero)", "Including an additional incorrect value alongside the correct three"],
-          "common_traps": ["Missing one of the three zeros — use a graphing calculator to find all intersections with the $x$-axis", "The use of '$x =$' is not required but any incorrect extra values void the point"]
+          "common_traps": ["Missing one of the three zeros — use a graphing calculator to find all intersections with the $x$-axis", "The use of '$x =$' is not required but any incorrect extra values void the point"],
+          "official_rubric": "Point B1 does not require supporting work. Point B1 is earned with the three correct decimal approximations $-1.233$, $1.578$, and $5.643$. The use of '$x =$' is not required.",
+          "sample_responses": [
+            {
+              "response": "$x = -1.233$, $x = 1.578$, $x = 5.643$",
+              "earned": true,
+              "commentary": "Lists all three zeros of $g$ to three decimal places with no incorrect values; no supporting work is required.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$x = -1.233$, $x = 1.578$",
+              "earned": false,
+              "commentary": "Finds two of the three zeros but misses $x = 5.643$; all three correct values with no incorrect values are required.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "b2",
@@ -87,7 +132,28 @@
             }
           ],
           "wrong_examples": ["$g(x) \\to -\\infty$ as $x \\to \\infty$ (missing 'lim' notation)", "$\\lim_{x \\to \\infty} g(x) = \\infty$ (wrong sign — leading coefficient is $-0.167 < 0$)"],
-          "common_traps": ["Omitting one of the four required limit notation components", "If an additional limit statement is included (e.g., $\\lim_{x \\to -\\infty} g(x)$), that value must also be correct"]
+          "common_traps": ["Omitting one of the four required limit notation components", "If an additional limit statement is included (e.g., $\\lim_{x \\to -\\infty} g(x)$), that value must also be correct"],
+          "official_rubric": "Point B2 requires a correct limit statement with four components: 'lim', '$x \\to \\infty$', the function $g$, and $-\\infty$. If the response includes an additional, complete limit statement, the limit statement must be correct.",
+          "sample_responses": [
+            {
+              "response": "$\\lim_{x \\to \\infty} g(x) = -\\infty$",
+              "earned": true,
+              "commentary": "Contains all four required components and correctly identifies that the cubic with negative leading coefficient decreases without bound.",
+              "source": "synthesized"
+            },
+            {
+              "response": "As $x \\to \\infty$, $g(x) \\to -\\infty$",
+              "earned": false,
+              "commentary": "Correctly identifies the limiting direction but omits the 'lim' notation; the four required components must all be present.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\lim_{x \\to \\infty} g(x) = \\infty$",
+              "earned": false,
+              "commentary": "Uses correct notation but gives the wrong limit value; the leading coefficient of $g$ is $-0.167 < 0$, so the output decreases without bound.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     },
@@ -110,7 +176,22 @@
             }
           ],
           "wrong_examples": ["Linear", "Quadratic", "Logarithmic"],
-          "common_traps": ["Listing multiple function types (e.g., 'exponential or logarithmic') voids the point — only one correct type may appear"]
+          "common_traps": ["Listing multiple function types (e.g., 'exponential or logarithmic') voids the point — only one correct type may appear"],
+          "official_rubric": "Point C1 is earned for a correct function model with no incorrect function models listed. A response of 'exponential' earns Point C1. Both Point C1 and Point C2 may be earned in part C (ii) provided there is no incorrect response in part C (i).",
+          "sample_responses": [
+            {
+              "response": "Exponential",
+              "earned": true,
+              "commentary": "Identifies the correct function type; no incorrect alternatives are listed alongside it, so the point is earned.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Linear",
+              "earned": false,
+              "commentary": "Incorrect — the output values do not change by a constant amount over equal input intervals; they change by a constant ratio (factor of $0.5$), indicating an exponential model.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "c2",
@@ -123,7 +204,28 @@
             }
           ],
           "wrong_examples": ["'The data fits an exponential regression' or citing $r$-values — statistical references are not sufficient", "Showing the ratio for only one pair of values"],
-          "common_traps": ["Must show constant ratio for MORE than one consecutive pair — a single ratio is insufficient", "Both points (C1 and C2) may be earned in part (ii) alone if part (i) has no incorrect response"]
+          "common_traps": ["Must show constant ratio for MORE than one consecutive pair — a single ratio is insufficient", "Both points (C1 and C2) may be earned in part (ii) alone if part (i) has no incorrect response"],
+          "official_rubric": "Point C2 requires an implicit or explicit reference to output values and input values from the table as support. The reasoning must demonstrate that the ratio of $0.5$ applies to more than one pair of successive output values. A reason that references 'exponential regression,' '$r$ values,' or '$r^2$ values' is not sufficient to earn Point C2.",
+          "sample_responses": [
+            {
+              "response": "$\\frac{f(-1)}{f(-2)} = \\frac{7}{14} = 0.5$ and $\\frac{f(0)}{f(-1)} = \\frac{3.5}{7} = 0.5$. Because the output values have a constant ratio of $0.5$ over equal-length input intervals of length $1$, an exponential function best models $f$.",
+              "earned": true,
+              "commentary": "Demonstrates the constant ratio $0.5$ for more than one consecutive pair of table values and connects this to the defining property of exponential functions.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\frac{f(-1)}{f(-2)} = \\frac{7}{14} = 0.5$, so the data is exponential.",
+              "earned": false,
+              "commentary": "Shows the constant ratio for only one pair; the rubric requires the ratio to be demonstrated for more than one consecutive pair of output values.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The exponential regression has an $r^2$ value close to $1$.",
+              "earned": false,
+              "commentary": "Statistical regression references are explicitly not sufficient; the reasoning must use specific input-output pairs from the table.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     }
