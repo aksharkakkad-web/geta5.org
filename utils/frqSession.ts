@@ -34,6 +34,17 @@ export interface FRQScoringAlternative {
   correct_example: string      // plain example response demonstrating this alternative
 }
 
+/** Annotated student response sample for grader calibration.
+ * source='cb_guideline' = extracted verbatim or near-verbatim from the College
+ * Board scoring guideline PDF. source='synthesized' = constructed from the
+ * rubric when no CB sample existed (older exams or generated FRQs). */
+export interface FRQSampleResponse {
+  response: string              // the sample student response text
+  earned: boolean               // did this sample earn the point?
+  commentary: string            // 1-2 sentence scorer commentary explaining the verdict
+  source: 'cb_guideline' | 'synthesized'
+}
+
 /** One earnable AP point with alternatives, wrong examples, and optional traps. */
 export interface FRQScoringPoint {
   point_id: string              // e.g., "a1", "b2" — unique within the FRQ
@@ -42,6 +53,8 @@ export interface FRQScoringPoint {
   alternatives: FRQScoringAlternative[]  // any ONE earns the point
   wrong_examples: string[]      // responses that would NOT earn the point
   common_traps?: string[]       // optional pitfalls/misconceptions
+  official_rubric?: string      // verbatim or paraphrased CB rubric language for this point
+  sample_responses?: FRQSampleResponse[]  // 2-3 annotated samples anchoring earn/no-earn
 }
 
 export interface FRQPart {

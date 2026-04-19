@@ -283,11 +283,21 @@ function renderScoringPoints(points: FRQScoringPoint[]): string {
     const traps = sp.common_traps?.length
       ? `\n      COMMON TRAPS:\n${sp.common_traps.map(t => `        - ${t}`).join('\n')}`
       : ''
+    const officialRubric = sp.official_rubric
+      ? `\n      OFFICIAL COLLEGE BOARD RUBRIC LANGUAGE:\n        ${sp.official_rubric}`
+      : ''
+    const samples = sp.sample_responses?.length
+      ? `\n      ANNOTATED SAMPLE RESPONSES (use these to calibrate your grading):\n${sp.sample_responses.map((s, i) => {
+          const verdict = s.earned ? 'EARNED' : 'DID NOT EARN'
+          const src = s.source === 'cb_guideline' ? 'from CB scoring guideline' : 'synthesized from rubric'
+          return `        Sample ${i + 1} (${verdict}, ${src}):\n          Response: "${s.response}"\n          Commentary: ${s.commentary}`
+        }).join('\n')}`
+      : ''
     return `    POINT ${sp.point_id} [${sp.point_value} pt]: ${sp.description}
       ALTERNATIVES (any ONE earns the point):
 ${alts}
       WRONG ANSWERS (0 points):
-${wrongs}${traps}`
+${wrongs}${traps}${officialRubric}${samples}`
   }).join('\n\n')
 }
 
@@ -424,13 +434,15 @@ DOES NOT EARN — "validates the concern" without rebutting:
   WRONG (validates, doesn't refute): "In Brutus 1, the author argues a strong central government could take away rights from states. This is an important concern because if the national government has too much power, it might ignore what states want." — This AGREES with the opposing view. No rebuttal, no concession+reaffirmation. 0 pts.
   WRONG (acknowledges without engaging): "Some people disagree with this." or "There are arguments on both sides." — Mere acknowledgment. 0 pts.
   WRONG (restates thesis without addressing opposition): "Some argue expanded power is bad, but I believe it helps." — No engagement with the specific opposing argument. 0 pts.
+  WRONG (concede + generic reaffirm that doesn't engage the specific concern): "In Brutus 1, the author argues expanded national power could take rights from states. Even though this is a concern, the national government is still important because it can create laws that apply to everyone and keep the country unified." — The rebuttal RESTATES why national power matters but doesn't address the SPECIFIC concern about states' rights being eroded. Generic reasons pivoting away from the critique ≠ engagement. 0 pts.
 
 CRITICAL DISTINCTION — the failure mode: students commonly describe the opposing view and then say "this is an important concern" or "this is a valid point" or similar VALIDATION language, then move on without engaging. This is AGREEMENT, not rebuttal. Do NOT award this row in that case.
 
 CHECKLIST for Row D:
 1. Is an alternate/opposing perspective DESCRIBED (with specific claim or source)?
 2. Does the student then REBUT it (show it's wrong), REFUTE it (counter with logic/evidence), or CONCEDE it + REAFFIRM the thesis (show why thesis still stands despite the concern)?
-3. Both 1 AND 2 must be true. If only (1), award 0.
+3. Does the rebuttal reasoning address the SPECIFIC opposing concern raised, or does it introduce unrelated reasons? Generic-reaffirm pattern = 0.
+4. Both 1 AND 2 must be true, and (3) must be satisfied. If only (1), award 0.
 
 Also verify: Row D cannot earn if Row A (thesis) = 0. This is enforced server-side regardless.`,
 
@@ -485,6 +497,7 @@ Rebuttal / Refutation rows:
 - Demand actual refutation, rebuttal, or concession-plus-reaffirmation.
 - Describing the opposing view and validating it ("this is an important concern") = 0.
 - Merely acknowledging that disagreement exists = 0.
+- Concession-plus-reaffirmation only earns when the reaffirmation DIRECTLY engages the specific opposing concern raised. A reaffirmation that merely restates the thesis with new generic reasons (e.g., "still important because of unity/consistency/efficiency") without addressing the specific critique = 0. The test: does the reaffirmation answer the opposing argument, or does it change the subject?
 
 Sourcing / HAPP rows (DBQ):
 - Demand explanation of HOW the historical situation, audience, purpose, or point of view is RELEVANT TO THE ARGUMENT.
