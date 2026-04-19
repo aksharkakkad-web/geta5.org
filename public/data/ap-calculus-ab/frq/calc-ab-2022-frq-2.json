@@ -35,6 +35,27 @@
               ],
               "correct_example": "$f(x) - g(x) = \\ln(x+3) - (x^4 + 2x^3)$"
             }
+          ],
+          "official_rubric": "The first point requires the integrand $f(x) - g(x)$. If $g(x) - f(x)$ is used, the student must resolve the negative sign to earn the third (answer) point.",
+          "sample_responses": [
+            {
+              "response": "$\\int_{-2}^{B}[\\ln(x+3) - (x^4 + 2x^3)]\\,dx$",
+              "earned": true,
+              "commentary": "Correct top-minus-bottom integrand — $f(x) \\ge g(x)$ on $[-2, B]$, so $f - g$ gives the area directly.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\int_{-2}^{B}(x^4 + 2x^3 - \\ln(x+3))\\,dx$",
+              "earned": true,
+              "commentary": "Uses $g - f$; eligible for the first integrand point, but the student must account for the sign to earn the answer point.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\int_{-2}^{B} f(x)\\,dx - \\int_{-2}^{B} g(x)\\,dx$ (without indicating $f(x) - g(x)$)",
+              "earned": true,
+              "commentary": "Equivalent split form — the difference of two integrals with correct limits earns the integrand point.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -46,6 +67,27 @@
               "required_elements": [
                 "Correct limits: lower limit $-2$, upper limit $B \\approx 0.782$"
               ]
+            }
+          ],
+          "official_rubric": "The second point requires lower limit $-2$ and upper limit $B$ (as a letter) or a decimal value accurate to at least one decimal between $0$ and $1$ ($B \\approx 0.782$).",
+          "sample_responses": [
+            {
+              "response": "$\\int_{-2}^{0.782} [f(x) - g(x)]\\,dx$",
+              "earned": true,
+              "commentary": "Uses the numerically computed upper limit $B \\approx 0.782$ with lower limit $-2$ — correct.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\int_{-2}^{B} [f(x) - g(x)]\\,dx$ where $B \\approx 0.8$",
+              "earned": true,
+              "commentary": "One-decimal approximation is acceptable for the upper limit.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\int_{0}^{B} [f(x) - g(x)]\\,dx$",
+              "earned": false,
+              "commentary": "Incorrect lower limit — the enclosed region starts at the left intersection $x = -2$, not $x = 0$.",
+              "source": "synthesized"
             }
           ]
         },
@@ -59,6 +101,21 @@
                 "Correct answer"
               ],
               "correct_example": "$\\int_{-2}^{B} (f(x) - g(x))\\, dx \\approx 3.604$ (or $3.603$)"
+            }
+          ],
+          "official_rubric": "The third point requires the correct numerical answer $\\approx 3.604$ (or $3.603$). Must earn the first (integrand) point to be eligible. If $g - f$ was used, the absolute value must be taken or the sign resolved.",
+          "sample_responses": [
+            {
+              "response": "$\\int_{-2}^{B} [\\ln(x+3) - (x^4+2x^3)]\\,dx \\approx 3.604$",
+              "earned": true,
+              "commentary": "Correct integral with correct answer to three decimal places.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\approx 3.6$",
+              "earned": false,
+              "commentary": "Insufficient precision — the answer must be accurate to at least three decimal places.",
+              "source": "synthesized"
             }
           ]
         }
@@ -85,6 +142,27 @@
           ],
           "wrong_examples": [
             "does not earn either point"
+          ],
+          "official_rubric": "The first point is earned for writing $h'(x) = f'(x) - g'(x)$ or for directly computing $h'(-0.5)$. Presenting only $h'(x)$ without evaluating at $x = -0.5$ does not earn either point.",
+          "sample_responses": [
+            {
+              "response": "$h'(x) = f'(x) - g'(x) = \\frac{1}{x+3} - (4x^3 + 6x^2)$; $h'(-0.5) \\approx -0.600$",
+              "earned": true,
+              "commentary": "Derives $h'$ and evaluates at $x = -0.5$ — value is negative, supporting the conclusion.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$h'(-0.5) = f'(-0.5) - g'(-0.5) \\approx -0.600$",
+              "earned": true,
+              "commentary": "Direct computation at the required point without first writing the general formula — acceptable.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$h'(x) = f'(x) - g'(x)$",
+              "earned": false,
+              "commentary": "Only the general formula without evaluation at $x = -0.5$ — does not earn either point per the scoring notes.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -100,6 +178,21 @@
           ],
           "wrong_examples": [
             "does not earn either point"
+          ],
+          "official_rubric": "The second point requires concluding that $h$ is decreasing at $x = -0.5$ with justification citing $h'(-0.5) < 0$. The last line '$h'(-0.5) < 0$, so decreasing' alone earns both points.",
+          "sample_responses": [
+            {
+              "response": "Since $h'(-0.5) \\approx -0.600 < 0$, $h$ is decreasing at $x = -0.5$.",
+              "earned": true,
+              "commentary": "Correct conclusion with explicit citation of the negative derivative value.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$h$ is decreasing at $x = -0.5$.",
+              "earned": false,
+              "commentary": "Correct conclusion but no justification — must cite $h'(-0.5) < 0$.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -126,6 +219,21 @@
           ],
           "wrong_examples": [
             "does not earn first point but earns second for correct answer"
+          ],
+          "official_rubric": "The first point requires the integrand $(f(x) - g(x))^2$ — the side length of each square cross-section is the vertical distance between the curves. An integrand $k(f(x)-g(x))^2$ with $k \\ne 1$ earns the first point but is ineligible for the answer point. A presentation error (mismatched parentheses, misplaced exponent) loses the first point but may still earn the answer point.",
+          "sample_responses": [
+            {
+              "response": "$V = \\int_{-2}^{B}(f(x) - g(x))^2\\,dx$",
+              "earned": true,
+              "commentary": "Square cross-section area = side$^2$ = $(f(x) - g(x))^2$ — correct integrand.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$V = \\int_{-2}^{B}\\pi(f(x) - g(x))^2\\,dx$",
+              "earned": false,
+              "commentary": "Uses $\\pi(\\cdots)^2$ — that formula is for a disk/washer (circular cross-sections), not square cross-sections.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -142,6 +250,21 @@
           ],
           "wrong_examples": [
             "does not earn first point but earns second for correct answer"
+          ],
+          "official_rubric": "The second point requires the correct numerical answer $\\approx 5.340$. A presentation error in the integrand that yields the correct answer still earns this point.",
+          "sample_responses": [
+            {
+              "response": "$\\int_{-2}^{B}(f(x) - g(x))^2\\,dx \\approx 5.340$",
+              "earned": true,
+              "commentary": "Correct answer to three decimal places.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\approx 5.34$",
+              "earned": false,
+              "commentary": "Only two decimal places — insufficient precision.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -165,6 +288,27 @@
               ],
               "correct_example": "$\\frac{dA}{dt} = \\frac{dA}{dx} \\cdot \\frac{dx}{dt} = A'(x) \\cdot 7$"
             }
+          ],
+          "official_rubric": "The first point is earned for presenting the chain rule relationship $\\frac{dA}{dt} = \\frac{dA}{dx}\\cdot\\frac{dx}{dt}$, or equivalently $A'(x) \\cdot 7$.",
+          "sample_responses": [
+            {
+              "response": "$\\frac{dA}{dt} = \\frac{dA}{dx} \\cdot \\frac{dx}{dt} = A'(x) \\cdot 7$",
+              "earned": true,
+              "commentary": "Explicitly applies the chain rule, multiplying the spatial rate of change $A'(x)$ by the speed of the moving line $\\frac{dx}{dt} = 7$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\frac{dA}{dt} = A'(-0.5) \\cdot 7$",
+              "earned": true,
+              "commentary": "Directly sets up the chain rule at $x = -0.5$ without writing the general form — acceptable.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\frac{dA}{dt} = A'(x)$",
+              "earned": false,
+              "commentary": "Forgets to multiply by $\\frac{dx}{dt} = 7$ — the chain rule requires both factors.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -177,6 +321,21 @@
                 "Correct answer"
               ],
               "correct_example": "$A'(-0.5) \\cdot 7 \\approx -9.272$ (or $-9.271$) square units per second"
+            }
+          ],
+          "official_rubric": "The second point requires the correct numerical answer $\\approx -9.272$ (or $-9.271$) square units per second.",
+          "sample_responses": [
+            {
+              "response": "$A'(-0.5) \\cdot 7 \\approx -9.272$ square units per second",
+              "earned": true,
+              "commentary": "Correct product with correct sign and units.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$A'(-0.5) \\cdot 7 \\approx 9.272$ square units per second",
+              "earned": false,
+              "commentary": "Drops the negative sign — $A'(-0.5) < 0$ because the vertical gap between the curves is decreasing at $x = -0.5$.",
+              "source": "synthesized"
             }
           ]
         }
