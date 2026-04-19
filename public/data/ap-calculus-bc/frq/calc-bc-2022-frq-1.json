@@ -20,19 +20,40 @@
       "letter": "a",
       "prompt": "Write, but do not evaluate, an integral expression that gives the total number of vehicles that arrive at the toll plaza from 6 A.M. ($t = 1$) to 10 A.M. ($t = 5$).",
       "point_value": 1,
-      "scoring_notes": null,
+      "scoring_notes": "The response must be a definite integral with correct lower and upper limits. A response missing $dt$ or using $dx$ is still eligible. A copy error in $A(t)$ earns the point only in the presence of $\\int_1^5 A(t)\\,dt$.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct integral expression with limits from $t = 1$ to $t = 5$: $\\displaystyle\\int_{1}^{5} A(t)\\,dt$ or equivalently $\\displaystyle\\int_{1}^{5} 82.5te^{-0.5t}\\,dt$.",
+          "description": "Correct integral expression with limits from $t = 1$ to $t = 5$: $\\displaystyle\\int_{1}^{5} A(t)\\,dt$ or equivalently $\\displaystyle\\int_{1}^{5} 82.5te^{-0.5t}\\,dt$",
           "alternatives": [
             {
               "required_elements": [
-                "Integral from $t = 1$ to $t = 5$ of $A(t)\\,dt$ (or $82.5te^{-0.5t}\\,dt$)"
+                "Definite integral from $t = 1$ to $t = 5$ of $A(t)\\,dt$"
               ]
+            }
+          ],
+          "official_rubric": "The response must be a definite integral with correct lower and upper limits to earn this point. A response missing $dt$ or using $dx$ is still eligible. A copy error in $A(t)$ earns the point only in the presence of $\\int_1^5 A(t)\\,dt$.",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_1^5 82.5te^{-0.5t}\\,dt$",
+              "earned": true,
+              "commentary": "Correct definite integral with the explicit formula for $A(t)$ and correct limits $t = 1$ to $t = 5$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\displaystyle\\int_1^5 A(t)\\,dt$",
+              "earned": true,
+              "commentary": "Using the function name $A(t)$ is acceptable; the limits are correct.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\displaystyle\\int_0^5 A(t)\\,dt$",
+              "earned": false,
+              "commentary": "Incorrect lower limit — the question asks for arrivals starting at 6 A.M. ($t = 1$), not 5 A.M. ($t = 0$).",
+              "source": "synthesized"
             }
           ]
         }
@@ -42,31 +63,61 @@
       "letter": "b",
       "prompt": "Find the average value of the rate, in vehicles per hour, at which vehicles arrive at the toll plaza from 6 A.M. ($t = 1$) to 10 A.M. ($t = 5$).",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "The use of the average value formula with $a = 1$ and $b = 5$ can be presented in a single or multiple steps. A correct integral with the correct average value but incomplete communication earns 1 of 2 points. The answer must be correct to three decimal places.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Sets up the correct average value expression: $\\dfrac{1}{5-1}\\displaystyle\\int_{1}^{5} A(t)\\,dt = \\dfrac{1}{4}\\int_{1}^{5} 82.5te^{-0.5t}\\,dt$.",
+          "description": "Sets up the correct average value expression: $\\dfrac{1}{5-1}\\displaystyle\\int_{1}^{5} A(t)\\,dt = \\dfrac{1}{4}\\int_{1}^{5} 82.5te^{-0.5t}\\,dt$",
           "alternatives": [
             {
               "required_elements": [
                 "$\\dfrac{1}{4}\\displaystyle\\int_{1}^{5} A(t)\\,dt$"
               ]
             }
+          ],
+          "official_rubric": "The use of the average value formula, indicating that $a = 1$ and $b = 5$, can be presented in single or multiple steps to earn the first point.",
+          "sample_responses": [
+            {
+              "response": "$\\text{Average} = \\dfrac{1}{5-1}\\int_1^5 A(t)\\,dt$",
+              "earned": true,
+              "commentary": "Correct average value formula with correct limits; $\\frac{1}{4}$ factor clearly shown.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{1}{5}\\int_1^5 A(t)\\,dt$",
+              "earned": false,
+              "commentary": "Uses $\\frac{1}{5}$ instead of $\\frac{1}{5-1} = \\frac{1}{4}$; incorrect denominator in the average value formula.",
+              "source": "synthesized"
+            }
           ]
         },
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct answer: approximately $52.995$ vehicles per hour (accept $52.995$ or $52.996$).",
+          "description": "Correct answer: approximately $52.995$ vehicles per hour (accept $52.995$ or $52.996$)",
           "alternatives": [
             {
               "required_elements": [
                 "Numerical answer approximately $52.995$ vehicles per hour"
               ]
+            }
+          ],
+          "official_rubric": "The answer must be correct to three decimal places. A response presenting only the unsimplified integral value without dividing by 4 earns only the first point.",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{1}{4}\\int_1^5 82.5te^{-0.5t}\\,dt \\approx 52.995$ vehicles per hour",
+              "earned": true,
+              "commentary": "Complete setup and correct three-decimal evaluation.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{1}{4}\\int_1^5 A(t)\\,dt \\approx 53$ vehicles per hour",
+              "earned": false,
+              "commentary": "Rounds to zero decimal places; the answer must be correct to three decimal places.",
+              "source": "synthesized"
             }
           ]
         }
@@ -76,31 +127,61 @@
       "letter": "c",
       "prompt": "Is the rate at which vehicles arrive at the toll plaza at 6 A.M. ($t = 1$) increasing or decreasing? Give a reason for your answer.",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "The response need not present the numerical value of $A'(1)$. An incorrect value assigned to $A'(1)$ earns the first point but not the second. A reference to $t = 1$ is required to earn the second point.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Considers the sign of $A'(1)$. Computes $A'(t) = 82.5e^{-0.5t} - 41.25te^{-0.5t} = 82.5e^{-0.5t}(1 - 0.5t)$, giving $A'(1) = 82.5e^{-0.5}(0.5) > 0$.",
+          "description": "Considers the sign of $A'(1)$. Computes $A'(t) = 82.5e^{-0.5t}(1 - 0.5t)$, giving $A'(1) = 82.5e^{-0.5}(0.5) > 0$, confirming the rate is increasing",
           "alternatives": [
             {
               "required_elements": [
                 "Evaluates or analyzes $A'(1)$ and determines $A'(1) > 0$"
               ]
             }
+          ],
+          "official_rubric": "The response need not present the value of $A'(1)$. An incorrect value assigned to $A'(1)$ earns the first point but will not earn the second.",
+          "sample_responses": [
+            {
+              "response": "$A'(1) = 82.5e^{-0.5}(1 - 0.5) > 0$, so the rate is increasing at $t = 1$.",
+              "earned": true,
+              "commentary": "Correct derivative evaluation at $t = 1$ with the sign correctly identified.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$A'(t) = 82.5e^{-0.5t}(1-0.5t)$, which is positive for $t < 2$.",
+              "earned": true,
+              "commentary": "General sign analysis that implies $A'(1) > 0$; the first point is earned even without numerical evaluation.",
+              "source": "synthesized"
+            }
           ]
         },
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Concludes that the rate is **increasing** at $t = 1$ because $A'(1) > 0$.",
+          "description": "Concludes the rate is **increasing** at $t = 1$ because $A'(1) > 0$, with explicit reference to $t = 1$",
           "alternatives": [
             {
               "required_elements": [
-                "States 'increasing' with the reason that $A'(1) > 0$"
+                "States 'increasing' with reference to $t = 1$ and because $A'(1) > 0$"
               ]
+            }
+          ],
+          "official_rubric": "To earn the second point the first point must be earned and there must be a reference to $t = 1$.",
+          "sample_responses": [
+            {
+              "response": "The rate of arrival is increasing at 6 A.M. ($t = 1$) because $A'(1) > 0$.",
+              "earned": true,
+              "commentary": "Explicit reference to $t = 1$, correct conclusion, and correct reason.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The rate is increasing because $A'(t) > 0$.",
+              "earned": false,
+              "commentary": "No reference to $t = 1$; the conclusion must specifically address the behavior at $t = 1$.",
+              "source": "synthesized"
             }
           ]
         }
@@ -110,31 +191,61 @@
       "letter": "d",
       "prompt": "The number of vehicles in line at the toll plaza at time $t$, for $a \\leq t \\leq 4$, is modeled by\n$$N(t) = \\int_{a}^{t} (A(x) - 400)\\,dx$$\nwhere $a$ is the first time in the interval $0 \\leq t \\leq 5$ at which $A(t) = 400$. To the nearest whole number, find the greatest number of vehicles in line at the toll plaza in the time interval $a \\leq t \\leq 4$. Justify your answer.",
       "point_value": 4,
-      "scoring_notes": "The equation $A(t) = 400$ has solutions at $t \\approx 0.422$ and $t \\approx 3.916$ on $[0,5]$. The line first forms at $t = a \\approx 0.422$. Since $N'(t) = A(t) - 400$, the number of vehicles is increasing when $A(t) > 400$ and decreasing when $A(t) < 400$. The maximum of $N$ on $[a, 4]$ occurs at $t \\approx 3.916$, which is approximately 33 vehicles.",
+      "scoring_notes": "The equation $A(t) = 400$ has solutions at $t \\approx 0.422$ and $t \\approx 3.916$. A candidates test requires presenting $N(a)$, $N(b)$, and $N(4)$ to earn the justification point. The answer point is earned for 33 only. A correct justification earns the fourth point even if the third was missed due to a decimal presentation error.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "Identifies that $N'(t) = A(t) - 400$ and sets $N'(t) = 0$ (i.e., $A(t) = 400$) to find candidates for the maximum, or notes that $N$ is maximized where $A(t)$ changes from greater than 400 to less than 400.",
+          "description": "Sets $N'(t) = A(t) - 400 = 0$ or equivalently considers where $A(t) = 400$, to find candidates for the maximum",
           "alternatives": [
             {
               "required_elements": [
-                "Sets $A(t) = 400$ or considers $N'(t) = 0$ to find the candidate maximum"
+                "Sets $A(t) = 400$ or considers $N'(t) = 0$"
               ]
+            }
+          ],
+          "official_rubric": "It is not necessary to indicate that $A(t) = 400$ to earn the first point, although this statement alone earns the first point. A response indicating $A(t) \\geq 400$ when $t \\approx 0.422$ to $t \\approx 3.916$ earns the first two points.",
+          "sample_responses": [
+            {
+              "response": "$N'(t) = A(t) - 400 = 0 \\Rightarrow A(t) = 400$",
+              "earned": true,
+              "commentary": "Correctly identifies that the maximum of $N$ occurs where $N' = 0$, i.e., $A(t) = 400$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$A(t) \\geq 400$",
+              "earned": false,
+              "commentary": "Statement alone without the critical values does not earn the first point.",
+              "source": "synthesized"
             }
           ]
         },
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "Correctly identifies the interior critical point $t \\approx 3.916$ within $(a, 4)$ and considers the endpoint $t = 4$ as well (noting $N(a) = 0$).",
+          "description": "Correctly identifies $a \\approx 0.422$ (first time $A(t) = 400$) and $b \\approx 3.916$ (the interior critical point where $N'$ changes from positive to negative) within $(a, 4)$",
           "alternatives": [
             {
               "required_elements": [
-                "Identifies $t \\approx 3.916$ as the interior critical point and checks endpoints"
+                "Both $a \\approx 0.422$ and $b \\approx 3.916$ identified (accurate to at least one decimal)"
               ]
+            }
+          ],
+          "official_rubric": "To earn the second point the values for $a$ and $b$ must be accurate to the number of decimals presented, with at least one and up to three decimal places.",
+          "sample_responses": [
+            {
+              "response": "$a = 0.422$, and $A(t) = 400$ again at $t = b = 3.916$",
+              "earned": true,
+              "commentary": "Both critical times identified with at least one decimal place of accuracy.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$a \\approx 0.4$, $b \\approx 3.9$",
+              "earned": true,
+              "commentary": "One decimal place is sufficient per the rubric.",
+              "source": "synthesized"
             }
           ]
         },
@@ -145,20 +256,56 @@
           "alternatives": [
             {
               "required_elements": [
-                "Answer of $33$ vehicles (or correct numerical answer consistent with student's $a$)"
+                "Answer of $33$ vehicles"
               ]
+            }
+          ],
+          "official_rubric": "To earn the third point the response must present the greatest number of vehicles. The point is earned for answers of either $33$ or $33.$ (truncated decimal form) only.",
+          "sample_responses": [
+            {
+              "response": "$N(3.916) \\approx 33$ vehicles",
+              "earned": true,
+              "commentary": "Correct greatest number to the nearest whole vehicle.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$N(4) \\approx 29$ vehicles",
+              "earned": false,
+              "commentary": "Evaluates $N$ at the endpoint rather than at the interior maximum $t = b \\approx 3.916$.",
+              "source": "synthesized"
             }
           ]
         },
         {
           "point_id": "d4",
           "point_value": 1,
-          "description": "Provides correct justification: $N'(t) = A(t) - 400 > 0$ for $t \\in (a, 3.916)$ and $N'(t) < 0$ for $t \\in (3.916, 4)$, so $N$ has an absolute maximum at $t \\approx 3.916$ on $[a, 4]$ (since $N(a) = 0$ and $N(4) < N(3.916)$).",
+          "description": "Correct justification: $N'(t) = A(t) - 400 > 0$ for $t \\in (a, 3.916)$ and $N'(t) < 0$ for $t \\in (3.916, 4)$, so $N$ is maximized at $t \\approx 3.916$ on $[a, 4]$ (candidates test: $N(a) = 0$, $N(3.916) \\approx 33$, $N(4) \\approx 29$)",
           "alternatives": [
             {
               "required_elements": [
-                "Justifies that $N'$ changes from positive to negative at $t \\approx 3.916$, confirming the maximum"
+                "Justifies $N'$ changes from positive to negative at $t \\approx 3.916$, confirming the maximum; OR candidates test with all three values $N(a)$, $N(b)$, $N(4)$"
               ]
+            }
+          ],
+          "official_rubric": "When using a Candidates Test, the response must include $N(a)$, $N(b)$, and $N(4)$ to earn the fourth point. A correct justification earns this point even if the third point was missed due to a decimal presentation error.",
+          "sample_responses": [
+            {
+              "response": "For $a < t < 3.916$, $A(t) > 400$ so $N$ is increasing; for $3.916 < t < 4$, $A(t) < 400$ so $N$ is decreasing. Therefore $N$ is greatest at $t \\approx 3.916$.",
+              "earned": true,
+              "commentary": "Correct sign analysis of $N'$ confirms the maximum.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Candidates test: $N(a) = 0$, $N(3.916) \\approx 33$, $N(4) \\approx 29$; the greatest value is $33$.",
+              "earned": true,
+              "commentary": "Complete candidates test with all three required values earns the justification point.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The maximum is at $t = 3.916$ because $N$ is increasing before that.",
+              "earned": false,
+              "commentary": "Does not verify that $N$ is also decreasing after $t = 3.916$, nor does it address the endpoint; justification is incomplete.",
+              "source": "synthesized"
             }
           ]
         }
