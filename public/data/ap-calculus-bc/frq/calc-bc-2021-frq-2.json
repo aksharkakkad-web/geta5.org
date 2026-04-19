@@ -23,32 +23,68 @@
       "letter": "a",
       "prompt": "Find the speed of the particle at time $t = 1.2$. Find the acceleration vector of the particle at time $t = 1.2$.",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "Unsupported answers do not earn any points. The acceleration vector may be presented with other symbols — $(\\,,)$, $[\\,,]$, or coordinates listed separately as long as labeled.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Speed at $t = 1.2$: $\\text{speed} = \\sqrt{\\left(\\frac{dx}{dt}\\right)^2 + \\left(\\frac{dy}{dt}\\right)^2} = \\sqrt{\\sin^2(1.44) + e^{2\\cos(1.2)}} \\approx 1.491$ (or equivalent calculator answer)",
+          "description": "Speed at $t = 1.2$: $\\text{speed} = \\sqrt{\\left(\\sin(t^2)\\right)^2 + \\left(e^{\\cos t}\\right)^2}\\big|_{t=1.2} = \\sqrt{\\sin^2(1.44) + e^{2\\cos(1.2)}} \\approx 1.491$",
           "alternatives": [
             {
               "required_elements": [
-                "$\\sqrt{(\\sin(t^2))^2 + (e^{\\cos t})^2}$ evaluated at $t=1.2$",
+                "$\\sqrt{(\\sin(t^2))^2 + (e^{\\cos t})^2}$ evaluated at $t = 1.2$",
                 "Speed $\\approx 1.491$"
               ]
+            }
+          ],
+          "official_rubric": "The speed point is earned for presenting $\\sqrt{(x'(t))^2 + (y'(t))^2}$ evaluated at $t = 1.2$ with the correct numerical result. Unsupported answers do not earn this point.",
+          "sample_responses": [
+            {
+              "response": "$\\text{speed} = \\sqrt{\\sin^2(1.44) + e^{2\\cos(1.2)}} \\approx 1.491$",
+              "earned": true,
+              "commentary": "Shows the correct speed formula with the given velocity components evaluated at $t = 1.2$, arriving at the correct three-decimal approximation.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\text{speed} \\approx 1.491$",
+              "earned": false,
+              "commentary": "Unsupported answer — does not show the speed formula or its evaluation; unsupported answers do not earn any points in this part.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\text{speed} = \\sqrt{\\sin^2(1.44) + e^{2\\cos(1.2)}} \\approx 1.49$",
+              "earned": false,
+              "commentary": "Correct setup but rounds to only two decimal places; at most one rounding error per question is allowed but this is the first such error and it does not earn the point.",
+              "source": "synthesized"
             }
           ]
         },
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Acceleration vector at $t = 1.2$: $\\mathbf{a}(1.2) = \\left(2t\\cos(t^2), -\\sin(t)\\cdot e^{\\cos t}\\right)\\big|_{t=1.2} \\approx (2(1.2)\\cos(1.44),\\, -\\sin(1.2)\\cdot e^{\\cos(1.2)}) \\approx (0.355, -1.049)$ (or equivalent calculator answer)",
+          "description": "Acceleration vector at $t = 1.2$: $\\mathbf{a}(t) = \\bigl(2t\\cos(t^2),\\, -\\sin(t)\\,e^{\\cos t}\\bigr)$, so $\\mathbf{a}(1.2) \\approx \\langle 2(1.2)\\cos(1.44),\\, -\\sin(1.2)\\,e^{\\cos(1.2)}\\rangle \\approx \\langle 0.355,\\, -1.049\\rangle$",
           "alternatives": [
             {
               "required_elements": [
                 "$x''(t) = 2t\\cos(t^2)$ and $y''(t) = -\\sin(t)\\,e^{\\cos t}$ evaluated at $t = 1.2$"
               ]
+            }
+          ],
+          "official_rubric": "The acceleration vector point is earned for correctly differentiating both components of the velocity and evaluating at $t = 1.2$. Unsupported answers do not earn this point.",
+          "sample_responses": [
+            {
+              "response": "$x''(t) = 2t\\cos(t^2)$, $y''(t) = -\\sin(t)\\,e^{\\cos t}$; at $t = 1.2$: $\\mathbf{a}(1.2) \\approx \\langle 0.355, -1.049\\rangle$",
+              "earned": true,
+              "commentary": "Correctly differentiates each velocity component by chain rule and evaluates numerically at $t = 1.2$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\mathbf{a}(1.2) = \\langle \\cos(t^2), -\\sin(t)\\,e^{\\cos t}\\rangle\\big|_{t=1.2}$",
+              "earned": false,
+              "commentary": "Misses the chain-rule factor $2t$ in the $x$-component; the $x$-acceleration should be $2t\\cos(t^2)$, not $\\cos(t^2)$.",
+              "source": "synthesized"
             }
           ]
         }
@@ -58,31 +94,61 @@
       "letter": "b",
       "prompt": "Find the total distance traveled by the particle over the time interval $0 \\leq t \\leq 1.2$.",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "The first point is earned by presenting the speed integrand in a definite integral with any limits. A definite integral with incorrect limits is not eligible for the second point. Unsupported answers earn no points.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct integral setup for arc length (total distance): $\\int_0^{1.2} \\sqrt{\\left(\\sin(t^2)\\right)^2 + \\left(e^{\\cos t}\\right)^2}\\,dt$",
+          "description": "Correct integral setup for arc length (total distance): $\\int_0^{1.2} \\sqrt{\\bigl(\\sin(t^2)\\bigr)^2 + \\bigl(e^{\\cos t}\\bigr)^2}\\,dt$",
           "alternatives": [
             {
               "required_elements": [
                 "$\\int_0^{1.2} \\sqrt{\\sin^2(t^2) + e^{2\\cos t}}\\,dt$"
               ]
             }
+          ],
+          "official_rubric": "The first point is earned by presenting the integrand $\\sqrt{(x'(t))^2 + (y'(t))^2}$ in a definite integral with any limits. A definite integral with incorrect limits is not eligible for the second point. Once earned, the first point cannot be lost.",
+          "sample_responses": [
+            {
+              "response": "$\\text{distance} = \\int_0^{1.2} \\sqrt{\\sin^2(t^2) + e^{2\\cos t}}\\,dt$",
+              "earned": true,
+              "commentary": "Correct arc-length integrand with the correct limits; both points are now in play.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\int_0^{1.2} \\sqrt{\\sin^2(t^2) + e^{\\cos t}}\\,dt$",
+              "earned": false,
+              "commentary": "The $y$-component is missing the square — it should be $(e^{\\cos t})^2 = e^{2\\cos t}$; the integrand is incorrect.",
+              "source": "synthesized"
+            }
           ]
         },
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct numerical answer using a calculator: total distance $\\approx 1.443$ (or equivalent)",
+          "description": "Correct numerical answer using a calculator: total distance $\\approx 1.443$",
           "alternatives": [
             {
               "required_elements": [
                 "Total distance $\\approx 1.443$"
               ]
+            }
+          ],
+          "official_rubric": "A definite integral with incorrect limits is not eligible for the second point. If the first point is not earned because of a copy error, the second point is still earned for a correct answer. Unsupported answers earn no points.",
+          "sample_responses": [
+            {
+              "response": "$\\int_0^{1.2} \\sqrt{\\sin^2(t^2) + e^{2\\cos t}}\\,dt \\approx 1.443$",
+              "earned": true,
+              "commentary": "Correct integral with correct numerical evaluation to three decimal places.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$1.443$",
+              "earned": false,
+              "commentary": "Unsupported answer — correct value but no integral or work shown; unsupported answers do not earn either point.",
+              "source": "synthesized"
             }
           ]
         }
@@ -92,67 +158,143 @@
       "letter": "c",
       "prompt": "Find the coordinates of the point at which the particle is farthest to the left for $t \\geq 0$. Explain why there is no point at which the particle is farthest to the right for $t \\geq 0$.",
       "point_value": 5,
-      "scoring_notes": null,
+      "scoring_notes": "Unsupported positions do not earn the coordinate points. The explanation for no farthest-right point must verify that $x(t)$ moves to the right of the initial position (as well as moves right for all $t > t^*$).",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Sets $\\frac{dx}{dt} = \\sin(t^2) = 0$ and identifies a critical point where $x$ is minimized, e.g., $t^2 = \\pi$ so $t = \\sqrt{\\pi}$",
+          "description": "Sets $\\frac{dx}{dt} = \\sin(t^2) = 0$ and identifies the critical point: $t^2 = \\pi$ so $t = \\sqrt{\\pi}$ (first positive zero)",
           "alternatives": [
             {
               "required_elements": [
-                "$\\sin(t^2) = 0 \\Rightarrow t = \\sqrt{\\pi}$ (first positive critical point)"
+                "$\\sin(t^2) = 0 \\Rightarrow t = \\sqrt{\\pi}$"
               ]
+            }
+          ],
+          "official_rubric": "The first point is earned for setting $x'(t) = 0$ and identifying $t = \\sqrt{\\pi}$ as a critical point.",
+          "sample_responses": [
+            {
+              "response": "$\\frac{dx}{dt} = \\sin(t^2) = 0 \\Rightarrow t^2 = \\pi \\Rightarrow t = \\sqrt{\\pi}$",
+              "earned": true,
+              "commentary": "Correctly sets the $x$-velocity to zero and solves for the first positive critical time.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$t = \\sqrt{\\pi}$ (no work shown)",
+              "earned": false,
+              "commentary": "An unsupported critical time does not earn the point; the equation $\\sin(t^2) = 0$ must be shown.",
+              "source": "synthesized"
             }
           ]
         },
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Justifies that the particle is farthest left at $t = \\sqrt{\\pi}$ (e.g., $\\sin(t^2) < 0$ for $0 < t < \\sqrt{\\pi}$ so $x$ is decreasing, then $\\sin(t^2) > 0$ so $x$ is increasing — or by sign analysis of $dx/dt$)",
+          "description": "Justifies that the particle is farthest left at $t = \\sqrt{\\pi}$ by sign analysis: $\\sin(t^2) < 0$ for $0 < t < \\sqrt{\\pi}$ (so $x$ is decreasing), and $\\sin(t^2) > 0$ for $\\sqrt{\\pi} < t < \\sqrt{2\\pi}$ (so $x$ is increasing) — the derivative changes from negative to positive",
           "alternatives": [
             {
               "required_elements": [
                 "Sign analysis showing $\\frac{dx}{dt}$ changes from negative to positive at $t = \\sqrt{\\pi}$"
               ]
             }
+          ],
+          "official_rubric": "The second point is earned for presenting a valid reason why the particle is at its leftmost position at $t = \\sqrt{\\pi}$, such as showing $x'(t)$ changes from negative to positive or identifying $t = \\sqrt{\\pi}$ as the only critical point with that sign change.",
+          "sample_responses": [
+            {
+              "response": "For $0 < t < \\sqrt{\\pi}$, $\\sin(t^2) < 0$ so $x$ is decreasing; for $t > \\sqrt{\\pi}$ (near $\\sqrt{\\pi}$), $\\sin(t^2) > 0$ so $x$ is increasing. Thus $t = \\sqrt{\\pi}$ gives the leftmost $x$-position.",
+              "earned": true,
+              "commentary": "Complete sign analysis of $x'(t)$ around $t = \\sqrt{\\pi}$ confirms a local (and global) minimum of $x(t)$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$x'(\\sqrt{\\pi}) = 0$ and $x$ has a minimum there.",
+              "earned": false,
+              "commentary": "States that $x$ has a minimum but provides no sign analysis or other justification for why $t = \\sqrt{\\pi}$ gives the global leftmost position.",
+              "source": "synthesized"
+            }
           ]
         },
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "$x$-coordinate at $t = \\sqrt{\\pi}$: $x(\\sqrt{\\pi}) = 1 + \\int_0^{\\sqrt{\\pi}} \\sin(t^2)\\,dt \\approx 1 + (-0.8948) \\approx 0.105$ (calculator value)",
+          "description": "$x$-coordinate at $t = \\sqrt{\\pi}$: $x(\\sqrt{\\pi}) = 1 + \\int_0^{\\sqrt{\\pi}} \\sin(t^2)\\,dt \\approx 0.105$ (calculator value)",
           "alternatives": [
             {
               "required_elements": [
-                "$x(\\sqrt{\\pi}) = 1 + \\int_0^{\\sqrt{\\pi}} \\sin(t^2)\\,dt$, evaluated to $\\approx 0.105$"
+                "$x(\\sqrt{\\pi}) = 1 + \\int_0^{\\sqrt{\\pi}} \\sin(t^2)\\,dt$ with numerical evaluation $\\approx 0.105$"
               ]
+            }
+          ],
+          "official_rubric": "The third point is earned for a correct $x$-coordinate of the leftmost point. Writing $x(1) = \\int_0^1 x'(t)\\,dt - 2$ without the $dt$ does not earn the point; the integral notation must be unambiguous.",
+          "sample_responses": [
+            {
+              "response": "$x(\\sqrt{\\pi}) = 1 + \\int_0^{\\sqrt{\\pi}} \\sin(t^2)\\,dt \\approx 1 - 0.895 = 0.105$",
+              "earned": true,
+              "commentary": "Uses the fundamental theorem to accumulate from the initial position; the integral is evaluated numerically with a calculator.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$x(\\sqrt{\\pi}) \\approx 0.105$",
+              "earned": false,
+              "commentary": "Unsupported coordinate — the integral setup must be shown to earn this point.",
+              "source": "synthesized"
             }
           ]
         },
         {
           "point_id": "c4",
           "point_value": 1,
-          "description": "$y$-coordinate at $t = \\sqrt{\\pi}$: $y(\\sqrt{\\pi}) = 5 + \\int_0^{\\sqrt{\\pi}} e^{\\cos t}\\,dt \\approx 5 + 3.848 \\approx 8.848$ (calculator value); states the leftmost point coordinates",
+          "description": "$y$-coordinate at $t = \\sqrt{\\pi}$: $y(\\sqrt{\\pi}) = 5 + \\int_0^{\\sqrt{\\pi}} e^{\\cos t}\\,dt \\approx 5 + 3.848 \\approx 8.848$; states the leftmost point as $(0.105, 8.848)$ (or equivalent correct coordinates)",
           "alternatives": [
             {
               "required_elements": [
-                "$y(\\sqrt{\\pi}) = 5 + \\int_0^{\\sqrt{\\pi}} e^{\\cos t}\\,dt$, evaluated to $\\approx 8.848$"
+                "$y(\\sqrt{\\pi}) = 5 + \\int_0^{\\sqrt{\\pi}} e^{\\cos t}\\,dt$ with evaluation $\\approx 8.848$"
               ]
+            }
+          ],
+          "official_rubric": "The fourth point is earned for a correct $y$-coordinate. The coordinates of the leftmost point do not have to be written as an ordered pair as long as both are labeled.",
+          "sample_responses": [
+            {
+              "response": "$y(\\sqrt{\\pi}) = 5 + \\int_0^{\\sqrt{\\pi}} e^{\\cos t}\\,dt \\approx 8.848$; leftmost point: $(0.105, 8.848)$",
+              "earned": true,
+              "commentary": "Both coordinates are computed using the fundamental theorem and presented clearly.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$y(\\sqrt{\\pi}) \\approx 8.848$",
+              "earned": false,
+              "commentary": "Unsupported; the integral accumulation from initial position must be shown.",
+              "source": "synthesized"
             }
           ]
         },
         {
           "point_id": "c5",
           "point_value": 1,
-          "description": "Explanation for no farthest-right point: since $e^{\\cos t} > 0$ for all $t$, we have $\\frac{dy}{dt} > 0$ always, so $y(t) \\to \\infty$. Also, $\\frac{dx}{dt} = \\sin(t^2)$ alternates sign infinitely often and $x(t)$ increases without bound (the positive portions of $\\sin(t^2)$ outweigh the negative portions over time), so $x(t) \\to \\infty$ and there is no farthest right point.",
+          "description": "Explanation for no farthest-right point: for $t > \\sqrt{\\pi}$, $x'(t) = \\sin(t^2)$ is positive over intervals whose total measure grows without bound, so $x(t) \\to +\\infty$; equivalently, $x(t)$ eventually exceeds its starting value $x(0) = 1$ and keeps increasing without bound, so no finite rightmost position exists",
           "alternatives": [
             {
               "required_elements": [
-                "As $t \\to \\infty$, $x(t) \\to \\infty$ so no farthest-right point exists"
+                "As $t \\to \\infty$, $x(t) \\to \\infty$, so no farthest-right point exists",
+                "Must verify that $x(t)$ moves to the right of its initial position after $t = \\sqrt{\\pi}$"
               ]
+            }
+          ],
+          "official_rubric": "To earn the last point a response must verify that the particle moves to the right of its initial position (as well as moves to the right for all $t > \\sqrt{\\pi}$ in the long run). Simply stating $x'(t) > 0$ for $t > \\sqrt{\\pi}$ is insufficient without addressing the long-run behavior.",
+          "sample_responses": [
+            {
+              "response": "For $t > \\sqrt{\\pi}$, $x'(t) > 0$ over progressively larger intervals. Also $x(2\\pi) = 1 + \\int_0^{2\\pi} \\sin(t^2)\\,dt > 1 = x(0)$, so the particle moves right of its starting position and $x(t) \\to \\infty$. Therefore there is no farthest-right point.",
+              "earned": true,
+              "commentary": "Verifies that $x(t)$ exceeds $x(0)$ and grows without bound, satisfying both conditions required by the rubric.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$x'(t) > 0$ for $t > \\sqrt{\\pi}$, so the particle keeps moving right.",
+              "earned": false,
+              "commentary": "$x'(t) = \\sin(t^2)$ alternates sign for $t > \\sqrt{\\pi}$; this statement is incorrect and also does not verify that $x(t)$ moves past its initial value.",
+              "source": "synthesized"
             }
           ]
         }

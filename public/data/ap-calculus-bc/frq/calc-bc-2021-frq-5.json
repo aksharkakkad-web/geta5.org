@@ -22,19 +22,40 @@
       "letter": "a",
       "prompt": "Write the second-degree Taylor polynomial for $f$ about $x = 1$. Use the Taylor polynomial to approximate $f(2)$.",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "The polynomial must be written about (centered at) $x = 1$. A term involving $(x-1)$ is not necessary if $f'(1) = 0$ is shown. If the polynomial is never explicitly written, the first point is not earned; to earn the second point, supporting work of at least $4 + 2(1)$ is required.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct second-degree Taylor polynomial about $x = 1$: uses $f(1) = 4$, $f'(1) = y(1\\cdot\\ln 1) = 4 \\cdot 0 = 0$, $f''(1) = 4$: $P_2(x) = 4 + 0\\cdot(x-1) + \\frac{4}{2}(x-1)^2 = 4 + 2(x-1)^2$",
+          "description": "Correct second-degree Taylor polynomial about $x = 1$: $f'(1) = y(1\\cdot\\ln 1) = 4\\cdot 0 = 0$ and $f''(1) = 4$, so $P_2(x) = 4 + 0\\cdot(x-1) + \\frac{4}{2!}(x-1)^2 = 4 + 2(x-1)^2$",
           "alternatives": [
             {
               "required_elements": [
                 "$P_2(x) = 4 + 2(x-1)^2$"
               ]
+            }
+          ],
+          "official_rubric": "The first point is earned for $4 + \\frac{4\\cdot\\ln 1}{1!}(x-1) + \\frac{4}{2!}(x-1)^2$ or any correctly simplified equivalent. The polynomial must be centered at $x = 1$.",
+          "sample_responses": [
+            {
+              "response": "$f'(1) = 4(1\\cdot\\ln 1) = 0$; $P_2(x) = 4 + 0(x-1) + \\frac{4}{2}(x-1)^2 = 4 + 2(x-1)^2$",
+              "earned": true,
+              "commentary": "Correctly computes $f'(1) = 0$ from the differential equation and constructs the degree-2 polynomial.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$P_2(x) = 4 + 2(x-1)^2$",
+              "earned": true,
+              "commentary": "The polynomial is correctly simplified; the intermediate computation of $f'(1) = 0$ is implied.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$P_2(x) = 4 + 0(x-1) + \\frac{4}{2}(x-1)^2 + \\cdots$ (centered at $x = 0$)",
+              "earned": false,
+              "commentary": "The polynomial must be centered at $x = 1$, not $x = 0$; a Maclaurin series does not satisfy the requirement.",
+              "source": "synthesized"
             }
           ]
         },
@@ -48,6 +69,21 @@
                 "$f(2) \\approx 6$"
               ]
             }
+          ],
+          "official_rubric": "If the first point is earned, the second point is earned for just '6' with no additional supporting work. If the polynomial is never written, supporting work of at least $4 + 2(1)$ is required.",
+          "sample_responses": [
+            {
+              "response": "$f(2) \\approx P_2(2) = 4 + 2(1)^2 = 6$",
+              "earned": true,
+              "commentary": "Plugs $x = 2$ into the Taylor polynomial and obtains $6$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$6$",
+              "earned": true,
+              "commentary": "If the first point was earned (polynomial was written), the answer '6' alone is sufficient.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -56,33 +92,63 @@
       "letter": "b",
       "prompt": "Use Euler's method, starting at $x = 1$ with two steps of equal size, to approximate $f(2)$. Show the work that leads to your answer.",
       "point_value": 2,
-      "scoring_notes": "A table showing the steps is acceptable. In the presence of the correct answer, the table does not need to be labeled in order to earn the point.",
+      "scoring_notes": "The first point is earned for two steps of size 0.5 with at most one error. If there is any error, the second point is not earned. The two steps may be shown as explicit expressions or in a table.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correctly executes two Euler steps with $\\Delta x = 0.5$:\n- Step 1: $x_0 = 1$, $y_0 = 4$; slope $= y_0(x_0 \\ln x_0) = 4(1\\cdot 0) = 0$; $y_1 = 4 + 0(0.5) = 4$\n- Step 2: $x_1 = 1.5$, $y_1 = 4$; slope $= 4(1.5\\ln 1.5) \\approx 4(1.5)(0.4055) \\approx 2.433$; $y_2 = 4 + 2.433(0.5) \\approx 5.216$",
+          "description": "Correctly executes two Euler steps with $\\Delta x = 0.5$ using $\\frac{dy}{dx} = y(x\\ln x)$ and $f(1) = 4$:\n- Step 1: slope $= 4(1\\cdot\\ln 1) = 0$; $f(1.5) \\approx 4 + 0.5\\cdot 0 = 4$\n- Step 2: slope $= 4(1.5\\cdot\\ln 1.5)$; $f(2) \\approx 4 + 0.5\\cdot 4(1.5\\ln 1.5) = 4 + 3\\ln 1.5$",
           "alternatives": [
             {
               "required_elements": [
-                "Two Euler steps shown with $\\Delta x = 0.5$",
-                "First step gives $y_1 = 4$ (since $f'(1) = 0$)",
-                "Second step applies $\\frac{dy}{dx}$ at $(1.5, 4)$"
+                "Two Euler steps with $\\Delta x = 0.5$",
+                "Step 1 gives $f(1.5) \\approx 4$",
+                "Step 2 applies the DE at $(1.5, 4)$"
               ]
+            }
+          ],
+          "official_rubric": "The first point is earned for two steps of size 0.5 with at most one error. The steps may be in a table. If there is any error, the second point is not earned. A single error in $f(1.5)$ carried into $f(2)$ is not a second error.",
+          "sample_responses": [
+            {
+              "response": "Step 1: $f(1.5) \\approx 4 + 0.5\\cdot 4(1\\cdot\\ln 1) = 4$. Step 2: $f(2) \\approx 4 + 0.5\\cdot 4(1.5\\ln 1.5) = 4 + 3\\ln 1.5$",
+              "earned": true,
+              "commentary": "Both steps are shown with correct $\\Delta x = 0.5$, correct DE evaluation at each point, and correct accumulation.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Step 1: $f(1.5) \\approx 4 + 0.5\\cdot y(1\\cdot\\ln 1) = 4$. Step 2: $f(2) \\approx 4 + 0.5\\cdot 4(1.5\\ln 1.5)$",
+              "earned": true,
+              "commentary": "Steps are correct even with $y$ used as a placeholder; both Euler iterations are present and correct.",
+              "source": "synthesized"
             }
           ]
         },
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct Euler approximation: $f(2) \\approx 4 + (1.5 \\ln 1.5)(4)(0.5) = 4 + 3(\\ln 1.5)(0.5 \\cdot 4)$. Numerically $\\approx 5.216$ (accept any correct follow-through)",
+          "description": "Correct Euler approximation: $f(2) \\approx 4 + 3\\ln 1.5$ (or equivalent exact expression; numerically $\\approx 5.216$)",
           "alternatives": [
             {
               "required_elements": [
-                "Euler approximation $f(2) \\approx 4 + 6\\ln(1.5)$ or equivalent decimal $\\approx 5.216$"
+                "$f(2) \\approx 4 + 3\\ln 1.5$ or $\\approx 5.216$"
               ]
+            }
+          ],
+          "official_rubric": "Both points are earned for $4 + 0.5\\cdot 0 + 0.5\\cdot 4(1.5\\ln 1.5)$ or $4 + 0.5\\cdot 4(1.5\\ln 1.5)$. Both points are also earned for the ordered pair $(2,\\, 4 + 3\\ln 1.5)$ with sufficient supporting work.",
+          "sample_responses": [
+            {
+              "response": "$f(2) \\approx 4 + 3\\ln 1.5 \\approx 5.216$",
+              "earned": true,
+              "commentary": "Correct exact form and correct decimal; the answer follows correctly from the two Euler steps.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$f(2) \\approx 4 + 3\\ln 1.5$",
+              "earned": true,
+              "commentary": "Exact form is sufficient; a decimal approximation is not required.",
+              "source": "synthesized"
             }
           ]
         }
@@ -92,7 +158,7 @@
       "letter": "c",
       "prompt": "Find the particular solution $y = f(x)$ to the differential equation $\\dfrac{dy}{dx} = y(x\\ln x)$ with initial condition $f(1) = 4$.",
       "point_value": 5,
-      "scoring_notes": "Note: This solution is valid for $x > 0$.",
+      "scoring_notes": "A response with no separation of variables earns 0/5. No constant of integration earns at most 3/5. A response is eligible for the fourth point only if it has earned the first and at least one antiderivative point. The fifth point requires all four preceding points.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
@@ -106,58 +172,128 @@
                 "$\\frac{dy}{y} = x\\ln x\\,dx$"
               ]
             }
+          ],
+          "official_rubric": "A response with no separation of variables earns 0 out of 5. If a separation error results in one side being correct, only the corresponding antiderivative point is eligible.",
+          "sample_responses": [
+            {
+              "response": "$\\frac{1}{y}\\,dy = x\\ln x\\,dx$",
+              "earned": true,
+              "commentary": "Correct separation: $y$ terms on the left, $x$ terms on the right.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$dy = y\\cdot x\\ln x\\,dx$",
+              "earned": false,
+              "commentary": "Not separated — $y$ still appears on the right side.",
+              "source": "synthesized"
+            }
           ]
         },
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Integrates both sides correctly. Left side: $\\int \\frac{dy}{y} = \\ln|y|$. Right side uses integration by parts with $u = \\ln x$, $dv = x\\,dx$: $\\int x\\ln x\\,dx = \\frac{x^2}{2}\\ln x - \\frac{x^2}{4} + C$",
+          "description": "Integrates the right side using integration by parts: $u = \\ln x$, $dv = x\\,dx$, $v = \\frac{x^2}{2}$; $\\int x\\ln x\\,dx = \\frac{x^2}{2}\\ln x - \\int \\frac{x^2}{2}\\cdot\\frac{1}{x}\\,dx = \\frac{x^2\\ln x}{2} - \\frac{x^2}{4} + C$",
           "alternatives": [
             {
               "required_elements": [
-                "$\\ln|y| = \\frac{x^2}{2}\\ln x - \\frac{x^2}{4} + C$"
+                "$\\int x\\ln x\\,dx = \\frac{x^2\\ln x}{2} - \\frac{x^2}{4}$ (with or without $+C$)"
               ]
+            }
+          ],
+          "official_rubric": "The second point is earned for the correct antiderivative of $x\\ln x$ via integration by parts. The $u$ and $dv$ choices must be stated or implied.",
+          "sample_responses": [
+            {
+              "response": "IBP: $u = \\ln x$, $dv = x\\,dx$; $\\int x\\ln x\\,dx = \\frac{x^2}{2}\\ln x - \\frac{x^2}{4}$",
+              "earned": true,
+              "commentary": "Correct integration by parts with all components shown.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\int x\\ln x\\,dx = \\frac{x^2\\ln x}{2} + C$",
+              "earned": false,
+              "commentary": "Missing the $-\\frac{x^2}{4}$ term from the integration by parts; antiderivative is incorrect.",
+              "source": "synthesized"
             }
           ]
         },
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "Exponentiates both sides to get the general solution: $y = Ae^{\\frac{x^2}{2}\\ln x - \\frac{x^2}{4}} = Ax^{x^2/2}\\,e^{-x^2/4}$ (or written as $y = Ae^{\\frac{x^2}{2}\\ln x - \\frac{x^2}{4}}$)",
+          "description": "Integrates the left side: $\\int \\frac{dy}{y} = \\ln|y|$ (or $\\ln y$ since $y > 0$); combines both sides: $\\ln|y| = \\frac{x^2\\ln x}{2} - \\frac{x^2}{4} + C$",
           "alternatives": [
             {
               "required_elements": [
-                "$y = Ae^{\\frac{x^2}{2}\\ln x - \\frac{x^2}{4}}$"
+                "$\\ln|y|$ or $\\ln y$ on the left side"
               ]
+            }
+          ],
+          "official_rubric": "The third point can be earned for either $\\ln y$ or $\\ln|y|$.",
+          "sample_responses": [
+            {
+              "response": "$\\ln|y| = \\frac{x^2\\ln x}{2} - \\frac{x^2}{4} + C$",
+              "earned": true,
+              "commentary": "Correct antiderivative of $\\frac{1}{y}$ combined with the right-side antiderivative.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$y = \\frac{x^2\\ln x}{2} - \\frac{x^2}{4} + C$",
+              "earned": false,
+              "commentary": "Forgets to take $\\int \\frac{1}{y}\\,dy = \\ln|y|$; sets $y$ equal to the right-side antiderivative directly.",
+              "source": "synthesized"
             }
           ]
         },
         {
           "point_id": "c4",
           "point_value": 1,
-          "description": "Applies initial condition $f(1) = 4$: $4 = Ae^{\\frac{1}{2}\\ln 1 - \\frac{1}{4}} = Ae^{0 - 1/4} = Ae^{-1/4}$, so $A = 4e^{1/4}$",
+          "description": "Applies initial condition $f(1) = 4$: $\\ln 4 = \\frac{1}{2}(0) - \\frac{1}{4} + C \\Rightarrow C = \\ln 4 + \\frac{1}{4}$",
           "alternatives": [
             {
               "required_elements": [
-                "$A = 4e^{1/4}$"
+                "$C = \\ln 4 + \\frac{1}{4}$"
               ]
+            }
+          ],
+          "official_rubric": "A response earns the fourth point by correctly including the constant of integration in an equation and substituting $x = 1$, $y = 4$. The response must have earned the first point and at least one antiderivative point.",
+          "sample_responses": [
+            {
+              "response": "$x = 1, y = 4$: $\\ln 4 = 0 - \\frac{1}{4} + C \\Rightarrow C = \\ln 4 + \\frac{1}{4}$",
+              "earned": true,
+              "commentary": "Correctly substitutes the initial condition to find $C$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\ln 4 = \\frac{1}{4} + C \\Rightarrow C = \\ln 4 - \\frac{1}{4}$",
+              "earned": false,
+              "commentary": "Sign error when evaluating $-\\frac{x^2}{4}$ at $x = 1$; the correct value is $-\\frac{1}{4}$, not $+\\frac{1}{4}$.",
+              "source": "synthesized"
             }
           ]
         },
         {
           "point_id": "c5",
           "point_value": 1,
-          "description": "States the particular solution: $y = 4e^{1/4}\\cdot e^{\\frac{x^2}{2}\\ln x - \\frac{x^2}{4}} = 4e^{\\frac{x^2\\ln x}{2} - \\frac{x^2}{4} + \\frac{1}{4}} = 4e^{\\frac{x^2\\ln x}{2} - \\frac{x^2-1}{4}}$",
+          "description": "States the particular solution by exponentiating: $y = e^{\\frac{x^2\\ln x}{2} - \\frac{x^2}{4} + \\ln 4 + \\frac{1}{4}} = 4e^{\\frac{x^2\\ln x}{2} - \\frac{x^2-1}{4}}$ (valid for $x > 0$)",
           "alternatives": [
             {
               "required_elements": [
-                "$y = 4e^{\\frac{x^2\\ln x}{2} - \\frac{x^2-1}{4}}$"
+                "$y = 4e^{\\frac{x^2\\ln x}{2} - \\frac{x^2-1}{4}}$ or equivalent"
               ]
+            }
+          ],
+          "official_rubric": "The fifth point is earned only if all four preceding points have been earned. The solution must explicitly solve for $y$.",
+          "sample_responses": [
+            {
+              "response": "$y = e^{\\frac{x^2\\ln x}{2} - \\frac{x^2}{4} + \\ln 4 + \\frac{1}{4}} = 4e^{\\frac{x^2\\ln x}{2} - \\frac{x^2-1}{4}}$",
+              "earned": true,
+              "commentary": "Correctly exponentiates both sides and uses $e^{\\ln 4} = 4$ to write the final solution.",
+              "source": "synthesized"
             },
             {
-              "required_elements": [
-                "$y = 4x^{x^2/2}\\,e^{(1-x^2)/4}$"
-              ]
+              "response": "$\\ln y = \\frac{x^2\\ln x}{2} - \\frac{x^2-1}{4} + \\ln 4$",
+              "earned": false,
+              "commentary": "The particular solution must be solved for $y$ (exponentiated) to earn the fifth point; leaving it in $\\ln y$ form is insufficient.",
+              "source": "synthesized"
             }
           ]
         }

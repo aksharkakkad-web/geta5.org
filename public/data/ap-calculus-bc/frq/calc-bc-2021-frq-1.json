@@ -22,32 +22,75 @@
       "letter": "a",
       "prompt": "Use the data in the table to estimate $f'(2.25)$. Using correct units, interpret the meaning of your answer in the context of this problem.",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "To earn the estimate point the response must provide both a difference and a quotient and must explicitly use values of $f$ from the table. The interpretation requires all of: distance $r = 2.25$, density of bacteria is increasing or changing, a rate value, and correct units of mg/cm² per cm.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correct difference quotient estimate: $f'(2.25) \\approx \\frac{f(2.5) - f(1)}{2.5 - 1} = \\frac{14 - 10}{1.5} = \\frac{8}{3}$ mg/cm² per cm (or equivalent using adjacent table values)",
+          "description": "Correct difference quotient estimate using adjacent table values centered near $r = 2.25$: $f'(2.25) \\approx \\frac{f(2.5) - f(1)}{2.5 - 1} = \\frac{14 - 10}{1.5} = \\frac{8}{3}$ mg/cm² per cm",
           "alternatives": [
             {
               "required_elements": [
                 "$f'(2.25) \\approx \\frac{f(2.5) - f(1)}{2.5 - 1} = \\frac{8}{3}$"
               ]
             }
+          ],
+          "official_rubric": "The first point is earned for a response that provides both a difference and a quotient and explicitly uses values of $f$ from the table. Simplification of the numerical value is not required. If a numerical value is given, it must be correct.",
+          "sample_responses": [
+            {
+              "response": "$f'(2.25) \\approx \\frac{f(2.5) - f(1)}{2.5 - 1} = \\frac{14 - 10}{1.5} = \\frac{8}{3}$ mg/cm² per cm",
+              "earned": true,
+              "commentary": "Correctly uses the two table values bracketing $r = 2.25$ to form a difference quotient; all required components — difference, quotient, and table values — are shown.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$f'(2.25) \\approx 8/3$",
+              "earned": false,
+              "commentary": "States a correct numerical value but does not show a difference quotient with explicit table values, so the evidence required for the point is missing.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$f'(2.25) \\approx \\frac{14 - 9}{2.5 - 0} = 2$",
+              "earned": true,
+              "commentary": "Uses alternate adjacent table values; the difference quotient form with explicit $f$-values is shown, which is all that is required — the value need not match the model solution.",
+              "source": "synthesized"
+            }
           ]
         },
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Correct units (mg/cm² per cm, or mg/cm³) AND interpretation: at a distance of 2.25 cm from the center of the petri dish, the bacteria density is increasing at a rate of approximately $\\frac{8}{3}$ milligrams per square centimeter per centimeter",
+          "description": "Correct interpretation with units: at a distance of $r = 2.25$ cm from the center of the petri dish, the density of the bacteria population is increasing at a rate of $\\frac{8}{3}$ milligrams per square centimeter per centimeter",
           "alternatives": [
             {
               "required_elements": [
-                "Units of mg/cm² per cm (or mg/cm³)",
-                "Interpretation references rate of change of density with respect to distance from center"
+                "Distance $r = 2.25$ referenced",
+                "Density of bacteria is increasing or changing at the stated rate",
+                "Units of mg/cm² per cm (equivalently mg/cm³)"
               ]
+            }
+          ],
+          "official_rubric": "The second point (interpretation) cannot be earned without a nonzero presented value for $f'(2.25)$. The interpretation must be consistent with the presented nonzero value and must include: distance $r = 2.25$, density of bacteria is increasing (or changing), the rate value, and units of mg/cm² per cm.",
+          "sample_responses": [
+            {
+              "response": "At a distance of 2.25 cm from the center, the bacteria density is increasing at a rate of $\\frac{8}{3}$ milligrams per square centimeter per centimeter.",
+              "earned": true,
+              "commentary": "Contains all four required elements: the specific distance $r = 2.25$, language about density changing, the rate value, and the correct units.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The bacteria density is increasing at 2.25.",
+              "earned": false,
+              "commentary": "Missing the units (mg/cm² per cm) and does not clearly state the rate value; the interpretation is incomplete.",
+              "source": "synthesized"
+            },
+            {
+              "response": "At $r = 2.25$, $f$ is changing at $\\frac{8}{3}$ mg/cm³.",
+              "earned": true,
+              "commentary": "Uses the equivalent unit mg/cm³ (same as mg/cm² per cm), references the correct distance, and states the rate — all required elements are present.",
+              "source": "synthesized"
             }
           ]
         }
@@ -57,33 +100,69 @@
       "letter": "b",
       "prompt": "The total mass, in milligrams, of bacteria in the petri dish is given by the integral expression $2\\pi \\int_0^4 r\\,f(r)\\,dr$. Approximate the value of $2\\pi \\int_0^4 r\\,f(r)\\,dr$ using a right Riemann sum with the four subintervals indicated by the data in the table.",
       "point_value": 2,
-      "scoring_notes": "The setup with subinterval widths and right endpoints must be explicitly shown.",
+      "scoring_notes": "The first point is earned for a sum of four products with at most one error in any single value. Multiplication by 1 in any term need not be shown, but all other products must be explicitly shown. A response with any error in the Riemann sum is not eligible for the second point. Simplification of the numerical value is not required; if a decimal is given it must be correct to three places.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct right Riemann sum setup using the four subintervals $[0,1]$, $[1,2.5]$, $[2.5,3.5]$, $[3.5,4]$ with right endpoints: $2\\pi\\bigl[(1)(1)f(1) + (1.5)(2.5)f(2.5) + (1)(3.5)f(3.5) + (0.5)(4)f(4)\\bigr]$",
+          "description": "Correct right Riemann sum setup using the four subintervals $[0,1]$, $[1,2.5]$, $[2.5,3.5]$, $[3.5,4]$ with right endpoints: $2\\pi\\bigl[(1)(1)(1-0)\\cdot f(1) + (2.5)(2.5-1)f(2.5) + (3.5)(3.5-2.5)f(3.5) + (4)(4-3.5)f(4)\\bigr]$",
           "alternatives": [
             {
               "required_elements": [
                 "Four terms with correct right endpoints $r = 1, 2.5, 3.5, 4$",
                 "Correct subinterval widths $\\Delta r = 1, 1.5, 1, 0.5$",
-                "Factor of $2\\pi$ and $r \\cdot f(r)$ in each term"
+                "Each term includes the factor $r \\cdot f(r) \\cdot \\Delta r$"
               ]
+            }
+          ],
+          "official_rubric": "The first point is earned for a sum of four products with at most one error in any single value among the four products. Multiplication by 1 in any term does not need to be shown, but all other products must be explicitly shown. The presence or absence of $2\\pi$ has no bearing on earning the first point.",
+          "sample_responses": [
+            {
+              "response": "$2\\pi[(1)(10)(1) + (2.5)(14)(1.5) + (3.5)(17)(1) + (4)(20)(0.5)]$\n$= 2\\pi[10 + 52.5 + 59.5 + 40] = 2\\pi(162) = 324\\pi$",
+              "earned": true,
+              "commentary": "All four terms use the correct right endpoints, widths, and $f$-values; every product is shown explicitly as required.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$2\\pi[(1)(10) + (2.5)(14) + (3.5)(17) + (4)(20)]$",
+              "earned": false,
+              "commentary": "Omits the $\\Delta r$ widths — each term must include the subinterval width as a factor; without them this is not a Riemann sum.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$2\\pi[(1)(10)(1) + (2.5)(14)(1.5) + (3.5)(17)(1) + (4)(20)(0.5)] = 324\\pi \\approx 1017.876$",
+              "earned": true,
+              "commentary": "Correct setup and correct decimal approximation to three places; both points earned.",
+              "source": "synthesized"
             }
           ]
         },
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct numerical answer: $2\\pi[(1)(10) + (1.5)(35) + (1)(59.5) + (0.5)(80)] = 2\\pi[10 + 52.5 + 59.5 + 40] = 2\\pi(162) = 324\\pi \\approx 1017.876$ mg",
+          "description": "Correct numerical answer: $2\\pi[(1)(10) + (1.5)(2.5)(14) + (1)(3.5)(17) + (0.5)(4)(20)] = 2\\pi[10 + 52.5 + 59.5 + 40] = 2\\pi(162) = 324\\pi \\approx 1017.876$ mg",
           "alternatives": [
             {
               "required_elements": [
                 "$324\\pi$ or $\\approx 1017.876$ milligrams"
               ]
+            }
+          ],
+          "official_rubric": "A response with any error in the Riemann sum is not eligible for the second point. Simplification of the numerical value is not required. If a numerical decimal is given, it must be correct to three decimal places.",
+          "sample_responses": [
+            {
+              "response": "$324\\pi \\approx 1017.876$ mg",
+              "earned": true,
+              "commentary": "Correct exact and decimal forms both given; the decimal is accurate to three places.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$2\\pi(162) = 1017.876$",
+              "earned": true,
+              "commentary": "Simplifies correctly and gives the correct decimal; the point is earned.",
+              "source": "synthesized"
             }
           ]
         }
@@ -93,31 +172,62 @@
       "letter": "c",
       "prompt": "Is the approximation found in part (b) an overestimate or underestimate of the total mass of bacteria in the petri dish? Explain your reasoning.",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "To earn the second point a response must explain that $r f(r)$ is increasing and therefore the right Riemann sum is an overestimate. The second point can be earned without the first.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "States that the approximation is an overestimate",
+          "description": "Applies the product rule to show $\\frac{d}{dr}(r f(r)) = f(r) + r f'(r)$, which is positive since $f$ is nonnegative and increasing ($f' > 0$), so the integrand $r f(r)$ is strictly increasing on $[0, 4]$",
           "alternatives": [
             {
               "required_elements": [
-                "Overestimate"
+                "$\\frac{d}{dr}(r f(r)) = f(r) + r f'(r) > 0$"
               ]
+            }
+          ],
+          "official_rubric": "The first point is earned for presenting the product rule expression $\\frac{d}{dr}(rf(r)) = f(r) + rf'(r)$.",
+          "sample_responses": [
+            {
+              "response": "$\\frac{d}{dr}(rf(r)) = f(r) + rf'(r) > 0$ since $f \\geq 0$ and $f' > 0$, so $rf(r)$ is increasing.",
+              "earned": true,
+              "commentary": "Correctly uses the product rule and argues positivity from $f$ nonnegative and $f'$ positive.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Since the table values are increasing, $rf(r)$ is increasing.",
+              "earned": false,
+              "commentary": "Does not provide the product rule expression required for the first point; a table observation alone is insufficient.",
+              "source": "synthesized"
             }
           ]
         },
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Correct reasoning: since $f$ is an increasing function, the right Riemann sum overestimates the integral $\\int_0^4 r\\,f(r)\\,dr$ because $r\\,f(r)$ is increasing (the right endpoint value of the integrand on each subinterval is greater than any interior value)",
+          "description": "States overestimate with correct explanation: because $r f(r)$ is strictly increasing on $[0, 4]$, the right Riemann sum overestimates $\\int_0^4 r f(r)\\,dr$",
           "alternatives": [
             {
               "required_elements": [
-                "Because $f$ is increasing, the right Riemann sum overestimates the integral"
+                "Overestimate",
+                "Because $rf(r)$ is increasing, the right Riemann sum overestimates the integral"
               ]
+            }
+          ],
+          "official_rubric": "To earn the second point a response must explain that $rf(r)$ is increasing and therefore the right Riemann sum is an overestimate. The second point can be earned without the first point.",
+          "sample_responses": [
+            {
+              "response": "Since $rf(r)$ is increasing on $[0,4]$, the right endpoint of each subinterval gives a value greater than the integrand on the interior; therefore the right Riemann sum is an overestimate.",
+              "earned": true,
+              "commentary": "Correctly links the increasing nature of the integrand to the right Riemann sum being an overestimate.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Overestimate, because $f$ is increasing.",
+              "earned": false,
+              "commentary": "The explanation must reference $rf(r)$ being increasing (the actual integrand), not just $f$; the missing product rule analysis leaves the argument incomplete for the first point but the conclusion is correct for the second point only if $rf(r)$ increasing is clearly implied.",
+              "source": "synthesized"
             }
           ]
         }
@@ -127,43 +237,94 @@
       "letter": "d",
       "prompt": "The density of bacteria in the petri dish, for $1 \\leq r \\leq 4$, is modeled by the function $g$ defined by $g(r) = 2 - 16\\cos(1.57r)^3$. For what value of $k$, $1 < k < 4$, is $g(k)$ equal to the average value of $g(r)$ on the interval $1 \\leq r \\leq 4$?",
       "point_value": 3,
-      "scoring_notes": null,
+      "scoring_notes": "The first point is earned for a definite integral with or without the $\\frac{1}{3}$ factor. The second point (average value) can be earned by the setup $\\frac{1}{3}\\int_1^4 g(r)\\,dr$ alone. The third point is earned only for the correct $k$-value and cannot be earned without the second.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "Sets up the correct expression for the average value of $g$ on $[1,4]$: $\\frac{1}{4-1}\\int_1^4 g(r)\\,dr = \\frac{1}{3}\\int_1^4 \\left(2 - 16\\cos(1.57r)^3\\right)dr$",
+          "description": "Sets up the correct expression for the average value of $g$ on $[1,4]$: $\\frac{1}{4-1}\\int_1^4 g(r)\\,dr = \\frac{1}{3}\\int_1^4 \\bigl(2 - 16\\cos(1.57r)^3\\bigr)\\,dr$",
           "alternatives": [
             {
               "required_elements": [
-                "$\\frac{1}{3}\\int_1^4 g(r)\\,dr$"
+                "$\\frac{1}{3}\\int_1^4 g(r)\\,dr$ or $\\int_1^4 g(r)\\,dr$ (with or without $\\frac{1}{3}$)"
               ]
+            }
+          ],
+          "official_rubric": "The first point is earned for a definite integral, with or without $\\frac{1}{4-1}$ or $\\frac{1}{3}$. A response that presents a definite integral with incorrect limits but a correct integrand earns the first point.",
+          "sample_responses": [
+            {
+              "response": "$g_{\\text{avg}} = \\frac{1}{3}\\int_1^4 \\bigl(2 - 16\\cos(1.57r)^3\\bigr)\\,dr$",
+              "earned": true,
+              "commentary": "Correctly sets up the average-value integral with the $\\frac{1}{3}$ factor and correct limits.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\frac{1}{3}\\int_0^4 g(r)\\,dr$",
+              "earned": true,
+              "commentary": "Incorrect lower limit but correct integrand; per rubric, a correct integrand with incorrect limits still earns the first point.",
+              "source": "synthesized"
             }
           ]
         },
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "Correct average value computed (using calculator): $\\frac{1}{3}\\int_1^4 g(r)\\,dr \\approx 3.521$",
+          "description": "Correctly computes the average value (using calculator): $\\frac{1}{3}\\int_1^4 g(r)\\,dr \\approx 3.521$",
           "alternatives": [
             {
               "required_elements": [
-                "Average value $\\approx 3.521$ (or equivalent decimal)"
+                "Average value $\\approx 3.521$ (or consistent correct decimal)"
               ]
+            }
+          ],
+          "official_rubric": "Presentation of a specific numerical average value is not required; the point can be earned by the average value setup $\\frac{1}{3}\\int_1^4 g(r)\\,dr$ alone. Once earned for the setup, this point cannot be lost.",
+          "sample_responses": [
+            {
+              "response": "$\\frac{1}{3}\\int_1^4 g(r)\\,dr \\approx 3.521$",
+              "earned": true,
+              "commentary": "The setup earns the point; the numerical value confirms correct calculator evaluation.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\frac{1}{3}\\int_1^4 g(r)\\,dr$",
+              "earned": true,
+              "commentary": "The setup alone is sufficient; no numerical evaluation is required for this point.",
+              "source": "synthesized"
             }
           ]
         },
         {
           "point_id": "d3",
           "point_value": 1,
-          "description": "Solves $g(k) = $ average value for $k$: $k \\approx 1.361$ or $k \\approx 2.493$ (or other correct value in $(1,4)$ obtained from a calculator)",
+          "description": "Solves $g(k) = g_{\\text{avg}}$ for $k$ in $(1, 4)$: $k \\approx 2.497$ (or other correct value in $(1, 4)$ satisfying $g(k) = $ average value)",
           "alternatives": [
             {
               "required_elements": [
-                "A correct value of $k$ in the interval $(1,4)$ satisfying $g(k) =$ average value"
+                "A correct value of $k$ in $(1,4)$ satisfying $g(k) = $ average value (e.g., $k \\approx 2.497$)"
               ]
+            }
+          ],
+          "official_rubric": "The third point is earned only for a correct value of $k$. The third point cannot be earned without the second.",
+          "sample_responses": [
+            {
+              "response": "$g(k) = 3.521 \\Rightarrow k \\approx 2.497$",
+              "earned": true,
+              "commentary": "Sets up and solves the equation $g(k) = $ average value with a calculator; the answer is correct to three decimal places.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$k \\approx 2.497$",
+              "earned": false,
+              "commentary": "Correct value but presented without showing $g(k) = $ average value; the third point requires the second point to have been earned first.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g(k) = 3.521 \\Rightarrow k \\approx 1.4$",
+              "earned": false,
+              "commentary": "Sets up the equation correctly but solves to an incorrect $k$-value; the third point requires the exact correct answer.",
+              "source": "synthesized"
             }
           ]
         }

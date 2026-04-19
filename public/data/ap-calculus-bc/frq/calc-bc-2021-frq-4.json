@@ -22,31 +22,62 @@
       "letter": "a",
       "prompt": "On what open intervals is the graph of $G$ concave up? Give a reason for your answer.",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "This question has a global point worth 1 point for establishing $G'(x) = f(x)$ anywhere in the response. That global point is counted here in part (a). Intervals may include one or both endpoints.",
       "requires_drawing": true,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "States the correct open intervals where $G$ is concave up: $(-4, -2)$ and $(2, 5)$ (i.e., where $f$ is increasing, since $G''(x) = f'(x) > 0$)",
+          "description": "Global point: establishes $G'(x) = f(x)$ anywhere in the response (in part (a), (b), (c), or (d))",
           "alternatives": [
             {
               "required_elements": [
-                "Intervals $(-4,-2)$ and $(2,5)$"
+                "$G'(x) = f(x)$"
               ]
+            }
+          ],
+          "official_rubric": "This 'global point' can be earned in any one part of the problem. Expressions that earn it include: $G' = f$, $G'(x) = f(x)$, $G''(x) = f'(x)$, $G'(3) = f(3)$, or $G'(2) = f(2)$.",
+          "sample_responses": [
+            {
+              "response": "Since $G'(x) = f(x)$, $G$ is concave up where $f$ is increasing.",
+              "earned": true,
+              "commentary": "Clearly states $G'(x) = f(x)$, earning the global point, and connects concavity to $f$ being increasing.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$G$ is concave up on $(-4,-2)$ and $(2,5)$ because $f$ is increasing there.",
+              "earned": false,
+              "commentary": "Gives the correct intervals and reason but never states $G'(x) = f(x)$; the global point is not earned here (though it may still be earned in another part).",
+              "source": "synthesized"
             }
           ]
         },
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Correct reasoning: $G''(x) = f'(x)$, so $G$ is concave up where $f'(x) > 0$, i.e., where $f$ is increasing",
+          "description": "States the correct open intervals where $G$ is concave up: $(-4, -2)$ and $(2, 5)$ (where $f$ is increasing, i.e., $G''(x) = f'(x) > 0$), with correct reasoning",
           "alternatives": [
             {
               "required_elements": [
-                "$G''(x) = f'(x) > 0$ where $f$ is increasing"
+                "Intervals $(-4,-2)$ and $(2,5)$",
+                "Reason: $G' = f$ is increasing on these intervals"
               ]
+            }
+          ],
+          "official_rubric": "The answer-with-reason point is earned for the correct open intervals with the reason that $G' = f$ is increasing on those intervals. Intervals may include one or both endpoints.",
+          "sample_responses": [
+            {
+              "response": "$G'(x) = f(x)$, so $G$ is concave up where $f$ is increasing: $(-4,-2)$ and $(2,5)$.",
+              "earned": true,
+              "commentary": "Correct intervals and correct reasoning linking concavity of $G$ to $f$ being increasing.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$G$ is concave up on $(-4,-2)$ and $(2,6)$.",
+              "earned": false,
+              "commentary": "The second interval should end at $5$, not $6$; the graph of $f$ is decreasing on $(5,6)$, so $G$ is not concave up there.",
+              "source": "synthesized"
             }
           ]
         }
@@ -56,45 +87,95 @@
       "letter": "b",
       "prompt": "Let $P$ be the function defined by $P(x) = G(x) \\cdot f(x)$. Find $P'(3)$.",
       "point_value": 3,
-      "scoring_notes": null,
+      "scoring_notes": "The first point is earned for the correct product rule in terms of $x$ or at $x = 3$. Once earned it cannot be lost. The second point requires correctly evaluating $G(3)$, $G'(3)$, or $f(3)$. The third point requires the first two.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Applies the product rule: $P'(x) = G'(x) \\cdot f(x) + G(x) \\cdot f'(x) = f(x) \\cdot f(x) + G(x) \\cdot f'(x) = [f(x)]^2 + G(x)f'(x)$",
+          "description": "Applies the product rule: $P'(x) = G'(x)\\cdot f(x) + G(x)\\cdot f'(x) = [f(x)]^2 + G(x)\\,f'(x)$",
           "alternatives": [
             {
               "required_elements": [
-                "$P'(x) = [f(x)]^2 + G(x)\\cdot f'(x)$"
+                "$P'(x) = G'(x)\\cdot f(x) + G(x)\\cdot f'(x)$"
               ]
+            }
+          ],
+          "official_rubric": "The first point is earned for a correct application of the product rule in terms of $x$ or in the evaluation of $P'(3)$. Once earned, this point cannot be lost.",
+          "sample_responses": [
+            {
+              "response": "$P'(x) = G'(x)\\cdot f(x) + G(x)\\cdot f'(x)$",
+              "earned": true,
+              "commentary": "Correct product rule differentiation of $G(x)\\cdot f(x)$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$P'(3) = G(3)\\cdot f'(3) + f(3)\\cdot G'(3)$",
+              "earned": true,
+              "commentary": "Product rule applied directly at $x = 3$; this also earns the point.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$P'(x) = G(x)\\cdot f'(x)$",
+              "earned": false,
+              "commentary": "Missing the $G'(x)\\cdot f(x)$ term; incomplete product rule.",
+              "source": "synthesized"
             }
           ]
         },
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Computes $G(3) = \\int_0^3 f(t)\\,dt$ from the graph (sum of signed areas): $G(3) = $ area from graph $= \\frac{1}{2}(2)(4) + \\frac{1}{2}(1)(2) - $ (area below axis as needed) [exact value depends on graph; e.g., $G(3) = 3$] and reads $f(3)$ and $f'(3)$ from the graph",
+          "description": "Correctly evaluates from the graph: $G(3) = \\int_0^3 f(t)\\,dt = -3.5$ (signed area from graph), $G'(3) = f(3) = -3$, and $f'(3) = 1$ (slope of the segment containing $x = 3$)",
           "alternatives": [
             {
               "required_elements": [
-                "Correct $G(3)$ computed as $\\int_0^3 f(t)\\,dt$ from the graph",
-                "Correct $f(3)$ read from graph",
-                "Correct $f'(3)$ as slope of $f$ at $x=3$ from graph"
+                "Correct $G(3) = -3.5$",
+                "Correct $G'(3) = f(3) = -3$"
               ]
+            }
+          ],
+          "official_rubric": "The second point is earned by correctly evaluating $G(3) = -3.5$, $G'(3) = -3$, or $f(3) = -3$ from the graph.",
+          "sample_responses": [
+            {
+              "response": "$G(3) = \\int_0^3 f(t)\\,dt = -3.5$ and $G'(3) = f(3) = -3$",
+              "earned": true,
+              "commentary": "Both required values are correctly read from the graph.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$G(3) = 3$ and $f(3) = -3$",
+              "earned": false,
+              "commentary": "Incorrect $G(3)$; the signed area under the graph from $0$ to $3$ must be computed carefully from the piecewise linear graph.",
+              "source": "synthesized"
             }
           ]
         },
         {
           "point_id": "b3",
           "point_value": 1,
-          "description": "Correct final numerical answer for $P'(3)$ (follow-through from graph values): $P'(3) = [f(3)]^2 + G(3)\\cdot f'(3)$",
+          "description": "Correct final answer: $P'(3) = G(3)\\cdot f'(3) + [f(3)]^2 = (-3.5)(1) + (-3)(-3) = -3.5 + 9 = 5.5$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct numerical answer for $P'(3)$ consistent with graph values"
+                "$P'(3) = 5.5$"
               ]
+            }
+          ],
+          "official_rubric": "The third point is earned only for a response that has earned the first two points. Simplification is not required.",
+          "sample_responses": [
+            {
+              "response": "$P'(3) = (-3.5)(1) + (-3)(-3) = -3.5 + 9 = 5.5$",
+              "earned": true,
+              "commentary": "Correct substitution and arithmetic; the answer $5.5$ follows from the product rule with the correct graph values.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$P'(3) = (-3.5)(1) + (-3)(-3) = -3.5 + 9$",
+              "earned": true,
+              "commentary": "Simplification is not required; the unsimplified expression is accepted for the third point.",
+              "source": "synthesized"
             }
           ]
         }
@@ -104,36 +185,62 @@
       "letter": "c",
       "prompt": "Find $\\displaystyle\\lim_{x \\to 2} \\frac{G(x)}{x^2 - 2x}$.",
       "point_value": 2,
-      "scoring_notes": null,
+      "scoring_notes": "To earn the first point the response must show both limits equal to zero and present the ratio of derivatives. To earn the second point the response must include correct limit notation and evaluate correctly.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Recognizes the limit has the form $\\frac{0}{0}$ (since $G(2) = \\int_0^2 f(t)\\,dt$ and $2^2 - 2(2) = 0$) and applies L'Hôpital's Rule: $\\lim_{x\\to 2} \\frac{G(x)}{x^2-2x} = \\lim_{x\\to 2} \\frac{G'(x)}{2x-2} = \\lim_{x\\to 2} \\frac{f(x)}{2x-2}$",
+          "description": "Recognizes the $\\frac{0}{0}$ indeterminate form (since $G(2) = \\int_0^2 f(t)\\,dt = 0$ and $2^2 - 2(2) = 0$) and applies L'Hôpital's Rule: $\\lim_{x\\to 2}\\frac{G(x)}{x^2-2x} = \\lim_{x\\to 2}\\frac{G'(x)}{2x-2} = \\lim_{x\\to 2}\\frac{f(x)}{2x-2}$",
           "alternatives": [
             {
               "required_elements": [
-                "Applies L'Hôpital's Rule: $\\lim_{x\\to 2}\\frac{f(x)}{2x-2}$"
+                "$\\lim_{x\\to 2}(x^2-2x) = 0$ and $\\lim_{x\\to 2}G(x) = 0$ shown",
+                "Ratio of derivatives $\\dfrac{G'(x)}{2x-2}$ or $\\dfrac{f(x)}{2x-2}$ presented"
               ]
+            }
+          ],
+          "official_rubric": "To earn the first point the response must show both $\\lim_{x\\to 2}(x^2-2x) = 0$ and $\\lim_{x\\to 2}G(x) = 0$ and must show a ratio of the two derivatives $G'(x)$ and $2x-2$. The ratio may be shown as evaluations at $x=2$.",
+          "sample_responses": [
+            {
+              "response": "$\\lim_{x\\to 2}G(x) = 0$ and $\\lim_{x\\to 2}(x^2-2x) = 0$, so $\\frac{0}{0}$. By L'Hôpital: $\\lim_{x\\to 2}\\frac{f(x)}{2x-2}$",
+              "earned": true,
+              "commentary": "Both zero limits are shown and the correct derivative ratio is presented.",
+              "source": "synthesized"
             },
             {
-              "required_elements": [
-                "Factors denominator: $x^2-2x = x(x-2)$, numerator $G(x)\\approx G'(2)(x-2) = f(2)(x-2)$, giving $\\frac{f(2)}{2}$"
-              ]
+              "response": "$\\lim_{x\\to 2}\\frac{G(x)}{x^2-2x} = \\frac{f(2)}{2} = -2$",
+              "earned": false,
+              "commentary": "Applies L'Hôpital's Rule implicitly but does not show both limits equal zero; the indeterminate form verification is required for the first point.",
+              "source": "synthesized"
             }
           ]
         },
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Evaluates the limit: reads $f(2)$ from the graph (e.g., $f(2) = 4$) and computes $\\frac{f(2)}{2(2)-2} = \\frac{4}{2} = 2$ (exact value follows from graph; answer must be consistent with the graph)",
+          "description": "Evaluates the limit correctly: $\\lim_{x\\to 2}\\frac{f(x)}{2x-2} = \\frac{f(2)}{2(2)-2} = \\frac{-4}{2} = -2$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct numerical answer $\\frac{f(2)}{2}$ consistent with graph (e.g., $2$)"
+                "Correct numerical answer $-2$ with appropriate limit notation"
               ]
+            }
+          ],
+          "official_rubric": "The second point requires correct evaluation with appropriate limit notation. Any linkage errors (such as equating the ratio to its value without a limit sign) lose this point.",
+          "sample_responses": [
+            {
+              "response": "$\\lim_{x\\to 2}\\frac{f(x)}{2x-2} = \\frac{f(2)}{2} = \\frac{-4}{2} = -2$",
+              "earned": true,
+              "commentary": "Correct evaluation with proper limit notation; $f(2) = -4$ is read from the graph.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\frac{G'(x)}{2x-2} = \\frac{f(2)}{2} = -2$",
+              "earned": false,
+              "commentary": "Linkage error — equates a function of $x$ to a number without a limit; limit notation is required.",
+              "source": "synthesized"
             }
           ]
         }
@@ -143,31 +250,64 @@
       "letter": "d",
       "prompt": "Find the average rate of change of $G$ on the interval $[-4, 2]$. Does the Mean Value Theorem guarantee a value $c$, $-4 < c < 2$, for which $G'(c)$ is equal to this average rate of change? Justify your answer.",
       "point_value": 2,
-      "scoring_notes": "The value of $G(-4)$ and $G(2)$ must be correct.",
+      "scoring_notes": "To earn the first point a response must present at least a difference and a quotient and a correct evaluation. The second point can be earned without the first if the setup is correct. The MVT need not be explicitly stated if conditions and conclusion are stated.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "Computes the average rate of change: $\\frac{G(2) - G(-4)}{2 - (-4)} = \\frac{\\int_0^2 f(t)\\,dt - \\int_0^{-4}f(t)\\,dt}{6}$. Evaluates from the graph: $G(2) = \\int_0^2 f(t)\\,dt$ and $G(-4) = \\int_0^{-4}f(t)\\,dt = -\\int_{-4}^0 f(t)\\,dt$; computes the correct numerical average rate of change",
+          "description": "Computes the average rate of change: $\\frac{G(2) - G(-4)}{2 - (-4)} = \\frac{G(2) - G(-4)}{6}$. From the graph: $G(2) = \\int_0^2 f(t)\\,dt = 0$ and $G(-4) = \\int_0^{-4} f(t)\\,dt = -16$; average rate $= \\frac{0-(-16)}{6} = \\frac{8}{3}$",
           "alternatives": [
             {
               "required_elements": [
-                "$\\frac{G(2)-G(-4)}{6}$ with correct numerical values from the graph"
+                "$\\frac{G(2) - G(-4)}{6}$ with correct numerical values",
+                "Average rate $= \\frac{8}{3}$"
               ]
+            }
+          ],
+          "official_rubric": "The first point requires a difference and a quotient and a correct evaluation. Simplification is not required but must be correct if given.",
+          "sample_responses": [
+            {
+              "response": "$\\frac{G(2) - G(-4)}{6} = \\frac{0 - (-16)}{6} = \\frac{16}{6} = \\frac{8}{3}$",
+              "earned": true,
+              "commentary": "Correct setup and correct evaluation from the graph areas.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\frac{G(2) - G(-4)}{6} = \\frac{16}{6}$",
+              "earned": true,
+              "commentary": "Simplification to $\\frac{8}{3}$ is not required; the unsimplified form is accepted.",
+              "source": "synthesized"
             }
           ]
         },
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "Yes, the MVT guarantees such a $c$, because $G$ is differentiable on $(-4, 2)$ (since $G'(x) = f(x)$ and $f$ is continuous) and continuous on $[-4, 2]$, so the MVT applies",
+          "description": "Yes — the MVT guarantees such a $c$ because $G$ is differentiable on $(-4, 2)$ (since $G'(x) = f(x)$ and $f$ is continuous) and continuous on $[-4, 2]$, satisfying the hypotheses of the MVT",
           "alternatives": [
             {
               "required_elements": [
-                "Yes, MVT applies because $G$ is continuous on $[-4,2]$ and differentiable on $(-4,2)$"
+                "Yes",
+                "$G$ is differentiable on $(-4,2)$ and continuous on $[-4,2]$",
+                "Concludes MVT guarantees such a $c$"
               ]
+            }
+          ],
+          "official_rubric": "The second point can be earned without the first if the setup is correct but evaluation is incorrect or absent. The MVT need not be explicitly cited if conditions and conclusion are present.",
+          "sample_responses": [
+            {
+              "response": "Yes. Since $G'(x) = f(x)$ and $f$ is continuous, $G$ is differentiable on $(-4,2)$ and continuous on $[-4,2]$, so the MVT guarantees a $c$ with $G'(c) = \\frac{8}{3}$.",
+              "earned": true,
+              "commentary": "States both MVT conditions correctly and draws the correct conclusion.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Yes, by the Mean Value Theorem.",
+              "earned": false,
+              "commentary": "Names the theorem but does not state the conditions (differentiability and continuity); conditions and conclusion must be explicit.",
+              "source": "synthesized"
             }
           ]
         }
