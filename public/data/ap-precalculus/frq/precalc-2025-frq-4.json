@@ -34,7 +34,28 @@
             }
           ],
           "wrong_examples": ["$x = 3^4 = 81$ (error: did not first divide both sides by 2)", "$x = 32$ (applied exponent incorrectly as $x = 3^2$... same as correct, so this is an unevaluated form — does not earn point per Directions bullet)"],
-          "common_traps": ["Supporting work is required — answer alone without work does not earn the point", "Answers not fully evaluated per the Directions do not earn the point (e.g., leaving answer as $x = 3^2$ without simplifying to $9$)"]
+          "common_traps": ["Supporting work is required — answer alone without work does not earn the point", "Answers not fully evaluated per the Directions do not earn the point (e.g., leaving answer as $x = 3^2$ without simplifying to $9$)"],
+          "official_rubric": "Point A1 requires supporting work. A logarithmic expression that adds one or both parentheses around the full argument of the logarithm is eligible to earn Point A1. Answers not evaluated according to the Directions do not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$2\\log_3 x = 4 \\Rightarrow \\log_3 x = 2 \\Rightarrow x = 3^2 = 9$",
+              "earned": true,
+              "commentary": "Divides by $2$, rewrites in exponential form, and evaluates $3^2 = 9$; all three steps are shown and the answer is in fully evaluated form.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$2\\log_3 x = 4 \\Rightarrow \\log_3 x = 4 \\Rightarrow x = 3^4 = 81$",
+              "earned": false,
+              "commentary": "Fails to divide both sides by $2$ before converting to exponential form; this leads to $x = 81$ instead of the correct $x = 9$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$x = 9$ (no work shown)",
+              "earned": false,
+              "commentary": "States the correct answer but provides no supporting work; supporting work is required for Point A1.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "a2",
@@ -47,7 +68,22 @@
             }
           ],
           "wrong_examples": ["$x = \\frac{\\pi}{6}$ and $x = \\frac{5\\pi}{6}$ (including values outside the interval — still eligible since adding correct extra values outside the interval is permitted)", "$x = \\arccos\\left(\\frac{\\sqrt{3}}{2}\\right)$ without evaluating (unevaluated form — does not earn point per Directions)"],
-          "common_traps": ["Supporting work is required", "Including correct values outside $(0, \\frac{\\pi}{2})$ does not disqualify the answer — only incorrect values do", "The use of $\\pm$ is not required in supporting work"]
+          "common_traps": ["Supporting work is required", "Including correct values outside $(0, \\frac{\\pi}{2})$ does not disqualify the answer — only incorrect values do", "The use of $\\pm$ is not required in supporting work"],
+          "official_rubric": "Point A2 requires supporting work. A response that includes correct values of $x$ outside of the interval $(0, \\frac{\\pi}{2})$ is eligible to earn Point A2. The use of $\\pm$ is not required in supporting work. Answers not evaluated according to the Directions (e.g., $x = \\cos^{-1}\\left(\\frac{\\sqrt{3}}{2}\\right)$) do not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$4\\cos^2 x = 3 \\Rightarrow \\cos^2 x = \\frac{3}{4} \\Rightarrow \\cos x = \\frac{\\sqrt{3}}{2}$ (since $x \\in (0, \\frac{\\pi}{2})$, $\\cos x > 0$), so $x = \\frac{\\pi}{6}$",
+              "earned": true,
+              "commentary": "Divides by $4$, takes the positive square root appropriate for the given interval, and evaluates $\\cos^{-1}\\left(\\frac{\\sqrt{3}}{2}\\right) = \\frac{\\pi}{6}$ in exact form.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$4\\cos^2 x = 3 \\Rightarrow \\cos^2 x = \\frac{3}{4} \\Rightarrow x = \\cos^{-1}\\left(\\frac{\\sqrt{3}}{2}\\right)$",
+              "earned": false,
+              "commentary": "Leaves the answer in unevaluated form $\\cos^{-1}\\left(\\frac{\\sqrt{3}}{2}\\right)$; the Directions require this to be evaluated to $\\frac{\\pi}{6}$.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     },
@@ -70,7 +106,28 @@
             }
           ],
           "wrong_examples": ["$\\log_2(x + 8)$ (incorrect log product rule — $\\log a + \\log b = \\log(ab)$, not $\\log(a+b)$)", "$\\log_2 x + 3$ (partially correct but not a single logarithm as required)"],
-          "common_traps": ["No supporting work required IF correct expression appears with no incorrect work", "Missing parentheses around the argument is still eligible ($\\log_2 8x$ is acceptable)", "Partial credit (B1=1, B2=0) if $j(x)$ is written as $\\log_2 x + 3$ with no incorrect work"]
+          "common_traps": ["No supporting work required IF correct expression appears with no incorrect work", "Missing parentheses around the argument is still eligible ($\\log_2 8x$ is acceptable)", "Partial credit (B1=1, B2=0) if $j(x)$ is written as $\\log_2 x + 3$ with no incorrect work"],
+          "official_rubric": "Point B1 is earned with a correct expression for $j(x)$ without supporting work, provided no incorrect work is included. A logarithmic expression that is missing one or both parentheses around the full argument of the logarithm is still eligible to earn Point B1.",
+          "sample_responses": [
+            {
+              "response": "$\\log_2 x + 3\\log_2 2 = \\log_2 x + \\log_2 2^3 = \\log_2(8x)$",
+              "earned": true,
+              "commentary": "Applies the power rule to convert $3\\log_2 2$ to $\\log_2 8$, then uses the product rule to combine into $\\log_2(8x)$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\log_2(8x)$ (no work shown)",
+              "earned": true,
+              "commentary": "The correct expression is stated with no incorrect work shown; for this point, supporting work is not required if the answer is correct.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\log_2 x + 3$",
+              "earned": false,
+              "commentary": "Evaluates $3\\log_2 2 = 3 \\cdot 1 = 3$ but adds it as a separate term rather than combining into a single logarithm; the result is not of the required form $\\log_2(\\text{expression})$.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "b2",
@@ -83,7 +140,28 @@
             }
           ],
           "wrong_examples": ["$\\frac{6\\sin x}{\\cos x}$ (correct value but $\\tan x$ must appear exactly once and no other trig functions)", "$\\frac{6}{\\cot x}$ without simplifying further to $6\\tan x$"],
-          "common_traps": ["Supporting work is required for B2 — correct answer without showing Pythagorean identity step does not earn the point", "The Pythagorean identity $\\csc^2 x - 1 = \\cot^2 x$ must be applied explicitly"]
+          "common_traps": ["Supporting work is required for B2 — correct answer without showing Pythagorean identity step does not earn the point", "The Pythagorean identity $\\csc^2 x - 1 = \\cot^2 x$ must be applied explicitly"],
+          "official_rubric": "Point B2 requires supporting work. Domain restrictions are not required to be included and are not scored regardless if correct or incorrect. If a response is presented as a complex fraction, the complex fraction must be unambiguous in structure.",
+          "sample_responses": [
+            {
+              "response": "$k(x) = \\frac{6}{\\tan x (\\csc^2 x - 1)} = \\frac{6}{\\tan x \\cdot \\cot^2 x} = \\frac{6}{\\cot x} = 6\\tan x$",
+              "earned": true,
+              "commentary": "Applies $\\csc^2 x - 1 = \\cot^2 x$, simplifies $\\tan x \\cdot \\cot^2 x = \\cot x$, then converts $\\frac{6}{\\cot x}$ to $6\\tan x$ — $\\tan x$ appears exactly once with no other trig functions.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$k(x) = 6\\tan x$ (no work shown)",
+              "earned": false,
+              "commentary": "States the correct answer but provides no supporting work; the Pythagorean identity step must be shown to earn Point B2.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$k(x) = \\frac{6\\sin x}{\\cos x}$",
+              "earned": false,
+              "commentary": "Correctly simplifies the value but the final expression contains $\\sin x$ and $\\cos x$ rather than $\\tan x$; the question requires $\\tan x$ to appear exactly once with no other trigonometric functions.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     },
@@ -110,7 +188,28 @@
             }
           ],
           "wrong_examples": ["Trying to factor $e^{2x} - e^x - 12 = 0$ directly without substitution, leading to incorrect steps"],
-          "common_traps": ["Supporting work is required — the substitution $y = e^x$ and the factored form must both appear (or the direct factored form $(e^x \\pm 4)(e^x \\pm 3)$)"]
+          "common_traps": ["Supporting work is required — the substitution $y = e^x$ and the factored form must both appear (or the direct factored form $(e^x \\pm 4)(e^x \\pm 3)$)"],
+          "official_rubric": "Point C1 is earned for a substitution of $y = e^x$ and factored form $(y - 4)(y + 3)$ (use of a variable other than $y$ is acceptable) OR for presenting $m(x)$ in factored form as $(e^x - 4)(e^x + 3)$. Both points require supporting work.",
+          "sample_responses": [
+            {
+              "response": "Let $y = e^x$: $(e^x)^2 - e^x - 12 = 0 \\Rightarrow y^2 - y - 12 = 0 \\Rightarrow (y - 4)(y + 3) = 0$",
+              "earned": true,
+              "commentary": "Introduces the substitution $y = e^x$, rewrites the equation in standard quadratic form, and factors correctly; both the substitution and factored form appear.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$(e^x - 4)(e^x + 3) = 0$",
+              "earned": true,
+              "commentary": "Presents the factored form directly in terms of $e^x$ without an explicit substitution variable; this is an acceptable alternative for Point C1.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$e^{2x} - e^x = 12$",
+              "earned": false,
+              "commentary": "Rearranges but does not recognize the quadratic form or introduce a substitution; neither the factored form nor the substitution $y = e^x$ appears.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "c2",
@@ -123,7 +222,28 @@
             }
           ],
           "wrong_examples": ["$x = \\ln 4$ and $x = \\ln(-3)$ (incorrect — $\\ln$ of a negative number is not real; including this voids the point)", "$x = 4$ (forgot to take $\\ln$)"],
-          "common_traps": ["$e^x = -3$ has NO real solution — do not include $x = \\ln(-3)$", "Including any incorrect $x$ value alongside $x = \\ln 4$ voids the second point"]
+          "common_traps": ["$e^x = -3$ has NO real solution — do not include $x = \\ln(-3)$", "Including any incorrect $x$ value alongside $x = \\ln 4$ voids the second point"],
+          "official_rubric": "To earn Point C2, no incorrect values for $x$ are included. The use of '$x =$' is not required.",
+          "sample_responses": [
+            {
+              "response": "$e^x = 4 \\Rightarrow x = \\ln 4$; $e^x = -3$ has no real solution, so $x = \\ln 4$ is the only value.",
+              "earned": true,
+              "commentary": "Correctly identifies $x = \\ln 4$ from $e^x = 4$ and explains why $e^x = -3$ yields no real solution; no incorrect values are included.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$x = \\ln 4$ and $x = \\ln(-3)$",
+              "earned": false,
+              "commentary": "Includes the incorrect value $x = \\ln(-3)$, which is not a real number; any incorrect value voids the second point.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$x = 4$",
+              "earned": false,
+              "commentary": "Solves $e^x = 4$ to get $x = 4$ instead of $x = \\ln 4$; the inverse of the exponential $e^x$ is the natural logarithm.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     }
