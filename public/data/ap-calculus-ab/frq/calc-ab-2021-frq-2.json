@@ -35,6 +35,27 @@
               ],
               "correct_example": "$x_P(1) = 5 + \\int_0^1 v_P(t)\\, dt$ or $x_Q(1) = 10 + \\int_0^1 v_Q(t)\\, dt$"
             }
+          ],
+          "official_rubric": "The first point is earned for the explicit presentation of at least one definite integral, either $\\int_0^1 v_P(t)\\,dt$ or $\\int_0^1 v_Q(t)\\,dt$. Writing $\\int_0^1 v_P(t) + 5 = 5.371$ (missing $dt$) does not earn a position point, but $5 + \\int_0^1 v_P(t) = 5.371$ does. The first point must be earned to be eligible for the second and third points.",
+          "sample_responses": [
+            {
+              "response": "$x_P(1) = 5 + \\int_0^1 v_P(t)\\,dt$",
+              "earned": true,
+              "commentary": "Explicitly presents the definite integral for particle $P$, satisfying the requirement for at least one definite integral with correct limits and integrand.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$x_P(1) = 5.371$",
+              "earned": false,
+              "commentary": "States only the numerical position without showing any definite integral; a bald calculator answer does not earn the setup point.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$x_Q(1) = 10 + \\int_0^1 (t-1.8)(1.25^t)\\,dt$",
+              "earned": true,
+              "commentary": "Correctly presents the definite integral for particle $Q$ with the initial condition incorporated, earning the first point.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -47,6 +68,21 @@
                 "$x_P(1) = 5 + \\int_0^1 \\sin(t^{1.5})\\, dt \\approx 5.371$ (or $5.370$)"
               ]
             }
+          ],
+          "official_rubric": "The second point requires adding the initial condition to the integral and finding the correct position. The answer must be correct to three decimal places.",
+          "sample_responses": [
+            {
+              "response": "$x_P(1) = 5 + \\int_0^1 \\sin(t^{1.5})\\,dt \\approx 5.371$",
+              "earned": true,
+              "commentary": "Correctly integrates the velocity, adds the initial position $x = 5$, and reports the answer to three decimal places.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$x_P(1) = \\int_0^1 \\sin(t^{1.5})\\,dt \\approx 0.371$",
+              "earned": false,
+              "commentary": "Computes the displacement but forgets to add the initial position $x = 5$; the answer $0.371$ is missing the initial condition.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -58,6 +94,21 @@
               "required_elements": [
                 "$x_Q(1) = 10 + \\int_0^1 (t-1.8)(1.25^t)\\, dt \\approx 8.564$"
               ]
+            }
+          ],
+          "official_rubric": "The third point requires adding the initial position $x_Q(0) = 10$ to the integral of $v_Q$ and reporting the correct value $8.564$. Unlabeled answers are read left to right as $x_P(1)$ then $x_Q(1)$.",
+          "sample_responses": [
+            {
+              "response": "$x_Q(1) = 10 + \\int_0^1 (t-1.8)(1.25^t)\\,dt \\approx 8.564$",
+              "earned": true,
+              "commentary": "Correctly sets up the position integral for $Q$, adds the initial position $10$, and obtains the three-decimal answer.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$x_Q(1) \\approx 8.564$",
+              "earned": false,
+              "commentary": "Reports the correct number but the first point was not earned (no definite integral shown), so this position point cannot be earned.",
+              "source": "synthesized"
             }
           ]
         }
@@ -82,6 +133,21 @@
               ],
               "correct_example": "$v_P(1) = \\sin(1) \\approx 0.841 > 0$ (P moving right); $v_Q(1) = (1-1.8)(1.25^1) = (-0.8)(1.25) = -1 < 0$ (Q moving left)"
             }
+          ],
+          "official_rubric": "The first point requires using the sign of $v_P(1)$ or $v_Q(1)$ to determine the direction of motion for one particle. This point cannot be earned without reference to the sign of the velocity. An explicit value for $v_P(1)$ or $v_Q(1)$ is not necessary, but if given it must be correct to up to three decimal places.",
+          "sample_responses": [
+            {
+              "response": "$v_P(1) = \\sin(1) \\approx 0.841 > 0$, so particle $P$ is moving to the right.",
+              "earned": true,
+              "commentary": "Evaluates the velocity at $t = 1$, identifies its sign as positive, and correctly concludes $P$ is moving right.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "At $t = 1$, particle $P$ is moving to the right and particle $Q$ is moving to the left.",
+              "earned": false,
+              "commentary": "States directions but provides no reference to the sign of either velocity function — the point cannot be earned without referencing the sign of $v_P(1)$ or $v_Q(1)$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -94,6 +160,21 @@
                 "Moving toward each other; at $t = 1$, $x_P(1) \\approx 5.371 < x_Q(1) \\approx 8.564$, so P is to the left of Q; P moves right",
                 "Q moves left, so they move toward each other"
               ]
+            }
+          ],
+          "official_rubric": "The second point requires an explanation based on the signs of both $v_P(1)$ and $v_Q(1)$ and the relative positions at $t = 1$. References only to $t = 0$ positions are not sufficient.",
+          "sample_responses": [
+            {
+              "response": "Since $v_P(1) > 0$ and $v_Q(1) < 0$, and $x_P(1) \\approx 5.371 < x_Q(1) \\approx 8.564$, particle $P$ is to the left of $Q$, $P$ moves right and $Q$ moves left, so they move toward each other.",
+              "earned": true,
+              "commentary": "Uses both velocity signs, compares relative positions at $t = 1$, and correctly concludes they are moving toward each other.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "At $t = 0$, $x_P = 5 < x_Q = 10$ so $P$ is left of $Q$. $P$ moves right ($v_P > 0$) and $Q$ moves left ($v_Q < 0$), so they move toward each other.",
+              "earned": false,
+              "commentary": "Uses the $t = 0$ initial positions rather than the $t = 1$ positions; the relative positions must be evaluated at $t = 1$.",
+              "source": "synthesized"
             }
           ]
         }
@@ -121,6 +202,27 @@
           ],
           "wrong_examples": [
             "does not earn first point"
+          ],
+          "official_rubric": "The acceleration must be explicitly connected to $v_Q'$, e.g., $v_Q'(1) = 1.027$. An unsupported value $1.027$ or $1.026$ without showing $v_Q' = a_Q$ does not earn this point.",
+          "sample_responses": [
+            {
+              "response": "$a_Q(1) = v_Q'(1) \\approx 1.027$",
+              "earned": true,
+              "commentary": "Explicitly connects acceleration to the derivative of velocity and provides the correct three-decimal value.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$a_Q(1) \\approx 1.027$",
+              "earned": false,
+              "commentary": "States the correct value but does not show $v_Q'(1) = a_Q(1)$; the setup connecting $a_Q$ to $v_Q'$ is required.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$v_Q'(1) \\approx 1.026$",
+              "earned": true,
+              "commentary": "Uses the correct notation $v_Q'(1)$ for acceleration; the alternate value $1.026$ is acceptable within the rounding tolerance.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -137,6 +239,21 @@
           ],
           "wrong_examples": [
             "does not earn first point"
+          ],
+          "official_rubric": "The second point requires comparing the signs of $a_Q(1)$ and $v_Q(1)$ at $t = 1$. Considering only one sign is not sufficient. The sign of $v_Q(1)$ need not be re-shown if already established in part (b). The second point may be earned without the first, provided no incorrect sign or value of $v_Q(1)$ is presented.",
+          "sample_responses": [
+            {
+              "response": "$v_Q(1) = -1 < 0$ and $a_Q(1) \\approx 1.027 > 0$; the speed is decreasing because velocity and acceleration have opposite signs.",
+              "earned": true,
+              "commentary": "Compares both signs explicitly and states the correct conclusion — speed decreases when velocity and acceleration have opposite signs.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Since $a_Q(1) > 0$, the speed is increasing.",
+              "earned": false,
+              "commentary": "Only considers the sign of acceleration without comparing it to the sign of velocity; this is insufficient and reaches the wrong conclusion.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -163,6 +280,27 @@
           ],
           "wrong_examples": [
             "earns no points"
+          ],
+          "official_rubric": "The first point is earned for $\\int_0^\\pi |v_P(t)|\\,dt$. It may also be earned for a split at the zero $t \\approx 2.145$, provided the response indicates $v_P(2.145) = 0$. A response using $\\int_0^\\pi |v_Q(t)|\\,dt$ earns the first point but is not eligible for the second. An unsupported answer of $1.931$ earns no points.",
+          "sample_responses": [
+            {
+              "response": "$\\int_0^{\\pi} |v_P(t)|\\,dt$",
+              "earned": true,
+              "commentary": "Correct absolute-value integral for total distance traveled by particle $P$ over $[0,\\pi]$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\int_0^{\\pi} v_P(t)\\,dt$",
+              "earned": false,
+              "commentary": "Uses the signed integral (net displacement) rather than $|v_P(t)|$; this gives displacement, not total distance.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\int_0^{2.145} v_P(t)\\,dt - \\int_{2.145}^{\\pi} v_P(t)\\,dt$",
+              "earned": true,
+              "commentary": "Correct split at the zero of $v_P$ (where $v_P$ changes sign), which is equivalent to the absolute-value integral for total distance.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -179,6 +317,21 @@
           ],
           "wrong_examples": [
             "earns no points"
+          ],
+          "official_rubric": "The second point is earned only for the correct answer $1.931$ and can only be earned after the first point. An unsupported value of $1.931$ earns no points.",
+          "sample_responses": [
+            {
+              "response": "$\\int_0^{\\pi} |v_P(t)|\\,dt \\approx 1.931$",
+              "earned": true,
+              "commentary": "Correct integral setup followed by the correct three-decimal answer.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$1.931$",
+              "earned": false,
+              "commentary": "An unsupported answer without the integral setup earns no points for either part (d).",
+              "source": "synthesized"
+            }
           ]
         }
       ]
