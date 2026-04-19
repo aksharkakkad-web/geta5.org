@@ -24,6 +24,21 @@
           "point_id": "ai1",
           "point_value": 1,
           "description": "For correct moles of C$_2$H$_4$ from ideal gas law with data from stimulus: 1 point",
+          "official_rubric": "$n = PV/RT$ using measured volume, atmospheric pressure (converted to atm), and temperature (in K) from the data table. 1 point is earned for the correct setup and numerical answer consistent with the data.",
+          "sample_responses": [
+            {
+              "response": "$n = \\frac{PV}{RT} = \\frac{(0.987\\text{ atm})(0.0445\\text{ L})}{(0.08206\\text{ L·atm/mol·K})(295\\text{ K})} = 1.81 \\times 10^{-3}\\text{ mol}$",
+              "earned": true,
+              "commentary": "Correctly applies ideal gas law with volume in L, pressure in atm, and temperature in K from the experimental data table.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$n = \\frac{PV}{RT} = \\frac{(0.987\\text{ atm})(0.0445\\text{ L})}{(0.08206)(22)} = 0.0244\\text{ mol}$",
+              "earned": false,
+              "commentary": "Temperature not converted to Kelvin. Must use T(K) = T(°C) + 273; using 22°C directly instead of 295 K gives a grossly incorrect answer.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -44,6 +59,21 @@
           "point_id": "aii1",
           "point_value": 1,
           "description": "For correct theoretical moles from stoichiometry: 1 point",
+          "official_rubric": "$n(\\text{C}_2\\text{H}_4)_{\\text{theoretical}} = n(\\text{C}_2\\text{H}_5\\text{OH})_{\\text{initial}}$ using 1:1 stoichiometry and the mass of ethanol from the data. 1 point is earned for the correct theoretical moles.",
+          "sample_responses": [
+            {
+              "response": "Molar mass of $\\text{C}_2\\text{H}_5\\text{OH}$ = 46.07 g/mol. $n = \\frac{0.110\\text{ g}}{46.07\\text{ g/mol}} = 2.39 \\times 10^{-3}\\text{ mol}$. Since the reaction is 1:1, theoretical yield = $2.39 \\times 10^{-3}\\text{ mol C}_2\\text{H}_4$.",
+              "earned": true,
+              "commentary": "Correctly divides the mass of ethanol by its molar mass and applies the 1:1 mole ratio to find theoretical moles of ethylene.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$n = \\frac{0.110\\text{ g}}{28.05\\text{ g/mol}} = 3.92 \\times 10^{-3}\\text{ mol}$",
+              "earned": false,
+              "commentary": "Uses the molar mass of C₂H₄ (the product) instead of C₂H₅OH (the reactant). The theoretical yield is based on moles of ethanol available, not the product's molar mass.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -74,6 +104,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "For correct percent yield formula and calculation consistent with part (a): 1 point",
+          "official_rubric": "% yield = (actual moles / theoretical moles) × 100%, with values from parts (a)(i) and (a)(ii). 1 point is earned for the correct setup and numerical answer consistent with (a).",
+          "sample_responses": [
+            {
+              "response": "% yield = $\\frac{1.81 \\times 10^{-3}\\text{ mol}}{2.39 \\times 10^{-3}\\text{ mol}} \\times 100\\% = 75.7\\%$",
+              "earned": true,
+              "commentary": "Correctly uses the actual moles from (a)(i) and the theoretical moles from (a)(ii) in the percent yield formula.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "% yield = $\\frac{2.39 \\times 10^{-3}}{1.81 \\times 10^{-3}} \\times 100\\% = 132\\%$",
+              "earned": false,
+              "commentary": "Actual and theoretical are inverted. Percent yield = actual/theoretical × 100%; the result cannot exceed 100%.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -105,6 +150,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "For correct $\\Delta G°$ calculation and conclusion that the data support K < 1: 1 point",
+          "official_rubric": "$\\Delta G° = \\Delta H° - T\\Delta S° = 45.5\\text{ kJ/mol} - (298\\text{ K})(0.1256\\text{ kJ/mol·K}) = +8.1\\text{ kJ/mol}$. Since $\\Delta G° > 0$, $K < 1$, which supports the student's claim. 1 point is earned for the correct $\\Delta G°$ value and the correct conclusion about K.",
+          "sample_responses": [
+            {
+              "response": "$\\Delta G° = 45.5\\text{ kJ/mol} - (298)(0.1256\\text{ kJ/mol·K}) = 45.5 - 37.4 = +8.1\\text{ kJ/mol}$. Since $\\Delta G° > 0$, $K < 1$ at 298 K, which supports the student's claim.",
+              "earned": true,
+              "commentary": "Correctly calculates ΔG° using ΔG° = ΔH° − TΔS°, gets a positive value, and correctly concludes that K < 1 from the positive ΔG°.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\Delta G° = 45.5 - (298)(0.1256) = +8.1\\text{ kJ/mol}$. Since $\\Delta G° > 0$, the reaction is non-spontaneous, so K > 1.",
+              "earned": false,
+              "commentary": "Sign logic error. $\\Delta G° = -RT\\ln K$; positive $\\Delta G°$ means $\\ln K < 0$, i.e., $K < 1$, not $K > 1$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -143,6 +203,21 @@
           "point_id": "e1",
           "point_value": 1,
           "description": "For ~109.5° with correct VSEPR reasoning: 1 point",
+          "official_rubric": "Approximately 109° or 109.5°. The oxygen atom in ethanol has two bonding pairs and two lone pairs (four electron domains, tetrahedral electron geometry). 1 point is earned for 109° or 109.5° with an acceptable explanation.",
+          "sample_responses": [
+            {
+              "response": "Approximately 109.5°. The oxygen in ethanol has two bonds (to C and to H) and two lone pairs — four electron domains giving tetrahedral electron geometry. The C–O–H bond angle is approximately 109.5°.",
+              "earned": true,
+              "commentary": "Correctly identifies the tetrahedral electron geometry of O (4 electron domains) and gives the correct bond angle of ~109.5°.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "120°. The oxygen has a double bond in the resonance structure, so it is sp² hybridized.",
+              "earned": false,
+              "commentary": "Incorrect. There is no C=O double bond in ethanol; oxygen forms two single bonds (C–O and O–H) and has two lone pairs. The geometry is sp³/tetrahedral, giving ~109.5°.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -174,6 +249,21 @@
           "point_id": "f1",
           "point_value": 1,
           "description": "For identifying C$_2$H$_4$ as nonpolar with only LDFs with water: 1 point",
+          "official_rubric": "C$_2$H$_4$ is nonpolar and interacts with water only through London dispersion forces. These weak forces are insufficient to dissolve C$_2$H$_4$, so it remains as a gas. 1 point is earned for stating that C$_2$H$_4$ is nonpolar and/or has only LDFs with water.",
+          "sample_responses": [
+            {
+              "response": "$\\text{C}_2\\text{H}_4$ is nonpolar (symmetric molecule with only C–H bonds). Its only interaction with water is London dispersion forces, which are too weak to cause dissolution, so $\\text{C}_2\\text{H}_4$ remains as a gas and is collected.",
+              "earned": true,
+              "commentary": "Correctly identifies ethylene as nonpolar, names only London dispersion forces as the relevant IMF with water, and connects weak IMF to gas collection.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\text{C}_2\\text{H}_4$ forms dipole–dipole interactions with water because the C=C double bond creates a partial charge.",
+              "earned": false,
+              "commentary": "Incorrect. C₂H₄ is a symmetric, nonpolar molecule. A C=C bond does not create a permanent dipole. The only IMF with water is weak London dispersion forces.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -194,6 +284,21 @@
           "point_id": "f2",
           "point_value": 1,
           "description": "For identifying hydrogen bonding between C$_2$H$_5$OH and water: 1 point",
+          "official_rubric": "C$_2$H$_5$OH has an –OH group that forms hydrogen bonds with water. The strong hydrogen bonding causes ethanol to dissolve in water and not be collected as a gas. 1 point is earned for identifying hydrogen bonding between ethanol and water.",
+          "sample_responses": [
+            {
+              "response": "$\\text{C}_2\\text{H}_5\\text{OH}$ has an –OH group. The O–H bond allows ethanol to form hydrogen bonds with water molecules (O–H···O interactions). These strong intermolecular forces pull ethanol into solution.",
+              "earned": true,
+              "commentary": "Correctly identifies the –OH group as enabling hydrogen bonding with water, which is responsible for ethanol's dissolution.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\text{C}_2\\text{H}_5\\text{OH}$ has dipole–dipole forces with water, which is why it dissolves.",
+              "earned": false,
+              "commentary": "Incomplete. Ethanol has an –OH group that specifically forms hydrogen bonds with water, which are stronger than generic dipole–dipole forces. The specific identification of hydrogen bonding is required.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -214,6 +319,21 @@
           "point_id": "f3",
           "point_value": 1,
           "description": "For comparing the two: stronger IMFs with water for ethanol vs. C$_2$H$_4$: 1 point",
+          "official_rubric": "The hydrogen bonds between ethanol and water are much stronger than the London dispersion forces between ethylene and water. This difference in IMF strength explains why ethanol dissolves and ethylene does not. 1 point is earned for a comparison of relative IMF strengths for the two gases with water.",
+          "sample_responses": [
+            {
+              "response": "The hydrogen bonds between $\\text{C}_2\\text{H}_5\\text{OH}$ and water are much stronger than the London dispersion forces between $\\text{C}_2\\text{H}_4$ and water. The strong hydrogen bonding causes ethanol to dissolve into the water trap, while the weak LDFs with ethylene are insufficient to prevent it from remaining as a gas.",
+              "earned": true,
+              "commentary": "Explicitly compares the IMF types and strengths for both gases with water and correctly connects stronger IMFs to dissolution.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Ethanol is a liquid and ethylene is a gas, so ethanol dissolves better.",
+              "earned": false,
+              "commentary": "Does not address intermolecular forces at all. The explanation must be in terms of the types and relative strengths of IMFs between each gas and water.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
