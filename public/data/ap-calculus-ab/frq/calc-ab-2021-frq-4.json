@@ -35,17 +35,53 @@
                 "$(2, 6)$ because $G'(x) = f(x)$ is increasing on these intervals"
               ]
             }
+          ],
+          "official_rubric": "The answer earns the point. Intervals may include one or both endpoints. The reason must state that $f$ (or $G'$) is increasing on the named intervals. This part also establishes $G'(x) = f(x)$ as a global point.",
+          "sample_responses": [
+            {
+              "response": "$G$ is concave up on $(-4,-2)$ and $(2,6)$ because $G'(x) = f(x)$ is increasing on these intervals.",
+              "earned": true,
+              "commentary": "Identifies both intervals and provides the correct reason — $G$ is concave up where $G' = f$ is increasing.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$G$ is concave up on $(-4,-2)$ because $f$ is increasing there.",
+              "earned": false,
+              "commentary": "Identifies only one of the two required intervals; both $(-4,-2)$ and $(2,6)$ must be named to earn the point.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$G$ is concave up on $(-4,-2)$ and $(2,6)$ because $G''(x) > 0$ on those intervals.",
+              "earned": true,
+              "commentary": "An equivalent reason — $G'' > 0$ — is acceptable since $G'' = f' > 0$ (from the graph) on those intervals.",
+              "source": "synthesized"
+            }
           ]
         },
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Global point: establishes '(x) = f(x)$ by the Fundamental Theorem of Calculus (used throughout parts b, c, and d)",
+          "description": "Global point: establishes $G'(x) = f(x)$ by the Fundamental Theorem of Calculus (used throughout parts b, c, and d)",
           "alternatives": [
             {
               "required_elements": [
-                "'(x) = f(x)$ via Fundamental Theorem of Calculus"
+                "$G'(x) = f(x)$ via Fundamental Theorem of Calculus"
               ]
+            }
+          ],
+          "official_rubric": "This global point can be earned in any part of the question for any expression that explicitly shows $G' = f$. Examples: $G' = f$, $G'(x) = f(x)$, $G'(3) = f(3)$, or $G'(2) = f(2)$. It can be earned in parts (a), (b), (c), or (d).",
+          "sample_responses": [
+            {
+              "response": "$G'(x) = f(x)$ by the Fundamental Theorem of Calculus.",
+              "earned": true,
+              "commentary": "Explicitly states the FTC relationship $G' = f$, earning the global point regardless of where in the solution it appears.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$G'(3) = f(3) = -3$",
+              "earned": true,
+              "commentary": "Applying $G' = f$ at a specific value (in part (b)) also earns the global point.",
+              "source": "synthesized"
             }
           ]
         }
@@ -70,6 +106,27 @@
               ],
               "correct_example": "$P'(x) = G(x) \\cdot f'(x) + f(x) \\cdot G'(x)$"
             }
+          ],
+          "official_rubric": "The first point is earned for correct application of the product rule in terms of $x$ or in the evaluation of $P'(3)$. Once earned, this point cannot be lost.",
+          "sample_responses": [
+            {
+              "response": "$P'(x) = G(x) \\cdot f'(x) + f(x) \\cdot G'(x)$",
+              "earned": true,
+              "commentary": "Correctly applies the product rule in full generality; $P = G \\cdot f$ gives $P' = G \\cdot f' + f \\cdot G'$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$P'(3) = G(3) \\cdot f'(3) + f(3) \\cdot G'(3)$",
+              "earned": true,
+              "commentary": "Applies the product rule directly at $x = 3$; this form also earns the first point.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$P'(x) = G'(x) \\cdot f'(x)$",
+              "earned": false,
+              "commentary": "Incorrect — this multiplies the derivatives rather than applying the product rule $(G \\cdot f)' = G \\cdot f' + f \\cdot G'$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -83,6 +140,21 @@
                 "$G'(3) = f(3) = -3$"
               ]
             }
+          ],
+          "official_rubric": "The second point is earned by correctly evaluating $G(3) = -3.5$, $G'(3) = -3$, or $f(3) = -3$ from the graph. Only one correct value is needed.",
+          "sample_responses": [
+            {
+              "response": "$G(3) = \\int_0^3 f(t)\\,dt = -3.5$ and $G'(3) = f(3) = -3$",
+              "earned": true,
+              "commentary": "Reads $G(3)$ as the signed area from the graph (net area under $f$ from $0$ to $3$) and applies $G' = f$ to find $G'(3)$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$G(3) = -3$ and $G'(3) = f(3) = -3.5$",
+              "earned": false,
+              "commentary": "Both values are swapped: $G(3) = \\int_0^3 f = -3.5$ (the area) and $G'(3) = f(3) = -3$ (the function value); neither is correct as stated.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -95,6 +167,21 @@
                 "Correct answer"
               ],
               "correct_example": "$P'(3) = G(3) \\cdot f'(3) + f(3) \\cdot G'(3) = (-3.5)(1) + (-3)(-3) = -3.5 + 9 = 5.5$"
+            }
+          ],
+          "official_rubric": "The third point requires both the first and second points. Simplification of the numerical value is not required.",
+          "sample_responses": [
+            {
+              "response": "$P'(3) = (-3.5)(1) + (-3)(-3) = -3.5 + 9 = 5.5$",
+              "earned": true,
+              "commentary": "Substitutes all correct values into the product rule expression and arrives at $P'(3) = 5.5$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$P'(3) = (-3.5)(1) + (-3)(-3)$",
+              "earned": true,
+              "commentary": "Unsimplified form is acceptable; the expression evaluates to $5.5$ and simplification is not required.",
+              "source": "synthesized"
             }
           ]
         }
@@ -120,6 +207,21 @@
               ],
               "correct_example": "$\\lim_{x\\to 2} \\frac{G'(x)}{2x-2} = \\frac{G'(2)}{2(2)-2}$"
             }
+          ],
+          "official_rubric": "The first point requires showing both $\\lim_{x\\to 2} G(x) = 0$ and $\\lim_{x\\to 2}(x^2-2x) = 0$, then presenting the ratio of derivatives $G'(x)/(2x-2)$. The ratio may be shown as $G'(2)/2$.",
+          "sample_responses": [
+            {
+              "response": "$\\lim_{x\\to 2}G(x) = G(2) = \\int_0^2 f(t)\\,dt = 0$ and $\\lim_{x\\to 2}(x^2-2x) = 0$, so the form is $0/0$. By L'Hopital's Rule: $\\lim_{x\\to 2}\\frac{G'(x)}{2x-2}$.",
+              "earned": true,
+              "commentary": "Establishes the $0/0$ indeterminate form for both numerator and denominator, then correctly applies L'Hopital's Rule.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\frac{0}{0}$, so $\\lim_{x\\to 2}\\frac{G'(x)}{2x-2}$",
+              "earned": false,
+              "commentary": "Labels the form as $0/0$ but does not separately show both $G(2) = 0$ and $(2^2-2\\cdot 2) = 0$; both limits must be explicitly shown.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -132,6 +234,21 @@
                 "Correct answer"
               ],
               "correct_example": "$\\frac{f(2)}{2} = \\frac{-4}{2} = -2$"
+            }
+          ],
+          "official_rubric": "The second point requires evaluating correctly with appropriate limit notation, specifically including $\\lim_{x\\to 2}\\frac{G'(x)}{2x-2}$ or $\\lim_{x\\to 2}\\frac{f(x)}{2x-2}$. Linkage errors (e.g., equating the limit of a ratio to the ratio of values without the limit sign) lose this point.",
+          "sample_responses": [
+            {
+              "response": "$\\lim_{x\\to 2}\\frac{G'(x)}{2x-2} = \\lim_{x\\to 2}\\frac{f(x)}{2x-2} = \\frac{f(2)}{2} = \\frac{-4}{2} = -2$",
+              "earned": true,
+              "commentary": "Uses correct limit notation throughout and evaluates $f(2) = -4$ from the graph to obtain $-2$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\frac{G'(2)}{2} = \\frac{f(2)}{2} = \\frac{-4}{2} = -2$",
+              "earned": false,
+              "commentary": "Presents the evaluation without surrounding limit notation — a linkage error. The response must include $\\lim_{x\\to 2}$ around the ratio of derivatives.",
+              "source": "synthesized"
             }
           ]
         }
@@ -156,6 +273,27 @@
               ],
               "correct_example": "$\\frac{G(2) - G(-4)}{2 - (-4)} = \\frac{0 - (-16)}{6} = \\frac{16}{6} = \\frac{8}{3}$"
             }
+          ],
+          "official_rubric": "The first point requires presenting at least a difference and a quotient with a correct evaluation. Simplification is not required, but if presented must be correct.",
+          "sample_responses": [
+            {
+              "response": "$\\frac{G(2) - G(-4)}{2 - (-4)} = \\frac{0 - (-16)}{6} = \\frac{8}{3}$",
+              "earned": true,
+              "commentary": "Correctly computes $G(2) = 0$ and $G(-4) = -16$ from the graph, forms the difference quotient, and simplifies.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\frac{0 + 16}{6}$",
+              "earned": true,
+              "commentary": "Shows the numerical difference and quotient; simplification to $8/3$ is not required to earn the first point.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\frac{G(2) - G(-4)}{6}$",
+              "earned": false,
+              "commentary": "Correct form but $G(2)$ and $G(-4)$ are not evaluated; the point requires an explicit correct evaluation.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -168,6 +306,21 @@
                 "Yes; $G'(x) = f(x)$, so $G$ is differentiable on $(-4,2)$",
                 "continuous on $[-4,2]$; by the MVT there exists $c \\in (-4,2)$ such that $G'(c) = \\frac{8}{3}$"
               ]
+            }
+          ],
+          "official_rubric": "The second point can be earned without the first by providing the correct setup (but incorrect or missing average rate of change) along with the conditions and conclusion. The MVT need not be explicitly named provided conditions (differentiability and continuity) and conclusion are stated.",
+          "sample_responses": [
+            {
+              "response": "Yes. Since $G'(x) = f(x)$, $G$ is differentiable on $(-4, 2)$ and continuous on $[-4, 2]$. By the Mean Value Theorem, there exists $c \\in (-4, 2)$ such that $G'(c) = \\frac{8}{3}$.",
+              "earned": true,
+              "commentary": "States both MVT conditions (differentiable on open interval, continuous on closed interval) and the conclusion; earns the justification point.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Yes, because $f$ is continuous and differentiable.",
+              "earned": false,
+              "commentary": "States conditions but not the MVT conclusion — must conclude that $G'(c) = \\frac{8}{3}$ for some $c$ in the interval.",
+              "source": "synthesized"
             }
           ]
         }
