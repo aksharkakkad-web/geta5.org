@@ -31,11 +31,32 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct slope: $\\dfrac{dy/dt}{dx/dt}\\bigg|_{t=4} = \\dfrac{3\\sin(16)}{\\sqrt{68}}$. Numerically this is approximately $-0.104$ (since $\\sin(16) \\approx -0.2879$ and $\\sqrt{68} \\approx 8.246$). Accept any correct decimal equivalent.",
+          "official_rubric": "1 point: $\\dfrac{dy/dt}{dx/dt}$ evaluated at $t=4$; answer $\\dfrac{3\\sin(16)}{\\sqrt{68}}$ or equivalent decimal.",
           "alternatives": [
             {
               "required_elements": [
                 "$\\dfrac{3\\sin(16)}{\\sqrt{68}}$ or equivalent numerical value (approximately $-0.104$)"
               ]
+            }
+          ],
+          "sample_responses": [
+            {
+              "response": "Slope $= \\dfrac{dy/dt}{dx/dt}\\bigg|_{t=4} = \\dfrac{3\\sin(4^2)}{\\sqrt{4^3+4}} = \\dfrac{3\\sin(16)}{\\sqrt{68}} \\approx -0.104$",
+              "earned": true,
+              "commentary": "Correctly applies the parametric slope formula and evaluates both components at $t=4$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "At $t=4$: $dx/dt = \\sqrt{68}$, $dy/dt = 3\\sin(16)$. Slope $\\approx -0.104$.",
+              "earned": true,
+              "commentary": "Shows components separately then divides — full credit for correct setup and answer.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Slope $= \\dfrac{dy}{dx} = \\dfrac{3\\sin(16)}{\\sqrt{68}}$ but I computed $\\sin(16) \\approx 0.288$, so slope $\\approx +0.105$.",
+              "earned": false,
+              "commentary": "Sign error: $16$ radians is in the third quadrant; $\\sin(16) \\approx -0.2879$, not positive. The formula is correct but the numerical evaluation is wrong.",
+              "source": "synthesized"
             }
           ]
         }
@@ -53,6 +74,7 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Correct speed: $\\text{speed} = \\sqrt{\\left(\\dfrac{dx}{dt}\\right)^2 + \\left(\\dfrac{dy}{dt}\\right)^2}\\bigg|_{t=4} = \\sqrt{68 + 9\\sin^2(16)} \\approx 8.298$.",
+          "official_rubric": "1 point: $\\sqrt{(dx/dt)^2+(dy/dt)^2}$ evaluated at $t=4$; answer $\\sqrt{68+9\\sin^2(16)}$ or approximately $8.298$.",
           "alternatives": [
             {
               "required_elements": [
@@ -62,17 +84,58 @@
           ],
           "common_traps": [
             "Writing the velocity vector instead of the scalar speed"
+          ],
+          "sample_responses": [
+            {
+              "response": "$\\text{speed} = \\sqrt{(\\sqrt{68})^2 + (3\\sin(16))^2} = \\sqrt{68 + 9\\sin^2(16)} \\approx 8.298$",
+              "earned": true,
+              "commentary": "Correctly uses the speed formula as the magnitude of the velocity vector and evaluates at $t=4$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Velocity at $t=4$: $\\langle \\sqrt{68},\\, 3\\sin(16) \\rangle$, so speed $\\approx 8.298$.",
+              "earned": true,
+              "commentary": "States the velocity vector first then takes its magnitude — acceptable as long as speed is identified correctly.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Speed $= \\langle \\sqrt{68},\\, 3\\sin(16) \\rangle \\approx \\langle 8.246,\\, -0.864 \\rangle$.",
+              "earned": false,
+              "commentary": "Reports the velocity vector components instead of the scalar speed. Speed must be a single non-negative number.",
+              "source": "synthesized"
+            }
           ]
         },
         {
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct first component of acceleration: $\\dfrac{d^2x}{dt^2}\\bigg|_{t=4} = \\dfrac{3t^2}{2\\sqrt{t^3+4}}\\bigg|_{t=4} = \\dfrac{3(16)}{2\\sqrt{68}} = \\dfrac{24}{\\sqrt{68}} \\approx 2.910$.",
+          "official_rubric": "1 point: First component of acceleration $d^2x/dt^2$ at $t=4$; answer $\\dfrac{24}{\\sqrt{68}}$ or approximately $2.910$.",
           "alternatives": [
             {
               "required_elements": [
                 "First component of acceleration: $\\dfrac{24}{\\sqrt{68}}$ or approximately $2.910$"
               ]
+            }
+          ],
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{d^2x}{dt^2} = \\dfrac{d}{dt}(t^3+4)^{1/2} = \\dfrac{3t^2}{2\\sqrt{t^3+4}}$; at $t=4$: $\\dfrac{48}{2\\sqrt{68}} = \\dfrac{24}{\\sqrt{68}} \\approx 2.910$.",
+              "earned": true,
+              "commentary": "Shows the chain rule differentiation and correct evaluation at $t=4$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$a_x(4) = \\dfrac{3(4)^2}{2\\sqrt{68}} = \\dfrac{48}{2\\sqrt{68}} \\approx 2.910$.",
+              "earned": true,
+              "commentary": "Substitutes directly without showing intermediate differentiation — acceptable with correct answer.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{d^2x}{dt^2} = \\dfrac{1}{2}(t^3+4)^{-1/2} \\cdot t^3$; at $t=4$: $\\dfrac{64}{2\\sqrt{68}} \\approx 3.882$.",
+              "earned": false,
+              "commentary": "Chain rule error: forgot to multiply by the inner derivative $3t^2$ (used $t^3$ instead of $3t^2$). Correct inner derivative gives $3(16)=48$, not $64$.",
+              "source": "synthesized"
             }
           ]
         },
@@ -80,11 +143,32 @@
           "point_id": "b3",
           "point_value": 1,
           "description": "Correct second component of acceleration: $\\dfrac{d^2y}{dt^2}\\bigg|_{t=4} = 6t\\cos(t^2)\\bigg|_{t=4} = 24\\cos(16) \\approx -22.985$.",
+          "official_rubric": "1 point: Second component of acceleration $d^2y/dt^2$ at $t=4$; answer $24\\cos(16)$ or approximately $-22.985$. Acceleration vector must be presented as a vector.",
           "alternatives": [
             {
               "required_elements": [
                 "Second component of acceleration: $24\\cos(16)$ or approximately $-22.985$"
               ]
+            }
+          ],
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{d^2y}{dt^2} = \\dfrac{d}{dt}[3\\sin(t^2)] = 3\\cos(t^2)\\cdot 2t = 6t\\cos(t^2)$; at $t=4$: $24\\cos(16) \\approx -22.985$. Acceleration $\\approx \\langle 2.910,\\, -22.985 \\rangle$.",
+              "earned": true,
+              "commentary": "Shows chain rule, evaluates correctly, and presents the answer as a vector with both components.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$a_y(4) = 6(4)\\cos(16) = 24\\cos(16) \\approx -22.985$. $\\vec{a}(4) = \\langle 2.910,\\, -22.985 \\rangle$.",
+              "earned": true,
+              "commentary": "Evaluates directly and presents the full acceleration vector — earns the point.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{d^2y}{dt^2} = 3\\cos(t^2)$; at $t=4$: $3\\cos(16) \\approx -2.873$.",
+              "earned": false,
+              "commentary": "Forgot to apply the chain rule's inner derivative $2t$. The derivative of $3\\sin(t^2)$ is $6t\\cos(t^2)$, not $3\\cos(t^2)$.",
+              "source": "synthesized"
             }
           ]
         }
@@ -102,6 +186,7 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Sets up the correct integral to find the change in $y$: $y(6) = y(4) + \\displaystyle\\int_{4}^{6} \\frac{dy}{dt}\\,dt = 8 + \\int_{4}^{6} 3\\sin(t^2)\\,dt$.",
+          "official_rubric": "1 point: Integral setup $\\displaystyle\\int_{4}^{6} \\frac{dy}{dt}\\,dt$ with correct integrand $3\\sin(t^2)$ and limits $4$ to $6$.",
           "alternatives": [
             {
               "required_elements": [
@@ -111,17 +196,52 @@
           ],
           "common_traps": [
             "Using incorrect limits or forgetting to add the initial $y$-coordinate"
+          ],
+          "sample_responses": [
+            {
+              "response": "$y(6) = y(4) + \\displaystyle\\int_{4}^{6} 3\\sin(t^2)\\,dt = 8 + \\int_{4}^{6} 3\\sin(t^2)\\,dt$",
+              "earned": true,
+              "commentary": "Correctly applies the accumulation formula using the given initial condition.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$y(6) = \\displaystyle\\int_{4}^{6} 3\\sin(t^2)\\,dt + 8$",
+              "earned": true,
+              "commentary": "Equivalent setup with addends in different order — earns setup point.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$y(6) = \\displaystyle\\int_{0}^{6} 3\\sin(t^2)\\,dt + 8$",
+              "earned": false,
+              "commentary": "Wrong lower limit. Since the known position is at $t=4$, the integral must run from $4$ to $6$, not $0$ to $6$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
           "point_id": "c2",
           "point_value": 1,
           "description": "Uses the initial condition $y(4) = 8$, writing $y(6) = 8 + \\displaystyle\\int_{4}^{6} 3\\sin(t^2)\\,dt$.",
+          "official_rubric": "1 point: Initial condition $y(4) = 8$ correctly incorporated into the accumulation expression.",
           "alternatives": [
             {
               "required_elements": [
                 "$y(6) = 8 + \\displaystyle\\int_{4}^{6} 3\\sin(t^2)\\,dt$"
               ]
+            }
+          ],
+          "sample_responses": [
+            {
+              "response": "Using $y(4) = 8$: $y(6) = 8 + \\displaystyle\\int_{4}^{6} 3\\sin(t^2)\\,dt \\approx 8 + (-1.307) = 6.693$.",
+              "earned": true,
+              "commentary": "Initial condition clearly stated and used correctly.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$y(6) = \\displaystyle\\int_{4}^{6} 3\\sin(t^2)\\,dt \\approx -1.307$.",
+              "earned": false,
+              "commentary": "Computes only the change in $y$, not $y(6)$ itself. Must add $y(4) = 8$ to earn this point.",
+              "source": "synthesized"
             }
           ]
         },
@@ -129,11 +249,26 @@
           "point_id": "c3",
           "point_value": 1,
           "description": "Correct answer: $y(6) = 8 + \\displaystyle\\int_{4}^{6} 3\\sin(t^2)\\,dt \\approx 8 + (-1.307) \\approx 6.693$. Accept $6.693$ or equivalent.",
+          "official_rubric": "1 point: Correct numerical answer approximately $6.693$.",
           "alternatives": [
             {
               "required_elements": [
                 "Numerical answer approximately $6.693$"
               ]
+            }
+          ],
+          "sample_responses": [
+            {
+              "response": "$y(6) = 8 + \\displaystyle\\int_{4}^{6} 3\\sin(t^2)\\,dt \\approx 8 - 1.307 \\approx 6.693$.",
+              "earned": true,
+              "commentary": "Correct final answer with calculator-evaluated integral.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$y(6) \\approx 8 + 1.307 = 9.307$.",
+              "earned": false,
+              "commentary": "Sign error in the integral value. $\\displaystyle\\int_{4}^{6} 3\\sin(t^2)\\,dt \\approx -1.307$, not $+1.307$.",
+              "source": "synthesized"
             }
           ]
         }
@@ -151,6 +286,7 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Sets up the correct arc length integral:\n$$\\int_{4}^{6} \\sqrt{\\left(\\frac{dx}{dt}\\right)^2 + \\left(\\frac{dy}{dt}\\right)^2}\\,dt = \\int_{4}^{6} \\sqrt{(t^3+4) + 9\\sin^2(t^2)}\\,dt$$",
+          "official_rubric": "1 point: Arc length integral $\\displaystyle\\int_{4}^{6} \\sqrt{(dx/dt)^2+(dy/dt)^2}\\,dt$ with correct integrand $\\sqrt{(t^3+4)+9\\sin^2(t^2)}$.",
           "alternatives": [
             {
               "required_elements": [
@@ -160,17 +296,46 @@
           ],
           "common_traps": [
             "Squaring rather than taking the square root of the sum of squares"
+          ],
+          "sample_responses": [
+            {
+              "response": "$\\text{distance} = \\displaystyle\\int_{4}^{6} \\sqrt{(t^3+4) + 9\\sin^2(t^2)}\\,dt$",
+              "earned": true,
+              "commentary": "Correct arc length integrand with correct limits. Must be under a square root, not squared.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\text{distance} = \\displaystyle\\int_{4}^{6} \\left[(t^3+4) + 9\\sin^2(t^2)\\right]dt$",
+              "earned": false,
+              "commentary": "Missing the square root. Arc length is $\\int \\sqrt{(dx/dt)^2+(dy/dt)^2}\\,dt$, not $\\int [(dx/dt)^2+(dy/dt)^2]\\,dt$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
           "point_id": "d2",
           "point_value": 1,
           "description": "Correct answer: approximately $16.570$. Accept any value in the range $[16.569, 16.571]$.",
+          "official_rubric": "1 point: Correct numerical answer approximately $16.570$.",
           "alternatives": [
             {
               "required_elements": [
                 "Numerical answer approximately $16.570$"
               ]
+            }
+          ],
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_{4}^{6} \\sqrt{(t^3+4) + 9\\sin^2(t^2)}\\,dt \\approx 16.570$.",
+              "earned": true,
+              "commentary": "Correct calculator evaluation of the arc length integral.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\displaystyle\\int_{4}^{6} \\sqrt{(t^3+4) + 9\\sin^2(t^2)}\\,dt \\approx 16.570$, but this equals the displacement, not total distance.",
+              "earned": true,
+              "commentary": "Correct answer despite the misconception stated. For arc length of a parametric curve, the integral already gives total distance (not displacement). The answer earns the point.",
+              "source": "synthesized"
             }
           ]
         }
