@@ -28,11 +28,26 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Sets up the ratio test correctly with consecutive terms:\n$$\\lim_{n\\to\\infty}\\left|\\frac{a_{n+1}}{a_n}\\right| = \\lim_{n\\to\\infty}\\left|\\frac{(-1)^{n+1}x^{2n+3}}{2n+3} \\cdot \\frac{2n+1}{(-1)^n x^{2n+1}}\\right| = |x|^2 \\cdot \\lim_{n\\to\\infty}\\frac{2n+1}{2n+3}$$",
+          "official_rubric": "1 point: Ratio test set up with $\\left|a_{n+1}/a_n\\right|$ simplified to $|x|^2 \\cdot \\dfrac{2n+1}{2n+3}$.",
           "alternatives": [
             {
               "required_elements": [
                 "Correct ratio of consecutive terms leading to $|x|^2 \\cdot \\lim_{n\\to\\infty}\\dfrac{2n+1}{2n+3}$"
               ]
+            }
+          ],
+          "sample_responses": [
+            {
+              "response": "$\\left|\\dfrac{a_{n+1}}{a_n}\\right| = \\left|\\dfrac{x^{2n+3}}{2n+3}\\cdot\\dfrac{2n+1}{x^{2n+1}}\\right| = |x|^2\\cdot\\dfrac{2n+1}{2n+3} \\to |x|^2$ as $n\\to\\infty$.",
+              "earned": true,
+              "commentary": "Correct ratio setup — cancels $(-1)$ factors and $x^{2n+1}$, isolating $|x|^2$ times the coefficient ratio.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\left|\\dfrac{a_{n+1}}{a_n}\\right| = \\left|\\dfrac{x^{2(n+1)+1}}{2(n+1)+1}\\right| = \\dfrac{|x|^{2n+3}}{2n+3}$.",
+              "earned": false,
+              "commentary": "Did not divide by $a_n$ — wrote only $|a_{n+1}|$ without forming the ratio. Must divide by $|a_n| = \\dfrac{|x|^{2n+1}}{2n+1}$.",
+              "source": "synthesized"
             }
           ]
         },
@@ -40,11 +55,26 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correctly evaluates the limit to $|x|^2 < 1$, giving $|x| < 1$, so the interior of the interval of convergence is $-1 < x < 1$.",
+          "official_rubric": "1 point: Limit evaluates to $|x|^2$; series converges when $|x|^2 < 1$, i.e., $|x| < 1$.",
           "alternatives": [
             {
               "required_elements": [
                 "Limit equals $x^2$; concludes the series converges for $|x| < 1$"
               ]
+            }
+          ],
+          "sample_responses": [
+            {
+              "response": "$\\lim_{n\\to\\infty}|x|^2\\cdot\\dfrac{2n+1}{2n+3} = |x|^2$. Series converges when $|x|^2 < 1$, i.e., $|x| < 1$.",
+              "earned": true,
+              "commentary": "Correct limit evaluation and convergence criterion from the ratio test.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The limit is $|x|^2$, so the radius of convergence is $R = 2$ (since $|x| < 2$... wait, $|x|^2 < 1$ means $|x| < 1$, so $R=1$).",
+              "earned": true,
+              "commentary": "Self-corrects to $R=1$ — earns the point despite initial confusion.",
+              "source": "synthesized"
             }
           ]
         },
@@ -52,11 +82,26 @@
           "point_id": "a3",
           "point_value": 1,
           "description": "Correctly considers both endpoints. At $x = 1$: the series becomes $\\displaystyle\\sum_{n=0}^{\\infty} \\dfrac{(-1)^n}{2n+1}$, which converges by the Alternating Series Test (terms decrease to zero). At $x = -1$: the series becomes $\\displaystyle\\sum_{n=0}^{\\infty} \\dfrac{(-1)^{n+1}}{2n+1}$, which also converges by the Alternating Series Test.",
+          "official_rubric": "1 point: Both endpoints checked; AST applied at $x=1$ and $x=-1$ to confirm convergence (terms $1/(2n+1)$ decrease to $0$).",
           "alternatives": [
             {
               "required_elements": [
                 "Checks $x = 1$ and $x = -1$ and applies the Alternating Series Test at both endpoints"
               ]
+            }
+          ],
+          "sample_responses": [
+            {
+              "response": "At $x=1$: $\\sum \\dfrac{(-1)^n}{2n+1}$ converges by AST (terms $\\dfrac{1}{2n+1}$ decrease to $0$). At $x=-1$: $\\sum \\dfrac{(-1)^{n+1}}{2n+1}$ converges by AST for the same reason. Both endpoints included.",
+              "earned": true,
+              "commentary": "Both endpoints checked with correct AST justification.",
+              "source": "synthesized"
+            },
+            {
+              "response": "At $x=1$: series is $1 - \\frac{1}{3} + \\frac{1}{5} - \\frac{1}{7} + \\cdots$, which converges (known to equal $\\pi/4$). Endpoint included.",
+              "earned": false,
+              "commentary": "Only checks one endpoint. Must also check $x=-1$ to earn the endpoint point. Noting the sum is $\\pi/4$ is correct but irrelevant to the convergence justification.",
+              "source": "synthesized"
             }
           ]
         },
@@ -64,11 +109,26 @@
           "point_id": "a4",
           "point_value": 1,
           "description": "Correct conclusion: the interval of convergence is $-1 \\leq x \\leq 1$ (a closed interval including both endpoints).",
+          "official_rubric": "1 point: Interval of convergence $[-1, 1]$ (both endpoints included).",
           "alternatives": [
             {
               "required_elements": [
                 "Interval of convergence is $-1 \\leq x \\leq 1$"
               ]
+            }
+          ],
+          "sample_responses": [
+            {
+              "response": "Interval of convergence: $[-1, 1]$ (i.e., $-1 \\leq x \\leq 1$).",
+              "earned": true,
+              "commentary": "Correct closed interval with both endpoints included.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Interval of convergence: $(-1, 1)$ (i.e., $-1 < x < 1$).",
+              "earned": false,
+              "commentary": "Open interval misses both endpoints, which were shown to converge. Must use closed brackets $[-1, 1]$.",
+              "source": "synthesized"
             }
           ]
         }
@@ -86,11 +146,26 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Identifies that the series for $f\\!\\left(\\dfrac{1}{2}\\right)$ is alternating with decreasing terms approaching zero, so the Alternating Series Estimation Theorem applies. The error from using only the first term $\\dfrac{1}{2}$ is bounded by the absolute value of the second term:\n$$\\left|f\\!\\left(\\frac{1}{2}\\right) - \\frac{1}{2}\\right| \\leq \\left|{-\\frac{1}{3}\\cdot\\left(\\frac{1}{2}\\right)^3}\\right| = \\frac{1}{24}$$",
+          "official_rubric": "1 point: Alternating Series Estimation Theorem applied; error bound is second term $\\left|\\dfrac{-(1/2)^3}{3}\\right| = \\dfrac{1}{24}$.",
           "alternatives": [
             {
               "required_elements": [
                 "Applies the Alternating Series Estimation Theorem with the second term $\\left|{-\\dfrac{1}{3}\\cdot\\dfrac{1}{8}}\\right| = \\dfrac{1}{24}$"
               ]
+            }
+          ],
+          "sample_responses": [
+            {
+              "response": "$f(1/2) = \\frac{1}{2} - \\frac{(1/2)^3}{3} + \\frac{(1/2)^5}{5} - \\cdots$. By the Alternating Series Estimation Theorem, $\\left|f(1/2) - \\frac{1}{2}\\right| \\leq \\frac{(1/2)^3}{3} = \\frac{1}{24}$.",
+              "earned": true,
+              "commentary": "Correctly identifies the bound as the absolute value of the second term.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$f(1/2) \\approx \\frac{1}{2} - \\frac{1}{24} + \\frac{1}{160} - \\cdots$; the error is small since terms decrease.",
+              "earned": false,
+              "commentary": "Does not invoke the Alternating Series Estimation Theorem by name or state the bound explicitly. Must name the theorem and identify $1/24$ as the bound.",
+              "source": "synthesized"
             }
           ]
         },
@@ -98,11 +173,26 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct justification and conclusion: since $\\dfrac{1}{24} < \\dfrac{1}{10}$, we have $\\left|f\\!\\left(\\dfrac{1}{2}\\right) - \\dfrac{1}{2}\\right| \\leq \\dfrac{1}{24} < \\dfrac{1}{10}$, as required.",
+          "official_rubric": "1 point: Concludes $\\dfrac{1}{24} < \\dfrac{1}{10}$, completing the required inequality.",
           "alternatives": [
             {
               "required_elements": [
                 "Concludes $\\dfrac{1}{24} < \\dfrac{1}{10}$, so the bound is established"
               ]
+            }
+          ],
+          "sample_responses": [
+            {
+              "response": "Since $\\dfrac{1}{24} < \\dfrac{1}{10}$, we conclude $\\left|f(1/2) - \\frac{1}{2}\\right| \\leq \\dfrac{1}{24} < \\dfrac{1}{10}$.",
+              "earned": true,
+              "commentary": "Explicit comparison $1/24 < 1/10$ completes the argument.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\left|f(1/2)-\\frac{1}{2}\\right| \\leq \\dfrac{1}{24}$. Since $\\dfrac{1}{24} \\approx 0.042$ and $\\dfrac{1}{10} = 0.1$, the bound holds.",
+              "earned": true,
+              "commentary": "Decimal comparison is acceptable as long as it's explicit.",
+              "source": "synthesized"
             }
           ]
         }
@@ -120,11 +210,26 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Writes the first four nonzero terms correctly by differentiating the given series term-by-term:\n$$f'(x) = 1 - x^2 + x^4 - x^6 + \\cdots$$",
+          "official_rubric": "1 point: First four terms $1 - x^2 + x^4 - x^6$ by term-by-term differentiation.",
           "alternatives": [
             {
               "required_elements": [
                 "First four terms: $1 - x^2 + x^4 - x^6$"
               ]
+            }
+          ],
+          "sample_responses": [
+            {
+              "response": "$f'(x) = \\dfrac{d}{dx}\\left(x - \\dfrac{x^3}{3} + \\dfrac{x^5}{5} - \\dfrac{x^7}{7} + \\cdots\\right) = 1 - x^2 + x^4 - x^6 + \\cdots$.",
+              "earned": true,
+              "commentary": "Term-by-term differentiation correctly applied.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$f'(x) = 1 - 3x^2 + 5x^4 - 7x^6 + \\cdots$.",
+              "earned": false,
+              "commentary": "Differentiated numerators but forgot to cancel the denominator factors. $\\dfrac{d}{dx}\\dfrac{x^3}{3} = x^2$, not $3x^2$.",
+              "source": "synthesized"
             }
           ]
         },
@@ -132,11 +237,26 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Writes the correct general term: $(-1)^n x^{2n}$ for $n = 0, 1, 2, 3, \\ldots$",
+          "official_rubric": "1 point: General term $(-1)^n x^{2n}$.",
           "alternatives": [
             {
               "required_elements": [
                 "General term $(-1)^n x^{2n}$"
               ]
+            }
+          ],
+          "sample_responses": [
+            {
+              "response": "$f'(x) = \\displaystyle\\sum_{n=0}^{\\infty} (-1)^n x^{2n}$.",
+              "earned": true,
+              "commentary": "Correct general term in sigma notation.",
+              "source": "synthesized"
+            },
+            {
+              "response": "General term: $(-1)^n x^{2n+1}$.",
+              "earned": false,
+              "commentary": "The exponent should be $2n$, not $2n+1$. Differentiating $\\dfrac{(-1)^n x^{2n+1}}{2n+1}$ gives $(-1)^n x^{2n}$.",
+              "source": "synthesized"
             }
           ]
         }
@@ -154,11 +274,32 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Substitutes $x = \\dfrac{1}{\\sqrt{6}}$ into the geometric series $f'(x) = \\displaystyle\\sum_{n=0}^{\\infty}(-1)^n x^{2n}$, giving a geometric series with first term $1$ and common ratio $-\\dfrac{1}{6}$, and applies the geometric series sum formula:\n$$f'\\!\\left(\\frac{1}{\\sqrt{6}}\\right) = \\frac{1}{1-\\left(-\\frac{1}{6}\\right)} = \\frac{1}{\\frac{7}{6}} = \\frac{6}{7}$$",
+          "official_rubric": "1 point: Geometric series sum $\\dfrac{1}{1-(-1/6)} = \\dfrac{6}{7}$.",
           "alternatives": [
             {
               "required_elements": [
                 "$f'\\!\\left(\\dfrac{1}{\\sqrt{6}}\\right) = \\dfrac{6}{7}$"
               ]
+            }
+          ],
+          "sample_responses": [
+            {
+              "response": "At $x = \\dfrac{1}{\\sqrt{6}}$: $x^2 = \\dfrac{1}{6}$, so $f'(x) = \\displaystyle\\sum_{n=0}^{\\infty}(-1)^n\\left(\\dfrac{1}{6}\\right)^n = \\dfrac{1}{1+\\frac{1}{6}} = \\dfrac{6}{7}$.",
+              "earned": true,
+              "commentary": "Recognizes the geometric series with ratio $-1/6$ and applies the sum formula correctly.",
+              "source": "synthesized"
+            },
+            {
+              "response": "At $x = \\dfrac{1}{\\sqrt{6}}$: $f'\\left(\\dfrac{1}{\\sqrt{6}}\\right) = 1 - \\dfrac{1}{6} + \\dfrac{1}{36} - \\dfrac{1}{216} + \\cdots = \\dfrac{1}{1+\\frac{1}{6}} = \\dfrac{6}{7}$.",
+              "earned": true,
+              "commentary": "Lists the partial series then applies geometric sum formula — correct.",
+              "source": "synthesized"
+            },
+            {
+              "response": "At $x = \\dfrac{1}{\\sqrt{6}}$: geometric series with ratio $\\dfrac{1}{6}$, so $f' = \\dfrac{1}{1 - \\frac{1}{6}} = \\dfrac{6}{5}$.",
+              "earned": false,
+              "commentary": "Sign error on the common ratio. The ratio is $-x^2 = -\\dfrac{1}{6}$, not $+\\dfrac{1}{6}$. Sum is $\\dfrac{1}{1-(-1/6)} = \\dfrac{6}{7}$.",
+              "source": "synthesized"
             }
           ]
         }
