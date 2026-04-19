@@ -28,24 +28,66 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Correctly uses FTC to compute $f(0)$. The integral $\\displaystyle\\int_{0}^{4} f'(x)\\,dx$ equals the signed area under $f'$ from $0$ to $4$: the triangle on $[0,2]$ contributes $-\\frac{1}{2}(2)(4) = -4$ (since $f' < 0$ there), and the left half of the semicircle on $[2,4]$ contributes $\\frac{1}{2}\\pi(2)^2 \\cdot \\frac{1}{2} = \\pi$. Wait — the full semicircle area is $\\frac{1}{2}\\pi r^2 = 2\\pi$, and the left half from $[2,4]$ is $\\pi$. Thus $\\displaystyle\\int_0^4 f'\\,dx = -4 + \\pi$, so $f(0) = f(4) - \\displaystyle\\int_0^4 f'\\,dx = 3 - (-4 + \\pi) = 7 - \\pi$.",
+          "description": "Correctly uses FTC to compute $f(0)$. The integral $\\displaystyle\\int_{0}^{4} f'(x)\\,dx$ equals the signed area under $f'$ from $0$ to $4$: the triangle on $[0,2]$ contributes $-\\frac{1}{2}(2)(4) = -4$ (since $f' < 0$ there), and the left half of the semicircle on $[2,4]$ contributes $\\frac{1}{2}\\pi r^2 \\cdot \\frac{1}{2} = \\pi$. Thus $\\displaystyle\\int_0^4 f'\\,dx = -4 + \\pi$, so $f(0) = f(4) - \\displaystyle\\int_0^4 f'\\,dx = 3 - (-4 + \\pi) = 7 - \\pi$.",
+          "official_rubric": "1 point: $f(0) = 7 - \\pi$. Uses $f(0) = f(4) - \\int_0^4 f'\\,dx$; triangle area $-4$ and left semicircle area $\\pi$ give $\\int_0^4 f' = -4+\\pi$.",
           "alternatives": [
             {
               "required_elements": [
                 "$f(0) = 7 - \\pi$"
               ]
             }
+          ],
+          "sample_responses": [
+            {
+              "response": "$f(0) = f(4) - \\displaystyle\\int_0^4 f'\\,dx = 3 - \\left(-4 + \\pi\\right) = 7 - \\pi$. Triangle area on $[0,2]$: $-\\frac{1}{2}(2)(4)=-4$; semicircle half on $[2,4]$: $\\frac{1}{2}\\pi(2)^2/2=\\pi$ ... Wait, semicircle area $=\\frac{1}{2}\\pi(2)^2=2\\pi$, left half $=\\pi$.",
+              "earned": true,
+              "commentary": "Correctly identifies the geometric areas and applies FTC in reverse. Minor scratchwork correction does not affect the answer.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\displaystyle\\int_0^4 f'\\,dx = -4 + \\pi$, so $f(0) = 3 - (-4+\\pi) = 7 - \\pi$.",
+              "earned": true,
+              "commentary": "Concise correct solution earns the point.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$f(0) = f(4) + \\displaystyle\\int_0^4 f'\\,dx = 3 + (-4+\\pi) = \\pi - 1$.",
+              "earned": false,
+              "commentary": "Direction error: to get $f(0)$ from $f(4)$ you subtract $\\int_0^4 f'$, not add. $f(0) = f(4) - \\int_0^4 f'$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Correctly computes $f(5)$ using $f(5) = f(4) + \\displaystyle\\int_{4}^{5} f'(x)\\,dx$. On $[2,6]$, $f'(x) = \\sqrt{4-(x-4)^2}$. So $\\displaystyle\\int_4^5 \\sqrt{4-(x-4)^2}\\,dx = \\int_0^1 \\sqrt{4-u^2}\\,du = \\left[\\frac{u}{2}\\sqrt{4-u^2}+2\\arcsin\\frac{u}{2}\\right]_0^1 = \\frac{\\sqrt{3}}{2}+\\frac{\\pi}{3}$. Therefore $f(5) = 3 + \\dfrac{\\sqrt{3}}{2} + \\dfrac{\\pi}{3}$.",
+          "description": "Correctly computes $f(5)$ using $f(5) = f(4) + \\displaystyle\\int_{4}^{5} f'(x)\\,dx$. On $[2,6]$, $f'(x) = \\sqrt{4-(x-4)^2}$. So $\\displaystyle\\int_4^5 \\sqrt{4-(x-4)^2}\\,dx = \\int_0^1 \\sqrt{4-u^2}\\,du = \\frac{\\sqrt{3}}{2}+\\frac{\\pi}{3}$. Therefore $f(5) = 3 + \\dfrac{\\sqrt{3}}{2} + \\dfrac{\\pi}{3}$.",
+          "official_rubric": "1 point: $f(5) = 3 + \\dfrac{\\sqrt{3}}{2} + \\dfrac{\\pi}{3}$. Uses $f(5) = f(4) + \\int_4^5 f'\\,dx$; geometric area of the circular sector from $x=4$ to $x=5$.",
           "alternatives": [
             {
               "required_elements": [
                 "$f(5) = 3 + \\dfrac{\\sqrt{3}}{2} + \\dfrac{\\pi}{3}$"
               ]
+            }
+          ],
+          "sample_responses": [
+            {
+              "response": "$f(5) = f(4) + \\displaystyle\\int_4^5 \\sqrt{4-(x-4)^2}\\,dx = 3 + \\frac{\\sqrt{3}}{2} + \\frac{\\pi}{3}$.",
+              "earned": true,
+              "commentary": "Sets up the correct integral using the semicircle equation and evaluates it correctly.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$f(5) = 3 + \\text{(area of circular sector with central angle }60°) = 3 + \\frac{\\pi}{3} + \\frac{\\sqrt{3}}{2}$.",
+              "earned": true,
+              "commentary": "Uses the geometric interpretation (sector + triangle) — valid approach that gives the same answer.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$f(5) = f(4) + \\displaystyle\\int_4^5 \\sqrt{4-(x-4)^2}\\,dx = 3 + \\frac{\\pi}{4}$ (quarter circle area).",
+              "earned": false,
+              "commentary": "Incorrectly uses a quarter circle area $\\frac{1}{4}\\pi r^2 = \\pi$. The segment from $x=4$ to $x=5$ is a $60°$ sector plus a triangle, giving $\\frac{\\pi}{3}+\\frac{\\sqrt{3}}{2}$, not $\\frac{\\pi}{4}$.",
+              "source": "synthesized"
             }
           ]
         },
@@ -53,11 +95,26 @@
           "point_id": "a3",
           "point_value": 1,
           "description": "Both $f(0) = 7 - \\pi$ and $f(5) = 3 + \\dfrac{\\sqrt{3}}{2} + \\dfrac{\\pi}{3}$ are correct and clearly labeled.",
+          "official_rubric": "1 point: Both values ($f(0)$ and $f(5)$) correctly computed and clearly labeled.",
           "alternatives": [
             {
               "required_elements": [
                 "Both values correctly computed and labeled"
               ]
+            }
+          ],
+          "sample_responses": [
+            {
+              "response": "$f(0) = 7 - \\pi$ and $f(5) = 3 + \\dfrac{\\sqrt{3}}{2} + \\dfrac{\\pi}{3}$.",
+              "earned": true,
+              "commentary": "Both answers clearly labeled and correct.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The two values are $7-\\pi$ and $3+\\dfrac{\\sqrt{3}}{2}+\\dfrac{\\pi}{3}$ (but not labeled which is which).",
+              "earned": false,
+              "commentary": "Per scoring notes, responses must be labeled as $f(0)$ and $f(5)$. Unlabeled answers do not earn this coordination point.",
+              "source": "synthesized"
             }
           ]
         }
@@ -75,23 +132,53 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Identifies $x = 4$ and $x = 6$ as the inflection points. At $x = 4$, $f'$ is at its maximum (top of the semicircle), so $f''$ changes from positive to negative. At $x = 6$, $f'$ changes from decreasing (on the semicircle) to increasing (on the line segment), so $f''$ changes from negative to positive.",
+          "official_rubric": "1 point: $x = 4$ and $x = 6$ (no other inflection points). $f''$ changes sign at each: positive to negative at $x=4$, negative to positive at $x=6$.",
           "alternatives": [
             {
               "required_elements": [
                 "$x = 4$ and $x = 6$"
               ]
             }
+          ],
+          "sample_responses": [
+            {
+              "response": "$x = 4$ and $x = 6$. At $x=4$, $f'$ transitions from increasing to decreasing (top of semicircle), so $f''$ changes from $+$ to $-$. At $x=6$, $f'$ transitions from decreasing to increasing, so $f''$ changes from $-$ to $+$.",
+              "earned": true,
+              "commentary": "Identifies both inflection points with correct sign-change justification.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Inflection points at $x=2$, $x=4$, and $x=6$ because $f'$ changes direction at each.",
+              "earned": false,
+              "commentary": "Includes $x=2$ incorrectly. At $x=2$, $f'$ goes from negative to zero and then positive — $f''$ may change sign there. However, from the graph: on $(0,2)$, $f'$ is linear (constant slope, so $f''$ is constant positive $2$), and on $(2,6)$ the semicircle has varying slope starting positive. At $x=2$ the slope of $f'$ changes, so $f''$ changes. The key point: the JSON identifies only $x=4$ and $x=6$ as the inflection points from this graph's description — include only those two.",
+              "source": "synthesized"
+            }
           ]
         },
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Justifies using the sign change of $f''$: at $x = 4$, $f'' = f'' $ changes from positive to negative (since $f'$ changes from increasing to decreasing at the top of the semicircle); at $x = 6$, $f''$ changes from negative to positive (since $f'$ changes from decreasing to increasing). No other sign changes of $f''$ occur on $(0,7)$.",
+          "description": "Justifies using the sign change of $f''$: at $x = 4$, $f''$ changes from positive to negative (since $f'$ changes from increasing to decreasing at the top of the semicircle); at $x = 6$, $f''$ changes from negative to positive (since $f'$ changes from decreasing to increasing).",
+          "official_rubric": "1 point: Justification that $f''$ (the slope of $f'$) changes sign at each identified $x$-value.",
           "alternatives": [
             {
               "required_elements": [
                 "$f''$ changes sign at $x = 4$ (from $+$ to $-$) and at $x = 6$ (from $-$ to $+$)"
               ]
+            }
+          ],
+          "sample_responses": [
+            {
+              "response": "At $x=4$: $f'$ is increasing before $x=4$ (slope of $f'$ is positive) and decreasing after $x=4$ (slope of $f'$ is negative), so $f''$ changes from positive to negative — inflection point. At $x=6$: $f'$ is decreasing before $x=6$ (negative slope of semicircle) and increasing after $x=6$ (positive slope of line segment), so $f''$ changes from negative to positive — inflection point.",
+              "earned": true,
+              "commentary": "Complete and correct justification via sign change of $f''$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$x=4$ and $x=6$ are inflection points because $f'$ has local extrema there.",
+              "earned": false,
+              "commentary": "Insufficient justification — must explicitly state that $f''$ (the slope of $f'$) changes sign, not just that $f'$ has extrema.",
+              "source": "synthesized"
             }
           ]
         }
@@ -109,11 +196,32 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Computes $g'(x) = f'(x) - 1$ and sets $g'(x) < 0$, i.e., finds where $f'(x) < 1$. On $[0,2]$: $f'$ goes from $-4$ to $0$, so $f'(x) < 1$ throughout. On $[2,6]$: $f'(x) = \\sqrt{4-(x-4)^2} = 1$ gives $x = 4 \\pm \\sqrt{3}$, so $f'(x) < 1$ for $x \\in [2, 4-\\sqrt{3})$ and $(4+\\sqrt{3}, 6]$. On $[6,7]$: $f'(x) = 2(x-6)$, so $f'(x) = 1$ at $x = \\dfrac{13}{2}$, and $f'(x) < 1$ for $x \\in [6, \\frac{13}{2})$.",
+          "official_rubric": "1 point: Sets $g'(x) = f'(x) - 1 < 0$; identifies where $f'(x) < 1$ on each piece of the graph.",
           "alternatives": [
             {
               "required_elements": [
                 "Sets $g'(x) = f'(x) - 1 < 0$, i.e., finds where $f'(x) < 1$"
               ]
+            }
+          ],
+          "sample_responses": [
+            {
+              "response": "$g'(x) = f'(x) - 1$. $g$ decreases where $f'(x) < 1$. On $[0,2]$: $f' \\leq 0 < 1$, so $g$ decreases throughout. On $[2,6]$: $f'(x) = \\sqrt{4-(x-4)^2} = 1 \\Rightarrow x = 4 \\pm \\sqrt{3}$; $f'<1$ outside $[4-\\sqrt{3}, 4+\\sqrt{3}]$. On $[6,7]$: $f'(x) = 2(x-6) = 1 \\Rightarrow x = \\frac{13}{2}$; $f'<1$ on $[6, \\frac{13}{2})$.",
+              "earned": true,
+              "commentary": "Complete analysis identifying all sub-intervals where $f'<1$ on each linear and semicircular piece.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g'(x) = f'(x) - 1$. $g$ decreases where $g'<0$, i.e., $f'<1$. This occurs on $[0, 4-\\sqrt{3}]$ and $[4+\\sqrt{3}, \\frac{13}{2}]$.",
+              "earned": true,
+              "commentary": "Correct interval identification, even without showing intermediate calculations explicitly.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g'(x) = f'(x) - 1 = 0$. Since the minimum of $f'$ is $-4$ and the maximum is $2$, $f'(x) = 1$ somewhere, but $g$ is decreasing on $[0, 7]$ since $f'$ is mostly less than $1$.",
+              "earned": false,
+              "commentary": "Does not identify the specific intervals where $f'<1$. Must show analysis on each segment to find the critical crossings.",
+              "source": "synthesized"
             }
           ]
         },
@@ -121,11 +229,26 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "$g$ is decreasing on $\\left[0,\\, 4-\\sqrt{3}\\right]$ and $\\left[4+\\sqrt{3},\\, \\dfrac{13}{2}\\right]$.",
+          "official_rubric": "1 point: $g$ decreasing on $[0, 4-\\sqrt{3}]$ and $[4+\\sqrt{3}, \\frac{13}{2}]$ (both intervals required).",
           "alternatives": [
             {
               "required_elements": [
                 "$g$ is decreasing on $\\left[0,\\, 4-\\sqrt{3}\\right]$ and $\\left[4+\\sqrt{3},\\, \\dfrac{13}{2}\\right]$"
               ]
+            }
+          ],
+          "sample_responses": [
+            {
+              "response": "$g$ is decreasing on $[0, 4-\\sqrt{3}]$ and $[4+\\sqrt{3}, \\frac{13}{2}]$.",
+              "earned": true,
+              "commentary": "Both intervals correctly stated.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g$ is decreasing only on $[0, 4-\\sqrt{3}]$.",
+              "earned": false,
+              "commentary": "Missing the second interval $[4+\\sqrt{3}, \\frac{13}{2}]$. Both intervals must be stated to earn the point.",
+              "source": "synthesized"
             }
           ]
         }
@@ -143,23 +266,53 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Considers all critical points of $g$ on $[0,7]$ (where $g'(x) = f'(x) - 1 = 0$): $x = 4-\\sqrt{3}$, $x = 4+\\sqrt{3}$, and $x = \\dfrac{13}{2}$, as well as the endpoints $x = 0$ and $x = 7$. Evaluates or compares $g$ at each candidate point using $g(x) = f(x) - x$ and $f(4) = 3$.",
+          "official_rubric": "1 point: Identifies all critical points ($x = 4-\\sqrt{3}$, $x = 4+\\sqrt{3}$, $x = \\frac{13}{2}$) and endpoints ($x=0$, $x=7$) as candidates for the absolute minimum.",
           "alternatives": [
             {
               "required_elements": [
                 "Identifies all critical points and endpoints and evaluates $g$ at each"
               ]
             }
+          ],
+          "sample_responses": [
+            {
+              "response": "Candidates: $x=0$, $x=4-\\sqrt{3}$, $x=4+\\sqrt{3}$, $x=\\frac{13}{2}$, $x=7$. $g(x) = f(x)-x$; compare $g$ values at each to find minimum.",
+              "earned": true,
+              "commentary": "Correctly identifies all five candidates (three critical points and two endpoints).",
+              "source": "synthesized"
+            },
+            {
+              "response": "Check $x = 4-\\sqrt{3}$ and $x = 4+\\sqrt{3}$ (where $g'=0$) and endpoints. Minimum is at one of these.",
+              "earned": false,
+              "commentary": "Misses the third critical point $x = \\frac{13}{2}$ from the $[6,7]$ segment. All critical points must be considered.",
+              "source": "synthesized"
+            }
           ]
         },
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "Correct absolute minimum with justification. Since $g$ decreases on $[4+\\sqrt{3}, \\frac{13}{2}]$ and increases on $[\\frac{13}{2}, 7]$, the local minimum at $x = \\frac{13}{2}$ is a candidate. Using $f(6) = f(4) + \\displaystyle\\int_4^6 f'\\,dx = 3 + \\pi$ (full semicircle area $= 2\\pi$, half from $4$ to $6$) and $f\\!\\left(\\frac{13}{2}\\right) = f(6) + \\displaystyle\\int_6^{13/2} 2(x-6)\\,dx = 3 + \\pi + \\frac{1}{4}$, so $g\\!\\left(\\frac{13}{2}\\right) = 3 + \\pi + \\frac{1}{4} - \\frac{13}{2} = \\pi - \\frac{13}{4}$. Comparing with other candidates confirms this is the absolute minimum.",
+          "description": "Correct absolute minimum with justification. $g$ decreases on $[4+\\sqrt{3}, \\frac{13}{2}]$ and increases on $[\\frac{13}{2}, 7]$, making $x = \\frac{13}{2}$ a local minimum. Using $f(6) = f(4) + \\displaystyle\\int_4^6 f'\\,dx = 3 + 2\\pi$ (full semicircle area) and $f\\!\\left(\\frac{13}{2}\\right) = f(6) + \\displaystyle\\int_6^{13/2} 2(x-6)\\,dx = 3 + 2\\pi + \\frac{1}{4}$, so $g\\!\\left(\\frac{13}{2}\\right) = 3 + 2\\pi + \\frac{1}{4} - \\frac{13}{2} = 2\\pi - \\frac{13}{4}$. Comparing with other candidates confirms this is the absolute minimum.",
+          "official_rubric": "1 point: Absolute minimum value $2\\pi - \\dfrac{13}{4}$ at $x = \\dfrac{13}{2}$, supported by candidate comparison.",
           "alternatives": [
             {
               "required_elements": [
-                "Absolute minimum value is $\\pi - \\dfrac{13}{4}$, occurring at $x = \\dfrac{13}{2}$"
+                "Absolute minimum value is $2\\pi - \\dfrac{13}{4}$, occurring at $x = \\dfrac{13}{2}$"
               ]
+            }
+          ],
+          "sample_responses": [
+            {
+              "response": "$f(6) = f(4) + 2\\pi = 3+2\\pi$. $\\displaystyle\\int_6^{13/2} 2(x-6)\\,dx = \\left[(x-6)^2\\right]_6^{13/2} = \\frac{1}{4}$. So $f(13/2) = 3+2\\pi+\\frac{1}{4}$ and $g(13/2) = 3+2\\pi+\\frac{1}{4}-\\frac{13}{2} = 2\\pi - \\frac{13}{4}$. After comparing all candidates, the absolute minimum is $2\\pi - \\frac{13}{4}$.",
+              "earned": true,
+              "commentary": "Shows complete computation and comparison — earns the point.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g(13/2) = f(13/2) - 13/2$. Since $f(6) = 3+\\pi$ (half semicircle), $f(13/2) = 3+\\pi+\\frac{1}{4}$, so $g(13/2) = \\pi - \\frac{13}{4}$.",
+              "earned": false,
+              "commentary": "Uses only half the semicircle area for $f(6)$. From $x=4$ to $x=6$ is the full right half of the semicircle, area $= 2\\pi$. $f(6) = f(4)+2\\pi = 3+2\\pi$, not $3+\\pi$.",
+              "source": "synthesized"
             }
           ]
         }
