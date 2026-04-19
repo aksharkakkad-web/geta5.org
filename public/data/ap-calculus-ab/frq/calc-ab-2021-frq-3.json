@@ -35,6 +35,27 @@
               ],
               "correct_example": "$\\text{Area} = \\int_0^2 6x\\sqrt{4-x^2}\\,dx$"
             }
+          ],
+          "official_rubric": "The first point is earned for presenting $cx\\sqrt{4-x^2}$ or $6x\\sqrt{4-x^2}$ as the integrand in a definite integral. Limits must be present (as part of the definite integral) but need not be correct. An indefinite integral may earn this point if limits are eventually applied.",
+          "sample_responses": [
+            {
+              "response": "$\\text{Area} = \\int_0^2 6x\\sqrt{4-x^2}\\,dx$",
+              "earned": true,
+              "commentary": "Presents the correct integrand $6x\\sqrt{4-x^2}$ in a definite integral with appropriate bounds at the zeros of the curve.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\int 6x\\sqrt{4-x^2}\\,dx$ evaluated from $0$ to $2$",
+              "earned": true,
+              "commentary": "An indefinite integral form that indicates limits will be applied is acceptable for the first point.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\int_0^4 6x\\sqrt{4-x^2}\\,dx$",
+              "earned": true,
+              "commentary": "Incorrect upper limit ($4$ instead of $2$) but the correct integrand is present; limits need not be correct for the first point.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -48,6 +69,21 @@
               ],
               "correct_example": "Let $u = 4-x^2$, $du = -2x\\,dx$: $\\int 6x\\sqrt{4-x^2}\\,dx = -3\\int u^{1/2}\\,du = -2u^{3/2} + C = -2(4-x^2)^{3/2} + C$"
             }
+          ],
+          "official_rubric": "The second point is earned for a correct antiderivative of a function of the form $Ax\\sqrt{4-x^2}$ for any nonzero constant $A$. Subsequent simplification errors or sign errors lose the third point but not the second. Responses using $u$-substitution with incorrect $u$-variable limits are still eligible for this point.",
+          "sample_responses": [
+            {
+              "response": "$-2(4-x^2)^{3/2} + C$",
+              "earned": true,
+              "commentary": "Correct antiderivative obtained via substitution $u = 4 - x^2$; both the form and the coefficient $-2$ are correct.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\frac{2}{3}(4-x^2)^{3/2} + C$",
+              "earned": false,
+              "commentary": "Incorrect antiderivative — the sign and coefficient are both wrong. This could result from mishandling the chain rule factor of $-2x$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -60,6 +96,21 @@
                 "$16$ square inches"
               ],
               "correct_example": "$\\left[-2(4-x^2)^{3/2}\\right]_0^2 = 0 - (-2)(4)^{3/2} = 2(8) = 16$"
+            }
+          ],
+          "official_rubric": "The third point is earned only for the answer $16$ or equivalent and requires the second point. The response cannot correct a sign error (e.g., $-16$ to $+16$) to earn the third point.",
+          "sample_responses": [
+            {
+              "response": "$\\left[-2(4-x^2)^{3/2}\\right]_0^2 = 0 - (-16) = 16$",
+              "earned": true,
+              "commentary": "Correctly evaluates the antiderivative at both limits and obtains $16$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\left[-2(4-x^2)^{3/2}\\right]_0^2 = -16$",
+              "earned": false,
+              "commentary": "Sign error in evaluation: $[-2(4-0)^{3/2}] - [-2(4-4)^{3/2}] = -16 - 0 = -16$; the correct evaluation gives $+16$ after reversing the order.",
+              "source": "synthesized"
             }
           ]
         }
@@ -84,6 +135,21 @@
               ],
               "correct_example": "$dy/dx = 0 \\Rightarrow c(4-2x^2) = 0 \\Rightarrow x = \\sqrt{2}$"
             }
+          ],
+          "official_rubric": "The first point is earned for setting $\\frac{dy}{dx} = 0$, equivalently $\\frac{c(4-2x^2)}{\\sqrt{4-x^2}} = 0$, or $4-2x^2 = 0$. An unsupported $x = \\sqrt{2}$ does not earn this point.",
+          "sample_responses": [
+            {
+              "response": "$\\frac{dy}{dx} = 0 \\Rightarrow c(4-2x^2) = 0 \\Rightarrow x = \\sqrt{2}$",
+              "earned": true,
+              "commentary": "Sets the numerator of the given derivative equal to zero, solves for $x$, and correctly identifies the critical point $x = \\sqrt{2}$ in the first quadrant.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$x = \\sqrt{2}$",
+              "earned": false,
+              "commentary": "An unsupported statement of $x = \\sqrt{2}$ without showing that $dy/dx = 0$ at this value does not earn the first point.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -96,6 +162,21 @@
                 "$c = 0.6$"
               ],
               "correct_example": "$y(\\sqrt{2}) = c\\cdot\\sqrt{2}\\cdot\\sqrt{4-2} = c\\cdot\\sqrt{2}\\cdot\\sqrt{2} = 2c = 1.2 \\Rightarrow c = 0.6$"
+            }
+          ],
+          "official_rubric": "The second point is earned only for $c = 0.6$ with supporting work. It may be earned without the first point.",
+          "sample_responses": [
+            {
+              "response": "$y(\\sqrt{2}) = c\\sqrt{2}\\cdot\\sqrt{4-2} = 2c = 1.2 \\Rightarrow c = 0.6$",
+              "earned": true,
+              "commentary": "Correctly evaluates $y$ at $x = \\sqrt{2}$, sets it equal to the maximum radius $1.2$, and solves for $c$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$c = 0.6$",
+              "earned": false,
+              "commentary": "States the correct answer without supporting work; the second point requires $c = 0.6$ with the supporting calculation shown.",
+              "source": "synthesized"
             }
           ]
         }
@@ -123,6 +204,21 @@
           ],
           "common_traps": [
             "Using $2\\pi$ (cylindrical shells) instead of $\\pi$ (disk method) when revolving about the $x$-axis"
+          ],
+          "official_rubric": "The first point is earned for presenting an integrand of the form $A(cx\\sqrt{4-x^2})^2$ or equivalent in a definite integral with any limits and any nonzero constant $A$. Mishandling the $c$ results in ineligibility for the fourth point.",
+          "sample_responses": [
+            {
+              "response": "$V = \\pi\\int_0^2 \\left[cx\\sqrt{4-x^2}\\right]^2\\,dx = \\pi c^2\\int_0^2 x^2(4-x^2)\\,dx$",
+              "earned": true,
+              "commentary": "Correctly squares the radius function and applies the disk method formula, with the appropriate constant $\\pi$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$V = 2\\pi\\int_0^2 cx\\sqrt{4-x^2}\\cdot x\\,dx$",
+              "earned": false,
+              "commentary": "Uses the cylindrical shell formula $2\\pi\\int r(x)\\cdot h(x)\\,dx$ rather than the disk formula $\\pi\\int [r(x)]^2\\,dx$ for revolution about the $x$-axis.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -139,6 +235,21 @@
           ],
           "common_traps": [
             "Incorrect antiderivative"
+          ],
+          "official_rubric": "The second point is earned for limits $x = 0$ and $x = 2$ and the constant $\\pi$ (not $2\\pi$) in an integral with any correct or incorrect integrand. It may be earned without the first point.",
+          "sample_responses": [
+            {
+              "response": "$\\pi\\int_0^2 c^2 x^2(4-x^2)\\,dx$",
+              "earned": true,
+              "commentary": "Has the correct limits $0$ to $2$ and the constant $\\pi$ (not $2\\pi$) for the disk method.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\pi\\int_0^2 cx^2\\sqrt{4-x^2}\\,dx$",
+              "earned": true,
+              "commentary": "Incorrect integrand (radius not properly squared) but limits and constant are correct; the second point only requires correct limits and $\\pi$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -155,6 +266,21 @@
           ],
           "common_traps": [
             "Incorrect antiderivative"
+          ],
+          "official_rubric": "The third point is earned for a correct antiderivative of the presented integrand of the form $A(x\\sqrt{4-x^2})^2$. Sign errors or subsequent simplification errors lose the fourth point but not the third.",
+          "sample_responses": [
+            {
+              "response": "$\\pi c^2\\left[\\frac{4x^3}{3} - \\frac{x^5}{5}\\right]$",
+              "earned": true,
+              "commentary": "Correct antiderivative of $x^2(4-x^2) = 4x^2 - x^4$, expanded and integrated term by term.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\pi c^2\\left[\\frac{4x^3}{3} - \\frac{x^4}{4}\\right]$",
+              "earned": false,
+              "commentary": "Antiderivative of $x^4$ should be $\\frac{x^5}{5}$, not $\\frac{x^4}{4}$; this error in the power rule loses the third point.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -171,6 +297,27 @@
           ],
           "common_traps": [
             "Incorrect antiderivative"
+          ],
+          "official_rubric": "The fourth point is earned only for the correct answer and requires the third point. The expression need not be simplified.",
+          "sample_responses": [
+            {
+              "response": "$\\frac{64\\pi c^2}{15} = 2\\pi \\Rightarrow c^2 = \\frac{15}{32} \\Rightarrow c = \\sqrt{\\frac{15}{32}}$",
+              "earned": true,
+              "commentary": "Correctly sets the volume expression equal to $2\\pi$ and solves for $c$, yielding the exact answer.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$c = \\sqrt{\\frac{15}{32}} \\approx 0.685$",
+              "earned": true,
+              "commentary": "The unsimplified exact form $\\sqrt{15/32}$ earns the fourth point; decimal approximation is also acceptable.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$c = \\frac{15}{32}$",
+              "earned": false,
+              "commentary": "Stops at $c^2 = 15/32$ without taking the square root — the final answer must be $c$, not $c^2$.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
