@@ -31,11 +31,32 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct computation: $r''(8.5) \\approx \\dfrac{r'(10) - r'(7)}{10 - 7} = \\dfrac{-3.8 - (-4.4)}{3} = \\dfrac{0.6}{3} = 0.2$.",
+          "official_rubric": "1 point: Difference quotient $\\dfrac{r'(10)-r'(7)}{10-7} = \\dfrac{-3.8-(-4.4)}{3} = 0.2$.",
           "alternatives": [
             {
               "required_elements": [
                 "$r''(8.5) \\approx \\dfrac{-3.8-(-4.4)}{10-7} = 0.2$"
               ]
+            }
+          ],
+          "sample_responses": [
+            {
+              "response": "$r''(8.5) \\approx \\dfrac{r'(10)-r'(7)}{10-7} = \\dfrac{-3.8-(-4.4)}{3} = \\dfrac{0.6}{3} = 0.2 \\text{ cm/day}^2$.",
+              "earned": true,
+              "commentary": "Correct difference quotient using the table values bracketing $t=8.5$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$r''(8.5) \\approx \\dfrac{r'(10)-r'(7)}{10-7} = \\dfrac{-3.8+4.4}{3} = 0.2 \\text{ cm/day}^2$.",
+              "earned": true,
+              "commentary": "Equivalent arithmetic form — still correct.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$r''(8.5) \\approx \\dfrac{r'(12)-r'(7)}{12-7} = \\dfrac{-3.5-(-4.4)}{5} = 0.18 \\text{ cm/day}^2$.",
+              "earned": false,
+              "commentary": "Wrong interval. The problem specifies $7 \\leq t \\leq 10$; must use $r'(7)$ and $r'(10)$ with denominator $3$.",
+              "source": "synthesized"
             }
           ]
         },
@@ -43,6 +64,7 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct units: centimeters per day per day, written as $\\text{cm/day}^2$.",
+          "official_rubric": "1 point: Units stated as $\\text{cm/day}^2$ (centimeters per day per day).",
           "alternatives": [
             {
               "required_elements": [
@@ -52,6 +74,20 @@
           ],
           "common_traps": [
             "Omitting units or writing cm/day instead of cm/day$^2$"
+          ],
+          "sample_responses": [
+            {
+              "response": "$0.2 \\text{ cm/day}^2$.",
+              "earned": true,
+              "commentary": "Correct units for a second derivative of position (rate of change of a rate).",
+              "source": "synthesized"
+            },
+            {
+              "response": "$0.2 \\text{ cm/day}$.",
+              "earned": false,
+              "commentary": "$r'$ has units cm/day; its rate of change $r''$ has units (cm/day)/day $= \\text{cm/day}^2$.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -68,23 +104,53 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "States that $r'(0) = -6.1$ and $r'(3) = -5.0$, and observes that $-6.1 < -5.5 < -5.0$, so $-5.5$ is strictly between $r'(0)$ and $r'(3)$.",
+          "official_rubric": "1 point: Notes $r'(0)=-6.1$ and $r'(3)=-5.0$; observes $-6.1 < -5.5 < -5.0$.",
           "alternatives": [
             {
               "required_elements": [
                 "States $r'(0) = -6.1$ and $r'(3) = -5.0$ with $-6.1 < -5.5 < -5.0$"
               ]
             }
+          ],
+          "sample_responses": [
+            {
+              "response": "$r'(0) = -6.1$ and $r'(3) = -5.0$. Since $-6.1 < -5.5 < -5.0$, the value $-5.5$ lies between them.",
+              "earned": true,
+              "commentary": "Correctly identifies the bounding values and verifies the inequality.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Since $r$ is twice-differentiable, $r'$ is continuous, and $-5.5$ is between $r'(0)$ and $r'(3)$, by IVT there exists $t \\in (0,3)$ with $r'(t)=-5.5$.",
+              "earned": true,
+              "commentary": "Combines both points in one response — earns both b1 and b2.",
+              "source": "synthesized"
+            }
           ]
         },
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Concludes **yes** and invokes the Intermediate Value Theorem: since $r'$ is continuous on $[0, 3]$ (because $r$ is twice-differentiable) and $-5.5$ is between $r'(0) = -6.1$ and $r'(3) = -5.0$, the IVT guarantees that there exists a $t \\in (0, 3)$ such that $r'(t) = -5.5$.",
+          "description": "Concludes yes and invokes the Intermediate Value Theorem: since $r'$ is continuous on $[0, 3]$ (because $r$ is twice-differentiable) and $-5.5$ is between $r'(0) = -6.1$ and $r'(3) = -5.0$, the IVT guarantees that there exists a $t \\in (0, 3)$ such that $r'(t) = -5.5$.",
+          "official_rubric": "1 point: Yes, by the Intermediate Value Theorem applied to $r'$ (continuous since $r$ is twice-differentiable).",
           "alternatives": [
             {
               "required_elements": [
                 "Yes, by the Intermediate Value Theorem, since $r'$ is continuous and $-5.5$ is between $r'(0)$ and $r'(3)$"
               ]
+            }
+          ],
+          "sample_responses": [
+            {
+              "response": "Yes. Since $r$ is twice-differentiable, $r'$ is differentiable and therefore continuous on $[0,3]$. By IVT, since $r'(0)=-6.1 < -5.5 < -5.0 = r'(3)$, there exists $t \\in (0,3)$ with $r'(t) = -5.5$.",
+              "earned": true,
+              "commentary": "Names IVT, establishes continuity from twice-differentiability, and confirms the intermediate value condition.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Yes, because $r'$ is decreasing and $-5.5$ is between the table values.",
+              "earned": false,
+              "commentary": "Does not invoke IVT by name and does not establish continuity. 'Decreasing' is not sufficient justification — must name the theorem.",
+              "source": "synthesized"
             }
           ]
         }
@@ -102,6 +168,7 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Sets up the right Riemann sum using the four subintervals $[0,3]$, $[3,7]$, $[7,10]$, $[10,12]$ with right endpoints $t = 3, 7, 10, 12$:\n$$\\int_0^{12} r'(t)\\,dt \\approx (3)\\cdot r'(3) + (4)\\cdot r'(7) + (3)\\cdot r'(10) + (2)\\cdot r'(12)$$\n$$= 3(-5.0) + 4(-4.4) + 3(-3.8) + 2(-3.5)$$",
+          "official_rubric": "1 point: Right Riemann sum $3(-5.0)+4(-4.4)+3(-3.8)+2(-3.5)$ with correct subinterval widths.",
           "alternatives": [
             {
               "required_elements": [
@@ -112,17 +179,46 @@
           "common_traps": [
             "Using left endpoints instead of right endpoints",
             "Using equal subinterval widths instead of the actual widths from the table"
+          ],
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^{12} r'(t)\\,dt \\approx 3(-5.0) + 4(-4.4) + 3(-3.8) + 2(-3.5) = -51.0$.",
+              "earned": true,
+              "commentary": "Correct right endpoints and widths from the table.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\displaystyle\\int_0^{12} r'(t)\\,dt \\approx 3(-6.1) + 4(-5.0) + 3(-4.4) + 2(-3.8) = -18.3-20.0-13.2-7.6 = -59.1$.",
+              "earned": false,
+              "commentary": "Uses left endpoints instead of right endpoints for a right Riemann sum. Right endpoints use $r'(3), r'(7), r'(10), r'(12)$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct answer: $3(-5.0) + 4(-4.4) + 3(-3.8) + 2(-3.5) = -15.0 - 17.6 - 11.4 - 7.0 = -51.0$.",
+          "official_rubric": "1 point: Correct numerical answer $-51.0$.",
           "alternatives": [
             {
               "required_elements": [
                 "$-51.0$"
               ]
+            }
+          ],
+          "sample_responses": [
+            {
+              "response": "$-15.0 - 17.6 - 11.4 - 7.0 = -51.0$.",
+              "earned": true,
+              "commentary": "Correct arithmetic.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$3(-5.0) + 4(-4.4) + 3(-3.8) + 2(-3.5) = -51.5$.",
+              "earned": false,
+              "commentary": "Arithmetic error: $-15.0 - 17.6 - 11.4 - 7.0 = -51.0$, not $-51.5$.",
+              "source": "synthesized"
             }
           ]
         }
@@ -140,11 +236,26 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Correctly differentiates $V = \\dfrac{1}{3}\\pi r^2 h$ with respect to $t$ using the product rule:\n$$\\frac{dV}{dt} = \\frac{\\pi}{3}\\left(2r\\frac{dr}{dt}\\cdot h + r^2\\cdot\\frac{dh}{dt}\\right)$$",
+          "official_rubric": "1 point: Product rule differentiation of $V = \\frac{1}{3}\\pi r^2 h$: $\\frac{dV}{dt} = \\frac{\\pi}{3}\\left(2rh\\frac{dr}{dt} + r^2\\frac{dh}{dt}\\right)$.",
           "alternatives": [
             {
               "required_elements": [
                 "$\\dfrac{dV}{dt} = \\dfrac{\\pi}{3}\\left(2rh\\dfrac{dr}{dt} + r^2\\dfrac{dh}{dt}\\right)$"
               ]
+            }
+          ],
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{dV}{dt} = \\dfrac{d}{dt}\\left(\\dfrac{1}{3}\\pi r^2 h\\right) = \\dfrac{\\pi}{3}\\left(2r\\dfrac{dr}{dt}\\cdot h + r^2\\dfrac{dh}{dt}\\right)$.",
+              "earned": true,
+              "commentary": "Correct product rule application treating both $r$ and $h$ as functions of $t$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{dV}{dt} = \\dfrac{2\\pi r h}{3}\\dfrac{dr}{dt}$.",
+              "earned": false,
+              "commentary": "Forgot the $r^2 \\frac{dh}{dt}$ term. Both $r$ and $h$ are functions of $t$ and both must be differentiated with the product rule.",
+              "source": "synthesized"
             }
           ]
         },
@@ -152,11 +263,26 @@
           "point_id": "d2",
           "point_value": 1,
           "description": "Substitutes the given values at $t = 3$: $r = 100$, $h = 50$, $\\dfrac{dr}{dt} = r'(3) = -5.0$, and $\\dfrac{dh}{dt} = -2$.",
+          "official_rubric": "1 point: Correct substitution $r=100$, $h=50$, $dr/dt = -5$, $dh/dt = -2$ into the differentiated formula.",
           "alternatives": [
             {
               "required_elements": [
                 "Substitutes $r=100$, $h=50$, $\\dfrac{dr}{dt}=-5$, $\\dfrac{dh}{dt}=-2$"
               ]
+            }
+          ],
+          "sample_responses": [
+            {
+              "response": "At $t=3$: $r=100$, $h=50$, $r'(3)=-5.0$, $h'(3)=-2$. Substituting: $\\dfrac{dV}{dt} = \\dfrac{\\pi}{3}\\left(2(100)(50)(-5)+(100)^2(-2)\\right)$.",
+              "earned": true,
+              "commentary": "All four values correctly identified and substituted.",
+              "source": "synthesized"
+            },
+            {
+              "response": "At $t=3$: $r=100$, $h=50$, $r'(3)=-5.0$, but $h'(3) = 0$ (height is constant).",
+              "earned": false,
+              "commentary": "The problem states height decreases at $2$ cm/day, so $dh/dt = -2$, not $0$. Must use the given rate.",
+              "source": "synthesized"
             }
           ]
         },
@@ -164,11 +290,26 @@
           "point_id": "d3",
           "point_value": 1,
           "description": "Correct answer:\n$$\\frac{dV}{dt} = \\frac{\\pi}{3}\\left(2(100)(50)(-5) + (100)^2(-2)\\right) = \\frac{\\pi}{3}\\left(-50000 - 20000\\right) = -\\frac{70000\\pi}{3}$$\ncubic centimeters per day.",
+          "official_rubric": "1 point: $\\dfrac{dV}{dt} = -\\dfrac{70000\\pi}{3}$ cubic centimeters per day.",
           "alternatives": [
             {
               "required_elements": [
                 "$\\dfrac{dV}{dt} = -\\dfrac{70000\\pi}{3}$ cubic centimeters per day"
               ]
+            }
+          ],
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{dV}{dt} = \\dfrac{\\pi}{3}(-50000-20000) = -\\dfrac{70000\\pi}{3}$ cubic centimeters per day.",
+              "earned": true,
+              "commentary": "Correct arithmetic and units stated.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{dV}{dt} = \\dfrac{\\pi}{3}(2(100)(50)(5)+(100)^2(2)) = \\dfrac{70000\\pi}{3}$ (positive).",
+              "earned": false,
+              "commentary": "Sign error: both $dr/dt$ and $dh/dt$ are negative (the cone is melting), so $dV/dt$ must be negative. Answer should be $-\\dfrac{70000\\pi}{3}$.",
+              "source": "synthesized"
             }
           ]
         }
