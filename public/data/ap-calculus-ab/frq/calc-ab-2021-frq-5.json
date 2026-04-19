@@ -35,6 +35,21 @@
               ],
               "correct_example": "$4y\\frac{dy}{dx} = \\sin x\\frac{dy}{dx} + y\\cos x$"
             }
+          ],
+          "official_rubric": "The first point is earned only for correctly implicitly differentiating $2y^2 - 6 = y\\sin x$. Alternative notation such as $y'$ for $dy/dx$ is acceptable.",
+          "sample_responses": [
+            {
+              "response": "$4y\\frac{dy}{dx} = \\sin x \\cdot \\frac{dy}{dx} + y\\cos x$",
+              "earned": true,
+              "commentary": "Correctly differentiates both sides: left side gives $4y\\,dy/dx$; right side uses the product rule to give $\\sin x\\,dy/dx + y\\cos x$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$4y\\frac{dy}{dx} = y\\cos x$",
+              "earned": false,
+              "commentary": "Misses the $\\sin x\\,dy/dx$ term from the product rule on the right side; the implicit differentiation is incorrect.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -47,6 +62,21 @@
                 "Isolates $\\frac{dy}{dx}$"
               ],
               "correct_example": "$(4y - \\sin x)\\frac{dy}{dx} = y\\cos x$, so $\\frac{dy}{dx} = \\frac{y\\cos x}{4y - \\sin x}$"
+            }
+          ],
+          "official_rubric": "The second point cannot be earned without the first point. It is sufficient to present $(4y - \\sin x)\\frac{dy}{dx} = y\\cos x$ to earn the second point, provided there are no subsequent errors.",
+          "sample_responses": [
+            {
+              "response": "$(4y - \\sin x)\\frac{dy}{dx} = y\\cos x \\Rightarrow \\frac{dy}{dx} = \\frac{y\\cos x}{4y - \\sin x}$",
+              "earned": true,
+              "commentary": "Collects $dy/dx$ terms, factors, and divides to arrive at the required form — a complete and correct verification.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$(4y - \\sin x)\\frac{dy}{dx} = y\\cos x$",
+              "earned": true,
+              "commentary": "Factored form alone is sufficient to earn the second point; the final division step is not required.",
+              "source": "synthesized"
             }
           ]
         }
@@ -71,6 +101,27 @@
               ],
               "correct_example": "$y = \\sqrt{3} + \\frac{1}{4}x$"
             }
+          ],
+          "official_rubric": "Any correct equivalent form of the tangent line equation earns the point. No supporting work is required. Simplification of slope is not required.",
+          "sample_responses": [
+            {
+              "response": "$y = \\sqrt{3} + \\frac{1}{4}x$",
+              "earned": true,
+              "commentary": "Correctly substitutes $(0, \\sqrt{3})$ into the derivative formula to get slope $\\frac{1}{4}$ and writes the tangent line in slope-intercept form.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$y - \\sqrt{3} = \\frac{\\sqrt{3}}{4\\sqrt{3}}(x - 0)$",
+              "earned": true,
+              "commentary": "Point-slope form with unsimplified slope is acceptable — any correct equivalent form earns the point.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$y = \\sqrt{3} + \\frac{1}{2}x$",
+              "earned": false,
+              "commentary": "Incorrect slope — likely computed $\\frac{\\sqrt{3}}{2\\sqrt{3}}$ by forgetting the $4$ coefficient on $y$ in the denominator.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -94,6 +145,27 @@
               ],
               "correct_example": "$y\\cos x = 0$; since $y > 0$, $\\cos x = 0 \\Rightarrow x = \\frac{\\pi}{2}$"
             }
+          ],
+          "official_rubric": "The first point is earned by setting the numerator of $\\frac{dy}{dx}$ equal to zero, i.e., any of $\\frac{dy}{dx} = 0$, $\\frac{y\\cos x}{4y - \\sin x} = 0$, $y\\cos x = 0$, or $\\cos x = 0$ (using $y > 0$). Entering the problem by setting $x = \\frac{\\pi}{2}$ without this setup does not earn the first point but may earn subsequent points.",
+          "sample_responses": [
+            {
+              "response": "$y\\cos x = 0$; since $y > 0$, $\\cos x = 0$",
+              "earned": true,
+              "commentary": "Sets the numerator to zero and correctly applies the constraint $y > 0$ to conclude $\\cos x = 0$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\frac{dy}{dx} = 0 \\Rightarrow \\frac{y\\cos x}{4y - \\sin x} = 0 \\Rightarrow y\\cos x = 0$",
+              "earned": true,
+              "commentary": "Explicitly sets the full derivative expression to zero and isolates the numerator — fully acceptable setup.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$x = \\frac{\\pi}{2}$",
+              "earned": false,
+              "commentary": "States the correct $x$-value but shows no setup equating the derivative (or numerator) to zero — first point requires the setup step.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -107,6 +179,21 @@
               ],
               "correct_example": "$x = \\frac{\\pi}{2}$"
             }
+          ],
+          "official_rubric": "The second point requires committing to $x = \\frac{\\pi}{2}$ as the unique solution in $[0, \\pi]$. If additional $x$-values outside the given domain are considered, the response must commit to only $x = \\frac{\\pi}{2}$ to earn this point.",
+          "sample_responses": [
+            {
+              "response": "$\\cos x = 0 \\Rightarrow x = \\frac{\\pi}{2}$ on $[0, \\pi]$",
+              "earned": true,
+              "commentary": "Correctly identifies the unique solution in the domain and commits to it without introducing extraneous values.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$x = \\frac{\\pi}{2}$ or $x = \\frac{3\\pi}{2}$",
+              "earned": false,
+              "commentary": "Introduces $x = \\frac{3\\pi}{2}$, which is outside $[0, \\pi]$ — failing to commit to only $x = \\frac{\\pi}{2}$ forfeits this point.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -118,6 +205,27 @@
               "required_elements": [
                 "Finds $y$: substitutes $x = \\frac{\\pi}{2}$ into $2y^2 - 6 = y\\sin\\frac{\\pi}{2} = y$; $2y^2 - y - 6 = 0$; $(2y+3)(y-2) = 0$; since $y > 0$, $y = 2$; point is $\\left(\\frac{\\pi}{2}, 2\\right)$"
               ]
+            }
+          ],
+          "official_rubric": "The third point requires substituting $x = \\frac{\\pi}{2}$ into the original curve equation to find $y = 2$ (using $y > 0$ to discard the negative root) and stating the point $\\left(\\frac{\\pi}{2}, 2\\right)$. A response that enters with $x = \\frac{\\pi}{2}$ without the prior setup does not earn the first point but does earn the second and is eligible for this third point.",
+          "sample_responses": [
+            {
+              "response": "$2y^2 - 6 = y\\sin\\frac{\\pi}{2} = y \\Rightarrow 2y^2 - y - 6 = 0 \\Rightarrow (2y+3)(y-2) = 0$; since $y > 0$, $y = 2$; point: $\\left(\\frac{\\pi}{2}, 2\\right)$",
+              "earned": true,
+              "commentary": "Substitutes the $x$-value, forms the quadratic, factors correctly, and applies $y > 0$ to select $y = 2$ — full credit.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$2y^2 - 6 = y \\Rightarrow 2y^2 - y - 6 = 0 \\Rightarrow y = 2$ or $y = -\\frac{3}{2}$; $y = 2$",
+              "earned": true,
+              "commentary": "Correctly solves the quadratic and selects the positive root; the factoring method need not be shown explicitly.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$2y^2 - 6 = y \\Rightarrow 2y^2 - y - 6 = 0 \\Rightarrow y^2 = \\frac{y+6}{2} \\Rightarrow y = \\sqrt{3.5}$",
+              "earned": false,
+              "commentary": "Incorrect algebraic manipulation — does not correctly solve the quadratic, so the $y$-coordinate is wrong.",
+              "source": "synthesized"
             }
           ]
         }
@@ -141,6 +249,27 @@
                 "Attempts to find $\\frac{d^2y}{dx^2}$ using quotient rule (or uses first derivative test with sign analysis of $\\cos x$)"
               ]
             }
+          ],
+          "official_rubric": "The first point is earned for an attempt to use the quotient rule (or product rule) to differentiate $\\frac{dy}{dx}$ and find $\\frac{d^2y}{dx^2}$. Alternatively, it is earned by beginning a first-derivative test that analyzes the sign of $\\cos x$ (and hence $\\frac{dy}{dx}$) on either side of $x = \\frac{\\pi}{2}$.",
+          "sample_responses": [
+            {
+              "response": "$\\frac{d^2y}{dx^2} = \\frac{(4y - \\sin x)(\\cos x \\cdot \\frac{dy}{dx} - y\\sin x) - y\\cos x(4\\frac{dy}{dx} - \\cos x)}{(4y - \\sin x)^2}$",
+              "earned": true,
+              "commentary": "Applies the quotient rule to $\\frac{dy}{dx} = \\frac{y\\cos x}{4y - \\sin x}$ — a correct attempt at the second derivative, earning the first point.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "For $x$ slightly less than $\\frac{\\pi}{2}$, $\\cos x > 0$, so $\\frac{dy}{dx} > 0$. For $x$ slightly greater than $\\frac{\\pi}{2}$, $\\cos x < 0$, so $\\frac{dy}{dx} < 0$.",
+              "earned": true,
+              "commentary": "Valid first-derivative test approach: analyzes the sign of $\\frac{dy}{dx}$ via the sign of $\\cos x$ on each side of the critical point.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\frac{d^2y}{dx^2} = \\frac{-y\\sin x}{4y - \\sin x}$",
+              "earned": true,
+              "commentary": "An attempt at the quotient rule — even if the result is incorrect, a genuine attempt (differentiating numerator or denominator) earns the first point.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -154,6 +283,27 @@
               ],
               "correct_example": "$\\frac{d^2y}{dx^2} = \\frac{(7)(0 \\cdot \\cos\\frac{\\pi}{2} - 2\\sin\\frac{\\pi}{2}) - (0)(4\\cdot 0 - \\cos\\frac{\\pi}{2})}{7^2} = \\frac{(7)(-2) - 0}{49} = -\\frac{2}{7} < 0$"
             }
+          ],
+          "official_rubric": "The second point requires correctly evaluating $\\frac{d^2y}{dx^2}$ at $\\left(\\frac{\\pi}{2}, 2\\right)$. Note that $\\frac{dy}{dx} = 0$ at this point simplifies the quotient rule numerator. The explicit value $-\\frac{2}{7}$ does not need to be stated, but any numerical values that are reported must be correct.",
+          "sample_responses": [
+            {
+              "response": "$\\frac{d^2y}{dx^2}\\bigg|_{(\\pi/2,\\,2)} = \\frac{(4(2)-1)(0 - 2\\cdot 1) - 0}{7^2} = \\frac{-14}{49} = -\\frac{2}{7} < 0$",
+              "earned": true,
+              "commentary": "Substitutes $x = \\frac{\\pi}{2}$, $y = 2$, and $\\frac{dy}{dx} = 0$ correctly; $4y - \\sin\\frac{\\pi}{2} = 8 - 1 = 7$; result $-\\frac{2}{7}$ is correct.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\frac{d^2y}{dx^2}\\bigg|_{(\\pi/2,\\,2)} = \\frac{7 \\cdot (-2) - 0}{49} < 0$",
+              "earned": true,
+              "commentary": "Correct evaluation without stating the explicit value $-\\frac{2}{7}$ — identifying the sign is sufficient.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\frac{d^2y}{dx^2}\\bigg|_{(\\pi/2,\\,2)} = \\frac{-2\\sin\\frac{\\pi}{2}}{4(2) - \\sin\\frac{\\pi}{2}} = \\frac{-2}{7} < 0$",
+              "earned": false,
+              "commentary": "Uses an incorrect simplified formula for $\\frac{d^2y}{dx^2}$ that does not follow from the quotient rule — reported values must come from a correct procedure.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -166,6 +316,27 @@
                 "Relative maximum at $\\left(\\frac{\\pi}{2}, 2\\right)$ because $\\frac{dy}{dx} = 0$",
                 "$\\frac{d^2y}{dx^2} < 0$ (or $\\frac{dy}{dx}$ changes from positive to negative at $x = \\frac{\\pi}{2}$)"
               ]
+            }
+          ],
+          "official_rubric": "The third point requires concluding relative maximum with a correct justification referencing either (a) $\\frac{dy}{dx} = 0$ and $\\frac{d^2y}{dx^2} < 0$ at $\\left(\\frac{\\pi}{2}, 2\\right)$, or (b) $\\frac{dy}{dx}$ changing from positive to negative at $x = \\frac{\\pi}{2}$. The third point can be earned without the second point — it is consistent with any declared nonzero sign of $\\frac{d^2y}{dx^2}$ so long as the conclusion matches that declared sign.",
+          "sample_responses": [
+            {
+              "response": "Since $\\frac{dy}{dx} = 0$ and $\\frac{d^2y}{dx^2} = -\\frac{2}{7} < 0$ at $\\left(\\frac{\\pi}{2}, 2\\right)$, $f$ has a relative maximum there.",
+              "earned": true,
+              "commentary": "Cites both conditions of the second derivative test ($\\frac{dy}{dx} = 0$ and $\\frac{d^2y}{dx^2} < 0$) and draws the correct conclusion — full justification.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\frac{dy}{dx}$ changes from positive to negative at $x = \\frac{\\pi}{2}$ (since $\\cos x$ changes sign there), so $f$ has a relative maximum.",
+              "earned": true,
+              "commentary": "Valid first-derivative test justification: explicitly states the sign change of $\\frac{dy}{dx}$ from $+$ to $-$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$f$ has a relative maximum at $\\left(\\frac{\\pi}{2}, 2\\right)$.",
+              "earned": false,
+              "commentary": "States the conclusion without any justification — the point requires a reason referencing derivative behavior.",
+              "source": "synthesized"
             }
           ]
         }
