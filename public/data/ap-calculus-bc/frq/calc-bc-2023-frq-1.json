@@ -29,6 +29,7 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct interpretation: $\\int_{60}^{135} f(t)\\,dt$ is the total amount of gasoline, in gallons, pumped from $t = 60$ seconds to $t = 135$ seconds.",
+          "official_rubric": "1 point: $\\int_{60}^{135} f(t)\\,dt$ represents the total number of gallons of gasoline pumped into the gas tank from time $t=60$ seconds to time $t=135$ seconds (with units).",
           "alternatives": [
             {
               "required_elements": [
@@ -41,12 +42,27 @@
           "common_traps": [
             "Describing it as a rate rather than a total amount",
             "Omitting or using incorrect units"
+          ],
+          "sample_responses": [
+            {
+              "response": "$\\int_{60}^{135} f(t)\\,dt$ represents the total number of gallons of gasoline pumped into the tank from $t = 60$ seconds to $t = 135$ seconds.",
+              "earned": true,
+              "commentary": "Identifies the accumulated quantity (gallons), the time interval, and the context.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\int_{60}^{135} f(t)\\,dt$ is the rate at which gasoline is flowing at $t = 135$ seconds.",
+              "earned": false,
+              "commentary": "Confuses an integral with a rate. The integral accumulates the total amount, not the instantaneous rate.",
+              "source": "synthesized"
+            }
           ]
         },
         {
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct form of the right Riemann sum: $f(90)\\cdot 30 + f(120)\\cdot 30 + f(135)\\cdot 15$.",
+          "official_rubric": "1 point: Right Riemann sum form $f(90)(30) + f(120)(30) + f(135)(15)$ with at least 5 of 6 factors correct.",
           "alternatives": [
             {
               "required_elements": [
@@ -57,12 +73,27 @@
           "common_traps": [
             "Using left endpoints instead of right endpoints",
             "Using equal subinterval widths instead of actual widths of 30, 30, and 15"
+          ],
+          "sample_responses": [
+            {
+              "response": "$\\int_{60}^{135} f(t)\\,dt \\approx f(90)(30) + f(120)(30) + f(135)(15) = 0.060(30) + 0.060(30) + 0.049(15)$.",
+              "earned": true,
+              "commentary": "Correct right endpoints and unequal subinterval widths from the table.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\int_{60}^{135} f(t)\\,dt \\approx f(60)(25) + f(90)(25) + f(120)(25) = 0.027(25)+0.060(25)+0.060(25)$.",
+              "earned": false,
+              "commentary": "Uses equal widths of 25 and wrong endpoints. Subintervals are $[60,90]$, $[90,120]$, $[120,135]$ with widths 30, 30, 15.",
+              "source": "synthesized"
+            }
           ]
         },
         {
           "point_id": "a3",
           "point_value": 1,
           "description": "Correct answer: $4.335$ gallons.",
+          "official_rubric": "1 point: Answer $4.335$ (gallons). Requires correct Riemann sum form.",
           "alternatives": [
             {
               "required_elements": [
@@ -72,6 +103,20 @@
           ],
           "common_traps": [
             "Arithmetic error in summing terms"
+          ],
+          "sample_responses": [
+            {
+              "response": "$0.060(30) + 0.060(30) + 0.049(15) = 1.8 + 1.8 + 0.735 = 4.335$ gallons.",
+              "earned": true,
+              "commentary": "Correct arithmetic with correct Riemann sum.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$0.060(30) + 0.060(30) + 0.049(15) = 4.08$ gallons.",
+              "earned": false,
+              "commentary": "Arithmetic error: $1.8 + 1.8 + 0.735 = 4.335$, not $4.08$.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -87,7 +132,8 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Conclusion: Yes, there must exist such a value $c$.",
+          "description": "Conclusion: Yes, there must exist such a value $c$. First establishes that $f(90) = f(120) = 0.060$ (or $f(120) - f(90) = 0$).",
+          "official_rubric": "1 point: $f(120) - f(90) = 0$ (or $f(90) = f(120)$) stated.",
           "alternatives": [
             {
               "required_elements": [
@@ -98,12 +144,27 @@
           "common_traps": [
             "Concluding 'no' without considering Rolle's Theorem",
             "Not stating a conclusion"
+          ],
+          "sample_responses": [
+            {
+              "response": "$f(90) = f(120) = 0.060$, so $f(120) - f(90) = 0$. Yes.",
+              "earned": true,
+              "commentary": "Identifies the equal function values — prerequisite for Rolle's Theorem.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Yes, because $f$ is differentiable and must have a zero derivative somewhere.",
+              "earned": false,
+              "commentary": "Does not identify the equal values $f(90)=f(120)$. Must show the MVT/Rolle's hypothesis is satisfied.",
+              "source": "synthesized"
+            }
           ]
         },
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct justification using Rolle's Theorem: $f$ is differentiable on $[60, 120]$ and $f(90) = f(120) = 0.060$ (or any two equal values in the interval), so by Rolle's Theorem there exists $c$ in $(60, 120)$ with $f'(c) = 0$.",
+          "description": "Correct justification using Rolle's Theorem (or MVT): $f$ is differentiable on $[60, 120]$ and $f(90) = f(120) = 0.060$, so by Rolle's Theorem there exists $c \\in (60, 120)$ (or at least $(90,120)$) with $f'(c) = 0$.",
+          "official_rubric": "1 point: Answer yes with justification citing MVT or Rolle's Theorem, $f$ continuous (because differentiable), and $f(90)=f(120)$.",
           "alternatives": [
             {
               "required_elements": [
@@ -114,8 +175,22 @@
             }
           ],
           "common_traps": [
-            "Citing MVT without noting the equal function values",
+            "Citing IVT instead of Rolle's/MVT",
             "Failing to state $f$ is differentiable (and thus continuous)"
+          ],
+          "sample_responses": [
+            {
+              "response": "Yes. $f$ is differentiable, so it is continuous on $[60, 120]$. Since $f(90) = f(120) = 0.060$, by Rolle's Theorem there exists $c \\in (90, 120)$ with $f'(c) = 0$.",
+              "earned": true,
+              "commentary": "Names Rolle's Theorem, establishes continuity from differentiability, and identifies the equal function values.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Yes. By the IVT, since $f$ is continuous and $f'$ must be $0$ somewhere, there exists such a $c$.",
+              "earned": false,
+              "commentary": "IVT applies to the function $f$, not to $f'$ this way. Must cite MVT or Rolle's Theorem.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -132,6 +207,7 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Correct average value setup: $\\dfrac{1}{150}\\int_0^{150} g(t)\\,dt$ or equivalently $\\dfrac{1}{150}\\int_0^{150} \\dfrac{t}{50}\\cos\\!\\left(\\dfrac{t}{120}\\right)dt$.",
+          "official_rubric": "1 point: Average value formula $\\dfrac{1}{150-0}\\int_0^{150} g(t)\\,dt$ with setup shown.",
           "alternatives": [
             {
               "required_elements": [
@@ -140,15 +216,29 @@
             }
           ],
           "common_traps": [
-            "Using $\\dfrac{1}{150-0}$ but with wrong limits",
             "Forgetting to divide by the length of the interval",
             "Not showing the setup"
+          ],
+          "sample_responses": [
+            {
+              "response": "Average $= \\dfrac{1}{150}\\displaystyle\\int_0^{150} \\dfrac{t}{50}\\cos\\!\\left(\\dfrac{t}{120}\\right)dt \\approx 0.450$ gallons per second.",
+              "earned": true,
+              "commentary": "Correct average value formula with setup shown.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\displaystyle\\int_0^{150} \\dfrac{t}{50}\\cos\\!\\left(\\dfrac{t}{120}\\right)dt \\approx 0.450$.",
+              "earned": false,
+              "commentary": "Forgot to divide by $150$. The integral alone is the total amount, not the average rate.",
+              "source": "synthesized"
+            }
           ]
         },
         {
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct answer: approximately $0.450$ gallons per second.",
+          "official_rubric": "1 point: Answer approximately $0.450$ gallons per second (correct to three decimal places).",
           "alternatives": [
             {
               "required_elements": [
@@ -159,6 +249,20 @@
           "common_traps": [
             "Reporting the integral value without dividing by 150",
             "Units error"
+          ],
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{1}{150}\\displaystyle\\int_0^{150} g(t)\\,dt \\approx 0.450$ gal/sec.",
+              "earned": true,
+              "commentary": "Correct numerical answer with units.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{1}{150}\\displaystyle\\int_0^{150} g(t)\\,dt \\approx 0.450$ gallons (omitting per second).",
+              "earned": true,
+              "commentary": "Units slightly informal but answer is correct. The scoring notes indicate the answer earns the point.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -174,23 +278,39 @@
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "Correct value of $g'(140) \\approx -0.01896$ gallons per second per second (accept answers consistent with correct calculator use).",
+          "description": "Correct value of $g'(140) \\approx -0.01896$ gallons per second per second (accept answers consistent with correct calculator use, rounding to $-0.019$ or $-0.018$ acceptable).",
+          "official_rubric": "1 point: $g'(140) \\approx -0.004908$ (exact: $\\frac{1}{500}\\cos\\frac{49}{36} - \\frac{49}{9000}\\sin\\frac{49}{36}$); accept $-0.005$ or $-0.004$.",
           "alternatives": [
             {
               "required_elements": [
-                "$g'(140) \\approx -0.01896$"
+                "$g'(140) \\approx -0.005$ (or $-0.004$)"
               ]
             }
           ],
           "common_traps": [
             "Not using a calculator and leaving the expression unevaluated",
             "Sign error"
+          ],
+          "sample_responses": [
+            {
+              "response": "$g'(140) \\approx -0.005$ gallons per second per second.",
+              "earned": true,
+              "commentary": "Correct calculator evaluation (rounded to three decimal places).",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g'(140) = \\dfrac{1}{50}\\cos\\!\\left(\\dfrac{140}{120}\\right) - \\dfrac{140}{6000}\\sin\\!\\left(\\dfrac{140}{120}\\right)$ (unevaluated).",
+              "earned": false,
+              "commentary": "Must evaluate numerically. The value should be given as approximately $-0.005$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "Correct interpretation: at $t = 140$ seconds, the rate of flow of gasoline is decreasing at a rate of approximately $|g'(140)|$ gallons per second per second (or gallons per second$^2$).",
+          "description": "Correct interpretation: at $t = 140$ seconds, the rate of flow of gasoline is decreasing at a rate of approximately $0.005$ gallons per second per second (units: gallons per second per second, or gal/sec$^2$).",
+          "official_rubric": "1 point: Interpretation states the rate of flow of gasoline is changing (decreasing) at a rate of [declared value of $g'(140)$] gallons per second per second at $t=140$ seconds.",
           "alternatives": [
             {
               "required_elements": [
@@ -202,7 +322,22 @@
           ],
           "common_traps": [
             "Omitting units",
-            "Describing $g'(140)$ as the flow rate rather than the rate of change of the flow rate"
+            "Describing $g'(140)$ as the flow rate rather than the rate of change of the flow rate",
+            "Saying 'decreasing at a rate of $-0.005$' — must use the magnitude with 'decreasing'"
+          ],
+          "sample_responses": [
+            {
+              "response": "At $t = 140$ seconds, the rate of flow of gasoline is decreasing at a rate of $0.005$ gallons per second per second.",
+              "earned": true,
+              "commentary": "Correct interpretation with units and direction.",
+              "source": "synthesized"
+            },
+            {
+              "response": "At $t = 140$ seconds, the gasoline flow rate is $-0.005$ gallons per second.",
+              "earned": false,
+              "commentary": "Two errors: (1) $g'(140)$ is not the flow rate itself but the rate of change of the flow rate; (2) units should be gallons per second per second (gal/sec²), not gallons per second.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
