@@ -35,6 +35,27 @@
               ],
               "correct_example": "$f'(2.25) \\approx \\frac{f(2.5) - f(2)}{2.5 - 2} = \\frac{10-6}{0.5} = 8$ milligrams per square centimeter per centimeter"
             }
+          ],
+          "official_rubric": "The first point is earned for presenting both a difference and a quotient, explicitly using values of $f$ from the table. Simplification of the numerical value is not required. If simplified, it must be correct.",
+          "sample_responses": [
+            {
+              "response": "$f'(2.25) \\approx \\frac{f(2.5) - f(2)}{2.5 - 2} = \\frac{10-6}{0.5} = 8$",
+              "earned": true,
+              "commentary": "Shows the difference quotient using the two table values bracketing $r = 2.25$, meeting the requirement for both a difference and a quotient with explicit table values.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$f'(2.25) \\approx 8$",
+              "earned": false,
+              "commentary": "States the correct numerical value but provides no difference or quotient from the table — a bald answer without setup does not earn this point.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$f'(2.25) \\approx \\frac{f(2.5) - f(2)}{2.5 - 2} = \\frac{4}{0.5}$",
+              "earned": true,
+              "commentary": "The unsimplified form is acceptable; simplification is not required to earn the first point, and the presented quotient is correct.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -47,6 +68,27 @@
                 "Correct interpretation with units"
               ],
               "correct_example": "At a distance of $r = 2.25$ centimeters from the center, the density of the bacteria population is increasing at a rate of $8$ milligrams per square centimeter per centimeter"
+            }
+          ],
+          "official_rubric": "The interpretation must include: distance $r = 2.25$ cm, density is increasing or changing, rate of 8 (consistent with presented value), and units of milligrams per square centimeter per centimeter. The interpretation must be consistent with the presented value for $f'(2.25)$; it cannot be earned without a nonzero presented value.",
+          "sample_responses": [
+            {
+              "response": "At a distance of $r = 2.25$ centimeters from the center, the density of the bacteria population is increasing at a rate of $8$ milligrams per square centimeter per centimeter.",
+              "earned": true,
+              "commentary": "Includes all four required elements: the specific distance $r = 2.25$, the quantity being measured (bacteria density), the rate value $8$, and correct units.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "The bacteria density is increasing at a rate of $8$.",
+              "earned": false,
+              "commentary": "Missing two required elements: the specific distance $r = 2.25$ is not stated, and units are omitted.",
+              "source": "synthesized"
+            },
+            {
+              "response": "At $r = 2.25$ cm, the density is changing at $8$ mg/cm$^2$/cm.",
+              "earned": true,
+              "commentary": "All required components are present — the specific $r$-value, a change descriptor, the rate value, and units — in compact form.",
+              "source": "synthesized"
             }
           ]
         }
@@ -71,6 +113,27 @@
               ],
               "correct_example": "$2\\pi[1\\cdot f(1)\\cdot(1-0) + 2\\cdot f(2)\\cdot(2-1) + 2.5\\cdot f(2.5)\\cdot(2.5-2) + 4\\cdot f(4)\\cdot(4-2.5)]$"
             }
+          ],
+          "official_rubric": "The presence or absence of $2\\pi$ has no bearing on the first point. The first point is earned for a sum of four products with at most one error in any single value among the four products. Multiplication by 1 in any term need not be shown, but all other products must be explicitly shown. A correct left Riemann sum ($91\\pi$) earns 1 of the 2 points.",
+          "sample_responses": [
+            {
+              "response": "$2\\pi[1 \\cdot f(1) \\cdot 1 + 2 \\cdot f(2) \\cdot 1 + 2.5 \\cdot f(2.5) \\cdot 0.5 + 4 \\cdot f(4) \\cdot 1.5]$",
+              "earned": true,
+              "commentary": "All four products are correctly formed using right-endpoint values and subinterval widths from the table, with $2\\pi$ as the leading factor.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$2\\pi[1 \\cdot f(0) \\cdot 1 + 2 \\cdot f(1) \\cdot 1 + 2.5 \\cdot f(2) \\cdot 0.5 + 4 \\cdot f(2.5) \\cdot 1.5]$",
+              "earned": false,
+              "commentary": "Uses left endpoints instead of right endpoints in all four products — this is a left Riemann sum, not a right Riemann sum, and earns no points under the right-sum requirement.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$1 \\cdot 2 \\cdot 1 + 2 \\cdot 6 \\cdot 1 + 2.5 \\cdot 10 \\cdot 0.5 + 4 \\cdot 18 \\cdot 1.5$",
+              "earned": true,
+              "commentary": "Shows all four products with correct right-endpoint values and widths; omitting $2\\pi$ does not affect this point.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -83,6 +146,27 @@
                 "Correct approximation"
               ],
               "correct_example": "$2\\pi[1(2)(1) + 2(6)(1) + 2.5(10)(0.5) + 4(18)(1.5)] = 2\\pi(2+12+12.5+108) = 2\\pi(134.5) = 269\\pi \\approx 845.088$"
+            }
+          ],
+          "official_rubric": "Any error in the Riemann sum means the response is not eligible for the second point. If a numerical value is given it must be correct to three decimal places. Simplification is not required.",
+          "sample_responses": [
+            {
+              "response": "$2\\pi(2 + 12 + 12.5 + 108) = 269\\pi \\approx 845.088$",
+              "earned": true,
+              "commentary": "Sum is correctly evaluated from a correct right Riemann sum setup, yielding $269\\pi$, which is accurate to three decimal places.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$269\\pi$",
+              "earned": true,
+              "commentary": "The exact value $269\\pi$ is acceptable; decimal approximation is not required if the sum is correct.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$2\\pi(2 + 12 + 12.5 + 108) = 845$",
+              "earned": false,
+              "commentary": "The sum setup is correct but the decimal approximation is rounded to a whole number without justification; this constitutes inappropriate rounding and does not earn the answer point.",
+              "source": "synthesized"
             }
           ]
         }
@@ -110,6 +194,27 @@
           ],
           "wrong_examples": [
             "earns no points"
+          ],
+          "official_rubric": "The second point (overestimate + explanation) can be earned without the first point by stating that $rf(r)$ is increasing. Responses based on a left Riemann sum or on $\\int_0^4 f(r)\\,dr$ (without the $r$ factor) earn no points.",
+          "sample_responses": [
+            {
+              "response": "$\\frac{d}{dr}[rf(r)] = f(r) + rf'(r)$. Since $f \\geq 0$ and $f' > 0$ on $[0,4]$, the product $rf(r)$ is strictly increasing on $[0,4]$.",
+              "earned": true,
+              "commentary": "Applies the product rule to $rf(r)$ and correctly argues both terms $f(r) \\geq 0$ and $rf'(r) > 0$ to conclude the integrand is increasing.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Because $f$ is increasing, the right Riemann sum overestimates the integral.",
+              "earned": false,
+              "commentary": "States that $f$ is increasing but must argue that $rf(r)$ (the actual integrand) is increasing; claiming $f$ alone is increasing is insufficient.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$rf(r)$ is an increasing function on $[0,4]$ because both $r$ and $f(r)$ are nonneg­ative and increasing on that interval.",
+              "earned": true,
+              "commentary": "Correct conclusion about the integrand $rf(r)$ being increasing, which is sufficient to earn this point and set up the overestimate justification.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -125,6 +230,27 @@
           ],
           "wrong_examples": [
             "earns no points"
+          ],
+          "official_rubric": "Must state 'overestimate' and explain that $rf(r)$ is increasing on $[0,4]$; both elements are required. This point may be earned without the first point.",
+          "sample_responses": [
+            {
+              "response": "The approximation is an overestimate because $rf(r)$ is strictly increasing on $[0,4]$, so the right Riemann sum uses the larger value of $rf(r)$ on each subinterval.",
+              "earned": true,
+              "commentary": "Explicitly states 'overestimate,' identifies the integrand $rf(r)$, and links its increasing behavior to the right-sum overestimate property.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Overestimate, because $f$ is increasing on $[0,4]$.",
+              "earned": false,
+              "commentary": "Says 'overestimate' but argues $f$ is increasing rather than $rf(r)$; the relevant integrand is $rf(r)$, not $f$ alone.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Since $rf(r)$ is increasing on $[0,4]$, the right Riemann sum overestimates $\\int_0^4 rf(r)\\,dr$.",
+              "earned": true,
+              "commentary": "Correctly identifies the increasing integrand and concludes overestimate, earning the point independently of the product-rule argument.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -148,6 +274,27 @@
               ],
               "correct_example": "$\\frac{1}{4-1}\\int_1^4 g(r)\\, dr$ or $\\frac{1}{3}\\int_1^4 g(r)\\, dr$"
             }
+          ],
+          "official_rubric": "The first point is earned for a definite integral with integrand $g(r)$; limits need not be correct. A response with incorrect limits but correct integrand earns the first point.",
+          "sample_responses": [
+            {
+              "response": "$\\frac{1}{3}\\int_1^4 g(r)\\,dr$",
+              "earned": true,
+              "commentary": "Correct average value setup with the right interval length and integrand $g(r)$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\frac{1}{3}\\int_0^4 g(r)\\,dr$",
+              "earned": true,
+              "commentary": "Incorrect lower limit (0 instead of 1), but the integrand $g(r)$ is correct, so the first point is still earned.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\int_1^4 g(r)\\,dr$",
+              "earned": true,
+              "commentary": "Missing the $\\frac{1}{3}$ factor but the definite integral with integrand $g(r)$ is present; the first point does not require the coefficient.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -161,6 +308,27 @@
               ],
               "correct_example": "$\\frac{1}{3}\\int_1^4 g(r)\\, dr \\approx 9.876$"
             }
+          ],
+          "official_rubric": "Once the average value setup is earned it cannot be lost. Presentation of the numerical value $9.876$ is not required; the average value setup $\\frac{1}{3}\\int_1^4 g(r)\\,dr$ alone earns this point. Subsequent errors lose the third point only.",
+          "sample_responses": [
+            {
+              "response": "$\\frac{1}{3}\\int_1^4 g(r)\\,dr \\approx 9.876$",
+              "earned": true,
+              "commentary": "Correct average value setup with correct numerical evaluation; both elements satisfy the second point.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\frac{1}{3}\\int_1^4 g(r)\\,dr$",
+              "earned": true,
+              "commentary": "The average value setup alone earns the second point even without computing the numerical value.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$9.876$",
+              "earned": false,
+              "commentary": "States only the numerical average value without the setup; the second point requires the average value formula or integral expression.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -173,6 +341,27 @@
                 "Correct answer"
               ],
               "correct_example": "$g(k) = 9.876 \\Rightarrow k \\approx 2.497$"
+            }
+          ],
+          "official_rubric": "The third point is earned only for $k = 2.497$ and cannot be earned without the second point. Special case: a degree-mode response obtaining $k = 2.5$ from average value $-13.955$ does not earn the second point but may earn the third.",
+          "sample_responses": [
+            {
+              "response": "$g(k) = 9.876 \\Rightarrow k \\approx 2.497$",
+              "earned": true,
+              "commentary": "Sets $g(k)$ equal to the correct average value and solves numerically to three decimal places.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$k \\approx 2.5$",
+              "earned": false,
+              "commentary": "Rounds to only one decimal place; the answer must be accurate to three places after the decimal point, so $k = 2.5$ does not satisfy the rounding requirement.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g(k) = 9.876 \\Rightarrow k \\approx 2.49$",
+              "earned": false,
+              "commentary": "Only two decimal places are reported; the correct answer requires three-place accuracy, so $2.49$ is an inappropriate truncation.",
+              "source": "synthesized"
             }
           ]
         }
