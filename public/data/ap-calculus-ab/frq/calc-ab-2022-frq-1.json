@@ -35,6 +35,21 @@
               ],
               "correct_example": "$\\int_1^5 A(t)\\, dt$ or equivalently $\\int_1^5 450\\sin(0.62t)\\, dt$"
             }
+          ],
+          "official_rubric": "The point requires a definite integral with lower limit $1$ and upper limit $5$. Missing $dt$ or using $dx$ is still eligible. A copy error in $A(t)$ is acceptable only if $\\int_1^5 A(t)\\,dt$ is also present.",
+          "sample_responses": [
+            {
+              "response": "$\\int_1^5 A(t)\\, dt = \\int_1^5 450\\sin(0.62t)\\, dt$",
+              "earned": true,
+              "commentary": "Correct definite integral with the correct limits $t = 1$ to $t = 5$ and the given rate function $A(t)$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\int_0^5 A(t)\\, dt$",
+              "earned": false,
+              "commentary": "Incorrect lower limit — 6 A.M. corresponds to $t = 1$, not $t = 0$.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -58,6 +73,21 @@
               ],
               "correct_example": "$\\frac{1}{5-1}\\int_1^5 A(t)\\, dt$"
             }
+          ],
+          "official_rubric": "The first point requires applying the average value formula $\\frac{1}{b-a}\\int_a^b A(t)\\,dt$ with $a = 1$ and $b = 5$, either in a single step or shown across multiple steps.",
+          "sample_responses": [
+            {
+              "response": "$\\frac{1}{5-1}\\int_1^5 450\\sin(0.62t)\\, dt$",
+              "earned": true,
+              "commentary": "Correctly applies the average value formula with the right interval $[1, 5]$ and the given rate function.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\frac{1}{5}\\int_1^5 A(t)\\, dt$",
+              "earned": false,
+              "commentary": "Divides by $5$ instead of $5 - 1 = 4$ — uses the upper limit rather than the length of the interval.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -70,6 +100,21 @@
                 "Correct answer"
               ],
               "correct_example": "$\\frac{1}{4}\\int_1^5 A(t)\\, dt \\approx 375.537$ (or $375.536$) vehicles per hour"
+            }
+          ],
+          "official_rubric": "The second point requires the correct numerical answer to three decimal places: $375.537$ (or $375.536$) vehicles per hour. Incorrect communication between the integral setup and the final answer earns only the first point.",
+          "sample_responses": [
+            {
+              "response": "$\\frac{1}{4}\\int_1^5 450\\sin(0.62t)\\, dt \\approx 375.537$ vehicles per hour",
+              "earned": true,
+              "commentary": "Correct evaluation with proper units — three-decimal precision satisfies the requirement.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\frac{1}{4}\\int_1^5 A(t)\\, dt \\approx 375.5$",
+              "earned": false,
+              "commentary": "Only one decimal place — the answer must be accurate to at least three decimal places.",
+              "source": "synthesized"
             }
           ]
         }
@@ -94,6 +139,27 @@
               ],
               "correct_example": "$A'(1) \\approx 148.947 > 0$"
             }
+          ],
+          "official_rubric": "The first point is earned for considering $A'(1)$. If a value is given, it must be correct for the digits reported.",
+          "sample_responses": [
+            {
+              "response": "$A'(1) = 450(0.62)\\cos(0.62) \\approx 148.947 > 0$",
+              "earned": true,
+              "commentary": "Correctly differentiates $A(t)$ and evaluates at $t = 1$ — value is correct and positive.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$A'(1) \\approx 149 > 0$",
+              "earned": true,
+              "commentary": "Rounded to a whole number — acceptable so long as the sign is correctly identified.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$A'(1) \\approx 148.9 > 0$",
+              "earned": true,
+              "commentary": "One-decimal approximation — the value matches the correct answer; fewer decimals are acceptable when the sign is unambiguous.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -105,6 +171,21 @@
               "required_elements": [
                 "The rate is increasing at $t = 1$ because $A'(1) > 0$"
               ]
+            }
+          ],
+          "official_rubric": "The second point requires concluding that the rate is increasing at $t = 1$ and citing $A'(1) > 0$ as the reason. A response presenting only '$A'(1) > 0$, so increasing' earns both points simultaneously.",
+          "sample_responses": [
+            {
+              "response": "$A'(1) \\approx 148.947 > 0$, so the rate is increasing at $t = 1$.",
+              "earned": true,
+              "commentary": "Cites a positive derivative and draws the correct conclusion about the rate being increasing.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "The rate is increasing.",
+              "earned": false,
+              "commentary": "Correct conclusion but no justification — must reference $A'(1) > 0$ or equivalent reasoning.",
+              "source": "synthesized"
             }
           ]
         }
@@ -128,6 +209,27 @@
                 "Considers $N'(t) = A(t) - 400 = 0$ to find critical points"
               ]
             }
+          ],
+          "official_rubric": "The first point is earned for setting $N'(t) = A(t) - 400 = 0$ (or equivalently $A(t) = 400$) to find the critical points of $N$ on $[a, 4]$.",
+          "sample_responses": [
+            {
+              "response": "$N'(t) = A(t) - 400 = 0 \\Rightarrow A(t) = 400$",
+              "earned": true,
+              "commentary": "Correctly identifies that critical points of $N$ occur where $A(t) = 400$, i.e., where vehicles arrive at exactly the processing rate.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$N'(t) = 450\\sin(0.62t) - 400 = 0$",
+              "earned": true,
+              "commentary": "Equivalent form with $A(t)$ substituted — valid setup for finding critical points.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$N(t) = 0$",
+              "earned": false,
+              "commentary": "Sets $N$ (not $N'$) equal to zero — does not identify critical points of $N$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -141,6 +243,27 @@
                 "$b \\approx 3.598$ (the times when $A(t) = 400$)"
               ]
             }
+          ],
+          "official_rubric": "The second point requires identifying both $a \\approx 1.469$ (when the line first forms, i.e., when $A(t)$ first reaches $400$) and $b \\approx 3.598$ (the critical point inside $(a, 4)$), accurate to at least one decimal place.",
+          "sample_responses": [
+            {
+              "response": "$a \\approx 1.469$, $b \\approx 3.598$",
+              "earned": true,
+              "commentary": "Both values correctly identified to three decimal places — fully satisfies the requirement.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$a \\approx 1.5$, $b \\approx 3.6$",
+              "earned": true,
+              "commentary": "One-decimal approximations — acceptable so long as both values are present and correct to at least one decimal.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$b \\approx 3.598$ only",
+              "earned": false,
+              "commentary": "Only one of the two required values — both $a$ and $b$ must be identified.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -152,6 +275,21 @@
               "required_elements": [
                 "Correct answer: greatest number of vehicles in line is $71$ (from $N(b) \\approx 71.254$)"
               ]
+            }
+          ],
+          "official_rubric": "The third point requires the correct rounded answer of $71$ vehicles (from $N(b) \\approx 71.254$, rounded to the nearest whole number as instructed).",
+          "sample_responses": [
+            {
+              "response": "$N(b) \\approx 71.254 \\approx 71$ vehicles",
+              "earned": true,
+              "commentary": "Evaluates the integral at the critical point and rounds correctly to the nearest whole number.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$72$ vehicles",
+              "earned": false,
+              "commentary": "Rounds up incorrectly — $71.254$ rounds to $71$, not $72$.",
+              "source": "synthesized"
             }
           ]
         },
@@ -165,6 +303,27 @@
                 "Correct justification (candidates test)"
               ],
               "correct_example": "$N(a) = 0$, $N(b) \\approx 71.254$, $N(4) \\approx 62.338$; maximum at $t = b$"
+            }
+          ],
+          "official_rubric": "The fourth point requires a complete candidates test: evaluating $N$ at the critical point $t = b$ and both endpoints $t = a$ and $t = 4$, comparing all three values, and identifying $N(b)$ as the maximum. An alternate approach using sign analysis ($N$ increasing on $(a,b)$, decreasing on $(b, 4)$) is also acceptable.",
+          "sample_responses": [
+            {
+              "response": "$N(a) = 0$, $N(b) \\approx 71.254$, $N(4) \\approx 62.338$; maximum is at $t = b$",
+              "earned": true,
+              "commentary": "Evaluates all three candidates (two endpoints + critical point) and correctly identifies the maximum — complete candidates test.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$N'(t) > 0$ on $(a, b)$ and $N'(t) < 0$ on $(b, 4)$, so maximum is at $t = b$",
+              "earned": true,
+              "commentary": "Valid first-derivative sign analysis showing $N$ increases then decreases — equivalent justification to the candidates test.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$N(b) \\approx 71.254$ is the maximum.",
+              "earned": false,
+              "commentary": "States the value at the critical point but does not compare with endpoint values — incomplete justification.",
+              "source": "synthesized"
             }
           ]
         }
