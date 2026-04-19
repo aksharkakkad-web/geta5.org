@@ -32,7 +32,28 @@
             }
           ],
           "wrong_examples": ["$x = \\ln 10 - 3$ presented without supporting work", "$x = \\ln 7$ (arithmetic error)"],
-          "common_traps": ["Answers not evaluated to simplest form do not earn the point", "Supporting work is required — just stating the answer is insufficient"]
+          "common_traps": ["Answers not evaluated to simplest form do not earn the point", "Supporting work is required — just stating the answer is insufficient"],
+          "official_rubric": "Supporting work is required in (i). The solution must show the conversion $x + 3 = \\ln 10$ and arrive at $x = -3 + \\ln 10$. Answers that have not been evaluated according to the Directions (e.g., leaving the answer as $x + 3 = \\ln 10$) do not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$e^{(x+3)} = 10 \\Rightarrow x + 3 = \\ln 10 \\Rightarrow x = -3 + \\ln 10$",
+              "earned": true,
+              "commentary": "Shows the required conversion step from exponential to logarithmic form and isolates $x$ in fully evaluated form.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$x = -3 + \\ln 10$",
+              "earned": false,
+              "commentary": "States the correct answer but provides no supporting work showing the conversion from $e^{x+3} = 10$; supporting work is required.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$e^{(x+3)} = 10 \\Rightarrow x + 3 = \\ln 10$",
+              "earned": false,
+              "commentary": "Shows the key conversion step but stops before isolating $x$; the answer has not been fully evaluated as required by the Directions.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "a2",
@@ -45,7 +66,28 @@
             }
           ],
           "wrong_examples": ["$x = \\frac{\\pi}{2}$ (confusing $x$ with the angle)", "$x = \\frac{\\sqrt{2}}{2}$ (forgot to multiply by 2)", "$x = \\frac{2}{\\sqrt{2}}$ not simplified to $\\sqrt{2}$"],
-          "common_traps": ["Rationalizing denominators is not required", "Supporting work must include the intermediate step $\\sin(\\pi/4)$"]
+          "common_traps": ["Rationalizing denominators is not required", "Supporting work must include the intermediate step $\\sin(\\pi/4)$"],
+          "official_rubric": "Supporting work in (ii) must include $\\frac{x}{2} = \\sin\\left(\\frac{\\pi}{4}\\right)$ OR $\\frac{x}{2} = \\frac{\\sqrt{2}}{2}$ OR $\\frac{x}{2} = \\frac{1}{\\sqrt{2}}$. Rationalizing denominators is not required.",
+          "sample_responses": [
+            {
+              "response": "$\\arcsin\\left(\\frac{x}{2}\\right) = \\frac{\\pi}{4} \\Rightarrow \\frac{x}{2} = \\sin\\left(\\frac{\\pi}{4}\\right) = \\frac{\\sqrt{2}}{2} \\Rightarrow x = \\sqrt{2}$",
+              "earned": true,
+              "commentary": "Shows the required intermediate step — applying $\\sin$ to both sides and evaluating $\\sin(\\pi/4) = \\frac{\\sqrt{2}}{2}$ — then correctly doubles to reach $x = \\sqrt{2}$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\arcsin\\left(\\frac{x}{2}\\right) = \\frac{\\pi}{4} \\Rightarrow x = \\frac{\\pi}{2}$",
+              "earned": false,
+              "commentary": "Confuses the variable $x$ with the angle; $\\arcsin$ removes the inverse to yield $\\frac{x}{2} = \\sin(\\frac{\\pi}{4})$, not $x = \\frac{\\pi}{4} \\cdot 2$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\frac{x}{2} = \\frac{\\sqrt{2}}{2}$, so $x = \\frac{\\sqrt{2}}{2}$",
+              "earned": false,
+              "commentary": "Finds the correct intermediate value $\\frac{x}{2} = \\frac{\\sqrt{2}}{2}$ but forgets to multiply both sides by $2$, giving $x = \\frac{\\sqrt{2}}{2}$ instead of $x = \\sqrt{2}$.",
+              "source": "synthesized"
+            }
+          ]
         }
       ],
       "scoring_notes": "Supporting work is required in (i) and (ii). Scratchwork using a variable other than $x$ is acceptable. Answers not evaluated to simplest form do not earn the point. Partial credit (scored 1–0) if one criterion from the first column AND one from the second column: correct answer without supporting work, or correct answer with unevaluated form like $x = \\ln 10 - 3$ presented as $x + 3 = \\ln 10$.",
@@ -72,7 +114,22 @@
             }
           ],
           "wrong_examples": ["$\\log_{10}(16x^{-2})$ as a final answer (negative exponent not allowed)", "$\\log_{10}(16) - 2\\log_{10}(x)$ (not a single logarithm)"],
-          "common_traps": ["Using 'log' instead of '$\\log_{10}$' is acceptable", "A logarithmic expression missing parentheses around its argument is still eligible"]
+          "common_traps": ["Using 'log' instead of '$\\log_{10}$' is acceptable", "A logarithmic expression missing parentheses around its argument is still eligible"],
+          "official_rubric": "Supporting work is required in (i). Use of 'log' rather than '$\\log_{10}$' is acceptable. The expression $j(x) = \\log_{10}\\left(\\frac{4}{x}\\right)^2$ earns the point with supporting work. A logarithmic expression missing one or both parentheses around the full argument is still eligible.",
+          "sample_responses": [
+            {
+              "response": "$j(x) = \\log_{10}(8x^5 \\cdot 2x^2) - \\log_{10}(x^9) = \\log_{10}\\left(\\frac{16x^7}{x^9}\\right) = \\log_{10}\\left(\\frac{16}{x^2}\\right)$",
+              "earned": true,
+              "commentary": "Applies product and power rules step-by-step and simplifies to a single logarithm without negative exponents, satisfying all requirements.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$j(x) = \\log_{10}(16x^{-2})$",
+              "earned": false,
+              "commentary": "Reaches the correct argument but presents it with a negative exponent ($x^{-2}$), which is explicitly disallowed; the expression must have no negative exponents.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "b2",
@@ -85,7 +142,22 @@
             }
           ],
           "wrong_examples": ["$k(x) = \\cos x / \\sin x$ presented as final answer without connecting to $1/\\tan x$", "Stopping at $\\cos x / \\sin x$ without simplifying to $\\cot x$ or $1/\\tan x$"],
-          "common_traps": ["Supporting work is required; must show the Pythagorean identity step explicitly", "If presented as a complex fraction, structure must be unambiguous"]
+          "common_traps": ["Supporting work is required; must show the Pythagorean identity step explicitly", "If presented as a complex fraction, structure must be unambiguous"],
+          "official_rubric": "Supporting work is required in (ii). Domain restrictions are not required and are not scored. If a response is presented as a complex fraction, the complex fraction must be unambiguous in structure.",
+          "sample_responses": [
+            {
+              "response": "$k(x) = \\frac{1 - \\sin^2 x}{\\sin x} \\cdot \\sec x = \\frac{\\cos^2 x}{\\sin x} \\cdot \\frac{1}{\\cos x} = \\frac{\\cos x}{\\sin x} = \\frac{1}{\\tan x}$",
+              "earned": true,
+              "commentary": "Applies the Pythagorean identity $1 - \\sin^2 x = \\cos^2 x$, cancels one factor of $\\cos x$, and simplifies $\\frac{\\cos x}{\\sin x}$ to $\\frac{1}{\\tan x}$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$k(x) = \\frac{\\cos x}{\\sin x}$",
+              "earned": false,
+              "commentary": "The supporting work leads to $\\frac{\\cos x}{\\sin x}$, but the answer is not simplified to the required single term involving $\\tan x$; $\\frac{1}{\\tan x}$ or $\\cot x$ is needed.",
+              "source": "synthesized"
+            }
+          ]
         }
       ],
       "scoring_notes": "Supporting work is required in (i) and (ii). Domain restrictions are not required and not scored. Answers not evaluated to simplest form do not earn the point. Partial credit (scored 1–0) if one criterion from each column: correct expression in (i) without supporting work, OR correct application of Pythagorean identity in (ii) with no incorrect work.",
@@ -108,7 +180,22 @@
             }
           ],
           "wrong_examples": ["$\\tan(2x) = 0$ (wrong — $\\cos^{-1}(0) = \\pi/2$, not $0$)", "No supporting work shown"],
-          "common_traps": ["$m(x) = 0$ means $\\cos^{-1}(\\tan 2x) = 0$, which means $\\tan(2x) = \\cos(0) = 1$, not $\\tan(2x) = 0$"]
+          "common_traps": ["$m(x) = 0$ means $\\cos^{-1}(\\tan 2x) = 0$, which means $\\tan(2x) = \\cos(0) = 1$, not $\\tan(2x) = 0$"],
+          "official_rubric": "Supporting work is required. A response with supporting work that gives all correct values for $x$ earns both points.",
+          "sample_responses": [
+            {
+              "response": "$m(x) = 0 \\Rightarrow \\cos^{-1}(\\tan(2x)) = 0 \\Rightarrow \\tan(2x) = \\cos(0) = 1 \\Rightarrow 2x = \\frac{\\pi}{4} + \\pi n \\Rightarrow x = \\frac{\\pi}{8}$",
+              "earned": true,
+              "commentary": "Correctly unwraps $\\cos^{-1}$ to get $\\tan(2x) = 1$, then solves using the periodicity of tangent; at least one correct value $x = \\frac{\\pi}{8}$ is found with supporting work.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$m(x) = 0 \\Rightarrow \\tan(2x) = 0 \\Rightarrow 2x = 0 \\Rightarrow x = 0$",
+              "earned": false,
+              "commentary": "Incorrectly sets $\\tan(2x) = 0$ instead of $\\tan(2x) = \\cos(0) = 1$; the student has confused $m(x) = 0$ with $\\tan(2x) = 0$.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "c2",
@@ -125,7 +212,22 @@
             }
           ],
           "wrong_examples": ["Including $x = -\\frac{\\pi}{8}$ as an incorrect extra value", "Giving only $x = \\frac{\\pi}{8}$ without the general solution"],
-          "common_traps": ["Stating 'where $n$ is any integer' is not required to earn the point", "No incorrect values of $x$ may be included — any extra wrong value voids this point"]
+          "common_traps": ["Stating 'where $n$ is any integer' is not required to earn the point", "No incorrect values of $x$ may be included — any extra wrong value voids this point"],
+          "official_rubric": "To earn the second point, no incorrect values for $x$ are included. When expressing a general solution, $i$, $k$, $n$, or any letter except $x$ may be used. The phrase 'where $n$ is any integer' is not required.",
+          "sample_responses": [
+            {
+              "response": "$x = \\frac{\\pi}{8} + \\frac{\\pi}{2}n$, where $n$ is any integer",
+              "earned": true,
+              "commentary": "Captures all solutions with a single compact general formula, using the period $\\frac{\\pi}{2}$ of $\\tan(2x) = 1$; no incorrect values are included.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$x = \\frac{\\pi}{8}$ only",
+              "earned": false,
+              "commentary": "Gives one correct specific solution but does not provide the complete general solution; all values in the domain must be identified.",
+              "source": "synthesized"
+            }
+          ]
         }
       ],
       "scoring_notes": "Supporting work is required. A response giving all correct values (e.g., $x = \\frac{\\pi}{8} + \\pi n$ and $x = \\frac{5\\pi}{8} + \\pi n$) earns both points. When expressing the general solution, $i$, $k$, $n$, or any letter except $x$ may be used. The phrase 'where $n$ is any integer' is not required.",
