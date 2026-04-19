@@ -35,6 +35,21 @@
                 "approaches the horizontal asymptote $y = 12$ from below as $t$ increases"
               ]
             }
+          ],
+          "official_rubric": "The point is earned for a curve that passes through $(0, 0)$, is increasing and concave down, and approaches the equilibrium $y = 12$ asymptotically from below. The curve must not present two or more solution curves.",
+          "sample_responses": [
+            {
+              "response": "Curve drawn through $(0, 0)$, following slope field segments, increasing and leveling off toward $y = 12$",
+              "earned": true,
+              "commentary": "Passes through the given initial condition, is concave down throughout (slope field tangents become less steep as $y$ increases toward $12$), and asymptotically approaches $y = 12$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Curve drawn through $(0, 0)$ that increases and then decreases, crossing $y = 12$",
+              "earned": false,
+              "commentary": "The solution cannot cross $y = 12$ (the equilibrium) — $\\frac{dy}{dt} = 0$ when $y = 12$, so $y = 12$ is a horizontal asymptote, not a line to be crossed.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -56,6 +71,27 @@
               "required_elements": [
                 "Over time, the amount of medication in the patient approaches $12$ milligrams"
               ]
+            }
+          ],
+          "official_rubric": "The point requires an interpretation that references the medication in the patient, the value $12$, and the units (milligrams), or a contextual equivalent. A purely mathematical statement with no context does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "As time goes on, the amount of medication in the patient approaches $12$ milligrams.",
+              "earned": true,
+              "commentary": "Includes all three required elements: medication in the patient (context), the value $12$, and milligrams (units).",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "The long-run amount of medication stabilizes at $12$ mg.",
+              "earned": true,
+              "commentary": "'Stabilizes at $12$ mg' correctly conveys a limiting value with units — acceptable equivalent phrasing.",
+              "source": "synthesized"
+            },
+            {
+              "response": "As $t \\to \\infty$, $A(t) \\to 12$.",
+              "earned": false,
+              "commentary": "Purely mathematical restatement — does not reference the medication in the patient or the units, so no contextual interpretation is provided.",
+              "source": "synthesized"
             }
           ]
         }
@@ -80,6 +116,27 @@
               ],
               "correct_example": "$\\frac{dy}{12-y} = \\frac{dt}{3}$"
             }
+          ],
+          "official_rubric": "The first point is earned for correctly separating variables so that all $y$ terms (including $dy$) are on one side and all $t$ terms (including $dt$) are on the other. A response that never separates variables earns 0 out of 4 for the entire part.",
+          "sample_responses": [
+            {
+              "response": "$\\frac{dy}{12-y} = \\frac{dt}{3}$",
+              "earned": true,
+              "commentary": "Clean separation: $y$-terms with $dy$ on the left, $t$-terms with $dt$ on the right.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\frac{1}{12-y}\\,dy = \\frac{1}{3}\\,dt$",
+              "earned": true,
+              "commentary": "Equivalent form — variables are correctly separated and ready for integration.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\frac{dy}{dt} = \\frac{12-y}{3} \\Rightarrow 3\\,dy = (12-y)\\,dt$",
+              "earned": false,
+              "commentary": "Variables are not separated — both $y$ and $dt$ appear on the right side, so this does not constitute valid separation of variables.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -92,6 +149,27 @@
                 "Correct antiderivatives"
               ],
               "correct_example": "$-\\ln|12-y| = \\frac{t}{3} + C$"
+            }
+          ],
+          "official_rubric": "The second point requires correct antiderivatives on both sides: $-\\ln|12-y|$ on the left and $\\frac{t}{3}$ on the right. A constant of integration must appear (on either side). If no constant of integration is ever written, the maximum score for the entire part is 2 out of 4.",
+          "sample_responses": [
+            {
+              "response": "$-\\ln|12-y| = \\frac{t}{3} + C$",
+              "earned": true,
+              "commentary": "Correct antiderivative of $\\frac{1}{12-y}$ is $-\\ln|12-y|$; correct antiderivative of $\\frac{1}{3}$ is $\\frac{t}{3}$; constant of integration present.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\ln|12-y| = -\\frac{t}{3} + C$",
+              "earned": true,
+              "commentary": "Equivalent form with the negative absorbed — both antiderivatives are correct and a constant appears.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\ln|12-y| = \\frac{t}{3} + C$",
+              "earned": false,
+              "commentary": "Missing the negative sign on the left side — $\\int \\frac{dy}{12-y} = -\\ln|12-y| + C$, not $+\\ln|12-y| + C$.",
+              "source": "synthesized"
             }
           ]
         },
@@ -106,6 +184,27 @@
               ],
               "correct_example": "$-\\ln 12 = C$; so $12 - y = 12e^{-t/3}$"
             }
+          ],
+          "official_rubric": "The third point requires correctly substituting $t = 0$, $y = 0$ into the general solution to find the constant of integration, and proceeding to the form $12 - y = 12e^{-t/3}$ (or equivalent). Cannot be earned without the first two points.",
+          "sample_responses": [
+            {
+              "response": "$t = 0,\\; y = 0$: $-\\ln 12 = C$; thus $-\\ln|12-y| = \\frac{t}{3} - \\ln 12$",
+              "earned": true,
+              "commentary": "Correctly substitutes the initial condition, solves for $C = -\\ln 12$, and produces the particular implicit solution.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$0 = 0$: $C = -\\ln 12$; $\\ln|12-y| = -\\frac{t}{3} + \\ln 12$; $12-y = 12e^{-t/3}$",
+              "earned": true,
+              "commentary": "Applies the initial condition, finds $C$, and exponentiates to the explicit form — correct continuation.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$t = 0$: $-\\ln 12 = 0 + C \\Rightarrow C = \\ln 12$",
+              "earned": false,
+              "commentary": "Sign error: $C = -\\ln 12$, not $+\\ln 12$ — the initial condition is applied incorrectly.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -118,6 +217,27 @@
                 "Solves for $y$"
               ],
               "correct_example": "$A(t) = 12 - 12e^{-t/3}$"
+            }
+          ],
+          "official_rubric": "The fourth point requires correctly solving for $y$ to produce $A(t) = 12 - 12e^{-t/3}$ or the equivalent form $A(t) = 12(1 - e^{-t/3})$. Cannot be earned without the first three points.",
+          "sample_responses": [
+            {
+              "response": "$12 - y = 12e^{-t/3} \\Rightarrow A(t) = 12 - 12e^{-t/3}$",
+              "earned": true,
+              "commentary": "Correctly solves $12 - y = 12e^{-t/3}$ for $y$ to produce the particular solution.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$A(t) = 12(1 - e^{-t/3})$",
+              "earned": true,
+              "commentary": "Factored form — equivalent to the standard answer and equally acceptable.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$A(t) = 12 - e^{-t/3 - \\ln 12}$",
+              "earned": false,
+              "commentary": "Fails to simplify $e^{-t/3 - \\ln 12} = e^{-t/3} \\cdot e^{-\\ln 12} = \\frac{e^{-t/3}}{12}$, leaving an incorrect final form.",
+              "source": "synthesized"
             }
           ]
         }
@@ -142,6 +262,27 @@
               ],
               "correct_example": "$\\frac{d^2y}{dt^2} = \\frac{d}{dt}\\left(3 - \\frac{y}{t+2}\\right) = -\\frac{(t+2)\\frac{dy}{dt} - y}{(t+2)^2}$"
             }
+          ],
+          "official_rubric": "The first point is earned for a correct application of the quotient rule (or product rule) to differentiate $\\frac{y}{t+2}$ with respect to $t$, treating $y$ as a function of $t$.",
+          "sample_responses": [
+            {
+              "response": "$B''(t) = \\frac{d}{dt}\\left(3 - \\frac{y}{t+2}\\right) = -\\frac{(t+2)y' - y}{(t+2)^2}$",
+              "earned": true,
+              "commentary": "Correctly applies the quotient rule to $\\frac{y}{t+2}$: numerator is $(t+2)\\frac{dy}{dt} - y$, denominator is $(t+2)^2$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$B''(t) = -\\left(\\frac{(t+2)y' - y \\cdot 1}{(t+2)^2}\\right)$",
+              "earned": true,
+              "commentary": "Equivalent quotient rule expression — the $\\frac{d}{dt}(t+2) = 1$ step is shown explicitly, which is fine.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$B''(t) = -\\frac{y'}{t+2}$",
+              "earned": false,
+              "commentary": "Differentiates $\\frac{y}{t+2}$ incorrectly as $\\frac{y'}{t+2}$ — omits the $-\\frac{y}{(t+2)^2}$ term required by the quotient rule.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -155,6 +296,21 @@
               ],
               "correct_example": "$B'(1) = 3 - \\frac{2.5}{3} = \\frac{6.5}{3}$; $B''(1) = -\\frac{3 \\cdot \\frac{6.5}{3} - 2.5}{9} = -\\frac{6.5 - 2.5}{9} = -\\frac{4}{9} < 0$"
             }
+          ],
+          "official_rubric": "The second point requires correct numerical evaluation at $t = 1$: first computing $B'(1) = 3 - \\frac{2.5}{3} = \\frac{6.5}{3}$, then substituting $t = 1$, $y = 2.5$, and $\\frac{dy}{dt} = \\frac{6.5}{3}$ into the second derivative expression to obtain $B''(1) = -\\frac{4}{9} < 0$.",
+          "sample_responses": [
+            {
+              "response": "$B'(1) = 3 - \\frac{2.5}{3} = \\frac{6.5}{3}$; $B''(1) = -\\frac{3 \\cdot \\frac{6.5}{3} - 2.5}{9} = -\\frac{4}{9} < 0$",
+              "earned": true,
+              "commentary": "Computes $B'(1)$ from the differential equation, substitutes all known values into the quotient-rule expression, and arrives at $-\\frac{4}{9}$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$B'(1) = 3 - \\frac{2.5}{3}$; $B''(1) = -\\frac{(3)(3 - 2.5/3) - 2.5}{9} = -\\frac{9 - 2.5/3 \\cdot 3 - 2.5}{9}$",
+              "earned": false,
+              "commentary": "Arithmetic error in expanding the numerator — the final value is not $-\\frac{4}{9}$, so the evaluation is incorrect.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -166,6 +322,27 @@
               "required_elements": [
                 "The rate of change is decreasing at $t = 1$ because $B''(1) < 0$"
               ]
+            }
+          ],
+          "official_rubric": "The third point requires concluding that the rate of change is decreasing at $t = 1$ with justification referencing $B''(1) < 0$. This point is consistent with any declared nonzero sign of $B''(1)$ — if a student incorrectly computed $B''(1) > 0$ but concluded 'increasing' accordingly, the third point may still be earned for a consistent conclusion.",
+          "sample_responses": [
+            {
+              "response": "The rate of change is decreasing at $t = 1$ because $B''(1) = -\\frac{4}{9} < 0$.",
+              "earned": true,
+              "commentary": "States the correct conclusion and cites the negative second derivative as justification — complete and correct.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Since $B''(1) < 0$, the rate of change $B'$ is decreasing at $t = 1$.",
+              "earned": true,
+              "commentary": "Equivalent phrasing — negative second derivative implies the first derivative is decreasing at that point.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The rate of change is decreasing.",
+              "earned": false,
+              "commentary": "Correct conclusion but no justification provided — the point requires citing $B''(1) < 0$ or equivalent reasoning.",
+              "source": "synthesized"
             }
           ]
         }
