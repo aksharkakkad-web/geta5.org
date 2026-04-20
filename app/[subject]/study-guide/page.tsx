@@ -8,6 +8,7 @@ import { fetchStudyGuide, fetchDrillKeyTerms, type StudyGuide } from '@/utils/st
 import { logEvent } from '@/utils/analytics'
 import { AdiIdleNudge } from '@/components/adi/AdiIdleNudge'
 import { AuthGuard } from '@/components/auth/AuthGuard'
+import { BackToSubject } from '@/components/ui/BackToSubject'
 
 interface StudyGuidePageProps {
   params: Promise<{ subject: string }>
@@ -53,7 +54,10 @@ export default function StudyGuidePage({ params }: StudyGuidePageProps) {
         margin: '0 auto',
       }}>
         {view === 'unit-select' && !loading && (
-          <StudyGuideUnitSelector subject={subject} onSelectUnit={handleSelectUnit} />
+          <>
+            <BackToSubject subject={subject} />
+            <StudyGuideUnitSelector subject={subject} onSelectUnit={handleSelectUnit} />
+          </>
         )}
         {loading && (
           <div style={{ display: 'flex', justifyContent: 'center', padding: '48px 0' }}>

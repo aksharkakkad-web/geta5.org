@@ -8,6 +8,7 @@ import ReferenceSheetModal from '@/components/tools/ReferenceSheetModal'
 import { loadMCQDraft, clearMCQDraft } from '@/utils/mcqSession'
 import type { MCQView, MCQSessionState, MCQDraft } from '@/utils/mcqSession'
 import { AuthGuard } from '@/components/auth/AuthGuard'
+import { BackToSubject } from '@/components/ui/BackToSubject'
 
 interface PracticePageProps {
   params: Promise<{ subject: string }>
@@ -86,12 +87,15 @@ export default function PracticePage({ params }: PracticePageProps) {
         flexDirection: isSession ? 'column' : undefined,
       }}>
         {view === 'unit-select' && draftChecked && (
-          <UnitSelector
-            subject={subject}
-            onStart={handleStart}
-            draft={draft}
-            onResume={handleResumeDraft}
-          />
+          <>
+            <BackToSubject subject={subject} />
+            <UnitSelector
+              subject={subject}
+              onStart={handleStart}
+              draft={draft}
+              onResume={handleResumeDraft}
+            />
+          </>
         )}
         {isSession && (
           <MCQSession session={session!} subject={subject} onComplete={handleComplete} onStartFresh={handleSessionStartFresh} />

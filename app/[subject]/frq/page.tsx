@@ -45,6 +45,7 @@ import { logEvent } from '@/utils/analytics'
 import { lsGet, lsSet, LS_KEYS } from '@/utils/localStorage'
 import { syncStats } from '@/utils/persistence'
 import { useAdi } from '@/components/adi/AdiProvider'
+import { BackToSubject } from '@/components/ui/BackToSubject'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -503,6 +504,7 @@ export default function FRQPage({ params }: PageProps) {
         {/* ── Select ─────────────────────────────────────────────────────── */}
         {phase === 'select' && (
           <div>
+            <BackToSubject subject={subject} />
             {/* Page header */}
             <div style={{ marginBottom: '28px' }}>
               <h1

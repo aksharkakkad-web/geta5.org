@@ -11,6 +11,7 @@ import ReferenceSheetModal from '@/components/tools/ReferenceSheetModal'
 import type { TestSessionState, TestDraft } from '@/utils/testSession'
 import type { MCQ } from '@/utils/mcqSession'
 import { AuthGuard } from '@/components/auth/AuthGuard'
+import { BackToSubject } from '@/components/ui/BackToSubject'
 
 type TestView = 'setup' | 'session' | 'results'
 
@@ -164,6 +165,13 @@ export default function PracticeTestPage({ params }: PracticeTestPageProps) {
       {loadError === 'error' && (
         <div style={{ padding: '40px', textAlign: 'center', color: 'var(--text-secondary)' }}>
           Couldn&apos;t load test questions. Check your connection and try again.
+        </div>
+      )}
+
+      {/* Back to subject — shown on setup view */}
+      {view === 'setup' && draftChecked && !loadError && (
+        <div style={{ padding: '24px 24px 0' }}>
+          <BackToSubject subject={subject} />
         </div>
       )}
 

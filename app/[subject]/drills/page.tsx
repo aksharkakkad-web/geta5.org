@@ -8,6 +8,7 @@ import { loadDrillDraft, clearDrillDraft } from '@/utils/drillSession'
 import type { DrillView, SessionState, DrillCard, DrillDraft } from '@/utils/drillSession'
 import BrowseView from '@/components/drill/BrowseView'
 import { AuthGuard } from '@/components/auth/AuthGuard'
+import { BackToSubject } from '@/components/ui/BackToSubject'
 
 interface DrillsPageProps {
   params: Promise<{ subject: string }>
@@ -104,15 +105,18 @@ export default function DrillsPage({ params }: DrillsPageProps) {
         }}
       >
         {view === 'unit-select' && draftChecked && (
-          <UnitSelector
-            subject={subject}
-            onStart={handleStart}
-            browseMode={browseMode}
-            onBrowseToggle={setBrowseMode}
-            onBrowse={handleBrowse}
-            draft={draft}
-            onResume={handleResumeDraft}
-          />
+          <>
+            <BackToSubject subject={subject} />
+            <UnitSelector
+              subject={subject}
+              onStart={handleStart}
+              browseMode={browseMode}
+              onBrowseToggle={setBrowseMode}
+              onBrowse={handleBrowse}
+              draft={draft}
+              onResume={handleResumeDraft}
+            />
+          </>
         )}
         {isSession && (
           <DrillSession session={session!} subject={subject} onComplete={handleComplete} onStartFresh={handleSessionStartFresh} />
