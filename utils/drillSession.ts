@@ -18,6 +18,7 @@ export interface DrillCard {
   difficulty: 'easy' | 'medium' | 'hard'
   katex_required?: boolean
   is_key_term?: boolean
+  group?: string             // region/empire/theme label for browse grouping
   format_hint?: string       // name_to_formula only
   choices?: DrillChoice[]    // concept_mc only
 }
@@ -92,6 +93,7 @@ export interface NormalizedCard {
   definition: string
   mode: DrillMode
   katex_required?: boolean
+  group?: string
 }
 
 /**
@@ -116,6 +118,7 @@ export function normalizeCard(card: DrillCard): NormalizedCard {
       definition: card.prompt,
       mode: card.mode,
       katex_required: card.katex_required,
+      group: card.group,
     }
   }
   return {
@@ -124,6 +127,7 @@ export function normalizeCard(card: DrillCard): NormalizedCard {
     definition: card.answer ?? '',
     mode: card.mode,
     katex_required: card.katex_required,
+    group: card.group,
   }
 }
 

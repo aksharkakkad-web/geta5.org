@@ -14,17 +14,28 @@ interface BrowseViewProps {
   onBack: () => void
 }
 
-type FilterMode = 'all' | 'terms' | 'people'
+const UNGROUPED_LABEL = 'Other'
 
-const FILTER_CHIPS: { key: FilterMode; label: string }[] = [
-  { key: 'all', label: 'All' },
-  { key: 'terms', label: 'Terms' },
-  { key: 'people', label: 'People' },
-]
+// Sort within a group: terms first, then people, then events/cases — alphabetical within each mode
+const MODE_ORDER: Record<string, number> = {
+  definition_to_term: 0,
+  name_to_formula: 0,
+  significance_to_person: 1,
+  significance_to_event: 2,
+  significance_to_case: 2,
+}
+
+function modeBucket(mode: string): number {
+  return MODE_ORDER[mode] ?? 3
+}
+
+interface GroupSection {
+  label: string
+  cards: NormalizedCard[]
+}
 
 export default function BrowseView({ cards, unitSlug, subject, onBack }: BrowseViewProps) {
   const [search, setSearch] = useState('')
-  const [filter, setFilter] = useState<FilterMode>('all')
 
   // Derive unit label from subject + unitSlug
   const subjectData = getSubject(subject)
@@ -43,24 +54,48 @@ export default function BrowseView({ cards, unitSlug, subject, onBack }: BrowseV
     [cards]
   )
 
-  // Apply filter chip then search
-  const visible = useMemo(() => {
-    let result = normalized
-    if (filter === 'people') {
-      result = result.filter(c => c.mode === 'significance_to_person')
-    } else if (filter === 'terms') {
-      result = result.filter(c => c.mode !== 'significance_to_person')
+  // Build section list: groups appear in the order they first occur in the card array,
+  // preserving the PDF's region ordering.
+  const sections: GroupSection[] = useMemo(() => {
+    const order: string[] = []
+    const byGroup = new Map<string, NormalizedCard[]>()
+
+    normalized.forEach(c => {
+      const label = c.group?.trim() || UNGROUPED_LABEL
+      if (!byGroup.has(label)) {
+        byGroup.set(label, [])
+        order.push(label)
+      }
+      byGroup.get(label)!.push(c)
+    })
+
+    // Sort within each group
+    for (const list of byGroup.values()) {
+      list.sort((a, b) => {
+        const mb = modeBucket(a.mode) - modeBucket(b.mode)
+        if (mb !== 0) return mb
+        return a.term.localeCompare(b.term)
+      })
     }
+
+    return order.map(label => ({ label, cards: byGroup.get(label)! }))
+  }, [normalized])
+
+  // Apply search across all sections — hide sections with no matches
+  const visibleSections: GroupSection[] = useMemo(() => {
     const q = search.trim().toLowerCase()
-    if (q) {
-      result = result.filter(
-        c =>
-          c.term.toLowerCase().includes(q) ||
-          c.definition.toLowerCase().includes(q)
+    if (!q) return sections
+    const out: GroupSection[] = []
+    for (const s of sections) {
+      const filtered = s.cards.filter(
+        c => c.term.toLowerCase().includes(q) || c.definition.toLowerCase().includes(q)
       )
+      if (filtered.length > 0) out.push({ label: s.label, cards: filtered })
     }
-    return result
-  }, [normalized, filter, search])
+    return out
+  }, [sections, search])
+
+  const totalVisible = visibleSections.reduce((sum, s) => sum + s.cards.length, 0)
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', maxWidth: '960px', margin: '0 auto' }}>
@@ -82,7 +117,7 @@ export default function BrowseView({ cards, unitSlug, subject, onBack }: BrowseV
               whiteSpace: 'nowrap',
             }}
           >
-            {visible.length} {visible.length === 1 ? 'term' : 'terms'}
+            {totalVisible} {totalVisible === 1 ? 'term' : 'terms'}
           </div>
           <button
             onClick={onBack}
@@ -153,37 +188,8 @@ export default function BrowseView({ cards, unitSlug, subject, onBack }: BrowseV
         )}
       </div>
 
-      {/* Filter chips */}
-      <div style={{ display: 'flex', gap: '8px' }}>
-        {FILTER_CHIPS.map(chip => (
-          <button
-            key={chip.key}
-            onClick={() => setFilter(chip.key)}
-            style={{
-              padding: '5px 14px',
-              borderRadius: '999px',
-              fontSize: '0.8125rem',
-              fontWeight: 600,
-              cursor: 'pointer',
-              border:
-                filter === chip.key
-                  ? '1px solid color-mix(in srgb, var(--accent) 50%, transparent)'
-                  : '1px solid var(--bg-border)',
-              background:
-                filter === chip.key
-                  ? 'color-mix(in srgb, var(--accent) 12%, transparent)'
-                  : 'var(--bg-card)',
-              color: filter === chip.key ? 'var(--accent)' : 'var(--text-muted)',
-              transition: 'all 150ms ease',
-            }}
-          >
-            {chip.label}
-          </button>
-        ))}
-      </div>
-
       {/* Empty state */}
-      {visible.length === 0 ? (
+      {totalVisible === 0 ? (
         <div
           style={{
             textAlign: 'center',
@@ -195,68 +201,108 @@ export default function BrowseView({ cards, unitSlug, subject, onBack }: BrowseV
           No terms match your search.
         </div>
       ) : (
-        /* Table */
-        <div
-          style={{
-            border: '1px solid var(--bg-border)',
-            borderRadius: 'var(--radius-lg)',
-            overflow: 'hidden',
-          }}
-        >
-          {/* Column headers */}
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: '1fr 2fr',
-              padding: '10px 20px',
-              background: 'color-mix(in srgb, var(--accent) 6%, transparent)',
-              borderBottom: '1px solid var(--bg-border)',
-            }}
-          >
-            {['Term', 'Definition'].map(label => (
-              <span
-                key={label}
+        /* Grouped sections */
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+          {visibleSections.map(section => (
+            <section key={section.label} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              {/* Section header */}
+              <div
                 style={{
-                  fontSize: '0.75rem',
-                  fontWeight: 700,
-                  textTransform: 'uppercase' as const,
-                  letterSpacing: '0.08em',
-                  color: 'var(--text-muted)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  gap: '12px',
+                  padding: '0 4px',
                 }}
               >
-                {label}
-              </span>
-            ))}
-          </div>
-
-          {/* Rows */}
-          {visible.map((card, i) => (
-            <div
-              key={card.id}
-              style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr 2fr',
-                padding: '14px 20px',
-                gap: '16px',
-                alignItems: 'start',
-                borderBottom: i < visible.length - 1 ? '1px solid var(--bg-border)' : 'none',
-                background: i % 2 === 1 ? 'rgba(255,255,255,0.015)' : 'transparent',
-              }}
-            >
-              {/* Term cell */}
-              <div>
-                <span style={{ fontSize: '0.9375rem', fontWeight: 600, color: 'var(--text-primary)', lineHeight: '1.4' }}>
-                  {parseInlineMath(card.term)}
+                <h2
+                  style={{
+                    fontSize: '0.8125rem',
+                    fontWeight: 700,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.1em',
+                    color: 'var(--text-secondary)',
+                    margin: 0,
+                  }}
+                >
+                  {section.label}
+                </h2>
+                <span
+                  style={{
+                    fontSize: '0.75rem',
+                    fontWeight: 600,
+                    color: 'var(--text-muted)',
+                  }}
+                >
+                  {section.cards.length}
                 </span>
               </div>
 
-              {/* Definition cell */}
-              <div style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: '1.55' }}>
-                {card.mode === 'name_to_formula'
-                  ? <KatexRenderer formula={card.definition} displayMode={false} />
-                  : parseInlineMath(card.definition)}
+              {/* Table for this section */}
+              <div
+                style={{
+                  border: '1px solid var(--bg-border)',
+                  borderRadius: 'var(--radius-lg)',
+                  overflow: 'hidden',
+                }}
+              >
+                {/* Column headers */}
+                <div
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: '1fr 2fr',
+                    padding: '10px 20px',
+                    background: 'color-mix(in srgb, var(--accent) 6%, transparent)',
+                    borderBottom: '1px solid var(--bg-border)',
+                  }}
+                >
+                  {['Term', 'Definition'].map(label => (
+                    <span
+                      key={label}
+                      style={{
+                        fontSize: '0.75rem',
+                        fontWeight: 700,
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.08em',
+                        color: 'var(--text-muted)',
+                      }}
+                    >
+                      {label}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Rows */}
+                {section.cards.map((card, i) => (
+                  <div
+                    key={card.id}
+                    style={{
+                      display: 'grid',
+                      gridTemplateColumns: '1fr 2fr',
+                      padding: '14px 20px',
+                      gap: '16px',
+                      alignItems: 'start',
+                      borderBottom: i < section.cards.length - 1 ? '1px solid var(--bg-border)' : 'none',
+                      background: i % 2 === 1 ? 'rgba(255,255,255,0.015)' : 'transparent',
+                    }}
+                  >
+                    {/* Term cell */}
+                    <div>
+                      <span style={{ fontSize: '0.9375rem', fontWeight: 600, color: 'var(--text-primary)', lineHeight: '1.4' }}>
+                        {parseInlineMath(card.term)}
+                      </span>
+                    </div>
+
+                    {/* Definition cell */}
+                    <div style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: '1.55' }}>
+                      {card.mode === 'name_to_formula'
+                        ? <KatexRenderer formula={card.definition} displayMode={false} />
+                        : parseInlineMath(card.definition)}
+                    </div>
+                  </div>
+                ))}
               </div>
-            </div>
+            </section>
           ))}
         </div>
       )}
