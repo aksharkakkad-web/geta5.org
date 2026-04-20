@@ -260,8 +260,13 @@ SUGGESTION RULE: For each missed point (earned=0), the suggestion MUST:
 5. If the student was completely off-topic, explain what the rubric required and adapt the correct_example to a student-friendly model response.
 Set suggestion to null for earned points.
 
-EVIDENCE RULE: student_evidence_quote MUST be a verbatim substring of the student's response for that part. If you cannot find supporting text, use empty string "" and mark met: false. Do NOT paraphrase or invent quotes.
-QUOTING RULE: Quote SHORT contiguous substrings — one sentence or key phrase at most. Do NOT combine non-adjacent sentences into a single quote. If evidence spans multiple sentences, quote the MOST relevant single sentence. The server will reject quotes that skip text in the middle.
+EVIDENCE RULE (STRICT — server rejects non-verbatim quotes): student_evidence_quote MUST be a VERBATIM, CHARACTER-FOR-CHARACTER substring of the student's response. Server-side verification rejects quotes that can't be found in the student's actual text.
+  - COPY EXACT CHARACTERS. Do NOT fix grammar, standardize punctuation, expand abbreviations, or improve wording.
+  - If the student wrote "Fed 10 argued factions cause problems" do NOT quote it as "Federalist 10 argued that factions cause problems" — that paraphrase will be rejected.
+  - Preserve original spelling, capitalization, and punctuation exactly as the student wrote them.
+  - Preserve original Unicode: if the student used curly quotes, em-dashes, or special characters, keep them.
+  - If you cannot find verbatim support for a required element, set student_evidence_quote to "" and mark met: false. Do NOT paraphrase what the student "meant" — only what they literally wrote.
+QUOTING RULE: Quote SHORT contiguous substrings — one sentence or key phrase at most. Do NOT combine non-adjacent sentences into a single quote. If evidence spans multiple sentences, quote the MOST relevant single sentence. The server rejects quotes that skip text in the middle.
 
 ESSAY COMPLETENESS RULE (CRITICAL — violations will be rejected): For essay-type questions (DBQ, LEQ, argument_essay, essay, ebq), the student writes ONE essay or one body of text that is graded against MULTIPLE rubric parts. You MUST return a result for EVERY part listed in the rubric — do NOT skip parts just because the response is a single essay. Grade each part's criteria independently against the full response text.
 

@@ -246,7 +246,18 @@ function enforceDependencies(question: FRQ, grading: FRQGradingResult): FRQGradi
 }
 
 function normalize(s: string): string {
-  return s.toLowerCase().replace(/\s+/g, ' ').trim()
+  return s
+    // Unicode quote/dash normalization — browsers and word processors often
+    // auto-convert straight punctuation to curly. The LLM may output either,
+    // so we collapse both to the same form before comparing.
+    .replace(/[\u2018\u2019\u201B\u2032]/g, "'")   // curly/prime single → straight
+    .replace(/[\u201C\u201D\u201F\u2033]/g, '"')   // curly/prime double → straight
+    .replace(/[\u2013\u2014\u2015]/g, '-')          // en/em/horizontal dash → hyphen
+    .replace(/[\u00A0\u2002-\u200B\uFEFF]/g, ' ')  // non-breaking & zero-width → space
+    .replace(/\u2026/g, '...')                      // ellipsis char → three dots
+    .toLowerCase()
+    .replace(/\s+/g, ' ')
+    .trim()
 }
 
 // Strip LaTeX formatting so math notation differences don't cause false
@@ -289,6 +300,7 @@ function verifyEvidence(grading: FRQGradingResult, responses: Record<string, str
     const studentRaw = responses[part.letter] || essayText || ''
     const studentNorm = normalize(studentRaw)
     const studentLaTeX = normalize(normalizeLaTeX(studentRaw))
+    const studentWordSet = new Set(studentNorm.split(/\s+/))
     const pointResults = part.point_results.map(pr => {
       const subResults = pr.sub_results.map(sr => {
         if (!sr.met) return sr
@@ -306,13 +318,26 @@ function verifyEvidence(grading: FRQGradingResult, responses: Record<string, str
         // the student's response. If ALL sentences are found, accept it.
         const sentences = quoteNorm.split(/[.!?]+/).map(s => s.trim()).filter(s => s.length > 10)
         if (sentences.length > 1 && sentences.every(s => studentNorm.includes(s))) return sr
-        // Neither matched
+        // Pass 4: content-word overlap fallback — catches light LLM
+        // paraphrasing (e.g., "passed by the national government" vs
+        // "passed by the federal government"). Requires ≥85% of the quote's
+        // non-trivial words (length ≥4) to appear in the student text.
+        // High threshold prevents accepting fabricated quotes.
+        const quoteWords = quoteNorm.split(/\s+/).filter(w => w.length >= 4)
+        if (quoteWords.length >= 4) {
+          const matches = quoteWords.filter(w => studentWordSet.has(w)).length
+          if (matches / quoteWords.length >= 0.85) return sr
+        }
+        // Nothing matched — the quote doesn't appear in the student's text
         return { ...sr, met: false }
       })
       const allMet = subResults.length > 0 && subResults.every(sr => sr.met)
       const earned = allMet ? pr.max : 0
+      // User-facing reasoning when server stripped the point for unverifiable
+      // evidence. Avoid internal debug markers like "[server: ...]" — those
+      // used to leak into the UI.
       const reasoning = earned < pr.earned
-        ? `${pr.reasoning} [server: evidence not verified]`
+        ? 'The specific evidence quote the grader cited could not be matched to the text of your response. The grader may have paraphrased your wording. Rewrite your evidence more explicitly in your essay, or resubmit for another grading attempt.'
         : pr.reasoning
       return { ...pr, sub_results: subResults, earned, reasoning }
     })
