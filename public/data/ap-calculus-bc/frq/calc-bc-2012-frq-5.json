@@ -37,6 +37,21 @@
               ],
               "correct_example": "The bird gains weight faster when it weighs 40 grams, since $\\frac{1}{5}(100-40) = 12 > 6 = \\frac{1}{5}(100-70)$."
             }
+          ],
+          "official_rubric": "1 point for using $\\dfrac{dB}{dt}$. Per SG: $\\dfrac{dB}{dt}\\bigg|_{B=40} = \\dfrac{1}{5}(60) = 12$ and $\\dfrac{dB}{dt}\\bigg|_{B=70} = \\dfrac{1}{5}(30) = 6$.",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{dB}{dt}\\bigg|_{B=40} = 12$, $\\dfrac{dB}{dt}\\bigg|_{B=70} = 6$.",
+              "earned": true,
+              "commentary": "Evaluates the rate at both $B$ values using the given differential equation.",
+              "source": "synthesized"
+            },
+            {
+              "response": "At $B = 40$, growth is $40$; at $B = 70$, growth is $70$.",
+              "earned": false,
+              "commentary": "Confuses $B$ with $dB/dt$; must evaluate $\\frac{1}{5}(100 - B)$, not $B$ itself.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -53,6 +68,21 @@
           "common_traps": [
             "Concluding the bird gains weight faster at 70 grams (confusing larger weight with faster growth)",
             "Not computing or comparing the actual rates"
+          ],
+          "official_rubric": "1 point for answer with reason. Since $\\dfrac{dB}{dt}\\bigg|_{B=40} > \\dfrac{dB}{dt}\\bigg|_{B=70}$, the bird is gaining weight faster when it weighs 40 grams.",
+          "sample_responses": [
+            {
+              "response": "Since $12 > 6$, the bird gains weight faster at $B = 40$ grams.",
+              "earned": true,
+              "commentary": "Draws the correct conclusion and justifies it by comparing the computed rates.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The bird gains weight faster at $70$ grams because it weighs more.",
+              "earned": false,
+              "commentary": "Reasons about weight, not rate of weight change; confuses larger current weight with faster growth rate.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -76,6 +106,21 @@
               ],
               "correct_example": "$\\dfrac{d^2B}{dt^2} = -\\dfrac{1}{25}(100 - B)$"
             }
+          ],
+          "official_rubric": "1 point for $\\dfrac{d^2B}{dt^2}$ in terms of $B$. Per SG: $\\dfrac{d^2B}{dt^2} = -\\dfrac{1}{5}\\dfrac{dB}{dt} = -\\dfrac{1}{25}(100 - B)$.",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{d^2B}{dt^2} = -\\dfrac{1}{5}\\dfrac{dB}{dt} = -\\dfrac{1}{25}(100 - B)$",
+              "earned": true,
+              "commentary": "Differentiates $dB/dt = \\frac{1}{5}(100 - B)$ with respect to $t$ and substitutes $dB/dt$ back in.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{d^2B}{dt^2} = \\dfrac{1}{25}(100 - B)$",
+              "earned": false,
+              "commentary": "Forgets the negative sign from differentiating $-B$; should be $-\\frac{1}{25}(100 - B)$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -93,6 +138,21 @@
           "common_traps": [
             "Claiming the graph can be concave up for some values of $t$",
             "Not connecting $d^2B/dt^2 < 0$ to the concavity argument"
+          ],
+          "official_rubric": "1 point for explanation. Since $B < 100$, $d^2B/dt^2 < 0$, so the graph of $B$ is concave down. A portion of the given graph is concave up, which is inconsistent.",
+          "sample_responses": [
+            {
+              "response": "Since $20 \\leq B < 100$, $100 - B > 0$, so $\\dfrac{d^2B}{dt^2} < 0$. The graph of $B$ is always concave down and cannot have the concave-up portion shown.",
+              "earned": true,
+              "commentary": "Correctly reasons from the sign of $d^2B/dt^2$ to concavity and rejects the shown graph.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The graph is wrong because $B$ cannot exceed 100.",
+              "earned": false,
+              "commentary": "Does not use $d^2B/dt^2$ to explain why the graph's concavity is inconsistent.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -115,6 +175,21 @@
                 "$\\dfrac{dB}{100 - B} = \\dfrac{1}{5}\\, dt$"
               ]
             }
+          ],
+          "official_rubric": "1 point for separation of variables. Note: 0/5 if no separation of variables.",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{dB}{100 - B} = \\dfrac{1}{5}\\, dt$",
+              "earned": true,
+              "commentary": "Cleanly separates $B$ terms on one side and $t$ terms on the other.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$dB = \\dfrac{1}{5}(100 - B)\\, dt$",
+              "earned": false,
+              "commentary": "Does not separate variables; $B$ still appears on the $dt$ side.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -132,6 +207,21 @@
           "common_traps": [
             "Missing the negative sign when integrating $\\frac{1}{100-B}$",
             "Writing $\\ln|100-B|$ instead of $-\\ln|100-B|$"
+          ],
+          "official_rubric": "1 point for antiderivatives. $-\\ln|100 - B| = \\dfrac{1}{5}t + C$. Note: max 2/5 if no constant of integration.",
+          "sample_responses": [
+            {
+              "response": "$-\\ln|100 - B| = \\dfrac{1}{5}t + C$",
+              "earned": true,
+              "commentary": "Integrates both sides correctly, remembering the sign from the $u$-substitution $u = 100 - B$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\ln|100 - B| = \\dfrac{1}{5}t + C$",
+              "earned": false,
+              "commentary": "Missing negative sign — $\\int \\frac{1}{100 - B}\\, dB = -\\ln|100 - B| + C$ because $\\frac{d}{dB}(100 - B) = -1$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -145,6 +235,21 @@
                 "$100 - B = Ce^{-t/5}$ (absorbing sign into constant $C$)"
               ]
             }
+          ],
+          "official_rubric": "1 point for constant of integration (incorporated here via exponentiation) and proper treatment of absolute value (using $20 \\leq B < 100$, so $|100 - B| = 100 - B$).",
+          "sample_responses": [
+            {
+              "response": "$|100 - B| = e^{-t/5 - C}$; since $20 \\leq B < 100$, $100 - B = Ae^{-t/5}$.",
+              "earned": true,
+              "commentary": "Exponentiates and drops the absolute value correctly using the given constraint on $B$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$100 - B = -t/5 + C$",
+              "earned": false,
+              "commentary": "Forgets to exponentiate after integrating — the log was never undone.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -156,6 +261,21 @@
               "required_elements": [
                 "$100 - 20 = Ce^{0} \\implies C = 80$"
               ]
+            }
+          ],
+          "official_rubric": "1 point for using initial condition. Substituting $t = 0$, $B = 20$: $80 = A \\cdot 1$, so $A = 80$.",
+          "sample_responses": [
+            {
+              "response": "At $t = 0$, $B = 20$: $100 - 20 = A e^{0} \\Rightarrow A = 80$.",
+              "earned": true,
+              "commentary": "Uses $B(0) = 20$ to solve for the constant.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$B(t) = 100 - 80 e^{-t/5}$ (no computation shown)",
+              "earned": false,
+              "commentary": "Writes the answer without demonstrating use of the initial condition; the rubric requires showing the substitution.",
+              "source": "synthesized"
             }
           ]
         },
@@ -174,6 +294,21 @@
           "common_traps": [
             "Writing $B(t) = 100 + 80e^{-t/5}$ (wrong sign on the exponential term)",
             "Not applying the initial condition to determine the constant"
+          ],
+          "official_rubric": "1 point for solving for $B$. $B(t) = 100 - 80e^{-t/5}$ for $t \\geq 0$.",
+          "sample_responses": [
+            {
+              "response": "$B(t) = 100 - 80e^{-t/5}$, $t \\geq 0$",
+              "earned": true,
+              "commentary": "Correct particular solution satisfying $B(0) = 20$ and the differential equation.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$B(t) = 100 + 80e^{-t/5}$",
+              "earned": false,
+              "commentary": "Wrong sign on the exponential; this gives $B(0) = 180$, contradicting the initial condition.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
