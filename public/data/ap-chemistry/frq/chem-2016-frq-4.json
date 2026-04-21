@@ -18,7 +18,7 @@
     {
       "letter": "a",
       "prompt": "What is the pH of a 0.75 M C$_6$H$_5$OH(aq) solution?",
-      "point_value": 1,
+      "point_value": 2,
       "scoring_notes": "Let x = [H$_3$O$^+$] = [C$_6$H$_5$O$^-$] at equilibrium. $K_a = x^2/(0.75 - x) \\approx x^2/0.75 = 1.12 \\times 10^{-10}$. $x^2 = 8.4 \\times 10^{-11}$; $x = 9.2 \\times 10^{-6}$ M. pH = −log(9.2 × 10$^{-6}$) = 5.04.",
       "requires_drawing": false,
       "reference_image": null,
@@ -47,9 +47,9 @@
           "official_rubric": "1 point is earned for a correct setup and calculation of [H$^+$]. 1 point is earned for the correct setup and calculation of pH based on a correct setup for the [H$^+$] calculation.",
           "sample_responses": [
             {
-              "response": "$K_a = \\frac{[\\text{C}_6\\text{H}_5\\text{O}^-][\\text{H}_3\\text{O}^+]}{[\\text{C}_6\\text{H}_5\\text{OH}]} = \\frac{x^2}{0.75-x}$. Assume $x \\ll 0.75$: $1.12\\times10^{-10} = \\frac{x^2}{0.75}$, $x^2 = 8.4\\times10^{-11}$, $x = 9.2\\times10^{-6}\\text{ M}$. pH $= -\\log(9.2\\times10^{-6}) = 5.04$.",
+              "response": "$K_a = \\dfrac{[\\text{C}_6\\text{H}_5\\text{O}^-][\\text{H}_3\\text{O}^+]}{[\\text{C}_6\\text{H}_5\\text{OH}]}$\n\n$1.12 \\times 10^{-10} = \\dfrac{x^2}{(0.75 - x)}$. Assume that $x \\ll 0.75$.\n\n$x^2 = 8.4 \\times 10^{-11}$\n\n$x = \\sqrt{8.4 \\times 10^{-11}}$\n\n$x = 9.2 \\times 10^{-6}$ M\n\n$\\text{pH} = -\\log[\\text{H}^+] = -\\log(9.2 \\times 10^{-6}) = 5.04$",
               "earned": true,
-              "commentary": "Sets up the $K_a$ expression correctly, applies the weak-acid approximation (valid since $x/C \\ll 5\\%$), solves for $[\\text{H}_3\\text{O}^+]$, and takes the negative log to get pH — the CB model answer.",
+              "commentary": "CB model response: writes the $K_a$ expression, applies the $x \\ll C$ approximation (valid since $x/C \\ll 5\\%$), solves for $[\\text{H}_3\\text{O}^+]$, and takes $-\\log$ to obtain pH = 5.04.",
               "source": "cb_guideline"
             },
             {
@@ -65,7 +65,7 @@
     {
       "letter": "b",
       "prompt": "For a certain reaction involving C$_6$H$_5$OH(aq) to proceed at a significant rate, the phenol must be primarily\nin its deprotonated form, C$_6$H$_5$O$^-$(aq). In order to ensure that the C$_6$H$_5$OH(aq) is deprotonated, the reaction\nmust be conducted in a buffered solution. On the number scale below, circle each pH for which more than\n50 percent of the phenol molecules are in the deprotonated form (C$_6$H$_5$O$^-$(aq)). Justify your answer.\n1 2 3 4 5 6 7 8 9 10 11 12 13 14",
-      "point_value": 1,
+      "point_value": 2,
       "scoring_notes": "pK$_a$(phenol) = −log(1.12 × 10$^{-10}$) = 9.95. When pH > pK$_a$, more than 50% of phenol is in the deprotonated form. So pH values of 10, 11, 12, 13, and 14 should be circled.",
       "requires_drawing": false,
       "reference_image": null,
@@ -90,12 +90,12 @@
           "common_traps": [
             "pH = pK$_a$: [HA] = [A$^-$], exactly 50/50. pH > pK$_a$: [A$^-$] > [HA], more deprotonated. Must find pK$_a$ from K$_a$ first."
           ],
-          "official_rubric": "1 point is earned for circling 10–14. 1 point is earned for the justification (when pH > pK$_a$, the deprotonated form will predominate; pK$_a = -\\log(1.12\\times10^{-10}) = 9.95$).",
+          "official_rubric": "1 point is earned for circling 10–14. 1 point is earned for the justification.",
           "sample_responses": [
             {
-              "response": "Circle 10, 11, 12, 13, 14. pK$_a = -\\log(1.12\\times10^{-10}) = 9.95$. When pH > pK$_a$, [C$_6$H$_5$O$^-$] > [C$_6$H$_5$OH], so more than 50% of the phenol is deprotonated. All pH values ≥ 10 satisfy pH > 9.95.",
+              "response": "Numbers 10 through 14 should be circled.\n\nWhen pH > $\\text{p}K_a$, the deprotonated form will predominate. $\\text{p}K_a = -\\log(1.12 \\times 10^{-10}) = 9.95$, therefore at pH 10 and above, $[\\text{C}_6\\text{H}_5\\text{O}^-] > [\\text{C}_6\\text{H}_5\\text{OH}]$.",
               "earned": true,
-              "commentary": "Circles the correct range and justifies using the Henderson–Hasselbalch reasoning (pH > pK$_a$ ⇒ conjugate base dominates) — the CB model answer.",
+              "commentary": "CB model response: circles 10–14, computes $\\text{p}K_a = 9.95$, and invokes the rule that when pH exceeds $\\text{p}K_a$ the conjugate base dominates.",
               "source": "cb_guideline"
             },
             {
