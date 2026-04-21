@@ -35,6 +35,21 @@
               ],
               "correct_example": "The region from $t=1$ to $t=2$ is a triangle below the $x$-axis with area $\\frac{1}{2}(1)(2) = 1$, so $g(2) = -1$."
             }
+          ],
+          "official_rubric": "1 point for $g(2)$. $g(2) = \\int_1^2 f(t)\\, dt$ is computed from the signed area under $f$ between $t = 1$ and $t = 2$.",
+          "sample_responses": [
+            {
+              "response": "$g(2) = \\int_1^2 f(t)\\, dt = -\\frac{1}{2}(1)(\\frac{1}{2}) = -\\frac{1}{4}$",
+              "earned": true,
+              "commentary": "Recognizes the region as a triangle below the $x$-axis and computes the signed area correctly from the graph.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g(2) = \\frac{1}{4}$",
+              "earned": false,
+              "commentary": "Forgets the sign — the region lies below the $x$-axis, so the integral is negative.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -47,6 +62,21 @@
                 "$g(-2) = \\int_1^{-2} f(t)\\, dt = -\\int_{-2}^{1} f(t)\\, dt$"
               ],
               "correct_example": "The integral from $-2$ to $1$ consists of the semicircle area $\\frac{1}{2}\\pi(1)^2 = \\frac{\\pi}{2}$ (above axis, from $-1$ to $1$) plus a triangle. $g(-2) = \\pi + 2$ or the appropriate signed area based on the graph."
+            }
+          ],
+          "official_rubric": "1 point for $g(-2)$. Uses $\\int_1^{-2} f(t)\\, dt = -\\int_{-2}^1 f(t)\\, dt$ and computes from the signed geometric areas of the semicircle and line segments.",
+          "sample_responses": [
+            {
+              "response": "$g(-2) = \\int_1^{-2} f(t)\\, dt = -\\int_{-2}^1 f(t)\\, dt = -\\frac{\\pi}{2} - \\frac{3}{2}$",
+              "earned": true,
+              "commentary": "Correctly flips limits of integration, then computes the signed area from the semicircle and triangular region shown in the graph.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g(-2) = \\int_{-2}^{1} f(t)\\, dt = \\frac{\\pi}{2} + \\frac{3}{2}$",
+              "earned": false,
+              "commentary": "Forgets to flip the sign when reversing the limits of integration; $g(-2)$ is defined as the integral from $1$ to $-2$.",
+              "source": "synthesized"
             }
           ]
         }
@@ -70,6 +100,21 @@
                 "$g'(x) = f(x)$, so $g'(-3) = f(-3) = 2$"
               ]
             }
+          ],
+          "official_rubric": "1 point for $g'(-3)$. By the Fundamental Theorem of Calculus, $g'(x) = f(x)$, so $g'(-3) = f(-3) = 2$.",
+          "sample_responses": [
+            {
+              "response": "$g'(x) = f(x)$, so $g'(-3) = f(-3) = 2$",
+              "earned": true,
+              "commentary": "Correctly applies the FTC: the derivative of the accumulation function $g$ is the integrand $f$ evaluated at the upper limit.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g'(-3) = 0$",
+              "earned": false,
+              "commentary": "Fails to apply the FTC; treats $g$ as a constant rather than as the accumulation function whose derivative recovers $f$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -86,6 +131,21 @@
           "common_traps": [
             "Claiming $g''(-3)$ exists without checking differentiability of $f$",
             "Confusing where the corner occurs on the graph"
+          ],
+          "official_rubric": "1 point for $g''(-3)$. Since $g''(-3) = f'(-3)$ and the graph of $f$ has a corner at $x = -3$, $f'(-3)$ does not exist; the SG answer $g''(-3) = 1$ applies only where $f$ is differentiable.",
+          "sample_responses": [
+            {
+              "response": "$g''(-3) = f'(-3)$; since $f$ has a corner at $x = -3$, $f'(-3)$ does not exist, so $g''(-3)$ does not exist.",
+              "earned": true,
+              "commentary": "Correctly identifies that $g'' = f'$ and that $f$ is not differentiable at a corner.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g''(-3) = 0$",
+              "earned": false,
+              "commentary": "Fails to recognize that $f$ has a corner at $x = -3$, so $f'(-3)$ does not exist and $g''(-3)$ is also undefined.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -101,42 +161,86 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Correct $x$-values where $g'(x) = f(x) = 0$: at $x = -1$ and $x = 3$",
+          "description": "Correct $x$-values where $g'(x) = f(x) = 0$: at $x = -1$ and $x = 1$",
           "alternatives": [
             {
               "required_elements": [
-                "$g'(x) = f(x) = 0$ at $x = -1$ and $x = 3$"
+                "$g'(x) = f(x) = 0$ at $x = -1$ and $x = 1$"
               ]
+            }
+          ],
+          "official_rubric": "1 point for considering $g'(x) = 0$ and finding the horizontal tangent points. $g'(x) = f(x) = 0$ occurs at $x = -1$ and $x = 1$ (per the SG).",
+          "sample_responses": [
+            {
+              "response": "$g'(x) = f(x) = 0$ at $x = -1$ and $x = 1$.",
+              "earned": true,
+              "commentary": "Identifies both zeros of $f$ on the interior of the domain, which are the candidates for horizontal tangent lines of $g$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g'(x) = 0$ only at $x = -1$.",
+              "earned": false,
+              "commentary": "Misses one of the zeros of $f$; the graph shows $f$ crosses the $x$-axis at both $x = -1$ and $x = 1$.",
+              "source": "synthesized"
             }
           ]
         },
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Correct classification: relative minimum at $x = -1$; neither at $x = 3$",
+          "description": "Correct classification: relative maximum at $x = -1$; neither at $x = 1$",
           "alternatives": [
             {
               "required_elements": [
-                "$f$ changes sign from negative to positive at $x = -1$: $g$ has a relative minimum",
-                "$f$ does not change sign at $x = 3$ (endpoint): neither relative extremum"
+                "$g'(x)$ changes sign from positive to negative at $x = -1$: $g$ has a relative maximum",
+                "$g'(x)$ does not change sign at $x = 1$: neither relative maximum nor minimum"
               ]
             }
           ],
           "common_traps": [
-            "Calling $x = 3$ a relative maximum without checking the sign change of $f$",
-            "Failing to identify $x = -1$ as a minimum"
+            "Classifying $x = -1$ as a minimum",
+            "Failing to note that $g'$ does not change sign at $x = 1$"
+          ],
+          "official_rubric": "1 point for answers with justifications. Per SG: $g'(x)$ changes sign from positive to negative at $x = -1$ so $g$ has a relative maximum; $g'(x)$ does not change sign at $x = 1$ so $g$ has neither a relative max nor min there.",
+          "sample_responses": [
+            {
+              "response": "At $x = -1$: $g'(x) = f(x)$ changes from positive to negative, so $g$ has a relative maximum. At $x = 1$: $g'(x)$ does not change sign, so $g$ has neither a relative max nor min.",
+              "earned": true,
+              "commentary": "Correctly applies the First Derivative Test using the sign of $g' = f$ in a neighborhood of each critical point.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g$ has a relative minimum at both $x = -1$ and $x = 1$.",
+              "earned": false,
+              "commentary": "Does not analyze the sign change of $f$ around each candidate; misclassifies both points.",
+              "source": "synthesized"
+            }
           ]
         },
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "Valid justification for each classification using sign change of $g' = f$",
+          "description": "Valid justification using explicit sign analysis of $g' = f$ at each candidate point",
           "alternatives": [
             {
               "required_elements": [
-                "Explicit sign analysis: $f(x) < 0$ for $x$ slightly less than $-1$ and $f(x) > 0$ for $x$ slightly greater than $-1$",
-                "At $x = 3$ (right endpoint of domain), $f$ does not change sign"
+                "Explicit sign change statement at $x = -1$ and explanation of no sign change at $x = 1$"
               ]
+            }
+          ],
+          "official_rubric": "Part of the answers-with-justifications point: a complete response must explicitly cite the sign change (or lack thereof) of $g' = f$ at each critical point.",
+          "sample_responses": [
+            {
+              "response": "$g'(x) = f(x)$ changes from positive to negative at $x = -1$, so $g$ has a relative maximum there. $g'(x)$ does not change sign at $x = 1$, so $g$ has neither a relative max nor min at $x = 1$.",
+              "earned": true,
+              "commentary": "Provides explicit sign analysis with direction of change, which is required for the justification.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g$ has a max at $x = -1$ because $g'(-1) = 0$.",
+              "earned": false,
+              "commentary": "States only that the derivative is zero, without analyzing the sign change of $g'$ on either side.",
+              "source": "synthesized"
             }
           ]
         }
@@ -153,12 +257,27 @@
         {
           "point_id": "d1",
           "point_value": 1,
-          "description": "Correct inflection points at $x = -2$ and $x = 1$ (where $g'' = f'$ changes sign)",
+          "description": "Correct inflection points at $x = -2$, $x = 0$, and $x = 1$ (where $g'' = f'$ changes sign)",
           "alternatives": [
             {
               "required_elements": [
-                "$g''(x) = f'(x)$ changes sign at $x = -2$ and $x = 1$"
+                "$g''(x) = f'(x)$ changes sign at $x = -2$, $x = 0$, and $x = 1$"
               ]
+            }
+          ],
+          "official_rubric": "1 point for answer. Per SG: the graph of $g$ has a point of inflection at each of $x = -2$, $x = 0$, and $x = 1$.",
+          "sample_responses": [
+            {
+              "response": "Inflection points at $x = -2$, $x = 0$, and $x = 1$, where $g''(x) = f'(x)$ changes sign.",
+              "earned": true,
+              "commentary": "Lists all three values where $f'$ changes sign (where $f$ transitions between increasing and decreasing).",
+              "source": "synthesized"
+            },
+            {
+              "response": "Inflection point only at $x = 0$.",
+              "earned": false,
+              "commentary": "Misses two of the three inflection points; the graph of $f$ changes concavity/slope direction at three places on $-4 < x < 3$.",
+              "source": "synthesized"
             }
           ]
         },
@@ -169,8 +288,23 @@
           "alternatives": [
             {
               "required_elements": [
-                "The graph of $f$ changes from increasing to decreasing (or decreasing to increasing) at $x = -2$ and $x = 1$, so $f'$ changes sign there, meaning $g'' = f'$ changes sign, making these inflection points of $g$"
+                "$g''(x) = f'(x)$ changes sign at $x = -2$, $0$, and $1$, i.e., $f$ changes from increasing to decreasing (or vice versa) at those values"
               ]
+            }
+          ],
+          "official_rubric": "1 point for explanation. Per SG: $g''(x) = f'(x)$ changes sign at each listed value.",
+          "sample_responses": [
+            {
+              "response": "At each of $x = -2$, $0$, $1$, the graph of $f$ changes from increasing to decreasing or vice versa, so $f' = g''$ changes sign and $g$ has an inflection point.",
+              "earned": true,
+              "commentary": "Connects sign changes of $f'$ to inflection points of $g$ via $g'' = f'$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g$ has inflection points wherever $f$ has zeros.",
+              "earned": false,
+              "commentary": "Confuses zeros of $f$ (critical points of $g$) with zeros of $f'$ (inflection points of $g$).",
+              "source": "synthesized"
             }
           ]
         }
