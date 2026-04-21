@@ -19,6 +19,7 @@ import FRQResults from '@/components/frq/FRQResults'
 import FRQBreakdown from '@/components/frq/FRQBreakdown'
 import FRQMathTutorial from '@/components/frq/FRQMathTutorial'
 import FRQShortcutsModal from '@/components/frq/FRQShortcutsModal'
+import FRQSourceLinks from '@/components/frq/FRQSourceLinks'
 import InlineMath from '@/components/InlineMath'
 import {
   hasFRQs,
@@ -674,6 +675,11 @@ export default function FRQPage({ params }: PageProps) {
                   ? <InlineMath text={selectedQuestion.title} />
                   : selectedQuestion.title}
               </h2>
+              {selectedQuestion.source_pdf && (
+                <div style={{ marginLeft: '-8px', marginTop: '2px' }}>
+                  <FRQSourceLinks pdfHref={selectedQuestion.source_pdf} />
+                </div>
+              )}
             </div>
 
             {/* Calculator button — math subjects, calculator-allowed questions only */}

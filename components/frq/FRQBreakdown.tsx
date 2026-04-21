@@ -4,6 +4,7 @@ import React from 'react'
 import { AdiIcon } from '@/components/adi/AdiMascot'
 import FRQBreakdownEssay from '@/components/frq/FRQBreakdownEssay'
 import FRQBreakdownParts from '@/components/frq/FRQBreakdownParts'
+import FRQSourceLinks from '@/components/frq/FRQSourceLinks'
 import type {
   FRQ,
   FRQGradingResult,
@@ -257,6 +258,27 @@ export default function FRQBreakdown({
           </p>
         </div>
       </div>
+
+      {/* ── Source PDF + Scoring guidelines ── */}
+      {(question.source_pdf || question.source_scoring_guideline_pdf) && (
+        <div
+          style={{
+            maxWidth: essayMode ? '720px' : undefined,
+            margin: essayMode ? '0 auto' : undefined,
+            width: essayMode ? '100%' : undefined,
+            display: 'flex',
+            justifyContent: 'flex-end',
+            marginTop: '-8px',
+          }}
+        >
+          <FRQSourceLinks
+            pdfHref={question.source_pdf}
+            scoringGuidelineHref={question.source_scoring_guideline_pdf}
+            showScoringGuideline
+            align="flex-end"
+          />
+        </div>
+      )}
 
       {/* ── Action buttons ── */}
       <div

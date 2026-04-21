@@ -34,6 +34,21 @@
               ],
               "correct_example": "$\\int_0^4 f'(x)\\, dx$ or $\\int_4^5 f'(x)\\, dx$ (or equivalent)"
             }
+          ],
+          "official_rubric": "The first point is earned for identifying the integral(s) needed from the graph of $f'$ — either the semicircular area from $0$ to $4$ (for $f(0)$) or the triangular area from $4$ to $5$ (for $f(5)$), or both.",
+          "sample_responses": [
+            {
+              "response": "$f(0) = f(4) - \\int_0^4 f'(x)\\,dx$; $\\int_0^4 f'(x)\\,dx = -2\\pi$ (below $x$-axis semicircle)",
+              "earned": true,
+              "commentary": "Identifies the correct integral and recognizes the signed area from the semicircle below the $x$-axis.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$f(5) = f(4) + \\int_4^5 f'(x)\\,dx$; area of triangle $= \\frac{1}{2}(1)(1) = \\frac{1}{2}$",
+              "earned": true,
+              "commentary": "Identifies the triangular area for $f(5)$ — earning the first point.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -47,6 +62,21 @@
               ],
               "correct_example": "$f(0) = f(4) + \\int_4^0 f'(x)\\, dx = 3 - \\int_0^4 f'(x)\\, dx$; the semicircle has radius 2 centered at $x=2$, so area $= \\frac{\\pi(2)^2}{4}\\cdot 2 = \\frac{\\pi \\cdot 4}{2} = 2\\pi$... accept $f(0) = 3 + 2\\pi$ based on graph)"
             }
+          ],
+          "official_rubric": "The second point requires the correct value $f(0) = 3 + 2\\pi$. The semicircle on $[0, 4]$ lies below the $x$-axis (center at $(2,0)$, radius 2), so $\\int_0^4 f'(x)\\,dx = -2\\pi$, giving $f(0) = 3 - (-2\\pi) = 3 + 2\\pi$.",
+          "sample_responses": [
+            {
+              "response": "$f(0) = 3 - (-2\\pi) = 3 + 2\\pi$",
+              "earned": true,
+              "commentary": "Correctly uses the signed area of the semicircle: it lies below the $x$-axis so $\\int_0^4 f' = -2\\pi$, and subtracting this from $f(4) = 3$ gives $3 + 2\\pi$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$f(0) = 3 - 2\\pi$",
+              "earned": false,
+              "commentary": "Sign error — treats the semicircle's area as positive rather than negative (the semicircle is below the $x$-axis).",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -59,6 +89,21 @@
                 "$f(5) = f(4) + \\int_4^5 f'(x)\\, dx = 3 + \\frac{1}{2}(1) = \\frac{7}{2}$ (from triangle of height 1",
                 "base 1 at $x = 4$ to $5$)"
               ]
+            }
+          ],
+          "official_rubric": "The third point requires the correct value $f(5) = \\frac{7}{2}$. The line segment of $f'$ on $[4, 5]$ forms a triangle of base 1 and height 1 (positive), so $\\int_4^5 f'(x)\\,dx = \\frac{1}{2}$.",
+          "sample_responses": [
+            {
+              "response": "$f(5) = 3 + \\frac{1}{2}(1)(1) = \\frac{7}{2}$",
+              "earned": true,
+              "commentary": "Correct triangular area $\\frac{1}{2}$ added to $f(4) = 3$ gives $\\frac{7}{2}$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$f(5) = 3 + 1 = 4$",
+              "earned": false,
+              "commentary": "Uses the full rectangle area instead of the triangular area — $\\int_4^5 f'(x)\\,dx = \\frac{1}{2}$, not $1$.",
+              "source": "synthesized"
             }
           ]
         }
@@ -176,5 +221,7 @@
         }
       ]
     }
-  ]
+  ],
+  "source_pdf": "/pdfs/frq/ap-calculus-ab/calc-ab-2022-frq.pdf",
+  "source_scoring_guideline_pdf": "/pdfs/frq/ap-calculus-ab/calc-ab-2022-sg.pdf"
 }

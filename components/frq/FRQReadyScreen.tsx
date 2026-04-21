@@ -4,6 +4,7 @@ import React from 'react'
 import type { FRQ } from '@/utils/frqSession'
 import { getQuestionSeconds } from '@/utils/frqSession'
 import InlineMath from '@/components/InlineMath'
+import FRQSourceLinks from '@/components/frq/FRQSourceLinks'
 
 interface FRQReadyScreenProps {
   question: FRQ
@@ -119,6 +120,13 @@ export default function FRQReadyScreen({
             </>
           )}
         </div>
+
+        {/* Original PDF link (released FRQs only) */}
+        {question.source_pdf && (
+          <div style={{ marginTop: '-20px', marginBottom: '24px', marginLeft: '-8px' }}>
+            <FRQSourceLinks pdfHref={question.source_pdf} />
+          </div>
+        )}
 
         {/* Timer toggle */}
         <div

@@ -82,6 +82,8 @@ export interface FRQ {
   stimulus_image: string | null
   documents: FRQDocument[] | null
   parts: FRQPart[]
+  source_pdf?: string | null
+  source_scoring_guideline_pdf?: string | null
 }
 
 /** Per-element check result within one scoring alternative. */
