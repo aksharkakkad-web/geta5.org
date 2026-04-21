@@ -36,6 +36,25 @@
               ],
               "correct_example": "$\\int_S^T [\\ln x - (x-2)]\\, dx$"
             }
+          ],
+          "common_traps": [
+            "Reversing order to $(x-2) - \\ln x$ gives negative area",
+            "Missing parentheses around $(x-2)$"
+          ],
+          "official_rubric": "Integrand point: $\\ln x - (x-2)$ reflects that $\\ln x$ lies above $x-2$ on $R$.",
+          "sample_responses": [
+            {
+              "response": "Integrand: $\\ln x - (x-2)$",
+              "earned": true,
+              "commentary": "Top curve minus bottom curve — $\\ln x$ is above $x-2$ on $R$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Integrand: $(x-2) - \\ln x$",
+              "earned": false,
+              "commentary": "Reversed order produces a negative integrand on $R$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -45,8 +64,27 @@
           "alternatives": [
             {
               "required_elements": [
-                "$S \\approx 0.159$ and $T \\approx 3.146$"
-              ]
+                "$S \\approx 0.15859$ and $T \\approx 3.14619$"
+              ],
+              "correct_example": "$\\int_{0.159}^{3.146}[\\ln x - (x-2)]\\, dx$"
+            }
+          ],
+          "common_traps": [
+            "Using $0$ as the lower limit — $\\ln x$ is undefined there"
+          ],
+          "official_rubric": "Limits point: $S = 0.15859$, $T = 3.14619$, the two intersections of $\\ln x = x - 2$.",
+          "sample_responses": [
+            {
+              "response": "$S = 0.15859$, $T = 3.14619$ (from calculator intersection)",
+              "earned": true,
+              "commentary": "Both intersection $x$-values given to enough decimals.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Limits $0$ and $\\pi$",
+              "earned": false,
+              "commentary": "Not the actual intersection points; $\\pi$ coincidentally close to $T$ but inexact.",
+              "source": "synthesized"
             }
           ]
         },
@@ -57,9 +95,27 @@
           "alternatives": [
             {
               "required_elements": [
-                "Correct numerical area"
+                "Area $\\approx 1.949$"
               ],
-              "correct_example": "$\\approx 1.949$"
+              "correct_example": "Area$(R) = 1.949$"
+            }
+          ],
+          "common_traps": [
+            "Reporting fewer than 3 decimals"
+          ],
+          "official_rubric": "Answer point: Area = $1.949$.",
+          "sample_responses": [
+            {
+              "response": "Area$(R) = 1.949$",
+              "earned": true,
+              "commentary": "Correct to three decimals.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Area$(R) \\approx 2$",
+              "earned": false,
+              "commentary": "Insufficient decimal precision for a calculator question.",
+              "source": "synthesized"
             }
           ]
         }
@@ -80,15 +136,30 @@
           "alternatives": [
             {
               "required_elements": [
-                "Outer radius $(\\ln x + 3)$, inner radius $(x - 2 + 3) = (x+1)$",
-                "Washer integrand $\\pi[(\\ln x + 3)^2 - (x+1)^2]$"
+                "Outer radius $(\\ln x + 3)$, inner radius $((x-2) + 3) = (x+1)$",
+                "Washer integrand $(\\ln x + 3)^2 - (x+1)^2$"
               ],
               "correct_example": "$\\pi \\int_S^T [(\\ln x + 3)^2 - (x+1)^2]\\, dx$"
             }
           ],
           "common_traps": [
-            "Wrong radii (not shifting by 3)",
+            "Wrong radii (not shifting by $+3$)",
             "Using disk instead of washer"
+          ],
+          "official_rubric": "2 of 3 points in (b) are earned for the washer integrand $(\\ln x + 3)^2 - ((x-2) + 3)^2$.",
+          "sample_responses": [
+            {
+              "response": "$V = \\pi \\int_S^T [(\\ln x + 3)^2 - (x+1)^2]\\, dx$",
+              "earned": true,
+              "commentary": "Both radii shifted by $+3$ since axis is $y = -3$; outer uses $\\ln x$, inner uses $x - 2$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$V = \\pi \\int_S^T [(\\ln x)^2 - (x-2)^2]\\, dx$",
+              "earned": false,
+              "commentary": "No $+3$ shift — treats axis as $y = 0$ instead of $y = -3$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -100,9 +171,27 @@
               "required_elements": [
                 "Factor of $\\pi$",
                 "Correct limits $S$ to $T$",
-                "Correct answer"
+                "Volume $= 34.198$ or $34.199$"
               ],
-              "correct_example": "$\\approx 34.198$ or $34.199$"
+              "correct_example": "$V = 34.198$"
+            }
+          ],
+          "common_traps": [
+            "Dropping $\\pi$"
+          ],
+          "official_rubric": "Final point in (b): limits $S$ to $T$, factor $\\pi$, and numerical answer $34.198$ or $34.199$.",
+          "sample_responses": [
+            {
+              "response": "$V = 34.199$",
+              "earned": true,
+              "commentary": "Matches official value to three decimals.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$V = 10.885$ (forgot $\\pi$)",
+              "earned": false,
+              "commentary": "Missing $\\pi$ factor.",
+              "source": "synthesized"
             }
           ]
         }
@@ -119,19 +208,34 @@
         {
           "point_id": "c1",
           "point_value": 2,
-          "description": "Correct integrand for rotation about $y$-axis (shell or washer in terms of $y$)",
+          "description": "Correct integrand for rotation about $y$-axis (washer in terms of $y$)",
           "alternatives": [
             {
               "required_elements": [
-                "Shell method: $2\\pi x (\\ln x - (x-2))$"
+                "Outer radius $y + 2$ (from line $x = y+2$)",
+                "Inner radius $e^y$ (from $\\ln x = y$)",
+                "Washer $(y+2)^2 - (e^y)^2$"
               ],
-              "correct_example": "$2\\pi \\int_S^T x(\\ln x - (x+2))\\, dx$"
+              "correct_example": "$\\pi \\int_{T-2}^{S-2} [(y+2)^2 - (e^y)^2]\\, dy$"
+            }
+          ],
+          "common_traps": [
+            "Reversing inner and outer radii",
+            "Incorrect inverse — $y = \\ln x$ gives $x = e^y$, not $x = e^{-y}$"
+          ],
+          "official_rubric": "2 of 3 points in (c) are earned for integrand $(y+2)^2 - (e^y)^2$.",
+          "sample_responses": [
+            {
+              "response": "$V = \\pi \\int_{T-2}^{S-2} [(y+2)^2 - (e^y)^2]\\, dy$",
+              "earned": true,
+              "commentary": "Inverts each curve as a function of $y$; line gives $x = y + 2$ (outer), $\\ln x = y$ gives $x = e^y$ (inner).",
+              "source": "synthesized"
             },
             {
-              "required_elements": [
-                "Washer in $y$: inner radius $(y+2)$, outer radius $e^y$"
-              ],
-              "correct_example": "$\\pi \\int_{-2}^T [(e^y)^2 - (y+2)^2]\\, dy$"
+              "response": "$V = \\pi \\int [(e^y)^2 - (y+2)^2]\\, dy$",
+              "earned": false,
+              "commentary": "Inner/outer swapped — on $R$ the line is farther from the $y$-axis.",
+              "source": "synthesized"
             }
           ]
         },
@@ -142,9 +246,28 @@
           "alternatives": [
             {
               "required_elements": [
-                "Correct limits",
-                "Factor of $\\pi$ or $2\\pi$"
-              ]
+                "Limits in $y$: from $S - 2$ to $T - 2$",
+                "Factor of $\\pi$"
+              ],
+              "correct_example": "Limits $S-2$ to $T-2$ with $\\pi$"
+            }
+          ],
+          "common_traps": [
+            "Using $x$-limits $S$ and $T$ directly for a $y$-variable integral"
+          ],
+          "official_rubric": "Final point in (c): correct $y$-limits (the $y$-values at the intersection points, i.e., $S - 2$ and $T - 2$) and factor of $\\pi$.",
+          "sample_responses": [
+            {
+              "response": "Limits: $y$ from $S - 2$ to $T - 2$, and $\\pi$ present.",
+              "earned": true,
+              "commentary": "Converts $x$-intersections to $y$-values via $y = x - 2$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Limits: $S$ to $T$",
+              "earned": false,
+              "commentary": "These are $x$-values; when integrating $dy$, limits should be in $y$.",
+              "source": "synthesized"
             }
           ]
         }
