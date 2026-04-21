@@ -34,7 +34,25 @@
               "required_elements": [
                 "Correct area calculation using triangles/trapezoids"
               ],
-              "correct_example": "$\\int_0^{24} v(t)\\, dt = \\frac{1}{2}(4)(20) + 12(20) + \\frac{1}{2}(8)(20) = 40 + 240 + 80 = 360$ meters"
+              "correct_example": "$\\int_0^{24} v(t)\\, dt = \\tfrac{1}{2}(4)(20) + (12)(20) + \\tfrac{1}{2}(8)(20) = 40 + 240 + 80 = 360$"
+            }
+          ],
+          "common_traps": [
+            "Using the wrong shape (e.g., rectangle instead of triangle) for the opening and closing pieces"
+          ],
+          "official_rubric": "The first point of 2 in part (a) is earned for $\\int_0^{24} v(t)\\, dt = 360$, computed as the area under the piecewise-linear graph.",
+          "sample_responses": [
+            {
+              "response": "$\\int_0^{24} v(t)\\, dt = \\tfrac{1}{2}(4)(20) + (12)(20) + \\tfrac{1}{2}(8)(20) = 360$",
+              "earned": true,
+              "commentary": "Correctly sums the triangle (0–4), rectangle (4–16), and triangle (16–24) areas.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\int_0^{24} v(t)\\, dt = 20 \\cdot 24 = 480$",
+              "earned": false,
+              "commentary": "Treats the whole interval as a rectangle at constant velocity $20$ — ignores the ramps.",
+              "source": "synthesized"
             }
           ]
         },
@@ -45,9 +63,29 @@
           "alternatives": [
             {
               "required_elements": [
-                "Displacement/distance of 360 meters in 24 seconds"
+                "The car travels $360$ meters",
+                "During the $24$-second interval"
               ],
-              "correct_example": "The car travels 360 meters in these 24 seconds"
+              "correct_example": "The car travels $360$ meters in these $24$ seconds."
+            }
+          ],
+          "common_traps": [
+            "Saying 'velocity = $360$' — must interpret the integral as distance/displacement",
+            "Omitting units (meters)"
+          ],
+          "official_rubric": "The second point of 2 in part (a) is earned for interpreting the integral as the car's displacement of $360$ meters during the interval $0 \\le t \\le 24$ seconds, with units.",
+          "sample_responses": [
+            {
+              "response": "The car travels $360$ meters in these $24$ seconds.",
+              "earned": true,
+              "commentary": "Interprets integral of velocity as distance travelled, with units.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The integral equals $360$.",
+              "earned": false,
+              "commentary": "Does not interpret the meaning or provide units.",
+              "source": "synthesized"
             }
           ]
         }
@@ -70,7 +108,26 @@
               "required_elements": [
                 "Left and right limits of difference quotient are unequal at $t=4$"
               ],
-              "correct_example": "$v'(4)$ does not exist because $\\lim_{t\\to 4^-}\\frac{v(t)-v(4)}{t-4} = 5 \\neq 0 = \\lim_{t\\to 4^+}\\frac{v(t)-v(4)}{t-4}$"
+              "correct_example": "$v'(4)$ does not exist because $\\lim_{t\\to 4^-}\\tfrac{v(t)-v(4)}{t-4} = 5$ while $\\lim_{t\\to 4^+}\\tfrac{v(t)-v(4)}{t-4} = 0$."
+            }
+          ],
+          "common_traps": [
+            "Saying 'the slope changes at $t=4$' without comparing left/right limits",
+            "Computing only the left (or only the right) slope"
+          ],
+          "official_rubric": "The first point of 3 in part (b) is earned for stating $v'(4)$ does not exist, with an explanation based on the one-sided slopes being unequal ($5$ on the left, $0$ on the right).",
+          "sample_responses": [
+            {
+              "response": "$v'(4)$ does not exist because the left-hand slope is $5$ and the right-hand slope is $0$.",
+              "earned": true,
+              "commentary": "Explicitly compares one-sided limits at the corner.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$v'(4) = 0$",
+              "earned": false,
+              "commentary": "Only takes the right-hand slope; ignores the corner at $t = 4$.",
+              "source": "synthesized"
             }
           ]
         },
@@ -81,9 +138,28 @@
           "alternatives": [
             {
               "required_elements": [
-                "$v'(20) = -5/2$ m/sec²"
+                "$v'(20) = -\\tfrac{5}{2}$"
               ],
-              "correct_example": "$v'(20) = \\frac{0-20}{24-16} = \\frac{-20}{8} = -\\frac{5}{2}$ m/sec²"
+              "correct_example": "$v'(20) = \\tfrac{0-20}{24-16} = -\\tfrac{20}{8} = -\\tfrac{5}{2}$"
+            }
+          ],
+          "common_traps": [
+            "Getting the sign wrong",
+            "Using the whole interval $[0, 24]$ instead of the linear piece $[16, 24]$"
+          ],
+          "official_rubric": "The second point of 3 in part (b) is earned for $v'(20) = -\\tfrac{5}{2}$.",
+          "sample_responses": [
+            {
+              "response": "$v'(20) = -\\tfrac{5}{2}$",
+              "earned": true,
+              "commentary": "The slope of the last linear piece from $(16, 20)$ to $(24, 0)$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$v'(20) = \\tfrac{5}{2}$",
+              "earned": false,
+              "commentary": "Sign error — velocity is decreasing on $[16, 24]$, so $v'$ should be negative.",
+              "source": "synthesized"
             }
           ]
         },
@@ -95,7 +171,27 @@
             {
               "required_elements": [
                 "Units: meters per second per second (m/sec²)"
-              ]
+              ],
+              "correct_example": "$v'(20) = -\\tfrac{5}{2}\\ \\text{m}/\\text{sec}^2$"
+            }
+          ],
+          "common_traps": [
+            "Omitting units",
+            "Using m/sec (units of velocity) instead of m/sec²"
+          ],
+          "official_rubric": "The third point of 3 in part (b) is earned for including units of m/sec² for $v'(20)$.",
+          "sample_responses": [
+            {
+              "response": "$v'(20) = -\\tfrac{5}{2}\\ \\text{m}/\\text{sec}^2$",
+              "earned": true,
+              "commentary": "Units are correct for acceleration.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$v'(20) = -\\tfrac{5}{2}\\ \\text{m}/\\text{sec}$",
+              "earned": false,
+              "commentary": "These are units of velocity, not acceleration.",
+              "source": "synthesized"
             }
           ]
         }
@@ -112,12 +208,31 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Correct acceleration values ($5, 0, -5/2$)",
+          "description": "Correct acceleration values ($5, 0, -\\tfrac{5}{2}$)",
           "alternatives": [
             {
               "required_elements": [
-                "Values: $5$ on $(0,4)$, $0$ on $(4,16)$, $-5/2$ on $(16,24)$"
-              ]
+                "Values: $5$ on $(0,4)$, $0$ on $(4,16)$, $-\\tfrac{5}{2}$ on $(16,24)$"
+              ],
+              "correct_example": "$a$-values: $5$, $0$, $-\\tfrac{5}{2}$"
+            }
+          ],
+          "common_traps": [
+            "Using $-5$ instead of $-\\tfrac{5}{2}$ for the last piece"
+          ],
+          "official_rubric": "The first point of 2 in part (c) is earned for the three correct slope values $5$, $0$, and $-\\tfrac{5}{2}$.",
+          "sample_responses": [
+            {
+              "response": "On $(0,4)$, $a=5$; on $(4,16)$, $a=0$; on $(16,24)$, $a=-\\tfrac{5}{2}$.",
+              "earned": true,
+              "commentary": "All three slope values computed correctly from the piecewise-linear graph.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$a=5, 0, -5$",
+              "earned": false,
+              "commentary": "Third value should be $-\\tfrac{5}{2}$, not $-5$.",
+              "source": "synthesized"
             }
           ]
         },
@@ -128,9 +243,27 @@
           "alternatives": [
             {
               "required_elements": [
-                "Three pieces with correct domain intervals"
+                "Three pieces with correct domain intervals $(0,4), (4,16), (16,24)$"
               ],
-              "correct_example": "$a(t) = \\begin{cases} 5 & 0 < t < 4 \\\\ 0 & 4 < t < 16 \\\\ -5/2 & 16 < t < 24 \\end{cases}$, does not exist at $t=4, 16$"
+              "correct_example": "$a(t) = \\begin{cases} 5 & 0 < t < 4 \\\\ 0 & 4 < t < 16 \\\\ -\\tfrac{5}{2} & 16 < t < 24 \\end{cases}$; $a(t)$ does not exist at $t = 4, 16$."
+            }
+          ],
+          "common_traps": [
+            "Including $t = 4$ or $t = 16$ in any piece — $a$ DNE at those corner points"
+          ],
+          "official_rubric": "The second point of 2 in part (c) is earned for correct intervals paired with the three values.",
+          "sample_responses": [
+            {
+              "response": "$a(t) = \\begin{cases} 5 & 0 < t < 4 \\\\ 0 & 4 < t < 16 \\\\ -\\tfrac{5}{2} & 16 < t < 24 \\end{cases}$",
+              "earned": true,
+              "commentary": "Open intervals paired with the correct values, matching the rubric's structure.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$a(t) = \\begin{cases} 5 & 0 \\le t \\le 4 \\\\ 0 & 4 \\le t \\le 16 \\\\ -\\tfrac{5}{2} & 16 \\le t \\le 24 \\end{cases}$",
+              "earned": false,
+              "commentary": "Includes corner points $t = 4$ and $t = 16$ where $a$ does not exist.",
+              "source": "synthesized"
             }
           ]
         }
@@ -151,9 +284,29 @@
           "alternatives": [
             {
               "required_elements": [
-                "$\\frac{v(20)-v(8)}{20-8}$"
+                "$\\tfrac{v(20)-v(8)}{20-8}$",
+                "Numerical answer $-\\tfrac{5}{6}$ m/sec²"
               ],
-              "correct_example": "$\\frac{v(20)-v(8)}{20-8} = \\frac{0-20}{12} = -\\frac{5}{3}$ m/sec²"
+              "correct_example": "$\\tfrac{v(20)-v(8)}{20-8} = \\tfrac{10-20}{12} = -\\tfrac{5}{6}\\ \\text{m}/\\text{sec}^2$"
+            }
+          ],
+          "common_traps": [
+            "Using $v(20) = 0$ instead of $v(20) = 10$ — $v(20)$ lies on the linear segment from $(16, 20)$ to $(24, 0)$",
+            "Forgetting to divide by the width $12$"
+          ],
+          "official_rubric": "The first point of 2 in part (d) is earned for the correct average rate of change $-\\tfrac{5}{6}\\ \\text{m}/\\text{sec}^2$.",
+          "sample_responses": [
+            {
+              "response": "Avg rate $= \\tfrac{v(20) - v(8)}{20 - 8} = \\tfrac{10 - 20}{12} = -\\tfrac{5}{6}\\ \\text{m}/\\text{sec}^2$",
+              "earned": true,
+              "commentary": "Computes $v(20)$ from the linear segment on $[16, 24]$ and divides correctly.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Avg rate $= \\tfrac{0 - 20}{12} = -\\tfrac{5}{3}$",
+              "earned": false,
+              "commentary": "Incorrect — $v(20) \\ne 0$; $v$ hits $0$ at $t = 24$, and $v(20) = 10$.",
+              "source": "synthesized"
             }
           ]
         },
@@ -167,7 +320,26 @@
                 "MVT does not apply",
                 "Because $v$ is not differentiable at $t = 16$"
               ],
-              "correct_example": "No. MVT does not guarantee such a $c$ because $v$ is not differentiable at $t=16 \\in [8,20]$"
+              "correct_example": "No. MVT does not guarantee such a $c$ because $v$ is not differentiable at $t = 16 \\in (8, 20)$."
+            }
+          ],
+          "common_traps": [
+            "Stating 'Yes' because $v$ is continuous — MVT requires differentiability, which fails at $t = 16$",
+            "Citing continuity alone without addressing differentiability"
+          ],
+          "official_rubric": "The second point of 2 in part (d) is earned for the answer 'No, MVT does not apply' with justification that $v$ fails to be differentiable at $t = 16 \\in (8, 20)$.",
+          "sample_responses": [
+            {
+              "response": "No. The MVT does not apply because $v$ is not differentiable at $t = 16$, which lies in $(8, 20)$.",
+              "earned": true,
+              "commentary": "Directly cites the differentiability failure at the corner.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Yes, because $v$ is continuous on $[8, 20]$.",
+              "earned": false,
+              "commentary": "Continuity is necessary but not sufficient for MVT; differentiability is required on the open interval and fails at $t = 16$.",
+              "source": "synthesized"
             }
           ]
         }
