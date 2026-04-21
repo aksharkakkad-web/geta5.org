@@ -17,7 +17,7 @@
     {
       "letter": "a",
       "prompt": "For trial 1, calculate the initial pressure, in atm, in the vessel at 625 K. Assume that initially all the gas\npresent in the vessel is C$_4$H$_6$.",
-      "point_value": 1,
+      "point_value": 2,
       "scoring_notes": "From the graphs, the initial concentration in trial 1 is approximately [C$_4$H$_6$]$_0$ = 0.020 mol/L. Use ideal gas law: P = nRT/V = cRT. P = (0.020 mol/L)(0.08206 L·atm/mol·K)(625 K) = 1.026 ≈ 1.03 atm.",
       "requires_drawing": false,
       "reference_image": null,
@@ -41,12 +41,12 @@
           "common_traps": [
             "Pressure from concentration: $P = n/V \\times RT = c \\times RT$. For a gas at concentration $c$ (mol/L), $P = cRT$."
           ],
-          "official_rubric": "1 point is earned for a correct setup AND the correct answer.",
+          "official_rubric": "1 point is earned for a correct setup. 1 point is earned for the correct answer.",
           "sample_responses": [
             {
-              "response": "For trial 1, $n/V = 0.020\\text{ mol/L}$. Using $PV = nRT$: $P = (n/V)RT = (0.020)(0.08206)(625) = 1.0\\text{ atm}$.",
+              "response": "For trial 1, $\\dfrac{n}{V} = 0.020$ mol/L (or assume the volume of the vessel is 1.0 L; the number of moles of C$_4$H$_6$ in the vessel would then be 0.020 mol).\n\n$PV = nRT$\n\n$P = \\dfrac{nRT}{V} = \\dfrac{(0.020\\text{ mol})(0.08206\\text{ L atm mol}^{-1}\\text{ K}^{-1})(625\\text{ K})}{1.0\\text{ L}} = 1.0$ atm",
               "earned": true,
-              "commentary": "Reads the initial [C$_4$H$_6$] from the trial 1 plot, applies $P = cRT$ with T in kelvin, and computes the initial pressure — the CB model answer.",
+              "commentary": "CB model response: reads [C$_4$H$_6$]$_0$ = 0.020 M from the trial 1 graph, applies $PV = nRT$ using T in kelvin, and arrives at 1.0 atm.",
               "source": "cb_guideline"
             },
             {
@@ -132,18 +132,18 @@
           "common_traps": [
             "For second-order: $k = \\text{rate}/[A]^2$. Units: (mol/L·s)/(mol/L)$^2$ = L/(mol·s)."
           ],
-          "official_rubric": "1 point is earned for the correct value of $k$ (either from rate = $k[\\text{C}_4\\text{H}_6]^2$ or from the slope of the $1/[\\text{C}_4\\text{H}_6]$ vs. time plot — students who use the integrated-rate-law slope method and omit the factor of 2 (getting 5.0 L/(mol·s)) still earn the point).",
+          "official_rubric": "1 point is earned for the correct value. Note: Students who choose the second method of determining $k$ but omit the factor of 2, thereby getting an answer of 5.0 L/(mol·s), still earn the point.",
           "sample_responses": [
             {
-              "response": "$k = \\frac{\\text{rate}}{[\\text{C}_4\\text{H}_6]^2} = \\frac{0.0010\\text{ mol/(L·s)}}{(0.020\\text{ mol/L})^2} = 2.5\\text{ L/(mol·s)}$",
+              "response": "From the second-order rate law (differential form): rate $= k[\\text{C}_4\\text{H}_6]^2$\n\n$k = \\dfrac{\\text{rate}}{([\\text{C}_4\\text{H}_6])^2} = \\dfrac{0.0010\\text{ mol/(L·s)}}{(0.020\\text{ mol/L})^2} = 2.5$ L/(mol·s)",
               "earned": true,
-              "commentary": "Uses the second-order differential rate law with the initial rate and initial concentration from trial 1 to compute $k$ with correct units — the CB model answer.",
+              "commentary": "CB model response: uses the differential second-order rate law with the initial rate and initial concentration from trial 1 to compute $k = 2.5$ L/(mol·s) with correct units.",
               "source": "cb_guideline"
             },
             {
-              "response": "From the 1/[A] vs. time plot, slope = $5.0\\text{ L/(mol·s)} = 2k$, so $k = 2.5\\text{ L/(mol·s)}$.",
+              "response": "From the second-order rate law (integrated form): $\\dfrac{1}{[\\text{C}_4\\text{H}_6]_t} = 2kt + \\dfrac{1}{[\\text{C}_4\\text{H}_6]_0}$. The coefficient of $t$ is $2k$ because of the reaction stoichiometry. The slope of the line in the plot of $\\dfrac{1}{[\\text{C}_4\\text{H}_6]}$ versus time is $2k$. Thus slope $= 5.0$ L/(mol·s) $= 2k$, therefore $k = 2.5$ L/(mol·s).",
               "earned": true,
-              "commentary": "Uses the integrated-rate-law slope method; since the stoichiometry is $2\\text{C}_4\\text{H}_6 \\rightarrow \\text{C}_8\\text{H}_{12}$, the slope of $1/[\\text{C}_4\\text{H}_6]$ vs. time equals $2k$.",
+              "commentary": "CB accepted alternative method: uses the integrated-rate-law slope from the 1/[A] vs. t plot. Because the stoichiometric coefficient of C$_4$H$_6$ is 2, the slope equals $2k$. CB also awards the point if the factor of 2 is omitted and $k = 5.0$ L/(mol·s) is reported.",
               "source": "cb_guideline"
             }
           ]
