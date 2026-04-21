@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { BookOpen, ClipboardList, BookMarked, Trophy, PenLine } from 'lucide-react'
+import { BookOpen, ClipboardList, BookMarked, Trophy, PenLine, Library } from 'lucide-react'
 import { ModeIcon } from '@/components/3d/ModeIcon'
 
 const colorMap = {
@@ -41,6 +41,13 @@ const colorMap = {
     grad2: '#fb7185',
     iconColor: '#f43f5e',
   },
+  violet: {
+    hex: '#a855f7',
+    rgb: '168, 85, 247',
+    grad1: '#a855f7',
+    grad2: '#c084fc',
+    iconColor: '#a855f7',
+  },
 } as const
 
 type ColorKey = keyof typeof colorMap
@@ -51,6 +58,7 @@ const iconMap = {
   'study-guide': BookMarked,
   test: Trophy,
   frq: PenLine,
+  vocab: Library,
 } as const
 
 type IconName = keyof typeof iconMap

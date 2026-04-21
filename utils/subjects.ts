@@ -130,3 +130,13 @@ export function getSubject(slug: string): Subject | undefined {
 export function getAllSubjects(): Subject[] {
   return SUBJECTS
 }
+
+const FORMULA_SUBJECT_SLUGS = new Set([
+  'ap-calculus-ab',
+  'ap-calculus-bc',
+  'ap-precalculus',
+])
+
+export function getVocabLabel(slug: string): 'Vocab' | 'Formulas' {
+  return FORMULA_SUBJECT_SLUGS.has(slug) ? 'Formulas' : 'Vocab'
+}
