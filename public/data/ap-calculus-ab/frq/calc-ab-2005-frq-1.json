@@ -31,13 +31,28 @@
           "alternatives": [
             {
               "required_elements": [
-                "Correct lower bound $x = a \\approx 0.178$ and upper bound $x = 0$ for region R"
+                "Correct lower bound $x = 0$ and upper bound $x = a \\approx 0.178218$ for region $R$"
               ],
               "correct_example": "$\\int_0^a [g(x) - f(x)]\\, dx$ with correct bounds"
             }
           ],
           "common_traps": [
-            "Using limits for region S instead of region R"
+            "Using limits for region $S$ instead of region $R$"
+          ],
+          "official_rubric": "The first point of 3 in part (a) is earned for correct limits of integration for region $R$: lower limit $0$ and upper limit $a$, where $a = 0.178218$ is the intersection of $f$ and $g$ in the first quadrant.",
+          "sample_responses": [
+            {
+              "response": "$\\text{Area}(R) = \\int_0^{0.178218} [g(x) - f(x)]\\, dx$",
+              "earned": true,
+              "commentary": "Correct lower limit $0$ (the $y$-axis) and upper limit $a = 0.178218$ (first intersection of $f$ and $g$).",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\text{Area}(R) = \\int_{0.178218}^{1} [g(x) - f(x)]\\, dx$",
+              "earned": false,
+              "commentary": "These are the limits for region $S$, not region $R$. The bounds are switched.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -47,9 +62,27 @@
           "alternatives": [
             {
               "required_elements": [
-                "Integrand is $g(x) - f(x)$ for the region above $g$ and below $f$ (or correct orientation)"
+                "Integrand is $g(x) - f(x)$ (top curve minus bottom curve on $R$)"
               ],
               "correct_example": "$g(x) - f(x) = 4^{-x} - (1 + \\sin(\\pi x))$"
+            }
+          ],
+          "common_traps": [
+            "Reversing the order to $f(x) - g(x)$, which gives a negative area on $R$"
+          ],
+          "official_rubric": "The second point of 3 in part (a) is earned for the correct integrand $g(x) - f(x)$ on $R$, where $g$ lies above $f$.",
+          "sample_responses": [
+            {
+              "response": "Integrand: $g(x) - f(x) = 4^{-x} - (1 + \\sin(\\pi x))$",
+              "earned": true,
+              "commentary": "Correctly identifies $g$ as the upper curve on $R$ and subtracts $f$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Integrand: $f(x) - g(x) = (1 + \\sin(\\pi x)) - 4^{-x}$",
+              "earned": false,
+              "commentary": "On region $R$, $g$ is above $f$; reversing yields a negative integrand.",
+              "source": "synthesized"
             }
           ]
         },
@@ -60,9 +93,28 @@
           "alternatives": [
             {
               "required_elements": [
-                "Correct numerical answer"
+                "Numerical answer $0.064$ or $0.065$"
               ],
-              "correct_example": "$\\approx 0.064$ or $0.065$"
+              "correct_example": "$\\int_0^{0.178218} [4^{-x} - (1 + \\sin(\\pi x))]\\, dx = 0.064$"
+            }
+          ],
+          "common_traps": [
+            "Rounding too aggressively",
+            "Calculator set to degrees instead of radians"
+          ],
+          "official_rubric": "The third point of 3 in part (a) is earned for the correct answer, $0.064$ or $0.065$.",
+          "sample_responses": [
+            {
+              "response": "$\\int_0^{0.178218} [4^{-x} - (1 + \\sin(\\pi x))]\\, dx = 0.065$",
+              "earned": true,
+              "commentary": "Evaluates the integral with a calculator in radian mode, producing the accepted answer.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Area $\\approx 0.1$",
+              "earned": false,
+              "commentary": "Too few decimal places for a calculator-active question; AP requires at least three decimals.",
+              "source": "synthesized"
             }
           ]
         }
@@ -79,25 +131,62 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct limits of integration for region S",
+          "description": "Correct limits of integration for region $S$",
           "alternatives": [
             {
               "required_elements": [
-                "Lower limit $x = a \\approx 0.178$, upper limit $x = 1$"
+                "Lower limit $x = a \\approx 0.178218$, upper limit $x = 1$"
               ],
               "correct_example": "$\\int_a^1 [f(x) - g(x)]\\, dx$"
+            }
+          ],
+          "common_traps": [
+            "Using $0$ as the lower limit instead of $a$"
+          ],
+          "official_rubric": "The first point of 3 in part (b) is earned for correct limits of integration on $S$: from $a = 0.178218$ to $1$.",
+          "sample_responses": [
+            {
+              "response": "$\\text{Area}(S) = \\int_{0.178218}^{1} [f(x) - g(x)]\\, dx$",
+              "earned": true,
+              "commentary": "Lower limit is the intersection $a$ and upper limit is the second intersection at $x = 1$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\int_0^1 [f(x) - g(x)]\\, dx$",
+              "earned": false,
+              "commentary": "Integrating from $0$ to $1$ includes region $R$ (where $g > f$) with a sign flip.",
+              "source": "synthesized"
             }
           ]
         },
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct integrand for region S",
+          "description": "Correct integrand for region $S$",
           "alternatives": [
             {
               "required_elements": [
                 "Integrand $f(x) - g(x)$ on $[a, 1]$"
-              ]
+              ],
+              "correct_example": "$f(x) - g(x) = (1 + \\sin(\\pi x)) - 4^{-x}$"
+            }
+          ],
+          "common_traps": [
+            "Keeping the order $g - f$ from part (a) even though $f > g$ on $S$"
+          ],
+          "official_rubric": "The second point of 3 in part (b) is earned for the correct integrand $f(x) - g(x)$ on $[a, 1]$, where $f$ lies above $g$.",
+          "sample_responses": [
+            {
+              "response": "Integrand: $(1 + \\sin(\\pi x)) - 4^{-x}$",
+              "earned": true,
+              "commentary": "Correctly identifies $f$ as the upper curve on $S$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Integrand: $4^{-x} - (1 + \\sin(\\pi x))$",
+              "earned": false,
+              "commentary": "Reverses the top/bottom assignment; the integral would be negative on $S$.",
+              "source": "synthesized"
             }
           ]
         },
@@ -108,9 +197,27 @@
           "alternatives": [
             {
               "required_elements": [
-                "Correct numerical area of S"
+                "Numerical area of $S$ equal to $0.410$"
               ],
-              "correct_example": "$\\approx 0.410$"
+              "correct_example": "$\\int_{0.178218}^{1} [(1 + \\sin(\\pi x)) - 4^{-x}]\\, dx = 0.410$"
+            }
+          ],
+          "common_traps": [
+            "Calculator in degree mode gives a very different value"
+          ],
+          "official_rubric": "The third point of 3 in part (b) is earned for the correct answer, $0.410$.",
+          "sample_responses": [
+            {
+              "response": "Area$(S) = 0.410$",
+              "earned": true,
+              "commentary": "Matches the official answer to three decimal places with radian mode.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Area$(S) = 0.41$",
+              "earned": false,
+              "commentary": "Decimal presentation error — fewer than three decimal places on a calculator question.",
+              "source": "synthesized"
             }
           ]
         }
@@ -131,15 +238,37 @@
           "alternatives": [
             {
               "required_elements": [
-                "Washer method: $\\pi[(f(x)+1)^2 - (g(x)+1)^2]$",
+                "Washer method: $(f(x)+1)^2 - (g(x)+1)^2$",
                 "Outer radius $f(x)+1$, inner radius $g(x)+1$"
               ],
               "correct_example": "$\\pi \\int_a^1 [(f(x)+1)^2 - (g(x)+1)^2]\\, dx$"
             }
           ],
           "common_traps": [
-            "Forgetting to shift by +1 for the axis $y = -1$",
-            "Using disk instead of washer method"
+            "Forgetting to shift by $+1$ for the axis $y = -1$",
+            "Using disk instead of washer method",
+            "Squaring $(f(x) - g(x))$ instead of squaring each radius separately"
+          ],
+          "official_rubric": "2 of 3 points in part (c) are earned for the correct integrand $(f(x)+1)^2 - (g(x)+1)^2$ reflecting the washer method about $y = -1$ with outer radius $f(x)+1$ and inner radius $g(x)+1$.",
+          "sample_responses": [
+            {
+              "response": "$V = \\pi \\int_a^1 [(f(x)+1)^2 - (g(x)+1)^2]\\, dx$",
+              "earned": true,
+              "commentary": "Correct washer setup; both radii are shifted up by $1$ because the axis is $y = -1$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$V = \\pi \\int_a^1 [f(x) - g(x)]^2\\, dx$",
+              "earned": false,
+              "commentary": "Squaring the difference is not the washer formula; must square each radius individually and subtract.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$V = \\pi \\int_a^1 [f(x)^2 - g(x)^2]\\, dx$",
+              "earned": false,
+              "commentary": "Ignores the $+1$ shift required when the axis of rotation is $y = -1$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -151,9 +280,28 @@
               "required_elements": [
                 "Limits from $a$ to $1$",
                 "Factor of $\\pi$",
-                "Correct numerical answer"
+                "Correct numerical answer $4.558$ or $4.559$"
               ],
-              "correct_example": "$\\approx 4.558$ or $4.559$"
+              "correct_example": "$\\pi \\int_{0.178218}^{1} [(f(x)+1)^2 - (g(x)+1)^2]\\, dx = 4.558$"
+            }
+          ],
+          "common_traps": [
+            "Dropping the factor $\\pi$",
+            "Using $0$ instead of $a$ as the lower limit"
+          ],
+          "official_rubric": "The final 1 of 3 points in part (c) is earned for correct limits from $a$ to $1$, the factor of $\\pi$, and the correct answer $4.558$ or $4.559$.",
+          "sample_responses": [
+            {
+              "response": "$V = \\pi \\int_{0.178218}^{1} [(f(x)+1)^2 - (g(x)+1)^2]\\, dx = 4.558$",
+              "earned": true,
+              "commentary": "All three required elements present: correct limits, $\\pi$ factor, and correct numerical answer.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$V = \\int_{0.178218}^{1} [(f(x)+1)^2 - (g(x)+1)^2]\\, dx = 1.451$",
+              "earned": false,
+              "commentary": "Missing the factor of $\\pi$; the shape of the solid requires $\\pi$.",
+              "source": "synthesized"
             }
           ]
         }
