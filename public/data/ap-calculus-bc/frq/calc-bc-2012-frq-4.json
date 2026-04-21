@@ -36,6 +36,21 @@
               ],
               "correct_example": "$y - 5 = 8(x - 1)$  or equivalently  $y = 8x - 3$"
             }
+          ],
+          "official_rubric": "1 point for tangent line. The tangent line at $x = 1$ uses the point $(1, f(1))$ and slope $f'(1)$.",
+          "sample_responses": [
+            {
+              "response": "$y = 5 + 8(x - 1)$",
+              "earned": true,
+              "commentary": "Correct tangent line with slope $f'(1) = 8$ and point $(1, 5)$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$y = 8x$",
+              "earned": false,
+              "commentary": "Uses the correct slope but wrong intercept; omits the point-slope adjustment to pass through $(1, 5)$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -48,6 +63,21 @@
                 "Substitute $x = 1.4$ into the tangent line equation"
               ],
               "correct_example": "$y(1.4) = 8(1.4) - 3 = 11.2 - 3 = 8.2$"
+            }
+          ],
+          "official_rubric": "1 point for approximation. $f(1.4) \\approx 5 + 8(0.4) = 8.2$.",
+          "sample_responses": [
+            {
+              "response": "$f(1.4) \\approx 5 + 8(0.4) = 8.2$",
+              "earned": true,
+              "commentary": "Substitutes $x = 1.4$ into the tangent line equation.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$f(1.4) \\approx 8(1.4) = 11.2$",
+              "earned": false,
+              "commentary": "Forgets the $f(1) = 5$ offset; uses only slope times $x$.",
+              "source": "synthesized"
             }
           ]
         }
@@ -72,6 +102,21 @@
               ],
               "correct_example": "$\\int_1^{1.4} f'(x)\\, dx \\approx 0.2 \\cdot f'(1.1) + 0.2 \\cdot f'(1.3)$"
             }
+          ],
+          "official_rubric": "1 point for midpoint Riemann sum setup. Two equal subintervals of width $0.2$ with midpoints $1.1$ and $1.3$.",
+          "sample_responses": [
+            {
+              "response": "$\\int_1^{1.4} f'(x)\\, dx \\approx 0.2 \\cdot f'(1.1) + 0.2 \\cdot f'(1.3)$",
+              "earned": true,
+              "commentary": "Correct midpoint setup — uses the midpoint of each subinterval as the sample point.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\int_1^{1.4} f'(x)\\, dx \\approx 0.2 \\cdot f'(1.0) + 0.2 \\cdot f'(1.2)$",
+              "earned": false,
+              "commentary": "Uses the left endpoints of each subinterval — that would be a left Riemann sum, not a midpoint sum.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -89,6 +134,21 @@
           "common_traps": [
             "Using the endpoints of the subintervals instead of the midpoints",
             "Using $f'(1.2)$ and $f'(1.4)$ (right endpoints) rather than the midpoints $f'(1.1)$ and $f'(1.3)$"
+          ],
+          "official_rubric": "1 point for Fundamental Theorem of Calculus / correct sum evaluation using table values.",
+          "sample_responses": [
+            {
+              "response": "$\\int_1^{1.4} f'(x)\\, dx \\approx 0.2(10) + 0.2(15) = 5$",
+              "earned": true,
+              "commentary": "Correct midpoint values consistent with the tabulated data and sum computed correctly.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\int_1^{1.4} f'(x)\\, dx \\approx 0.4(10 + 15) = 10$",
+              "earned": false,
+              "commentary": "Uses the wrong subinterval width; each subinterval has width $0.2$, not $0.4$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -101,6 +161,21 @@
                 "$f(1.4) = f(1) + \\int_1^{1.4} f'(x)\\, dx \\approx 5 + 5 = 10$"
               ],
               "correct_example": "$f(1.4) \\approx 5 + 5 = 10$"
+            }
+          ],
+          "official_rubric": "1 point for answer. $f(1.4) = f(1) + \\int_1^{1.4} f'(x)\\, dx$.",
+          "sample_responses": [
+            {
+              "response": "$f(1.4) = f(1) + \\int_1^{1.4} f'(x)\\, dx \\approx 5 + 5 = 10$",
+              "earned": true,
+              "commentary": "Applies FTC correctly to combine the initial value with the Riemann sum approximation.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$f(1.4) \\approx 5$",
+              "earned": false,
+              "commentary": "Uses the Riemann sum value as $f(1.4)$ directly, omitting the $f(1) = 5$ initial value.",
+              "source": "synthesized"
             }
           ]
         }
@@ -127,6 +202,21 @@
           ],
           "common_traps": [
             "Using step size $h = 0.4$ (one step) instead of $h = 0.2$ (two equal steps)"
+          ],
+          "official_rubric": "1 point for Euler's method with two steps. Uses $f(1.2) \\approx f(1) + h \\cdot f'(1)$ with $h = 0.2$.",
+          "sample_responses": [
+            {
+              "response": "$f(1.2) \\approx 5 + 0.2 \\cdot 8 = 6.6$",
+              "earned": true,
+              "commentary": "Correct first Euler step using step size $h = 0.2$ and slope $f'(1) = 8$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$f(1.2) \\approx 5 + 0.4 \\cdot 8 = 8.2$",
+              "earned": false,
+              "commentary": "Uses step size $0.4$ for the full interval; the problem requires two equal steps of size $0.2$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -138,6 +228,21 @@
               "required_elements": [
                 "$f(1.4) \\approx f(1.2) + 0.2 \\cdot f'(1.2) = 6.6 + 0.2(12) = 6.6 + 2.4 = 9.0$"
               ]
+            }
+          ],
+          "official_rubric": "1 point for the final Euler approximation.",
+          "sample_responses": [
+            {
+              "response": "$f(1.4) \\approx 6.6 + 0.2(12) = 9.0$",
+              "earned": true,
+              "commentary": "Correct second Euler step using $f'(1.2) = 12$ from the table.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$f(1.4) \\approx 6.6 + 0.2(18) = 10.2$",
+              "earned": false,
+              "commentary": "Uses $f'(1.4) = 18$ instead of $f'(1.2) = 12$; Euler's method uses the slope at the current $x$-value.",
+              "source": "synthesized"
             }
           ]
         }
@@ -165,6 +270,21 @@
           ],
           "common_traps": [
             "Forgetting to divide $f''(1) = 20$ by $2!$, giving $20(x-1)^2$ instead of $10(x-1)^2$"
+          ],
+          "official_rubric": "1 point for Taylor polynomial. $P_2(x) = f(1) + f'(1)(x-1) + \\dfrac{f''(1)}{2!}(x-1)^2$.",
+          "sample_responses": [
+            {
+              "response": "$P_2(x) = 5 + 8(x - 1) + 10(x - 1)^2$",
+              "earned": true,
+              "commentary": "Correct second-degree Taylor polynomial at $x = 1$, with $f''(1)/2! = 10$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$P_2(x) = 5 + 8(x - 1) + 20(x - 1)^2$",
+              "earned": false,
+              "commentary": "Forgets to divide $f''(1) = 20$ by $2!$; the quadratic coefficient should be $10$, not $20$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -176,6 +296,21 @@
               "required_elements": [
                 "$P_2(1.4) = 5 + 8(0.4) + 10(0.4)^2 = 5 + 3.2 + 1.6 = 9.8$"
               ]
+            }
+          ],
+          "official_rubric": "1 point for approximation. $f(1.4) \\approx P_2(1.4)$.",
+          "sample_responses": [
+            {
+              "response": "$f(1.4) \\approx 5 + 8(0.4) + 10(0.4)^2 = 9.8$",
+              "earned": true,
+              "commentary": "Correct substitution and evaluation of the Taylor polynomial at $x = 1.4$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$f(1.4) \\approx 5 + 8(0.4) + 10(0.4) = 12.2$",
+              "earned": false,
+              "commentary": "Forgets to square $(x - 1) = 0.4$ in the quadratic term.",
+              "source": "synthesized"
             }
           ]
         }
