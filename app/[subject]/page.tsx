@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { getSubject } from '@/utils/subjects'
+import { getSubject, getVocabLabel } from '@/utils/subjects'
 import { ModeCard } from '@/components/ui/ModeCard'
 import { ProjectedScoreBadge } from '@/components/ui/ProjectedScoreBadge'
 import { SubjectAnalytics } from '@/components/ui/SubjectAnalytics'
@@ -49,6 +49,11 @@ export default async function SubjectPage({ params }: SubjectPageProps) {
   const daysUntil = getDaysUntilExam(subject.examDate)
   const examDateFormatted = formatExamDate(subject.examDate)
 
+  const vocabLabel = getVocabLabel(subject.slug)
+  const vocabDescription = vocabLabel === 'Formulas'
+    ? 'Browse key formulas by unit'
+    : 'Browse key terms by unit'
+
   const modes = [
     {
       title: 'Drills',
@@ -56,6 +61,13 @@ export default async function SubjectPage({ params }: SubjectPageProps) {
       iconName: 'drills' as const,
       href: `/${subject.slug}/drills`,
       colorKey: 'indigo' as const,
+    },
+    {
+      title: vocabLabel,
+      description: vocabDescription,
+      iconName: 'vocab' as const,
+      href: `/${subject.slug}/vocab`,
+      colorKey: 'violet' as const,
     },
     {
       title: 'Practice Questions',
