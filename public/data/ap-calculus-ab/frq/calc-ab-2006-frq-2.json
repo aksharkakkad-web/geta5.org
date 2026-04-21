@@ -33,6 +33,24 @@
               ],
               "correct_example": "$\\int_0^{18} L(t)\\, dt$"
             }
+          ],
+          "common_traps": [
+            "Calculator syntax `fnInt(L,t,0,18)` instead of proper notation"
+          ],
+          "official_rubric": "Setup point (1 of 2 in part a) is earned for the integral $\\int_0^{18} L(t)\\, dt$.",
+          "sample_responses": [
+            {
+              "response": "$\\int_0^{18} L(t)\\, dt$",
+              "earned": true,
+              "commentary": "Correct mathematical notation.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$L(18) - L(0)$",
+              "earned": false,
+              "commentary": "Gives a rate difference, not a total accumulation; must integrate.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -42,9 +60,28 @@
           "alternatives": [
             {
               "required_elements": [
-                "Correct numerical answer"
+                "$\\approx 1658$ cars"
               ],
-              "correct_example": "$\\approx 1658$ cars"
+              "correct_example": "$\\int_0^{18} L(t)\\, dt \\approx 1658$"
+            }
+          ],
+          "common_traps": [
+            "Not rounding to whole number as required",
+            "Calculator in degrees mode"
+          ],
+          "official_rubric": "Answer point (2 of 2 in part a): $1658$ cars to the nearest whole number.",
+          "sample_responses": [
+            {
+              "response": "$\\int_0^{18} L(t)\\, dt \\approx 1658$ cars",
+              "earned": true,
+              "commentary": "Correctly rounded to nearest whole number as the problem requires.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$1658.05$ cars",
+              "earned": false,
+              "commentary": "Not rounded to nearest whole number as required.",
+              "source": "synthesized"
             }
           ]
         }
@@ -65,9 +102,29 @@
           "alternatives": [
             {
               "required_elements": [
-                "$L(t) = 150$ at $t \\approx 12.428$ and $t \\approx 16.122$",
+                "$L(t) = 150$ at $t = 12.42831$ and $t = 16.12166$",
                 "Interval $[12.428, 16.122]$"
-              ]
+              ],
+              "correct_example": "$L(t) \\ge 150$ for $t \\in [12.428, 16.122]$"
+            }
+          ],
+          "common_traps": [
+            "Reporting only the endpoints without stating the interval",
+            "Insufficient decimal precision"
+          ],
+          "official_rubric": "1 of 3 points in part (b) is earned for the correct interval on which $L(t) \\ge 150$.",
+          "sample_responses": [
+            {
+              "response": "$L(t) \\ge 150$ for $12.428 \\le t \\le 16.122$",
+              "earned": true,
+              "commentary": "Endpoints from solving $L(t) = 150$ in calculator, with correct inequality.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$t = 12.4$ to $t = 16.1$",
+              "earned": false,
+              "commentary": "Insufficient decimal precision for calculator-active problem.",
+              "source": "synthesized"
             }
           ]
         },
@@ -78,9 +135,27 @@
           "alternatives": [
             {
               "required_elements": [
-                "$\\frac{1}{S-R}\\int_R^S L(t)\\, dt$"
+                "$\\tfrac{1}{S-R}\\int_R^S L(t)\\, dt$"
               ],
-              "correct_example": "$\\frac{1}{16.122 - 12.428}\\int_{12.428}^{16.122} L(t)\\, dt$"
+              "correct_example": "$\\tfrac{1}{16.122 - 12.428}\\int_{12.428}^{16.122} L(t)\\, dt$"
+            }
+          ],
+          "common_traps": [
+            "Omitting the $\\tfrac{1}{S-R}$ factor — that gives total cars, not an average"
+          ],
+          "official_rubric": "2 of 3 points in part (b): correct average-value integral with division by $S - R$.",
+          "sample_responses": [
+            {
+              "response": "$\\tfrac{1}{16.122 - 12.428}\\int_{12.428}^{16.122} L(t)\\, dt$",
+              "earned": true,
+              "commentary": "Standard average-value formula applied.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\int_{12.428}^{16.122} L(t)\\, dt$",
+              "earned": false,
+              "commentary": "Missing the division by interval length — gives cars, not cars/hour.",
+              "source": "synthesized"
             }
           ]
         },
@@ -91,10 +166,28 @@
           "alternatives": [
             {
               "required_elements": [
-                "Correct numerical answer",
+                "Numerical answer $199.426$",
                 "Units of cars per hour"
               ],
-              "correct_example": "$\\approx 199.426$ cars per hour"
+              "correct_example": "Average = $199.426$ cars per hour"
+            }
+          ],
+          "common_traps": [
+            "Omitting units"
+          ],
+          "official_rubric": "3 of 3 points in part (b): answer with units, $199.426$ cars per hour.",
+          "sample_responses": [
+            {
+              "response": "Average $= 199.426$ cars per hour",
+              "earned": true,
+              "commentary": "Value and units both present.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Average $= 199.426$",
+              "earned": false,
+              "commentary": "Missing units.",
+              "source": "synthesized"
             }
           ]
         }
@@ -115,8 +208,27 @@
           "alternatives": [
             {
               "required_elements": [
-                "Product $> 200{,}000$ requires $> 400$ cars turning left in 2-hour window"
-              ]
+                "Product $> 200{,}000$ requires left-turns $> 200{,}000/500 = 400$ in 2 hours"
+              ],
+              "correct_example": "Need left-turn count $> 400$ in 2 hours."
+            }
+          ],
+          "common_traps": [
+            "Using $500$ as the threshold instead of $400$"
+          ],
+          "official_rubric": "1 of 4 points in part (c): considers $400$ cars as the threshold.",
+          "sample_responses": [
+            {
+              "response": "$\\tfrac{200000}{500} = 400$; need to find a 2-hour interval where $>400$ cars turn left.",
+              "earned": true,
+              "commentary": "Correctly translates the 200,000 condition to a cars-turning-left threshold.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Need $L(t) > 200{,}000$ at some $t$.",
+              "earned": false,
+              "commentary": "Misreads the compound threshold; $200{,}000$ is the product, not a rate.",
+              "source": "synthesized"
             }
           ]
         },
@@ -127,8 +239,27 @@
           "alternatives": [
             {
               "required_elements": [
-                "Any 2-hour subinterval $[h, h+2]$ contained in $[13, 15.3]$"
-              ]
+                "Any 2-hour subinterval $[h, h+2]$ contained in $[13.253, 15.324]$"
+              ],
+              "correct_example": "Interval $[13, 15]$"
+            }
+          ],
+          "common_traps": [
+            "Choosing an interval where $L(t) < 200$ throughout"
+          ],
+          "official_rubric": "2 of 4 points in part (c): a valid interval $[h, h+2]$ is identified.",
+          "sample_responses": [
+            {
+              "response": "Try $[h, h+2] = [13, 15]$",
+              "earned": true,
+              "commentary": "Any 2-hour window inside the peak region works.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Try $[0, 2]$",
+              "earned": false,
+              "commentary": "Left-turn rate is low near $t = 0$; this interval will not exceed 400.",
+              "source": "synthesized"
             }
           ]
         },
@@ -139,9 +270,27 @@
           "alternatives": [
             {
               "required_elements": [
-                "$\\int_{13}^{15} L(t)\\, dt > 400$"
+                "$\\int_{13}^{15} L(t)\\, dt \\approx 431.9$"
               ],
-              "correct_example": "$\\int_{13}^{15} L(t)\\, dt \\approx 431.9 > 400$"
+              "correct_example": "$\\int_{13}^{15} L(t)\\, dt = 431.931$"
+            }
+          ],
+          "common_traps": [
+            "Not computing the integral — just waving hands at the graph"
+          ],
+          "official_rubric": "3 of 4 points in part (c): value of $\\int_h^{h+2} L(t)\\, dt$ computed.",
+          "sample_responses": [
+            {
+              "response": "$\\int_{13}^{15} L(t)\\, dt \\approx 431.931$",
+              "earned": true,
+              "commentary": "Numerical integration on calculator gives $>400$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\int_{13}^{15} L(t)\\, dt \\approx 150$",
+              "earned": false,
+              "commentary": "Possibly confused average rate with integral; actual value is $\\approx 432$.",
+              "source": "synthesized"
             }
           ]
         },
@@ -153,8 +302,27 @@
             {
               "required_elements": [
                 "Yes, a signal is required",
-                "Product exceeds 200,000"
-              ]
+                "$431.931 \\cdot 500 = 215{,}965 > 200{,}000$"
+              ],
+              "correct_example": "Yes. $431.931 \\times 500 > 200{,}000$."
+            }
+          ],
+          "common_traps": [
+            "Stating 'yes' without computing the product"
+          ],
+          "official_rubric": "4 of 4 points in part (c): answer is 'Yes' with explicit explanation referencing computed values.",
+          "sample_responses": [
+            {
+              "response": "Yes. On $[13, 15]$, $\\int L\\, dt \\approx 431.9 > 400$, so the product $\\approx 500 \\cdot 431.9 > 200{,}000$.",
+              "earned": true,
+              "commentary": "Full justification with numbers.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Yes, lots of cars turn.",
+              "earned": false,
+              "commentary": "No quantitative comparison to the threshold.",
+              "source": "synthesized"
             }
           ]
         }
