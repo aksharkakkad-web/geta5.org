@@ -18,7 +18,7 @@
       "letter": "a",
       "prompt": "The function $g$ is given by $g(x) = e^{ax} + f(x)$ for all real numbers, where $a$ is a constant. Find $g'(0)$ and $g''(0)$ in terms of $a$. Show the work that leads to your answers.",
       "point_value": 4,
-      "scoring_notes": "g'(x) = ae^{ax} + f'(x). g'(0) = a + f'(0) = a - 4. g''(x) = a^2 e^{ax} + f''(x). g''(0) = a^2 + f''(0) = a^2 + 3.",
+      "scoring_notes": "g'(x) = ae^{ax} + f'(x). g'(0) = a + f'(0) = a - 4. g''(x) = a^2 e^{ax} + f''(x). g''(0) = a^2 + 3.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
@@ -30,20 +30,57 @@
             {
               "required_elements": [
                 "$g'(x) = ae^{ax} + f'(x)$"
-              ]
+              ],
+              "correct_example": "$g'(x) = ae^{ax} + f'(x)$"
+            }
+          ],
+          "common_traps": [
+            "Forgetting chain rule on $e^{ax}$ (getting $e^{ax}$ instead of $ae^{ax}$)"
+          ],
+          "official_rubric": "1 of 4 points in part (a): $g'(x) = ae^{ax} + f'(x)$.",
+          "sample_responses": [
+            {
+              "response": "$g'(x) = ae^{ax} + f'(x)$",
+              "earned": true,
+              "commentary": "Applies chain rule to $e^{ax}$ and sum rule.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g'(x) = e^{ax} + f'(x)$",
+              "earned": false,
+              "commentary": "Missing factor $a$ from the chain rule on $e^{ax}$.",
+              "source": "synthesized"
             }
           ]
         },
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Correct $g'(0) = a + f'(0) = a - 4$",
+          "description": "Correct $g'(0) = a - 4$",
           "alternatives": [
             {
               "required_elements": [
-                "$g'(0) = a + (-4) = a - 4$"
+                "$g'(0) = a + f'(0) = a - 4$"
               ],
               "correct_example": "$g'(0) = ae^0 + f'(0) = a + (-4) = a - 4$"
+            }
+          ],
+          "common_traps": [
+            "Using $f'(0) = 2$ instead of $-4$"
+          ],
+          "official_rubric": "2 of 4 points in part (a): $g'(0) = a - 4$.",
+          "sample_responses": [
+            {
+              "response": "$g'(0) = a(1) + (-4) = a - 4$",
+              "earned": true,
+              "commentary": "Correct substitution of $x = 0$ and given value of $f'(0)$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g'(0) = a + 2$",
+              "earned": false,
+              "commentary": "Used $f(0) = 2$ instead of $f'(0) = -4$.",
+              "source": "synthesized"
             }
           ]
         },
@@ -55,20 +92,57 @@
             {
               "required_elements": [
                 "$g''(x) = a^2 e^{ax} + f''(x)$"
-              ]
+              ],
+              "correct_example": "$g''(x) = a^2 e^{ax} + f''(x)$"
+            }
+          ],
+          "common_traps": [
+            "Getting $ae^{ax}$ again (did not differentiate twice)"
+          ],
+          "official_rubric": "3 of 4 points in part (a): $g''(x) = a^2 e^{ax} + f''(x)$.",
+          "sample_responses": [
+            {
+              "response": "$g''(x) = a^2 e^{ax} + f''(x)$",
+              "earned": true,
+              "commentary": "Second application of chain rule gives factor $a^2$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g''(x) = ae^{ax} + f''(x)$",
+              "earned": false,
+              "commentary": "Only one factor of $a$; need $a^2$ after two chain-rule applications.",
+              "source": "synthesized"
             }
           ]
         },
         {
           "point_id": "a4",
           "point_value": 1,
-          "description": "Correct $g''(0) = a^2 + f''(0) = a^2 + 3$",
+          "description": "Correct $g''(0) = a^2 + 3$",
           "alternatives": [
             {
               "required_elements": [
                 "$g''(0) = a^2 + 3$"
               ],
               "correct_example": "$g''(0) = a^2 e^0 + f''(0) = a^2 + 3$"
+            }
+          ],
+          "common_traps": [
+            "Using $f(0)$ or $f'(0)$ instead of $f''(0) = 3$"
+          ],
+          "official_rubric": "4 of 4 points in part (a): $g''(0) = a^2 + 3$.",
+          "sample_responses": [
+            {
+              "response": "$g''(0) = a^2(1) + 3 = a^2 + 3$",
+              "earned": true,
+              "commentary": "Correct evaluation.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g''(0) = a^2 - 4$",
+              "earned": false,
+              "commentary": "Used $f'(0)$ instead of $f''(0)$.",
+              "source": "synthesized"
             }
           ]
         }
@@ -78,14 +152,14 @@
       "letter": "b",
       "prompt": "The function $h$ is given by $h(x) = \\cos(kx) \\cdot f(x)$ for all real numbers, where $k$ is a constant. Find $h'(x)$ and write an equation for the line tangent to the graph of $h$ at $x = 0$.",
       "point_value": 5,
-      "scoring_notes": "h'(x) = -k sin(kx) f(x) + cos(kx) f'(x). At x=0: h'(0) = -k sin(0) f(0) + cos(0) f'(0) = 0 + f'(0) = -4. h(0) = cos(0) f(0) = 1*2 = 2. Tangent line: y - 2 = -4(x - 0), i.e. y = -4x + 2.",
+      "scoring_notes": "h'(x) = -k sin(kx) f(x) + cos(kx) f'(x). At x=0: h'(0) = 0 + f'(0) = -4. h(0) = f(0) = 2. Tangent line: y = -4x + 2.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct product rule setup: $h'(x) = -k\\sin(kx) \\cdot f(x) + \\cos(kx) \\cdot f'(x)$",
+          "description": "Correct product rule setup: $h'(x) = -k\\sin(kx) f(x) + \\cos(kx) f'(x)$",
           "alternatives": [
             {
               "required_elements": [
@@ -93,56 +167,148 @@
               ],
               "correct_example": "$h'(x) = -k\\sin(kx) \\cdot f(x) + \\cos(kx) \\cdot f'(x)$"
             }
+          ],
+          "common_traps": [
+            "Forgetting chain rule factor $k$ on $\\sin$",
+            "Missing negative sign on derivative of cosine"
+          ],
+          "official_rubric": "2 of 5 points in part (b): correct product-rule/chain-rule expression for $h'(x)$.",
+          "sample_responses": [
+            {
+              "response": "$h'(x) = -k\\sin(kx) f(x) + \\cos(kx) f'(x)$",
+              "earned": true,
+              "commentary": "Both product rule and chain rule applied correctly.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$h'(x) = \\sin(kx) f(x) + \\cos(kx) f'(x)$",
+              "earned": false,
+              "commentary": "Wrong sign and missing chain-rule factor $k$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Evaluates $h(0) = \\cos(0) \\cdot f(0) = 1 \\cdot 2 = 2$",
+          "description": "$h(0) = 2$",
           "alternatives": [
             {
               "required_elements": [
-                "$h(0) = \\cos(0) \\cdot f(0) = 2$"
-              ]
+                "$h(0) = \\cos(0) \\cdot f(0) = 1 \\cdot 2 = 2$"
+              ],
+              "correct_example": "$h(0) = 2$"
+            }
+          ],
+          "common_traps": [
+            "Using $f'(0)$ instead of $f(0)$"
+          ],
+          "official_rubric": "$h(0)$ rubric: $\\cos(0) \\cdot f(0) = 2$.",
+          "sample_responses": [
+            {
+              "response": "$h(0) = \\cos(0) f(0) = (1)(2) = 2$",
+              "earned": true,
+              "commentary": "Correct evaluation.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$h(0) = 0$",
+              "earned": false,
+              "commentary": "Possibly evaluated $\\sin(0)$ instead of $\\cos(0)$.",
+              "source": "synthesized"
             }
           ]
         },
         {
           "point_id": "b3",
           "point_value": 1,
-          "description": "Evaluates $h'(0) = -k\\sin(0) \\cdot f(0) + \\cos(0) \\cdot f'(0) = 0 + f'(0) = -4$",
+          "description": "$h'(0) = -4$",
           "alternatives": [
             {
               "required_elements": [
-                "$h'(0) = 0 + 1 \\cdot f'(0) = -4$"
+                "$h'(0) = -k\\sin(0) f(0) + \\cos(0) f'(0) = 0 + f'(0) = -4$"
               ],
-              "correct_example": "$h'(0) = -k(0)(2) + (1)(-4) = -4$"
+              "correct_example": "$h'(0) = -4$"
+            }
+          ],
+          "common_traps": [
+            "Using $f(0)$ instead of $f'(0)$"
+          ],
+          "official_rubric": "$h'(0)$ rubric: $-4$ via $\\sin(0) = 0$ and $\\cos(0) = 1$.",
+          "sample_responses": [
+            {
+              "response": "$h'(0) = -k(0)(2) + (1)(-4) = -4$",
+              "earned": true,
+              "commentary": "Correctly drops the $\\sin(0)$ term and evaluates $\\cos(0) \\cdot f'(0)$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$h'(0) = 2$",
+              "earned": false,
+              "commentary": "Used $f(0)$ instead of $f'(0)$.",
+              "source": "synthesized"
             }
           ]
         },
         {
           "point_id": "b4",
           "point_value": 1,
-          "description": "Correct tangent line equation using point $(0, 2)$ and slope $-4$",
+          "description": "Correct tangent line equation",
           "alternatives": [
             {
               "required_elements": [
-                "$y - 2 = -4(x - 0)$"
+                "$y - 2 = -4(x - 0)$ or $y = -4x + 2$"
               ],
               "correct_example": "$y = -4x + 2$"
+            }
+          ],
+          "common_traps": [
+            "Swapping slope and $y$-intercept"
+          ],
+          "official_rubric": "Tangent line rubric: $y = -4x + 2$.",
+          "sample_responses": [
+            {
+              "response": "$y = -4x + 2$",
+              "earned": true,
+              "commentary": "Uses $h(0) = 2$ as $y$-intercept and $h'(0) = -4$ as slope.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$y = 2x - 4$",
+              "earned": false,
+              "commentary": "Slope and intercept swapped.",
+              "source": "synthesized"
             }
           ]
         },
         {
           "point_id": "b5",
           "point_value": 1,
-          "description": "Notes that $h'(0) = -4$ is independent of $k$ (the $k$ term vanishes since $\\sin(0) = 0$)",
+          "description": "Recognition that tangent line is independent of $k$",
           "alternatives": [
             {
               "required_elements": [
-                "The tangent line $y = -4x + 2$ is the same for all values of $k$"
+                "Tangent line $y = -4x + 2$ does not depend on $k$"
               ],
-              "correct_example": "Since $\\sin(k \\cdot 0) = 0$ for any $k$, the slope $h'(0) = -4$ regardless of $k$; tangent line: $y = -4x + 2$"
+              "correct_example": "Since $\\sin(k \\cdot 0) = 0$ for any $k$, the slope $h'(0) = -4$ regardless of $k$."
+            }
+          ],
+          "common_traps": [
+            "Leaving $k$ in the final answer"
+          ],
+          "official_rubric": "Rubric implicitly requires tangent line expressed without $k$.",
+          "sample_responses": [
+            {
+              "response": "For any $k$, $\\sin(0) = 0$, so the tangent line is $y = -4x + 2$ for all choices of $k$.",
+              "earned": true,
+              "commentary": "Correctly notes the $k$-independence.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$y = -kx + 2$",
+              "earned": false,
+              "commentary": "Did not evaluate $\\sin(0) = 0$, so spurious $k$ remains in slope.",
+              "source": "synthesized"
             }
           ]
         }

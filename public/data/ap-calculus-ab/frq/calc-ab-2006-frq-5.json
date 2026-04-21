@@ -21,7 +21,7 @@
       "letter": "a",
       "prompt": "On the axes provided, sketch a slope field for the given differential equation at the eight points indicated. (Note: Use the axes provided in the pink exam booklet.)",
       "point_value": 2,
-      "scoring_notes": "Slope field: at any point (x,y) the slope is y/x. In Q1 (x>0,y>0) and Q3 (x<0,y<0) slopes are positive; in Q2 (x<0,y>0) and Q4 (x>0,y<0) slopes are negative. At points on the axes the slope is 0 or undefined.",
+      "scoring_notes": "Slope field: at any point (x,y) the slope is y/x. In Q1 and Q3 slopes are positive; in Q2 and Q4 slopes are negative. At points on the axes with y=0 the slope is 0.",
       "requires_drawing": true,
       "reference_image": null,
       "scoring_points": [
@@ -33,7 +33,26 @@
             {
               "required_elements": [
                 "Zero slopes where $y = 0$"
-              ]
+              ],
+              "correct_example": "Horizontal tangent segments at all indicated points on the $x$-axis."
+            }
+          ],
+          "common_traps": [
+            "Drawing vertical segments where $y = 0$"
+          ],
+          "official_rubric": "Slope field rubric awards 1 point for zero slopes at appropriate lattice points.",
+          "sample_responses": [
+            {
+              "response": "Horizontal tick marks at all indicated points on the $x$-axis.",
+              "earned": true,
+              "commentary": "Slope $= y/x = 0/x = 0$ whenever $y = 0$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Vertical tick marks where $y = 0$.",
+              "earned": false,
+              "commentary": "Vertical segments correspond to undefined slope (division by zero).",
+              "source": "synthesized"
             }
           ]
         },
@@ -46,7 +65,26 @@
               "required_elements": [
                 "Positive slopes in Q1 ($x>0, y>0$) and Q3 ($x<0, y<0$)",
                 "Negative slopes in Q2 ($x<0, y>0$) and Q4 ($x>0, y<0$)"
-              ]
+              ],
+              "correct_example": "At $(1,1)$: slope $= 1$; at $(-1,1)$: slope $= -1$; at $(-1,-1)$: slope $= 1$; at $(1,-1)$: slope $= -1$."
+            }
+          ],
+          "common_traps": [
+            "Reversing signs in Q2/Q4"
+          ],
+          "official_rubric": "Slope field rubric awards 1 point for correct nonzero slopes with appropriate sign in each quadrant.",
+          "sample_responses": [
+            {
+              "response": "Slopes tilt up-right in Q1 and Q3; tilt down-right in Q2 and Q4.",
+              "earned": true,
+              "commentary": "Sign of $y/x$ matches each quadrant.",
+              "source": "synthesized"
+            },
+            {
+              "response": "All slopes tilt up-right everywhere.",
+              "earned": false,
+              "commentary": "Ignores sign change of $y/x$ across quadrants.",
+              "source": "synthesized"
             }
           ]
         }
@@ -56,20 +94,38 @@
       "letter": "b",
       "prompt": "Find the particular solution $y = f(x)$ to the differential equation with the initial condition $f(-1) = 1$ and state its domain.",
       "point_value": 5,
-      "scoring_notes": "Separate variables: dy/y = dx/x. Integrate: ln|y| = ln|x| + C. Exponentiate: |y| = e^C |x|, so y = Ax for constant A. Apply f(-1)=1: 1 = A(-1) => A = -1. Particular solution: y = -x. Domain: x < 0 (since f(-1) = 1 > 0 and y = -x > 0 requires x < 0).",
+      "scoring_notes": "Separate variables: dy/y = dx/x. Integrate: ln|y| = ln|x| + C. Exponentiate: |y| = e^C |x|, so y = Ax. Apply f(-1)=1: 1 = A(-1) => A = -1. Particular solution: y = -x. Domain: x < 0.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correctly separates variables: $\\frac{dy}{y} = \\frac{dx}{x}$",
+          "description": "Correctly separates variables: $\\tfrac{dy}{y} = \\tfrac{dx}{x}$",
           "alternatives": [
             {
               "required_elements": [
-                "$\\frac{dy}{y} = \\frac{dx}{x}$"
+                "$\\tfrac{dy}{y} = \\tfrac{dx}{x}$"
               ],
-              "correct_example": "$\\frac{dy}{y} = \\frac{dx}{x}$"
+              "correct_example": "$\\tfrac{dy}{y} = \\tfrac{dx}{x}$"
+            }
+          ],
+          "common_traps": [
+            "Not separating — cap 0/5 with no separation"
+          ],
+          "official_rubric": "Separation of variables point — scoring caps at 0/5 if no separation attempted.",
+          "sample_responses": [
+            {
+              "response": "$\\tfrac{dy}{y} = \\tfrac{dx}{x}$",
+              "earned": true,
+              "commentary": "Correct separation.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Integrate both sides of $\\tfrac{dy}{dx} = \\tfrac{y}{x}$ directly.",
+              "earned": false,
+              "commentary": "Cannot integrate with $y$ on the right; must separate first.",
+              "source": "synthesized"
             }
           ]
         },
@@ -81,7 +137,26 @@
             {
               "required_elements": [
                 "$\\ln|y|$"
-              ]
+              ],
+              "correct_example": "$\\int \\tfrac{dy}{y} = \\ln|y|$"
+            }
+          ],
+          "common_traps": [
+            "Writing $\\ln y$ without absolute value"
+          ],
+          "official_rubric": "Antiderivative rubric: $\\ln|y|$ for left side.",
+          "sample_responses": [
+            {
+              "response": "$\\int \\tfrac{dy}{y} = \\ln|y|$",
+              "earned": true,
+              "commentary": "Uses absolute value correctly.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\int \\tfrac{dy}{y} = \\tfrac{1}{y^2/2}$",
+              "earned": false,
+              "commentary": "Incorrect antiderivative; should be $\\ln|y|$.",
+              "source": "synthesized"
             }
           ]
         },
@@ -93,7 +168,26 @@
             {
               "required_elements": [
                 "$\\ln|x| + C$"
-              ]
+              ],
+              "correct_example": "$\\int \\tfrac{dx}{x} = \\ln|x| + C$"
+            }
+          ],
+          "common_traps": [
+            "Omitting $+C$ — caps score"
+          ],
+          "official_rubric": "Antiderivative rubric: $\\ln|x| + C$ for right side.",
+          "sample_responses": [
+            {
+              "response": "$\\int \\tfrac{dx}{x} = \\ln|x| + C$",
+              "earned": true,
+              "commentary": "Constant of integration included.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\int \\tfrac{dx}{x} = \\ln|x|$",
+              "earned": false,
+              "commentary": "Missing $+C$.",
+              "source": "synthesized"
             }
           ]
         },
@@ -104,10 +198,28 @@
           "alternatives": [
             {
               "required_elements": [
-                "Applies $f(-1) = 1$: $1 = A(-1) \\Rightarrow A = -1$",
-                "Particular solution $y = -x$"
+                "$1 = A(-1) \\Rightarrow A = -1$",
+                "$y = -x$"
               ],
               "correct_example": "$y = Ax$; $1 = A(-1) \\Rightarrow A = -1 \\Rightarrow y = -x$"
+            }
+          ],
+          "common_traps": [
+            "Sign error gives $A = 1$"
+          ],
+          "official_rubric": "Initial condition rubric: correctly finds $A = -1$.",
+          "sample_responses": [
+            {
+              "response": "$y = Ax$; $1 = A(-1) \\Rightarrow A = -1$; so $y = -x$.",
+              "earned": true,
+              "commentary": "Uses $f(-1) = 1$ to solve.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$y = x$",
+              "earned": false,
+              "commentary": "Sign error — at $x = -1$ this gives $y = -1 \\ne 1$.",
+              "source": "synthesized"
             }
           ]
         },
@@ -120,11 +232,26 @@
               "required_elements": [
                 "Domain: $x < 0$"
               ],
-              "correct_example": "Since $y = -x$ and the solution passes through $(-1, 1)$ (where $x < 0$), the domain is $x < 0$."
+              "correct_example": "Since the solution passes through $(-1, 1)$, the branch requires $x < 0$."
             }
           ],
           "common_traps": [
-            "Stating domain as all real numbers or $x \\ne 0$ without restricting to the branch containing the initial condition"
+            "Stating 'all reals' or '$x \\ne 0$'"
+          ],
+          "official_rubric": "Domain point: $x < 0$, the connected branch of the solution containing the initial point.",
+          "sample_responses": [
+            {
+              "response": "Domain: $x < 0$",
+              "earned": true,
+              "commentary": "Restricts to the branch containing the initial condition.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Domain: all real $x$",
+              "earned": false,
+              "commentary": "The DE is singular at $x = 0$, and only one branch contains $(-1, 1)$.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -133,34 +260,70 @@
       "letter": "c",
       "prompt": "Find $\\frac{d^2y}{dx^2}$ in terms of $x$ and $y$. Determine the concavity of the particular solution found in part (b) at $x = -1$. Give a reason for your answer.",
       "point_value": 2,
-      "scoring_notes": "Differentiate dy/dx = y/x implicitly: d^2y/dx^2 = (x*y' - y)/x^2 = (x*(y/x) - y)/x^2 = (y - y)/x^2 = 0... wait: (x*(y/x) - y)/x^2 = (y - y)/x^2 = 0. That gives 0 which is not helpful. Actually use quotient rule: d/dx[y/x] = (xy' - y)/x^2 = (x*(y/x) - y)/x^2 = (y - y)/x^2 = 0? Let me recalculate: d^2y/dx^2 = d/dx[y/x] = (x * dy/dx - y * 1)/x^2 = (x*(y/x) - y)/x^2 = (y - y)/x^2 = 0. So d^2y/dx^2 = 0? For particular solution y = -x: y'' = 0 (linear). Concavity is neither concave up nor concave down (linear).",
+      "scoring_notes": "Differentiate dy/dx = y/x. d^2y/dx^2 = (x*y' - y)/x^2 = (x*(y/x) - y)/x^2 = 0. For particular solution y = -x: y'' = 0 (linear).",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Correctly differentiates $\\frac{dy}{dx} = \\frac{y}{x}$ with respect to $x$: $\\frac{d^2y}{dx^2} = \\frac{x \\frac{dy}{dx} - y}{x^2} = \\frac{x \\cdot \\frac{y}{x} - y}{x^2} = \\frac{y - y}{x^2} = 0$",
+          "description": "Correctly differentiates $\\tfrac{dy}{dx} = \\tfrac{y}{x}$",
           "alternatives": [
             {
               "required_elements": [
-                "$\\frac{d^2y}{dx^2} = \\frac{x \\cdot (y/x) - y}{x^2} = 0$"
+                "$\\tfrac{d^2y}{dx^2} = \\tfrac{x \\cdot (y/x) - y}{x^2} = 0$"
               ],
-              "correct_example": "$\\frac{d^2y}{dx^2} = \\frac{x \\frac{dy}{dx} - y}{x^2} = 0$"
+              "correct_example": "$\\tfrac{d^2y}{dx^2} = \\tfrac{x y' - y}{x^2} = 0$"
+            }
+          ],
+          "common_traps": [
+            "Forgetting to substitute $y' = y/x$"
+          ],
+          "official_rubric": "Rubric: correct quotient-rule differentiation with substitution of $y' = y/x$.",
+          "sample_responses": [
+            {
+              "response": "$\\tfrac{d^2y}{dx^2} = \\tfrac{x(y/x) - y}{x^2} = \\tfrac{y - y}{x^2} = 0$",
+              "earned": true,
+              "commentary": "Quotient rule + substitution.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\tfrac{d^2y}{dx^2} = -\\tfrac{y}{x^2}$",
+              "earned": false,
+              "commentary": "Forgot to substitute $y' = y/x$ into quotient rule.",
+              "source": "synthesized"
             }
           ]
         },
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "At $x = -1$, $\\frac{d^2y}{dx^2} = 0$, so the particular solution is neither concave up nor concave down (it is linear: $y = -x$)",
+          "description": "At $x = -1$, $\\tfrac{d^2y}{dx^2} = 0$; solution is linear (neither concave up nor down)",
           "alternatives": [
             {
               "required_elements": [
-                "$\\frac{d^2y}{dx^2} = 0$ at $x = -1$",
+                "$y'' = 0$",
                 "Neither concave up nor concave down (linear)"
               ],
-              "correct_example": "$y'' = 0$ everywhere, so the solution $y = -x$ is linear — neither concave up nor concave down at $x = -1$."
+              "correct_example": "$y'' = 0$ everywhere; the solution $y = -x$ is linear."
+            }
+          ],
+          "common_traps": [
+            "Claiming 'concave up' without checking $y''$"
+          ],
+          "official_rubric": "Rubric: state that the solution is linear and hence has no concavity at $x = -1$.",
+          "sample_responses": [
+            {
+              "response": "$y'' = 0$ at $x = -1$, so the solution is linear — neither concave up nor concave down.",
+              "earned": true,
+              "commentary": "Correct conclusion.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The solution is concave up at $x = -1$.",
+              "earned": false,
+              "commentary": "$y'' = 0$, not positive.",
+              "source": "synthesized"
             }
           ]
         }
