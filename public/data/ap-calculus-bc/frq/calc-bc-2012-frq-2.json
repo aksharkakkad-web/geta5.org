@@ -35,6 +35,21 @@
                 "$\\dfrac{dx}{dt}\\bigg|_{t=2} = \\dfrac{2}{e^4} > 0$, so the particle is moving to the right"
               ]
             }
+          ],
+          "official_rubric": "1 point for moving to the right with reason. Because $\\dfrac{dx}{dt}\\bigg|_{t=2} = \\dfrac{2}{e^4} > 0$, the particle is moving to the right at time $t = 2$.",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{dx}{dt}\\bigg|_{t=2} = \\dfrac{2}{e^4} \\approx 0.037 > 0$, so the particle is moving to the right.",
+              "earned": true,
+              "commentary": "Evaluates $dx/dt$ at $t = 2$, observes that it is positive, and correctly concludes rightward motion.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The particle is moving to the right.",
+              "earned": false,
+              "commentary": "States the correct direction but provides no justification based on the sign of $dx/dt$; the rubric requires a reason.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -46,6 +61,21 @@
               "required_elements": [
                 "$\\dfrac{dy}{dx} = \\dfrac{dy/dt}{dx/dt}$ evaluated at $t = 2$"
               ]
+            }
+          ],
+          "official_rubric": "1 point for considering $\\dfrac{dy/dt}{dx/dt}$. The slope of the parametric path is computed as the ratio of $dy/dt$ to $dx/dt$.",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{dy}{dx}\\bigg|_{t=2} = \\dfrac{dy/dt}{dx/dt}\\bigg|_{t=2} = \\dfrac{\\sin^2(2)}{2/e^4}$",
+              "earned": true,
+              "commentary": "Correctly identifies the parametric slope formula and substitutes the given derivatives.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{dy}{dx} = \\dfrac{dx/dt}{dy/dt}$",
+              "earned": false,
+              "commentary": "Inverts the ratio — the slope of the path $dy/dx$ is $dy/dt$ divided by $dx/dt$, not the other way around.",
+              "source": "synthesized"
             }
           ]
         },
@@ -64,6 +94,21 @@
           "common_traps": [
             "Confusing $dy/dt$ with $dy/dx$",
             "Inverting the ratio to get $dx/dy$ instead of $dy/dx$"
+          ],
+          "official_rubric": "1 point for slope at $t = 2$. $\\dfrac{dy}{dx}\\bigg|_{t=2} = 3.055$ (or $3.054$).",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{dy}{dx}\\bigg|_{t=2} = \\dfrac{\\sin^2(2)}{2/e^4} = 3.055$",
+              "earned": true,
+              "commentary": "Correct numerical slope with three-decimal precision.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{dy}{dx}\\bigg|_{t=2} = \\sin^2(2) = 0.827$",
+              "earned": false,
+              "commentary": "Reports $dy/dt$ as the slope instead of the ratio $dy/dt \\div dx/dt$.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -86,6 +131,21 @@
                 "$x(4) = x(2) + \\displaystyle\\int_2^4 \\frac{t}{e^{t+2}}\\, dt = 1 + \\int_2^4 \\frac{t}{e^{t+2}}\\, dt$"
               ]
             }
+          ],
+          "official_rubric": "1 point for integral. $x(4) = x(2) + \\int_2^4 x'(t)\\, dt$.",
+          "sample_responses": [
+            {
+              "response": "$x(4) = 1 + \\int_2^4 \\dfrac{t}{e^{t+2}}\\, dt$",
+              "earned": true,
+              "commentary": "Correctly accumulates from the initial value $x(2) = 1$ using the Fundamental Theorem of Calculus applied to $dx/dt$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$x(4) = \\int_0^4 \\dfrac{t}{e^{t+2}}\\, dt$",
+              "earned": false,
+              "commentary": "Uses wrong lower limit ($0$ instead of $2$) and omits the initial condition $x(2) = 1$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -98,6 +158,21 @@
                 "Correct numerical answer obtained by calculator"
               ],
               "correct_example": "$x(4) \\approx 1.032$ or $1.033$"
+            }
+          ],
+          "official_rubric": "1 point for answer (three-decimal precision required for calculator-evaluated integrals).",
+          "sample_responses": [
+            {
+              "response": "$x(4) \\approx 1.032$",
+              "earned": true,
+              "commentary": "Correct numerical value to three decimal places obtained by numerical integration.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$x(4) \\approx 1.03$",
+              "earned": false,
+              "commentary": "Decimal presentation error — AP Calculus requires three decimal places for calculator-evaluated answers.",
+              "source": "synthesized"
             }
           ]
         }
@@ -126,6 +201,21 @@
           "common_traps": [
             "Reporting the velocity vector instead of its magnitude",
             "Forgetting to take the square root"
+          ],
+          "official_rubric": "1 point for speed. Speed $= \\sqrt{(x'(4))^2 + (y'(4))^2}$.",
+          "sample_responses": [
+            {
+              "response": "Speed $= \\sqrt{(x'(4))^2 + (y'(4))^2} \\approx 0.735$",
+              "earned": true,
+              "commentary": "Uses the correct speed formula (magnitude of the velocity vector) and evaluates to three decimals.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Speed $= \\langle x'(4), y'(4) \\rangle$",
+              "earned": false,
+              "commentary": "Reports the velocity vector rather than its magnitude; speed is a scalar.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -143,6 +233,21 @@
           "common_traps": [
             "Reporting a scalar instead of a vector",
             "Differentiating only $x'(t)$ and not $y'(t)$ for the acceleration"
+          ],
+          "official_rubric": "1 point for acceleration vector. Acceleration $= \\langle x''(4), y''(4) \\rangle$.",
+          "sample_responses": [
+            {
+              "response": "$\\langle x''(4), y''(4) \\rangle = \\langle -0.041, 0.989 \\rangle$",
+              "earned": true,
+              "commentary": "Reports acceleration as a two-component vector with correct signed values to three decimals.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Acceleration $= 0.989$",
+              "earned": false,
+              "commentary": "Reports a single scalar; acceleration in parametric motion is a vector with both $x$- and $y$-components.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -166,6 +271,21 @@
               ],
               "correct_example": "$\\int_2^4 \\sqrt{\\left(\\frac{t}{e^{t+2}}\\right)^2 + \\sin^4(t)}\\, dt$"
             }
+          ],
+          "official_rubric": "1 point for integral. Distance $= \\int_2^4 \\sqrt{(x'(t))^2 + (y'(t))^2}\\, dt$.",
+          "sample_responses": [
+            {
+              "response": "Distance $= \\int_2^4 \\sqrt{(x'(t))^2 + (y'(t))^2}\\, dt$",
+              "earned": true,
+              "commentary": "Correctly identifies the arc length integral for parametric motion.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Distance $= \\int_2^4 |x'(t)| + |y'(t)|\\, dt$",
+              "earned": false,
+              "commentary": "Sums absolute values of the components rather than taking the magnitude of the velocity vector; arc length requires $\\sqrt{(x')^2 + (y')^2}$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -178,6 +298,21 @@
                 "Correct numerical answer obtained by calculator"
               ],
               "correct_example": "$\\approx 4.450$"
+            }
+          ],
+          "official_rubric": "1 point for answer (three-decimal precision required for calculator integration).",
+          "sample_responses": [
+            {
+              "response": "Distance $\\approx 4.450$",
+              "earned": true,
+              "commentary": "Numerical value to three decimals computed from the correct arc length integral.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Distance $\\approx 4.45$",
+              "earned": false,
+              "commentary": "Only two decimal places — AP scoring requires three decimals for calculator-computed values.",
+              "source": "synthesized"
             }
           ]
         }
