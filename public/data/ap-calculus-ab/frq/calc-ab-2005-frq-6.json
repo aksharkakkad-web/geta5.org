@@ -13,7 +13,7 @@
   ],
   "calculator_allowed": false,
   "total_points": 9,
-  "stimulus": "Consider the differential equation $\\dfrac{dy}{dx} = \\dfrac{x}{y}$.",
+  "stimulus": "Consider the differential equation $\\dfrac{dy}{dx} = -\\dfrac{2x}{y}$.",
   "stimulus_image": null,
   "documents": null,
   "parts": [
@@ -32,21 +32,62 @@
           "alternatives": [
             {
               "required_elements": [
-                "Horizontal slopes where $x = 0$"
-              ]
+                "Horizontal (zero) slopes at each point where $x = 0$"
+              ],
+              "correct_example": "At every lattice point on the $y$-axis, tangent segment is horizontal."
+            }
+          ],
+          "common_traps": [
+            "Drawing vertical segments (infinite slope) at $x = 0$ — but numerator is $-2x$, which is $0$ there"
+          ],
+          "official_rubric": "The first point of 2 in part (a) is earned for correct zero slopes at indicated points where $x = 0$.",
+          "sample_responses": [
+            {
+              "response": "Horizontal tick marks at all lattice points on the $y$-axis.",
+              "earned": true,
+              "commentary": "Slope $= -2x/y = 0$ whenever $x = 0$ (and $y \\ne 0$), so segments are horizontal.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Vertical tick marks at all lattice points on the $y$-axis.",
+              "earned": false,
+              "commentary": "Vertical segments correspond to undefined slope (division by zero), which happens on the $x$-axis, not the $y$-axis.",
+              "source": "synthesized"
             }
           ]
         },
         {
           "point_id": "a2",
           "point_value": 1,
-          "description": "Correct nonzero slopes (direction correct in each quadrant)",
+          "description": "Correct nonzero slopes (sign correct in each quadrant)",
           "alternatives": [
             {
               "required_elements": [
                 "Slopes are negative in Q1 (where $x>0, y>0$)",
-                "Slopes are positive in Q2 (where $x<0, y>0$)"
-              ]
+                "Slopes are positive in Q2 (where $x<0, y>0$)",
+                "Slopes are positive in Q3 (where $x<0, y<0$)",
+                "Slopes are negative in Q4 (where $x>0, y<0$)"
+              ],
+              "correct_example": "At $(1,1)$: slope $= -2$; at $(-1,1)$: slope $= 2$; at $(1,-1)$: slope $= 2$; at $(-1,-1)$: slope $= -2$."
+            }
+          ],
+          "common_traps": [
+            "Reversing signs between quadrants",
+            "Using the unsigned formula $2x/y$ instead of $-2x/y$"
+          ],
+          "official_rubric": "The second point of 2 in part (a) is earned for correct nonzero slopes with correct sign in all relevant quadrants.",
+          "sample_responses": [
+            {
+              "response": "Segments tilt down-right in Q1 and Q3; tilt up-right in Q2 and Q4.",
+              "earned": true,
+              "commentary": "Sign of slope $-2x/y$ matches each quadrant correctly.",
+              "source": "synthesized"
+            },
+            {
+              "response": "All segments tilt up-right.",
+              "earned": false,
+              "commentary": "Ignores the sign change of $-2x/y$ across quadrants.",
+              "source": "synthesized"
             }
           ]
         }
@@ -67,10 +108,28 @@
           "alternatives": [
             {
               "required_elements": [
-                "Slope $= -x/y = -1/(-1) = 1$ at $(1,-1)$",
+                "Slope $= -2x/y = -2(1)/(-1) = 2$ at $(1,-1)$",
                 "Point-slope form"
               ],
-              "correct_example": "$y + 1 = 1(x-1)$ or $y = x - 2$"
+              "correct_example": "$y + 1 = 2(x - 1)$"
+            }
+          ],
+          "common_traps": [
+            "Using $-2$ instead of $2$ for the slope (sign error from $-2(1)/(-1)$)"
+          ],
+          "official_rubric": "The first point of 2 in part (b) is earned for the correct tangent-line equation $y + 1 = 2(x - 1)$.",
+          "sample_responses": [
+            {
+              "response": "$\\tfrac{dy}{dx}\\bigg|_{(1,-1)} = \\tfrac{-2(1)}{-1} = 2$. Tangent line: $y + 1 = 2(x - 1)$.",
+              "earned": true,
+              "commentary": "Correct slope evaluation and correct point-slope form.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$y + 1 = -2(x - 1)$",
+              "earned": false,
+              "commentary": "Sign error — $-2(1)/(-1) = +2$, not $-2$.",
+              "source": "synthesized"
             }
           ]
         },
@@ -81,9 +140,27 @@
           "alternatives": [
             {
               "required_elements": [
-                "$f(1.1) \\approx -1 + 1(0.1) = -0.9$"
+                "$f(1.1) \\approx -1 + 2(0.1) = -0.8$"
               ],
-              "correct_example": "$f(1.1) \\approx -0.9$"
+              "correct_example": "$f(1.1) \\approx -0.8$"
+            }
+          ],
+          "common_traps": [
+            "Using $f(1.1) \\approx -1 + 2 \\cdot 1.1 = 1.2$ (forgetting $\\Delta x = 0.1$, not $1.1$)"
+          ],
+          "official_rubric": "The second point of 2 in part (b) is earned for the linear approximation $f(1.1) \\approx -0.8$.",
+          "sample_responses": [
+            {
+              "response": "$f(1.1) \\approx -1 + 2(1.1 - 1) = -0.8$",
+              "earned": true,
+              "commentary": "Uses $\\Delta x = 0.1$ correctly in the local linearization.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$f(1.1) \\approx -1 + 2(1.1) = 1.2$",
+              "earned": false,
+              "commentary": "Plugged $x = 1.1$ directly rather than the displacement $\\Delta x = 0.1$.",
+              "source": "synthesized"
             }
           ]
         }
@@ -104,13 +181,28 @@
           "alternatives": [
             {
               "required_elements": [
-                "$y\\, dy = -x\\, dx$"
+                "$y\\, dy = -2x\\, dx$"
               ],
-              "correct_example": "$y\\, dy = -x\\, dx$"
+              "correct_example": "$y\\, dy = -2x\\, dx$"
             }
           ],
           "common_traps": [
-            "Not separating variables: answers score 0 if separation is absent"
+            "Not separating variables at all — scoring note says 0/5 if no separation of variables"
+          ],
+          "official_rubric": "The first point of 5 in part (c) is earned for separating variables correctly: $y\\, dy = -2x\\, dx$. Note: no separation of variables gives 0 out of 5.",
+          "sample_responses": [
+            {
+              "response": "$y\\, dy = -2x\\, dx$",
+              "earned": true,
+              "commentary": "Multiplies both sides by $y\\, dx$ to separate correctly.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\tfrac{dy}{dx} = -\\tfrac{2x}{y}$, integrate both sides",
+              "earned": false,
+              "commentary": "Did not separate; integrating right side directly with $y$ still in it cannot proceed.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -120,9 +212,27 @@
           "alternatives": [
             {
               "required_elements": [
-                "$\\frac{y^2}{2} = -\\frac{x^2}{2} + C$"
+                "$\\tfrac{y^2}{2} = -x^2 + C$"
               ],
-              "correct_example": "$\\frac{y^2}{2} = -\\frac{x^2}{2} + C$"
+              "correct_example": "$\\tfrac{y^2}{2} = -x^2 + C$"
+            }
+          ],
+          "common_traps": [
+            "Integrating $-2x$ to get $-x$ (missing the $x^2$)"
+          ],
+          "official_rubric": "The second point of 5 in part (c) is earned for correct antiderivatives $\\tfrac{y^2}{2}$ and $-x^2$.",
+          "sample_responses": [
+            {
+              "response": "$\\tfrac{y^2}{2} = -x^2 + C$",
+              "earned": true,
+              "commentary": "Both antiderivatives correct.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$y^2 = -2x + C$",
+              "earned": false,
+              "commentary": "Incorrect antiderivative of $-2x$; should be $-x^2$.",
+              "source": "synthesized"
             }
           ]
         },
@@ -135,11 +245,26 @@
               "required_elements": [
                 "$+C$ present on one side"
               ],
-              "correct_example": "$y^2 = -x^2 + C$"
+              "correct_example": "$\\tfrac{y^2}{2} = -x^2 + C$"
             }
           ],
           "common_traps": [
-            "Missing +C: max 2/5 points if no constant of integration"
+            "Missing $+C$: max $2/5$ points if no constant of integration"
+          ],
+          "official_rubric": "The third point of 5 in part (c) is earned for including the constant of integration. Scoring note: max 2 out of 5 if no constant of integration appears.",
+          "sample_responses": [
+            {
+              "response": "$\\tfrac{y^2}{2} = -x^2 + C$",
+              "earned": true,
+              "commentary": "Explicit $+C$ included.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\tfrac{y^2}{2} = -x^2$",
+              "earned": false,
+              "commentary": "Missing $+C$; caps score at 2/5 for this part.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -149,9 +274,27 @@
           "alternatives": [
             {
               "required_elements": [
-                "Substitutes $x=1, y=-1$ to find $C = 2$"
+                "Substitutes $x = 1$, $y = -1$ to find $C = \\tfrac{3}{2}$"
               ],
-              "correct_example": "$(-1)^2 = -(1)^2 + C \\Rightarrow C = 2$"
+              "correct_example": "$\\tfrac{(-1)^2}{2} = -(1)^2 + C \\Rightarrow C = \\tfrac{3}{2}$"
+            }
+          ],
+          "common_traps": [
+            "Substituting into the derivative instead of the integrated equation"
+          ],
+          "official_rubric": "The fourth point of 5 in part (c) is earned for correctly using the initial condition to find $C = \\tfrac{3}{2}$.",
+          "sample_responses": [
+            {
+              "response": "$\\tfrac{1}{2} = -1 + C \\Rightarrow C = \\tfrac{3}{2}$",
+              "earned": true,
+              "commentary": "Correctly plugs $(1, -1)$ into the antiderivative equation.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$C = 0$",
+              "earned": false,
+              "commentary": "Arithmetic error in solving for $C$; correct value is $\\tfrac{3}{2}$.",
+              "source": "synthesized"
             }
           ]
         },
@@ -162,13 +305,29 @@
           "alternatives": [
             {
               "required_elements": [
-                "$y = -\\sqrt{2 - x^2}$ (negative branch since $y(1) = -1 < 0$)"
+                "$y^2 = -2x^2 + 3$",
+                "$y = -\\sqrt{3 - 2x^2}$ (negative branch since $y(1) = -1 < 0$)"
               ],
-              "correct_example": "$y = -\\sqrt{2-x^2}$"
+              "correct_example": "$y = -\\sqrt{3 - 2x^2}$"
             }
           ],
           "common_traps": [
-            "Forgetting to choose the negative branch consistent with initial condition $y(1)=-1$"
+            "Taking the positive branch $y = +\\sqrt{3 - 2x^2}$ — inconsistent with $y(1) = -1$"
+          ],
+          "official_rubric": "The fifth point of 5 in part (c) is earned for solving for $y$ as $y = -\\sqrt{3 - 2x^2}$, choosing the negative branch consistent with the initial condition.",
+          "sample_responses": [
+            {
+              "response": "$y^2 = -2x^2 + 3$; since $y(1) = -1 < 0$, $y = -\\sqrt{3 - 2x^2}$.",
+              "earned": true,
+              "commentary": "Selects the negative branch correctly based on the initial condition.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$y = \\sqrt{3 - 2x^2}$",
+              "earned": false,
+              "commentary": "At $x = 1$ this gives $y = 1$, contradicting $f(1) = -1$. Must take the negative branch.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
