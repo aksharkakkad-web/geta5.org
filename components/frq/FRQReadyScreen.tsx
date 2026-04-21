@@ -123,7 +123,7 @@ export default function FRQReadyScreen({
 
         {/* Original PDF link (released FRQs only) */}
         {question.source_pdf && (
-          <div style={{ marginTop: '-20px', marginBottom: '24px', marginLeft: '-8px' }}>
+          <div style={{ marginTop: '-12px', marginBottom: '28px' }}>
             <FRQSourceLinks pdfHref={question.source_pdf} />
           </div>
         )}

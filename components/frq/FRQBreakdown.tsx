@@ -268,7 +268,8 @@ export default function FRQBreakdown({
             width: essayMode ? '100%' : undefined,
             display: 'flex',
             justifyContent: 'flex-end',
-            marginTop: '-8px',
+            gap: '8px',
+            flexWrap: 'wrap',
           }}
         >
           <FRQSourceLinks

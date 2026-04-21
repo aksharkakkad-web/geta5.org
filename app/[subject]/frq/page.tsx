@@ -676,7 +676,7 @@ export default function FRQPage({ params }: PageProps) {
                   : selectedQuestion.title}
               </h2>
               {selectedQuestion.source_pdf && (
-                <div style={{ marginLeft: '-8px', marginTop: '2px' }}>
+                <div style={{ marginTop: '10px' }}>
                   <FRQSourceLinks pdfHref={selectedQuestion.source_pdf} />
                 </div>
               )}
