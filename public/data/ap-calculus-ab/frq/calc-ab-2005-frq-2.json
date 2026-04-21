@@ -34,6 +34,24 @@
               ],
               "correct_example": "$\\int_0^6 R(t)\\, dt$"
             }
+          ],
+          "common_traps": [
+            "Writing calculator syntax like `fnInt(R,0,0,6)` instead of correct integral notation"
+          ],
+          "official_rubric": "The first point of 2 in part (a) is earned for a correct integral expression $\\int_0^6 R(t)\\, dt$.",
+          "sample_responses": [
+            {
+              "response": "$\\int_0^6 R(t)\\, dt$",
+              "earned": true,
+              "commentary": "Correct mathematical notation for the integral representing total sand removed.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\text{fnInt}(R(t),t,0,6)$",
+              "earned": false,
+              "commentary": "Calculator syntax is not acceptable notation on AP Calculus; must write the integral in proper mathematical form.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -43,14 +61,30 @@
           "alternatives": [
             {
               "required_elements": [
-                "Correct numerical answer",
+                "Numerical answer $31.815$ or $31.816$",
                 "Units of cubic yards"
               ],
-              "correct_example": "$\\approx 31.815$ or $31.816$ cubic yards"
+              "correct_example": "$\\int_0^6 R(t)\\, dt = 31.815 \\text{ yd}^3$"
             }
           ],
           "common_traps": [
-            "Omitting units (cubic yards)"
+            "Omitting units (cubic yards)",
+            "Degrees mode on calculator"
+          ],
+          "official_rubric": "The second point of 2 in part (a) is earned for the correct numerical answer $31.815$ or $31.816$ cubic yards, with units of measure.",
+          "sample_responses": [
+            {
+              "response": "$\\int_0^6 R(t)\\, dt = 31.816 \\text{ yd}^3$",
+              "earned": true,
+              "commentary": "Correct value to three decimals with units $\\text{yd}^3$ stated.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$31.816$",
+              "earned": false,
+              "commentary": "Correct numerical value but missing units, which are required in part (a).",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -70,22 +104,60 @@
           "alternatives": [
             {
               "required_elements": [
-                "Net rate: $S(t) - R(t)$"
+                "Net rate: $S(x) - R(x)$"
               ],
               "correct_example": "$Y(t) = 2500 + \\int_0^t [S(x) - R(x)]\\, dx$"
+            }
+          ],
+          "common_traps": [
+            "Adding rates instead of subtracting",
+            "Using $R(x) - S(x)$ (wrong sign)"
+          ],
+          "official_rubric": "The first point of 3 in part (b) is earned for the correct integrand $S(x) - R(x)$, representing the net rate of sand change.",
+          "sample_responses": [
+            {
+              "response": "Integrand: $S(x) - R(x)$",
+              "earned": true,
+              "commentary": "Correctly models the net rate — sand added by pump minus sand removed by tide.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Integrand: $S(x) + R(x)$",
+              "earned": false,
+              "commentary": "Treats the tide as adding sand; the tide removes sand, so it must be subtracted.",
+              "source": "synthesized"
             }
           ]
         },
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct limits (from 0 to $t$)",
+          "description": "Correct limits (from $0$ to $t$)",
           "alternatives": [
             {
               "required_elements": [
                 "Variable upper limit $t$",
                 "Lower limit $0$"
-              ]
+              ],
+              "correct_example": "$\\int_0^t [S(x) - R(x)]\\, dx$"
+            }
+          ],
+          "common_traps": [
+            "Using $t$ as the dummy variable inside the integral instead of $x$"
+          ],
+          "official_rubric": "The second point of 3 in part (b) is earned for correct limits of integration — lower limit $0$ and variable upper limit $t$.",
+          "sample_responses": [
+            {
+              "response": "$\\int_0^t [S(x) - R(x)]\\, dx$",
+              "earned": true,
+              "commentary": "Correct limits with $x$ as dummy variable, $t$ as upper bound.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\int_0^6 [S(x) - R(x)]\\, dx$",
+              "earned": false,
+              "commentary": "Uses a fixed upper limit, so $Y$ is a constant, not a function of $t$.",
+              "source": "synthesized"
             }
           ]
         },
@@ -96,10 +168,28 @@
           "alternatives": [
             {
               "required_elements": [
-                "Initial condition 2500",
+                "Initial condition $2500$",
                 "Accumulation integral"
               ],
               "correct_example": "$Y(t) = 2500 + \\int_0^t [S(x) - R(x)]\\, dx$"
+            }
+          ],
+          "common_traps": [
+            "Omitting the initial amount $2500$"
+          ],
+          "official_rubric": "The third point of 3 in part (b) is earned for the complete and correct expression including the initial condition $2500$.",
+          "sample_responses": [
+            {
+              "response": "$Y(t) = 2500 + \\int_0^t [S(x) - R(x)]\\, dx$",
+              "earned": true,
+              "commentary": "All three components present: initial amount, accumulation integral with correct integrand and limits.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$Y(t) = \\int_0^t [S(x) - R(x)]\\, dx$",
+              "earned": false,
+              "commentary": "Missing initial amount $2500$ yd$^3$ — the problem states the beach starts with $2500$ cubic yards.",
+              "source": "synthesized"
             }
           ]
         }
@@ -123,7 +213,26 @@
                 "$Y'(t) = S(t) - R(t)$",
                 "Evaluate at $t = 4$"
               ],
-              "correct_example": "$Y'(4) = S(4) - R(4) \\approx -1.908$ or $-1.909$ cubic yards per hour"
+              "correct_example": "$Y'(4) = S(4) - R(4) = -1.908$ or $-1.909$ cubic yards per hour"
+            }
+          ],
+          "common_traps": [
+            "Forgetting units (yd$^3$/hr)",
+            "Dropping the sign"
+          ],
+          "official_rubric": "The 1 point in part (c) is earned for the correct value $Y'(4) = -1.908$ or $-1.909$ yd$^3$/hr.",
+          "sample_responses": [
+            {
+              "response": "$Y'(t) = S(t) - R(t)$; $Y'(4) = -1.909 \\text{ yd}^3/\\text{hr}$",
+              "earned": true,
+              "commentary": "Derivative identified correctly via FTC and evaluated at $t=4$; sign and magnitude match scoring key.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$Y'(4) = 1.909$",
+              "earned": false,
+              "commentary": "Wrong sign — $Y$ is decreasing at $t = 4$, so the rate of change is negative.",
+              "source": "synthesized"
             }
           ]
         }
@@ -148,6 +257,24 @@
               ],
               "correct_example": "$Y'(t) = 0$ when $S(t) = R(t)$"
             }
+          ],
+          "common_traps": [
+            "Setting $Y(t) = 0$ instead of $Y'(t) = 0$"
+          ],
+          "official_rubric": "The first point of 3 in part (d) is earned for setting $Y'(t) = 0$, i.e., $S(t) = R(t)$.",
+          "sample_responses": [
+            {
+              "response": "$Y'(t) = 0$ when $S(t) = R(t)$",
+              "earned": true,
+              "commentary": "Correct critical-point equation using the derivative from (c).",
+              "source": "synthesized"
+            },
+            {
+              "response": "$Y(t) = 0$",
+              "earned": false,
+              "commentary": "Setting $Y$ itself to zero finds when sand equals $0$, not where $Y$ is minimized.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -161,23 +288,56 @@
               ],
               "correct_example": "$t \\approx 5.117$ or $5.118$ hours"
             }
+          ],
+          "common_traps": [
+            "Accepting a spurious solution outside $[0,6]$"
+          ],
+          "official_rubric": "The second point of 3 in part (d) is earned for the correct critical $t$-value $t = 5.117$ or $5.118$.",
+          "sample_responses": [
+            {
+              "response": "$t = 5.118$",
+              "earned": true,
+              "commentary": "The only solution to $S(t) = R(t)$ on $[0,6]$ — verified with calculator's numeric root finder.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$t = 1$",
+              "earned": false,
+              "commentary": "Not a solution to $S(t) = R(t)$ on $[0,6]$; calculator intersection gives $t \\approx 5.118$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
           "point_id": "d3",
           "point_value": 1,
-          "description": "Correct minimum value with justification",
+          "description": "Correct minimum value with justification (Candidates Test)",
           "alternatives": [
             {
               "required_elements": [
-                "Evaluates $Y$ at critical point and endpoints",
-                "States minimum value"
+                "Evaluates $Y$ at critical point AND both endpoints",
+                "States minimum value $\\approx 2492.369$"
               ],
-              "correct_example": "$Y(5.117) \\approx 2492.369$ cubic yards; justification by comparing $Y(0) = 2500$, $Y(5.117) \\approx 2492.369$, $Y(6) \\approx 2493.277$"
+              "correct_example": "$Y(0) = 2500$, $Y(5.117) \\approx 2492.369$, $Y(6) \\approx 2493.277$; minimum is $2492.369$ yd$^3$ at $t \\approx 5.117$"
             }
           ],
           "common_traps": [
-            "Not comparing with endpoints to confirm global minimum"
+            "Not comparing with endpoints to confirm global minimum — Candidates Test requires checking critical points AND endpoints"
+          ],
+          "official_rubric": "The third point of 3 in part (d) is earned for the correct minimum value with full justification — comparing $Y$ values at the critical point and both endpoints of $[0,6]$.",
+          "sample_responses": [
+            {
+              "response": "$Y(0) = 2500$, $Y(5.117) = 2492.369$, $Y(6) = 2493.277$. The minimum is $2492.369$ cubic yards at $t = 5.117$ hours.",
+              "earned": true,
+              "commentary": "Full Candidates Test — evaluates at critical point and both endpoints, identifies smallest.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$Y(5.117) = 2492.369$, so the minimum is $2492.369$ cubic yards.",
+              "earned": false,
+              "commentary": "Does not compare to endpoints; the Candidates Test requires checking $t = 0$ and $t = 6$ as well.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
