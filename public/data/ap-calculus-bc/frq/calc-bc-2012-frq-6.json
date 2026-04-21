@@ -34,6 +34,21 @@
                 "$\\left|\\dfrac{a_{n+1}}{a_n}\\right| = \\left|\\dfrac{x^{2(n+1)+1}}{2(n+1)+3} \\cdot \\dfrac{2n+3}{x^{2n+1}}\\right| = \\dfrac{2n+3}{2n+5} \\cdot x^2$"
               ]
             }
+          ],
+          "official_rubric": "1 point for sets up ratio. Forms $\\left|\\dfrac{a_{n+1}}{a_n}\\right|$ with algebraic simplification.",
+          "sample_responses": [
+            {
+              "response": "$\\left|\\dfrac{a_{n+1}}{a_n}\\right| = \\dfrac{2n+3}{2n+5} \\cdot x^2$",
+              "earned": true,
+              "commentary": "Correctly forms the ratio and simplifies the exponents and the $2n + 3$ denominators.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\left|\\dfrac{a_{n+1}}{a_n}\\right| = \\dfrac{2n+3}{2n+5}$",
+              "earned": false,
+              "commentary": "Forgets the $x^2$ factor from the ratio of the $x^{2n+1}$ terms.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -47,6 +62,21 @@
               ],
               "correct_example": "$\\lim_{n \\to \\infty} \\left|\\dfrac{a_{n+1}}{a_n}\\right| = x^2$"
             }
+          ],
+          "official_rubric": "1 point for computing limit of ratio. $\\lim_{n \\to \\infty} \\dfrac{2n+3}{2n+5} \\cdot x^2 = x^2$.",
+          "sample_responses": [
+            {
+              "response": "$\\lim_{n \\to \\infty} \\dfrac{2n+3}{2n+5} = 1$, so the limit is $x^2$.",
+              "earned": true,
+              "commentary": "Correctly computes the limit of the rational coefficient and includes the $x^2$ factor.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\lim_{n \\to \\infty} \\dfrac{2n+3}{2n+5} \\cdot x^2 = 0$",
+              "earned": false,
+              "commentary": "Incorrectly evaluates the limit of the rational expression — numerator and denominator both grow like $2n$, giving a limit of $1$, not $0$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -59,6 +89,21 @@
                 "Ratio test: converges when $x^2 < 1$, i.e., $|x| < 1$, giving radius of convergence $R = 1$"
               ]
             }
+          ],
+          "official_rubric": "1 point for identifies interior of interval of convergence. $x^2 < 1 \\Rightarrow -1 < x < 1$.",
+          "sample_responses": [
+            {
+              "response": "$x^2 < 1 \\Rightarrow -1 < x < 1$, so the series converges on $(-1, 1)$.",
+              "earned": true,
+              "commentary": "Applies the ratio test criterion correctly to find the open interval of convergence.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The series converges for all $x$.",
+              "earned": false,
+              "commentary": "Mistakes the limit $x^2$ for $0$; the ratio test requires $|x^2| < 1$, not $|x^2| < \\infty$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -70,6 +115,21 @@
               "required_elements": [
                 "At $x = 1$: series is $\\sum \\dfrac{(-1)^n}{2n+3}$, which converges by the Alternating Series Test (terms decrease to 0)"
               ]
+            }
+          ],
+          "official_rubric": "1 point for considers both endpoints. At $x = 1$: series is $\\frac{1}{3} - \\frac{1}{5} + \\frac{1}{7} - \\cdots$, converging by AST.",
+          "sample_responses": [
+            {
+              "response": "At $x = 1$: $\\sum \\dfrac{(-1)^n}{2n+3}$ converges by the Alternating Series Test (terms decrease in absolute value to 0).",
+              "earned": true,
+              "commentary": "Checks the right endpoint and names the Alternating Series Test with the required conditions.",
+              "source": "synthesized"
+            },
+            {
+              "response": "At $x = 1$: the series diverges by the $p$-series test.",
+              "earned": false,
+              "commentary": "Tries to apply the $p$-series test, but the series is alternating — the Alternating Series Test applies, and it converges.",
+              "source": "synthesized"
             }
           ]
         },
@@ -89,6 +149,21 @@
           "common_traps": [
             "Forgetting to check the endpoints",
             "Incorrectly excluding one or both endpoints after the endpoint analysis"
+          ],
+          "official_rubric": "1 point for analysis and interval of convergence. At $x = -1$: series is $-\\frac{1}{3} + \\frac{1}{5} - \\frac{1}{7} + \\cdots$, converging by AST. Interval of convergence: $-1 \\leq x \\leq 1$.",
+          "sample_responses": [
+            {
+              "response": "At $x = -1$: series $-\\frac{1}{3} + \\frac{1}{5} - \\frac{1}{7} + \\cdots$ converges by AST. Interval of convergence: $[-1, 1]$.",
+              "earned": true,
+              "commentary": "Checks left endpoint, applies AST, and gives the full closed interval of convergence.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Interval of convergence: $(-1, 1)$",
+              "earned": false,
+              "commentary": "Uses open brackets without checking endpoints; both endpoints are included here.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -112,6 +187,21 @@
               ],
               "correct_example": "Error $\\leq \\left|\\dfrac{(1/2)^5}{7}\\right| = \\dfrac{1/32}{7} = \\dfrac{1}{224}$"
             }
+          ],
+          "official_rubric": "1 point for using the third term as an error bound. $\\left|g(1/2) - \\frac{17}{120}\\right| \\leq \\dfrac{(1/2)^5}{7} = \\dfrac{1}{224}$.",
+          "sample_responses": [
+            {
+              "response": "By AST Estimation: error $\\leq \\dfrac{(1/2)^5}{7} = \\dfrac{1}{224}$.",
+              "earned": true,
+              "commentary": "Correctly identifies the absolute value of the first omitted term as the error bound for an alternating series.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Error $\\leq \\dfrac{(1/2)^3}{5} = \\dfrac{1}{40}$",
+              "earned": false,
+              "commentary": "Uses the second term rather than the third (first omitted term); the first two terms are the approximation, so the bound uses $a_3$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -128,6 +218,21 @@
           "common_traps": [
             "Using the second term rather than the third as the error bound",
             "Computing the third term incorrectly"
+          ],
+          "official_rubric": "1 point for error bound. $\\dfrac{1}{224} < \\dfrac{1}{200}$, so the approximation differs from $g(1/2)$ by less than $\\dfrac{1}{200}$.",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{1}{224} < \\dfrac{1}{200}$, so $\\left|g(1/2) - \\dfrac{17}{120}\\right| < \\dfrac{1}{200}$.",
+              "earned": true,
+              "commentary": "Completes the inequality chain to show the approximation meets the required error bound.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The error is less than $\\frac{1}{200}$ because the series converges.",
+              "earned": false,
+              "commentary": "Gives a vague justification; the rubric requires explicit comparison between the third-term bound and $1/200$.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -154,6 +259,21 @@
           ],
           "common_traps": [
             "Differentiating incorrectly, e.g., not applying the power rule to each term"
+          ],
+          "official_rubric": "1 point for first three terms. Differentiate term-by-term to get $\\dfrac{1}{3} - \\dfrac{3x^2}{5} + \\dfrac{5x^4}{7} - \\cdots$.",
+          "sample_responses": [
+            {
+              "response": "$g'(x) = \\dfrac{1}{3} - \\dfrac{3x^2}{5} + \\dfrac{5x^4}{7} - \\cdots$",
+              "earned": true,
+              "commentary": "Applies the power rule term-by-term to the Maclaurin series of $g$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g'(x) = \\dfrac{1}{3} - \\dfrac{x^2}{5} + \\dfrac{x^4}{7} - \\cdots$",
+              "earned": false,
+              "commentary": "Forgets to multiply each term by the original exponent of $x$ when differentiating.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -166,6 +286,21 @@
                 "General term: $\\dfrac{(-1)^n (2n+1) x^{2n}}{2n+3}$"
               ],
               "correct_example": "$g'(x) = \\displaystyle\\sum_{n=0}^{\\infty} \\dfrac{(-1)^n (2n+1)}{2n+3} x^{2n}$"
+            }
+          ],
+          "official_rubric": "1 point for general term. $\\displaystyle\\sum_{n=0}^{\\infty} \\dfrac{(-1)^n(2n+1)}{2n+3} x^{2n}$.",
+          "sample_responses": [
+            {
+              "response": "$g'(x) = \\displaystyle\\sum_{n=0}^{\\infty} \\dfrac{(-1)^n(2n+1)}{2n+3} x^{2n}$",
+              "earned": true,
+              "commentary": "Correct general term with both the alternating sign and the factor from differentiation.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g'(x) = \\displaystyle\\sum_{n=0}^{\\infty} \\dfrac{(-1)^n}{2n+3} x^{2n}$",
+              "earned": false,
+              "commentary": "Drops the $(2n+1)$ factor produced by differentiating $x^{2n+1}$.",
+              "source": "synthesized"
             }
           ]
         }
