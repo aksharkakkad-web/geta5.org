@@ -34,6 +34,25 @@
               ],
               "correct_example": "$g(4) = 3$"
             }
+          ],
+          "common_traps": [
+            "Computing signed area incorrectly",
+            "Forgetting to subtract where $f < 0$"
+          ],
+          "official_rubric": "1 of 3 points in part (a) is earned for $g(4) = 3$, computed as net signed area under $f$ from $0$ to $4$.",
+          "sample_responses": [
+            {
+              "response": "$g(4) = \\int_0^4 f(t)\\, dt = 3$",
+              "earned": true,
+              "commentary": "Adds signed geometric areas of the six line-segment pieces.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g(4) = 7$",
+              "earned": false,
+              "commentary": "Likely summed absolute areas instead of signed areas.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -47,6 +66,24 @@
               ],
               "correct_example": "$g'(4) = f(4) = 0$"
             }
+          ],
+          "common_traps": [
+            "Differentiating $g$ by integrating again"
+          ],
+          "official_rubric": "2 of 3 points in part (a): $g'(4) = f(4) = 0$ by FTC.",
+          "sample_responses": [
+            {
+              "response": "$g'(x) = f(x)$, so $g'(4) = f(4) = 0$.",
+              "earned": true,
+              "commentary": "Applies FTC directly.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g'(4) = 3$",
+              "earned": false,
+              "commentary": "Reports $g(4)$ value instead of $g'(4) = f(4)$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -59,6 +96,24 @@
                 "$g''(4) = f'(4) = -2$"
               ],
               "correct_example": "$g''(4) = f'(4) = -2$"
+            }
+          ],
+          "common_traps": [
+            "Not recognizing $g'' = f'$ and reading the slope from the graph"
+          ],
+          "official_rubric": "3 of 3 points in part (a): $g''(4) = f'(4) = -2$, the slope of the line segment at $x = 4$.",
+          "sample_responses": [
+            {
+              "response": "$g''(x) = f'(x)$; the graph's slope at $x = 4$ is $-2$, so $g''(4) = -2$.",
+              "earned": true,
+              "commentary": "Reads slope of line segment off the graph.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g''(4) = 0$",
+              "earned": false,
+              "commentary": "Likely misread the graph or reported $f(4)$ instead of $f'(4)$.",
+              "source": "synthesized"
             }
           ]
         }
@@ -79,20 +134,60 @@
           "alternatives": [
             {
               "required_elements": [
-                "Relative minimum at $x=1$"
-              ]
+                "Relative minimum at $x = 1$"
+              ],
+              "correct_example": "$g$ has a relative minimum at $x = 1$."
+            }
+          ],
+          "common_traps": [
+            "Claiming 'neither' because they check only $g(1)$ numerically"
+          ],
+          "official_rubric": "1 of 2 points in part (b): answer is 'relative minimum'.",
+          "sample_responses": [
+            {
+              "response": "$g$ has a relative minimum at $x = 1$.",
+              "earned": true,
+              "commentary": "Correct classification.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Neither.",
+              "earned": false,
+              "commentary": "$f$ changes sign at $x = 1$, so $g$ has an extremum there.",
+              "source": "synthesized"
             }
           ]
         },
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct justification: $g'= f$ changes sign (- to +) at $x=1$",
+          "description": "Correct justification: $g' = f$ changes sign (- to +) at $x = 1$",
           "alternatives": [
             {
               "required_elements": [
-                "$g'(x) = f(x)$ changes from negative to positive at $x=1$"
-              ]
+                "$g'(x) = f(x)$",
+                "$f$ changes from negative to positive at $x = 1$"
+              ],
+              "correct_example": "$g' = f$ changes from negative to positive at $x = 1$."
+            }
+          ],
+          "common_traps": [
+            "Not identifying $g' = f$",
+            "Citing concavity instead of sign change of $g'$"
+          ],
+          "official_rubric": "2 of 2 points in part (b): justification via $g' = f$ changing from negative to positive at $x = 1$.",
+          "sample_responses": [
+            {
+              "response": "$g'(x) = f(x)$ changes from negative to positive at $x = 1$, so $g$ has a relative minimum there.",
+              "earned": true,
+              "commentary": "First Derivative Test applied correctly.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g(1) < g(0)$ and $g(1) < g(2)$.",
+              "earned": false,
+              "commentary": "Doesn't use the derivative and doesn't invoke FTC.",
+              "source": "synthesized"
             }
           ]
         }
@@ -117,6 +212,24 @@
               ],
               "correct_example": "$g(10) = 4$"
             }
+          ],
+          "common_traps": [
+            "Computing $g(10)$ directly as total area rather than using periodicity"
+          ],
+          "official_rubric": "1 of 4 points in part (c): $g(10) = 4$, using $g$ increases by $2$ each period.",
+          "sample_responses": [
+            {
+              "response": "By periodicity, $\\int_5^{10} f = \\int_0^5 f = 2$, so $g(10) = g(5) + 2 = 4$.",
+              "earned": true,
+              "commentary": "Uses periodicity to shortcut the calculation.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g(10) = 2$",
+              "earned": false,
+              "commentary": "Treats $g$ itself as periodic; only $f$ is periodic.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -126,9 +239,28 @@
           "alternatives": [
             {
               "required_elements": [
-                "$g(108) = g(5 + 21\\cdot 5) + \\text{...}$, using periodicity: $g(108) = 44$"
+                "$g(108) = 21 g(5) + g(3) = 42 + 2 = 44$ (using periodicity and $g(3) = 2$)"
               ],
               "correct_example": "$g(108) = 44$"
+            }
+          ],
+          "common_traps": [
+            "Forgetting the remainder $g(3)$ after $108 = 21 \\cdot 5 + 3$",
+            "Arithmetic errors in the remainder"
+          ],
+          "official_rubric": "2 of 4 points in part (c): $g(108) = 21 \\cdot g(5) + g(3) = 44$.",
+          "sample_responses": [
+            {
+              "response": "$108 = 21 \\cdot 5 + 3$; $g(108) = 21(2) + g(3) = 42 + 2 = 44$.",
+              "earned": true,
+              "commentary": "Splits integral into $21$ periods plus the remainder from $0$ to $3$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g(108) = 108 / 5 \\cdot 2 = 43.2$",
+              "earned": false,
+              "commentary": "Linearly extrapolates without properly handling remainder; $g$ is not linear.",
+              "source": "synthesized"
             }
           ]
         },
@@ -141,7 +273,25 @@
               "required_elements": [
                 "$g'(108) = f(108) = f(3) = 2$ by periodicity"
               ],
-              "correct_example": "$g'(108) = f(108) = f(3) = 2$"
+              "correct_example": "$g'(108) = f(3) = 2$"
+            }
+          ],
+          "common_traps": [
+            "Not using $f$'s period to reduce $108$ to an argument in $[0, 5)$"
+          ],
+          "official_rubric": "3 of 4 points in part (c): $g'(108) = f(108) = f(3) = 2$.",
+          "sample_responses": [
+            {
+              "response": "$g'(108) = f(108)$. Since $108 \\equiv 3 \\pmod 5$, $f(108) = f(3) = 2$.",
+              "earned": true,
+              "commentary": "Uses $f$ periodic with period $5$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g'(108)$ is unknown from the graph.",
+              "earned": false,
+              "commentary": "The periodicity lets us read $f(3)$ off the graph.",
+              "source": "synthesized"
             }
           ]
         },
@@ -155,6 +305,24 @@
                 "Slope $2$, point $(108, 44)$"
               ],
               "correct_example": "$y - 44 = 2(x - 108)$"
+            }
+          ],
+          "common_traps": [
+            "Writing $y = 2x - 44$ (missing the $(x-108)$ structure or mis-simplifying)"
+          ],
+          "official_rubric": "4 of 4 points in part (c): correct tangent-line equation using $g(108) = 44$ and $g'(108) = 2$.",
+          "sample_responses": [
+            {
+              "response": "$y - 44 = 2(x - 108)$",
+              "earned": true,
+              "commentary": "Correct point-slope form.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$y = 2x - 108$",
+              "earned": false,
+              "commentary": "Simplification error; at $x=108$ should give $y=44$, but this gives $y=108$.",
+              "source": "synthesized"
             }
           ]
         }
