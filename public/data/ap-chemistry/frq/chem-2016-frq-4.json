@@ -43,6 +43,21 @@
           ],
           "common_traps": [
             "Verify approximation: x/C = 9.2 × 10$^{-6}$ / 0.75 << 1% ✓. The approximation is valid and simplifies calculation."
+          ],
+          "official_rubric": "1 point is earned for a correct setup and calculation of [H$^+$]. 1 point is earned for the correct setup and calculation of pH based on a correct setup for the [H$^+$] calculation.",
+          "sample_responses": [
+            {
+              "response": "$K_a = \\frac{[\\text{C}_6\\text{H}_5\\text{O}^-][\\text{H}_3\\text{O}^+]}{[\\text{C}_6\\text{H}_5\\text{OH}]} = \\frac{x^2}{0.75-x}$. Assume $x \\ll 0.75$: $1.12\\times10^{-10} = \\frac{x^2}{0.75}$, $x^2 = 8.4\\times10^{-11}$, $x = 9.2\\times10^{-6}\\text{ M}$. pH $= -\\log(9.2\\times10^{-6}) = 5.04$.",
+              "earned": true,
+              "commentary": "Sets up the $K_a$ expression correctly, applies the weak-acid approximation (valid since $x/C \\ll 5\\%$), solves for $[\\text{H}_3\\text{O}^+]$, and takes the negative log to get pH — the CB model answer.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "pH $= -\\log(1.12\\times10^{-10}) = 9.95$",
+              "earned": false,
+              "commentary": "Confuses pK$_a$ with pH — the pK$_a$ of the acid is $-\\log K_a$, but the pH of the solution requires solving for [H$_3$O$^+$] via the $K_a$ expression; these are different quantities.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -74,6 +89,21 @@
           ],
           "common_traps": [
             "pH = pK$_a$: [HA] = [A$^-$], exactly 50/50. pH > pK$_a$: [A$^-$] > [HA], more deprotonated. Must find pK$_a$ from K$_a$ first."
+          ],
+          "official_rubric": "1 point is earned for circling 10–14. 1 point is earned for the justification (when pH > pK$_a$, the deprotonated form will predominate; pK$_a = -\\log(1.12\\times10^{-10}) = 9.95$).",
+          "sample_responses": [
+            {
+              "response": "Circle 10, 11, 12, 13, 14. pK$_a = -\\log(1.12\\times10^{-10}) = 9.95$. When pH > pK$_a$, [C$_6$H$_5$O$^-$] > [C$_6$H$_5$OH], so more than 50% of the phenol is deprotonated. All pH values ≥ 10 satisfy pH > 9.95.",
+              "earned": true,
+              "commentary": "Circles the correct range and justifies using the Henderson–Hasselbalch reasoning (pH > pK$_a$ ⇒ conjugate base dominates) — the CB model answer.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Circle 9, 10, 11, 12, 13, 14 — at pH 9 the phenol is already deprotonated since the pK$_a$ is near 10.",
+              "earned": false,
+              "commentary": "pH 9 is less than pK$_a$ (9.95), so the protonated form still predominates; only pH values strictly greater than pK$_a$ (i.e., 10 and above) give >50% deprotonation.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
