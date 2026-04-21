@@ -33,13 +33,29 @@
             {
               "required_elements": [
                 "Difference quotient using table values at $x=6$ and $x=8$",
-                "Units of $°C/cm$"
+                "Units of $^\\circ C/\\text{cm}$"
               ],
-              "correct_example": "$T'(7) \\approx \\frac{T(8)-T(6)}{8-6} = \\frac{55-62}{2} = -3.5 °C/cm$"
+              "correct_example": "$T'(7) \\approx \\dfrac{T(8)-T(6)}{8-6} = \\dfrac{55-62}{2} = -\\tfrac{7}{2}\\ ^\\circ C/\\text{cm}$"
             }
           ],
           "common_traps": [
-            "Omitting units ($°C/cm$)"
+            "Omitting units ($^\\circ C/\\text{cm}$)",
+            "Using $x=5$ and $x=8$ instead of $x=6$ and $x=8$ (the closest bracketing values)"
+          ],
+          "official_rubric": "The 1 point in part (a) is earned for $T'(7) \\approx \\tfrac{T(8)-T(6)}{8-6} = \\tfrac{55-62}{2} = -\\tfrac{7}{2}\\ ^\\circ C/\\text{cm}$, with supporting work and units.",
+          "sample_responses": [
+            {
+              "response": "$T'(7) \\approx \\dfrac{T(8)-T(6)}{8-6} = \\dfrac{55-62}{2} = -\\tfrac{7}{2}\\ ^\\circ C/\\text{cm}$",
+              "earned": true,
+              "commentary": "Uses the closest table values bracketing $x=7$ and shows the difference-quotient work with units.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$T'(7) \\approx -3.5$",
+              "earned": false,
+              "commentary": "Answer is numerically correct but no supporting work shown and no units — does not earn the point per rubric.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -59,9 +75,27 @@
           "alternatives": [
             {
               "required_elements": [
-                "$\\frac{1}{8}\\int_0^8 T(x)\\, dx$"
+                "$\\dfrac{1}{8}\\int_0^8 T(x)\\, dx$"
               ],
-              "correct_example": "$\\frac{1}{8}\\int_0^8 T(x)\\, dx$"
+              "correct_example": "$\\dfrac{1}{8}\\int_0^8 T(x)\\, dx$"
+            }
+          ],
+          "common_traps": [
+            "Omitting the $\\frac{1}{8}$ factor"
+          ],
+          "official_rubric": "The first point of 3 in part (b) is earned for the correct integral expression $\\tfrac{1}{8}\\int_0^8 T(x)\\, dx$ for the average value.",
+          "sample_responses": [
+            {
+              "response": "$\\text{avg} = \\dfrac{1}{8}\\int_0^8 T(x)\\, dx$",
+              "earned": true,
+              "commentary": "Matches the average-value formula with correct bounds and $\\tfrac{1}{8}$ coefficient.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\text{avg} = \\int_0^8 T(x)\\, dx$",
+              "earned": false,
+              "commentary": "Missing the $\\tfrac{1}{8}$ factor; this integral equals total area, not the average value.",
+              "source": "synthesized"
             }
           ]
         },
@@ -72,10 +106,29 @@
           "alternatives": [
             {
               "required_elements": [
-                "Four trapezoids using subintervals from table",
-                "Correct coefficients $\\frac{1}{2}(width)(f_1+f_2)$"
+                "Four trapezoids using subintervals from table: $[0,1], [1,5], [5,6], [6,8]$",
+                "Correct form $\\tfrac{1}{2}(b_1+b_2)\\cdot h$ per trapezoid"
               ],
-              "correct_example": "$\\frac{1}{2}[(100+93)(1) + (93+70)(4) + (70+62)(1) + (62+55)(2)]$"
+              "correct_example": "$\\tfrac{100+93}{2}(1) + \\tfrac{93+70}{2}(4) + \\tfrac{70+62}{2}(1) + \\tfrac{62+55}{2}(2)$"
+            }
+          ],
+          "common_traps": [
+            "Assuming equal subintervals; the table has uneven widths $1, 4, 1, 2$",
+            "Using Riemann rectangles instead of trapezoids"
+          ],
+          "official_rubric": "The second point of 3 in part (b) is earned for a correct trapezoidal setup using the four subintervals $[0,1], [1,5], [5,6], [6,8]$ indicated by the table.",
+          "sample_responses": [
+            {
+              "response": "$\\int_0^8 T(x)\\, dx \\approx \\tfrac{100+93}{2}(1) + \\tfrac{93+70}{2}(4) + \\tfrac{70+62}{2}(1) + \\tfrac{62+55}{2}(2)$",
+              "earned": true,
+              "commentary": "Correctly applies the trapezoid rule with the four given non-uniform subintervals.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\int_0^8 T(x)\\, dx \\approx 2[T(0) + T(2) + T(4) + T(6)]$",
+              "earned": false,
+              "commentary": "Assumes equal width-$2$ subintervals, which the table does not use; also uses left-Riemann rather than trapezoid.",
+              "source": "synthesized"
             }
           ]
         },
@@ -86,14 +139,31 @@
           "alternatives": [
             {
               "required_elements": [
-                "Correct numerical answer",
-                "Units of $°C$"
+                "Trapezoidal approximation $= 605.5$",
+                "Average $= \\tfrac{605.5}{8} = 75.6875\\ ^\\circ C$",
+                "Units of $^\\circ C$"
               ],
-              "correct_example": "$\\approx 175.6875/8 \\approx 175.688/8$ ... actually the trapezoid sum $A \\approx 1405.5$, average $= A/8 \\approx 175.688$ °C"
+              "correct_example": "$\\tfrac{1}{8}(605.5) = 75.6875\\ ^\\circ C$"
             }
           ],
           "common_traps": [
-            "Forgetting to divide by the length 8"
+            "Forgetting to divide by length $8$",
+            "Arithmetic error in the trapezoid sum"
+          ],
+          "official_rubric": "The third point of 3 in part (b) is earned for the correct average value $75.6875\\ ^\\circ C$ with units.",
+          "sample_responses": [
+            {
+              "response": "Average $\\approx \\tfrac{1}{8}(605.5) = 75.6875\\ ^\\circ C$",
+              "earned": true,
+              "commentary": "Divides total trapezoid sum by wire length $8$; reports units.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Average $\\approx 605.5$",
+              "earned": false,
+              "commentary": "Reports the trapezoid total instead of the average; must divide by $8$.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -114,22 +184,60 @@
             {
               "required_elements": [
                 "Applies Fundamental Theorem of Calculus",
-                "FTC: $T(8) - T(0)$"
+                "FTC: $T(8) - T(0) = 55 - 100 = -45$"
               ],
-              "correct_example": "$\\int_0^8 T'(x)\\, dx = T(8) - T(0) = 55 - 100 = -45$ °C"
+              "correct_example": "$\\int_0^8 T'(x)\\, dx = T(8) - T(0) = 55 - 100 = -45\\ ^\\circ C$"
+            }
+          ],
+          "common_traps": [
+            "Dropping the negative sign",
+            "Omitting units"
+          ],
+          "official_rubric": "The first point of 2 in part (c) is earned for $\\int_0^8 T'(x)\\, dx = -45\\ ^\\circ C$ with units.",
+          "sample_responses": [
+            {
+              "response": "$\\int_0^8 T'(x)\\, dx = T(8) - T(0) = 55 - 100 = -45\\ ^\\circ C$",
+              "earned": true,
+              "commentary": "Uses the Fundamental Theorem of Calculus with values from the table; includes units.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\int_0^8 T'(x)\\, dx = 45$",
+              "earned": false,
+              "commentary": "Wrong sign; $T$ is decreasing so $T(8) < T(0)$ and the net change is negative.",
+              "source": "synthesized"
             }
           ]
         },
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Correct meaning with units",
+          "description": "Correct meaning",
           "alternatives": [
             {
               "required_elements": [
-                "States temperature drops/decreases by 45°C from one end to the other"
+                "States temperature drops/decreases by $45\\ ^\\circ C$ from the heated end to the other end of the wire"
               ],
-              "correct_example": "The temperature drops $45°C$ from the heated end to the other end of the wire"
+              "correct_example": "The temperature of the wire drops $45\\ ^\\circ C$ from the heated end to the other end."
+            }
+          ],
+          "common_traps": [
+            "Saying 'the wire cools by 45°C over 8 seconds' (no time in this problem — $x$ is position)",
+            "Merely restating 'the integral is $-45$' without interpretation"
+          ],
+          "official_rubric": "The second point of 2 in part (c) is earned for an interpretation that the temperature drops $45\\ ^\\circ C$ from the heated end ($x=0$) to the other end ($x=8$) of the wire.",
+          "sample_responses": [
+            {
+              "response": "The temperature drops $45\\ ^\\circ C$ from the heated end of the wire to the other end.",
+              "earned": true,
+              "commentary": "Interprets the definite integral as the net change in temperature across the length of the wire.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The wire cools by $45\\ ^\\circ C$ over 8 seconds.",
+              "earned": false,
+              "commentary": "$x$ is position, not time; the $-45$ is a change across length, not over time.",
+              "source": "synthesized"
             }
           ]
         }
@@ -150,10 +258,29 @@
           "alternatives": [
             {
               "required_elements": [
-                "Average rate of change on $[1,5]$",
-                "Average rate of change on $[5,6]$"
+                "Average rate of change on $[1,5]$ equal to $-\\tfrac{23}{4} = -5.75$",
+                "Average rate of change on $[5,6]$ equal to $-8$"
               ],
-              "correct_example": "On $[1,5]$: $\\frac{70-93}{4} = -5.75$; on $[5,6]$: $\\frac{62-70}{1} = -8$"
+              "correct_example": "On $[1,5]$: $\\dfrac{70-93}{5-1} = -5.75$; on $[5,6]$: $\\dfrac{62-70}{6-5} = -8$"
+            }
+          ],
+          "common_traps": [
+            "Computing only one slope",
+            "Arithmetic errors in the difference quotient"
+          ],
+          "official_rubric": "The first point of 3 in part (d) is earned for computing two secant-line slopes that bracket a region where $T'$ must decrease.",
+          "sample_responses": [
+            {
+              "response": "Average rate on $[1,5]$: $\\dfrac{70-93}{4} = -5.75$. Average rate on $[5,6]$: $\\dfrac{62-70}{1} = -8$.",
+              "earned": true,
+              "commentary": "Two secant slopes computed correctly; the second ($-8$) is less than the first ($-5.75$).",
+              "source": "synthesized"
+            },
+            {
+              "response": "Average rate on $[0,1]$: $\\dfrac{93-100}{1} = -7$.",
+              "earned": false,
+              "commentary": "Only one secant slope; need two to argue via MVT that $T'$ decreases.",
+              "source": "synthesized"
             }
           ]
         },
@@ -168,11 +295,27 @@
                 "By MVT, $T'$ takes value $-5.75$ on $(1,5)$ and $-8$ on $(5,6)$",
                 "So $T'$ must decrease somewhere, meaning $T'' < 0$ somewhere"
               ],
-              "correct_example": "No. By MVT, $T'(c_1) = -5.75$ for some $c_1 \\in (1,5)$ and $T'(c_2) = -8$ for some $c_2 \\in (5,6)$. So $T'$ decreases, meaning $T'' < 0$ somewhere in $(c_1, c_2)$."
+              "correct_example": "No. By MVT, $T'(c_1) = -5.75$ for some $c_1 \\in (1,5)$ and $T'(c_2) = -8$ for some $c_2 \\in (5,6)$. Hence $T'$ decreases, so $T''$ cannot be positive throughout."
             }
           ],
           "common_traps": [
-            "Stating 'yes' without checking all intervals"
+            "Stating 'yes' without checking",
+            "Not invoking MVT (or equivalent) to guarantee $T'$ takes these intermediate values"
+          ],
+          "official_rubric": "The second point of 3 in part (d) is earned for the answer 'No' with a correct explanation invoking MVT (or equivalent) to conclude that $T'$ decreases somewhere.",
+          "sample_responses": [
+            {
+              "response": "No. By MVT, $T'(c_1) = -5.75$ for some $c_1 \\in (1,5)$ and $T'(c_2) = -8$ for some $c_2 \\in (5,6)$. It follows that $T'$ must decrease on $(c_1, c_2)$, so $T'' < 0$ somewhere in $(0,8)$.",
+              "earned": true,
+              "commentary": "Full explanation using MVT to justify that $T'$ decreases, contradicting $T'' > 0$ throughout.",
+              "source": "synthesized"
+            },
+            {
+              "response": "No, because $T$ is decreasing.",
+              "earned": false,
+              "commentary": "$T$ decreasing tells us $T' < 0$, not anything about $T''$. Missing MVT and comparison of secant slopes.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -182,9 +325,28 @@
           "alternatives": [
             {
               "required_elements": [
-                "Units: °C/cm in part (a)",
-                "Units: °C in parts (b) and (c)"
-              ]
+                "Units: $^\\circ C/\\text{cm}$ in part (a)",
+                "Units: $^\\circ C$ in parts (b) and (c)"
+              ],
+              "correct_example": "(a) $^\\circ C/\\text{cm}$; (b) $^\\circ C$; (c) $^\\circ C$"
+            }
+          ],
+          "common_traps": [
+            "Missing units once means losing this shared unit point for the whole question"
+          ],
+          "official_rubric": "The third point of 3 in part (d) is a global units point — earned for correct units in parts (a), (b), and (c).",
+          "sample_responses": [
+            {
+              "response": "(a) $-\\tfrac{7}{2}\\ ^\\circ C/\\text{cm}$; (b) $75.6875\\ ^\\circ C$; (c) $-45\\ ^\\circ C$",
+              "earned": true,
+              "commentary": "Units are correct and present in all three parts.",
+              "source": "synthesized"
+            },
+            {
+              "response": "(a) $-\\tfrac{7}{2}$; (b) $75.6875$; (c) $-45\\ ^\\circ C$",
+              "earned": false,
+              "commentary": "Parts (a) and (b) missing units; the shared-units point is not earned.",
+              "source": "synthesized"
             }
           ]
         }
