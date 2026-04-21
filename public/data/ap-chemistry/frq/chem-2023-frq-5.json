@@ -41,6 +41,21 @@
           ],
           "common_traps": [
             "Ideal gas law: $PV = nRT$; solve for $n = PV/(RT)$. T must be in Kelvin. R = 0.08206 L·atm/(mol·K)."
+          ],
+          "official_rubric": "For the correct calculated value: 1 point. $n = \\frac{PV}{RT} = \\frac{(7.45\\text{ atm})(6.00\\text{ L})}{(0.08206\\text{ L·atm/mol·K})(296\\text{ K})} = 1.84\\text{ mol}$.",
+          "sample_responses": [
+            {
+              "response": "$n = \\frac{(7.45)(6.00)}{(0.08206)(296)} = 1.84\\text{ mol}$",
+              "earned": true,
+              "commentary": "Direct substitution into PV=nRT with T in Kelvin; matches the rubric value.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$n = \\frac{(7.45)(6.00)}{(0.08206)(23)} = 23.7\\text{ mol}$",
+              "earned": false,
+              "commentary": "Uses Celsius (23 °C) instead of Kelvin (296 K); ideal gas law requires absolute temperature.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -61,6 +76,27 @@
           ],
           "common_traps": [
             "Rigid container = constant V. $P/T = \\text{const}$ (Gay-Lussac's Law). $P_2 = P_1(T_2/T_1)$. Both temperatures in Kelvin."
+          ],
+          "official_rubric": "For the correct calculated value: 1 point. Accept one of the following: (1) $\\frac{P_1}{T_1} = \\frac{P_2}{T_2} \\Rightarrow P_2 = \\frac{P_1 T_2}{T_1} = \\frac{(7.45\\text{ atm})(271\\text{ K})}{296\\text{ K}} = 6.82\\text{ atm}$; (2) $P = \\frac{nRT}{V} = \\frac{(1.84\\text{ mol})(0.08206)(271)}{6.00} = 6.82\\text{ atm}$.",
+          "sample_responses": [
+            {
+              "response": "$P_2 = P_1 \\times \\frac{T_2}{T_1} = 7.45 \\times \\frac{271}{296} = 6.82\\text{ atm}$",
+              "earned": true,
+              "commentary": "Gay-Lussac ratio method — matches one of the two rubric-accepted approaches.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$P_2 = \\frac{nRT}{V} = \\frac{(1.84)(0.08206)(271)}{6.00} = 6.82\\text{ atm}$",
+              "earned": true,
+              "commentary": "Ideal-gas-law method using the n computed in (i) — second rubric-accepted approach.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$P_2 = P_1 \\times \\frac{V_1}{V_2} = 7.45\\text{ atm}$",
+              "earned": false,
+              "commentary": "Invokes Boyle's Law with constant volume; since V does not change in a rigid container, this calculation does not account for temperature.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
