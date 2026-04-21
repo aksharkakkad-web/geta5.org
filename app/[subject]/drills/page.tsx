@@ -5,8 +5,7 @@ import UnitSelector from '@/components/drill/UnitSelector'
 import DrillSession from '@/components/drill/DrillSession'
 import DrillResults from '@/components/drill/DrillResults'
 import { loadDrillDraft, clearDrillDraft } from '@/utils/drillSession'
-import type { DrillView, SessionState, DrillCard, DrillDraft } from '@/utils/drillSession'
-import BrowseView from '@/components/drill/BrowseView'
+import type { DrillView, SessionState, DrillDraft } from '@/utils/drillSession'
 import { AuthGuard } from '@/components/auth/AuthGuard'
 import { BackToSubject } from '@/components/ui/BackToSubject'
 
@@ -18,9 +17,6 @@ export default function DrillsPage({ params }: DrillsPageProps) {
   const { subject } = use(params)
   const [view, setView] = useState<DrillView>('unit-select')
   const [session, setSession] = useState<SessionState | null>(null)
-  const [browseMode, setBrowseMode] = useState(false)
-  const [browseCards, setBrowseCards] = useState<DrillCard[] | null>(null)
-  const [browseUnitSlug, setBrowseUnitSlug] = useState<string | null>(null)
   const [draft, setDraft] = useState<DrillDraft | null>(null)
   const [draftChecked, setDraftChecked] = useState(false)
 
@@ -78,18 +74,6 @@ export default function DrillsPage({ params }: DrillsPageProps) {
     setView('unit-select')
   }
 
-  const handleBrowse = (cards: DrillCard[], unitSlug: string) => {
-    setBrowseCards(cards)
-    setBrowseUnitSlug(unitSlug)
-    setView('browse')
-  }
-
-  const handleBrowseBack = () => {
-    setBrowseCards(null)
-    setBrowseUnitSlug(null)
-    setView('unit-select')
-  }
-
   const isSession = view === 'session' && session
 
   return (
@@ -110,9 +94,6 @@ export default function DrillsPage({ params }: DrillsPageProps) {
             <UnitSelector
               subject={subject}
               onStart={handleStart}
-              browseMode={browseMode}
-              onBrowseToggle={setBrowseMode}
-              onBrowse={handleBrowse}
               draft={draft}
               onResume={handleResumeDraft}
             />
@@ -120,14 +101,6 @@ export default function DrillsPage({ params }: DrillsPageProps) {
         )}
         {isSession && (
           <DrillSession session={session!} subject={subject} onComplete={handleComplete} onStartFresh={handleSessionStartFresh} />
-        )}
-        {view === 'browse' && browseCards && browseUnitSlug && (
-          <BrowseView
-            cards={browseCards}
-            unitSlug={browseUnitSlug}
-            subject={subject}
-            onBack={handleBrowseBack}
-          />
         )}
         {view === 'results' && session && (
           <DrillResults

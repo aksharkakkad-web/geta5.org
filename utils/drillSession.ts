@@ -57,7 +57,7 @@ export interface SessionState {
   startedAt?: number          // Date.now() when session began
 }
 
-export type DrillView = 'unit-select' | 'session' | 'results' | 'browse'
+export type DrillView = 'unit-select' | 'session' | 'results'
 
 export const MODE_LABELS: Record<DrillMode, string> = {
   definition_to_term:     'Definition → Term',

@@ -9,9 +9,6 @@ import type { DrillCard, SessionState, DrillDraft } from '@/utils/drillSession'
 interface UnitSelectorProps {
   subject: string
   onStart: (session: SessionState) => void
-  browseMode: boolean
-  onBrowseToggle: (value: boolean) => void
-  onBrowse: (cards: DrillCard[], unitSlug: string) => void
   draft?: DrillDraft | null
   onResume?: () => void
 }
@@ -34,7 +31,7 @@ const UNIT_EMOJIS: Record<number, string> = {
   6: '💡', 7: '🏥', 8: '👥', 9: '🌍',
 }
 
-export default function UnitSelector({ subject, onStart, browseMode, onBrowseToggle, onBrowse, draft, onResume }: UnitSelectorProps) {
+export default function UnitSelector({ subject, onStart, draft, onResume }: UnitSelectorProps) {
   const [unitData, setUnitData] = useState<Record<number, DrillCard[] | null>>({})
   const [loading, setLoading] = useState(true)
   useEffect(() => {
@@ -84,10 +81,6 @@ export default function UnitSelector({ subject, onStart, browseMode, onBrowseTog
 
   const handleStudyAll = () => {
     if (studyAllDisabled) return
-    if (browseMode) {
-      onBrowse(allLoadedCards, 'all')
-      return
-    }
     if (draft && draft.unitSlug === 'all') {
       onResume?.()
       return
@@ -96,10 +89,6 @@ export default function UnitSelector({ subject, onStart, browseMode, onBrowseTog
   }
 
   const handleUnitClick = (unitNumber: number, cards: DrillCard[]) => {
-    if (browseMode) {
-      onBrowse(cards, `unit-${unitNumber}`)
-      return
-    }
     const unitSlug = `unit-${unitNumber}`
     if (draft && draft.unitSlug === unitSlug) {
       onResume?.()
@@ -126,45 +115,6 @@ export default function UnitSelector({ subject, onStart, browseMode, onBrowseTog
         <p style={{ color: 'var(--text-secondary)', fontSize: '1rem' }}>
           Pick a unit to start drilling terms, concepts, and key people.
         </p>
-      </div>
-
-      {/* Quiz / Browse toggle */}
-      <div
-        style={{
-          display: 'flex',
-          background: 'var(--bg-card)',
-          border: '1px solid var(--bg-border)',
-          borderRadius: 'var(--radius-md)',
-          padding: '3px',
-          width: 'fit-content',
-        }}
-      >
-        {([
-          { value: false, icon: '⚡', label: 'Quiz' },
-          { value: true, icon: '📖', label: 'Browse' },
-        ] as const).map(({ value, icon, label }) => (
-          <button
-            key={label}
-            onClick={() => onBrowseToggle(value)}
-            style={{
-              padding: '7px 18px',
-              borderRadius: '6px',
-              border: 'none',
-              background: browseMode === value ? 'var(--accent)' : 'transparent',
-              color: browseMode === value ? 'white' : 'var(--text-muted)',
-              fontSize: '0.875rem',
-              fontWeight: 600,
-              cursor: 'pointer',
-              transition: 'background 150ms ease, color 150ms ease',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px',
-            }}
-          >
-            <span>{icon}</span>
-            <span>{label}</span>
-          </button>
-        ))}
       </div>
 
       {/* Unit grid */}
