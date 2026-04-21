@@ -33,7 +33,26 @@
             {
               "required_elements": [
                 "$x = 2$ is a relative extremum"
-              ]
+              ],
+              "correct_example": "The only relative extremum on $(0,4)$ occurs at $x = 2$."
+            }
+          ],
+          "common_traps": [
+            "Claiming $x = 1$ or $x = 3$ as extrema, where $f'$ does not change sign"
+          ],
+          "official_rubric": "The first point of 2 in part (a) is earned for identifying $x = 2$ as the relative extremum.",
+          "sample_responses": [
+            {
+              "response": "$f$ has a relative extremum at $x = 2$.",
+              "earned": true,
+              "commentary": "Correctly identifies the unique relative extremum on the open interval.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Relative extrema at $x = 1, 2, 3$.",
+              "earned": false,
+              "commentary": "At $x = 1$ and $x = 3$, $f' = 0$ but does not change sign, so these are not extrema.",
+              "source": "synthesized"
             }
           ]
         },
@@ -46,7 +65,26 @@
               "required_elements": [
                 "$f'$ changes from positive to negative at $x = 2$"
               ],
-              "correct_example": "$f$ has a relative maximum at $x=2$ because $f'$ changes from positive to negative at $x=2$"
+              "correct_example": "$f$ has a relative maximum at $x = 2$ because $f'$ changes from positive to negative at $x = 2$."
+            }
+          ],
+          "common_traps": [
+            "Stating 'relative maximum' without citing sign change of $f'$",
+            "Using Second Derivative Test, but $f''$ does not exist at $x = 2$ — so the test cannot apply"
+          ],
+          "official_rubric": "The second point of 2 in part (a) is earned for identifying $x=2$ as a relative MAXIMUM with the justification that $f'$ changes from positive to negative.",
+          "sample_responses": [
+            {
+              "response": "$f$ has a relative maximum at $x = 2$ because $f'$ changes from positive to negative at $x = 2$.",
+              "earned": true,
+              "commentary": "First Derivative Test applied correctly, citing sign change of $f'$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$f$ has a relative maximum at $x = 2$ because $f''(2) < 0$.",
+              "earned": false,
+              "commentary": "The Second Derivative Test cannot be used — $f''(2)$ does not exist (DNE in the table).",
+              "source": "synthesized"
             }
           ]
         }
@@ -63,13 +101,32 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Graph correct at key points: $x = 0, 1, 2, 3$ with behavior at $x = 2$",
+          "description": "Graph correct at key points: $x = 0, 1, 2, 3$ with behavior at $(2, 2)$",
           "alternatives": [
             {
               "required_elements": [
-                "Correct function values at $x=0,1,2,3$",
-                "Correct behavior (cusp or corner) at $x=2$"
-              ]
+                "Passes through $(0, -1)$, $(1, 0)$, $(2, 2)$, $(3, 0)$",
+                "Cusp or corner at $(2, 2)$ (since $f'$ DNE there)"
+              ],
+              "correct_example": "Graph plotted through the four labeled points with a cusp at $(2, 2)$"
+            }
+          ],
+          "common_traps": [
+            "Drawing a smooth peak at $(2,2)$ — must be a cusp since $f'$ DNE"
+          ],
+          "official_rubric": "The first point of 2 in part (b) is earned for correct points at $x = 0, 1, 2, 3$ and the correct behavior (cusp/corner) at $(2, 2)$.",
+          "sample_responses": [
+            {
+              "response": "Graph passes through $(0,-1)$, $(1,0)$, cusp at $(2,2)$, $(3,0)$.",
+              "earned": true,
+              "commentary": "Key coordinates match the table and the sharp peak at $(2,2)$ reflects $f'(2)$ DNE.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Graph is a smooth parabola peaking at $(2,2)$.",
+              "earned": false,
+              "commentary": "Smooth peak incorrectly implies $f'(2)$ exists; table states $f'(2)$ is DNE.",
+              "source": "synthesized"
             }
           ]
         },
@@ -80,9 +137,29 @@
           "alternatives": [
             {
               "required_elements": [
-                "Increasing on $(1,2)$, decreasing on $(2,3)$",
-                "Concave down on $(0,1)$ and $(2,3)$, concave up on $(1,2)$"
-              ]
+                "Decreasing on $(0,1)$, increasing on $(1,2)$, decreasing on $(2,3)$, decreasing on $(3,4)$",
+                "Concave down on $(0,1)$ and $(2,3)$, concave up on $(1,2)$ and $(3,4)$"
+              ],
+              "correct_example": "Graph reflects all table sign information for $f'$ and $f''$"
+            }
+          ],
+          "common_traps": [
+            "Reversing concavity somewhere",
+            "Missing sign change of $f''$ at $x = 3$"
+          ],
+          "official_rubric": "The second point of 2 in part (b) is earned for appropriate increasing/decreasing and concavity behavior throughout $[0, 4)$.",
+          "sample_responses": [
+            {
+              "response": "Graph decreases then increases through $(1,0)$ (concave down then up), peaks with cusp at $(2,2)$, decreases concave down through $(3,0)$ then concave up.",
+              "earned": true,
+              "commentary": "All four intervals of monotonicity and concavity match the table.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Graph is concave up everywhere.",
+              "earned": false,
+              "commentary": "Table shows $f'' < 0$ on $(0,1)$ and $(2,3)$; concavity must reverse.",
+              "source": "synthesized"
             }
           ]
         }
@@ -105,7 +182,25 @@
               "required_elements": [
                 "$g'(x) = f(x)$"
               ],
-              "correct_example": "By FTC, $g'(x) = f(x)$"
+              "correct_example": "By FTC, $g'(x) = f(x)$."
+            }
+          ],
+          "common_traps": [
+            "Stating $g'(x) = f(t)$ (wrong variable)"
+          ],
+          "official_rubric": "The first point of 3 in part (c) is earned for $g'(x) = f(x)$ by the Fundamental Theorem of Calculus.",
+          "sample_responses": [
+            {
+              "response": "By FTC Part 2, $g'(x) = f(x)$.",
+              "earned": true,
+              "commentary": "Explicit FTC statement connects $g'$ to $f$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g'(x) = \\int_1^x f'(t)\\, dt$",
+              "earned": false,
+              "commentary": "Misapplies FTC; the derivative of the integral of $f$ is $f$, not an integral of $f'$.",
+              "source": "synthesized"
             }
           ]
         },
@@ -117,7 +212,26 @@
             {
               "required_elements": [
                 "$g'(x) = f(x) = 0$ at $x = 1$ and $x = 3$"
-              ]
+              ],
+              "correct_example": "$f(x) = 0$ at $x = 1, 3$ (from table)"
+            }
+          ],
+          "common_traps": [
+            "Including $x = 2$ — but $f(2) = 2 \\ne 0$, so it is not a critical point of $g$"
+          ],
+          "official_rubric": "The second point of 3 in part (c) is earned for correct critical values $x = 1$ and $x = 3$.",
+          "sample_responses": [
+            {
+              "response": "From the table, $f(x) = 0$ at $x = 1$ and $x = 3$; these are the critical points of $g$.",
+              "earned": true,
+              "commentary": "Uses $g' = f$ and reads the zeros from the table.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Critical points: $x = 1, 2, 3$.",
+              "earned": false,
+              "commentary": "$f(2) = 2 \\ne 0$, so $x = 2$ is not a critical point of $g$.",
+              "source": "synthesized"
             }
           ]
         },
@@ -131,7 +245,25 @@
                 "$g'$ changes from negative to positive at $x=1$ → relative minimum",
                 "$g'$ changes from positive to negative at $x=3$ → relative maximum"
               ],
-              "correct_example": "Relative minimum at $x=1$ (g' changes - to +); relative maximum at $x=3$ (g' changes + to -)"
+              "correct_example": "Relative minimum at $x = 1$ ($f$ changes $-$ to $+$); relative maximum at $x = 3$ ($f$ changes $+$ to $-$)."
+            }
+          ],
+          "common_traps": [
+            "Classifying without citing the sign change of $g' = f$"
+          ],
+          "official_rubric": "The third point of 3 in part (c) is earned for classifying each critical point correctly with justification based on sign changes of $g' = f$.",
+          "sample_responses": [
+            {
+              "response": "$g$ has a relative minimum at $x=1$ because $g' = f$ changes from negative to positive at $x=1$. $g$ has a relative maximum at $x=3$ because $g' = f$ changes from positive to negative at $x=3$.",
+              "earned": true,
+              "commentary": "First Derivative Test applied twice with proper justification.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Both are minima.",
+              "earned": false,
+              "commentary": "Must check sign of $g' = f$ on each side; $x = 3$ is a maximum, not minimum.",
+              "source": "synthesized"
             }
           ]
         }
@@ -153,20 +285,59 @@
             {
               "required_elements": [
                 "$x = 2$"
-              ]
+              ],
+              "correct_example": "The only point of inflection of $g$ is at $x = 2$."
+            }
+          ],
+          "common_traps": [
+            "Including $x = 1$ or $x = 3$ where $f'$ is zero but does not change sign"
+          ],
+          "official_rubric": "The first point of 2 in part (d) is earned for identifying $x = 2$ as the point of inflection.",
+          "sample_responses": [
+            {
+              "response": "$x = 2$",
+              "earned": true,
+              "commentary": "Correct single point of inflection.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$x = 1$ and $x = 3$",
+              "earned": false,
+              "commentary": "$f'$ does not change sign at $x = 1$ or $x = 3$, so $g''$ does not change sign there.",
+              "source": "synthesized"
             }
           ]
         },
         {
           "point_id": "d2",
           "point_value": 1,
-          "description": "Justification: $g'' = f'$ changes sign at $x = 2$",
+          "description": "Justification: $g''(x) = f'(x)$ changes sign at $x = 2$",
           "alternatives": [
             {
               "required_elements": [
-                "$g''(x) = f'(x)$ changes sign at $x = 2$"
+                "$g''(x) = f'(x)$",
+                "$f'$ changes sign at $x = 2$"
               ],
-              "correct_example": "Point of inflection at $x=2$ because $g''(x) = f'(x)$ changes sign at $x=2$"
+              "correct_example": "Point of inflection at $x = 2$ because $g''(x) = f'(x)$ changes sign at $x = 2$."
+            }
+          ],
+          "common_traps": [
+            "Citing $g''$ but not identifying it as $f'$",
+            "Claiming the point of inflection without citing sign change"
+          ],
+          "official_rubric": "The second point of 2 in part (d) is earned for justifying via $g''(x) = f'(x)$ and noting the sign change.",
+          "sample_responses": [
+            {
+              "response": "$g''(x) = f'(x)$ changes sign at $x = 2$ (positive on $(1,2)$, negative on $(2,3)$), so $g$ has a point of inflection at $x = 2$.",
+              "earned": true,
+              "commentary": "Directly links $g''$ to $f'$ and cites the sign change shown in the table.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g$ has a point of inflection at $x = 2$ because the graph changes curvature there.",
+              "earned": false,
+              "commentary": "Too vague; must identify $g'' = f'$ and cite its sign change.",
+              "source": "synthesized"
             }
           ]
         }
