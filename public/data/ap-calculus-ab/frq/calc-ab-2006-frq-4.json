@@ -30,10 +30,28 @@
           "alternatives": [
             {
               "required_elements": [
-                "$\\frac{v(80)-v(0)}{80-0}$",
+                "$\\tfrac{v(80)-v(0)}{80-0}$",
                 "Units ft/sec²"
               ],
-              "correct_example": "$\\frac{49-5}{80} = \\frac{44}{80} = \\frac{11}{20}$ ft/sec²"
+              "correct_example": "$\\tfrac{49-5}{80} = \\tfrac{11}{20}$ ft/sec²"
+            }
+          ],
+          "common_traps": [
+            "Omitting units or using ft/sec (velocity units)"
+          ],
+          "official_rubric": "The 1 point in part (a) is earned for the correct value $\\tfrac{v(80) - v(0)}{80 - 0} = \\tfrac{44}{80} = \\tfrac{11}{20}$ ft/sec².",
+          "sample_responses": [
+            {
+              "response": "Avg acceleration $= \\tfrac{v(80)-v(0)}{80} = \\tfrac{44}{80} = \\tfrac{11}{20}$ ft/sec²",
+              "earned": true,
+              "commentary": "Uses average rate of change formula for acceleration (rate of change of velocity) with units.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Avg acceleration $= \\tfrac{11}{20}$",
+              "earned": false,
+              "commentary": "Missing units ft/sec².",
+              "source": "synthesized"
             }
           ]
         }
@@ -55,7 +73,26 @@
             {
               "required_elements": [
                 "Distance (in feet) traveled by rocket A from $t=10$ to $t=70$ seconds"
-              ]
+              ],
+              "correct_example": "$\\int_{10}^{70} v(t)\\, dt$ is the distance, in feet, traveled by rocket A from $t = 10$ seconds to $t = 70$ seconds."
+            }
+          ],
+          "common_traps": [
+            "Saying 'change in velocity' (that would be $v(70) - v(10)$)"
+          ],
+          "official_rubric": "1 of 3 points in part (b) is earned for the correct interpretation: distance, in feet, traveled by rocket A from $t = 10$ to $t = 70$ seconds.",
+          "sample_responses": [
+            {
+              "response": "Since velocity is positive, $\\int_{10}^{70} v(t)\\, dt$ represents the distance, in feet, traveled by rocket A from $t = 10$ to $t = 70$ seconds.",
+              "earned": true,
+              "commentary": "Correct interpretation with units.",
+              "source": "synthesized"
+            },
+            {
+              "response": "It is the area under the velocity graph.",
+              "earned": false,
+              "commentary": "No units and no interpretation in terms of the rocket's flight.",
+              "source": "synthesized"
             }
           ]
         },
@@ -68,7 +105,26 @@
               "required_elements": [
                 "Midpoints: $t = 20, 40, 60$",
                 "Values: $v(20)=22, v(40)=35, v(60)=44$"
-              ]
+              ],
+              "correct_example": "Three subintervals $[10,30], [30,50], [50,70]$ with midpoints $20, 40, 60$."
+            }
+          ],
+          "common_traps": [
+            "Using endpoints instead of midpoints"
+          ],
+          "official_rubric": "2 of 3 points in part (b): identifies correct midpoints $20, 40, 60$ with subinterval width $20$.",
+          "sample_responses": [
+            {
+              "response": "Midpoints: $t=20, 40, 60$; $v=22, 35, 44$.",
+              "earned": true,
+              "commentary": "Subintervals $[10,30], [30,50], [50,70]$ each width $20$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Using $v(10), v(30), v(50)$.",
+              "earned": false,
+              "commentary": "That is a left Riemann sum, not midpoint.",
+              "source": "synthesized"
             }
           ]
         },
@@ -81,7 +137,25 @@
               "required_elements": [
                 "$20(22 + 35 + 44) = 20(101) = 2020$ feet"
               ],
-              "correct_example": "$20 \\cdot [v(20) + v(40) + v(60)] = 20(22+35+44) = 2020$ ft"
+              "correct_example": "$20[v(20) + v(40) + v(60)] = 20(22+35+44) = 2020$ ft"
+            }
+          ],
+          "common_traps": [
+            "Forgetting to multiply by $\\Delta t = 20$"
+          ],
+          "official_rubric": "3 of 3 points in part (b): value $2020$ ft.",
+          "sample_responses": [
+            {
+              "response": "$20[22 + 35 + 44] = 2020$ ft",
+              "earned": true,
+              "commentary": "Correct arithmetic with width factor.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$22 + 35 + 44 = 101$ ft",
+              "earned": false,
+              "commentary": "Missing width factor $\\Delta t = 20$.",
+              "source": "synthesized"
             }
           ]
         }
@@ -91,33 +165,69 @@
       "letter": "c",
       "prompt": "Rocket B is launched upward with an acceleration of $a(t) = \\dfrac{3}{\\sqrt{t+1}}$ feet per second per second. At time $t = 0$ seconds, the initial height of the rocket is 0 feet, and the initial velocity is 2 feet per second. Which of the two rockets is traveling faster at time $t = 80$ seconds? Explain your answer.",
       "point_value": 5,
-      "scoring_notes": "v_B(t) = 2 + integral from 0 to t of 3/sqrt(s+1) ds. Antiderivative of 3/sqrt(s+1) = 6*sqrt(s+1). So v_B(t) = 2 + [6*sqrt(s+1)] from 0 to t = 2 + 6*sqrt(t+1) - 6 = 6*sqrt(t+1) - 4. v_B(80) = 6*sqrt(81) - 4 = 6*9 - 4 = 54 - 4 = 50. v_A(80) = 49. So Rocket B is faster.",
+      "scoring_notes": "v_B(t) = 2 + integral from 0 to t of 3/sqrt(s+1) ds. Antiderivative of 3/sqrt(s+1) = 6*sqrt(s+1). So v_B(t) = 2 + 6*sqrt(t+1) - 6 = 6*sqrt(t+1) - 4. v_B(80) = 6*9 - 4 = 50. v_A(80) = 49. Rocket B is faster.",
       "requires_drawing": false,
       "reference_image": null,
       "scoring_points": [
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Correct integral setup for Rocket B's velocity: $v_B(t) = 2 + \\int_0^t \\frac{3}{\\sqrt{s+1}}\\, ds$",
+          "description": "Correct integral setup for Rocket B's velocity",
           "alternatives": [
             {
               "required_elements": [
-                "$v_B(t) = 2 + \\int_0^t \\frac{3}{\\sqrt{s+1}}\\, ds$"
+                "$v_B(t) = 2 + \\int_0^t \\tfrac{3}{\\sqrt{s+1}}\\, ds$"
               ],
-              "correct_example": "$v_B(t) = v_B(0) + \\int_0^t a(s)\\, ds = 2 + \\int_0^t \\frac{3}{\\sqrt{s+1}}\\, ds$"
+              "correct_example": "$v_B(t) = v_B(0) + \\int_0^t a(s)\\, ds$"
+            }
+          ],
+          "common_traps": [
+            "Forgetting initial velocity $2$"
+          ],
+          "official_rubric": "1 of 4 points in part (c): antiderivative form $6\\sqrt{t+1}$.",
+          "sample_responses": [
+            {
+              "response": "$v_B(t) = 2 + \\int_0^t \\tfrac{3}{\\sqrt{s+1}}\\, ds$",
+              "earned": true,
+              "commentary": "Correct FTC setup with initial condition.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$v_B(t) = \\int_0^t \\tfrac{3}{\\sqrt{s+1}}\\, ds$",
+              "earned": false,
+              "commentary": "Missing initial velocity.",
+              "source": "synthesized"
             }
           ]
         },
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Correct antiderivative $\\int \\frac{3}{\\sqrt{s+1}}\\, ds = 6\\sqrt{s+1} + C$",
+          "description": "Correct antiderivative $6\\sqrt{s+1}$",
           "alternatives": [
             {
               "required_elements": [
-                "$6\\sqrt{s+1}$"
+                "$\\int \\tfrac{3}{\\sqrt{s+1}}\\, ds = 6\\sqrt{s+1} + C$"
               ],
-              "correct_example": "$\\int_0^t \\frac{3}{\\sqrt{s+1}}\\, ds = \\left[6\\sqrt{s+1}\\right]_0^t = 6\\sqrt{t+1} - 6$"
+              "correct_example": "Antiderivative $6\\sqrt{s+1}$"
+            }
+          ],
+          "common_traps": [
+            "Integrating to $3\\sqrt{s+1}$ (forgot the factor of $2$ from substitution)"
+          ],
+          "official_rubric": "Rubric states: $\\int \\tfrac{3}{\\sqrt{s+1}}\\, ds = 6\\sqrt{s+1} + C$.",
+          "sample_responses": [
+            {
+              "response": "$\\int \\tfrac{3}{\\sqrt{s+1}}\\, ds = 3 \\cdot 2\\sqrt{s+1} = 6\\sqrt{s+1}$",
+              "earned": true,
+              "commentary": "Correct $u$-substitution gives factor of $2$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\int \\tfrac{3}{\\sqrt{s+1}}\\, ds = 3\\sqrt{s+1}$",
+              "earned": false,
+              "commentary": "Missing factor of $2$ from the substitution.",
+              "source": "synthesized"
             }
           ]
         },
@@ -129,38 +239,92 @@
             {
               "required_elements": [
                 "Adds initial velocity $2$"
-              ]
+              ],
+              "correct_example": "$v_B(t) = 6\\sqrt{t+1} - 4$ (since $2 = 6 + C$, $C = -4$)"
+            }
+          ],
+          "common_traps": [
+            "Using $v_B(0) = 0$"
+          ],
+          "official_rubric": "Use of initial condition point: $v_B(0) = 2$ gives $C = -4$.",
+          "sample_responses": [
+            {
+              "response": "$2 = 6 + C \\Rightarrow C = -4$, so $v_B(t) = 6\\sqrt{t+1} - 4$.",
+              "earned": true,
+              "commentary": "Correctly solves for $C$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$0 = 6 + C \\Rightarrow C = -6$",
+              "earned": false,
+              "commentary": "Used $v_B(0) = 0$ instead of $2$.",
+              "source": "synthesized"
             }
           ]
         },
         {
           "point_id": "c4",
           "point_value": 1,
-          "description": "Correct $v_B(80) = 6\\sqrt{81} - 6 + 2 = 54 - 6 + 2 = 50$ ft/sec",
+          "description": "Correct $v_B(80) = 50$ ft/sec and comparison",
           "alternatives": [
             {
               "required_elements": [
-                "$v_B(80) = 50$ ft/sec"
+                "$v_B(80) = 6\\sqrt{81} - 4 = 50$",
+                "$v_A(80) = 49$"
               ],
-              "correct_example": "$v_B(80) = 2 + 6\\sqrt{81} - 6 = 2 + 54 - 6 = 50$ ft/sec"
+              "correct_example": "$v_B(80) = 50 > 49 = v_A(80)$"
+            }
+          ],
+          "common_traps": [
+            "$\\sqrt{81} = 8$ instead of $9$",
+            "Reading $v_A(80)$ as a different value"
+          ],
+          "official_rubric": "Rubric: $v_B(80) = 50 > 49 = v(80)$; Rocket B is faster.",
+          "sample_responses": [
+            {
+              "response": "$v_B(80) = 6\\sqrt{81} - 4 = 54 - 4 = 50$. $v_A(80) = 49$. So Rocket B is faster at $t = 80$.",
+              "earned": true,
+              "commentary": "Correct evaluation and comparison.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$v_B(80) = 50$, Rocket A is faster.",
+              "earned": false,
+              "commentary": "Wrong conclusion; $50 > 49$ so Rocket B is faster.",
+              "source": "synthesized"
             }
           ]
         },
         {
           "point_id": "c5",
           "point_value": 1,
-          "description": "Correct comparison and conclusion: Rocket B is traveling faster since $v_B(80) = 50 > 49 = v_A(80)$",
+          "description": "Units throughout (a) and (b) are correct",
           "alternatives": [
             {
               "required_elements": [
-                "$v_B(80) = 50 > v_A(80) = 49$",
-                "Rocket B is traveling faster"
+                "ft/sec² in (a)",
+                "ft in (b)"
               ],
-              "correct_example": "Since $v_B(80) = 50 > 49 = v_A(80)$, Rocket B is traveling faster at $t = 80$ seconds."
+              "correct_example": "Units: ft/sec² in (a); ft in (b)"
             }
           ],
           "common_traps": [
-            "Not identifying the correct initial velocity (2 ft/sec, not 0)"
+            "Mismatched units between parts"
+          ],
+          "official_rubric": "Units point: correct units in both (a) [ft/sec²] and (b) [ft].",
+          "sample_responses": [
+            {
+              "response": "(a) $\\tfrac{11}{20}$ ft/sec²; (b) $2020$ ft",
+              "earned": true,
+              "commentary": "Units consistent.",
+              "source": "synthesized"
+            },
+            {
+              "response": "(a) $\\tfrac{11}{20}$; (b) $2020$",
+              "earned": false,
+              "commentary": "No units in either part.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
