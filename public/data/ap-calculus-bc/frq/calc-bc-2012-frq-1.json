@@ -35,6 +35,27 @@
               ],
               "correct_example": "$W'(12) \\approx \\dfrac{W(15) - W(9)}{15 - 9} = \\dfrac{67.9 - 61.8}{6} = \\dfrac{6.1}{6} \\approx 1.017$ °F/min"
             }
+          ],
+          "official_rubric": "1 point for estimate. $W'(12) \\approx \\dfrac{W(15) - W(9)}{15 - 9} = \\dfrac{67.9 - 61.8}{6} = 1.017$ (or $1.016$).",
+          "sample_responses": [
+            {
+              "response": "$W'(12) \\approx \\dfrac{W(15) - W(9)}{15 - 9} = \\dfrac{67.9 - 61.8}{6} = 1.017$",
+              "earned": true,
+              "commentary": "Uses the symmetric difference quotient with the two table values adjacent to $t = 12$ ($t = 9$ and $t = 15$), which gives the best estimate of the instantaneous rate of change.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$W'(12) \\approx \\dfrac{W(20) - W(0)}{20 - 0} = \\dfrac{16}{20} = 0.8$",
+              "earned": false,
+              "commentary": "Uses the endpoints of the full interval rather than the two table values surrounding $t = 12$; this gives an average rate over $[0, 20]$, not an estimate of $W'(12)$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$W'(12) \\approx \\dfrac{W(15) - W(12)}{15 - 12}$",
+              "earned": false,
+              "commentary": "Uses a table value ($W(12)$) that is not given; the student must use the closest available values on either side of $t = 12$, namely $W(9)$ and $W(15)$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -51,6 +72,27 @@
           "common_traps": [
             "Omitting units (°F/min)",
             "Saying 'the temperature is 1.017 °F' rather than 'the temperature is increasing at a rate of 1.017 °F/min'"
+          ],
+          "official_rubric": "1 point for interpretation with units. 'The water temperature is increasing at a rate of approximately 1.017 degrees Fahrenheit per minute at time $t = 12$ minutes.'",
+          "sample_responses": [
+            {
+              "response": "At $t = 12$ minutes, the water temperature is increasing at a rate of approximately $1.017$ °F per minute.",
+              "earned": true,
+              "commentary": "States the rate, the direction (increasing), and the units °F/minute; all three components are required for the interpretation point.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The temperature is $1.017$ at $t = 12$.",
+              "earned": false,
+              "commentary": "Confuses the rate of change with the temperature value itself, and omits units — fails to interpret $W'(12)$ as a rate.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The temperature is increasing at $1.017$ at $t = 12$.",
+              "earned": false,
+              "commentary": "Correctly identifies that the temperature is increasing but omits the required units (°F per minute), which is a standard interpretation failure on AP exams.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -74,6 +116,21 @@
               ],
               "correct_example": "By the FTC: $\\int_0^{20} W'(t)\\, dt = W(20) - W(0) = 71.0 - 55.0 = 16$ °F"
             }
+          ],
+          "official_rubric": "1 point for value. $\\int_0^{20} W'(t)\\, dt = W(20) - W(0) = 71.0 - 55.0 = 16$.",
+          "sample_responses": [
+            {
+              "response": "$\\int_0^{20} W'(t)\\, dt = W(20) - W(0) = 71.0 - 55.0 = 16$",
+              "earned": true,
+              "commentary": "Applies the Fundamental Theorem of Calculus correctly, recognizing the integral of $W'$ as the net change in $W$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\int_0^{20} W'(t)\\, dt \\approx 4(W'(0)) + 5(W'(4)) + \\cdots$",
+              "earned": false,
+              "commentary": "Attempts a Riemann sum approximation of $W'$ values which are not given; the FTC gives an exact value directly from the $W$ table.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -90,6 +147,21 @@
           "common_traps": [
             "Stating 'the temperature is 16 °F' rather than 'the temperature increased by 16 °F'",
             "Omitting units"
+          ],
+          "official_rubric": "1 point for interpretation with units. 'The water has warmed by 16 °F over the interval from $t = 0$ to $t = 20$ minutes.'",
+          "sample_responses": [
+            {
+              "response": "The water temperature increased by $16$ °F over the interval from $t = 0$ to $t = 20$ minutes.",
+              "earned": true,
+              "commentary": "States the net change (increased by 16), includes units (°F), and identifies the time interval — all required elements for the interpretation point.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The temperature is $16$ °F.",
+              "earned": false,
+              "commentary": "Treats the integral value as a temperature rather than a change in temperature; the integral $\\int_0^{20} W'(t)\\, dt$ represents accumulated change, not a state value.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -113,6 +185,21 @@
               ],
               "correct_example": "$\\approx 4(55.0) + 5(57.1) + 6(61.8) + 5(67.9) = 220.0 + 285.5 + 370.8 + 339.5 = 1215.8$"
             }
+          ],
+          "official_rubric": "1 point for left Riemann sum. $\\int_0^{20} W(t)\\, dt \\approx 4 \\cdot W(0) + 5 \\cdot W(4) + 6 \\cdot W(9) + 5 \\cdot W(15)$.",
+          "sample_responses": [
+            {
+              "response": "$\\int_0^{20} W(t)\\, dt \\approx 4(55.0) + 5(57.1) + 6(61.8) + 5(67.9)$",
+              "earned": true,
+              "commentary": "Uses the correct subinterval widths (4, 5, 6, 5) and the correct left-endpoint values ($W(0), W(4), W(9), W(15)$).",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\int_0^{20} W(t)\\, dt \\approx 5(55.0 + 57.1 + 61.8 + 67.9)$",
+              "earned": false,
+              "commentary": "Treats all subintervals as having equal width $5$; the table gives unequal partition widths $4, 5, 6, 5$ which must be used.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -125,6 +212,21 @@
                 "$\\dfrac{1}{20} \\cdot 1215.8 = 60.79$ degrees Fahrenheit"
               ],
               "correct_example": "$\\dfrac{1215.8}{20} = 60.790$ °F"
+            }
+          ],
+          "official_rubric": "1 point for approximation. $\\dfrac{1}{20}(1215.8) = 60.79$.",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{1}{20}(1215.8) = 60.79$ °F",
+              "earned": true,
+              "commentary": "Divides the Riemann sum by $20$ as required by the average value formula and reports correct units.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Average $\\approx 1215.8$ °F",
+              "earned": false,
+              "commentary": "Forgets to divide by the length of the interval ($20$); the average value requires the $\\frac{1}{b-a}$ factor.",
+              "source": "synthesized"
             }
           ]
         },
@@ -142,6 +244,27 @@
           "common_traps": [
             "Saying overestimate — with an increasing function, left Riemann sums underestimate",
             "Justifying with concavity rather than monotonicity"
+          ],
+          "official_rubric": "1 point for underestimate with reason. 'This approximation is an underestimate, because a left Riemann sum is used and the function $W$ is strictly increasing.'",
+          "sample_responses": [
+            {
+              "response": "This approximation is an underestimate because $W$ is strictly increasing, so on each subinterval the left endpoint produces the smallest $W$ value.",
+              "earned": true,
+              "commentary": "Correctly identifies the direction (underestimate) and links it to the monotonicity of $W$, which is the valid justification.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The approximation is an overestimate because $W$ is increasing.",
+              "earned": false,
+              "commentary": "Gets the direction wrong — for an increasing function, left Riemann sums underestimate because each rectangle's height equals the smallest value on its subinterval.",
+              "source": "synthesized"
+            },
+            {
+              "response": "This is an underestimate because the graph is concave up.",
+              "earned": false,
+              "commentary": "Uses concavity rather than monotonicity; concavity is the correct reason for trapezoidal rule bias, but for left Riemann sums the valid justification is that $W$ is increasing.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -165,6 +288,21 @@
               ],
               "correct_example": "$W(25) = 71.0 + \\int_{20}^{25} 0.4\\sqrt{t}\\cos(0.06t)\\, dt$"
             }
+          ],
+          "official_rubric": "1 point for integral. $W(25) = 71.0 + \\int_{20}^{25} W'(t)\\, dt$.",
+          "sample_responses": [
+            {
+              "response": "$W(25) = W(20) + \\int_{20}^{25} W'(t)\\, dt = 71.0 + \\int_{20}^{25} 0.4\\sqrt{t}\\cos(0.06t)\\, dt$",
+              "earned": true,
+              "commentary": "Correctly sets up the accumulation from the initial value $W(20) = 71.0$ plus the net change given by integrating the derivative.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$W(25) = \\int_{20}^{25} 0.4\\sqrt{t}\\cos(0.06t)\\, dt$",
+              "earned": false,
+              "commentary": "Omits the initial condition $W(20) = 71.0$; the integral alone gives only the net change, not the final value $W(25)$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -177,6 +315,21 @@
                 "Correct value obtained by evaluating the definite integral with a calculator"
               ],
               "correct_example": "$W(25) \\approx 71.0 + 2.043 \\approx 73.043$ degrees Fahrenheit"
+            }
+          ],
+          "official_rubric": "1 point for answer. $W(25) = 71.0 + 2.043155 = 73.043$.",
+          "sample_responses": [
+            {
+              "response": "$W(25) = 71.0 + 2.043 = 73.043$ °F",
+              "earned": true,
+              "commentary": "Correctly evaluates the integral using a calculator to at least three decimal places and adds the initial value.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$W(25) \\approx 73.04$",
+              "earned": false,
+              "commentary": "Decimal presentation error — three decimal places are required for calculator-computed values on AP Calculus FRQs.",
+              "source": "synthesized"
             }
           ]
         }
