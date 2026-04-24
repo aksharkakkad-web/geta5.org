@@ -8,12 +8,16 @@ import { parseInlineMath } from '@/utils/parseInlineMath'
 import { DrillCard as DrillCardType, MODE_LABELS } from '@/utils/drillSession'
 import { playCorrect, playWrong } from '@/utils/sounds'
 import { useAdiNudge } from '@/hooks/useAdiNudge'
+import TapToSelectCard from '@/components/drill/TapToSelectCard'
+import type { CardPresentStyle } from '@/utils/drillStyles'
 
 interface DrillCardProps {
   card: DrillCardType
   onAnswer: (cardId: string, verdict: 'correct' | 'wrong', userInput: string) => void
   onNext: () => void
   isRetry?: boolean
+  presentStyle?: CardPresentStyle
+  sessionCards?: DrillCardType[]
 }
 
 function RetryBadge() {
@@ -719,8 +723,11 @@ function DefaultCard({ card, onAnswer, onNext, isRetry }: DrillCardProps) {
   )
 }
 
-export default function DrillCard({ card, onAnswer, onNext, isRetry }: DrillCardProps) {
+export default function DrillCard({ card, onAnswer, onNext, isRetry, presentStyle, sessionCards }: DrillCardProps) {
   if (card.mode === 'concept_mc') return <ConceptMcCard card={card} onAnswer={onAnswer} onNext={onNext} isRetry={isRetry} />
   if (card.mode === 'name_to_formula') return <FormulaCard card={card} onAnswer={onAnswer} onNext={onNext} isRetry={isRetry} />
+  if (presentStyle === 'tap' && sessionCards && sessionCards.length >= 4) {
+    return <TapToSelectCard card={card} sessionCards={sessionCards} onAnswer={onAnswer} onNext={onNext} isRetry={isRetry} />
+  }
   return <DefaultCard card={card} onAnswer={onAnswer} onNext={onNext} isRetry={isRetry} />
 }
