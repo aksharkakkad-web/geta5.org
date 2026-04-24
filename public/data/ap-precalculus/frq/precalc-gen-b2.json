@@ -31,7 +31,28 @@
             }
           ],
           "wrong_examples": ["Using $a = 0$ or $b = 0$ (not consistent with exponential growth)", "Writing only one equation"],
-          "common_traps": ["$b^0 = 1$ for any base $b$, so the first equation immediately gives $a = 3.1$"]
+          "common_traps": ["$b^0 = 1$ for any base $b$, so the first equation immediately gives $a = 3.1$"],
+          "official_rubric": "The point is earned for writing two correct equations using $t = 0$ and $t = 11$: $a = 3.1$ (from $b^0 = 1$) and $3.1 \\cdot b^{11} = 421.7$. Writing only one equation or using incorrect data points does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$E(0) = a \\cdot b^0 = 3.1 \\Rightarrow a = 3.1$; $E(11) = 3.1 \\cdot b^{11} = 421.7$",
+              "earned": true,
+              "commentary": "Correctly identifies both equations from the specified data points, using the zero-exponent property to immediately determine $a = 3.1$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$a \\cdot b^0 = 3.1$",
+              "earned": false,
+              "commentary": "Writes only one of the two required equations. Both the $t = 0$ and $t = 11$ equations are needed.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$a = 3.1$; $a \\cdot b^8 = 110.3$",
+              "earned": false,
+              "commentary": "Uses $t = 8$ instead of $t = 11$ for the second equation. The problem specifies using $t = 0$ and $t = 11$.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "a2",
@@ -44,7 +65,28 @@
             }
           ],
           "wrong_examples": ["$b = 136.03$ (forgot the 11th root)", "$b = 1.56$ (decimal presentation error)"],
-          "common_traps": ["$b^{11} = 136.03$ must be solved for $b$ by taking the 11th root — not leaving it as $b = 136.03$"]
+          "common_traps": ["$b^{11} = 136.03$ must be solved for $b$ by taking the 11th root — not leaving it as $b = 136.03$"],
+          "official_rubric": "The point is earned for $a = 3.1$ and $b \\approx 1.563$ (accept $[1.558, 1.568]$) with supporting work showing the root-taking or logarithm step. Reporting $b = 136.03$ (the ratio before taking the root) or a value with fewer than three decimal places does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$b^{11} = \\frac{421.7}{3.1} = 136.03 \\Rightarrow b = 136.03^{1/11} \\approx 1.563$",
+              "earned": true,
+              "commentary": "Correctly divides to isolate $b^{11}$, then takes the $11$th root and reports $b$ to three decimal places.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$b = 421.7/3.1 = 136.03$",
+              "earned": false,
+              "commentary": "Computes the ratio $421.7/3.1$ but does not take the $11$th root. The value $136.03$ is $b^{11}$, not $b$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$b = 136.03^{1/11} \\approx 1.56$",
+              "earned": false,
+              "commentary": "Correct method but reports $b$ to only two decimal places; this is a decimal presentation error and does not earn the point on its first occurrence.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     },
@@ -67,7 +109,28 @@
             }
           ],
           "wrong_examples": ["$(421.7 - 3.1)/11 \\approx 38.1$ (used raw values instead of logarithms)", "$(\\ln(421.7) - \\ln(3.1)) \\approx 4.912$ without dividing by $11$"],
-          "common_traps": ["On a semi-log plot, the slope is $\\frac{\\Delta \\ln P}{\\Delta t}$ — must use $\\ln$ of the data values in the numerator"]
+          "common_traps": ["On a semi-log plot, the slope is $\\frac{\\Delta \\ln P}{\\Delta t}$ — must use $\\ln$ of the data values in the numerator"],
+          "official_rubric": "The point is earned for the correct slope $\\approx 0.447$ (accept $[0.444, 0.449]$) with supporting work showing the quotient $\\frac{\\ln(421.7) - \\ln(3.1)}{11}$. Using raw population values instead of their natural logarithms does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "slope $= \\frac{\\ln(421.7) - \\ln(3.1)}{11 - 0} = \\frac{6.043 - 1.131}{11} = \\frac{4.912}{11} \\approx 0.447$",
+              "earned": true,
+              "commentary": "Correctly uses the natural logarithm of population values in the numerator, and the time interval in the denominator, arriving at the semi-log slope.",
+              "source": "synthesized"
+            },
+            {
+              "response": "slope $= \\frac{421.7 - 3.1}{11} \\approx 38.1$",
+              "earned": false,
+              "commentary": "Uses raw population values instead of their natural logarithms. On a semi-log plot the vertical axis is $\\ln P$, so logarithms must be used in the slope calculation.",
+              "source": "synthesized"
+            },
+            {
+              "response": "slope $= \\ln(421.7) - \\ln(3.1) \\approx 4.912$",
+              "earned": false,
+              "commentary": "Computes the numerator correctly but omits dividing by $\\Delta t = 11$. The slope must be a rate (change in $\\ln P$ per unit time).",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "b2",
@@ -80,7 +143,22 @@
             }
           ],
           "wrong_examples": ["$E(6) = 3.1 \\cdot 1.563 \\cdot 6$ (multiplication instead of exponentiation)", "Using a $b$ value not derived from part (a)"],
-          "common_traps": ["The model is $E(t) = 3.1 \\cdot b^t$, not $3.1 \\cdot b \\cdot t$ — exponentiation required, not multiplication by $t$"]
+          "common_traps": ["The model is $E(t) = 3.1 \\cdot b^t$, not $3.1 \\cdot b \\cdot t$ — exponentiation required, not multiplication by $t$"],
+          "official_rubric": "The point is earned for an estimate consistent with the student's $b$ from part (a), obtained by substituting $t = 6$ into $E(t) = 3.1 \\cdot b^t$. Accept answers in $[40, 46]$ thousand to account for rounding differences in $b$. Supporting work must show the substitution.",
+          "sample_responses": [
+            {
+              "response": "$E(6) = 3.1 \\cdot (1.563)^6 \\approx 3.1 \\cdot 13.77 \\approx 42.7$ thousand",
+              "earned": true,
+              "commentary": "Correctly substitutes $t = 6$ into the model, computes the exponential, and reports the result in thousands consistent with the $b$ value from part (a).",
+              "source": "synthesized"
+            },
+            {
+              "response": "$E(6) = 3.1 \\cdot 1.563 \\cdot 6 \\approx 29.1$ thousand",
+              "earned": false,
+              "commentary": "Multiplies $b$ by $t$ instead of raising $b$ to the power $t$. The model uses exponentiation: $E(t) = 3.1 \\cdot b^t$.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     },
@@ -103,7 +181,22 @@
             }
           ],
           "wrong_examples": ["$t = \\ln(500/3.1)/\\ln(1.563)$ but forgetting the inequality direction", "Not showing the logarithm step"],
-          "common_traps": ["Since $\\ln(b) > 0$ (because $b > 1$), dividing by $\\ln(b)$ preserves the inequality direction — the answer $t > 11.38$ is correct"]
+          "common_traps": ["Since $\\ln(b) > 0$ (because $b > 1$), dividing by $\\ln(b)$ preserves the inequality direction — the answer $t > 11.38$ is correct"],
+          "official_rubric": "The point is earned for the correct solution $t \\approx 11.38$ hours (accept $[11.3, 11.5]$) with supporting work showing the inequality setup $3.1 \\cdot b^t > 500$ and the logarithm step. Omitting the logarithm step or the inequality direction does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$3.1 \\cdot (1.563)^t > 500 \\Rightarrow (1.563)^t > 161.29 \\Rightarrow t\\ln(1.563) > \\ln(161.29) \\Rightarrow t > \\frac{\\ln(161.29)}{\\ln(1.563)} \\approx \\frac{5.084}{0.447} \\approx 11.38$ hours",
+              "earned": true,
+              "commentary": "Correctly sets up the inequality, takes logarithms, divides by $\\ln(b) > 0$ (preserving direction), and arrives at $t > 11.38$ hours.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$t = \\frac{\\ln(500/3.1)}{\\ln(1.563)} \\approx 11.38$ hours",
+              "earned": false,
+              "commentary": "Solves for the equality (when population equals $500$) but does not write or conclude with the inequality $t > 11.38$. The question asks for the earliest time the population first exceeds $500$.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "c2",
@@ -116,7 +209,28 @@
             }
           ],
           "wrong_examples": ["$m = (421.7 + 3.1)/11 \\approx 38.6$ (added instead of subtracted)", "$m = 421.7/11 \\approx 38.3$ (forgot to subtract the $y$-intercept)"],
-          "common_traps": ["The slope formula requires the change in $P$ over the change in $t$: $(P_{11} - P_0)/(11 - 0) = (421.7 - 3.1)/11$"]
+          "common_traps": ["The slope formula requires the change in $P$ over the change in $t$: $(P_{11} - P_0)/(11 - 0) = (421.7 - 3.1)/11$"],
+          "official_rubric": "The point is earned for the correct slope $m \\approx 38.055$ (accept $[38.0, 38.1]$) with supporting work showing the difference quotient $\\frac{421.7 - 3.1}{11 - 0}$.",
+          "sample_responses": [
+            {
+              "response": "$m = \\frac{421.7 - 3.1}{11 - 0} = \\frac{418.6}{11} \\approx 38.055$",
+              "earned": true,
+              "commentary": "Correctly applies the slope formula using the two specified data points $(0, 3.1)$ and $(11, 421.7)$ and computes the result to three decimal places.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$m = \\frac{421.7}{11} \\approx 38.336$",
+              "earned": false,
+              "commentary": "Uses $421.7/11$ without subtracting the initial value $3.1$. The slope must be the change in $P$ divided by the change in $t$: $(421.7 - 3.1)/11$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$m = \\frac{421.7 + 3.1}{11} \\approx 38.618$",
+              "earned": false,
+              "commentary": "Adds the population values instead of subtracting them. The slope formula uses the difference $P_{11} - P_0$, not the sum.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     }
