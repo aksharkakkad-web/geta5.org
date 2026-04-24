@@ -31,7 +31,28 @@
             }
           ],
           "wrong_examples": ["Using only one equation", "Using incorrect data points such as $A(10)$ instead of $A(60)$"],
-          "common_traps": ["The problem specifies using $t = 0$ and $t = 60$ — using other data points may yield different $b$ values and will not earn the equations point"]
+          "common_traps": ["The problem specifies using $t = 0$ and $t = 60$ — using other data points may yield different $b$ values and will not earn the equations point"],
+          "official_rubric": "The point is earned for writing two correct equations using the specified data points $t = 0$ and $t = 60$: $a \\cdot b^0 = 500$ (immediately giving $a = 500$) and $500 \\cdot b^{60} = 43$. Using data points other than $t = 0$ and $t = 60$ does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$A(0) = a \\cdot b^0 = 500 \\Rightarrow a = 500$; $A(60) = 500 \\cdot b^{60} = 43$",
+              "earned": true,
+              "commentary": "Correctly applies the model at the two specified data points, deduces $a = 500$ from the zero-exponent term, and writes the correct second equation using $t = 60$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$A(10) = 500 \\cdot b^{10} = 341$; $A(40) = 500 \\cdot b^{40} = 107$",
+              "earned": false,
+              "commentary": "Uses valid data but the problem specifies using $t = 0$ and $t = 60$. Equations from other data pairs do not earn the equations point.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$a = 500$; $500 \\cdot b^{60} = 43$",
+              "earned": true,
+              "commentary": "Alternative acceptable form — states $a = 500$ directly (implied by $b^0 = 1$) and writes the correct second equation. Both required equations are present.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "a2",
@@ -44,7 +65,28 @@
             }
           ],
           "wrong_examples": ["$b = 0.96$ (fewer than 3 decimal places — decimal presentation error)", "$b = 43/500 = 0.086$ (forgot to take the 60th root)"],
-          "common_traps": ["Decimal presentation error: must give at least three decimal places", "Forgetting to take the $n$th root — $b^{60} = 0.086$ must be solved for $b$, not left as $b = 0.086$"]
+          "common_traps": ["Decimal presentation error: must give at least three decimal places", "Forgetting to take the $n$th root — $b^{60} = 0.086$ must be solved for $b$, not left as $b = 0.086$"],
+          "official_rubric": "The point is earned for $a = 500$ and $b \\approx 0.963$ (accept $[0.962, 0.964]$) with supporting work showing the root-taking or logarithm step. Decimal approximations must be correct to three places after the decimal point. The first decimal presentation error per question does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$b^{60} = \\frac{43}{500} = 0.086 \\Rightarrow b = (0.086)^{1/60} \\approx 0.963$; so $A(t) = 500 \\cdot (0.963)^t$.",
+              "earned": true,
+              "commentary": "Correctly isolates $b^{60}$, takes the $60$th root, and reports $b$ to three decimal places alongside $a = 500$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$b = 43/500 = 0.086$",
+              "earned": false,
+              "commentary": "Correctly divides to isolate $b^{60}$ but confuses this ratio with $b$ itself — the $60$th root must be taken to solve for $b \\approx 0.963$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$b = (43/500)^{1/60} \\approx 0.96$",
+              "earned": false,
+              "commentary": "Sets up the root correctly but reports the answer to only two decimal places; this is a decimal presentation error and does not earn the point on its first occurrence.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     },
@@ -67,7 +109,28 @@
             }
           ],
           "wrong_examples": ["$\\frac{341 - 107}{30} = 7.8$ (wrong sign — isotope is decaying, rate must be negative)", "Rate $= -234$ without dividing by $30$"],
-          "common_traps": ["Supporting work showing the difference quotient is required", "Units not needed but rate must be negative to reflect decay"]
+          "common_traps": ["Supporting work showing the difference quotient is required", "Units not needed but rate must be negative to reflect decay"],
+          "official_rubric": "The point is earned for the correct average rate of change of $-7.8$ milligrams per hour with supporting work showing the difference quotient $\\frac{107 - 341}{40 - 10}$. The negative sign is required to reflect that the quantity is decreasing.",
+          "sample_responses": [
+            {
+              "response": "$\\frac{A(40) - A(10)}{40 - 10} = \\frac{107 - 341}{30} = \\frac{-234}{30} = -7.8$ mg/hr",
+              "earned": true,
+              "commentary": "Correctly sets up the difference quotient with the right data values, subtracts in the correct order, and arrives at $-7.8$ milligrams per hour.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\frac{341 - 107}{40 - 10} = \\frac{234}{30} = 7.8$ mg/hr",
+              "earned": false,
+              "commentary": "Subtracts in the wrong order, producing a positive rate. For a decaying quantity the average rate of change must be negative; a positive value does not earn the point.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Rate $= -234$ mg",
+              "earned": false,
+              "commentary": "Computes the change in $A$ but does not divide by the change in $t$ ($30$ hours). The average rate of change requires a division by the interval length.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "b2",
@@ -80,7 +143,28 @@
             }
           ],
           "wrong_examples": ["'The isotope decreases' without referencing the rate or time interval", "Stating the rate without mentioning the direction or context"],
-          "common_traps": ["All three components — direction, rate, and time interval — must be present to earn the point"]
+          "common_traps": ["All three components — direction, rate, and time interval — must be present to earn the point"],
+          "official_rubric": "The point is earned for a contextual interpretation that includes all three required components: (1) the amount is decreasing, (2) at a rate of approximately $7.8$ mg/hr, and (3) over the interval from $t = 10$ to $t = 40$ hours. Omitting any one component does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "Between $10$ and $40$ hours after the start of the experiment, the radioactive sample lost an average of $7.8$ milligrams per hour.",
+              "earned": true,
+              "commentary": "Includes all three required components: the decreasing direction (lost), the rate ($7.8$ mg/hr), and the time interval ($t = 10$ to $t = 40$ hours).",
+              "source": "synthesized"
+            },
+            {
+              "response": "The isotope is decreasing at $7.8$ mg/hr.",
+              "earned": false,
+              "commentary": "Includes direction and rate but omits the specific time interval $t = 10$ to $t = 40$ hours. All three components are required.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Between $t = 10$ and $t = 40$ hours, the sample is losing mass.",
+              "earned": false,
+              "commentary": "Correctly identifies direction and time interval but omits the rate ($7.8$ mg/hr). All three components must be present.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     },
@@ -103,7 +187,28 @@
             }
           ],
           "wrong_examples": ["$\\frac{43 - 500}{60} = -7.617$ (used raw data instead of logarithms)", "Slope $= \\ln(43/500) = -2.454$ without dividing by $60$"],
-          "common_traps": ["The semi-log plot uses $\\ln(A)$ on the vertical axis and $t$ on the horizontal — slope is the change in $\\ln(A)$ over the change in $t$, not the raw change in $A$"]
+          "common_traps": ["The semi-log plot uses $\\ln(A)$ on the vertical axis and $t$ on the horizontal — slope is the change in $\\ln(A)$ over the change in $t$, not the raw change in $A$"],
+          "official_rubric": "The point is earned for a correct slope $\\approx -0.041$ (accept $[-0.042, -0.040]$) with supporting work showing the quotient $\\frac{\\ln(43) - \\ln(500)}{60 - 0}$. Using raw $A$ values instead of their natural logarithms does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "slope $= \\frac{\\ln(43) - \\ln(500)}{60 - 0} = \\frac{3.761 - 6.215}{60} = \\frac{-2.454}{60} \\approx -0.041$",
+              "earned": true,
+              "commentary": "Correctly computes the natural logarithms of the $A$ values, forms the difference quotient with $\\Delta t = 60$, and arrives at $-0.041$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "slope $= \\frac{43 - 500}{60} = -7.617$",
+              "earned": false,
+              "commentary": "Uses the raw $A$ values rather than their natural logarithms. On a semi-log plot the vertical axis is $\\ln(A)$, so the slope must be computed with logarithms.",
+              "source": "synthesized"
+            },
+            {
+              "response": "slope $= \\ln\\left(\\frac{43}{500}\\right) = -2.454$",
+              "earned": false,
+              "commentary": "Correctly computes the numerator ($\\ln(43) - \\ln(500) = \\ln(43/500)$) but forgets to divide by $\\Delta t = 60$; the slope must be the ratio of vertical change to horizontal change.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "c2",
@@ -116,7 +221,28 @@
             }
           ],
           "wrong_examples": ["Stating 'slower decay' — incorrect, steeper (more negative) slope means faster decay", "Describing slope in terms of the graph appearance without connecting to decay rate"],
-          "common_traps": ["On a semi-log plot, the slope equals $\\ln(b)$; a more negative slope means a smaller base $b$, which means faster exponential decay"]
+          "common_traps": ["On a semi-log plot, the slope equals $\\ln(b)$; a more negative slope means a smaller base $b$, which means faster exponential decay"],
+          "official_rubric": "The point is earned for an interpretation that connects a steeper negative slope on the semi-log plot to a faster rate of decay or shorter half-life for the second isotope. Describing only the graph's appearance without connecting to the decay context does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "A steeper negative slope means $\\ln(b)$ is more negative, so the base $b$ is smaller. A smaller $b$ means the isotope loses a larger fraction of its mass per hour, so it decays faster and has a shorter half-life.",
+              "earned": true,
+              "commentary": "Connects the steeper slope explicitly to the decay rate constant ($\\ln b$), correctly infers a smaller $b$, and links that to faster decay and shorter half-life.",
+              "source": "synthesized"
+            },
+            {
+              "response": "A steeper negative slope means the line falls more quickly on the graph.",
+              "earned": false,
+              "commentary": "Describes only the graphical appearance without connecting the slope to the decay rate or half-life of the isotope. A contextual interpretation about the decay rate is required.",
+              "source": "synthesized"
+            },
+            {
+              "response": "A steeper negative slope means the second isotope decays more slowly because the line drops less time.",
+              "earned": false,
+              "commentary": "Incorrect direction — a steeper (more negative) slope corresponds to faster, not slower, decay. The slope equals $\\ln(b)$; a more negative value means a smaller $b$ and a shorter half-life.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     }
