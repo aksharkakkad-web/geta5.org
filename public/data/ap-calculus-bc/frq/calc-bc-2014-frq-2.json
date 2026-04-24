@@ -30,6 +30,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct identification of limits and which curve bounds the region",
+          "official_rubric": "1 point: recognizes the inner boundary is $r = 3 - 2\\sin(2\\theta)$ on $[0, \\frac{\\pi}{2}]$ and $r = 3$ on $[\\frac{\\pi}{2}, \\pi]$",
+          "sample_responses": [
+            {
+              "response": "The curve $r = 3 - 2\\sin(2\\theta) \\leq 3$ when $\\sin(2\\theta) \\geq 0$, which holds on $\\theta \\in [0, \\frac{\\pi}{2}]$. On $[\\frac{\\pi}{2}, \\pi]$, $r = 3-2\\sin(2\\theta) \\geq 3$, so $r = 3$ is the inner curve there.",
+              "earned": true,
+              "commentary": "Correctly identifies which polar curve lies inside the other on each subinterval, which determines the integrand for each piece.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The region is bounded by $r = 3 - 2\\sin(2\\theta)$ for all $\\theta \\in [0, \\pi]$",
+              "earned": false,
+              "commentary": "Does not account for the fact that on $[\\frac{\\pi}{2}, \\pi]$ the curve $r = 3-2\\sin(2\\theta) \\geq 3$, so the region is actually bounded by the circle $r = 3$ there.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -42,6 +57,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct area integral set up",
+          "official_rubric": "1 point: Area $= \\frac{1}{2}\\int_0^{\\pi/2}(3-2\\sin(2\\theta))^2\\,d\\theta + \\frac{1}{2}\\int_{\\pi/2}^{\\pi} 9\\,d\\theta$",
+          "sample_responses": [
+            {
+              "response": "Area $= \\dfrac{1}{2}\\displaystyle\\int_0^{\\pi/2}(3-2\\sin(2\\theta))^2\\,d\\theta + \\dfrac{1}{2}\\displaystyle\\int_{\\pi/2}^{\\pi} 3^2\\,d\\theta$",
+              "earned": true,
+              "commentary": "Correctly applies the polar area formula $\\frac{1}{2}\\int r^2\\,d\\theta$ on each subinterval with the appropriate bounding curve.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Area $= \\dfrac{1}{2}\\displaystyle\\int_0^{\\pi}(3-2\\sin(2\\theta))^2\\,d\\theta$",
+              "earned": false,
+              "commentary": "Uses $r = 3-2\\sin(2\\theta)$ over the full interval $[0,\\pi]$, ignoring that the shaded region uses $r = 3$ (not the inner curve) on $[\\frac{\\pi}{2}, \\pi]$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -54,6 +84,21 @@
           "point_id": "a3",
           "point_value": 1,
           "description": "Correct numerical answer",
+          "official_rubric": "1 point: Area $\\approx 10.370$",
+          "sample_responses": [
+            {
+              "response": "Area $\\approx 10.370$",
+              "earned": true,
+              "commentary": "Correct numerical evaluation of the two-piece area integral.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Area $= \\dfrac{1}{2}\\int_0^{\\pi} 9\\,d\\theta = \\dfrac{9\\pi}{2} \\approx 14.137$",
+              "earned": false,
+              "commentary": "Computes the area of the full semicircle $r = 3$ rather than the intersection region; omits the contribution of the inner curve on $[0, \\frac{\\pi}{2}]$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -76,6 +121,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Correct expressions for $\\dfrac{dx}{d\\theta}$ and $\\dfrac{dy}{d\\theta}$",
+          "official_rubric": "1 point: correct $\\frac{dx}{d\\theta}$ and $\\frac{dy}{d\\theta}$ using $\\frac{dr}{d\\theta} = -4\\cos(2\\theta)$",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{dr}{d\\theta} = -4\\cos(2\\theta)$; $\\dfrac{dx}{d\\theta} = \\dfrac{dr}{d\\theta}\\cos\\theta - r\\sin\\theta$; $\\dfrac{dy}{d\\theta} = \\dfrac{dr}{d\\theta}\\sin\\theta + r\\cos\\theta$",
+              "earned": true,
+              "commentary": "Correctly differentiates $x = r\\cos\\theta$ and $y = r\\sin\\theta$ using the product rule, obtaining the standard polar slope formulas.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{dy}{dx} = \\dfrac{-4\\cos(2\\theta)}{1}$ (treats $r$ as a function of $x$ only)",
+              "earned": false,
+              "commentary": "Does not apply the product rule to $x = r\\cos\\theta$ and $y = r\\sin\\theta$. The correct polar slope requires $\\frac{dy}{dx} = \\frac{dy/d\\theta}{dx/d\\theta}$, each from the product rule.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -88,6 +148,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct evaluation at $\\theta = \\pi/6$",
+          "official_rubric": "1 point: correctly substitutes $\\theta = \\frac{\\pi}{6}$, $r = 3-\\sqrt{3}$, $\\frac{dr}{d\\theta} = -2$ into the slope formula",
+          "sample_responses": [
+            {
+              "response": "At $\\theta = \\tfrac{\\pi}{6}$: $r = 3-2\\sin(\\tfrac{\\pi}{3}) = 3-\\sqrt{3}$, $\\dfrac{dr}{d\\theta} = -4\\cos(\\tfrac{\\pi}{3}) = -2$. Then $\\dfrac{dy}{d\\theta} = -2\\cdot\\tfrac{1}{2} + (3-\\sqrt{3})\\cdot\\tfrac{\\sqrt{3}}{2}$, $\\dfrac{dx}{d\\theta} = -2\\cdot\\tfrac{\\sqrt{3}}{2} - (3-\\sqrt{3})\\cdot\\tfrac{1}{2}$",
+              "earned": true,
+              "commentary": "Correctly substitutes all three values ($\\theta$, $r$, $dr/d\\theta$) to evaluate $dx/d\\theta$ and $dy/d\\theta$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "At $\\theta = \\tfrac{\\pi}{6}$: $r = 3-2\\sin(\\tfrac{\\pi}{6}) = 3-1 = 2$ (uses $\\sin(\\theta)$ instead of $\\sin(2\\theta)$)",
+              "earned": false,
+              "commentary": "Evaluates $\\sin(\\theta)$ instead of $\\sin(2\\theta)$ at $\\theta = \\frac{\\pi}{6}$, giving $r = 2$ instead of $r = 3-\\sqrt{3}$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -100,6 +175,21 @@
           "point_id": "b3",
           "point_value": 1,
           "description": "Correct numerical value of $\\dfrac{dy}{dx}$",
+          "official_rubric": "1 point: $\\dfrac{dy}{dx}\\big|_{\\theta=\\pi/6} \\approx -2.366$",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{dy}{dx}\\bigg|_{\\theta=\\pi/6} = \\dfrac{dy/d\\theta}{dx/d\\theta} \\approx -2.366$",
+              "earned": true,
+              "commentary": "Correctly divides $dy/d\\theta$ by $dx/d\\theta$ to obtain the Cartesian slope.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{dy}{dx} = \\dfrac{dr/d\\theta}{1} = -2$ at $\\theta = \\frac{\\pi}{6}$",
+              "earned": false,
+              "commentary": "Uses $dr/d\\theta$ alone as the slope; the correct formula is $dy/dx = (dy/d\\theta)/(dx/d\\theta)$, not $dr/d\\theta$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -122,6 +212,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Correct rate of change of distance",
+          "official_rubric": "1 point: $D(\\theta) = 2\\sin(2\\theta)$, $D'(\\theta) = 4\\cos(2\\theta)$, $D'(\\frac{\\pi}{3}) = -2$",
+          "sample_responses": [
+            {
+              "response": "The radial distance between the curves is $D(\\theta) = 3 - (3-2\\sin(2\\theta)) = 2\\sin(2\\theta)$. Then $D'(\\theta) = 4\\cos(2\\theta)$, so $D'\\!\\left(\\dfrac{\\pi}{3}\\right) = 4\\cos\\!\\left(\\dfrac{2\\pi}{3}\\right) = 4\\!\\left(-\\tfrac{1}{2}\\right) = -2$.",
+              "earned": true,
+              "commentary": "Correctly subtracts the inner curve's $r$-value from the outer curve's, differentiates, and evaluates to find the rate of change of the radial gap.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$D'(\\theta) = \\dfrac{d}{d\\theta}(3) = 0$",
+              "earned": false,
+              "commentary": "Treats the outer circle $r = 3$ as the distance function; the distance between the two curves is $3 - r(\\theta) = 2\\sin(2\\theta)$, not the constant $3$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -144,6 +249,21 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Correct application of chain rule",
+          "official_rubric": "1 point: $\\dfrac{dr}{dt} = \\dfrac{dr}{d\\theta}\\cdot\\dfrac{d\\theta}{dt} = -4\\cos(2\\theta)\\cdot 3$",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{dr}{dt} = \\dfrac{dr}{d\\theta}\\cdot\\dfrac{d\\theta}{dt} = (-4\\cos(2\\theta))\\cdot 3 = -12\\cos(2\\theta)$",
+              "earned": true,
+              "commentary": "Correctly applies the chain rule, multiplying $dr/d\\theta = -4\\cos(2\\theta)$ by the given $d\\theta/dt = 3$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{dr}{dt} = \\dfrac{dr}{d\\theta} = -4\\cos(2\\theta)$ (ignores $d\\theta/dt$)",
+              "earned": false,
+              "commentary": "Omits the factor $d\\theta/dt = 3$ in the chain rule. The chain rule requires $dr/dt = (dr/d\\theta)(d\\theta/dt)$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -156,6 +276,21 @@
           "point_id": "d2",
           "point_value": 1,
           "description": "Correct numerical answer",
+          "official_rubric": "1 point: $\\dfrac{dr}{dt}\\big|_{\\theta=\\pi/3} = 6$",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{dr}{dt}\\bigg|_{\\theta=\\pi/3} = -12\\cos\\!\\left(\\dfrac{2\\pi}{3}\\right) = -12\\!\\left(-\\tfrac{1}{2}\\right) = 6$",
+              "earned": true,
+              "commentary": "Correctly evaluates $\\cos(2\\pi/3) = -1/2$ and computes the product to obtain $6$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{dr}{dt}\\bigg|_{\\theta=\\pi/3} = -12\\cos\\!\\left(\\dfrac{\\pi}{3}\\right) = -12\\cdot\\tfrac{1}{2} = -6$",
+              "earned": false,
+              "commentary": "Evaluates $\\cos(\\theta)$ instead of $\\cos(2\\theta)$ at $\\theta = \\pi/3$; the argument inside cosine must be $2\\theta = 2\\pi/3$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
