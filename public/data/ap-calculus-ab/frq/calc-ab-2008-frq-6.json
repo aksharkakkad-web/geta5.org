@@ -27,6 +27,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Computes $f(e^2) = \\dfrac{\\ln e^2}{e^2} = \\dfrac{2}{e^2}$ and $f'(e^2) = \\dfrac{1 - \\ln e^2}{(e^2)^2} = \\dfrac{1 - 2}{e^4} = -\\dfrac{1}{e^4}$",
+          "official_rubric": "1 point: correctly evaluates $f(e^2) = \\dfrac{2}{e^2}$ and $f'(e^2) = -\\dfrac{1}{e^4}$.",
+          "sample_responses": [
+            {
+              "response": "$f(e^2) = \\dfrac{\\ln e^2}{e^2} = \\dfrac{2}{e^2}$; $f'(e^2) = \\dfrac{1 - \\ln e^2}{(e^2)^2} = \\dfrac{1 - 2}{e^4} = -\\dfrac{1}{e^4}$",
+              "earned": true,
+              "commentary": "Uses $\\ln e^2 = 2$ and substitutes directly into the given formula for $f'$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$f(e^2) = \\dfrac{2}{e^2}$; $f'(e^2) = \\dfrac{1}{e^4}$ (dropped negative sign)",
+              "earned": false,
+              "commentary": "Sign error in $f'(e^2)$: $1 - 2 = -1$, so the slope is $-1/e^4$, not $+1/e^4$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -40,6 +55,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct tangent line equation",
+          "official_rubric": "1 point: correct tangent line equation $y = \\dfrac{2}{e^2} - \\dfrac{1}{e^4}(x - e^2)$.",
+          "sample_responses": [
+            {
+              "response": "$y - \\dfrac{2}{e^2} = -\\dfrac{1}{e^4}\\left(x - e^2\\right)$",
+              "earned": true,
+              "commentary": "Point-slope form with correct slope and point; equivalent to the standard form.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$y = -\\dfrac{1}{e^4}x + \\dfrac{3}{e^2}$",
+              "earned": true,
+              "commentary": "Slope-intercept form obtained by simplifying: $y = \\frac{2}{e^2} - \\frac{1}{e^4}(x - e^2) = -\\frac{x}{e^4} + \\frac{2}{e^2} + \\frac{1}{e^2} = -\\frac{x}{e^4} + \\frac{3}{e^2}$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -63,6 +93,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Sets $f'(x) = 0$",
+          "official_rubric": "1 point: solves $f'(x) = 0$, i.e., $\\dfrac{1 - \\ln x}{x^2} = 0 \\Rightarrow 1 - \\ln x = 0 \\Rightarrow x = e$.",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{1 - \\ln x}{x^2} = 0 \\Rightarrow 1 - \\ln x = 0 \\Rightarrow \\ln x = 1 \\Rightarrow x = e$",
+              "earned": true,
+              "commentary": "Numerator equals zero gives the critical point; $x^2 > 0$ for all $x > 0$ so the denominator is never zero.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$f'(x) = 0$ at $x = e^2$ (incorrect exponent)",
+              "earned": false,
+              "commentary": "$\\ln x = 1$ gives $x = e^1 = e$, not $e^2$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -76,6 +121,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct classification: relative maximum at $x = e$",
+          "official_rubric": "1 point: classifies $x = e$ as a relative maximum.",
+          "sample_responses": [
+            {
+              "response": "$f$ has a relative maximum at $x = e$.",
+              "earned": true,
+              "commentary": "Correct classification consistent with the sign change of $f'$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$f$ has a relative minimum at $x = e$.",
+              "earned": false,
+              "commentary": "Incorrect; $f' > 0$ for $x < e$ and $f' < 0$ for $x > e$, which is a maximum, not a minimum.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -88,6 +148,21 @@
           "point_id": "b3",
           "point_value": 1,
           "description": "Justification",
+          "official_rubric": "1 point: justification — $f'(x)$ changes from positive to negative at $x = e$ (i.e., $f'(x) > 0$ for $0 < x < e$ and $f'(x) < 0$ for $x > e$).",
+          "sample_responses": [
+            {
+              "response": "$f'(x) > 0$ for $0 < x < e$ (since $\\ln x < 1$) and $f'(x) < 0$ for $x > e$ (since $\\ln x > 1$), so $f'$ changes from $+$ to $-$ at $x = e$.",
+              "earned": true,
+              "commentary": "Sign analysis of $1 - \\ln x$ directly justifies the relative maximum.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$f'(e) = 0$ so it is a relative maximum.",
+              "earned": false,
+              "commentary": "Simply stating $f'(e) = 0$ does not justify the maximum; must show the sign change of $f'$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -111,6 +186,21 @@
           "point_id": "c1",
           "point_value": 2,
           "description": "Computes $f''(x)$ correctly",
+          "official_rubric": "2 points: correctly differentiates $f'(x) = \\dfrac{1 - \\ln x}{x^2}$ to obtain $f''(x) = \\dfrac{-3 + 2\\ln x}{x^3}$.",
+          "sample_responses": [
+            {
+              "response": "$f''(x) = \\dfrac{\\left(-\\frac{1}{x}\\right)x^2 - (1 - \\ln x)(2x)}{x^4} = \\dfrac{-x - 2x + 2x\\ln x}{x^4} = \\dfrac{-3 + 2\\ln x}{x^3}$",
+              "earned": true,
+              "commentary": "Applies the quotient rule to $f'(x) = \\frac{1 - \\ln x}{x^2}$ and simplifies.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$f''(x) = \\dfrac{-1/x \\cdot x^2 - (1-\\ln x) \\cdot x}{x^4} = \\dfrac{-2 + \\ln x}{x^3}$",
+              "earned": false,
+              "commentary": "Differentiates the denominator as $x$ instead of $2x$ (derivative of $x^2$); the correct derivative of $x^2$ is $2x$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -124,6 +214,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Sets $f''(x) = 0$",
+          "official_rubric": "1 point: sets $f''(x) = 0$, solves $-3 + 2\\ln x = 0 \\Rightarrow x = e^{3/2}$, and confirms sign change of $f''$ (inflection point).",
+          "sample_responses": [
+            {
+              "response": "$-3 + 2\\ln x = 0 \\Rightarrow \\ln x = \\dfrac{3}{2} \\Rightarrow x = e^{3/2}$. Since $f''$ changes from negative to positive at $x = e^{3/2}$, it is an inflection point.",
+              "earned": true,
+              "commentary": "Solves for $x$ and verifies sign change of $f''$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$-3 + 2\\ln x = 0 \\Rightarrow x = e^{3/2}$, so $x = e^{3/2}$ is an inflection point.",
+              "earned": true,
+              "commentary": "Stating the $x$-coordinate is sufficient for this point; the sign-change verification is embedded in 'exactly one point of inflection' from the problem.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -147,6 +252,21 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Correct limit",
+          "official_rubric": "1 point: correct answer $-\\infty$ or Does Not Exist. As $x \\to 0^+$, $\\ln x \\to -\\infty$ while $x \\to 0^+$, so $f(x) = \\frac{\\ln x}{x} \\to -\\infty$.",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\lim_{x \\to 0^+} \\frac{\\ln x}{x} = -\\infty$",
+              "earned": true,
+              "commentary": "As $x \\to 0^+$: numerator $\\ln x \\to -\\infty$ and denominator $x \\to 0^+$, so the ratio $\\to -\\infty$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\displaystyle\\lim_{x \\to 0^+} \\frac{\\ln x}{x} = 0$",
+              "earned": false,
+              "commentary": "Incorrect; both $\\ln x$ and $x$ approach $0$ or $-\\infty$ at $0^+$. Since $\\ln x \\to -\\infty$ faster than $x \\to 0^+$, the limit is $-\\infty$, not $0$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [

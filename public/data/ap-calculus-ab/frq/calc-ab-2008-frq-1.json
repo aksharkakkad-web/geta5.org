@@ -27,6 +27,15 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct limits",
+          "official_rubric": "1 point: correct limits $0$ to $2$ (intersections of $\\sin(\\pi x) = x^3 - 4x$ at $x=0$ and $x=2$).",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^2 (\\sin(\\pi x) - (x^3 - 4x))\\,dx$",
+              "earned": true,
+              "commentary": "Correctly identifies $x=0$ and $x=2$ as intersection points.",
+              "source": "cb_guideline"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -40,6 +49,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct integrand",
+          "official_rubric": "1 point: integrand $\\sin(\\pi x) - (x^3 - 4x)$.",
+          "sample_responses": [
+            {
+              "response": "$\\sin(\\pi x) - (x^3 - 4x)$",
+              "earned": true,
+              "commentary": "Upper curve $\\sin(\\pi x)$ minus lower curve $x^3 - 4x$ on $[0,2]$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$x^3 - 4x - \\sin(\\pi x)$",
+              "earned": false,
+              "commentary": "Inverted; $\\sin(\\pi x) > x^3-4x$ on $(0,2)$, so subtract the lower curve from the upper.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -53,6 +77,15 @@
           "point_id": "a3",
           "point_value": 1,
           "description": "Correct answer",
+          "official_rubric": "1 point: answer $4$.",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^2 (\\sin(\\pi x) - (x^3-4x))\\,dx = 4$",
+              "earned": true,
+              "commentary": "Exact integer answer.",
+              "source": "cb_guideline"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -76,6 +109,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Correct limits",
+          "official_rubric": "1 point: correct limits. $x^3 - 4x = -2$ at $r = 0.5391889\\ldots$ and $s = 1.6751309\\ldots$ (calculator-computed intersection points of the lower boundary with $y = -2$).",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_{0.539}^{1.675} \\bigl(-2 - (x^3 - 4x)\\bigr)\\,dx$",
+              "earned": true,
+              "commentary": "Correctly solves $x^3 - 4x = -2$ by calculator, identifying the two $x$-values where the cubic meets the horizontal line $y = -2$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\displaystyle\\int_{0}^{2} \\bigl(-2 - (x^3 - 4x)\\bigr)\\,dx$",
+              "earned": false,
+              "commentary": "Uses the region $R$ limits $[0,2]$ instead of the sub-region limits $[r, s]$ where $x^3 - 4x \\le -2$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -89,6 +137,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct integrand",
+          "official_rubric": "1 point: correct integrand $-2 - (x^3 - 4x)$ (the upper boundary of the sub-region is $y = -2$ and the lower boundary is $y = x^3 - 4x$).",
+          "sample_responses": [
+            {
+              "response": "$-2 - (x^3 - 4x)$",
+              "earned": true,
+              "commentary": "In the part of $R$ below $y = -2$, the upper boundary is the horizontal line and the lower boundary is the cubic, so the integrand is $-2 - (x^3 - 4x)$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\sin(\\pi x) - (x^3 - 4x)$",
+              "earned": false,
+              "commentary": "Uses the full-region integrand instead of recognizing that the upper boundary in the sub-region below $y = -2$ is the line $y = -2$, not $\\sin(\\pi x)$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -112,6 +175,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Correct integrand",
+          "official_rubric": "1 point: correct integrand. Since each cross section is a square with side length equal to the height of $R$ at $x$, the area of each cross section is $\\bigl(\\sin(\\pi x) - (x^3 - 4x)\\bigr)^2$.",
+          "sample_responses": [
+            {
+              "response": "$V = \\displaystyle\\int_0^2 \\bigl(\\sin(\\pi x) - (x^3 - 4x)\\bigr)^2\\,dx$",
+              "earned": true,
+              "commentary": "Side length of the square cross section equals the vertical distance between the curves, so area $= s^2 = (\\sin(\\pi x) - (x^3 - 4x))^2$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$V = \\displaystyle\\int_0^2 \\tfrac{1}{2}\\bigl(\\sin(\\pi x) - (x^3 - 4x)\\bigr)^2\\,dx$",
+              "earned": false,
+              "commentary": "Includes an extra factor of $\\frac{1}{2}$, which would be correct for a triangular or semicircular cross section but not a square.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -125,6 +203,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct answer",
+          "official_rubric": "1 point: answer $\\approx 9.978$.",
+          "sample_responses": [
+            {
+              "response": "$V = \\displaystyle\\int_0^2 \\bigl(\\sin(\\pi x) - (x^3 - 4x)\\bigr)^2\\,dx \\approx 9.978$",
+              "earned": true,
+              "commentary": "Correct numerical answer from calculator to three decimal places.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$V \\approx 9.97$",
+              "earned": false,
+              "commentary": "Insufficient decimal precision; AP requires three decimal places for calculator-active problems.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -148,6 +241,21 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Correct integrand",
+          "official_rubric": "1 point: correct integrand $(3 - x)\\bigl(\\sin(\\pi x) - (x^3 - 4x)\\bigr)$. The volume element is depth $\\times$ surface area element $= h(x) \\cdot [f(x) - g(x)]\\,dx$.",
+          "sample_responses": [
+            {
+              "response": "$V = \\displaystyle\\int_0^2 (3 - x)\\bigl(\\sin(\\pi x) - (x^3 - 4x)\\bigr)\\,dx$",
+              "earned": true,
+              "commentary": "Multiplies the depth function $h(x) = 3 - x$ by the width of the region at each $x$ to get the volume element.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$V = \\displaystyle\\int_0^2 (3 - x)\\,dx$",
+              "earned": false,
+              "commentary": "Integrates only the depth function, omitting the width factor $\\sin(\\pi x) - (x^3 - 4x)$. This does not account for the varying surface area of the pond.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -161,6 +269,21 @@
           "point_id": "d2",
           "point_value": 1,
           "description": "Correct answer",
+          "official_rubric": "1 point: answer $\\approx 8.369$ or $8.370$.",
+          "sample_responses": [
+            {
+              "response": "$V = \\displaystyle\\int_0^2 (3 - x)\\bigl(\\sin(\\pi x) - (x^3 - 4x)\\bigr)\\,dx \\approx 8.369$",
+              "earned": true,
+              "commentary": "Correct three-decimal-place answer.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$V \\approx 8.4$",
+              "earned": false,
+              "commentary": "Rounded to one decimal place; calculator-active problems require three decimal places.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [

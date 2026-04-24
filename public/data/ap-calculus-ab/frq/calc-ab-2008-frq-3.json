@@ -28,6 +28,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "States $\\frac{dV}{dt} = 2000$ and $\\frac{dr}{dt} = 2.5$",
+          "official_rubric": "1 point: correctly identifies $\\dfrac{dV}{dt} = 2000$ cm³/min and $\\dfrac{dr}{dt} = 2.5$ cm/min at the given instant.",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{dV}{dt} = 2000$ and $\\dfrac{dr}{dt} = 2.5$",
+              "earned": true,
+              "commentary": "Reads given rates directly from the problem statement.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\dfrac{dV}{dt} = 2000$, but uses $r = 2.5$ instead of $\\dfrac{dr}{dt} = 2.5$",
+              "earned": false,
+              "commentary": "Confuses the rate $\\dfrac{dr}{dt}$ with the radius value; $2.5$ cm/min is how fast the radius is growing, not the radius itself.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -41,6 +56,21 @@
           "point_id": "a2",
           "point_value": 2,
           "description": "Differentiates",
+          "official_rubric": "2 points: correctly differentiates $V = \\pi r^2 h$ implicitly with respect to $t$, giving $\\dfrac{dV}{dt} = 2\\pi r h \\dfrac{dr}{dt} + \\pi r^2 \\dfrac{dh}{dt}$.",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{dV}{dt} = 2\\pi r h\\,\\dfrac{dr}{dt} + \\pi r^2\\,\\dfrac{dh}{dt}$",
+              "earned": true,
+              "commentary": "Applies the product rule to $V = \\pi r^2 h$ with $r$ and $h$ both functions of $t$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\dfrac{dV}{dt} = \\pi r^2\\,\\dfrac{dh}{dt}$",
+              "earned": false,
+              "commentary": "Treats $r$ as constant and drops the $2\\pi r h\\,\\frac{dr}{dt}$ term; the problem states that both $r$ and $h$ are changing.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -54,6 +84,21 @@
           "point_id": "a3",
           "point_value": 1,
           "description": "Correct answer",
+          "official_rubric": "1 point: substitutes $r = 100$, $h = 0.5$, $\\dfrac{dV}{dt} = 2000$, $\\dfrac{dr}{dt} = 2.5$ and solves for $\\dfrac{dh}{dt} \\approx 0.038$ or $0.039$ cm/min.",
+          "sample_responses": [
+            {
+              "response": "$2000 = 2\\pi(100)(0.5)(2.5) + \\pi(100)^2\\,\\dfrac{dh}{dt}$ $\\Rightarrow\\; \\dfrac{dh}{dt} = \\dfrac{2000 - 250\\pi}{10000\\pi} \\approx 0.038$ cm/min",
+              "earned": true,
+              "commentary": "Substitutes all four given values and isolates $\\frac{dh}{dt}$; the exact form is $\\frac{2000-250\\pi}{10000\\pi}$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\dfrac{dh}{dt} = \\dfrac{2000}{\\pi(100)^2} \\approx 0.064$ cm/min",
+              "earned": false,
+              "commentary": "Omits the $2\\pi r h\\,\\frac{dr}{dt}$ term from the differentiated equation, giving an incorrect value.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -77,6 +122,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Sets $\\frac{dV}{dt} = 2000 - R(t) = 0 \\Rightarrow R(t) = 2000 \\Rightarrow 400\\sqrt{t} = 2000 \\Rightarrow t = 25$",
+          "official_rubric": "1 point: sets $R(t) = 2000$ (i.e., $\\dfrac{dV}{dt} = 0$) and solves $400\\sqrt{t} = 2000 \\Rightarrow t = 25$ minutes.",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{dV}{dt} = 2000 - R(t) = 0 \\Rightarrow 400\\sqrt{t} = 2000 \\Rightarrow \\sqrt{t} = 5 \\Rightarrow t = 25$",
+              "earned": true,
+              "commentary": "Net rate of change of volume is $2000 - R(t)$; sets it to zero to find when volume stops increasing.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$R(t) = 2000$ gives $\\sqrt{t} = 5$, so $t = \\sqrt{5}$",
+              "earned": false,
+              "commentary": "Arithmetic error: $\\sqrt{t} = 5$ gives $t = 25$, not $t = \\sqrt{5}$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -89,6 +149,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct answer",
+          "official_rubric": "1 point: answer $t = 25$ minutes.",
+          "sample_responses": [
+            {
+              "response": "The oil slick reaches its maximum volume at $t = 25$ minutes.",
+              "earned": true,
+              "commentary": "States the time clearly.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "The oil slick reaches maximum volume at $t = 20$ minutes.",
+              "earned": false,
+              "commentary": "Incorrect; $R(20) = 400\\sqrt{20} \\approx 1789 < 2000$, so the volume is still increasing at $t = 20$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -102,6 +177,21 @@
           "point_id": "b3",
           "point_value": 1,
           "description": "Justification",
+          "official_rubric": "1 point: justification — $\\dfrac{dV}{dt} > 0$ for $0 < t < 25$ and $\\dfrac{dV}{dt} < 0$ for $t > 25$, confirming a maximum.",
+          "sample_responses": [
+            {
+              "response": "Since $R(t) < 2000$ for $0 < t < 25$, $\\dfrac{dV}{dt} > 0$, and since $R(t) > 2000$ for $t > 25$, $\\dfrac{dV}{dt} < 0$. So the volume has a maximum at $t = 25$.",
+              "earned": true,
+              "commentary": "Sign analysis of $\\frac{dV}{dt}$ on either side of $t = 25$ confirms it is a maximum.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\dfrac{d^2V}{dt^2} < 0$ at $t = 25$, so it is a maximum.",
+              "earned": true,
+              "commentary": "Second-derivative test also accepted as justification.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -125,6 +215,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Correct limits and initial condition: starts from $60,000$ plus accumulation from $t=0$ to $t=25$",
+          "official_rubric": "1 point: correct limits $0$ to $25$ and initial condition $60{,}000$ cm³ (the oil already present when the device began working).",
+          "sample_responses": [
+            {
+              "response": "$60{,}000 + \\displaystyle\\int_0^{25}(2000 - 400\\sqrt{t})\\,dt$",
+              "earned": true,
+              "commentary": "Adds the pre-existing $60{,}000$ cm³ to the net accumulation over $[0, 25]$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\displaystyle\\int_0^{25}(2000 - 400\\sqrt{t})\\,dt$",
+              "earned": false,
+              "commentary": "Omits the $60{,}000$ cm³ initial condition; fails to account for the oil already in the slick when the device began.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -138,6 +243,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct integrand",
+          "official_rubric": "1 point: correct integrand $2000 - R(t) = 2000 - 400\\sqrt{t}$ (net rate of volume increase).",
+          "sample_responses": [
+            {
+              "response": "$60{,}000 + \\displaystyle\\int_0^{25}\\bigl(2000 - 400\\sqrt{t}\\bigr)\\,dt$ cm³",
+              "earned": true,
+              "commentary": "Net inflow rate is leak rate minus removal rate $= 2000 - 400\\sqrt{t}$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$60{,}000 + \\displaystyle\\int_0^{25} 2000\\,dt$",
+              "earned": false,
+              "commentary": "Ignores the removal rate $R(t)$; does not subtract the oil being removed by the recovery device.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [

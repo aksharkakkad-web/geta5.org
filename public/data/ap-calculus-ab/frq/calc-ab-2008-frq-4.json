@@ -27,6 +27,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Identifies $t = 3$ as a candidate (since $v < 0$ on $(0,3)$ and $v > 0$ on $(3,5)$, position is minimized at $t = 3$)",
+          "official_rubric": "1 point: identifies $t = 3$ as a candidate for farthest left (velocity changes from negative to positive at $t = 3$, which is a local minimum of position).",
+          "sample_responses": [
+            {
+              "response": "Since $v(t) < 0$ on $(0, 3)$ and $v(t) > 0$ on $(3, 5)$, the particle is moving left then right, so $t = 3$ is a candidate for farthest left. Also check $t = 6$ (endpoint).",
+              "earned": true,
+              "commentary": "Correctly identifies the sign change of $v$ at $t = 3$ as signaling a local minimum of position, and also considers the endpoint.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "The particle is farthest left when speed is greatest, around $t = 1$.",
+              "earned": false,
+              "commentary": "Confuses greatest speed with farthest-left position; farthest left is found by minimizing $x(t)$, not by maximizing $|v(t)|$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -40,6 +55,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Considers all candidates",
+          "official_rubric": "1 point: considers $\\displaystyle\\int_0^6 v(t)\\,dt$ (or equivalent position computations) to compare $x(3)$ and $x(6)$.",
+          "sample_responses": [
+            {
+              "response": "$x(3) = -2 + \\displaystyle\\int_0^3 v(t)\\,dt = -2 - 8 = -10$; $x(6) = -2 - 8 + 3 - 2 = -9$",
+              "earned": true,
+              "commentary": "Uses the given areas ($8$, $3$, $2$) with appropriate signs to find positions at each candidate $t$-value.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$x(3) = -2 - 8 = -10$ only; does not check $t = 6$.",
+              "earned": false,
+              "commentary": "Fails to consider the endpoint $t = 6$ as a candidate; $x(6) = -9$ is also to the left of $x(0) = -2$ and must be compared.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -53,6 +83,21 @@
           "point_id": "a3",
           "point_value": 1,
           "description": "Correct conclusion: the particle is farthest left at time $t = 3$ when its position is $x = -10$",
+          "official_rubric": "1 point: correct conclusion — farthest left at $t = 3$, position $x(3) = -10$.",
+          "sample_responses": [
+            {
+              "response": "The particle is farthest to the left at $t = 3$, when its position is $x = -10$.",
+              "earned": true,
+              "commentary": "States both the time and the position as required.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "The particle is farthest left at $t = 3$.",
+              "earned": false,
+              "commentary": "States the time but omits the position $x = -10$; both are required for full credit.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -75,6 +120,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Determines key positions",
+          "official_rubric": "1 point: determines positions at $t = 3$, $t = 5$, and $t = 6$ (or equivalently computes $x(0) = -2$, $x(3) = -10$, $x(5) = -7$, $x(6) = -9$).",
+          "sample_responses": [
+            {
+              "response": "$x(0) = -2$; $x(3) = -2 - 8 = -10$; $x(5) = -10 + 3 = -7$; $x(6) = -7 - 2 = -9$",
+              "earned": true,
+              "commentary": "Uses the given areas with appropriate signs to track position at each turning point and the endpoint.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$x(3) = -10$ and $x(6) = -9$, but does not compute $x(5) = -7$.",
+              "earned": false,
+              "commentary": "Misses $x(5) = -7$; without this value, the third crossing of $x = -8$ on $[5, 6]$ cannot be identified.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -88,6 +148,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Describes motion: particle moves continuously from $-2$ to $-10$ (passing $-8$), then $-10$ to $-7$ (passing $-8$), then $-7$ to $-9$ (passing $-8$)",
+          "official_rubric": "1 point: describes the monotone motion on each sub-interval — $x$ goes from $-2$ to $-10$ on $[0,3]$ (crosses $-8$ once), from $-10$ to $-7$ on $[3,5]$ (crosses $-8$ once), from $-7$ to $-9$ on $[5,6]$ (crosses $-8$ once).",
+          "sample_responses": [
+            {
+              "response": "The particle moves continuously and monotonically: from $-2$ to $-10$ on $[0,3]$, passing $-8$; from $-10$ to $-7$ on $[3,5]$, passing $-8$; from $-7$ to $-9$ on $[5,6]$, passing $-8$.",
+              "earned": true,
+              "commentary": "Recognizes $v$ does not change sign within each sub-interval, so $x$ is monotone and crosses $-8$ exactly once per interval.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "The particle passes through $x = -8$ twice: once going left and once going right.",
+              "earned": false,
+              "commentary": "Undercounts; misses the third crossing on $[5, 6]$ where the particle moves from $x = -7$ back to $x = -9$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -100,6 +175,21 @@
           "point_id": "b3",
           "point_value": 1,
           "description": "Correct conclusion: by the Intermediate Value Theorem, the particle is at $x = -8$ for exactly $3$ values of $t$",
+          "official_rubric": "1 point: correct conclusion — by IVT (continuous position function), the particle is at $x = -8$ for exactly $3$ values of $t$.",
+          "sample_responses": [
+            {
+              "response": "By the Intermediate Value Theorem, since $x$ is continuous and crosses $-8$ on each of the three monotone intervals, the particle is at $x = -8$ for exactly $3$ values of $t$.",
+              "earned": true,
+              "commentary": "Invokes IVT correctly and gives the count.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "The particle is at $x = -8$ for $3$ values of $t$.",
+              "earned": false,
+              "commentary": "States the answer without citing IVT or the continuity argument; explanation is required.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -122,6 +212,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Correct answer with reason: speed is decreasing on $2 < t < 3$ because on this interval $v(t) < 0$ and $v$ is increasing (i.e., $v$ and $a$ have opposite signs)",
+          "official_rubric": "1 point: correct answer with reason — speed is decreasing on $2 < t < 3$ because velocity is negative ($v < 0$) and increasing (concave up graph / $v' > 0$), so $v$ and $a$ have opposite signs.",
+          "sample_responses": [
+            {
+              "response": "Speed is decreasing on $2 < t < 3$ because on this interval $v(t) < 0$ and $v$ is increasing (the graph is concave up), meaning velocity and acceleration have opposite signs.",
+              "earned": true,
+              "commentary": "Correctly identifies both the sign of $v$ and the direction of change of $v$ to conclude speed decreases when they oppose.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Speed is decreasing because the graph of $v$ is going up toward zero.",
+              "earned": false,
+              "commentary": "Incomplete reasoning; must explicitly state that $v < 0$ and $v$ is increasing (or equivalently that $v$ and $a$ have opposite signs).",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -146,6 +251,21 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Correct answer: acceleration is negative on $(0,1)$ and $(4,6)$",
+          "official_rubric": "1 point: correct intervals — acceleration is negative on $0 < t < 1$ and $4 < t < 6$.",
+          "sample_responses": [
+            {
+              "response": "Acceleration is negative on $(0, 1)$ and $(4, 6)$.",
+              "earned": true,
+              "commentary": "Velocity is decreasing (graph falling) on these intervals, so $a = v' < 0$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Acceleration is negative on $(0, 3)$ and $(5, 6)$.",
+              "earned": false,
+              "commentary": "Incorrectly uses the intervals where $v < 0$ rather than the intervals where $v$ is decreasing; $a < 0$ when $v$ decreases, not when $v$ is negative.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -159,6 +279,21 @@
           "point_id": "d2",
           "point_value": 1,
           "description": "Justification: velocity is decreasing on these intervals (horizontal tangents at $t=1$ and $t=4$ confirm sign changes of $v'$)",
+          "official_rubric": "1 point: justification — velocity is decreasing on $(0,1)$ and $(4,6)$, so acceleration $v'(t) < 0$ there. (The horizontal tangents at $t=1$ and $t=4$ confirm sign changes of $v'$.)",
+          "sample_responses": [
+            {
+              "response": "On $(0,1)$ and $(4,6)$, the graph of $v$ is decreasing, so $a = v'(t) < 0$ on these intervals.",
+              "earned": true,
+              "commentary": "Directly reads the decreasing behavior of $v$ from the graph description.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "On $(0,1)$ and $(4,6)$, the velocity is negative.",
+              "earned": false,
+              "commentary": "States the sign of $v$, not the sign of $v'$; acceleration is the derivative of velocity, which is negative when velocity is decreasing.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [

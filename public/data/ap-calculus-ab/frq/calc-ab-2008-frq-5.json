@@ -26,6 +26,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Zero slopes drawn correctly — at $y = 1$ (any $x \\ne 0$), slope is $0$; the three points with $y = 1$ have horizontal segments",
+          "official_rubric": "1 point: zero slopes correctly drawn — at the points where $y = 1$, $\\dfrac{dy}{dx} = \\dfrac{1-1}{x^2} = 0$, so horizontal slope marks.",
+          "sample_responses": [
+            {
+              "response": "At each of the three grid points where $y = 1$, a horizontal line segment is drawn.",
+              "earned": true,
+              "commentary": "Numerator $y - 1 = 0$ makes the slope zero at $y = 1$ regardless of $x$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "At $y = 1$, draws a slope of $1$ instead of $0$.",
+              "earned": false,
+              "commentary": "Confuses the $y$-value with the slope; when $y = 1$ the numerator $y-1 = 0$, giving slope $0$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -38,6 +53,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "All other slopes drawn with correct sign and relative steepness — slopes are positive where $y > 1$ and negative where $y < 1$; steeper when $|x|$ is small",
+          "official_rubric": "1 point: all other slopes have correct sign ($+$ where $y > 1$, $-$ where $y < 1$) and correct relative steepness (steeper near $x = 0$ because $x^2$ is small).",
+          "sample_responses": [
+            {
+              "response": "Where $y > 1$: positive slopes, steeper near $x = \\pm 1$ than near $x = \\pm 2$. Where $y < 1$: negative slopes with the same steepness pattern.",
+              "earned": true,
+              "commentary": "Correct signs and steepness ranking: $\\frac{dy}{dx} = \\frac{y-1}{x^2}$ is larger in magnitude when $x^2$ is smaller.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "All slopes at $y = 2$ are drawn as positive but equally steep regardless of $x$.",
+              "earned": false,
+              "commentary": "Ignores the $x^2$ in the denominator; slopes at $x = 1$ are steeper than at $x = 2$ (slope is $1$ vs. $\\frac{1}{4}$ for $y = 2$).",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -62,6 +92,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Separates variables correctly",
+          "official_rubric": "1 point: correctly separates variables to get $\\dfrac{1}{y-1}\\,dy = \\dfrac{1}{x^2}\\,dx$. 0/6 if no separation of variables.",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{dy}{y - 1} = \\dfrac{dx}{x^2}$",
+              "earned": true,
+              "commentary": "All $y$-terms on the left, all $x$-terms on the right.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\displaystyle\\int (y - 1)\\,dy = \\displaystyle\\int x^2\\,dx$",
+              "earned": false,
+              "commentary": "Inverts the separation; should be $\\frac{1}{y-1}$ on the left and $x^{-2}$ on the right, not $(y-1)$ and $x^2$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -75,6 +120,21 @@
           "point_id": "b2",
           "point_value": 2,
           "description": "Antidifferentiates both sides correctly",
+          "official_rubric": "2 points: correct antiderivatives — $\\ln|y - 1|$ on the left and $-\\dfrac{1}{x}$ on the right. Max 3/6 [1-2-0-0-0] if no constant of integration.",
+          "sample_responses": [
+            {
+              "response": "$\\ln|y - 1| = -\\dfrac{1}{x} + C$",
+              "earned": true,
+              "commentary": "Both antiderivatives correct: $\\int\\frac{1}{y-1}\\,dy = \\ln|y-1|$ and $\\int x^{-2}\\,dx = -x^{-1}$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\ln|y - 1| = \\dfrac{1}{x} + C$",
+              "earned": false,
+              "commentary": "Sign error: $\\int x^{-2}\\,dx = -x^{-1}$, not $+x^{-1}$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -88,6 +148,21 @@
           "point_id": "b3",
           "point_value": 1,
           "description": "Includes constant of integration",
+          "official_rubric": "1 point: constant of integration $C$ present (on either side). Max 3/6 if omitted.",
+          "sample_responses": [
+            {
+              "response": "$\\ln|y - 1| = -\\dfrac{1}{x} + C$",
+              "earned": true,
+              "commentary": "Constant of integration is present immediately after integrating.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\ln|y - 1| = -\\dfrac{1}{x}$",
+              "earned": false,
+              "commentary": "Omits $C$; this caps the score at 3/6 per the CB rubric note.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -100,6 +175,21 @@
           "point_id": "b4",
           "point_value": 1,
           "description": "Uses initial condition $f(2) = 0$",
+          "official_rubric": "1 point: applies $f(2) = 0$ to find the constant. $\\ln|0 - 1| = -\\dfrac{1}{2} + C \\Rightarrow 0 = -\\dfrac{1}{2} + C \\Rightarrow C = \\dfrac{1}{2}$.",
+          "sample_responses": [
+            {
+              "response": "$\\ln|0 - 1| = -\\dfrac{1}{2} + C \\Rightarrow \\ln 1 = -\\dfrac{1}{2} + C \\Rightarrow C = \\dfrac{1}{2}$",
+              "earned": true,
+              "commentary": "Substitutes $x = 2$, $y = 0$ and solves; $\\ln 1 = 0$ so $C = \\frac{1}{2}$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\ln|2 - 1| = -\\dfrac{1}{0} + C$ — division by zero error",
+              "earned": false,
+              "commentary": "Swaps $x$ and $y$ values; $f(2) = 0$ means $x = 2$ and $y = 0$, not $x = 0$ and $y = 2$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -113,6 +203,21 @@
           "point_id": "b5",
           "point_value": 1,
           "description": "Solves for $y$",
+          "official_rubric": "1 point: correctly solves for $y$ — $y - 1 = ke^{-1/x}$ with $k = -e^{1/2}$, giving $f(x) = 1 - e^{(1/2 - 1/x)}$, $x > 0$.",
+          "sample_responses": [
+            {
+              "response": "$y - 1 = -e^{1/2}\\cdot e^{-1/x} = -e^{1/2 - 1/x}$, so $f(x) = 1 - e^{1/2 - 1/x}$ for $x > 0$.",
+              "earned": true,
+              "commentary": "Exponentiates both sides, applies $k = -e^{1/2}$ from the initial condition, and writes the closed form.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$f(x) = 1 + e^{1/2 - 1/x}$",
+              "earned": false,
+              "commentary": "Sign error in applying $k$; since $k = -e^{1/2} < 0$, the solution is $1 - e^{1/2 - 1/x}$, not $1 + e^{1/2 - 1/x}$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -136,6 +241,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Correct limit",
+          "official_rubric": "1 point: correct limit $1 - e^{1/2} = 1 - \\sqrt{e}$ (as $x \\to \\infty$, $1/x \\to 0$ so the exponent approaches $1/2$).",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\lim_{x \\to \\infty}\\left(1 - e^{1/2 - 1/x}\\right) = 1 - e^{1/2} = 1 - \\sqrt{e}$",
+              "earned": true,
+              "commentary": "As $x \\to \\infty$, $\\frac{1}{x} \\to 0$, so the exponent $\\frac{1}{2} - \\frac{1}{x} \\to \\frac{1}{2}$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\displaystyle\\lim_{x \\to \\infty} f(x) = 1 - e^0 = 0$",
+              "earned": false,
+              "commentary": "Incorrectly takes the entire exponent to $0$; only $-1/x \\to 0$, while the $1/2$ term remains, giving $e^{1/2}$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [

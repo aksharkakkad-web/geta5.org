@@ -27,6 +27,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct estimate",
+          "official_rubric": "1 point: correct difference quotient estimate. Using the bracketing data points $t = 4$ and $t = 7$: $L'(5.5) \\approx \\dfrac{L(7) - L(4)}{7 - 4} = \\dfrac{150 - 126}{3} = 8$ people per hour.",
+          "sample_responses": [
+            {
+              "response": "$L'(5.5) \\approx \\dfrac{L(7) - L(4)}{7 - 4} = \\dfrac{150 - 126}{3} = 8$ people per hour",
+              "earned": true,
+              "commentary": "Uses the symmetric bracketing interval $[4, 7]$ around $t = 5.5$; the difference quotient is the standard estimate for an instantaneous rate from a table.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$L'(5.5) \\approx \\dfrac{L(8) - L(4)}{8 - 4} = \\dfrac{80 - 126}{4} = -11.5$ people per hour",
+              "earned": false,
+              "commentary": "Uses $t = 8$ as the right endpoint rather than the closest bracketing value $t = 7$; $t = 7$ is the correct table value that brackets $t = 5.5$ from the right.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -40,6 +55,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct units: people per hour",
+          "official_rubric": "1 point: units of people per hour (or equivalent) stated explicitly.",
+          "sample_responses": [
+            {
+              "response": "The rate is $8$ people per hour.",
+              "earned": true,
+              "commentary": "Units match the context: $L(t)$ is in people and $t$ is in hours, so the rate of change has units of people per hour.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "The rate is $8$.",
+              "earned": false,
+              "commentary": "No units stated; the CB rubric explicitly requires units for this point.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -62,6 +92,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Correct trapezoidal sum",
+          "official_rubric": "1 point: correct trapezoidal sum with three subintervals $[0,1]$, $[1,3]$, $[3,4]$ (unequal widths). The average equals $\\dfrac{1}{4}\\left[\\dfrac{L(0)+L(1)}{2}(1) + \\dfrac{L(1)+L(3)}{2}(2) + \\dfrac{L(3)+L(4)}{2}(1)\\right]$.",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{1}{4}\\left[\\dfrac{120+156}{2}(1) + \\dfrac{156+176}{2}(2) + \\dfrac{176+126}{2}(1)\\right]$",
+              "earned": true,
+              "commentary": "Uses the three available subintervals $[0,1]$, $[1,3]$, $[3,4]$ with correct widths $1$, $2$, $1$, dividing by the total interval length $4$ for the average.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\dfrac{1}{4}\\left[\\dfrac{120+156}{2} + \\dfrac{156+176}{2} + \\dfrac{176+126}{2}\\right]$",
+              "earned": false,
+              "commentary": "Omits the subinterval widths $\\Delta t_i$; the second subinterval $[1,3]$ has width $2$ and must be multiplied by $2$, not $1$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -75,6 +120,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct answer",
+          "official_rubric": "1 point: answer $155.25$ people.",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{1}{4}\\bigl[138 + 332 + 151\\bigr] = \\dfrac{621}{4} = 155.25$ people",
+              "earned": true,
+              "commentary": "Correct arithmetic: $\\frac{138}{2}\\cdot 1 + \\frac{332}{2}\\cdot 2 + \\frac{302}{2}\\cdot 1 = 69 + 332 + 151 = 552$... wait, $\\frac{120+156}{2}(1)=138$, $\\frac{156+176}{2}(2)=332$, $\\frac{176+126}{2}(1)=151$, total $= 621$, average $= 155.25$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$155$ people",
+              "earned": false,
+              "commentary": "Truncates to integer; the CB answer is $155.25$ and rounding is not accepted here.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -98,6 +158,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Considers sign changes of $L'$",
+          "official_rubric": "1 point: considers the sign changes of $L'$ (i.e., identifies that $L$ increases then decreases, or equivalently considers relative extrema of $L$ on $(0,9)$).",
+          "sample_responses": [
+            {
+              "response": "$L$ is increasing on $(1,3)$ and $(4,7)$ and decreasing on $(3,4)$ and $(7,8)$, so $L'$ changes sign at least three times.",
+              "earned": true,
+              "commentary": "Correctly identifies the sign pattern of $L'$ from the table data, which is required before applying IVT.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$L'(5.5) = 8 > 0$ so $L'$ is positive somewhere.",
+              "earned": false,
+              "commentary": "Only identifies one sign of $L'$; does not consider the multiple sign changes needed to conclude three zeros.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -111,6 +186,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Analysis using MVT/IVT",
+          "official_rubric": "1 point: correct analysis invoking the Mean Value Theorem (MVT implies $L'$ takes positive and negative values on the identified intervals) or Intermediate Value Theorem (since $L'$ is continuous and changes sign, $L'= 0$ at each transition).",
+          "sample_responses": [
+            {
+              "response": "By MVT, $L'(t) > 0$ for some $t$ in $(1,3)$ and some $t$ in $(4,7)$; $L'(t) < 0$ for some $t$ in $(3,4)$ and some $t$ in $(7,8)$. Since $L'$ is continuous, IVT implies $L'(t) = 0$ at least once in $(1,4)$ and at least once in $(4,8)$, giving at least 2 zeros. Another sign change in $(3,7)$ gives a third.",
+              "earned": true,
+              "commentary": "Correctly cites MVT to establish sign of $L'$ between table points, then IVT to guarantee zeros at each sign change.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$L$ has a maximum at $t = 3$, a minimum around $t = 4$, and another maximum around $t = 7$, so $L' = 0$ three times.",
+              "earned": true,
+              "commentary": "Equivalent reasoning via relative extrema: since $L$ is differentiable, $L' = 0$ at each relative extreme point. This is the alternate CB-accepted approach.",
+              "source": "cb_guideline"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -124,6 +214,21 @@
           "point_id": "c3",
           "point_value": 1,
           "description": "Correct conclusion",
+          "official_rubric": "1 point: correct conclusion — $L'(t) = 0$ for at least $3$ values of $t$ in $[0, 9]$.",
+          "sample_responses": [
+            {
+              "response": "Therefore $L'(t) = 0$ for at least $3$ values of $t$ in $[0, 9]$.",
+              "earned": true,
+              "commentary": "States the minimum count of three, consistent with the sign-change / relative extrema analysis.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$L'(t) = 0$ for at least $2$ values of $t$ in $[0, 9]$.",
+              "earned": false,
+              "commentary": "Undercounts; there are three distinct sign changes of $L'$ in the data, each of which guarantees at least one zero of $L'$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -147,6 +252,21 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Correct integral setup",
+          "official_rubric": "1 point: correct integrand $r(t) = 550te^{-t/2}$ with limits $0$ to $3$.",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^3 550t\\,e^{-t/2}\\,dt$",
+              "earned": true,
+              "commentary": "Integrates the given rate function $r(t)$ from $t=0$ to $t=3$ to accumulate total tickets sold.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$r(3) = 550(3)e^{-3/2} \\approx 366$",
+              "earned": false,
+              "commentary": "Evaluates the rate at a single point rather than integrating; $r(3)$ is the rate at $t=3$, not the total tickets sold over $[0,3]$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -160,6 +280,21 @@
           "point_id": "d2",
           "point_value": 1,
           "description": "Correct answer",
+          "official_rubric": "1 point: limits $0$ to $3$ and answer $\\approx 973$ tickets (from $\\int_0^3 550te^{-t/2}\\,dt \\approx 972.784$).",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^3 550t\\,e^{-t/2}\\,dt \\approx 972.784$; approximately $973$ tickets sold by 3 P.M.",
+              "earned": true,
+              "commentary": "Rounds $972.784$ to the nearest whole number as directed.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\displaystyle\\int_0^9 550t\\,e^{-t/2}\\,dt$",
+              "earned": false,
+              "commentary": "Uses the full domain $[0,9]$ rather than $[0,3]$ (3 P.M. corresponds to $t = 3$, not $t = 9$).",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
