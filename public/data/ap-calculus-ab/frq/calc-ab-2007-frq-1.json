@@ -28,6 +28,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct limits",
+          "official_rubric": "1 point: correct limits in an integral in (a), (b), or (c). The limits are $x = -3$ to $x = 3$ (since $\\dfrac{20}{1+x^2} = 2$ when $x = \\pm 3$).",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_{-3}^{3} \\left(\\frac{20}{1+x^2} - 2\\right)\\,dx$",
+              "earned": true,
+              "commentary": "Correctly identifies the intersection points $x = \\pm 3$ by solving $\\frac{20}{1+x^2} = 2 \\Rightarrow x^2 = 9 \\Rightarrow x = \\pm 3$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\displaystyle\\int_{0}^{3} \\left(\\frac{20}{1+x^2} - 2\\right)\\,dx$",
+              "earned": false,
+              "commentary": "Only integrates over half the symmetric region; limits must span $-3$ to $3$ (or be doubled correctly).",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -40,6 +55,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct integrand $h(x) - f(x)$ or $f(x) - g(x)$",
+          "official_rubric": "1 point: correct integrand $\\dfrac{20}{1+x^2} - 2$.",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{20}{1+x^2} - 2$",
+              "earned": true,
+              "commentary": "Correctly subtracts the lower boundary $y=2$ from the upper boundary $y = \\frac{20}{1+x^2}$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$2 - \\dfrac{20}{1+x^2}$",
+              "earned": false,
+              "commentary": "Integrand is inverted; this gives a negative area because the upper boundary minus lower boundary must be positive on $[-3,3]$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -52,6 +82,21 @@
           "point_id": "a3",
           "point_value": 1,
           "description": "Correct answer",
+          "official_rubric": "1 point: answer $37.961$ or $37.962$.",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_{-3}^{3} \\left(\\frac{20}{1+x^2} - 2\\right)\\,dx = 37.961$",
+              "earned": true,
+              "commentary": "Correct numerical evaluation to three decimal places.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\displaystyle\\int_{-3}^{3} \\left(\\frac{20}{1+x^2} - 2\\right)\\,dx \\approx 37.9$",
+              "earned": false,
+              "commentary": "Insufficient decimal precision; CB requires three decimal places.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -74,6 +119,15 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Correct limits",
+          "official_rubric": "1 point (shared with part (a)): correct limits $-3$ to $3$.",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\pi\\int_{-3}^{3}\\left[\\left(\\frac{20}{1+x^2}\\right)^2 - 4\\right]\\,dx$",
+              "earned": true,
+              "commentary": "Washer method with correct limits $-3$ to $3$ and $\\pi$ factor.",
+              "source": "cb_guideline"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -84,8 +138,23 @@
         },
         {
           "point_id": "b2",
-          "point_value": 1,
+          "point_value": 2,
           "description": "Correct integrand",
+          "official_rubric": "2 points: correct washer integrand $\\pi\\left[\\left(\\dfrac{20}{1+x^2}\\right)^2 - 2^2\\right]$.",
+          "sample_responses": [
+            {
+              "response": "$\\pi\\left[\\left(\\dfrac{20}{1+x^2}\\right)^2 - 4\\right]$",
+              "earned": true,
+              "commentary": "Correctly sets up outer radius $\\frac{20}{1+x^2}$ squared minus inner radius $2$ squared, all multiplied by $\\pi$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\pi\\left(\\dfrac{20}{1+x^2} - 2\\right)^2$",
+              "earned": false,
+              "commentary": "Incorrectly squares the difference of radii rather than taking the difference of squares; this is the disk method error.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -98,6 +167,15 @@
           "point_id": "b3",
           "point_value": 1,
           "description": "Correct answer",
+          "official_rubric": "1 point: answer $1871.190$.",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\pi\\int_{-3}^{3}\\left[\\left(\\frac{20}{1+x^2}\\right)^2 - 4\\right]\\,dx = 1871.190$",
+              "earned": true,
+              "commentary": "Correct numerical answer to three decimal places.",
+              "source": "cb_guideline"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -120,6 +198,21 @@
           "point_id": "c1",
           "point_value": 2,
           "description": "Correct integrand for volume",
+          "official_rubric": "2 points: correct integrand. The diameter of each semicircular cross section equals $\\dfrac{20}{1+x^2} - 2$, so the radius is $\\dfrac{1}{2}\\left(\\dfrac{20}{1+x^2} - 2\\right)$. Area of semicircle $= \\dfrac{1}{2}\\pi r^2 = \\dfrac{\\pi}{8}\\left(\\dfrac{20}{1+x^2} - 2\\right)^2$.",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{\\pi}{8}\\left(\\dfrac{20}{1+x^2} - 2\\right)^2$",
+              "earned": true,
+              "commentary": "Correctly identifies diameter $= \\frac{20}{1+x^2} - 2$, halves it to get radius, then uses $A = \\frac{1}{2}\\pi r^2$ for a semicircle.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\dfrac{\\pi}{4}\\left(\\dfrac{20}{1+x^2} - 2\\right)^2$",
+              "earned": false,
+              "commentary": "Uses full-circle area formula $\\pi r^2$ instead of semicircle area $\\frac{1}{2}\\pi r^2$; missing the factor of $\\frac{1}{2}$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -132,6 +225,15 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct limits, constant, and answer",
+          "official_rubric": "1 point: correct limits $-3$ to $3$, factor of $\\dfrac{\\pi}{8}$, and answer $174.268$.",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{\\pi}{8}\\displaystyle\\int_{-3}^{3}\\left(\\dfrac{20}{1+x^2} - 2\\right)^2\\,dx = 174.268$",
+              "earned": true,
+              "commentary": "All three components correct: limits $\\pm 3$, constant $\\frac{\\pi}{8}$, numerical answer $174.268$.",
+              "source": "cb_guideline"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
