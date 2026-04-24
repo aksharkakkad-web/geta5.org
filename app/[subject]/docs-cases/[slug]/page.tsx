@@ -219,7 +219,7 @@ export default async function DocCaseDetailPage({ params }: PageProps) {
 
 function sectionsHeading(item: DocCaseItem): string {
   if (item.id === 'us-constitution') return 'Articles — what each one covers'
-  if (item.id === 'bill-of-rights') return 'Amendments — what each one protects'
+  if (item.id === 'constitutional-amendments') return 'Amendments — what each one does'
   return 'Breakdown'
 }
 
