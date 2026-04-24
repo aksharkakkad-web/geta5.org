@@ -44,6 +44,27 @@
           "common_traps": [
             "Do not divide by $e^x$ at the start — that loses the solution $x = 2\\ln 2$; the substitution $u = e^x$ is required",
             "$\\ln 4 = 2\\ln 2$ — either form is accepted but must be exact (not decimal)"
+          ],
+          "official_rubric": "The point is earned for both exact solutions $x = \\ln 2$ and $x = 2\\ln 2$ (or $x = \\ln 4$) with supporting work showing the substitution $u = e^x$, factoring the resulting quadratic, and converting roots back via the natural log. Missing one solution or giving decimal approximations does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "Let $u = e^x$: $\\frac{1}{2}u^2 - 3u + 4 = 0 \\Rightarrow u^2 - 6u + 8 = 0 \\Rightarrow (u-2)(u-4) = 0 \\Rightarrow u = 2$ or $u = 4 \\Rightarrow x = \\ln 2$ or $x = \\ln 4 = 2\\ln 2$.",
+              "earned": true,
+              "commentary": "Multiplies through by $2$ to clear the fraction, makes the substitution $u = e^x$, factors the quadratic, and correctly converts both roots back via the natural log.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$x = 2$ and $x = 4$",
+              "earned": false,
+              "commentary": "Finds the roots of the quadratic in $u$ but does not convert back: $u = e^x$, so $x = \\ln u$. The solutions are $x = \\ln 2$ and $x = \\ln 4$, not $x = 2$ and $x = 4$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Let $u = e^x$: $(u-2)(u-4) = 0 \\Rightarrow x = \\ln 2$.",
+              "earned": false,
+              "commentary": "Finds only one of the two required solutions. Both $x = \\ln 2$ and $x = 2\\ln 2$ must be present.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -67,6 +88,27 @@
           "common_traps": [
             "The interval $x > \\ln 2$ contains two sub-intervals with different signs — both must be identified to earn the point",
             "Using a test value in the factored expression is a valid method; a sketch of the parabola in $u$ is also acceptable"
+          ],
+          "official_rubric": "The point is earned for correctly identifying that $h < 0$ on $(\\ln 2, 2\\ln 2)$ and $h > 0$ for $x > 2\\ln 2$, with reasoning from the factored form or sign chart. A bare 'positive' or 'negative' without addressing both sub-intervals does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "For $x \\in (\\ln 2, 2\\ln 2)$: $u = e^x \\in (2, 4)$, so $(u-2) > 0$ and $(u-4) < 0$, giving $h = \\frac{1}{2}(u-2)(u-4) < 0$. For $x > 2\\ln 2$: $u > 4$, both factors positive, so $h > 0$.",
+              "earned": true,
+              "commentary": "Uses the factored form in $u$ to analyze signs on both sub-intervals of $x > \\ln 2$, correctly identifying negative then positive.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Positive, because $h(x) \\to \\infty$ as $x \\to \\infty$.",
+              "earned": false,
+              "commentary": "Addresses only the behavior for very large $x$ and ignores the sub-interval $(\\ln 2, 2\\ln 2)$ where $h < 0$. Both sub-intervals must be addressed.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Negative on $(\\ln 2, 2\\ln 2)$ and positive on $(2\\ln 2, \\infty)$ — verified by testing $x = 1.5\\ln 2$ (where $u = 2^{1.5} \\approx 2.83 \\in (2,4)$, making one factor negative) and $x = 3\\ln 2$ (where $u = 8 > 4$, both factors positive).",
+              "earned": true,
+              "commentary": "Valid alternate approach — uses specific test values to verify the sign on each sub-interval rather than pure factor analysis.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -100,6 +142,27 @@
           "common_traps": [
             "$\\arcsin$ always outputs angles in $[-\\pi/2, \\pi/2]$, so cosine is never negative — the negative inside $\\arcsin$ does not make the cosine negative",
             "Supporting work must show the right-triangle construction and the $5$-$12$-$13$ relationship explicitly"
+          ],
+          "official_rubric": "The point is earned for the correct exact value $\\frac{12}{13}$ with supporting work showing the $5$-$12$-$13$ right triangle and a sign argument using the range of $\\arcsin$. Giving $-\\frac{12}{13}$ (sign error) or $\\frac{5}{13}$ (wrong ratio) does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "Let $\\phi = \\arcsin(-5/13)$. Then $\\sin\\phi = -5/13$. Right triangle: opposite $= 5$, hypotenuse $= 13$, adjacent $= \\sqrt{169-25} = 12$. Since $\\phi \\in [-\\pi/2, \\pi/2]$, $\\cos\\phi \\geq 0$, so $\\cos(\\arcsin(-5/13)) = 12/13$.",
+              "earned": true,
+              "commentary": "Constructs the correct $5$-$12$-$13$ triangle, uses the Pythagorean theorem to find the adjacent side, and invokes the range of $\\arcsin$ to confirm the positive sign.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\cos(\\arcsin(-5/13)) = -12/13$",
+              "earned": false,
+              "commentary": "Applies the correct triangle ratio but assigns a negative sign. Since $\\arcsin$ outputs values in $[-\\pi/2, \\pi/2]$, where cosine is non-negative, the answer must be $+12/13$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\cos(\\arcsin(-5/13)) = 5/13$",
+              "earned": false,
+              "commentary": "Reports the sine ratio ($5/13$) instead of the cosine. The adjacent side is $12$, giving $\\cos = 12/13$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -124,6 +187,27 @@
           "common_traps": [
             "NEVER divide both sides by $\\sin\\theta$ — this loses the solutions where $\\sin\\theta = 0$; always factor instead",
             "The double angle identity must appear explicitly to earn the point"
+          ],
+          "official_rubric": "The point is earned for all four exact solutions $\\theta = 0, \\frac{\\pi}{3}, \\pi, \\frac{5\\pi}{3}$ using the double angle identity and factoring. Dividing by $\\sin\\theta$ (losing $\\theta = 0$ and $\\theta = \\pi$) or including $\\theta = 2\\pi$ does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$2\\sin\\theta\\cos\\theta = \\sin\\theta \\Rightarrow 2\\sin\\theta\\cos\\theta - \\sin\\theta = 0 \\Rightarrow \\sin\\theta(2\\cos\\theta - 1) = 0$. $\\sin\\theta = 0 \\Rightarrow \\theta = 0, \\pi$; $\\cos\\theta = \\frac{1}{2} \\Rightarrow \\theta = \\frac{\\pi}{3}, \\frac{5\\pi}{3}$.",
+              "earned": true,
+              "commentary": "Applies the double angle identity, rearranges to zero, factors out $\\sin\\theta$, and finds all four solutions from the two factor equations.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$2\\sin\\theta\\cos\\theta = \\sin\\theta \\Rightarrow 2\\cos\\theta = 1 \\Rightarrow \\theta = \\frac{\\pi}{3}, \\frac{5\\pi}{3}$",
+              "earned": false,
+              "commentary": "Divides both sides by $\\sin\\theta$, losing the solutions $\\theta = 0$ and $\\theta = \\pi$. Both the $\\sin\\theta = 0$ case and the $\\cos\\theta = 1/2$ case are required.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\sin\\theta(2\\cos\\theta - 1) = 0 \\Rightarrow \\theta = 0, \\frac{\\pi}{3}, \\pi, \\frac{5\\pi}{3}, 2\\pi$",
+              "earned": false,
+              "commentary": "Finds all four correct solutions but also includes $\\theta = 2\\pi$, which is not in the half-open interval $[0, 2\\pi)$. Including an incorrect value voids the point.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -158,6 +242,21 @@
           "common_traps": [
             "The key step is multiplying BOTH sides by $r$ first; without that step, the substitutions $r^2 = x^2+y^2$ and $r\\cos\\theta = x$ cannot be applied",
             "The circle passes through the origin — its center $(3/2, 0)$ is NOT the origin"
+          ],
+          "official_rubric": "The point is earned for the correct rectangular equation $(x - \\frac{3}{2})^2 + y^2 = \\frac{9}{4}$ with supporting work showing the multiplication by $r$ step and completed-square form. Identifying the circle, center, and radius must follow from the equation. A completing-the-square error (e.g., center $(3, 0)$) does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "Multiply both sides by $r$: $r^2 = 3r\\cos\\theta \\Rightarrow x^2 + y^2 = 3x \\Rightarrow x^2 - 3x + y^2 = 0 \\Rightarrow (x-3/2)^2 + y^2 = 9/4$. Circle with center $(3/2, 0)$ and radius $3/2$.",
+              "earned": true,
+              "commentary": "Shows the multiplication by $r$, substitutes the polar-to-rectangular identities, and correctly completes the square to identify the circle.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$x^2 + y^2 = 3x \\Rightarrow (x-3)^2 + y^2 = 9$",
+              "earned": false,
+              "commentary": "The completing-the-square step is incorrect: $x^2 - 3x = (x - 3/2)^2 - 9/4$, so the right side should be $9/4$ with center $(3/2, 0)$ and radius $3/2$, not $(3, 0)$ and radius $3$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -181,6 +280,21 @@
           "common_traps": [
             "Both zeros of $\\cos\\theta$ in $[0, 2\\pi)$ must be stated ($\\pi/2$ and $3\\pi/2$), not just one",
             "Negative $r$ in polar coordinates does not mean the point is in the third quadrant — it means it is plotted $180°$ away from the direction of $\\theta$"
+          ],
+          "official_rubric": "The point is earned for both values $\\theta = \\frac{\\pi}{2}$ and $\\theta = \\frac{3\\pi}{2}$ AND the correct explanation that $r < 0$ just past $\\theta = \\pi/2$ because $\\cos\\theta < 0$, with a statement that negative $r$ plots the point in the opposite direction. Missing one zero or incorrectly stating $r > 0$ does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$r = 0 \\Rightarrow 3\\cos\\theta = 0 \\Rightarrow \\theta = \\pi/2$ and $\\theta = 3\\pi/2$. For $\\theta$ slightly $> \\pi/2$: $\\cos\\theta < 0$, so $r = 3\\cos\\theta < 0$. A negative $r$ means the point is plotted through the pole in the opposite direction, so the curve retraces the circle.",
+              "earned": true,
+              "commentary": "Finds both zeros, evaluates the sign of $\\cos\\theta$ just past $\\pi/2$, and correctly explains the geometric meaning of a negative $r$ in polar coordinates.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\theta = \\pi/2$. Just past $\\pi/2$: $r > 0$ because the curve is going up.",
+              "earned": false,
+              "commentary": "Finds only one zero and incorrectly states $r > 0$. For $\\theta$ just past $\\pi/2$, cosine is negative, so $r = 3\\cos\\theta < 0$.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
