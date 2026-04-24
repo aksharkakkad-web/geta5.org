@@ -27,6 +27,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct conclusion: $g$ has a relative minimum at $x = 10$",
+          "official_rubric": "1 point: relative minimum at $x = 10$",
+          "sample_responses": [
+            {
+              "response": "$g$ has a relative minimum at $x = 10$.",
+              "earned": true,
+              "commentary": "Correct conclusion; $g'=f$ changes from negative to positive at $x=10$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g$ has a relative maximum at $x = 10$.",
+              "earned": false,
+              "commentary": "Incorrect: a relative max would require $g'=f$ to change from positive to negative. At $x=10$, $f$ changes from negative to positive, indicating a minimum.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -39,6 +54,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct justification using sign change of $g'(x) = f(x)$",
+          "official_rubric": "1 point: $g'(x)=f(x)$ changes from negative to positive at $x=10$",
+          "sample_responses": [
+            {
+              "response": "Since $g'(x) = f(x)$ and $f(x)$ changes from negative to positive at $x = 10$, $g$ has a relative minimum at $x = 10$.",
+              "earned": true,
+              "commentary": "Complete justification citing $g' = f$ and the sign change of $f$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g$ has a relative minimum because $g(10) = 0$.",
+              "earned": false,
+              "commentary": "$g(10) = 0$ does not establish a minimum; $g(10)$ is the accumulated area and is not necessarily $0$. The justification must reference the sign change of $g' = f$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -61,6 +91,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Correct answer (yes) with valid justification that $f'$ changes sign at $x = 4$",
+          "official_rubric": "1 point: yes; $g''=f'$ changes sign at $x=4$ (slope of $f$ changes)",
+          "sample_responses": [
+            {
+              "response": "Yes. Since $g''(x) = f'(x)$, a point of inflection occurs where the slope of $f$ changes sign. At $x=4$, the slope of $f$ changes (e.g., from positive to negative), so $g$ has a point of inflection there.",
+              "earned": true,
+              "commentary": "Correctly ties $g''=f'$ to the change in slope of $f$ to justify the inflection point.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Yes, because $f(4) = 0$.",
+              "earned": false,
+              "commentary": "A zero of $f$ identifies where $g$ has a critical point, not an inflection point. An inflection point of $g$ requires $g'' = f'$ to change sign, not $f = 0$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -83,6 +128,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Correctly identifies all critical points on $[-4, 12]$ where $g'(x) = f(x) = 0$",
+          "official_rubric": "1 point: identifies zeros of $f$ on $[-4,12]$ as critical points of $g$, plus the endpoints",
+          "sample_responses": [
+            {
+              "response": "Critical points of $g$: where $g'(x) = f(x) = 0$. From the graph, zeros occur at $x = 0$, $x = 6$, $x = 10$ (and endpoints $x=-4$, $x=12$).",
+              "earned": true,
+              "commentary": "Correctly identifies all critical and endpoint candidates for the absolute extrema.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Minimum occurs at $x = 10$ because $g$ has a relative minimum there.",
+              "earned": false,
+              "commentary": "The absolute minimum may or may not coincide with the relative minimum; all candidates (critical points and endpoints) must be evaluated and compared.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -95,6 +155,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct computation of $g$ values at the candidates (using net signed area)",
+          "official_rubric": "1 point: evaluates $g$ at each candidate via net signed area $\\int_2^x f(t)\\,dt$",
+          "sample_responses": [
+            {
+              "response": "Computes $g(x) = \\int_2^x f(t)\\,dt$ at each candidate using the signed areas of triangles/trapezoids from the graph.",
+              "earned": true,
+              "commentary": "Correct approach: uses geometric areas under the piecewise-linear $f$ to evaluate $g$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Evaluates $f$ at each candidate point instead of integrating",
+              "earned": false,
+              "commentary": "Evaluating $f(x)$ gives $g'(x)$, not $g(x)$. Must compute the definite integral $\\int_2^x f(t)\\,dt$ at each candidate.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -107,6 +182,21 @@
           "point_id": "c3",
           "point_value": 1,
           "description": "Correct identification and value of the absolute minimum",
+          "official_rubric": "1 point: correct absolute minimum value with location",
+          "sample_responses": [
+            {
+              "response": "Comparing all $g$ values: absolute minimum is $g(10) = [\\text{computed value}]$.",
+              "earned": true,
+              "commentary": "Identifies the absolute minimum by comparing all candidates.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Absolute minimum is at $x = -4$ without computing $g(-4)$",
+              "earned": false,
+              "commentary": "Must compute the actual numerical value of $g$ at the minimum location.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -119,6 +209,21 @@
           "point_id": "c4",
           "point_value": 1,
           "description": "Correct identification and value of the absolute maximum",
+          "official_rubric": "1 point: correct absolute maximum value with location",
+          "sample_responses": [
+            {
+              "response": "Absolute maximum is $g(x_0) = [\\text{correct value}]$ at $x = x_0$.",
+              "earned": true,
+              "commentary": "Identifies the absolute maximum by comparing all candidates.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Maximum is at $x = 6$ with $g(6) = 0$ (only checks one candidate)",
+              "earned": false,
+              "commentary": "Must compare all candidates; the maximum may occur at another location.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -141,6 +246,21 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Correct interval(s) where $g(x) \\leq 0$",
+          "official_rubric": "1 point: correct interval(s) where net signed area $\\int_2^x f(t)\\,dt \\leq 0$",
+          "sample_responses": [
+            {
+              "response": "From the area analysis: $g(x) \\leq 0$ on $[-4, a]$ where $a$ is determined by where the net cumulative area turns non-negative.",
+              "earned": true,
+              "commentary": "Correct interval based on tracking the sign of accumulated area from $x=2$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g(x) \\leq 0$ wherever $f(x) \\leq 0$",
+              "earned": false,
+              "commentary": "$g(x)$ is the accumulated area, not the value of $f(x)$. $g(x) \\leq 0$ where the net integral from $2$ to $x$ is non-positive, which is independent of the sign of $f$ at $x$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -153,6 +273,21 @@
           "point_id": "d2",
           "point_value": 1,
           "description": "Correct justification referencing $g(x) = \\int_2^x f(t)\\,dt$ and the sign of accumulated area",
+          "official_rubric": "1 point: work shows net area computation from piecewise graph to establish $g \\leq 0$",
+          "sample_responses": [
+            {
+              "response": "Using signed areas from the graph: $g(x) = \\int_2^x f(t)\\,dt$. Computing areas at key points shows $g(x) \\leq 0$ on the identified interval(s).",
+              "earned": true,
+              "commentary": "Correct justification showing the signed area work.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Since $f < 0$ there, $g < 0$.",
+              "earned": false,
+              "commentary": "The sign of $g(x)$ depends on the cumulative integral from $x=2$ to $x$, not merely the local sign of $f(x)$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
