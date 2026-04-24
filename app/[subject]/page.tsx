@@ -6,6 +6,7 @@ import { ProjectedScoreBadge } from '@/components/ui/ProjectedScoreBadge'
 import { SubjectAnalytics } from '@/components/ui/SubjectAnalytics'
 import { SubjectHubClient } from '@/components/ui/SubjectHubClient'
 import { hasFRQs } from '@/utils/frqSession'
+import { hasDocsCases } from '@/utils/docsCases'
 
 // Force dynamic rendering so "days to go" is always current, never frozen at build time
 export const dynamic = 'force-dynamic'
@@ -84,11 +85,11 @@ export default async function SubjectPage({ params }: SubjectPageProps) {
       colorKey: 'green' as const,
     },
     {
-      title: 'Practice Test',
-      description: 'Full-length timed test',
-      iconName: 'test' as const,
-      href: `/${subject.slug}/practice-test`,
-      colorKey: 'amber' as const,
+      title: 'Docs & Cases',
+      description: 'Required documents & Supreme Court cases',
+      iconName: 'docs-cases' as const,
+      href: `/${subject.slug}/docs-cases`,
+      colorKey: 'indigo' as const,
     },
     {
       title: 'FRQ Practice',
@@ -97,9 +98,20 @@ export default async function SubjectPage({ params }: SubjectPageProps) {
       href: `/${subject.slug}/frq`,
       colorKey: 'rose' as const,
     },
+    {
+      title: 'Practice Test',
+      description: 'Full-length timed test',
+      iconName: 'test' as const,
+      href: `/${subject.slug}/practice-test`,
+      colorKey: 'amber' as const,
+    },
   ]
 
-  const filteredModes = modes.filter(m => m.title !== 'FRQ Practice' || hasFRQs(subject.slug))
+  const filteredModes = modes.filter(m => {
+    if (m.title === 'FRQ Practice') return hasFRQs(subject.slug)
+    if (m.title === 'Docs & Cases') return hasDocsCases(subject.slug)
+    return true
+  })
 
   return (
     <SubjectHubClient>

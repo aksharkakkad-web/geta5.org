@@ -1,0 +1,120 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DocsCases",
+  "description": "Foundational documents and Supreme Court cases required for AP US Government and Politics.",
+  "type": "object",
+  "required": ["subject", "items"],
+  "properties": {
+    "subject": { "type": "string", "const": "ap-government" },
+    "items": {
+      "type": "array",
+      "minItems": 20,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "title",
+          "year",
+          "unit",
+          "byline",
+          "key_takeaway",
+          "summary",
+          "key_terms",
+          "paired_with",
+          "exam_appearance",
+          "adi_prompts"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "URL-slug id (e.g. federalist-10, marbury-v-madison)",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["document", "case"]
+          },
+          "title": { "type": "string" },
+          "year": {
+            "type": "integer",
+            "minimum": 1700,
+            "maximum": 2100
+          },
+          "unit": {
+            "type": "string",
+            "enum": ["unit-1", "unit-2", "unit-3", "unit-4", "unit-5"]
+          },
+          "author": {
+            "type": "string",
+            "description": "Author (for documents) — omit for cases"
+          },
+          "vote": {
+            "type": "string",
+            "description": "SCOTUS vote (e.g. '9-0', '5-4') — cases only"
+          },
+          "byline": {
+            "type": "string",
+            "description": "One-line hook shown below title. For cases: the constitutional question or holding in plain English."
+          },
+          "key_takeaway": {
+            "type": "string",
+            "description": "Single sentence. The one thing a student must remember if they remember nothing else."
+          },
+          "summary": {
+            "type": "string",
+            "description": "Concise paragraph (3–6 sentences). What happened, what it decided, and why it matters for the exam."
+          },
+          "key_terms": {
+            "type": "array",
+            "items": { "type": "string" },
+            "minItems": 2,
+            "maxItems": 6
+          },
+          "paired_with": {
+            "type": "array",
+            "description": "Related docs/cases students should connect this to.",
+            "items": {
+              "type": "object",
+              "required": ["id", "title", "relation"],
+              "properties": {
+                "id": { "type": "string" },
+                "title": { "type": "string" },
+                "relation": {
+                  "type": "string",
+                  "description": "Brief label: 'opposing view', 'extends', 'incorporated by', etc."
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "constitutional_link": {
+            "type": "string",
+            "description": "The clause/amendment/article this item ties to."
+          },
+          "exam_appearance": {
+            "type": "string",
+            "description": "Where/how this shows up on the AP exam (FRQ type, MCQ context, etc.)"
+          },
+          "adi_prompts": {
+            "type": "object",
+            "required": ["quiz", "explain"],
+            "properties": {
+              "quiz": {
+                "type": "string",
+                "description": "Pre-seeded Adi message: 'Quiz me on X. Give me 4 AP-style questions one at a time and grade my answers.'"
+              },
+              "explain": {
+                "type": "string",
+                "description": "Pre-seeded Adi message asking for a deeper explanation."
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
