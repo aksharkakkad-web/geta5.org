@@ -26,14 +26,29 @@
       "scoring_points": [
         {
           "point_id": "a1",
-          "point_value": 1,
+          "point_value": 2,
           "description": "Correct setup and answer: total water entering",
+          "official_rubric": "2 points: 1 point for the integral $\\int_0^7 f(t)\\,dt$; 1 point for the answer $\\approx 8264$ gallons (round to nearest gallon).",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^7 100t^2\\sin t\\,dt \\approx 8264$ gallons",
+              "earned": true,
+              "commentary": "Correctly integrates the inflow rate $f(t) = 100t^2\\sin t$ over $[0,7]$ and rounds to the nearest gallon.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\displaystyle\\int_0^7 100t^2\\sin t\\,dt \\approx 8263.99$ gallons",
+              "earned": false,
+              "commentary": "Not rounded to the nearest gallon as required; answer must be a whole number.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
                 "$\\int_0^7 f(t)\\, dt$"
               ],
-              "correct_example": "$\\int_0^7 f(t)\\, dt = \\int_0^7 100t^2\\sin t\\, dt \\approx 964$ gallons"
+              "correct_example": "$\\int_0^7 f(t)\\, dt = \\int_0^7 100t^2\\sin t\\, dt \\approx 8264$ gallons"
             }
           ]
         }
@@ -51,11 +66,20 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Correct time intervals when water decreasing",
+          "official_rubric": "1 point: correct intervals $0 \\le t \\le 1.617$ and $3 \\le t \\le 5.076$ (endpoints may vary slightly).",
+          "sample_responses": [
+            {
+              "response": "The amount decreases on $0 \\le t \\le 1.617$ and $3 \\le t \\le 5.076$.",
+              "earned": true,
+              "commentary": "Both intervals correctly identified where $f(t) < g(t)$.",
+              "source": "cb_guideline"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
                 "Water decreases when $g(t) > f(t)$",
-                "$(0, 1.617)$ and $(5.076, 7)$"
+                "$(0, 1.617)$ and $(3, 5.076)$"
               ]
             }
           ]
@@ -64,6 +88,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct reason for each interval",
+          "official_rubric": "1 point: reason that $f(t) < g(t)$ on those intervals (water leaving exceeds water entering).",
+          "sample_responses": [
+            {
+              "response": "Because $f(t) < g(t)$ for $0 < t < 1.617$ and $3 < t < 5.076$, the rate water leaves exceeds the rate water enters.",
+              "earned": true,
+              "commentary": "Correctly links the decreasing water to $f(t) - g(t) < 0$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Because both rates are positive on those intervals.",
+              "earned": false,
+              "commentary": "Being positive doesn't explain decrease; must compare $f(t)$ to $g(t)$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -76,6 +115,15 @@
           "point_id": "b3",
           "point_value": 1,
           "description": "Complete answer with both intervals and reasons",
+          "official_rubric": "Combined: earns 2 points total for part (b) — 1 for intervals and 1 for reason.",
+          "sample_responses": [
+            {
+              "response": "The water is decreasing on $[0, 1.617]$ and $[3, 5.076]$ because $f(t) < g(t)$ on those intervals.",
+              "earned": true,
+              "commentary": "Both intervals and the reason are provided.",
+              "source": "cb_guideline"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -98,12 +146,27 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Identifies $t = 5.076$ as location of maximum with reason: $f(t) - g(t)$ changes sign from positive to negative",
+          "description": "Identifies $t = 3$ as a candidate and the correct maximum location",
+          "official_rubric": "1 point: identifies $t = 3$ as a candidate. Since $f(t) - g(t)$ changes from positive to negative only at $t = 3$, the candidates are $t = 0, 3, 7$. The maximum occurs at $t = 3$.",
+          "sample_responses": [
+            {
+              "response": "Since $f(t) - g(t)$ changes sign from positive to negative only at $t = 3$, the candidates for absolute maximum are $t = 0, 3, 7$.",
+              "earned": true,
+              "commentary": "Correctly identifies $t = 3$ as the only interior candidate where the net rate changes from positive to negative.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "The maximum occurs at $t = 5.076$ where $f(t) = g(t)$.",
+              "earned": false,
+              "commentary": "$t = 5.076$ is where $f = g$ on the second crossing, but water was already decreasing from $t = 3$ to $5.076$ because $g(t) = 2000 > f(t)$ on $(3, 5.076)$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
-                "Maximum at $t \\approx 5.076$",
-                "$f(t) > g(t)$ for $1.617 < t < 5.076$ (tank increasing) and $f(t) < g(t)$ for $5.076 < t \\le 7$ (tank decreasing)"
+                "Identifies $t = 3$ as a candidate",
+                "$f(t) > g(t)$ before $t=3$ and $f(t) < g(t)$ after $t=3$"
               ]
             }
           ]
@@ -111,11 +174,20 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Sets up correct integral expression: $W(5.076) = 5000 + \\int_0^{5.076}[f(t)-g(t)]\\, dt$",
+          "description": "Correct integrand for water amount computation",
+          "official_rubric": "1 point: correct integrand. $W(3) = 5000 + \\int_0^3 f(t)\\,dt - 250(3) = 5126.591$ gallons; $W(7) = W(3) + \\int_3^7 f(t)\\,dt - 2000(4) = 4513.807$ gallons.",
+          "sample_responses": [
+            {
+              "response": "$W(3) = 5000 + \\displaystyle\\int_0^3 f(t)\\,dt - 250 \\cdot 3 \\approx 5127$ gallons",
+              "earned": true,
+              "commentary": "Correctly integrates net inflow: adds $\\int_0^3 f(t)\\,dt$ and subtracts outflow $250 \\times 3$.",
+              "source": "cb_guideline"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
-                "$5000 + \\int_0^{5.076}[f(t)-g(t)]\\, dt$"
+                "$5000 + \\int_0^{3}f(t)\\,dt - 250(3)$"
               ]
             }
           ]
@@ -123,13 +195,22 @@
         {
           "point_id": "c3",
           "point_value": 1,
-          "description": "Correct numerical answer $W(5.076) \\approx 4976$ gallons",
+          "description": "Correct numerical answer: greatest at $t = 3$ with $\\approx 5127$ gallons",
+          "official_rubric": "1 point (split across amounts at $t=3$ and $t=7$) and 1 point conclusion: greatest at $t = 3$ with $\\approx 5127$ gallons.",
+          "sample_responses": [
+            {
+              "response": "The water is greatest at $t = 3$ hours with approximately $5127$ gallons.",
+              "earned": true,
+              "commentary": "Compares amounts at all candidate times; $5127 > 5000 > 4514$, so maximum is at $t = 3$.",
+              "source": "cb_guideline"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
-                "$W(5.076) \\approx 4976$ gallons"
-              ],
-              "correct_example": "$W(5.076) = 5000 + \\int_0^{5.076}[f(t)-g(t)]\\, dt \\approx 4976$ gallons"
+                "Maximum at $t = 3$",
+                "$\\approx 5127$ gallons"
+              ]
             }
           ]
         }
@@ -147,6 +228,21 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Correct net rate integrand $f(t) - g(t)$ in integral from $0$ to $7$",
+          "official_rubric": "1 point: correct integrand $f(t) - g(t)$ integrated from $0$ to $7$.",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^7 [f(t) - g(t)]\\,dt$",
+              "earned": true,
+              "commentary": "Net rate of change of water is $f(t) - g(t)$; integrating from $0$ to $7$ gives total change.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\displaystyle\\int_0^7 f(t)\\,dt$",
+              "earned": false,
+              "commentary": "Only accounts for inflow; must subtract outflow $g(t)$ to get net change.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -160,6 +256,21 @@
           "point_id": "d2",
           "point_value": 1,
           "description": "Includes initial condition 5000 gallons",
+          "official_rubric": "1 point: includes initial condition $5000$ gallons: $W(7) = 5000 + \\int_0^7 [f(t) - g(t)]\\,dt$.",
+          "sample_responses": [
+            {
+              "response": "$W(7) = 5000 + \\displaystyle\\int_0^7 [f(t) - g(t)]\\,dt$",
+              "earned": true,
+              "commentary": "Correctly adds initial 5000 gallons to net change integral.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$W(7) = \\displaystyle\\int_0^7 [f(t) - g(t)]\\,dt$",
+              "earned": false,
+              "commentary": "Omits the initial condition; total gallons requires starting value of 5000.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
