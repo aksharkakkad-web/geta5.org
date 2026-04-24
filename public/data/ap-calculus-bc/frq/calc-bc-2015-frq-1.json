@@ -27,6 +27,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct integral setup: $\\int_0^8 R(t)\\,dt$",
+          "official_rubric": "1 point: $\\int_0^8 20\\sin\\!\\left(\\frac{t^2}{35}\\right)dt$",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^8 R(t)\\,dt = \\int_0^8 20\\sin\\!\\left(\\frac{t^2}{35}\\right)dt$",
+              "earned": true,
+              "commentary": "Correctly identifies the total inflow as the definite integral of the rate function $R(t)$ over $[0,8]$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\displaystyle\\int_0^8 [R(t) - D(t)]\\,dt$ (computes net change, not total inflow)",
+              "earned": false,
+              "commentary": "Subtracts $D(t)$ from $R(t)$; this gives the net change in water level, not the total rainwater that flows in.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -39,6 +54,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct answer with units: approximately $76.570$ cubic feet",
+          "official_rubric": "1 point: $\\approx 76.570$ cubic feet",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^8 20\\sin\\!\\left(\\frac{t^2}{35}\\right)dt \\approx 76.570$ cubic feet",
+              "earned": true,
+              "commentary": "Correct numerical evaluation with required units of cubic feet.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\approx 76.570$ (no units stated)",
+              "earned": false,
+              "commentary": "The problem requires units of measure. The answer must include 'cubic feet'.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -61,6 +91,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Correct evaluation: $R(3) \\approx 20\\sin\\!\\left(\\frac{9}{35}\\right) \\approx 4.963$ and $D(3) = -0.04(27) + 0.4(9) + 0.96(3) = -1.08 + 3.6 + 2.88 = 5.4$",
+          "official_rubric": "1 point: $R(3) \\approx 4.963$ and $D(3) = 5.4$ (or computes $R(3)-D(3) < 0$)",
+          "sample_responses": [
+            {
+              "response": "$R(3) = 20\\sin(9/35) \\approx 4.963$ cubic feet per hour; $D(3) = -0.04(27)+0.4(9)+0.96(3) = 5.4$ cubic feet per hour. Since $R(3) < D(3)$, the net rate is negative.",
+              "earned": true,
+              "commentary": "Correctly evaluates both rates at $t = 3$ and compares them to determine the net direction.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$R(3) - D(3) \\approx 4.963 - 5.4 = -0.437 < 0$",
+              "earned": true,
+              "commentary": "Equivalent approach: directly computes the net rate and observes it is negative.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -78,6 +123,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct conclusion: the amount of water is decreasing because $R(3) < D(3)$, so water is leaving faster than it enters",
+          "official_rubric": "1 point: decreasing, because $R(3) < D(3)$",
+          "sample_responses": [
+            {
+              "response": "The amount of water is decreasing at $t = 3$ because $R(3) \\approx 4.963 < 5.4 = D(3)$; water is draining faster than it is entering.",
+              "earned": true,
+              "commentary": "Correct conclusion with proper comparative reasoning linking $R(3) < D(3)$ to the decreasing amount.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The amount is decreasing because $R(3) < 0$.",
+              "earned": false,
+              "commentary": "$R(3) \\approx 4.963 > 0$; the flow in is positive. The reason for decrease is that $R(3) < D(3)$, not that $R(3)$ is negative.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -101,6 +161,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Sets $R(t) = D(t)$ and identifies critical points in $[0, 8]$; the relevant critical point is $t \\approx 3.272$",
+          "official_rubric": "1 point: solves $R(t) = D(t)$ on $[0,8]$; identifies $t \\approx 3.272$ as the interior critical point",
+          "sample_responses": [
+            {
+              "response": "The amount of water is minimized when $R(t) - D(t) = 0$. Using a calculator: $R(t) = D(t)$ at $t \\approx 3.272$ on $(0,8)$ (and at $t = 0$).",
+              "earned": true,
+              "commentary": "Correctly recognizes that the water amount has critical points where the net rate $R(t)-D(t) = 0$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Minimum where $R'(t) = 0$; solving gives $t \\approx 2.5$",
+              "earned": false,
+              "commentary": "Finds where the inflow rate itself is minimized rather than where the water amount is minimized. The water amount has an extremum where $R(t) = D(t)$, not where $R'(t) = 0$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -114,6 +189,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct sign analysis: $R(t) - D(t) < 0$ for $t < 3.272$ (water decreasing) and $R(t) - D(t) > 0$ for $t > 3.272$ (water increasing), so the amount changes from decreasing to increasing at $t \\approx 3.272$",
+          "official_rubric": "1 point: $R(t)-D(t)$ changes from negative to positive at $t \\approx 3.272$, confirming a minimum",
+          "sample_responses": [
+            {
+              "response": "For $t < 3.272$: $R(t) - D(t) < 0$ (water amount decreasing). For $t > 3.272$: $R(t) - D(t) > 0$ (water amount increasing). So $t \\approx 3.272$ is a minimum.",
+              "earned": true,
+              "commentary": "Sign change from negative to positive confirms the water amount transitions from decreasing to increasing — a local minimum.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The critical point $t \\approx 3.272$ is a minimum since $R(3.272) = D(3.272)$.",
+              "earned": false,
+              "commentary": "The condition $R(t) = D(t)$ identifies the critical point but does not by itself confirm it is a minimum. A sign analysis of $R(t)-D(t)$ on either side is required.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -126,6 +216,21 @@
           "point_id": "c3",
           "point_value": 1,
           "description": "Correct minimum value: amount of water at $t \\approx 3.272$ is $30 + \\int_0^{3.272}\\left[R(t) - D(t)\\right]dt \\approx 27.964$ cubic feet",
+          "official_rubric": "1 point: minimum amount $\\approx 27.964$ cubic feet at $t \\approx 3.272$",
+          "sample_responses": [
+            {
+              "response": "Amount at $t \\approx 3.272$: $30 + \\displaystyle\\int_0^{3.272}[R(t)-D(t)]\\,dt \\approx 30 + (-2.036) \\approx 27.964$ cubic feet",
+              "earned": true,
+              "commentary": "Correctly uses the accumulation formula (initial amount plus net integral) to evaluate the water level at the critical time.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Minimum occurs at $t \\approx 3.272$; minimum amount is $R(3.272) \\approx 5.1$ cubic feet",
+              "earned": false,
+              "commentary": "Evaluates the rate function $R$ at the critical time rather than the amount. The amount is found by integrating the net rate and adding to the initial 30 cubic feet.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -148,6 +253,21 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Correct accumulation equation using the net rate from $t = 0$ to $t = w$, equated to 50",
+          "official_rubric": "1 point: $30 + \\int_0^w[R(t)-D(t)]\\,dt = 50$",
+          "sample_responses": [
+            {
+              "response": "$30 + \\displaystyle\\int_0^w[R(t)-D(t)]\\,dt = 50$ for $w > 8$",
+              "earned": true,
+              "commentary": "Correctly writes the equation: initial amount plus net accumulation from $t=0$ to $t=w$ equals the overflow threshold of 50 cubic feet.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\displaystyle\\int_8^w[R(t)-D(t)]\\,dt = 50$",
+              "earned": false,
+              "commentary": "Integrates only from $t=8$ forward but does not account for the amount of water already in the pipe at $t=8$. The correct starting amount is $30 + \\int_0^8[R-D]\\,dt$, not $0$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -160,6 +280,21 @@
           "point_id": "d2",
           "point_value": 1,
           "description": "Correct structure: initial amount plus net accumulation equals 50, with $w > 8$",
+          "official_rubric": "1 point: equation equated to $50$ with $w > 8$ implied",
+          "sample_responses": [
+            {
+              "response": "$30 + \\displaystyle\\int_0^w[R(t)-D(t)]\\,dt = 50$, where $w > 8$",
+              "earned": true,
+              "commentary": "Equation is correctly equated to the pipe capacity of $50$ cubic feet with the constraint $w > 8$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$30 + \\displaystyle\\int_0^w[R(t)-D(t)]\\,dt = 0$",
+              "earned": false,
+              "commentary": "Equates to $0$ instead of $50$. The pipe overflows at $50$ cubic feet, not when the net is zero.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
