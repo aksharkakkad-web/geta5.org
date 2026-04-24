@@ -31,7 +31,28 @@
             }
           ],
           "wrong_examples": ["$\\log_3(72x)$ (subtracted arguments instead of dividing)", "$\\log_3(9x^2)$ (cancelled wrong powers of $x$)"],
-          "common_traps": ["Quotient rule: $\\log_3 A - \\log_3 B = \\log_3(A/B)$, not $\\log_3(A - B)$", "$\\log_3 9 = 2$ since $3^2 = 9$ — this simplification step must appear"]
+          "common_traps": ["Quotient rule: $\\log_3 A - \\log_3 B = \\log_3(A/B)$, not $\\log_3(A - B)$", "$\\log_3 9 = 2$ since $3^2 = 9$ — this simplification step must appear"],
+          "official_rubric": "The point is earned for correct simplification to $\\log_3(9x)$ or $2 + \\log_3 x$, with supporting work that shows the quotient rule applied as $\\log_3(81x^2/9x)$ and the evaluation $\\log_3 9 = 2$. Incorrect application of the quotient rule (e.g., subtracting arguments) does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$\\log_3(81x^2) - \\log_3(9x) = \\log_3\\!\\left(\\frac{81x^2}{9x}\\right) = \\log_3(9x) = \\log_3 9 + \\log_3 x = 2 + \\log_3 x$",
+              "earned": true,
+              "commentary": "Correctly applies the quotient rule to combine the logarithms, simplifies the argument to $9x$, then splits using the product rule and evaluates $\\log_3 9 = 2$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\log_3(81x^2 - 9x)$",
+              "earned": false,
+              "commentary": "Subtracts arguments instead of dividing — the quotient rule states $\\log_3 A - \\log_3 B = \\log_3(A/B)$, not $\\log_3(A - B)$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\log_3\\!\\left(\\frac{81x^2}{9x}\\right) = \\log_3(9x^2)$",
+              "earned": false,
+              "commentary": "Applies the quotient rule correctly but simplifies $x^2/x$ incorrectly as $x^2$ instead of $x$. The correct simplification is $81x^2 / (9x) = 9x$.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "a2",
@@ -44,7 +65,28 @@
             }
           ],
           "wrong_examples": ["$x = \\frac{\\ln 2}{2\\ln 2 - \\ln 5}$ (distributing $(3x-1)\\ln 2$ as $3x\\ln 2 - 1$ instead of $3x\\ln 2 - \\ln 2$)", "Decimal approximation without exact form"],
-          "common_traps": ["$(3x-1)\\ln 2 = 3x\\ln 2 - \\ln 2$, NOT $3x\\ln 2 - 1$ — the $-1$ is an exponent on $2$, so it becomes $-\\ln 2$ after taking the natural log"]
+          "common_traps": ["$(3x-1)\\ln 2 = 3x\\ln 2 - \\ln 2$, NOT $3x\\ln 2 - 1$ — the $-1$ is an exponent on $2$, so it becomes $-\\ln 2$ after taking the natural log"],
+          "official_rubric": "The point is earned for the correct exact solution $x = \\frac{\\ln 2}{3\\ln 2 - \\ln 5}$ (or equivalent exact form) with supporting work showing that $\\ln$ is taken of both sides, distributed correctly, and $x$ terms collected. Decimal approximations without an exact form do not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$(3x-1)\\ln 2 = x\\ln 5 \\Rightarrow 3x\\ln 2 - \\ln 2 = x\\ln 5 \\Rightarrow x(3\\ln 2 - \\ln 5) = \\ln 2 \\Rightarrow x = \\frac{\\ln 2}{3\\ln 2 - \\ln 5}$",
+              "earned": true,
+              "commentary": "Correctly takes the natural log of both sides, distributes $\\ln 2$ across $(3x-1)$ to get the $-\\ln 2$ constant term, collects $x$ terms, and factors to produce the exact solution.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$(3x-1)\\ln 2 = x\\ln 5 \\Rightarrow 3x\\ln 2 - 1 = x\\ln 5 \\Rightarrow x = \\frac{1}{3\\ln 2 - \\ln 5}$",
+              "earned": false,
+              "commentary": "Treats the $-1$ in the exponent as a constant $-1$ rather than $-\\ln 2$ after applying the logarithm. Correct distribution gives $-\\ln 2$ on the left side, not $-1$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$x = \\frac{\\ln 2}{\\ln(8/5)}$",
+              "earned": true,
+              "commentary": "Equivalent exact form: $3\\ln 2 - \\ln 5 = \\ln 8 - \\ln 5 = \\ln(8/5)$. This is an acceptable alternate expression for the same exact value.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     },
@@ -67,7 +109,28 @@
             }
           ],
           "wrong_examples": ["$\\tan^2\\theta$ (multiplied rather than cancelled)", "Correct identity but no simplification to a final answer"],
-          "common_traps": ["The Pythagorean identity must appear explicitly — the shortcut $\\frac{\\sin^2}{\\sin^2} = 1$ is only valid after showing $1 - \\cos^2 = \\sin^2$"]
+          "common_traps": ["The Pythagorean identity must appear explicitly — the shortcut $\\frac{\\sin^2}{\\sin^2} = 1$ is only valid after showing $1 - \\cos^2 = \\sin^2$"],
+          "official_rubric": "The point is earned for the correct simplification to $\\tan\\theta$ with supporting work that explicitly shows the Pythagorean identity $1 - \\cos^2\\theta = \\sin^2\\theta$ applied to the denominator. Arriving at $\\tan\\theta$ without showing the identity step does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "Using $1 - \\cos^2\\theta = \\sin^2\\theta$: $\\frac{\\sin^2\\theta}{1-\\cos^2\\theta} \\cdot \\tan\\theta = \\frac{\\sin^2\\theta}{\\sin^2\\theta} \\cdot \\tan\\theta = 1 \\cdot \\tan\\theta = \\tan\\theta$",
+              "earned": true,
+              "commentary": "Explicitly states and applies the Pythagorean identity, cancels the $\\sin^2\\theta$ factors, and arrives at $\\tan\\theta$ as the final simplified form.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\frac{\\sin^2\\theta}{1-\\cos^2\\theta} \\cdot \\tan\\theta = \\tan\\theta$",
+              "earned": false,
+              "commentary": "Arrives at the correct answer but shows no supporting work. The Pythagorean identity $1 - \\cos^2\\theta = \\sin^2\\theta$ must be shown explicitly.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Using $1 - \\cos^2\\theta = \\sin^2\\theta$: $\\frac{\\sin^2\\theta}{\\sin^2\\theta} \\cdot \\tan\\theta = \\tan^2\\theta$",
+              "earned": false,
+              "commentary": "Correctly applies the Pythagorean identity but then multiplies instead of simplifying the cancellation — $\\frac{\\sin^2}{\\sin^2} = 1$, not $\\sin^2$, so the result should be $\\tan\\theta$, not $\\tan^2\\theta$.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "b2",
@@ -80,7 +143,28 @@
             }
           ],
           "wrong_examples": ["Including $\\theta = 2\\pi$ (not in $[0, 2\\pi)$)", "Only $\\theta = 2\\pi/3$ and $4\\pi/3$ (missing $\\theta = 0$ from $\\cos\\theta = 1$)"],
-          "common_traps": ["$\\cos\\theta = 1$ gives $\\theta = 0$ (and $2\\pi$, but $2\\pi$ is excluded from $[0, 2\\pi)$) — do not forget this solution"]
+          "common_traps": ["$\\cos\\theta = 1$ gives $\\theta = 0$ (and $2\\pi$, but $2\\pi$ is excluded from $[0, 2\\pi)$) — do not forget this solution"],
+          "official_rubric": "The point is earned for all three correct exact solutions $\\theta = 0$, $\\theta = \\frac{2\\pi}{3}$, and $\\theta = \\frac{4\\pi}{3}$ with no incorrect values. Supporting work must show the quadratic factoring step. Including $\\theta = 2\\pi$ voids the point since it is not in $[0, 2\\pi)$.",
+          "sample_responses": [
+            {
+              "response": "$(2\\cos\\theta + 1)(\\cos\\theta - 1) = 0$; $\\cos\\theta = -\\frac{1}{2}$ or $\\cos\\theta = 1$; solutions: $\\theta = 0$, $\\theta = \\frac{2\\pi}{3}$, $\\theta = \\frac{4\\pi}{3}$",
+              "earned": true,
+              "commentary": "Correctly factors the quadratic in $\\cos\\theta$, identifies both root values, and lists all three solutions in $[0, 2\\pi)$ without including the excluded value $2\\pi$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$(2\\cos\\theta + 1)(\\cos\\theta - 1) = 0$; $\\theta = \\frac{2\\pi}{3}$ and $\\theta = \\frac{4\\pi}{3}$",
+              "earned": false,
+              "commentary": "Correctly finds the solutions from $\\cos\\theta = -\\frac{1}{2}$ but misses $\\theta = 0$ from $\\cos\\theta = 1$. All three solutions must be present.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$(2\\cos\\theta + 1)(\\cos\\theta - 1) = 0$; $\\theta = 0$, $\\frac{2\\pi}{3}$, $\\frac{4\\pi}{3}$, $2\\pi$",
+              "earned": false,
+              "commentary": "Includes $\\theta = 2\\pi$, which is not in $[0, 2\\pi)$. Including an incorrect value voids the point even though the three correct values are listed.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     },
@@ -103,7 +187,28 @@
             }
           ],
           "wrong_examples": ["$\\frac{3}{4}$ (gave $\\tan$ instead of $\\sin$)", "$\\frac{4}{5}$ (gave $\\cos$ instead of $\\sin$)"],
-          "common_traps": ["$\\arctan(3/4)$ is the angle, not the value — the triangle method is needed to find $\\sin$ of that angle"]
+          "common_traps": ["$\\arctan(3/4)$ is the angle, not the value — the triangle method is needed to find $\\sin$ of that angle"],
+          "official_rubric": "The point is earned for the correct exact value $\\frac{3}{5}$ with supporting work showing a right triangle with opposite $= 3$, adjacent $= 4$, and hypotenuse $= 5$. Giving $\\frac{3}{4}$ (the tangent) or $\\frac{4}{5}$ (the cosine) does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "Let $\\phi = \\arctan\\!\\left(\\frac{3}{4}\\right)$. Right triangle: opposite $= 3$, adjacent $= 4$, hypotenuse $= \\sqrt{9+16} = 5$. Therefore $\\sin\\phi = \\frac{3}{5}$.",
+              "earned": true,
+              "commentary": "Correctly uses the right-triangle interpretation of $\\arctan$, computes the hypotenuse via the Pythagorean theorem, and reads off $\\sin = \\text{opposite}/\\text{hypotenuse} = 3/5$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\sin(\\arctan(3/4)) = \\frac{3}{4}$",
+              "earned": false,
+              "commentary": "Confuses $\\sin$ with $\\tan$ — the ratio $3/4$ is the tangent of the angle, not the sine. The hypotenuse ($5$) must be used in the denominator.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Right triangle with opposite $= 3$, adjacent $= 4$, hypotenuse $= 5$; $\\sin = \\frac{4}{5}$.",
+              "earned": false,
+              "commentary": "Draws the correct triangle but reports the cosine ($\\text{adjacent}/\\text{hypotenuse} = 4/5$) instead of the sine ($\\text{opposite}/\\text{hypotenuse} = 3/5$).",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "c2",
@@ -116,7 +221,22 @@
             }
           ],
           "wrong_examples": ["$x = \\pi/3$ without supporting work showing the composition was correctly unwrapped", "$\\tan(x/2) = \\pi/3$ (using the output of $\\arccos$ as its input)"],
-          "common_traps": ["$m(x) = \\pi/3$ does NOT mean $\\tan(x/2) = \\pi/3$ — the outer function is $\\arccos$, so $\\arccos(\\tan(x/2)) = \\pi/3$ means $\\tan(x/2) = \\cos(\\pi/3)$"]
+          "common_traps": ["$m(x) = \\pi/3$ does NOT mean $\\tan(x/2) = \\pi/3$ — the outer function is $\\arccos$, so $\\arccos(\\tan(x/2)) = \\pi/3$ means $\\tan(x/2) = \\cos(\\pi/3)$"],
+          "official_rubric": "The point is earned for the correct solution $x = 2\\arctan\\!\\left(\\frac{1}{2}\\right)$ with supporting work showing the key step $\\tan(x/2) = \\cos(\\pi/3) = \\frac{1}{2}$. A response that sets $\\tan(x/2) = \\pi/3$ (treating the output of $\\arccos$ as its input) does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$m(x) = \\pi/3 \\Rightarrow \\arccos(\\tan(x/2)) = \\pi/3 \\Rightarrow \\tan(x/2) = \\cos(\\pi/3) = \\frac{1}{2} \\Rightarrow x/2 = \\arctan\\!\\left(\\frac{1}{2}\\right) \\Rightarrow x = 2\\arctan\\!\\left(\\frac{1}{2}\\right)$",
+              "earned": true,
+              "commentary": "Correctly unwraps the $\\arccos$ by applying $\\cos$ to both sides, evaluates $\\cos(\\pi/3) = \\frac{1}{2}$, then applies $\\arctan$ to solve for $x/2$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\tan(x/2) = \\pi/3 \\Rightarrow x/2 = \\arctan(\\pi/3) \\Rightarrow x = 2\\arctan(\\pi/3)$",
+              "earned": false,
+              "commentary": "Treats the output of $\\arccos$ ($\\pi/3$) as the input to the inner function — the outer $\\arccos$ must be undone first by taking $\\cos$ of both sides, giving $\\tan(x/2) = \\cos(\\pi/3) = \\frac{1}{2}$.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     }
