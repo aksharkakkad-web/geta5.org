@@ -27,6 +27,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "At least four of the six slope segments drawn with correct sign and approximate magnitude. Slopes: at $(-1,1)$: $-3$; at $(0,1)$: $-1$; at $(1,1)$: $1$; at $(-1,-1)$: $-1$; at $(0,-1)$: $1$; at $(1,-1)$: $3$",
+          "official_rubric": "1 point: at least 4 of 6 segments with correct sign — slopes are $2x-y$ at each point",
+          "sample_responses": [
+            {
+              "response": "At $(-1,1)$: slope $= 2(-1)-1 = -3$ (steep negative); at $(0,1)$: slope $= -1$ (negative); at $(1,1)$: slope $= 1$ (positive); at $(-1,-1)$: slope $= -1$ (negative); at $(0,-1)$: slope $= 1$ (positive); at $(1,-1)$: slope $= 3$ (steep positive). All six segments drawn with correct direction.",
+              "earned": true,
+              "commentary": "Correctly computes $2x-y$ at all six lattice points and draws segments with correct sign and relative steepness.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Draws all segments with positive slope (ignores sign of $2x-y$)",
+              "earned": false,
+              "commentary": "Many points have negative slope (e.g., $(-1,1)$ gives $-3$). Segments must reflect the correct sign of $2x-y$ at each point.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -40,6 +55,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "All six slope segments drawn correctly with appropriate steepness reflecting $\\frac{dy}{dx} = 2x - y$",
+          "official_rubric": "1 point: all six segments correct with appropriate steepness",
+          "sample_responses": [
+            {
+              "response": "All six slope segments drawn: $(-1,1)\\to -3$, $(0,1)\\to -1$, $(1,1)\\to 1$, $(-1,-1)\\to -1$, $(0,-1)\\to 1$, $(1,-1)\\to 3$, with relative steepness visible (slope $-3$ steeper than slope $-1$, etc.)",
+              "earned": true,
+              "commentary": "Full credit for all six correct segments with appropriate relative steepness.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Correct signs at 5 of 6 points but one segment has wrong direction",
+              "earned": false,
+              "commentary": "All six segments must be correct to earn this second point.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -62,6 +92,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Correct second derivative via implicit differentiation: $\\dfrac{d^2y}{dx^2} = 2 - \\dfrac{dy}{dx} = 2 - (2x - y) = 2 - 2x + y$",
+          "official_rubric": "1 point: $\\frac{d^2y}{dx^2} = 2 - 2x + y$",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{d}{dx}\\left(\\dfrac{dy}{dx}\\right) = \\dfrac{d}{dx}(2x-y) = 2 - \\dfrac{dy}{dx} = 2-(2x-y) = 2-2x+y$",
+              "earned": true,
+              "commentary": "Correctly differentiates both sides of $dy/dx = 2x-y$ with respect to $x$ and substitutes $dy/dx = 2x-y$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{d^2y}{dx^2} = 2$ (differentiates only $2x$, not $-y$)",
+              "earned": false,
+              "commentary": "Forgets to differentiate the $-y$ term; $\\frac{d}{dx}(-y) = -dy/dx$ must be included.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -74,6 +119,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct concavity conclusion: In Quadrant II, $x < 0$ and $y > 0$, so $2 - 2x + y > 0$, meaning all solution curves are concave up in Quadrant II",
+          "official_rubric": "1 point: concave up in Q II because $x<0$, $y>0$ implies $2-2x+y > 0$",
+          "sample_responses": [
+            {
+              "response": "In Quadrant II: $x < 0$ and $y > 0$. So $\\frac{d^2y}{dx^2} = 2-2x+y = 2 + \\underbrace{(-2x)}_{>0} + \\underbrace{y}_{>0} > 0$. All solution curves are concave up.",
+              "earned": true,
+              "commentary": "Correctly uses the signs of $x$ and $y$ in Quadrant II to show the second derivative is positive.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Concave down in Q II because slopes are negative there.",
+              "earned": false,
+              "commentary": "Confuses the sign of $dy/dx$ (slope) with the sign of $d^2y/dx^2$ (concavity). Negative slope does not imply concave down.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -97,6 +157,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Evaluates $\\dfrac{dy}{dx}$ at $(2, 3)$: $\\dfrac{dy}{dx}\\big|_{(2,3)} = 2(2) - 3 = 1 \\neq 0$, so $x = 2$ is not a critical point — $f$ has neither a relative minimum nor a relative maximum at $x = 2$",
+          "official_rubric": "1 point: $f'(2) = 2(2)-3 = 1 \\neq 0$; neither a relative min nor max",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{dy}{dx}\\big|_{x=2} = 2(2) - f(2) = 4 - 3 = 1 \\neq 0$, so $f$ has neither a relative minimum nor a relative maximum at $x = 2$.",
+              "earned": true,
+              "commentary": "Correctly evaluates the slope at $(2, 3)$ and recognizes that a non-zero slope means $x=2$ is not a critical point.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$f''(2) = 2-2(2)+3 = 1 > 0$, so relative minimum.",
+              "earned": false,
+              "commentary": "Applies the second derivative test without first checking $f'(2)$. Since $f'(2) = 1 \\neq 0$, $x=2$ is not a critical point, so second derivative test does not apply.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -110,6 +185,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Justification: Since $\\dfrac{dy}{dx} \\neq 0$ at $x = 2$, the function $f$ is not at a critical point and therefore has neither a relative minimum nor a relative maximum there",
+          "official_rubric": "1 point: justification — $f'(2) \\neq 0$ means $x=2$ is not a critical point",
+          "sample_responses": [
+            {
+              "response": "Since $f'(2) = 1 \\neq 0$, $f$ is not at a critical point at $x = 2$. A relative extremum requires $f' = 0$ (or undefined), so $f$ has neither a relative min nor max at $x = 2$.",
+              "earned": true,
+              "commentary": "Complete justification: states $f'(2) \\neq 0$ and explains why this rules out a relative extremum.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Neither, because the slope field shows the solution is increasing at $(2,3)$.",
+              "earned": false,
+              "commentary": "Informal reasoning; must explicitly state $f'(2) = 1 \\neq 0$ and connect this to the absence of a critical point.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -132,6 +222,21 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Substitutes $y = mx + b$ into $\\dfrac{dy}{dx} = 2x - y$: the left side is $\\dfrac{dy}{dx} = m$, and the right side is $2x - (mx + b) = (2 - m)x - b$",
+          "official_rubric": "1 point: substitutes $y=mx+b$, $dy/dx=m$ to get $m = (2-m)x - b$",
+          "sample_responses": [
+            {
+              "response": "If $y = mx+b$, then $dy/dx = m$. Substituting: $m = 2x-(mx+b) = (2-m)x - b$.",
+              "earned": true,
+              "commentary": "Correctly substitutes the linear function and its derivative into the differential equation.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$dy/dx = m$ and $2x - y = 2x - mx - b$; sets $m = 2x - mx - b$ but does not separate by powers of $x$",
+              "earned": false,
+              "commentary": "Reaches the correct equation but must now equate coefficients of $x$ and constant terms separately to find $m$ and $b$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -144,6 +249,21 @@
           "point_id": "d2",
           "point_value": 1,
           "description": "Equates coefficients of $x$: the coefficient of $x$ on the right must be zero, so $2 - m = 0$, giving $m = 2$",
+          "official_rubric": "1 point: coefficient of $x$: $2-m = 0 \\Rightarrow m = 2$",
+          "sample_responses": [
+            {
+              "response": "For $m = (2-m)x - b$ to hold for all $x$: coefficient of $x$ gives $2-m = 0$, so $m = 2$.",
+              "earned": true,
+              "commentary": "Correctly equates the coefficient of $x$ on both sides (left side has $0 \\cdot x = 0$, right has $(2-m)x$).",
+              "source": "synthesized"
+            },
+            {
+              "response": "Sets $2-m = m$ (wrong — equates both sides' $x$-coefficients incorrectly)",
+              "earned": false,
+              "commentary": "The left side $m$ is a constant; the $x$-coefficient on the left is $0$, not $m$. So $2-m = 0$, giving $m = 2$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -156,6 +276,21 @@
           "point_id": "d3",
           "point_value": 1,
           "description": "Equates constant terms: $m = -b$, so $b = -m = -2$. Therefore $m = 2$ and $b = -2$",
+          "official_rubric": "1 point: constant terms: $m = -b \\Rightarrow b = -2$; final answer $m=2$, $b=-2$",
+          "sample_responses": [
+            {
+              "response": "Constant terms: $m = -b$, and with $m = 2$: $b = -2$. So $y = 2x - 2$.",
+              "earned": true,
+              "commentary": "Correctly equates constant terms (left side constant is $m$, right side is $-b$) and uses $m = 2$ to find $b = -2$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$m = 2$, $b = 2$ (wrong sign for $b$)",
+              "earned": false,
+              "commentary": "From $m = -b$ with $m = 2$: $b = -2$, not $+2$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
