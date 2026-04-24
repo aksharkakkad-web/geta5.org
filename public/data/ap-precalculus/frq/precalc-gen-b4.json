@@ -31,7 +31,22 @@
             }
           ],
           "wrong_examples": ["Both $x = -1 + 4\\sqrt{3}$ and $x = -1 - 4\\sqrt{3}$ without discarding the extraneous solution", "Not checking for extraneous solutions"],
-          "common_traps": ["Must explicitly check both solutions and discard $x = -1 - 4\\sqrt{3}$ because it makes $\\log_2(x-3)$ undefined", "The problem requires showing the check — just stating the answer without the extraneous check does not earn the point"]
+          "common_traps": ["Must explicitly check both solutions and discard $x = -1 - 4\\sqrt{3}$ because it makes $\\log_2(x-3)$ undefined", "The problem requires showing the check — just stating the answer without the extraneous check does not earn the point"],
+          "official_rubric": "The point is earned for the correct solution $x = -1 + 4\\sqrt{3}$ with supporting work that shows combining logarithms via the product rule, converting to exponential form, solving the quadratic, and identifying $x = -1 - 4\\sqrt{3}$ as extraneous. Omitting the extraneous check does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$\\log_2((x+5)(x-3)) = 5 \\Rightarrow (x+5)(x-3) = 32 \\Rightarrow x^2 + 2x - 47 = 0 \\Rightarrow x = -1 \\pm 4\\sqrt{3}$. Check: $x = -1 - 4\\sqrt{3} \\approx -7.93$: $x - 3 < 0$ so $\\log_2(x-3)$ is undefined — extraneous. Answer: $x = -1 + 4\\sqrt{3}$.",
+              "earned": true,
+              "commentary": "Correctly applies the product rule, converts to exponential form, solves the quadratic, and explicitly discards the extraneous root with a domain check.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$x = -1 + 4\\sqrt{3}$ and $x = -1 - 4\\sqrt{3}$",
+              "earned": false,
+              "commentary": "Finds both solutions algebraically but does not check for extraneous solutions. The value $x = -1 - 4\\sqrt{3}$ must be identified as extraneous because it makes $\\log_2(x-3)$ undefined.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "a2",
@@ -44,7 +59,28 @@
             }
           ],
           "wrong_examples": ["$x = 3$ and $x = 4$ (forgot to take $\\ln$)", "Only one solution (missing either $\\ln 3$ or $\\ln 4$)"],
-          "common_traps": ["Both solutions are valid — $e^x = -3$ has no real solution but $e^x = 3$ and $e^x = 4$ both give real $x$"]
+          "common_traps": ["Both solutions are valid — $e^x = -3$ has no real solution but $e^x = 3$ and $e^x = 4$ both give real $x$"],
+          "official_rubric": "The point is earned for both exact solutions $x = \\ln 3$ and $x = \\ln 4$ (or $x = 2\\ln 2$) with supporting work showing the substitution $u = e^x$ and the factoring step. Decimal approximations without exact forms or reporting only one solution does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "Let $u = e^x$: $u^2 - 7u + 12 = (u-3)(u-4) = 0 \\Rightarrow u = 3$ or $u = 4 \\Rightarrow x = \\ln 3$ or $x = \\ln 4 = 2\\ln 2$.",
+              "earned": true,
+              "commentary": "Uses the substitution $u = e^x$ to convert to a quadratic, factors correctly, and takes the natural log of each root to obtain both exact solutions.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$x = 3$ and $x = 4$",
+              "earned": false,
+              "commentary": "Finds the roots of the quadratic in $u = e^x$ but forgets to convert back via $x = \\ln u$. The solutions are $x = \\ln 3$ and $x = \\ln 4$, not $x = 3$ and $x = 4$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Let $u = e^x$: $(u-3)(u-4) = 0 \\Rightarrow x = \\ln 3$.",
+              "earned": false,
+              "commentary": "Correctly finds $x = \\ln 3$ but omits $x = \\ln 4$. Both solutions must be present to earn the point.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     },
@@ -67,7 +103,22 @@
             }
           ],
           "wrong_examples": ["$r = 3\\sin(\\pi/6) = 3/2$ (forgot the factor of 2 in $\\sin(2\\theta)$)", "Using $x = \\cos\\theta$ and $y = \\sin\\theta$ without multiplying by $r$"],
-          "common_traps": ["The curve is $r = 3\\sin(2\\theta)$ — at $\\theta = \\pi/6$, the argument of sine is $2\\theta = \\pi/3$, not $\\pi/6$"]
+          "common_traps": ["The curve is $r = 3\\sin(2\\theta)$ — at $\\theta = \\pi/6$, the argument of sine is $2\\theta = \\pi/3$, not $\\pi/6$"],
+          "official_rubric": "The point is earned for the correct rectangular coordinates $\\left(\\frac{9}{4}, \\frac{3\\sqrt{3}}{4}\\right)$ with supporting work showing $r = 3\\sin(\\pi/3) = \\frac{3\\sqrt{3}}{2}$ and the conversion formulas $x = r\\cos\\theta$, $y = r\\sin\\theta$. Using $r = 3\\sin(\\pi/6)$ (forgetting to double the angle) does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$r = 3\\sin\\!\\left(2 \\cdot \\frac{\\pi}{6}\\right) = 3\\sin\\!\\left(\\frac{\\pi}{3}\\right) = \\frac{3\\sqrt{3}}{2}$; $x = \\frac{3\\sqrt{3}}{2}\\cos\\!\\left(\\frac{\\pi}{6}\\right) = \\frac{3\\sqrt{3}}{2} \\cdot \\frac{\\sqrt{3}}{2} = \\frac{9}{4}$; $y = \\frac{3\\sqrt{3}}{2}\\sin\\!\\left(\\frac{\\pi}{6}\\right) = \\frac{3\\sqrt{3}}{2} \\cdot \\frac{1}{2} = \\frac{3\\sqrt{3}}{4}$.",
+              "earned": true,
+              "commentary": "Correctly doubles the angle to evaluate $\\sin(2\\theta)$, computes $r = 3\\sqrt{3}/2$, and converts to rectangular coordinates using the standard formulas.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$r = 3\\sin(\\pi/6) = \\frac{3}{2}$; $x = \\frac{3}{2}\\cos(\\pi/6) = \\frac{3\\sqrt{3}}{4}$; $y = \\frac{3}{2}\\sin(\\pi/6) = \\frac{3}{4}$.",
+              "earned": false,
+              "commentary": "Evaluates $\\sin(\\theta)$ instead of $\\sin(2\\theta)$, so $r$ is incorrect. The argument of sine in $r = 3\\sin(2\\theta)$ is $2\\theta = \\pi/3$, not $\\theta = \\pi/6$.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "b2",
@@ -80,7 +131,22 @@
             }
           ],
           "wrong_examples": ["Only $\\theta = 0$ and $\\theta = \\pi$ (found zeros of $\\sin\\theta$, not $\\sin(2\\theta)$)", "Including $\\theta = 2\\pi$ (not in $[0, 2\\pi)$)"],
-          "common_traps": ["$\\sin(2\\theta) = 0$ has double the solutions compared to $\\sin\\theta = 0$ in $[0, 2\\pi)$ — yields four values, not two"]
+          "common_traps": ["$\\sin(2\\theta) = 0$ has double the solutions compared to $\\sin\\theta = 0$ in $[0, 2\\pi)$ — yields four values, not two"],
+          "official_rubric": "The point is earned for all four correct values $\\theta = 0, \\frac{\\pi}{2}, \\pi, \\frac{3\\pi}{2}$ with supporting work showing $\\sin(2\\theta) = 0$ and the general solution. Finding only two values (by solving $\\sin\\theta = 0$ instead) does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$r = 0 \\Rightarrow \\sin(2\\theta) = 0 \\Rightarrow 2\\theta = k\\pi \\Rightarrow \\theta = 0, \\frac{\\pi}{2}, \\pi, \\frac{3\\pi}{2}$ for $k = 0, 1, 2, 3$.",
+              "earned": true,
+              "commentary": "Correctly applies $r = 0$ to get $\\sin(2\\theta) = 0$, writes the general solution, and identifies all four values in $[0, 2\\pi)$ by halving each zero of $\\sin$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$r = 0 \\Rightarrow \\sin(2\\theta) = 0 \\Rightarrow \\theta = 0$ and $\\theta = \\pi$.",
+              "earned": false,
+              "commentary": "Solves $\\sin\\theta = 0$ instead of $\\sin(2\\theta) = 0$. Because the argument is $2\\theta$, there are four zeros in $[0, 2\\pi)$: $0, \\pi/2, \\pi, 3\\pi/2$.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     },
@@ -103,7 +169,22 @@
             }
           ],
           "wrong_examples": ["$\\cos(\\alpha+\\beta) = \\cos\\alpha\\cos\\beta + \\sin\\alpha\\sin\\beta$ (wrong sign)", "Stating only the final result without expanding first"],
-          "common_traps": ["The sign difference between the two identities is crucial: the sum formula uses $-\\sin\\alpha\\sin\\beta$ while the difference formula uses $+\\sin\\alpha\\sin\\beta$"]
+          "common_traps": ["The sign difference between the two identities is crucial: the sum formula uses $-\\sin\\alpha\\sin\\beta$ while the difference formula uses $+\\sin\\alpha\\sin\\beta$"],
+          "official_rubric": "The point is earned for correctly expanding both angle addition formulas: $\\cos(\\alpha+\\beta) = \\cos\\alpha\\cos\\beta - \\sin\\alpha\\sin\\beta$ and $\\cos(\\alpha-\\beta) = \\cos\\alpha\\cos\\beta + \\sin\\alpha\\sin\\beta$. Reversing the sign of one identity does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$\\cos(\\alpha+\\beta) = \\cos\\alpha\\cos\\beta - \\sin\\alpha\\sin\\beta$; $\\cos(\\alpha-\\beta) = \\cos\\alpha\\cos\\beta + \\sin\\alpha\\sin\\beta$",
+              "earned": true,
+              "commentary": "Correctly states both identities with the proper sign difference, setting up the cancellation in the next step.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\cos(\\alpha+\\beta) = \\cos\\alpha\\cos\\beta + \\sin\\alpha\\sin\\beta$; $\\cos(\\alpha-\\beta) = \\cos\\alpha\\cos\\beta - \\sin\\alpha\\sin\\beta$",
+              "earned": false,
+              "commentary": "Reverses the signs of both identities — the cosine sum formula uses a minus sign on the sine product, and the difference formula uses a plus sign. The signs stated here are those of the sine addition formulas, not cosine.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "c2",
@@ -116,7 +197,28 @@
             }
           ],
           "wrong_examples": ["$2\\cos\\alpha\\cos\\beta + 2\\sin\\alpha\\sin\\beta$ (added instead of recognizing cancellation)", "Correct final answer without showing the cancellation step"],
-          "common_traps": ["The $-\\sin\\alpha\\sin\\beta$ and $+\\sin\\alpha\\sin\\beta$ must be explicitly shown to cancel — do not jump directly to the answer"]
+          "common_traps": ["The $-\\sin\\alpha\\sin\\beta$ and $+\\sin\\alpha\\sin\\beta$ must be explicitly shown to cancel — do not jump directly to the answer"],
+          "official_rubric": "The point is earned for the correct final simplification $2\\cos\\alpha\\cos\\beta$ with the cancellation step shown: $-\\sin\\alpha\\sin\\beta + \\sin\\alpha\\sin\\beta = 0$. Stating the final answer without showing the cancellation does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$(\\cos\\alpha\\cos\\beta - \\sin\\alpha\\sin\\beta) + (\\cos\\alpha\\cos\\beta + \\sin\\alpha\\sin\\beta) = 2\\cos\\alpha\\cos\\beta + (-\\sin\\alpha\\sin\\beta + \\sin\\alpha\\sin\\beta) = 2\\cos\\alpha\\cos\\beta$",
+              "earned": true,
+              "commentary": "Adds the two expansions, groups like terms, and explicitly shows the sine-product terms cancelling to zero, arriving at $2\\cos\\alpha\\cos\\beta$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\cos(\\alpha+\\beta) + \\cos(\\alpha-\\beta) = 2\\cos\\alpha\\cos\\beta$",
+              "earned": false,
+              "commentary": "States the correct final answer but jumps to it without showing the cancellation step. The sine terms $\\pm\\sin\\alpha\\sin\\beta$ must be explicitly combined and shown to cancel.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$(\\cos\\alpha\\cos\\beta - \\sin\\alpha\\sin\\beta) + (\\cos\\alpha\\cos\\beta + \\sin\\alpha\\sin\\beta) = 2\\cos\\alpha\\cos\\beta + 2\\sin\\alpha\\sin\\beta$",
+              "earned": false,
+              "commentary": "Adds the cosine and sine terms separately without recognizing the cancellation. The sine-product terms have opposite signs ($-$ and $+$), so they sum to zero, not $2\\sin\\alpha\\sin\\beta$.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     }
