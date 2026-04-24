@@ -31,7 +31,28 @@
             }
           ],
           "wrong_examples": ["Claiming holes are at $x = 0$ (not a zero of the denominator)", "Hole coordinates $(-2, 0)$ or $(3, 0)$ (used wrong function for $y$-coordinate)"],
-          "common_traps": ["The $y$-coordinate of a hole is found by substituting into the SIMPLIFIED form, not the original — use $f(x) = x$, giving $y = x$ at each hole"]
+          "common_traps": ["The $y$-coordinate of a hole is found by substituting into the SIMPLIFIED form, not the original — use $f(x) = x$, giving $y = x$ at each hole"],
+          "official_rubric": "The point is earned for correctly factoring both the numerator and denominator and identifying both hole coordinates: $(-2, -2)$ and $(3, 3)$. The $y$-coordinate of each hole must be found by substituting into the simplified form $f(x) = x$, not the original expression.",
+          "sample_responses": [
+            {
+              "response": "Numerator: $x^3 - x^2 - 6x = x(x^2 - x - 6) = x(x-3)(x+2)$. Denominator: $x^2 - x - 6 = (x-3)(x+2)$. Holes at $x = 3$ and $x = -2$. Simplified: $f(x) = x$. Hole coordinates: $(3, 3)$ and $(-2, -2)$.",
+              "earned": true,
+              "commentary": "Completely factors both numerator and denominator, identifies the cancelling factors, and correctly computes hole coordinates using the simplified form $f(x) = x$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Numerator: $x(x-3)(x+2)$. Denominator: $(x-3)(x+2)$. Holes at $x = 3$: $(3, 0)$ and $x = -2$: $(-2, 0)$.",
+              "earned": false,
+              "commentary": "Correctly identifies the hole $x$-values but computes the $y$-coordinates as $0$ instead of substituting into the simplified form $f(x) = x$. The correct coordinates are $(3, 3)$ and $(-2, -2)$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Denominator factors: $(x-3)(x+2)$. Holes at $x = 3$ and $x = -2$. Numerator: $x^3 - x^2 - 6x$. Hole at $(3, 3)$ and $(-2, -2)$.",
+              "earned": true,
+              "commentary": "Acceptable alternate form — identifies the denominator factors, names both holes, and gives correct coordinates even without showing every factoring step for the numerator explicitly.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "a2",
@@ -44,7 +65,28 @@
             }
           ],
           "wrong_examples": ["Claiming vertical asymptotes at $x = 3$ or $x = -2$ — these are holes (factors cancelled), not asymptotes", "Simplified form $f(x) = x + 1$ (algebraic error in cancellation)"],
-          "common_traps": ["Vertical asymptotes occur only where denominator factors do NOT cancel — if all factors cancel, there are holes but no asymptotes"]
+          "common_traps": ["Vertical asymptotes occur only where denominator factors do NOT cancel — if all factors cancel, there are holes but no asymptotes"],
+          "official_rubric": "The point is earned for the correct simplified form $f(x) = x$ (for $x \\neq -2, 3$) and the explicit conclusion that there are no vertical asymptotes because all denominator factors cancelled. Claiming vertical asymptotes at $x = -2$ or $x = 3$ does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "After cancelling $(x-3)(x+2)$ from both numerator and denominator, $f(x) = x$ for $x \\neq -2, 3$. Since no factors remain in the denominator, there are no vertical asymptotes.",
+              "earned": true,
+              "commentary": "Correctly identifies the simplified form and draws the right conclusion that complete cancellation means no vertical asymptotes remain.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Simplified form: $f(x) = x$. Vertical asymptotes at $x = -2$ and $x = 3$.",
+              "earned": false,
+              "commentary": "Gets the simplified form correct but incorrectly identifies holes as vertical asymptotes. Vertical asymptotes only occur at values where denominator factors are NOT cancelled.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Simplified form: $f(x) = x + 1$.",
+              "earned": false,
+              "commentary": "Algebraic error in the cancellation step — after dividing $x(x-3)(x+2)$ by $(x-3)(x+2)$, the result is $x$, not $x + 1$.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     },
@@ -67,7 +109,28 @@
             }
           ],
           "wrong_examples": ["$g^{-1}(7) = e^7 - 1$ (wrong — forgot to subtract 4 before exponentiating)", "$g^{-1}(7) = \\ln(7) - 1$ (wrong — did not invert correctly)"],
-          "common_traps": ["The inverse requires isolating the argument of $\\ln$: subtract $4$ first to get $\\ln(x-1) = 3$, then convert to $x - 1 = e^3$"]
+          "common_traps": ["The inverse requires isolating the argument of $\\ln$: subtract $4$ first to get $\\ln(x-1) = 3$, then convert to $x - 1 = e^3$"],
+          "official_rubric": "The point is earned for the correct value $g^{-1}(7) = e^3 + 1 \\approx 21.086$ with supporting work showing the log-to-exponential conversion step. Omitting the step $\\ln(x-1) = 3 \\Rightarrow x - 1 = e^3$ does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$g(x) = 7 \\Rightarrow \\ln(x-1) + 4 = 7 \\Rightarrow \\ln(x-1) = 3 \\Rightarrow x - 1 = e^3 \\Rightarrow x = e^3 + 1 \\approx 21.086$",
+              "earned": true,
+              "commentary": "Correctly sets $g(x) = 7$, subtracts $4$ to isolate the logarithm, converts to exponential form, and solves for $x$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g^{-1}(7) = e^{7-4} + 1 = e^3 + 1 \\approx 21.086$",
+              "earned": true,
+              "commentary": "Valid alternate form using the inverse formula $g^{-1}(y) = e^{y-4} + 1$ applied directly at $y = 7$. The implicit work of subtracting $4$ and exponentiating is present.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g^{-1}(7) = e^7 - 1 \\approx 1095.6$",
+              "earned": false,
+              "commentary": "Exponentiates $7$ directly without first subtracting $4$. The correct step is $\\ln(x-1) = 3$ (not $\\ln(x-1) = 7$), so the base-$e$ should be raised to the $3$rd power, not the $7$th.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "b2",
@@ -80,7 +143,28 @@
             }
           ],
           "wrong_examples": ["$x = e + 1$ without domain verification — incomplete, does not earn the point", "Using $f(g(x)) = f(x) \\cdot g(x)$ (composition is not multiplication)"],
-          "common_traps": ["Since the simplified $f(x) = x$, $f(g(x)) = g(x)$ — students who use the original (unfactored) $f$ will get the wrong setup"]
+          "common_traps": ["Since the simplified $f(x) = x$, $f(g(x)) = g(x)$ — students who use the original (unfactored) $f$ will get the wrong setup"],
+          "official_rubric": "The point is earned for the correct solution $x = e + 1 \\approx 3.718$ with a domain verification confirming $x > 1$ and $x \\neq 3$. Omitting domain verification does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$(f \\circ g)(x) = f(g(x)) = g(x)$ (since $f(x) = x$). Setting $g(x) = 5$: $\\ln(x-1) + 4 = 5 \\Rightarrow \\ln(x-1) = 1 \\Rightarrow x = e + 1 \\approx 3.718$. Domain: $e+1 > 1$ ✓; $e+1 \\neq 3$ ✓.",
+              "earned": true,
+              "commentary": "Correctly uses the simplified $f(x) = x$ so that composition reduces to $g(x) = 5$, solves for $x$, and verifies both domain restrictions.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\ln(x-1) + 4 = 5 \\Rightarrow x = e + 1 \\approx 3.718$",
+              "earned": false,
+              "commentary": "Arrives at the correct solution but omits domain verification. Both conditions ($x > 1$ and $x \\neq 3$) must be explicitly checked to earn the point.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$(f \\circ g)(x) = f(g(x))$ and the original $f$ is $\\frac{x^3-x^2-6x}{x^2-x-6}$, which is complex to set equal to $5$.",
+              "earned": false,
+              "commentary": "Uses the original (unfactored) form of $f$ instead of the simplified $f(x) = x$ from part (a). The simplified form must be used, making the composition straightforward.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     },
@@ -103,7 +187,22 @@
             }
           ],
           "wrong_examples": ["Quotient $ax + b$ without subtracting the $acx$ term (missed the middle step)", "Not showing intermediate subtraction steps"],
-          "common_traps": ["Each step of long division must be shown — the second term of the quotient comes from the remainder after the first subtraction, not from $b$ alone"]
+          "common_traps": ["Each step of long division must be shown — the second term of the quotient comes from the remainder after the first subtraction, not from $b$ alone"],
+          "official_rubric": "The point is earned for the correct long division result $h(x) = ax + (b - ac) + \\frac{c(ac-b)}{x+c}$ with all intermediate subtraction steps shown. Omitting the intermediate steps or arriving at an incorrect quotient or remainder does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "Divide $ax^2 + bx$ by $x + c$: $ax^2 \\div x = ax$; $ax(x+c) = ax^2 + acx$; subtract: $(b-ac)x + 0$; $(b-ac)x \\div x = (b-ac)$; $(b-ac)(x+c) = (b-ac)x + c(b-ac)$; subtract: $0 - c(b-ac) = c(ac-b)$. Result: $ax + (b-ac) + \\frac{c(ac-b)}{x+c}$.",
+              "earned": true,
+              "commentary": "Shows every intermediate step of the long division, correctly identifies both the quotient terms ($ax$ and $b - ac$) and the remainder $c(ac - b)$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$h(x) = ax + b + \\frac{\\text{remainder}}{x+c}$",
+              "earned": false,
+              "commentary": "Quotes $ax + b$ as the quotient without carrying out the subtraction step that produces $(b - ac)$ instead of $b$ in the second term. The correct second quotient term is $b - ac$.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "c2",
@@ -116,7 +215,28 @@
             }
           ],
           "wrong_examples": ["Slant asymptote $y = ax + b$ (forgot the $-ac$ term)", "Explaining 'the degree of numerator exceeds denominator by 1' without connecting to the specific quotient or the vanishing remainder"],
-          "common_traps": ["The asymptote equation comes from the quotient only — do not include the remainder term in the asymptote equation"]
+          "common_traps": ["The asymptote equation comes from the quotient only — do not include the remainder term in the asymptote equation"],
+          "official_rubric": "The point is earned for the correct slant asymptote $y = ax + (b-ac)$ with an explanation that the remainder term $\\frac{c(ac-b)}{x+c} \\to 0$ as $x \\to \\infty$. Giving $y = ax + b$ (forgetting the $-ac$ adjustment) or omitting the explanation about the vanishing remainder does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "The slant asymptote is $y = ax + (b-ac)$. As $x \\to \\infty$, $\\frac{c(ac-b)}{x+c} \\to 0$, so $h(x) \\to ax + (b-ac)$ and the graph approaches the line $y = ax + (b-ac)$.",
+              "earned": true,
+              "commentary": "Correctly reads the asymptote from the quotient and explains that the remainder fraction vanishes as $x$ grows without bound.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Slant asymptote: $y = ax + b$ because the numerator degree exceeds the denominator degree by $1$.",
+              "earned": false,
+              "commentary": "Uses the correct reasoning about degree difference but reports the wrong asymptote ($y = ax + b$ instead of $y = ax + (b-ac)$). The correct slope intercept comes from the quotient after the full long division.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Slant asymptote: $y = ax + (b-ac) + \\frac{c(ac-b)}{x+c}$",
+              "earned": false,
+              "commentary": "Includes the remainder term in the asymptote equation. The asymptote is only the polynomial quotient part; the remainder term approaches $0$ and is not part of the asymptote.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     }
