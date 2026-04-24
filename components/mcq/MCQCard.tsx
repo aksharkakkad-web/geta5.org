@@ -251,7 +251,7 @@ export default function MCQCard({ question, onAnswer, onNext, testMode = false, 
             </div>
 
             {/* Explanation reveal (drill mode only, all 4 choices after submit) */}
-            {!testMode && submitted && (
+            {!testMode && submitted && resolveExplanation(question, choice) && (
               <div
                 style={{
                   marginTop: 8,
@@ -263,7 +263,7 @@ export default function MCQCard({ question, onAnswer, onNext, testMode = false, 
                   paddingLeft: '40px',
                 }}
               >
-                <InlineKatex text={choice.explanation ?? ''} />
+                <InlineKatex text={resolveExplanation(question, choice)} />
               </div>
             )}
           </div>
@@ -318,4 +318,18 @@ export default function MCQCard({ question, onAnswer, onNext, testMode = false, 
 // Helper to detect if stimulus has renderable content
 function stimulus_has_content(question: MCQ): boolean {
   return question.stimulus != null && question.stimulus.type !== 'none' && question.stimulus.content != null
+}
+
+/**
+ * Resolve the explanation text for a choice.
+ * Modern format: per-choice `explanation` field.
+ * Legacy format: top-level `choice_explanations` keyed by choice id, or a
+ *   single top-level `explanation` shown only under the correct answer.
+ */
+function resolveExplanation(question: MCQ, choice: MCQChoice): string {
+  if (choice.explanation) return choice.explanation
+  const legacy = question.choice_explanations?.[choice.id]
+  if (legacy) return legacy
+  if (choice.is_correct && question.explanation) return question.explanation
+  return ''
 }

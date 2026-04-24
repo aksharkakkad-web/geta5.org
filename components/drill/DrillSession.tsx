@@ -10,7 +10,6 @@ import { getSubject } from '@/utils/subjects'
 import { scramble } from '@/utils/scramble'
 import { lsGet, lsSet, LS_KEYS } from '@/utils/localStorage'
 import { logEvent } from '@/utils/analytics'
-import { syncStats } from '@/utils/persistence'
 import { shouldBlockAccess } from '@/utils/freeTrialGate'
 import { useAuth } from '@/contexts/AuthContext'
 
@@ -130,8 +129,8 @@ export default function DrillSession({ session, subject, onComplete, onStartFres
       lsSet(LS_KEYS.drillCorrect, lsGet<number>(LS_KEYS.drillCorrect, 0) + 1)
     }
 
-    // Sync to Supabase immediately so stats persist even if tab is closed
-    syncStats()
+    // Stats sync happens on session complete + ActiveTimeTracker periodic flush.
+    // Per-click sync was burning Vercel CPU at ~30 POST/min per user.
 
     // Check freemium gate only for unauthenticated users
     if (!isAuthenticated) {
@@ -171,7 +170,7 @@ export default function DrillSession({ session, subject, onComplete, onStartFres
             position: 'fixed',
             inset: 0,
             zIndex: 9999,
-            background: 'rgba(5, 5, 8, 0.92)',
+            background: 'var(--bg-overlay)',
             backdropFilter: 'blur(8px)',
             WebkitBackdropFilter: 'blur(8px)',
             display: 'flex',

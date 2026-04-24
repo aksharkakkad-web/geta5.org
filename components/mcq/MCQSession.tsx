@@ -10,7 +10,6 @@ import { saveMCQDraft, clearMCQDraft } from '@/utils/mcqSession'
 import type { MCQSessionState, MCQAnswer } from '@/utils/mcqSession'
 import { lsGet, lsSet, LS_KEYS } from '@/utils/localStorage'
 import { logEvent } from '@/utils/analytics'
-import { syncStats } from '@/utils/persistence'
 import { shouldBlockAccess } from '@/utils/freeTrialGate'
 import { useAuth } from '@/contexts/AuthContext'
 
@@ -109,8 +108,8 @@ export default function MCQSession({ session, subject, onComplete, onStartFresh 
       lsSet(LS_KEYS.mcqCorrect, lsGet<number>(LS_KEYS.mcqCorrect, 0) + 1)
     }
 
-    // Sync to Supabase immediately so stats persist even if tab is closed
-    syncStats()
+    // Stats sync happens on session complete + ActiveTimeTracker periodic flush.
+    // Per-click sync was burning Vercel CPU at ~30 POST/min per user.
 
     // Check freemium gate only for unauthenticated users
     if (!isAuthenticated) {
@@ -142,7 +141,7 @@ export default function MCQSession({ session, subject, onComplete, onStartFresh 
             position: 'fixed',
             inset: 0,
             zIndex: 9999,
-            background: 'rgba(5, 5, 8, 0.92)',
+            background: 'var(--bg-overlay)',
             backdropFilter: 'blur(8px)',
             WebkitBackdropFilter: 'blur(8px)',
             display: 'flex',

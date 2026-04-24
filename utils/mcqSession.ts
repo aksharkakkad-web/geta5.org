@@ -8,7 +8,7 @@ export interface MCQChoice {
   id: 'A' | 'B' | 'C' | 'D'
   text: string
   is_correct: boolean
-  explanation: string
+  explanation?: string
 }
 
 export interface MCQStimulus {
@@ -26,6 +26,13 @@ export interface MCQ {
   choices: MCQChoice[]
   unit_objective: string
   calculator_allowed?: boolean
+  /** Legacy format: some older questions store explanations in a top-level
+   *  map keyed by choice id instead of per-choice. Renderers should fall
+   *  back to this when choice.explanation is missing. */
+  choice_explanations?: Record<string, string>
+  /** Legacy format: a single combined explanation shown under the correct
+   *  choice when per-choice data is absent. */
+  explanation?: string
 }
 
 export interface MCQAnswer {

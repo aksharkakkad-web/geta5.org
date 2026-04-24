@@ -56,9 +56,18 @@ export function readStatsFromLS(): StatsPayload {
   }
 }
 
-/** Fire-and-forget sync of current localStorage stats to Supabase. */
+let _lastSyncStatsAt = 0
+const SYNC_STATS_MIN_INTERVAL = 5_000 // floor: never more than 1 stats POST per 5s
+
+/** Fire-and-forget sync of current localStorage stats to Supabase.
+ *  Debounced — callers from different code paths may overlap (tab close +
+ *  visibility hidden + session complete). */
 export function syncStats(): void {
   if (!_isAuthenticated) return
+  const now = Date.now()
+  if (now - _lastSyncStatsAt < SYNC_STATS_MIN_INTERVAL) return
+  _lastSyncStatsAt = now
+
   const payload = readStatsFromLS()
   fetch('/api/user/stats', {
     method: 'POST',
@@ -67,8 +76,15 @@ export function syncStats(): void {
   }).catch(() => {})
 }
 
+let _lastSyncFromSupabaseAt = 0
+const SYNC_FROM_SUPABASE_MIN_INTERVAL = 10_000 // debounce: auth init + strict mode + onAuthStateChange can triple-fire
+
 export function syncFromSupabase(): void {
   if (!_isAuthenticated) return
+
+  const now = Date.now()
+  if (now - _lastSyncFromSupabaseAt < SYNC_FROM_SUPABASE_MIN_INTERVAL) return
+  _lastSyncFromSupabaseAt = now
 
   fetch('/api/user/sync')
     .then(res => res.json())

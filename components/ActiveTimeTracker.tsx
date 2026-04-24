@@ -6,7 +6,7 @@ import { syncStats } from '@/utils/persistence'
 import { useAuth } from '@/contexts/AuthContext'
 
 const IDLE_TIMEOUT = 180_000  // 3 min of no interaction = idle (accounts for reading FRQ docs, MCQ stimuli)
-const SYNC_INTERVAL = 30_000  // sync to Supabase every 30s while active
+const SYNC_INTERVAL = 60_000  // sync to Supabase every 60s while active (halves CPU vs 30s)
 
 /**
  * Tracks real active time on the site.
@@ -37,20 +37,23 @@ export default function ActiveTimeTracker() {
       }, IDLE_TIMEOUT)
     }
 
-    function flush() {
-      if (!activeRef.current) return
+    function flush(): number {
+      if (!activeRef.current) return 0
       const now = Date.now()
       const elapsed = Math.round((now - lastTickRef.current) / 1000)
       lastTickRef.current = now
       if (elapsed > 0 && elapsed < 300) {
         // Cap at 5 min per tick to avoid counting sleep/suspend
         lsSet(LS_KEYS.totalSeconds, lsGet<number>(LS_KEYS.totalSeconds, 0) + elapsed)
+        return elapsed
       }
+      return 0
     }
 
     function flushAndSync() {
-      flush()
-      if (isAuthenticated) syncStats()
+      const elapsed = flush()
+      // Only sync when there was real activity — prevents idle CPU burn.
+      if (isAuthenticated && elapsed > 0) syncStats()
     }
 
     // Listen for user interactions
