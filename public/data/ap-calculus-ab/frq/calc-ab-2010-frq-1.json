@@ -28,6 +28,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Sets up the correct integral",
+          "official_rubric": "1 point: sets up $\\displaystyle\\int_0^6 f(t)\\,dt$ as the total accumulation of snow from $t = 0$ to $t = 6$.",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^6 7te^{\\cos t}\\,dt$",
+              "earned": true,
+              "commentary": "Integrates the accumulation rate $f(t)$ from midnight to 6 A.M.; limits correct.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$f(6) = 7(6)e^{\\cos 6} \\approx 42e^{\\cos 6}$ cubic feet",
+              "earned": false,
+              "commentary": "Evaluates the rate at $t = 6$ rather than integrating; must accumulate the rate over $[0,6]$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -41,6 +56,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct answer",
+          "official_rubric": "1 point: answer $142.274$ or $142.275$ cubic feet.",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^6 7te^{\\cos t}\\,dt \\approx 142.274$ cubic feet",
+              "earned": true,
+              "commentary": "Calculator evaluation correct to three decimal places.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\displaystyle\\int_0^6 7te^{\\cos t}\\,dt \\approx 135$ cubic feet",
+              "earned": false,
+              "commentary": "Incorrect numerical value; correct calculator answer is $142.274$ (or $142.275$).",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -64,6 +94,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Correct answer with setup: rate of change $= f(8) - g(8) = f(8) - 108 \\approx -59.582$ cubic feet per hour",
+          "official_rubric": "1 point: rate of change $= f(8) - g(8) = f(8) - 108 \\approx -59.582$ or $-59.583$ cubic feet per hour (net rate = accumulation rate minus removal rate).",
+          "sample_responses": [
+            {
+              "response": "$f(8) - g(8) = 7(8)e^{\\cos 8} - 108 \\approx 48.418 - 108 = -59.582$ cubic feet per hour",
+              "earned": true,
+              "commentary": "Correctly applies net rate $= f(t) - g(t)$ at $t = 8$; $g(8) = 108$ from the piecewise definition.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$f(8) = 7(8)e^{\\cos 8} \\approx 48.418$ cubic feet per hour",
+              "earned": false,
+              "commentary": "Reports only the snow accumulation rate, omitting the removal rate $g(8) = 108$; net rate requires $f(8) - g(8)$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -86,6 +131,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Correct $h(t)$ for $0 \\le t \\le 6$",
+          "official_rubric": "1 point: $h(t) = 0$ for $0 \\le t \\le 6$ (Janet has not started removing snow).",
+          "sample_responses": [
+            {
+              "response": "$h(t) = 0$ for $0 \\le t \\le 6$",
+              "earned": true,
+              "commentary": "$g(t) = 0$ on $[0,6)$ so no snow is removed; total removed $= 0$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$h(t) = \\displaystyle\\int_0^t f(s)\\,ds$ for $0 \\le t \\le 6$",
+              "earned": false,
+              "commentary": "Confuses accumulated snow with removed snow; $h$ measures snow removed, not snow accumulated.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -99,6 +159,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct $h(t)$ for $6 < t \\le 7$",
+          "official_rubric": "1 point: $h(t) = 125(t - 6)$ for $6 < t \\le 7$ (removing at 125 ft³/hr starting at $t = 6$).",
+          "sample_responses": [
+            {
+              "response": "$h(t) = 125(t - 6)$ for $6 < t \\le 7$",
+              "earned": true,
+              "commentary": "$g(t) = 125$ on $[6,7)$; integrating from $6$ gives $125(t-6)$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$h(t) = 125t$ for $6 < t \\le 7$",
+              "earned": false,
+              "commentary": "Removes snow starting from $t = 6$, not $t = 0$; must subtract the start time: $125(t-6)$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -112,6 +187,21 @@
           "point_id": "c3",
           "point_value": 1,
           "description": "Correct $h(t)$ for $7 < t \\le 9$",
+          "official_rubric": "1 point: $h(t) = 125 + 108(t - 7)$ for $7 < t \\le 9$ (continuity from $t = 7$ where $h(7) = 125$, then removing at 108 ft³/hr).",
+          "sample_responses": [
+            {
+              "response": "$h(t) = 125 + 108(t - 7)$ for $7 < t \\le 9$",
+              "earned": true,
+              "commentary": "At $t = 7$, $h(7) = 125(1) = 125$; for $t > 7$, rate changes to 108 ft³/hr, so $h(t) = 125 + 108(t-7)$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$h(t) = 108(t - 7)$ for $7 < t \\le 9$",
+              "earned": false,
+              "commentary": "Forgets the snow removed in $[6,7]$; must carry forward $h(7) = 125$ as the starting value.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -135,6 +225,21 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Sets up correct expression",
+          "official_rubric": "1 point: amount of snow on driveway at $t = 9$ equals total accumulated minus total removed: $\\displaystyle\\int_0^9 f(t)\\,dt - h(9)$.",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^9 f(t)\\,dt - h(9)$",
+              "earned": true,
+              "commentary": "Total snow accumulated by 9 A.M. minus total snow Janet has removed by 9 A.M..",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\displaystyle\\int_6^9 [f(t) - g(t)]\\,dt$",
+              "earned": false,
+              "commentary": "Misses snow that accumulated before Janet started removing ($[0,6]$); correct integral must start at $t = 0$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -148,6 +253,21 @@
           "point_id": "d2",
           "point_value": 1,
           "description": "Correct value of $h(9)$",
+          "official_rubric": "1 point: $h(9) = 125 + 108(9 - 7) = 125 + 216 = 341$ cubic feet.",
+          "sample_responses": [
+            {
+              "response": "$h(9) = 125 + 108(9 - 7) = 125 + 216 = 341$ cubic feet",
+              "earned": true,
+              "commentary": "Uses the third piece of $h(t)$ with $t = 9$; correctly carries forward $h(7) = 125$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$h(9) = 108(9) = 972$ cubic feet",
+              "earned": false,
+              "commentary": "Does not account for the piecewise structure; $g(t) = 108$ only for $7 \\le t \\le 9$, not from $t = 0$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -161,6 +281,21 @@
           "point_id": "d3",
           "point_value": 1,
           "description": "Correct answer",
+          "official_rubric": "1 point: answer $26.334$ or $26.335$ cubic feet.",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^9 7te^{\\cos t}\\,dt - 341 \\approx 367.334 - 341 = 26.334$ cubic feet",
+              "earned": true,
+              "commentary": "$\\int_0^9 f(t)\\,dt \\approx 367.334$ (calculator); subtracting $h(9) = 341$ gives $\\approx 26.334$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\displaystyle\\int_0^9 f(t)\\,dt - 341 \\approx 30$ cubic feet",
+              "earned": false,
+              "commentary": "Incorrect numerical evaluation; the correct answer is $\\approx 26.334$ cubic feet.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [

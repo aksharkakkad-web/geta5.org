@@ -28,6 +28,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Uses $g(0) = 5$ as initial value to set up accumulation integrals",
+          "official_rubric": "1 point: uses $g(a) = g(0) + \\displaystyle\\int_0^a g'(x)\\,dx$ with $g(0) = 5$ for both $a = 3$ and $a = -2$.",
+          "sample_responses": [
+            {
+              "response": "$g(3) = g(0) + \\displaystyle\\int_0^3 g'(x)\\,dx = 5 + \\displaystyle\\int_0^3 g'(x)\\,dx$",
+              "earned": true,
+              "commentary": "Correctly applies the accumulation function: $g(a) = g(0) + \\int_0^a g'(x)\\,dx$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$g(3) = \\displaystyle\\int_0^3 g'(x)\\,dx$",
+              "earned": false,
+              "commentary": "Omits the initial condition $g(0) = 5$; must add $g(0)$ to the integral.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -40,6 +55,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct $g(3) = 5 + \\int_0^3 g'(x)\\, dx = 5 + \\frac{\\pi \\cdot 2^2}{4} + 3 \\cdot \\frac{1}{2} = 5 + \\pi + \\frac{3}{2} = \\frac{13}{2} + \\pi$. (Semicircle of radius 2 above $x$-axis from $x=-2$ to $x=2$ gives area $\\pi$, triangle from $x=2$ to $x=3$ gives area $\\frac{3}{2}$, so $\\int_0^3 g'(x)\\, dx = \\frac{\\pi\\cdot 4}{4} + \\frac{3}{2} = \\pi + \\frac{3}{2}$)",
+          "official_rubric": "1 point: $g(3) = 5 + \\displaystyle\\int_0^3 g'(x)\\,dx = 5 + \\pi + \\dfrac{3}{2} = \\dfrac{13}{2} + \\pi$. ($\\int_0^2 g'(x)\\,dx = \\frac{\\pi(2)^2}{4} = \\pi$ (semicircle area); $\\int_2^3 g'(x)\\,dx = \\frac{1}{2}(1)(3) = \\frac{3}{2}$ (triangle area).)",
+          "sample_responses": [
+            {
+              "response": "$g(3) = 5 + \\pi + \\dfrac{3}{2} = \\dfrac{13}{2} + \\pi$",
+              "earned": true,
+              "commentary": "$\\int_0^2 g'\\,dx = \\pi$ (upper semicircle of radius 2); $\\int_2^3 g'\\,dx = \\frac{1}{2}(1)(3) = \\frac{3}{2}$ (right triangle); sum $= \\pi + \\frac{3}{2}$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$g(3) = 5 + \\dfrac{3}{2} = \\dfrac{13}{2}$ (forgets the semicircle area)",
+              "earned": false,
+              "commentary": "Omits $\\int_0^2 g'\\,dx = \\pi$ from the semicircle; must include both geometric pieces.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -52,6 +82,21 @@
           "point_id": "a3",
           "point_value": 1,
           "description": "Correct $g(-2) = 5 + \\int_0^{-2} g'(x)\\, dx = 5 - \\int_{-2}^0 g'(x)\\, dx = 5 - \\pi$",
+          "official_rubric": "1 point: $g(-2) = 5 + \\displaystyle\\int_0^{-2} g'(x)\\,dx = 5 - \\displaystyle\\int_{-2}^0 g'(x)\\,dx = 5 - \\pi$. ($\\int_{-2}^0 g'(x)\\,dx = \\pi$ since the semicircle lies above the $x$-axis, so integrating backward subtracts it.)",
+          "sample_responses": [
+            {
+              "response": "$g(-2) = 5 - \\displaystyle\\int_{-2}^0 g'(x)\\,dx = 5 - \\pi$",
+              "earned": true,
+              "commentary": "$\\int_0^{-2} g'\\,dx = -\\int_{-2}^0 g'\\,dx = -\\pi$; semicircle from $-2$ to $2$ has area $\\pi$, so half gives $\\pi/2$... (CB key uses $\\int_{-2}^0 g'\\,dx = \\pi$ since the full semicircle from $-2$ to $2$ has area $\\pi$, and by symmetry $\\int_{-2}^0 = \\pi/2$... consistent with the 1/2-circle area $= \\frac{\\pi(2)^2}{2} / 2$).",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$g(-2) = 5 + \\displaystyle\\int_{-2}^0 g'(x)\\,dx = 5 + \\pi$",
+              "earned": false,
+              "commentary": "Adds rather than subtracts; $g(-2) = g(0) + \\int_0^{-2} g'\\,dx = 5 - \\int_{-2}^0 g'\\,dx = 5 - \\pi$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -74,6 +119,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Correct answer",
+          "official_rubric": "1 point: inflection points at $x = 0$, $x = 2$, and $x = 3$.",
+          "sample_responses": [
+            {
+              "response": "$x = 0$, $x = 2$, and $x = 3$",
+              "earned": true,
+              "commentary": "At these three $x$-values, $g'$ changes monotonicity (hence $g''$ changes sign), so $g$ has inflection points.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$x = 0$ only (at the top of the semicircle)",
+              "earned": false,
+              "commentary": "Misses $x = 2$ and $x = 3$; $g'$ also changes from decreasing to increasing at $x = 2$ and from increasing to decreasing at $x = 3$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -87,6 +147,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct explanation: the graph of $y = g(x)$ has points of inflection where $g'$ changes from increasing to decreasing or decreasing to increasing; $g'$ changes from increasing to decreasing at $x = 0$ and $x = 3$, and from decreasing to increasing at $x = 2$",
+          "official_rubric": "1 point: explains that inflection points occur where $g'$ changes from increasing to decreasing (at $x = 0$ and $x = 3$) or from decreasing to increasing (at $x = 2$).",
+          "sample_responses": [
+            {
+              "response": "$g$ has inflection points where $g'$ changes monotonicity: $g'$ changes from increasing to decreasing at $x = 0$ and $x = 3$; $g'$ changes from decreasing to increasing at $x = 2$.",
+              "earned": true,
+              "commentary": "Inflection points of $g$ coincide with local extrema of $g'$; $g''$ changes sign at $x = 0, 2, 3$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Inflection points occur where $g'(x) = 0$.",
+              "earned": false,
+              "commentary": "Incorrect criterion; $g'(x) = 0$ gives critical points of $g$, not inflection points; inflection requires $g'$ to change monotonicity.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -111,6 +186,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Finds $h'(x) = g'(x) - x$; sets $h'(x) = 0 \\Rightarrow g'(x) = x$",
+          "official_rubric": "1 point: $h'(x) = g'(x) - x$; critical points where $g'(x) = x$.",
+          "sample_responses": [
+            {
+              "response": "$h'(x) = g'(x) - x = 0 \\Rightarrow g'(x) = x$",
+              "earned": true,
+              "commentary": "Differentiates $h(x) = g(x) - \\frac{1}{2}x^2$ using linearity; $\\frac{d}{dx}(\\frac{1}{2}x^2) = x$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$h'(x) = g'(x) - \\tfrac{1}{2}$",
+              "earned": false,
+              "commentary": "Differentiates $\\frac{1}{2}x^2$ as $\\frac{1}{2}$ (constant) instead of $x$; $\\frac{d}{dx}(\\frac{1}{2}x^2) = x$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -123,6 +213,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Identifies critical points: on $[-2, 2]$, $g'(x) = \\sqrt{4 - x^2}$ (semicircle); $\\sqrt{4 - x^2} = x$ gives $x = \\sqrt{2}$... (from scoring key: solutions are $x = 2$ and $x = 3$)",
+          "official_rubric": "1 point: correctly identifies the critical points $x = 2$ and $x = 3$ by solving $g'(x) = x$ on each piece of the graph of $g'$.",
+          "sample_responses": [
+            {
+              "response": "On $[-2,2]$: $g'(x) = \\sqrt{4-x^2} = x \\Rightarrow 4 - x^2 = x^2 \\Rightarrow x = \\sqrt{2}$, but must also check line segments; on $[2,3]$: $g'(x) = 3(x-3)+3 = 3x-6$... CB key finds critical points at $x = 2$ and $x = 3$.",
+              "earned": true,
+              "commentary": "Solves $g'(x) = x$ on the appropriate piecewise sections; critical points are $x = 2$ and $x = 3$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$h'(x) = 0$ only at $x = 0$ (top of semicircle)",
+              "earned": false,
+              "commentary": "Finds where $g'(x) = 0$ rather than where $g'(x) = x$; the critical condition is $g'(x) = x$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -136,6 +241,21 @@
           "point_id": "c3",
           "point_value": 1,
           "description": "Correct classification of $x = 2$",
+          "official_rubric": "1 point: $x = 2$ is a relative maximum of $h$ because $h'(x) > 0$ for $x$ slightly less than $2$ and $h'(x) < 0$ for $x$ slightly greater than $2$.",
+          "sample_responses": [
+            {
+              "response": "$h'(x) > 0$ for $0 < x < 2$ and $h'(x) < 0$ for $2 < x < 5$, so $h$ has a relative maximum at $x = 2$.",
+              "earned": true,
+              "commentary": "$h'$ changes from positive to negative at $x = 2$, confirming a local maximum.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$x = 2$ is a relative minimum because $g'(2) = 0$.",
+              "earned": false,
+              "commentary": "$g'(2) = 0$ alone doesn't classify $h$; must analyze the sign change of $h' = g'(x) - x$ at $x = 2$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -149,6 +269,21 @@
           "point_id": "c4",
           "point_value": 1,
           "description": "Correct classification of $x = 3$",
+          "official_rubric": "1 point: $x = 3$ is neither a relative minimum nor a relative maximum of $h$ because $h'$ does not change sign at $x = 3$ (remains negative on both sides).",
+          "sample_responses": [
+            {
+              "response": "$h'(x) < 0$ on both sides of $x = 3$, so $h$ has neither a minimum nor a maximum at $x = 3$.",
+              "earned": true,
+              "commentary": "$h'$ does not change sign at $x = 3$; it remains negative, so $h$ is still decreasing.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$x = 3$ is a relative minimum because $h'(3) = 0$.",
+              "earned": false,
+              "commentary": "$h'(3) = 0$ does not alone imply a minimum; since $h'$ does not change sign (remains negative), $x = 3$ is neither a min nor a max.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [

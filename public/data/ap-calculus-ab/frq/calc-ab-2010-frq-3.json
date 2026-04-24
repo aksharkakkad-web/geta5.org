@@ -28,6 +28,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Sets up integral using trapezoidal areas from the graph",
+          "official_rubric": "1 point: sets up $\\displaystyle\\int_0^3 r(t)\\,dt$ to find the number of people arriving between $t = 0$ and $t = 3$.",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^3 r(t)\\,dt$",
+              "earned": true,
+              "commentary": "Integrates the arrival rate over $[0,3]$; since $r(t)$ is piecewise linear, the integral is computed from geometric areas.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$r(3) - r(0) = 800 - 1000 = -200$ people arrive",
+              "earned": false,
+              "commentary": "Subtracts rates rather than integrating; to find total arrivals, must integrate the rate function.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -41,6 +56,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct answer using the graph",
+          "official_rubric": "1 point: answer $3200$ people.",
+          "sample_responses": [
+            {
+              "response": "$2 \\cdot \\dfrac{1000+1200}{2} + 1 \\cdot \\dfrac{1200+800}{2} = 2200 + 1000 = 3200$ people",
+              "earned": true,
+              "commentary": "Trapezoid on $[0,2]$ has width 2 and parallel sides 1000 and 1200; trapezoid on $[2,3]$ has width 1 and parallel sides 1200 and 800.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$3 \\cdot \\dfrac{1000+800}{2} = 3 \\cdot 900 = 2700$ people",
+              "earned": false,
+              "commentary": "Uses one trapezoid over $[0,3]$ ignoring the change in slope at $t = 2$; must use two separate trapezoids matching the graph's piecewise linearity.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -64,6 +94,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Correct answer with reason: the number of people waiting in line is increasing because people move onto the ride at 800 people per hour, and for $2 < t < 3$, $r(t) > 800$",
+          "official_rubric": "1 point: increasing, because on $2 < t < 3$, $r(t) > 800$ (the arrival rate exceeds the boarding rate of 800 people per hour).",
+          "sample_responses": [
+            {
+              "response": "Increasing, because the arrival rate $r(t) > 800$ for $2 < t < 3$, which exceeds the boarding rate of 800 people per hour.",
+              "earned": true,
+              "commentary": "Net change in line = arrival rate $-$ boarding rate; positive when $r(t) > 800$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Increasing, because $r(t)$ is decreasing from $t = 2$ to $t = 3$.",
+              "earned": false,
+              "commentary": "Confuses the slope of $r(t)$ with the sign of $r(t) - 800$; the line grows when $r(t) > 800$, regardless of whether $r$ itself is increasing or decreasing.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -87,6 +132,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Identifies $t = 3$ as the time when the line is longest",
+          "official_rubric": "1 point: the line is longest at $t = 3$ (the only time the arrival rate equals the boarding rate, with the rate of change of the line changing from positive to negative).",
+          "sample_responses": [
+            {
+              "response": "The line is longest at $t = 3$, since $r(3) = 800$ (equals boarding rate), $r(t) > 800$ for $t < 3$ (line growing), and $r(t) < 800$ for $t > 3$ (line shrinking).",
+              "earned": true,
+              "commentary": "Correctly identifies $t = 3$ as the unique zero of $r(t) - 800$ with a sign change from positive to negative.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "The line is longest at $t = 1$ since that is when $r(t)$ is at its maximum value of $1200$.",
+              "earned": false,
+              "commentary": "Maximizing $r(t)$ maximizes the rate arrivals exceed boardings, not the size of the line itself; line is longest when $r(t)$ crosses 800 from above.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -100,6 +160,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct number of people in line",
+          "official_rubric": "1 point: $700 + 3200 - 800 \\cdot 3 = 1500$ people in line at $t = 3$.",
+          "sample_responses": [
+            {
+              "response": "$700 + 3200 - 800 \\cdot 3 = 700 + 3200 - 2400 = 1500$ people",
+              "earned": true,
+              "commentary": "$700$ initial + $3200$ arrived in $[0,3]$ (from part a) $-$ $800 \\times 3 = 2400$ boarded in $[0,3]$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$3200 - 800 \\cdot 3 = 800$ people in line at $t = 3$",
+              "earned": false,
+              "commentary": "Omits the 700 people already in line at $t = 0$; must add initial condition.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -113,6 +188,21 @@
           "point_id": "c3",
           "point_value": 1,
           "description": "Correct justification",
+          "official_rubric": "1 point: justifies $t = 3$ as a maximum — $r(t) > 800$ for $0 \\le t < 3$ so line length increases; $r(t) < 800$ for $3 < t \\le 8$ so line length decreases.",
+          "sample_responses": [
+            {
+              "response": "For $0 \\le t < 3$, $r(t) > 800$ so arrivals exceed boardings and the line grows. For $3 < t \\le 8$, $r(t) < 800$ so boardings exceed arrivals and the line shrinks. Hence the line is longest at $t = 3$.",
+              "earned": true,
+              "commentary": "Sign analysis of $r(t) - 800$ confirms a global maximum of line length at $t = 3$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$t = 3$ is a critical point so the line is longest there.",
+              "earned": false,
+              "commentary": "Insufficient; must show the sign change of $r(t) - 800$ to confirm it is a maximum, not just a critical point.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -136,6 +226,21 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Correct expression involving $800t$",
+          "official_rubric": "1 point: equation includes the total boarded term $800t$ representing cumulative boarding since $t = 0$.",
+          "sample_responses": [
+            {
+              "response": "$700 + \\displaystyle\\int_0^t r(s)\\,ds = 800t$",
+              "earned": true,
+              "commentary": "Left side is initial people + total arrivals; right side is total boarded; equality means line is exactly empty.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$700 + \\displaystyle\\int_0^t r(s)\\,ds = 800$",
+              "earned": false,
+              "commentary": "Sets equal to the boarding rate rather than total boarded; must be $800t$ (total people who have boarded by time $t$).",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -148,6 +253,21 @@
           "point_id": "d2",
           "point_value": 1,
           "description": "Correct integral expression",
+          "official_rubric": "1 point: equation includes $\\displaystyle\\int_0^t r(s)\\,ds$ as the total number of arrivals from $s = 0$ to $s = t$.",
+          "sample_responses": [
+            {
+              "response": "$700 + \\displaystyle\\int_0^t r(s)\\,ds - 800t = 0$",
+              "earned": true,
+              "commentary": "Integral of arrival rate from $0$ to $t$ gives cumulative arrivals.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$700 + r(t) = 800t$",
+              "earned": false,
+              "commentary": "Uses the arrival rate at time $t$ rather than the cumulative arrivals; must integrate $r$ over $[0,t]$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -161,6 +281,21 @@
           "point_id": "d3",
           "point_value": 1,
           "description": "Correct equation",
+          "official_rubric": "1 point: complete correct equation $700 + \\displaystyle\\int_0^t r(s)\\,ds - 800t = 0$ (or equivalent form).",
+          "sample_responses": [
+            {
+              "response": "$700 + \\displaystyle\\int_0^t r(s)\\,ds - 800t = 0$",
+              "earned": true,
+              "commentary": "Initial 700 people plus cumulative arrivals minus cumulative boardings equals zero when the line clears.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$700 + \\displaystyle\\int_3^t r(s)\\,ds - 800(t-3) = 0$",
+              "earned": false,
+              "commentary": "Starts integration at $t = 3$ rather than $t = 0$; misses arrivals and boardings in $[0,3]$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [

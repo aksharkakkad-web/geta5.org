@@ -27,13 +27,28 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct integrand and limits",
+          "official_rubric": "1 point: correct integrand $(6 - \\sqrt{x})$ with limits $0$ to $9$ (where $y = 6$ intersects $y = \\sqrt{x}$ at $x = 36$... wait, $\\sqrt{9} = 3 \\ne 6$; actually $y = 6$ intersects $y = \\sqrt{x}$ when $\\sqrt{x} = 6$, i.e., $x = 36$... The region is bounded by $y = \\sqrt{x}$, $y = 6$, and the $y$-axis, so $x$ ranges from $0$ to $36$). Alternatively $\\displaystyle\\int_0^6 (6^2 - y^2)/1\\,dy$... CB key: area using vertical strips $\\displaystyle\\int_0^{36}(6-\\sqrt{x})\\,dx$ or horizontal strips $\\displaystyle\\int_0^6 y^2\\,dy$, both giving $18$.",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^{36}(6 - \\sqrt{x})\\,dx$",
+              "earned": true,
+              "commentary": "Vertical strip: integrand is top minus bottom = $6 - \\sqrt{x}$; limits $x = 0$ to $x = 36$ (where $\\sqrt{36} = 6$).",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\displaystyle\\int_0^9(6 - \\sqrt{x})\\,dx$",
+              "earned": false,
+              "commentary": "Upper limit should be $x = 36$ (since $y = 6$ intersects $y = \\sqrt{x}$ at $x = 36$); $x = 9$ gives $y = 3$, not $y = 6$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
                 "Correct integrand",
                 "limits"
               ],
-              "correct_example": "$\\int_0^9 (6 - \\sqrt{x})\\, dx$ or equivalently $\\int_0^6 y^2\\, dy$... using the $x$-integral: $\\int_0^9 (6 - x^{1/2})\\, dx$"
+              "correct_example": "$\\int_0^{36} (6 - \\sqrt{x})\\, dx$ or equivalently $\\int_0^6 y^2\\, dy$"
             }
           ]
         },
@@ -41,12 +56,27 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct antiderivative",
+          "official_rubric": "1 point: correct antiderivative $\\left[6x - \\dfrac{2}{3}x^{3/2}\\right]_0^{36}$ (or $\\left[\\dfrac{y^3}{3}\\right]_0^6$ for horizontal method).",
+          "sample_responses": [
+            {
+              "response": "$\\left[6x - \\dfrac{2}{3}x^{3/2}\\right]_0^{36}$",
+              "earned": true,
+              "commentary": "$\\int(6 - x^{1/2})\\,dx = 6x - \\frac{2}{3}x^{3/2} + C$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\left[6x - \\frac{1}{2}x^{3/2}\\right]_0^{36}$",
+              "earned": false,
+              "commentary": "Incorrect antiderivative; $\\int x^{1/2}\\,dx = \\frac{2}{3}x^{3/2}$, not $\\frac{1}{2}x^{3/2}$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
                 "Correct antiderivative"
               ],
-              "correct_example": "$\\left[6x - \\frac{2}{3}x^{3/2}\\right]_0^9$"
+              "correct_example": "$\\left[6x - \\frac{2}{3}x^{3/2}\\right]_0^{36}$"
             }
           ]
         },
@@ -54,12 +84,27 @@
           "point_id": "a3",
           "point_value": 1,
           "description": "Correct answer",
+          "official_rubric": "1 point: answer $18$.",
+          "sample_responses": [
+            {
+              "response": "$6(36) - \\dfrac{2}{3}(36)^{3/2} = 216 - \\dfrac{2}{3}(216) = 216 - 144 = 18$",
+              "earned": true,
+              "commentary": "$36^{3/2} = (36)^1 \\cdot (36)^{1/2} = 36 \\cdot 6 = 216$; so $\\frac{2}{3}(216) = 144$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$6(36) - \\dfrac{2}{3}(36)^{3/2} = 216 - 108 = 108$",
+              "earned": false,
+              "commentary": "Arithmetic error; $\\frac{2}{3}(216) = 144$, not $108$; answer should be $216 - 144 = 18$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
                 "Correct answer"
               ],
-              "correct_example": "$6(9) - \\frac{2}{3}(27) = 54 - 18 = 18$"
+              "correct_example": "$6(36) - \\frac{2}{3}(36)^{3/2} = 216 - 144 = 18$"
             }
           ]
         }
@@ -77,6 +122,21 @@
           "point_id": "b1",
           "point_value": 2,
           "description": "Correct integrand using washer method: outer radius $= 7 - \\sqrt{x}$, inner radius $= 7 - 6 = 1$; integrand",
+          "official_rubric": "2 points: correct washer integrand. Outer radius $= 7 - \\sqrt{x}$ (distance from axis $y = 7$ to curve $y = \\sqrt{x}$); inner radius $= 7 - 6 = 1$ (distance from axis to line $y = 6$). Area $= \\pi[(7 - \\sqrt{x})^2 - 1^2]$.",
+          "sample_responses": [
+            {
+              "response": "$\\pi\\left[(7 - \\sqrt{x})^2 - 1^2\\right]$",
+              "earned": true,
+              "commentary": "Washer cross section: $\\pi(R^2 - r^2)$ with $R = 7 - \\sqrt{x}$ and $r = 7 - 6 = 1$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\pi(7 - \\sqrt{x})^2$",
+              "earned": false,
+              "commentary": "Uses disk method (only outer radius); must use washer method with inner radius $= 1$ since the region does not include the axis $y = 7$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -90,13 +150,28 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct limits and constant",
+          "official_rubric": "1 point: correct limits $0$ to $36$ and $\\pi$ constant (do not evaluate).",
+          "sample_responses": [
+            {
+              "response": "$\\pi\\displaystyle\\int_0^{36}\\left[(7 - \\sqrt{x})^2 - 1\\right]\\,dx$",
+              "earned": true,
+              "commentary": "Limits $0$ to $36$ match the $x$-extent of region $R$; $\\pi$ factor correct.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\pi\\displaystyle\\int_0^{6}\\left[(7 - \\sqrt{x})^2 - 1\\right]\\,dx$",
+              "earned": false,
+              "commentary": "Uses upper limit $x = 6$ instead of $x = 36$; region extends to $x = 36$ where $y = \\sqrt{36} = 6$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
                 "Correct limits",
                 "constant"
               ],
-              "correct_example": "$\\pi\\int_0^9 \\left[(7 - \\sqrt{x})^2 - 1^2\\right]\\, dx$"
+              "correct_example": "$\\pi\\int_0^{36} \\left[(7 - \\sqrt{x})^2 - 1^2\\right]\\, dx$"
             }
           ]
         }
@@ -114,6 +189,21 @@
           "point_id": "c1",
           "point_value": 2,
           "description": "Correct integrand: solving $y = \\sqrt{x}$ for $x$ gives $x = y^2$; base of cross section in region $R = y^2$, height $= 3y^2$; cross-section area $= 3(y^2)^2 = 3y^4$",
+          "official_rubric": "2 points: correct integrand $3y^4$. Rewrite $y = \\sqrt{x}$ as $x = y^2$. At height $y$, the base of the cross section (length in region $R$) equals $y^2$; height of rectangle $= 3 \\times y^2 = 3y^2$; cross-section area $= y^2 \\cdot 3y^2 = 3y^4$.",
+          "sample_responses": [
+            {
+              "response": "$x = y^2$; base $= y^2$, height $= 3y^2$; area $= 3y^4$",
+              "earned": true,
+              "commentary": "Correctly inverts the curve, identifies base $= y^2$ and height $= 3 \\times$ base $= 3y^2$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "height $= 3$, base $= y^2$; area $= 3y^2$",
+              "earned": false,
+              "commentary": "Uses constant height $3$ instead of three times the base; height must equal $3 \\times$ (base $= y^2$) $= 3y^2$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -126,6 +216,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct integral expression",
+          "official_rubric": "1 point: correct limits $0$ to $6$ (region spans $y = 0$ to $y = 6$); integral expression $\\displaystyle\\int_0^6 3y^4\\,dy$ (do not evaluate).",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^6 3y^4\\,dy$",
+              "earned": true,
+              "commentary": "$y$ ranges from $0$ to $6$ as the region $R$ is bounded by $y = 0$ (x-axis... implicitly) and $y = 6$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\displaystyle\\int_0^{36} 3y^4\\,dy$",
+              "earned": false,
+              "commentary": "Uses $x$-extent limit $36$ for a $y$-integration; limits must be $0$ to $6$ (the $y$-extent of region $R$).",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [

@@ -27,6 +27,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct approximation",
+          "official_rubric": "1 point: $E'(6) \\approx \\dfrac{E(7) - E(5)}{7 - 5} = \\dfrac{21 - 13}{2} = 4$ hundreds of entries per hour (symmetric difference quotient using adjacent table values).",
+          "sample_responses": [
+            {
+              "response": "$E'(6) \\approx \\dfrac{E(7) - E(5)}{7 - 5} = \\dfrac{21 - 13}{2} = 4$ hundreds of entries per hour",
+              "earned": true,
+              "commentary": "Uses the symmetric difference quotient with the two table values bracketing $t = 6$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$E'(6) \\approx \\dfrac{E(7) - E(2)}{7 - 2} = \\dfrac{21 - 4}{5} = 3.4$ hundreds of entries per hour",
+              "earned": false,
+              "commentary": "Uses $t = 2$ and $t = 7$ rather than the values closest to $t = 6$; must use $t = 5$ and $t = 7$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -50,6 +65,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Correct trapezoidal sum",
+          "official_rubric": "1 point: correct trapezoidal sum using all four subintervals $[0,2]$, $[2,5]$, $[5,7]$, $[7,8]$ with widths $2$, $3$, $2$, $1$.",
+          "sample_responses": [
+            {
+              "response": "$\\frac{1}{8}\\left[2\\cdot\\frac{0+4}{2} + 3\\cdot\\frac{4+13}{2} + 2\\cdot\\frac{13+21}{2} + 1\\cdot\\frac{21+23}{2}\\right]$",
+              "earned": true,
+              "commentary": "All four trapezoids with correct widths and endpoint values from the table.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\frac{1}{8}\\left[\\frac{0+4}{2} + \\frac{4+13}{2} + \\frac{13+21}{2} + \\frac{21+23}{2}\\right]$",
+              "earned": false,
+              "commentary": "Treats all subintervals as width 1; must multiply each trapezoid by its actual subinterval width ($2$, $3$, $2$, $1$).",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -63,6 +93,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct approximation",
+          "official_rubric": "1 point: answer $10.687$ or $10.688$ hundreds of entries.",
+          "sample_responses": [
+            {
+              "response": "$\\frac{1}{8}(4 + 25.5 + 34 + 22) = \\frac{85.5}{8} \\approx 10.688$ hundreds of entries",
+              "earned": true,
+              "commentary": "$2 \\cdot 2 + 3 \\cdot \\frac{17}{2} + 2 \\cdot 17 + 1 \\cdot 22 = 4 + 25.5 + 34 + 22 = 85.5$; divided by $8$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\frac{1}{8}(4 + 25.5 + 34 + 22) = \\frac{85.5}{8} \\approx 11.4$ hundreds of entries",
+              "earned": false,
+              "commentary": "Arithmetic error; $85.5 \\div 8 = 10.6875$, not $11.4$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -76,6 +121,21 @@
           "point_id": "b3",
           "point_value": 1,
           "description": "Correct meaning with units",
+          "official_rubric": "1 point: $\\frac{1}{8}\\int_0^8 E(t)\\,dt$ is the average number of hundreds of entries in the box over the 8-hour period from noon to 8 P.M.",
+          "sample_responses": [
+            {
+              "response": "$\\frac{1}{8}\\int_0^8 E(t)\\,dt$ is the average number of hundreds of entries in the box between noon ($t=0$) and 8 P.M. ($t=8$).",
+              "earned": true,
+              "commentary": "Average value of a function = $\\frac{1}{b-a}\\int_a^b f(t)\\,dt$; here $b - a = 8$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\frac{1}{8}\\int_0^8 E(t)\\,dt$ is the total number of entries deposited during the 8-hour period.",
+              "earned": false,
+              "commentary": "Describes the total, not the average; dividing by $8$ gives the average value, not the total.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -99,6 +159,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Sets up correct integral: total entries $E(8) = 23$ hundreds; entries processed $= \\int_8^{12} P(t)\\, dt$",
+          "official_rubric": "1 point: unprocessed entries $= E(8) - \\displaystyle\\int_8^{12} P(t)\\,dt$ (total in box at 8 P.M. minus entries processed from 8 P.M. to midnight).",
+          "sample_responses": [
+            {
+              "response": "$23 - \\displaystyle\\int_8^{12} P(t)\\,dt$",
+              "earned": true,
+              "commentary": "$E(8) = 23$ hundred entries at 8 P.M.; volunteers process $\\int_8^{12} P(t)\\,dt$ entries by midnight.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\displaystyle\\int_8^{12} P(t)\\,dt$ entries have been processed",
+              "earned": false,
+              "commentary": "Gives only the processed amount; must subtract from $E(8) = 23$ to find unprocessed entries.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -111,6 +186,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct answer",
+          "official_rubric": "1 point: answer $7$ hundred entries not yet processed by midnight.",
+          "sample_responses": [
+            {
+              "response": "$23 - \\displaystyle\\int_8^{12} (-3t^3 + 30t^2 - 298t + 976)\\,dt = 23 - 16 = 7$ hundred entries",
+              "earned": true,
+              "commentary": "$\\int_8^{12} P(t)\\,dt = 16$ hundred entries processed; $23 - 16 = 7$ remain.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$23 - \\displaystyle\\int_8^{12} P(t)\\,dt = 23 - 20 = 3$ hundred entries",
+              "earned": false,
+              "commentary": "Incorrect integral evaluation; $\\int_8^{12} P(t)\\,dt = 16$, not $20$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -134,6 +224,21 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Considers $P'(t) = 0$",
+          "official_rubric": "1 point: differentiates $P(t)$ and sets $P'(t) = -9t^2 + 60t - 298 = 0$ to find critical points on $[8, 12]$.",
+          "sample_responses": [
+            {
+              "response": "$P'(t) = -9t^2 + 60t - 298 = 0$ at $t \\approx 9.183$ and $t \\approx 10.816$",
+              "earned": true,
+              "commentary": "Correctly differentiates the cubic $P(t) = -3t^3 + 30t^2 - 298t + 976$ and solves $P'(t) = 0$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$P(t) = 0$ at $t \\approx 8$ and $t \\approx ?$",
+              "earned": false,
+              "commentary": "Sets $P(t) = 0$ (rate equals zero) instead of $P'(t) = 0$ (rate is a critical point); must differentiate to maximize.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -147,6 +252,21 @@
           "point_id": "d2",
           "point_value": 1,
           "description": "Identifies all candidates: endpoints $t = 8$ and $t = 12$, and interior critical points $t \\approx 9.183$ and $t \\approx 10.816$",
+          "official_rubric": "1 point: evaluates $P$ at all candidate points: endpoints $t = 8$ and $t = 12$, and interior critical points $t \\approx 9.183$ and $t \\approx 10.816$.",
+          "sample_responses": [
+            {
+              "response": "$P(8) = 0$, $P(9.183) \\approx 5.089$, $P(10.816) \\approx 2.911$, $P(12) = 8$",
+              "earned": true,
+              "commentary": "Full candidate check including both endpoints and both interior critical points.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$P(9.183) \\approx 5.089$ is the largest interior critical value",
+              "earned": false,
+              "commentary": "Ignores endpoints; must also compare $P(12) = 8$ which exceeds all interior critical values.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -162,6 +282,21 @@
           "point_id": "d3",
           "point_value": 1,
           "description": "Correct answer with justification",
+          "official_rubric": "1 point: answer $t = 12$ (midnight) since $P(12) = 8$ is the largest value of $P$ on $[8, 12]$.",
+          "sample_responses": [
+            {
+              "response": "$P(8) = 0$, $P(9.183) \\approx 5.089$, $P(10.816) \\approx 2.911$, $P(12) = 8$; entries processed most quickly at $t = 12$ (midnight) since $P(12) = 8$ is the maximum.",
+              "earned": true,
+              "commentary": "Compares all candidates; $P(12) = 8$ is the global maximum on $[8, 12]$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Entries processed most quickly at $t \\approx 9.183$ since $P'(9.183) = 0$.",
+              "earned": false,
+              "commentary": "A critical point of $P$ is where $P'(t) = 0$, but $P(9.183) \\approx 5.089 < P(12) = 8$; must compare values, not just find critical points.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [

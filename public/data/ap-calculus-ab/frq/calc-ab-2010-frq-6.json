@@ -27,6 +27,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Finds slope",
+          "official_rubric": "1 point: $f'(1) = (1)(2^3) = 8$ (substitutes $x = 1$, $y = f(1) = 2$ into $\\frac{dy}{dx} = xy^3$).",
+          "sample_responses": [
+            {
+              "response": "$\\left.\\frac{dy}{dx}\\right|_{x=1} = (1)(2)^3 = 8$",
+              "earned": true,
+              "commentary": "Substitutes $(x, y) = (1, 2)$ directly into the differential equation.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$f'(1) = 1 \\cdot 2 = 2$",
+              "earned": false,
+              "commentary": "Uses $y = 2$ rather than $y^3 = 8$; slope is $(1)(2)^3 = 8$, not $(1)(2) = 2$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -40,6 +55,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct tangent line equation",
+          "official_rubric": "1 point: tangent line $y = 2 + 8(x - 1)$.",
+          "sample_responses": [
+            {
+              "response": "$y = 2 + 8(x - 1)$",
+              "earned": true,
+              "commentary": "Point-slope form with slope $8$ and point $(1, 2)$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$y = 8x + 2$",
+              "earned": false,
+              "commentary": "$y$-intercept error; $y = 2 + 8(x-1) = 8x - 6$, not $8x + 2$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -63,6 +93,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Correct approximation",
+          "official_rubric": "1 point: $f(1.1) \\approx 2 + 8(1.1 - 1) = 2 + 8(0.1) = 2.8$.",
+          "sample_responses": [
+            {
+              "response": "$f(1.1) \\approx 2 + 8(0.1) = 2.8$",
+              "earned": true,
+              "commentary": "Evaluates the tangent line $y = 2 + 8(x-1)$ at $x = 1.1$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$f(1.1) \\approx 2 + 8(1.1) = 10.8$",
+              "earned": false,
+              "commentary": "Uses $x = 1.1$ directly instead of $(x - 1) = 0.1$; tangent line is $y = 2 + 8(x - 1)$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -76,6 +121,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct conclusion with explanation: since $f(x) > 0$ on $1 < x < 1.1$, we have $\\frac{d^2y}{dx^2} = y^3(1 + 3x^2y^2) > 0$, so the graph of $y = f(x)$ is concave up; the tangent line lies below the curve, so $2.8$ is less than $f(1.1)$",
+          "official_rubric": "1 point: approximation $2.8$ is less than $f(1.1)$ because $f''(x) = y^3(1 + 3x^2y^2) > 0$ (since $f(x) > 0$), so the graph is concave up and the tangent line lies below the curve.",
+          "sample_responses": [
+            {
+              "response": "Since $f(x) > 0$ on $(1, 1.1)$, $\\frac{d^2y}{dx^2} = y^3(1 + 3x^2y^2) > 0$. The curve is concave up, so the tangent line approximation $2.8$ is less than $f(1.1)$.",
+              "earned": true,
+              "commentary": "Uses the given $d^2y/dx^2$ formula and the given $f > 0$ hypothesis to confirm concavity.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "The approximation $2.8$ is greater than $f(1.1)$ because the tangent line is above the curve.",
+              "earned": false,
+              "commentary": "Incorrect direction; with $f'' > 0$ (concave up), the tangent line lies below the curve, so $2.8 < f(1.1)$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -98,6 +158,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Separates variables",
+          "official_rubric": "1 point: separates variables correctly — $y^{-3}\\,dy = x\\,dx$.",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{dy}{y^3} = x\\,dx$",
+              "earned": true,
+              "commentary": "All $y$ terms on left, all $x$ terms on right; valid separation.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$dy = xy^3\\,dx$ (not separated)",
+              "earned": false,
+              "commentary": "Left side still contains $y^3$; must move $y^3$ to the left by dividing: $y^{-3}\\,dy = x\\,dx$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -111,6 +186,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct antiderivatives",
+          "official_rubric": "1 point: correct antiderivatives on both sides: $-\\dfrac{1}{2y^2} = \\dfrac{x^2}{2} + C$.",
+          "sample_responses": [
+            {
+              "response": "$-\\dfrac{1}{2y^2} = \\dfrac{x^2}{2} + C$",
+              "earned": true,
+              "commentary": "$\\int y^{-3}\\,dy = \\frac{y^{-2}}{-2} = -\\frac{1}{2y^2}$; $\\int x\\,dx = \\frac{x^2}{2}$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$-\\dfrac{1}{y^2} = \\dfrac{x^2}{2} + C$",
+              "earned": false,
+              "commentary": "$\\int y^{-3}\\,dy = \\frac{y^{-2}}{-2} = -\\frac{1}{2y^2}$, not $-\\frac{1}{y^2}$; missing the factor of $\\frac{1}{2}$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -124,6 +214,21 @@
           "point_id": "c3",
           "point_value": 1,
           "description": "Includes constant of integration",
+          "official_rubric": "1 point: constant of integration present on at least one side (not $0/5$ for omitting it).",
+          "sample_responses": [
+            {
+              "response": "$-\\dfrac{1}{2y^2} = \\dfrac{x^2}{2} + C$",
+              "earned": true,
+              "commentary": "Constant $C$ present after integrating both sides.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$-\\dfrac{1}{2y^2} = \\dfrac{x^2}{2}$ (no constant)",
+              "earned": false,
+              "commentary": "Missing the constant of integration; omitting $C$ gives at most $2/5$ for subsequent work according to CB policy.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -136,6 +241,21 @@
           "point_id": "c4",
           "point_value": 1,
           "description": "Uses initial condition $f(1) = 2$",
+          "official_rubric": "1 point: substitutes $x = 1$, $y = 2$ to find $C = -\\dfrac{5}{8}$.",
+          "sample_responses": [
+            {
+              "response": "$-\\dfrac{1}{2(4)} = \\dfrac{1}{2} + C \\Rightarrow -\\dfrac{1}{8} = \\dfrac{1}{2} + C \\Rightarrow C = -\\dfrac{5}{8}$",
+              "earned": true,
+              "commentary": "Substitutes $(x,y) = (1,2)$: $-\\frac{1}{2(2^2)} = \\frac{1^2}{2} + C$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$-\\dfrac{1}{2(2)} = \\dfrac{1}{2} + C \\Rightarrow C = -\\dfrac{3}{4}$ (uses $y = 2$ not $y^2 = 4$)",
+              "earned": false,
+              "commentary": "Substitutes $y = 2$ into the denominator as $2y = 4$ instead of $2y^2 = 8$; must evaluate $2y^2$ at $y = 2$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -149,6 +269,21 @@
           "point_id": "c5",
           "point_value": 1,
           "description": "Solves for $y$",
+          "official_rubric": "1 point: solves for $y$ to obtain $f(x) = \\dfrac{2}{\\sqrt{5 - 4x^2}}$.",
+          "sample_responses": [
+            {
+              "response": "$-\\dfrac{1}{2y^2} = \\dfrac{x^2}{2} - \\dfrac{5}{8}$; $\\dfrac{1}{2y^2} = \\dfrac{5}{8} - \\dfrac{x^2}{2} = \\dfrac{5 - 4x^2}{8}$; $y^2 = \\dfrac{4}{5 - 4x^2}$; $f(x) = \\dfrac{2}{\\sqrt{5 - 4x^2}}$",
+              "earned": true,
+              "commentary": "Correct algebra isolating $y^2$ then taking positive square root (since $f(1) = 2 > 0$).",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$f(x) = \\pm\\dfrac{2}{\\sqrt{5 - 4x^2}}$",
+              "earned": false,
+              "commentary": "Must choose the positive root since $f(1) = 2 > 0$; the particular solution requires selecting $f(x) = +\\frac{2}{\\sqrt{5-4x^2}}$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
