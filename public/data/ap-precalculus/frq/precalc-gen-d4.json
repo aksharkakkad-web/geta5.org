@@ -34,7 +34,28 @@
             }
           ],
           "wrong_examples": ["Domain stated as $x > -3$ or $x \\neq -3$ (incorrect — cancellation still requires $x - 3 > 0$, i.e., $x > 3$)", "$\\log_5(x^2-9) - \\log_5(x+3) = \\log_5((x^2-9)(x+3))$ (applied product rule instead of quotient rule)"],
-          "common_traps": ["The domain after cancellation is still $x > 3$, not $x \\neq -3$ — the original expression requires $x^2 - 9 > 0$", "Both the factoring step and the logarithm property must appear in supporting work"]
+          "common_traps": ["The domain after cancellation is still $x > 3$, not $x \\neq -3$ — the original expression requires $x^2 - 9 > 0$", "Both the factoring step and the logarithm property must appear in supporting work"],
+          "official_rubric": "The point is earned for a correct simplified expression $\\log_5(x-3)$ with domain $x > 3$, supported by the quotient rule and factoring. Acceptable response: apply $\\log_5\\left(\\frac{x^2-9}{x+3}\\right)$, factor $x^2 - 9 = (x+3)(x-3)$, cancel $(x+3)$, and state domain $x > 3$. The factoring step and logarithm property must appear explicitly. Stating domain as $x > -3$ or $x \\neq -3$ does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$\\log_5(x^2-9) - \\log_5(x+3) = \\log_5\\left(\\frac{(x+3)(x-3)}{x+3}\\right) = \\log_5(x-3)$, domain: $x > 3$",
+              "earned": true,
+              "commentary": "Quotient rule applied correctly, $x^2-9$ factored as $(x+3)(x-3)$, common factor cancelled, and correct domain $x > 3$ stated. All required elements present.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\log_5\\left(\\frac{x^2-9}{x+3}\\right) = \\log_5(x-3)$, $x > -3$",
+              "earned": false,
+              "commentary": "The quotient rule is correctly applied and the simplification is correct, but the domain $x > -3$ is wrong. The original expression requires $x^2 - 9 > 0$, which means $x > 3$ (not merely $x > -3$).",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\log_5(x^2-9) - \\log_5(x+3) = \\log_5((x^2-9)(x+3))$",
+              "earned": false,
+              "commentary": "Product rule applied instead of quotient rule. Subtraction of logarithms corresponds to division of arguments, not multiplication.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "a2",
@@ -51,7 +72,28 @@
             }
           ],
           "wrong_examples": ["$x = \\frac{\\ln 4 - 2\\ln 3}{\\ln 3 - \\ln 4}$ (sign error in numerator or denominator)", "Reporting a decimal approximation — exact form required"],
-          "common_traps": ["Apply $\\ln$ to both sides before expanding — do not try to combine $3^{x+2}$ and $4^{x-1}$ directly", "Collect all $x$ terms on one side before dividing — both $x$ terms appear after expanding $(x+2)\\ln 3$ and $(x-1)\\ln 4$"]
+          "common_traps": ["Apply $\\ln$ to both sides before expanding — do not try to combine $3^{x+2}$ and $4^{x-1}$ directly", "Collect all $x$ terms on one side before dividing — both $x$ terms appear after expanding $(x+2)\\ln 3$ and $(x-1)\\ln 4$"],
+          "official_rubric": "The point is earned for a correct exact solution expressed in logarithmic form. Acceptable responses include $x = \\frac{\\ln 4 + 2\\ln 3}{\\ln 4 - \\ln 3}$ or any equivalent exact form such as $x = \\frac{\\ln 36}{\\ln(4/3)}$. Supporting work must show taking $\\ln$ of both sides, expanding the linear exponents, and collecting $x$ terms before dividing. Decimal approximations do not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$(x+2)\\ln 3 = (x-1)\\ln 4 \\Rightarrow x\\ln 3 - x\\ln 4 = -\\ln 4 - 2\\ln 3 \\Rightarrow x = \\frac{\\ln 4 + 2\\ln 3}{\\ln 4 - \\ln 3}$",
+              "earned": true,
+              "commentary": "Takes $\\ln$ of both sides, expands correctly, collects $x$ terms, and isolates $x$ in exact form. All required steps present.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$x = \\frac{\\ln 36}{\\ln(4/3)}$",
+              "earned": true,
+              "commentary": "Equivalent exact form using $\\ln 4 + 2\\ln 3 = \\ln(4 \\cdot 9) = \\ln 36$ and $\\ln 4 - \\ln 3 = \\ln(4/3)$. Alternate valid path that earns the point.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$x \\approx 8.638$",
+              "earned": false,
+              "commentary": "Decimal approximation — exact logarithmic form is required. The problem explicitly states 'Express your answer as an exact value involving logarithms.'",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     },
@@ -74,7 +116,28 @@
             }
           ],
           "wrong_examples": ["$\\frac{\\sin(2\\theta)}{2\\sin\\theta} = \\cos\\theta$ stated as a result without showing the identity (supporting work required)", "Using the half-angle formula instead of the double angle formula"],
-          "common_traps": ["The double angle identity must appear explicitly — writing the answer without it does not earn the point", "Simplification is valid only for $\\sin\\theta \\neq 0$, as stated in the problem"]
+          "common_traps": ["The double angle identity must appear explicitly — writing the answer without it does not earn the point", "Simplification is valid only for $\\sin\\theta \\neq 0$, as stated in the problem"],
+          "official_rubric": "The point is earned for the correct simplified result $\\cos\\theta$ with the double angle identity $\\sin(2\\theta) = 2\\sin\\theta\\cos\\theta$ stated explicitly. Acceptable response: write the identity, substitute into the expression, cancel $2\\sin\\theta$ to obtain $\\cos\\theta$. Stating the answer without showing the identity does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$\\sin(2\\theta) = 2\\sin\\theta\\cos\\theta$, so $\\frac{\\sin(2\\theta)}{2\\sin\\theta} = \\frac{2\\sin\\theta\\cos\\theta}{2\\sin\\theta} = \\cos\\theta$",
+              "earned": true,
+              "commentary": "Double angle identity stated explicitly, substitution shown, and cancellation leads to $\\cos\\theta$. All required elements present.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\frac{\\sin(2\\theta)}{2\\sin\\theta} = \\cos\\theta$",
+              "earned": false,
+              "commentary": "Correct result but no supporting work — the double angle identity must appear explicitly. Writing the answer alone without showing the identity and substitution does not earn the point.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\sin(2\\theta) = 1 - 2\\sin^2\\theta$, so $\\frac{1-2\\sin^2\\theta}{2\\sin\\theta}$",
+              "earned": false,
+              "commentary": "Uses the wrong double angle formula ($\\cos(2\\theta)$ form, not $\\sin(2\\theta)$). The identity $\\sin(2\\theta) = 2\\sin\\theta\\cos\\theta$ must be applied.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "b2",
@@ -87,7 +150,28 @@
             }
           ],
           "wrong_examples": ["Only two solutions $\\frac{\\pi}{3}$ and $\\frac{4\\pi}{3}$ (missing the solutions from the second branch $5\\pi/6$ and $11\\pi/6$)", "Solutions in degrees instead of radians (exact radian values required)"],
-          "common_traps": ["Dividing by $\\pi$ in the formula $2\\theta = 2\\pi/3 + k\\pi$ — the period of $\\tan(2\\theta)$ is $\\pi/2$, so there are four solutions in $[0, 2\\pi)$", "Check that $\\cos(2\\theta) = 0$ gives no additional solutions before dividing by it"]
+          "common_traps": ["Dividing by $\\pi$ in the formula $2\\theta = 2\\pi/3 + k\\pi$ — the period of $\\tan(2\\theta)$ is $\\pi/2$, so there are four solutions in $[0, 2\\pi)$", "Check that $\\cos(2\\theta) = 0$ gives no additional solutions before dividing by it"],
+          "official_rubric": "The point is earned for all four correct solutions $\\frac{\\pi}{3}$, $\\frac{5\\pi}{6}$, $\\frac{4\\pi}{3}$, $\\frac{11\\pi}{6}$ with no extraneous values. Supporting work must show rewriting as $\\tan(2\\theta) = -\\sqrt{3}$ and the general solution $2\\theta = \\frac{2\\pi}{3} + k\\pi$. Missing any of the four solutions or including incorrect values does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$\\tan(2\\theta) = -\\sqrt{3} \\Rightarrow 2\\theta = \\frac{2\\pi}{3} + k\\pi \\Rightarrow \\theta = \\frac{\\pi}{3} + \\frac{k\\pi}{2}$; in $[0, 2\\pi)$: $\\theta = \\frac{\\pi}{3}, \\frac{5\\pi}{6}, \\frac{4\\pi}{3}, \\frac{11\\pi}{6}$",
+              "earned": true,
+              "commentary": "Equation rewritten as $\\tan(2\\theta) = -\\sqrt{3}$, general solution with period $\\pi/2$ applied correctly, and all four solutions in $[0, 2\\pi)$ listed.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\theta = \\frac{\\pi}{3}$ and $\\theta = \\frac{4\\pi}{3}$",
+              "earned": false,
+              "commentary": "Only two of the four solutions found — the formula $\\theta = \\frac{\\pi}{3} + \\frac{k\\pi}{2}$ produces four values in $[0, 2\\pi)$. The solutions $\\frac{5\\pi}{6}$ and $\\frac{11\\pi}{6}$ from $k = 1$ and $k = 3$ are missing.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\theta = 60°, 150°, 240°, 330°$",
+              "earned": false,
+              "commentary": "Correct angles but expressed in degrees — exact radian values are required for AP Precalculus.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     },
@@ -110,7 +194,28 @@
             }
           ],
           "wrong_examples": ["$(3, \\pi/3)$ reported as the answer (polar coordinates, not rectangular)", "$x = \\cos(\\pi/3) = 1/2$ and $y = \\sin(\\pi/3) = \\sqrt{3}/2$ without multiplying by $r$ (forgot to use $r = 3$)"],
-          "common_traps": ["Must first compute $r$ at $\\theta = \\pi/3$, then convert using $x = r\\cos\\theta$ and $y = r\\sin\\theta$", "Supporting work must show the intermediate value of $r = 3$"]
+          "common_traps": ["Must first compute $r$ at $\\theta = \\pi/3$, then convert using $x = r\\cos\\theta$ and $y = r\\sin\\theta$", "Supporting work must show the intermediate value of $r = 3$"],
+          "official_rubric": "The point is earned for the correct rectangular coordinates $\\left(\\frac{3}{2}, \\frac{3\\sqrt{3}}{2}\\right)$ with supporting work showing evaluation of $r = 3$ and conversion formulas $x = r\\cos\\theta$, $y = r\\sin\\theta$. Reporting polar coordinates $(3, \\pi/3)$ or omitting the intermediate value $r = 3$ does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$r = 2 + 2\\cos(\\pi/3) = 2 + 1 = 3$; $x = 3\\cos(\\pi/3) = \\frac{3}{2}$; $y = 3\\sin(\\pi/3) = \\frac{3\\sqrt{3}}{2}$; answer: $\\left(\\frac{3}{2}, \\frac{3\\sqrt{3}}{2}\\right)$",
+              "earned": true,
+              "commentary": "Correctly evaluates $r = 3$ at $\\theta = \\pi/3$, applies conversion formulas, and reports exact rectangular coordinates. All required steps present.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$x = \\cos(\\pi/3) = \\frac{1}{2}$, $y = \\sin(\\pi/3) = \\frac{\\sqrt{3}}{2}$; answer: $\\left(\\frac{1}{2}, \\frac{\\sqrt{3}}{2}\\right)$",
+              "earned": false,
+              "commentary": "Forgot to multiply by $r$. The conversion requires $x = r\\cos\\theta$ and $y = r\\sin\\theta$; using $r = 1$ instead of $r = 3$ gives incorrect coordinates.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$(3, \\pi/3)$",
+              "earned": false,
+              "commentary": "These are the polar coordinates, not rectangular coordinates. The problem asks for rectangular $(x, y)$ form, requiring the conversion $x = r\\cos\\theta$, $y = r\\sin\\theta$.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "c2",
@@ -123,7 +228,28 @@
             }
           ],
           "wrong_examples": ["$\\theta = 0$ and $\\theta = \\pi$ (incorrect — at $\\theta = 0$: $r = 2 + 2 = 4 \\neq 0$)", "$\\theta = \\pi/2$ (at $\\theta = \\pi/2$: $r = 2 + 0 = 2 \\neq 0$)"],
-          "common_traps": ["Substitute $r = 0$ directly into the polar equation, then solve for $\\theta$ — do not guess based on the shape", "Only one value of $\\theta$ in $[0, 2\\pi)$ makes $r = 0$: $\\theta = \\pi$"]
+          "common_traps": ["Substitute $r = 0$ directly into the polar equation, then solve for $\\theta$ — do not guess based on the shape", "Only one value of $\\theta$ in $[0, 2\\pi)$ makes $r = 0$: $\\theta = \\pi$"],
+          "official_rubric": "The point is earned for $\\theta = \\pi$ with reasoning that shows setting $r = 0$, solving $2 + 2\\cos\\theta = 0$ to get $\\cos\\theta = -1$, and concluding $\\theta = \\pi$. Guessing $\\theta = 0$ or listing multiple values without solving does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$r = 0 \\Rightarrow 2 + 2\\cos\\theta = 0 \\Rightarrow \\cos\\theta = -1 \\Rightarrow \\theta = \\pi$; the cardioid passes through the pole only at $\\theta = \\pi$",
+              "earned": true,
+              "commentary": "Sets $r = 0$, solves the equation algebraically to reach $\\cos\\theta = -1$, and correctly identifies $\\theta = \\pi$ as the unique solution in $[0, 2\\pi)$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The cardioid passes through the pole at $\\theta = 0$ and $\\theta = \\pi$",
+              "earned": false,
+              "commentary": "Incorrect — at $\\theta = 0$: $r = 2 + 2\\cos(0) = 4 \\neq 0$. The student likely guessed based on the shape rather than solving $r = 0$ algebraically.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\cos\\theta = -1$, so $\\theta = \\pi$",
+              "earned": true,
+              "commentary": "Shows the key algebraic step $\\cos\\theta = -1$ and the correct conclusion. Even without the full chain from $r = 0$, the reasoning is sufficient to demonstrate the correct method.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     }
