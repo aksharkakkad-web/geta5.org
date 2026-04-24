@@ -29,6 +29,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct area integral setup using the appropriate polar area formula and correct bounds",
+          "official_rubric": "1 point: integrand — $\\frac{1}{2}(4-2\\sin\\theta)^2$ on $[\\pi/6, 5\\pi/6]$ plus $\\frac{1}{2}(9)$ on remaining arcs (or equivalent correct decomposition)",
+          "sample_responses": [
+            {
+              "response": "$A = \\frac{1}{2}\\displaystyle\\int_{\\pi/6}^{5\\pi/6}(4-2\\sin\\theta)^2\\,d\\theta + \\frac{1}{2}\\int_{5\\pi/6}^{2\\pi+\\pi/6} 9\\,d\\theta$",
+              "earned": true,
+              "commentary": "Correctly uses the polar area formula $\\frac{1}{2}\\int r^2\\,d\\theta$, switching between the two curves at the intersection angles $\\pi/6$ and $5\\pi/6$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$A = \\frac{1}{2}\\displaystyle\\int_{\\pi/6}^{5\\pi/6}\\left[(4-2\\sin\\theta)^2 - 9\\right]d\\theta$",
+              "earned": false,
+              "commentary": "This computes the area between the two curves on that arc only, missing the area inside $r=3$ on the remaining arc. The shaded region $S$ spans the full interior.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -42,6 +57,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct integrand(s) with correct limits of integration",
+          "official_rubric": "1 point: limits and constant $\\frac{1}{2}$ — uses $\\frac{1}{2}$ factor, correct intersection angles $\\pi/6$ and $5\\pi/6$ as limits",
+          "sample_responses": [
+            {
+              "response": "$\\frac{1}{2}\\displaystyle\\int_{\\pi/6}^{5\\pi/6}(4-2\\sin\\theta)^2\\,d\\theta$ with limits $\\pi/6$ to $5\\pi/6$",
+              "earned": true,
+              "commentary": "Correctly applies the $\\frac{1}{2}$ constant from the polar area formula and uses the given intersection angles as limits.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\displaystyle\\int_{\\pi/6}^{5\\pi/6}(4-2\\sin\\theta)^2\\,d\\theta$ (missing the $\\frac{1}{2}$)",
+              "earned": false,
+              "commentary": "Omits the $\\frac{1}{2}$ factor required by the polar area formula $A = \\frac{1}{2}\\int r^2\\,d\\theta$, doubling the computed area.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -55,10 +85,25 @@
           "point_id": "a3",
           "point_value": 1,
           "description": "Correct numerical area",
+          "official_rubric": "1 point: answer $= 24.709$ (or $24.708$)",
+          "sample_responses": [
+            {
+              "response": "Area $\\approx 24.709$ square units",
+              "earned": true,
+              "commentary": "Correct numerical result from the complete polar area computation.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Area $\\approx 25.590$ square units",
+              "earned": false,
+              "commentary": "Incorrect answer; likely results from a setup error such as wrong decomposition of the shaded region or incorrect limits.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
-                "$A \\approx 25.590$ square units"
+                "$A \\approx 24.709$ square units"
               ]
             }
           ]
@@ -77,6 +122,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Correct expression for the $x$-coordinate in terms of $t$",
+          "official_rubric": "1 point: $x(\\theta)$ or $x(t)$ — $x = (4-2\\sin\\theta)\\cos\\theta$, substituting $\\theta = t^2$ gives $x(t) = (4-2\\sin(t^2))\\cos(t^2)$",
+          "sample_responses": [
+            {
+              "response": "$x = r\\cos\\theta = (4-2\\sin(t^2))\\cos(t^2)$",
+              "earned": true,
+              "commentary": "Correctly converts polar coordinates to Cartesian using $x = r\\cos\\theta$ and substitutes $\\theta = t^2$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$x = r = 4 - 2\\sin(t^2)$",
+              "earned": false,
+              "commentary": "Confuses the polar radius $r$ with the $x$-coordinate. The $x$-coordinate requires the factor $\\cos\\theta$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -89,6 +149,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Sets $x = -1$ and uses calculator to solve",
+          "official_rubric": "1 point: sets $x(t) = -1$ on $[1,2]$",
+          "sample_responses": [
+            {
+              "response": "$(4-2\\sin(t^2))\\cos(t^2) = -1$, solve on $[1,2]$",
+              "earned": true,
+              "commentary": "Correctly sets up the equation $x(t) = -1$ on the given interval and uses a calculator to find the solution.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$(4-2\\sin(t^2))\\cos(t^2) = 0$, solve for $t$",
+              "earned": false,
+              "commentary": "Sets $x = 0$ instead of $x = -1$; this finds where the $x$-coordinate is zero, not $-1$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -101,10 +176,25 @@
           "point_id": "b3",
           "point_value": 1,
           "description": "Correct value of $t$",
+          "official_rubric": "1 point: answer $t = 1.428$ (or $1.427$)",
+          "sample_responses": [
+            {
+              "response": "$t \\approx 1.428$ seconds",
+              "earned": true,
+              "commentary": "Correct calculator solution to $(4-2\\sin(t^2))\\cos(t^2) = -1$ on $[1,2]$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$t \\approx 1.489$ seconds",
+              "earned": false,
+              "commentary": "Incorrect numerical answer; the correct value from the CB rubric is $t \\approx 1.428$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
-                "$t \\approx 1.489$ seconds"
+                "$t \\approx 1.428$ seconds"
               ]
             }
           ]
@@ -123,6 +213,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Correct position vector components expressed in terms of $t$",
+          "official_rubric": "1 point: position vector — $\\langle (4-2\\sin(t^2))\\cos(t^2),\\; (4-2\\sin(t^2))\\sin(t^2) \\rangle$",
+          "sample_responses": [
+            {
+              "response": "$\\vec{r}(t) = \\langle (4-2\\sin(t^2))\\cos(t^2),\\; (4-2\\sin(t^2))\\sin(t^2) \\rangle$",
+              "earned": true,
+              "commentary": "Correctly expresses both Cartesian components using $x = r\\cos\\theta$ and $y = r\\sin\\theta$ with $\\theta = t^2$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\vec{r}(t) = \\langle 4-2\\sin(t^2),\\; t^2 \\rangle$",
+              "earned": false,
+              "commentary": "Writes the polar radius and angle as the position vector components; this is not a Cartesian position vector.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -135,6 +240,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct method for finding the velocity vector (differentiating $x(t)$ and $y(t)$)",
+          "official_rubric": "1 point: velocity vector — $\\vec{v}(t) = \\langle x'(t), y'(t) \\rangle$ evaluated at $t = 1.5$",
+          "sample_responses": [
+            {
+              "response": "$\\vec{v}(t) = \\langle \\frac{dx}{dt}, \\frac{dy}{dt} \\rangle$, differentiating $x(t)$ and $y(t)$ using the chain rule with $\\frac{d\\theta}{dt} = 2t$",
+              "earned": true,
+              "commentary": "Correctly identifies that velocity requires differentiating the position components with respect to $t$, applying the chain rule.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\vec{v}(t) = \\langle \\frac{dr}{dt}, \\frac{d\\theta}{dt} \\rangle = \\langle r'(t^2)\\cdot 2t,\\; 2t \\rangle$",
+              "earned": false,
+              "commentary": "Uses polar components $(r', \\theta')$ rather than Cartesian components $(x', y')$; the velocity vector must be in Cartesian coordinates.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -147,10 +267,25 @@
           "point_id": "c3",
           "point_value": 1,
           "description": "Correct numerical velocity vector at $t = 1.5$",
+          "official_rubric": "1 point: $\\vec{v}(1.5) = \\langle -8.072, -1.673 \\rangle$ (or $\\langle -8.072, -1.672 \\rangle$)",
+          "sample_responses": [
+            {
+              "response": "$\\vec{v}(1.5) \\approx \\langle -8.072, -1.673 \\rangle$",
+              "earned": true,
+              "commentary": "Correct numerical velocity vector obtained by differentiating $x(t)$ and $y(t)$ and evaluating at $t = 1.5$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\vec{v}(1.5) \\approx \\langle -4.402, 6.161 \\rangle$",
+              "earned": false,
+              "commentary": "Incorrect numerical values; likely result from a differentiation error or incorrect substitution of $t = 1.5$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
-                "$\\vec{v}(1.5) \\approx \\langle -4.402,\\; 6.161 \\rangle$ (or equivalent decimal approximation)"
+                "$\\vec{v}(1.5) \\approx \\langle -8.072, -1.673 \\rangle$ (or equivalent decimal approximation)"
               ]
             }
           ]
