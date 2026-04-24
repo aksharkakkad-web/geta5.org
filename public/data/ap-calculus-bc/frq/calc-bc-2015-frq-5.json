@@ -30,6 +30,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct slope using $f'(4)$ with $k = 3$: $f(4) = \\dfrac{1}{16 - 12} = \\dfrac{1}{4}$ and $f'(4) = \\dfrac{3 - 8}{(16 - 12)^2} = \\dfrac{-5}{16}$",
+          "official_rubric": "1 point: $f'(4) = -\\frac{5}{16}$",
+          "sample_responses": [
+            {
+              "response": "$f'(4) = \\dfrac{k-2x}{(x^2-kx)^2}\\bigg|_{k=3,x=4} = \\dfrac{3-8}{(16-12)^2} = \\dfrac{-5}{16}$",
+              "earned": true,
+              "commentary": "Correctly substitutes $k=3$ and $x=4$ into the given derivative formula.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$f'(4) = \\dfrac{3-8}{(4-3)^2} = -5$ (uses $x^2-kx = x-k$ instead of $x^2-3x$)",
+              "earned": false,
+              "commentary": "Evaluates the denominator as $(x-k)^2$ instead of $(x^2-kx)^2$. At $x=4$, $k=3$: $x^2-kx = 16-12 = 4$, so denominator is $4^2 = 16$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -42,6 +57,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct tangent line equation using point-slope form: $y - \\dfrac{1}{4} = -\\dfrac{5}{16}(x - 4)$",
+          "official_rubric": "1 point: $y - \\frac{1}{4} = -\\frac{5}{16}(x-4)$",
+          "sample_responses": [
+            {
+              "response": "$f(4) = \\frac{1}{4}$; tangent line: $y - \\frac{1}{4} = -\\frac{5}{16}(x-4)$",
+              "earned": true,
+              "commentary": "Correct point-slope form using the function value $f(4) = 1/4$ and slope $-5/16$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Tangent line: $y = -\\frac{5}{16}x$ (uses origin instead of $(4, 1/4)$)",
+              "earned": false,
+              "commentary": "Uses the wrong point; the tangent line must pass through $(4, f(4)) = (4, 1/4)$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -69,6 +99,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Evaluates $f'(2)$ with $k = 4$: $f'(2) = \\dfrac{4 - 4}{(4 - 8)^2} = \\dfrac{0}{16} = 0$, so $x = 2$ is a critical point",
+          "official_rubric": "1 point: $f'(2) = \\frac{4-4}{(4-8)^2} = 0$; $x=2$ is a critical point",
+          "sample_responses": [
+            {
+              "response": "$f'(2) = \\dfrac{4-2(2)}{(4-8)^2} = \\dfrac{0}{16} = 0$, so $x=2$ is a critical point of $f$.",
+              "earned": true,
+              "commentary": "Correctly substitutes $k=4$, $x=2$ into $f'(x) = (k-2x)/(x^2-kx)^2$ to confirm the critical point.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$f$ is undefined at $x=2$ (confuses $x^2-4x$ vanishing at $x=4$, not $x=2$)",
+              "earned": false,
+              "commentary": "$x^2-4x = x(x-4)$ is zero at $x=0$ and $x=4$, not at $x=2$. At $x=2$: $x^2-4x = 4-8 = -4 \\neq 0$, so $f'(2)$ exists and equals $0$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -81,6 +126,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct sign analysis: $f'(x) = \\dfrac{4 - 2x}{(x^2 - 4x)^2}$. The denominator is always positive (where defined), so the sign of $f'$ depends on $4 - 2x$: positive for $x < 2$ and negative for $x > 2$. Therefore $f$ has a relative maximum at $x = 2$.",
+          "official_rubric": "1 point: $f'$ changes from positive to negative at $x=2$; relative maximum",
+          "sample_responses": [
+            {
+              "response": "The denominator $(x^2-4x)^2 > 0$ (where defined). The numerator $4-2x > 0$ for $x < 2$ and $4-2x < 0$ for $x > 2$. So $f'$ changes from positive to negative: relative maximum at $x = 2$.",
+              "earned": true,
+              "commentary": "Correct sign analysis — numerator determines sign because denominator is always positive.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Since $f'(2) = 0$, $f$ has a relative minimum at $x = 2$.",
+              "earned": false,
+              "commentary": "$f'(2) = 0$ alone does not determine the type of extremum; a sign analysis is needed. $f'$ changes from $+$ to $-$, indicating a relative maximum, not minimum.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -104,6 +164,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Sets $f'(-5) = 0$: the numerator $k - 2(-5) = k + 10 = 0$, so $k = -10$",
+          "official_rubric": "1 point: $k-2(-5) = 0 \\Rightarrow k = -10$",
+          "sample_responses": [
+            {
+              "response": "Critical point at $x=-5$ requires $f'(-5)=0$. Numerator: $k-2(-5) = k+10 = 0 \\Rightarrow k = -10$.",
+              "earned": true,
+              "commentary": "Sets the numerator of $f'$ equal to zero (denominator is non-zero when $x=-5$ and $k=-10$) and solves for $k$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$k - 2(-5) = k + 10$; setting denominator $= 0$: $(-5)^2 - k(-5) = 0 \\Rightarrow 25 + 5k = 0 \\Rightarrow k = -5$",
+              "earned": false,
+              "commentary": "Sets the denominator to zero rather than the numerator. A critical point requires $f'(-5) = 0$, meaning the numerator vanishes, not the denominator.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -126,6 +201,21 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Correct factoring and partial fraction setup: $\\dfrac{1}{x(x-6)} = \\dfrac{A}{x} + \\dfrac{B}{x-6}$",
+          "official_rubric": "1 point: $\\frac{1}{x(x-6)} = \\frac{A}{x}+\\frac{B}{x-6}$",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{1}{x^2-6x} = \\dfrac{1}{x(x-6)} = \\dfrac{A}{x} + \\dfrac{B}{x-6}$",
+              "earned": true,
+              "commentary": "Correctly factors the denominator and writes the partial fraction decomposition form.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{1}{x(x-6)} = \\dfrac{A}{x-6}$ (uses only one fraction)",
+              "earned": false,
+              "commentary": "A product of two distinct linear factors requires two partial fractions: $A/x + B/(x-6)$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -138,6 +228,21 @@
           "point_id": "d2",
           "point_value": 1,
           "description": "Correct coefficients: $1 = A(x-6) + Bx$. At $x = 0$: $A = -\\frac{1}{6}$. At $x = 6$: $B = \\frac{1}{6}$",
+          "official_rubric": "1 point: $A = -\\frac{1}{6}$, $B = \\frac{1}{6}$",
+          "sample_responses": [
+            {
+              "response": "$1 = A(x-6)+Bx$. At $x=0$: $1=-6A \\Rightarrow A=-\\frac{1}{6}$. At $x=6$: $1=6B \\Rightarrow B=\\frac{1}{6}$.",
+              "earned": true,
+              "commentary": "Cover-up method correctly determines both constants.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$A = \\frac{1}{6}$, $B = -\\frac{1}{6}$ (swapped signs)",
+              "earned": false,
+              "commentary": "Signs are reversed: at $x=0$, $1 = A(0-6) = -6A$, so $A = -1/6$ (negative), not $+1/6$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -150,6 +255,21 @@
           "point_id": "d3",
           "point_value": 1,
           "description": "Correct integral setup: $\\int f(x)\\,dx = \\int \\left(-\\dfrac{1}{6x} + \\dfrac{1}{6(x-6)}\\right)dx$",
+          "official_rubric": "1 point: $\\int\\left(-\\frac{1}{6x}+\\frac{1}{6(x-6)}\\right)dx$",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int f(x)\\,dx = \\int\\left(-\\frac{1}{6}\\cdot\\frac{1}{x}+\\frac{1}{6}\\cdot\\frac{1}{x-6}\\right)dx$",
+              "earned": true,
+              "commentary": "Correct setup using the partial fractions from d2.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\displaystyle\\int f(x)\\,dx = \\int\\frac{1}{6}\\left(\\frac{1}{x}+\\frac{1}{x-6}\\right)dx$ (wrong signs)",
+              "earned": false,
+              "commentary": "Uses $+1/(6x)$ instead of $-1/(6x)$; the correct partial fraction is $-1/(6x)+1/(6(x-6))$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -162,6 +282,21 @@
           "point_id": "d4",
           "point_value": 1,
           "description": "Correct antiderivative: $-\\dfrac{1}{6}\\ln|x| + \\dfrac{1}{6}\\ln|x-6| + C = \\dfrac{1}{6}\\ln\\left|\\dfrac{x-6}{x}\\right| + C$",
+          "official_rubric": "1 point: $-\\frac{1}{6}\\ln|x|+\\frac{1}{6}\\ln|x-6|+C = \\frac{1}{6}\\ln\\left|\\frac{x-6}{x}\\right|+C$",
+          "sample_responses": [
+            {
+              "response": "$-\\dfrac{1}{6}\\ln|x| + \\dfrac{1}{6}\\ln|x-6| + C = \\dfrac{1}{6}\\ln\\left|\\dfrac{x-6}{x}\\right| + C$",
+              "earned": true,
+              "commentary": "Correct antiderivative; combining logarithms is optional but elegant.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{1}{6}\\ln(x^2-6x) + C$ (wrong — doesn't separate the partial fractions)",
+              "earned": false,
+              "commentary": "$\\int \\frac{1}{x(x-6)}\\,dx \\neq \\frac{1}{6}\\ln|x(x-6)|$; the logarithm of the denominator is not the antiderivative here.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
