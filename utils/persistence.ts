@@ -36,6 +36,7 @@ export function saveProgress(subject: string, unit: string, data: MasteryData): 
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ subject, unit, ...data }),
+      keepalive: true,
     }).catch(() => {})
   }
 }
@@ -73,6 +74,9 @@ export function syncStats(): void {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload),
+    // keepalive lets the POST finish even if the tab is closing —
+    // critical for the "answered 1 question then closed the tab" case.
+    keepalive: true,
   }).catch(() => {})
 }
 
