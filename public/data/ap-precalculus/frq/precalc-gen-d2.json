@@ -33,7 +33,28 @@
             }
           ],
           "wrong_examples": ["$b = 29/400 = 0.0725$ (confusing $b$ with $b^{18}$)", "$b = 0.864$ with no supporting work (supporting work required)"],
-          "common_traps": ["Forgetting to take the 18th root — $b^{18} = 0.0725$ gives $b$, not $b^{18}$", "Decimal presentation error: fewer than 3 decimal places on first occurrence does not earn the point"]
+          "common_traps": ["Forgetting to take the 18th root — $b^{18} = 0.0725$ gives $b$, not $b^{18}$", "Decimal presentation error: fewer than 3 decimal places on first occurrence does not earn the point"],
+          "official_rubric": "The point is earned for $b \\approx 0.864$ (accept $[0.862, 0.867]$) with supporting work showing the equation $400 \\cdot b^{18} = 29$ and the root-taking or logarithm step. Reporting $b = 0.0725$ (the ratio before taking the root) or fewer than three decimal places does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$400 \\cdot b^{18} = 29 \\Rightarrow b^{18} = 0.0725 \\Rightarrow b = (0.0725)^{1/18} \\approx 0.864$",
+              "earned": true,
+              "commentary": "Correctly substitutes the data at $t = 18$, isolates $b^{18}$, takes the $18$th root, and reports $b$ to three decimal places.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$b = 29/400 = 0.0725$",
+              "earned": false,
+              "commentary": "Confuses $b^{18}$ with $b$ — the ratio $29/400 = 0.0725$ equals $b^{18}$, not $b$. The $18$th root must be taken to obtain $b \\approx 0.864$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$b = (0.0725)^{1/18} \\approx 0.86$",
+              "earned": false,
+              "commentary": "Sets up the root correctly but reports $b$ to only two decimal places; this is a decimal presentation error that does not earn the point on its first occurrence.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "a2",
@@ -46,7 +67,28 @@
             }
           ],
           "wrong_examples": ["$t = 18/2 = 9$ (erroneously halving the time endpoint rather than solving the equation)", "$t = \\frac{\\ln(200)}{\\ln(b)}$ (forgot to divide $200$ by $400$ first)"],
-          "common_traps": ["Must show the logarithm step — setting up $b^t = 0.5$ alone is insufficient without solving for $t$", "Use the $b$ value from part (i) — accept any $t$ consistent with the student's $b$"]
+          "common_traps": ["Must show the logarithm step — setting up $b^t = 0.5$ alone is insufficient without solving for $t$", "Use the $b$ value from part (i) — accept any $t$ consistent with the student's $b$"],
+          "official_rubric": "The point is earned for the correct half-life $t \\approx 4.753$ hours (accept $[4.7, 4.8]$ based on the student's $b$ value) with supporting work showing both the setup $b^t = 0.5$ and the logarithm step. Halving the time range instead of solving the equation does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$400 \\cdot (0.864)^t = 200 \\Rightarrow (0.864)^t = 0.5 \\Rightarrow t = \\frac{\\ln(0.5)}{\\ln(0.864)} \\approx \\frac{-0.693}{-0.146} \\approx 4.753$ hours",
+              "earned": true,
+              "commentary": "Sets up the half-life equation, reduces to $b^t = 0.5$, applies the logarithm with the change-of-base formula, and arrives at $t \\approx 4.753$ hours.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Half-life $= 18/2 = 9$ hours.",
+              "earned": false,
+              "commentary": "Halves the time endpoint instead of solving the equation. The half-life is not half of the measurement window — it must be derived from $Q(t) = 200$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$(0.864)^t = 0.5 \\Rightarrow t = 4.753$",
+              "earned": true,
+              "commentary": "Acceptable abbreviated form — the equation $b^t = 0.5$ and the correct result are both present, satisfying the supporting-work requirement.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     },
@@ -69,7 +111,28 @@
             }
           ],
           "wrong_examples": ["slope $= \\frac{29 - 400}{18} \\approx -20.6$ (used $Q$ values instead of $\\ln Q$ values)", "slope $= \\frac{\\ln(400) - \\ln(29)}{18} \\approx +0.146$ (subtracted in wrong order)"],
-          "common_traps": ["The plot is $\\ln(Q)$ vs $t$, so slope uses $\\ln$ values, not raw $Q$ values", "Supporting work must show the slope formula with $\\ln$ values in the numerator"]
+          "common_traps": ["The plot is $\\ln(Q)$ vs $t$, so slope uses $\\ln$ values, not raw $Q$ values", "Supporting work must show the slope formula with $\\ln$ values in the numerator"],
+          "official_rubric": "The point is earned for the correct slope $\\approx -0.146$ (accept $[-0.147, -0.145]$) and $y$-intercept $\\approx 5.991$ (accept $[5.98, 6.00]$) with supporting work showing the slope as a ratio of $\\ln Q$ differences. Using raw $Q$ values instead of $\\ln Q$ values does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "slope $= \\frac{\\ln(29) - \\ln(400)}{18 - 0} = \\frac{3.367 - 5.991}{18} = \\frac{-2.624}{18} \\approx -0.146$; $y$-intercept $= \\ln(400) \\approx 5.991$",
+              "earned": true,
+              "commentary": "Correctly uses natural logarithms of the $Q$ values in the numerator of the slope formula and correctly identifies the $y$-intercept as $\\ln(400)$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "slope $= \\frac{29 - 400}{18} \\approx -20.6$",
+              "earned": false,
+              "commentary": "Uses raw $Q$ values instead of $\\ln Q$ values. On a semi-log plot the vertical axis is $\\ln(Q)$, so logarithms must appear in the slope calculation.",
+              "source": "synthesized"
+            },
+            {
+              "response": "slope $= \\frac{\\ln(400) - \\ln(29)}{18} \\approx +0.146$",
+              "earned": false,
+              "commentary": "Subtracts in the wrong order — $\\ln(29) - \\ln(400)$ is negative (decay), not positive. The slope of a decaying quantity must be negative.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "b2",
@@ -82,7 +145,28 @@
             }
           ],
           "wrong_examples": ["Reading $Q(7) = 152$ directly from the table rather than computing from the model", "$Q(7) = 400 \\cdot 7b = 400 \\cdot 7(0.864)$ (additive rather than exponential computation)"],
-          "common_traps": ["Must use the model $Q(t) = 400 \\cdot b^t$ not the data table", "Comparison must address whether the model overestimates or underestimates — a comparison statement is required"]
+          "common_traps": ["Must use the model $Q(t) = 400 \\cdot b^t$ not the data table", "Comparison must address whether the model overestimates or underestimates — a comparison statement is required"],
+          "official_rubric": "The point is earned for a model-based estimate $Q(7) \\approx 136$ mg (accept $[130, 145]$ consistent with the student's $b$) with a stated comparison to $152$ mg identifying the model as an underestimate. Reading $Q(7) = 152$ directly from the table instead of computing from the model does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$Q(7) = 400 \\cdot (0.864)^7 \\approx 400 \\cdot 0.340 \\approx 136$ mg. The model underestimates the actual data value of $152$ mg at $t = 7$ hours.",
+              "earned": true,
+              "commentary": "Computes the model estimate from the formula, arrives at a value consistent with the accepted range, and explicitly compares to the data value noting underestimation.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$Q(7) = 152$ mg (from the data table).",
+              "earned": false,
+              "commentary": "Reports the data value directly instead of using the model. The estimate must come from the formula $Q(t) = 400 \\cdot b^t$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$Q(7) = 400 \\cdot (0.864)^7 \\approx 136$ mg.",
+              "earned": false,
+              "commentary": "Computes the correct model estimate but does not compare it to the actual data value. A comparison statement (underestimate, overestimate, or discrepancy) is required.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     },
@@ -105,7 +189,28 @@
             }
           ],
           "wrong_examples": ["$t < 14.26$ (inequality direction not reversed when dividing by negative $\\ln(b)$)", "$400 \\cdot b^t = 50$ solved as an equation without inequality setup"],
-          "common_traps": ["Dividing by $\\ln(b) < 0$ reverses the inequality direction — $t > \\frac{\\ln(1/8)}{\\ln(b)}$, not $t <$", "Must show the inequality setup with $< 50$, not just solve the equation"]
+          "common_traps": ["Dividing by $\\ln(b) < 0$ reverses the inequality direction — $t > \\frac{\\ln(1/8)}{\\ln(b)}$, not $t <$", "Must show the inequality setup with $< 50$, not just solve the equation"],
+          "official_rubric": "The point is earned for the correct inequality $t > \\frac{\\ln(1/8)}{\\ln(b)} \\approx 14.26$ hours (accept $[14.1, 14.5]$) with supporting work showing the inequality setup $400 \\cdot b^t < 50$, the logarithm step, and the correctly reversed inequality direction. Writing $t < 14.26$ (missing the direction flip) does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$400 \\cdot b^t < 50 \\Rightarrow b^t < \\frac{1}{8} \\Rightarrow t\\ln(b) < \\ln(1/8) \\Rightarrow t > \\frac{\\ln(1/8)}{\\ln(0.864)} \\approx 14.26$ hours (inequality reverses because $\\ln(b) < 0$).",
+              "earned": true,
+              "commentary": "Correctly sets up the inequality, applies logarithms, and notes that dividing by the negative quantity $\\ln(b)$ reverses the direction, giving $t > 14.26$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$400 \\cdot b^t = 50 \\Rightarrow t = 14.26$ hours.",
+              "earned": false,
+              "commentary": "Solves the equality rather than the inequality. The problem requires $Q(t) < 50$, so the answer must be expressed as $t > 14.26$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$t\\ln(b) < \\ln(1/8) \\Rightarrow t < 14.26$",
+              "earned": false,
+              "commentary": "Sets up the logarithm step correctly but does not reverse the inequality when dividing by $\\ln(b) < 0$. Since $\\ln(0.864) < 0$, dividing both sides by it flips the direction: $t > 14.26$.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "c2",
@@ -118,7 +223,28 @@
             }
           ],
           "wrong_examples": ["'$L$ underestimates $Q$' (incorrect — $Q$ falls faster than $L$ due to concavity)", "Stating '$L$ overestimates' without any reference to concavity or shape of $Q$"],
-          "common_traps": ["Must reference concavity of $Q$ (concave up) to earn the point — a purely numerical comparison without reasoning about concavity is insufficient", "Concave up means the curve falls away from a straight line tangent — linear model stays above the curve for $t > 0$"]
+          "common_traps": ["Must reference concavity of $Q$ (concave up) to earn the point — a purely numerical comparison without reasoning about concavity is insufficient", "Concave up means the curve falls away from a straight line tangent — linear model stays above the curve for $t > 0$"],
+          "official_rubric": "The point is earned for the correct conclusion that $L$ overestimates $Q$ for $t > 0$, with justification referencing the concave-up nature of $Q$. Stating the conclusion without the concavity reasoning, or stating the wrong conclusion (underestimates), does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$Q$ is an exponential decay function, so it is concave up (curves upward from a line). Since $L(0) = Q(0) = 400$ and $Q$ is concave up, the graph of $Q$ lies below any line through $t = 0$. Therefore $L(t) > Q(t)$ for $t > 0$ — the linear model overestimates.",
+              "earned": true,
+              "commentary": "Correctly identifies $Q$ as concave up, uses that to establish that $Q$ lies below any line from $t = 0$, and concludes that the linear model overestimates.",
+              "source": "synthesized"
+            },
+            {
+              "response": "At $t = 7$: $L(7) = 400 - 144.2 = 255.8$ mg and $Q(7) \\approx 136$ mg. Since $L(7) > Q(7)$, the linear model overestimates.",
+              "earned": false,
+              "commentary": "Demonstrates the overestimate numerically at one data point but does not reference the concave-up shape of $Q$ as the reason. A reasoning based on concavity is required to earn the point.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$Q$ is concave up, so a linear model starting at the same initial value will overestimate $Q$ for all $t > 0$.",
+              "earned": true,
+              "commentary": "Valid concise form — correctly identifies the concave-up property and uses it to justify the overestimate conclusion without a numerical example.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     }
