@@ -28,13 +28,26 @@
         {
           "point_id": "a1",
           "point_value": 1,
-          "description": "Recognizes the limit as $f'(0)$ via L'Hopital's rule or the definition of the derivative, and correctly computes $f'(0)$",
+          "description": "Applies L'Hopital's Rule to the $\\frac{0}{0}$ form and evaluates $f'(0)$ from the DE",
+          "official_rubric": "1 point: L'Hospital's Rule — $\\lim_{x\\to 0}\\frac{f(x)+1}{\\sin x} = \\lim_{x\\to 0}\\frac{f'(x)}{\\cos x} = \\frac{f'(0)}{1}$; $f'(0) = (-1)^2(2\\cdot 0+2) = 2$",
+          "sample_responses": [
+            {
+              "response": "$\\lim_{x\\to 0}(f(x)+1) = 0$ and $\\lim_{x\\to 0}\\sin x = 0$, so the form is $\\frac{0}{0}$. By L'Hopital: $\\lim_{x\\to 0}\\frac{f'(x)}{\\cos x} = \\frac{f'(0)}{1} = (-1)^2(2) = 2$.",
+              "earned": true,
+              "commentary": "Correctly identifies the $0/0$ form, applies L'Hopital's Rule, and uses the differential equation to evaluate $f'(0)=2$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\lim_{x\\to 0}\\frac{f(x)+1}{\\sin x} = \\frac{f(0)+1}{\\sin 0} = \\frac{0}{0}$ (indeterminate, no further work).",
+              "earned": false,
+              "commentary": "Recognizes the indeterminate form but does not apply L'Hopital's Rule or any other technique to resolve it.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
-                "Since $f(0) = -1$, the limit $\\displaystyle\\lim_{x \\to 0} \\frac{f(x) + 1}{\\sin x}$ is of the form $\\frac{0}{0}$",
-                "Applying L'Hopital's rule: $\\displaystyle\\lim_{x \\to 0} \\frac{f'(x)}{\\cos x} = \\frac{f'(0)}{1} = f'(0)$",
-                "$f'(0) = \\bigl(f(0)\\bigr)^2(2\\cdot 0 + 2) = (-1)^2(2) = 2$"
+                "Since $f(0) = -1$, the limit is $\\frac{0}{0}$; L'Hopital gives $f'(0) = 2$"
               ]
             }
           ]
@@ -43,6 +56,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct limit value",
+          "official_rubric": "1 point: answer $= 2$",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\lim_{x \\to 0} \\frac{f(x)+1}{\\sin x} = 2$",
+              "earned": true,
+              "commentary": "Correct final answer following correctly applied L'Hopital's Rule.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\displaystyle\\lim_{x \\to 0} \\frac{f(x)+1}{\\sin x} = 1$",
+              "earned": false,
+              "commentary": "Incorrect; perhaps confused $f'(0) = (-1)^2(2) = 2$ with $f(0)/1 = -1$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -64,12 +92,26 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct first Euler step",
+          "description": "Correct first Euler step with step size $h = 1/4$",
+          "official_rubric": "1 point: Euler's method — step size $h = \\frac{1}{4}$; $f\\!\\left(\\frac{1}{4}\\right) \\approx f(0) + f'(0)\\cdot\\frac{1}{4} = -1 + 2\\cdot\\frac{1}{4} = -\\frac{1}{2}$",
+          "sample_responses": [
+            {
+              "response": "$h = \\frac{1}{4}$. Step 1: $y_1 = -1 + (-1)^2(2)(\\tfrac{1}{4}) = -1 + \\tfrac{1}{2} = -\\tfrac{1}{2}$ at $x = \\tfrac{1}{4}$.",
+              "earned": true,
+              "commentary": "Correctly uses step size $1/4$ (two steps to reach $x=1/2$) and applies Euler's method with the DE slope at $(0,-1)$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Step size $h = \\frac{1}{2}$: $y_1 = -1 + (-1)^2(2)(\\tfrac{1}{2}) = -1 + 1 = 0$ at $x=\\tfrac{1}{2}$.",
+              "earned": false,
+              "commentary": "Uses step size $\\frac{1}{2}$ instead of $\\frac{1}{4}$; with two steps of $h=\\frac{1}{2}$ the approximation target would be $x=1$, not $x=\\frac{1}{2}$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
-                "Step size $h = \\frac{1}{2}$",
-                "$y_1 = f(0) + h \\cdot f'(0) = -1 + \\frac{1}{2}\\cdot(-1)^2(0+2) = -1 + \\frac{1}{2}\\cdot 2 = -1 + 1 = 0$"
+                "$h = \\frac{1}{4}$; first step gives $y_1 = -\\frac{1}{2}$ at $x = \\frac{1}{4}$"
               ]
             }
           ]
@@ -77,12 +119,26 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct second Euler step and approximation",
+          "description": "Correct second Euler step and approximation of $f(1/2)$",
+          "official_rubric": "1 point: answer — $f\\!\\left(\\frac{1}{2}\\right) \\approx -\\frac{1}{2} + \\left(-\\frac{1}{2}\\right)^2\\!\\left(2\\cdot\\frac{1}{4}+2\\right)\\cdot\\frac{1}{4} = -\\frac{1}{2} + \\frac{1}{4}\\cdot\\frac{5}{2}\\cdot\\frac{1}{4} = -\\frac{11}{32}$",
+          "sample_responses": [
+            {
+              "response": "Step 2 at $x=\\frac{1}{4}$, $y=-\\frac{1}{2}$: slope $= \\left(-\\frac{1}{2}\\right)^2\\left(2\\cdot\\frac{1}{4}+2\\right) = \\frac{1}{4}\\cdot\\frac{5}{2} = \\frac{5}{8}$. $y_2 = -\\frac{1}{2} + \\frac{5}{8}\\cdot\\frac{1}{4} = -\\frac{1}{2}+\\frac{5}{32} = -\\frac{11}{32}$.",
+              "earned": true,
+              "commentary": "Correct second Euler step using updated slope at $(1/4, -1/2)$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$f(1/2) \\approx 0$ (from a step to $x=1/2$ with $y_1=0$, giving slope $0$, so $y_2 = 0$).",
+              "earned": false,
+              "commentary": "Results from using wrong step size; if $h=1/2$ and $y_1=0$, the slope is $0$ and the approximation is trivially $0$, which is incorrect.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
-                "At $x = \\frac{1}{2}$, $y = 0$: $y_2 = 0 + \\frac{1}{2}\\cdot (0)^2\\left(2\\cdot\\frac{1}{2}+2\\right) = 0 + 0 = 0$",
-                "$f(1) \\approx 0$"
+                "$f\\!\\left(\\frac{1}{2}\\right) \\approx -\\frac{11}{32}$"
               ]
             }
           ]
@@ -101,6 +157,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Correct separation of variables",
+          "official_rubric": "1 point: separation of variables — $\\dfrac{dy}{y^2} = (2x+2)\\,dx$",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{dy}{y^2} = (2x+2)\\,dx$",
+              "earned": true,
+              "commentary": "Correctly separates the $y$ and $x$ terms; $y^2$ moves to the left as $y^{-2}$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$y^2\\,dy = (2x+2)\\,dx$",
+              "earned": false,
+              "commentary": "Moved $y^2$ to the wrong side; this gives antiderivatives $\\frac{y^3}{3}$ and $x^2+2x+C$, which is not the correct separation.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -113,6 +184,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct antiderivatives on both sides",
+          "official_rubric": "1 point: antiderivatives — $-\\dfrac{1}{y} = x^2 + 2x + C$",
+          "sample_responses": [
+            {
+              "response": "$-\\dfrac{1}{y} = x^2 + 2x + C$",
+              "earned": true,
+              "commentary": "Correctly integrates $y^{-2}\\,dy = -y^{-1}$ and $(2x+2)\\,dx = x^2+2x$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\ln|y| = x^2+2x+C$",
+              "earned": false,
+              "commentary": "Incorrect antiderivative for $y^{-2}$; $\\int y^{-2}\\,dy = -y^{-1}$, not $\\ln|y|$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -125,10 +211,25 @@
           "point_id": "c3",
           "point_value": 1,
           "description": "Correct constant $C$ using initial condition $f(0) = -1$",
+          "official_rubric": "1 point: constant of integration and initial condition — $-\\dfrac{1}{-1} = 0+0+C \\Rightarrow C = 1$",
+          "sample_responses": [
+            {
+              "response": "Substituting $x=0$, $y=-1$: $-\\dfrac{1}{-1} = 0+0+C \\Rightarrow C = 1$.",
+              "earned": true,
+              "commentary": "Correctly substitutes the initial condition to find $C=1$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$C = 0$ (forgot to substitute $y=-1$, used $y=1$ instead).",
+              "earned": false,
+              "commentary": "Using $y=1$ gives $-1 = C$, not $C=1$; the initial condition is $f(0) = -1$, so $y = -1$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
-                "$-\\dfrac{1}{-1} = 0 + 0 + C \\Rightarrow C = 1$"
+                "$C = 1$"
               ]
             }
           ]
@@ -137,10 +238,24 @@
           "point_id": "c4",
           "point_value": 1,
           "description": "Correct algebraic solving for $y$",
+          "official_rubric": "1 point: solves for $y$ — $y = -\\dfrac{1}{x^2+2x+1} = -\\dfrac{1}{(x+1)^2}$",
+          "sample_responses": [
+            {
+              "response": "$-\\dfrac{1}{y} = (x+1)^2 \\Rightarrow y = -\\dfrac{1}{(x+1)^2}$",
+              "earned": true,
+              "commentary": "Correctly factors $x^2+2x+1 = (x+1)^2$ and solves for $y$ by taking the reciprocal.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$y = -(x^2+2x+1) = -(x+1)^2$",
+              "earned": false,
+              "commentary": "Inverts incorrectly; from $-1/y = (x+1)^2$, the correct step is $y = -1/(x+1)^2$, not $y = -(x+1)^2$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
-                "$-\\dfrac{1}{y} = x^2 + 2x + 1 = (x+1)^2$",
                 "$y = -\\dfrac{1}{(x+1)^2}$"
               ]
             }
@@ -149,11 +264,26 @@
         {
           "point_id": "c5",
           "point_value": 1,
-          "description": "Correct domain stated",
+          "description": "Correct uses initial condition (point is awarded for correctly using IC in prior steps — the final form with domain noted)",
+          "official_rubric": "1 point: uses initial condition (verified by correct $C=1$ and correct final solution $y = -\\frac{1}{(x+1)^2}$)",
+          "sample_responses": [
+            {
+              "response": "$f(x) = -\\dfrac{1}{(x+1)^2}$, $x \\neq -1$ (and $x > -1$ containing the initial point $x=0$).",
+              "earned": true,
+              "commentary": "Correctly presents the final particular solution and notes the domain restriction from the initial condition.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$f(x) = -\\dfrac{1}{(x+1)^2} + C$ (forgot to substitute IC).",
+              "earned": false,
+              "commentary": "Leaves an arbitrary constant; this is the general solution, not the particular solution satisfying $f(0)=-1$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
-                "$f(x) = -\\dfrac{1}{(x+1)^2}$, valid for $x > -1$ (or $x \\neq -1$, with $x > -1$ because of the initial condition)"
+                "$f(x) = -\\dfrac{1}{(x+1)^2}$"
               ]
             }
           ]
