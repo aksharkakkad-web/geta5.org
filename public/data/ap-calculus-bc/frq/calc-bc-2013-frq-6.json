@@ -27,6 +27,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correctly writes $P_1(x)$ in terms of $f(0)$ and $f'(0)$",
+          "official_rubric": "1 point: uses $P_1(x)$ — $P_1(x) = f(0) + f'(0)x = -4 + f'(0)x$, then $P_1\\!\\left(\\frac{1}{2}\\right) = -4 + f'(0)\\cdot\\frac{1}{2} = -3$",
+          "sample_responses": [
+            {
+              "response": "$P_1(x) = -4 + f'(0)x$; substituting $x=\\frac{1}{2}$: $-4 + f'(0)\\cdot\\frac{1}{2} = -3$.",
+              "earned": true,
+              "commentary": "Correctly writes the first-degree Taylor polynomial and substitutes the given value $P_1(1/2)=-3$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$P_1(1/2) = f(1/2) = -3$, so $f'(0) = (-3-(-4))/(1/2-0) = 2$.",
+              "earned": false,
+              "commentary": "Treats the polynomial as if $P_1(1/2) = f(1/2)$; the polynomial value matches the linear approximation, but this reasoning conflates the polynomial with the function. The required approach is to write $P_1$ and substitute.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -39,6 +54,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correctly substitutes $x = \\frac{1}{2}$ and solves to show $f'(0) = 2$",
+          "official_rubric": "1 point: verifies $f'(0) = 2$ — $f'(0)\\cdot\\frac{1}{2} = 1 \\Rightarrow f'(0) = 2$",
+          "sample_responses": [
+            {
+              "response": "$f'(0)\\cdot\\frac{1}{2} = -3-(-4) = 1 \\Rightarrow f'(0) = 2$. $\\square$",
+              "earned": true,
+              "commentary": "Correctly solves for $f'(0)$ and verifies the result equals 2.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$f'(0) = -3/(-4) = 3/4$",
+              "earned": false,
+              "commentary": "Divides the output value by the input value rather than solving $-4 + f'(0)/2 = -3$ algebraically.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -61,11 +91,26 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Correct general form of $P_3(x)$ as a Taylor polynomial about $x = 0$",
+          "description": "Correct first two terms of $P_3(x)$",
+          "official_rubric": "1 point: first two terms — $-4 + 2x$",
+          "sample_responses": [
+            {
+              "response": "$P_3(x) = -4 + 2x + \\cdots$",
+              "earned": true,
+              "commentary": "Correctly uses $f(0)=-4$ and $f'(0)=2$ for the constant and linear terms.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$P_3(x) = -4 + (-4)x + \\cdots$",
+              "earned": false,
+              "commentary": "Uses $f(0)=-4$ as the coefficient of $x$ rather than $f'(0)=2$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
-                "$P_3(x) = f(0) + f'(0)x + \\dfrac{f''(0)}{2!}x^2 + \\dfrac{f'''(0)}{3!}x^3$"
+                "First two terms: $-4 + 2x$"
               ]
             }
           ]
@@ -73,11 +118,26 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct coefficients substituted",
+          "description": "Correct third term of $P_3(x)$",
+          "official_rubric": "1 point: third term — $\\dfrac{f''(0)}{2!}x^2 = \\dfrac{-2/3}{2}x^2 = -\\dfrac{1}{3}x^2$",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{f''(0)}{2!}x^2 = \\dfrac{-2/3}{2}x^2 = -\\dfrac{1}{3}x^2$",
+              "earned": true,
+              "commentary": "Correctly divides $f''(0) = -2/3$ by $2!$ to get the coefficient $-1/3$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$f''(0)x^2 = -\\dfrac{2}{3}x^2$ (forgot $2!$ in denominator)",
+              "earned": false,
+              "commentary": "Uses $f''(0)$ directly without dividing by $2!$; Taylor coefficients require $\\frac{f^{(n)}(0)}{n!}$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
-                "$P_3(x) = -4 + 2x + \\dfrac{-2/3}{2}x^2 + \\dfrac{2/3}{6}x^3 = -4 + 2x - \\dfrac{1}{3}x^2 + \\dfrac{1}{9}x^3$"
+                "Third term: $-\\dfrac{1}{3}x^2$"
               ]
             }
           ]
@@ -85,11 +145,26 @@
         {
           "point_id": "b3",
           "point_value": 1,
-          "description": "Correct final expression for $P_3(x)$",
+          "description": "Correct fourth term of $P_3(x)$",
+          "official_rubric": "1 point: fourth term — $\\dfrac{f'''(0)}{3!}x^3 = \\dfrac{1/3}{6}x^3 = \\dfrac{1}{18}x^3$; so $P_3(x) = -4 + 2x - \\dfrac{1}{3}x^2 + \\dfrac{1}{18}x^3$",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{f'''(0)}{3!}x^3 = \\dfrac{1/3}{6}x^3 = \\dfrac{1}{18}x^3$",
+              "earned": true,
+              "commentary": "Correctly divides $f'''(0)=1/3$ by $3!=6$ to get coefficient $1/18$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\dfrac{2/3}{6}x^3 = \\dfrac{1}{9}x^3$ (used wrong $f'''(0) = 2/3$)",
+              "earned": false,
+              "commentary": "Uses $f'''(0)=2/3$ instead of the given $f'''(0)=1/3$, giving an incorrect fourth term.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
-                "$P_3(x) = -4 + 2x - \\dfrac{1}{3}x^2 + \\dfrac{1}{9}x^3$"
+                "$P_3(x) = -4 + 2x - \\dfrac{1}{3}x^2 + \\dfrac{1}{18}x^3$"
               ]
             }
           ]
@@ -107,12 +182,26 @@
         {
           "point_id": "c1",
           "point_value": 1,
-          "description": "Correctly uses $h'(x) = f(2x)$ and writes the Taylor series for $h'(x)$ by substituting $2x$ into $P_3(x)$",
+          "description": "Correctly uses $h'(x) = f(2x)$ and writes the Taylor polynomial for $h'(x)$ by substituting $2x$ into $P_3$",
+          "official_rubric": "1 point: $h'(x) = f(2x) \\approx -4 + 2(2x) - \\dfrac{1}{3}(2x)^2 = -4 + 4x - \\dfrac{4}{3}x^2$ (terms through degree 2 needed for degree-3 $Q_3$)",
+          "sample_responses": [
+            {
+              "response": "$h'(x) = f(2x) \\approx P_3(2x) = -4 + 4x - \\dfrac{4}{3}x^2 + \\dfrac{8}{9}x^3$",
+              "earned": true,
+              "commentary": "Correctly substitutes $2x$ for $x$ in $P_3$; the cubic term will not contribute to the cubic Taylor polynomial of $h$ after integration, but the setup is correct.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$h'(x) = f'(2x)\\cdot 2 \\approx 2\\left(2 - \\dfrac{2}{3}x + \\dfrac{1}{6}x^2\\right)$",
+              "earned": false,
+              "commentary": "Differentiates $f$ rather than substituting $2x$ into $P_3$; $h'(x) = f(2x)$, not $f'(2x)\\cdot 2$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
-                "$h'(x) = f(2x) \\approx -4 + 2(2x) - \\dfrac{1}{3}(2x)^2 + \\dfrac{1}{9}(2x)^3$",
-                "$h'(x) \\approx -4 + 4x - \\dfrac{4}{3}x^2 + \\dfrac{8}{9}x^3$"
+                "$h'(x) = f(2x) \\approx -4 + 4x - \\dfrac{4}{3}x^2$"
               ]
             }
           ]
@@ -120,7 +209,22 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Correctly integrates to find $h(x) = h(0) + \\int_0^x h'(t)\\,dt$",
+          "description": "Correctly integrates $h'(x)$ and applies initial condition $h(0) = 7$",
+          "official_rubric": "1 point: integrates $h'$ and uses $h(0)=7$ — $Q_3(x) = 7 + \\int_0^x(-4+4t-\\frac{4}{3}t^2)\\,dt$",
+          "sample_responses": [
+            {
+              "response": "$Q_3(x) = h(0) + \\displaystyle\\int_0^x h'(t)\\,dt = 7 + \\int_0^x\\left(-4+4t-\\frac{4}{3}t^2\\right)dt$",
+              "earned": true,
+              "commentary": "Correctly uses the FTC to integrate $h'$ from 0 to $x$ and adds $h(0)=7$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$Q_3(x) = \\int (-4+4x-\\frac{4}{3}x^2)\\,dx = -4x+2x^2-\\frac{4}{9}x^3 + C$ (no initial condition applied)",
+              "earned": false,
+              "commentary": "Integrates correctly but leaves an arbitrary constant instead of using $h(0)=7$ to set $C=7$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -133,6 +237,21 @@
           "point_id": "c3",
           "point_value": 1,
           "description": "Correct antiderivative of the Taylor polynomial for $h'(x)$",
+          "official_rubric": "1 point: $\\int_0^x(-4+4t-\\frac{4}{3}t^2)\\,dt = -4x+2x^2-\\frac{4}{9}x^3$",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^x\\left(-4+4t-\\frac{4}{3}t^2\\right)dt = -4x + 2x^2 - \\frac{4}{9}x^3$",
+              "earned": true,
+              "commentary": "Correctly integrates each term: $-4t \\to -4x$; $4t \\to 2x^2$; $-\\frac{4}{3}t^2 \\to -\\frac{4}{9}x^3$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$-4x + 4x^2 - \\frac{4}{3}x^3$",
+              "earned": false,
+              "commentary": "Integration errors: $\\int 4t\\,dt = 2t^2$, not $4t^2$; and $\\int \\frac{4}{3}t^2\\,dt = \\frac{4}{9}t^3$, not $\\frac{4}{3}t^3$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -145,6 +264,21 @@
           "point_id": "c4",
           "point_value": 1,
           "description": "Correct third-degree Taylor polynomial for $h$ with correct constant $h(0) = 7$",
+          "official_rubric": "1 point: $Q_3(x) = 7 - 4x + 2x^2 - \\dfrac{4}{9}x^3$",
+          "sample_responses": [
+            {
+              "response": "$Q_3(x) = 7 - 4x + 2x^2 - \\dfrac{4}{9}x^3$",
+              "earned": true,
+              "commentary": "Correct final answer combining the integral and initial condition $h(0)=7$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$Q_3(x) = -4x + 2x^2 - \\dfrac{4}{9}x^3$ (forgot to add $h(0)=7$)",
+              "earned": false,
+              "commentary": "Forgot to include the initial value $h(0) = 7$ as the constant term.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
