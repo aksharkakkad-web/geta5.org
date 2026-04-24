@@ -31,6 +31,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct integral expression for $x(3)$",
+          "official_rubric": "1 point: $x(3) = 5 + \\int_0^3(t^2+\\sin(3t^2))\\,dt$",
+          "sample_responses": [
+            {
+              "response": "$x(3) = x(0) + \\displaystyle\\int_0^3\\frac{dx}{dt}\\,dt = 5 + \\int_0^3(t^2+\\sin(3t^2))\\,dt$",
+              "earned": true,
+              "commentary": "Correctly accumulates the $x$-velocity from the known starting $x$-position.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$x(3) = \\displaystyle\\int_0^3(t^2+\\sin(3t^2))\\,dt$ (forgets to add $x(0)=5$)",
+              "earned": false,
+              "commentary": "Omits the initial position $x(0) = 5$; must add it to the accumulated displacement.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -43,6 +58,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct numerical value for $x(3)$ (calculator required)",
+          "official_rubric": "1 point: $x(3) \\approx 14.405$",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^3(t^2+\\sin(3t^2))\\,dt \\approx 9.405$, so $x(3) \\approx 5 + 9.405 = 14.405$",
+              "earned": true,
+              "commentary": "Correct calculator evaluation of the integral and addition of initial position.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$x(3) \\approx 5 + \\int_0^3 t^2\\,dt = 5 + 9 = 14$ (ignores $\\sin(3t^2)$ term)",
+              "earned": false,
+              "commentary": "Omits the $\\sin(3t^2)$ contribution; the full integrand $t^2+\\sin(3t^2)$ must be used.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -55,6 +85,21 @@
           "point_id": "a3",
           "point_value": 1,
           "description": "Correct value for $y(3)$ read from the piecewise-linear graph",
+          "official_rubric": "1 point: $y(3) = -2$ from graph; position $\\approx (14.405, -2)$",
+          "sample_responses": [
+            {
+              "response": "From the graph: $y(3) = -2$. Position at $t=3$: approximately $(14.405, -2)$.",
+              "earned": true,
+              "commentary": "Correctly reads $y(3) = -2$ from the piecewise-linear graph.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$y(3) = 0$ (misreads graph)",
+              "earned": false,
+              "commentary": "Misreads the graph; the correct value is $y(3) = -2$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -77,6 +122,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Correct tangent slope using $dy/dx = (dy/dt)/(dx/dt)$ at $t=3$",
+          "official_rubric": "1 point: $\\frac{dy}{dx}\\big|_{t=3} = \\frac{dy/dt|_{t=3}}{dx/dt|_{t=3}}$",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{dy}{dx}\\bigg|_{t=3} = \\dfrac{dy/dt}{dx/dt}\\bigg|_{t=3} = \\dfrac{(dy/dt\\text{ from graph at }t=3)}{9+\\sin(27)}$",
+              "earned": true,
+              "commentary": "Correctly applies the parametric slope formula, reading $dy/dt$ from the piecewise graph and computing $dx/dt = 9+\\sin(27)$ at $t=3$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{dy}{dx} = \\dfrac{dx/dt}{dy/dt}$ (ratio inverted)",
+              "earned": false,
+              "commentary": "Inverts the parametric slope ratio; $dy/dx = (dy/dt)/(dx/dt)$, not the reciprocal.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -99,6 +159,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Correct speed formula",
+          "official_rubric": "1 point: speed $= \\sqrt{(dx/dt)^2+(dy/dt)^2}\\big|_{t=3}$",
+          "sample_responses": [
+            {
+              "response": "Speed $= \\sqrt{(dx/dt)^2+(dy/dt)^2}\\big|_{t=3} = \\sqrt{(9+\\sin 27)^2+(dy/dt|_{t=3})^2}$",
+              "earned": true,
+              "commentary": "Correct speed formula as magnitude of velocity vector.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Speed $= |dx/dt|+|dy/dt|$ at $t=3$",
+              "earned": false,
+              "commentary": "Speed is the Euclidean magnitude $\\sqrt{(dx/dt)^2+(dy/dt)^2}$, not the sum of absolute values.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -111,6 +186,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct numerical answer (calculator required)",
+          "official_rubric": "1 point: correct numerical value consistent with calculator",
+          "sample_responses": [
+            {
+              "response": "Speed $\\approx \\sqrt{(9+\\sin 27)^2+(dy/dt|_{t=3})^2}$ computed by calculator",
+              "earned": true,
+              "commentary": "Correct calculator evaluation using the formula from c1.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Speed $\\approx |9+\\sin 27| \\approx 8.84$ (ignores $dy/dt$ component)",
+              "earned": false,
+              "commentary": "Omits the $dy/dt$ component in the speed calculation; both velocity components must be included.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -133,6 +223,21 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Correct arc-length integral setup",
+          "official_rubric": "1 point: $\\int_0^2\\sqrt{(dx/dt)^2+(dy/dt)^2}\\,dt$",
+          "sample_responses": [
+            {
+              "response": "Distance $= \\displaystyle\\int_0^2\\sqrt{\\left(\\frac{dx}{dt}\\right)^2+\\left(\\frac{dy}{dt}\\right)^2}\\,dt$",
+              "earned": true,
+              "commentary": "Correct arc length formula for parametric curves.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Distance $= \\displaystyle\\int_0^2\\left|\\frac{dx}{dt}\\right|\\,dt + \\int_0^2\\left|\\frac{dy}{dt}\\right|\\,dt$ (separates components)",
+              "earned": false,
+              "commentary": "Distance requires the magnitude of the full velocity vector, not the sum of separate component integrals.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -145,6 +250,21 @@
           "point_id": "d2",
           "point_value": 1,
           "description": "Correct integrand with $dy/dt$ read from the piecewise-linear graph of $y$",
+          "official_rubric": "1 point: integrand uses $(t^2+\\sin(3t^2))^2+(dy/dt)^2$ with $dy/dt$ from graph",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^2\\sqrt{(t^2+\\sin(3t^2))^2+(dy/dt)^2}\\,dt$ where $dy/dt$ is the slope of the piecewise-linear graph on $[0,2]$.",
+              "earned": true,
+              "commentary": "Correctly substitutes $dx/dt = t^2+\\sin(3t^2)$ and reads the piecewise $dy/dt$ from the graph.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\displaystyle\\int_0^2\\sqrt{(t^2+\\sin(3t^2))^2}\\,dt$ (omits $dy/dt$ term)",
+              "earned": false,
+              "commentary": "Omits the $dy/dt$ component; the full speed magnitude includes both $dx/dt$ and $dy/dt$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -157,6 +277,21 @@
           "point_id": "d3",
           "point_value": 1,
           "description": "Correct numerical answer (calculator required)",
+          "official_rubric": "1 point: correct numerical value from calculator",
+          "sample_responses": [
+            {
+              "response": "Calculator gives distance $\\approx$ [correct value consistent with integrand]",
+              "earned": true,
+              "commentary": "Correct numerical evaluation of the arc-length integral.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Distance $\\approx \\int_0^2 t^2\\,dt = 8/3 \\approx 2.667$ (ignores $\\sin$ and $dy/dt$ terms)",
+              "earned": false,
+              "commentary": "Severely simplifies the integrand; the full expression includes $\\sin(3t^2)$ and the $dy/dt$ term from the graph.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
