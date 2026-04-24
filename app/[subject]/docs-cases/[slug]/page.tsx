@@ -6,6 +6,7 @@ import path from 'path'
 import { getSubject } from '@/utils/subjects'
 import { hasDocsCases, kickerForItem, type DocsCasesData, type DocCaseItem } from '@/utils/docsCases'
 import { AdiQuizBlock } from '@/components/docs-cases/AdiQuizBlock'
+import { DocCaseSections } from '@/components/docs-cases/DocCaseSections'
 
 interface PageProps {
   params: Promise<{ subject: string; slug: string }>
@@ -198,6 +199,14 @@ export default async function DocCaseDetailPage({ params }: PageProps) {
         <MetaCell label="Exam appearance" value={item.exam_appearance} />
       </div>
 
+      {/* Structured breakdown (e.g. articles, amendments) */}
+      {item.sections && item.sections.length > 0 && (
+        <DocCaseSections
+          heading={sectionsHeading(item)}
+          sections={item.sections}
+        />
+      )}
+
       {/* Adi CTA block */}
       <AdiQuizBlock
         itemTitle={item.title}
@@ -206,6 +215,12 @@ export default async function DocCaseDetailPage({ params }: PageProps) {
       />
     </div>
   )
+}
+
+function sectionsHeading(item: DocCaseItem): string {
+  if (item.id === 'us-constitution') return 'Articles — what each one covers'
+  if (item.id === 'bill-of-rights') return 'Amendments — what each one protects'
+  return 'Breakdown'
 }
 
 function MetaCell({ label, value, valueNode }: { label: string; value?: string; valueNode?: React.ReactNode }) {

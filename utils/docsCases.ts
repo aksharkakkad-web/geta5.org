@@ -11,6 +11,13 @@ export interface DocCaseAdiPrompts {
   explain: string
 }
 
+export interface DocCaseSection {
+  label: string
+  title: string
+  blurb: string
+  adi_prompt?: string
+}
+
 export interface DocCaseItem {
   id: string
   type: DocCaseType
@@ -26,6 +33,7 @@ export interface DocCaseItem {
   paired_with: DocCasePairedWith[]
   constitutional_link?: string
   exam_appearance: string
+  sections?: DocCaseSection[]
   adi_prompts: DocCaseAdiPrompts
 }
 

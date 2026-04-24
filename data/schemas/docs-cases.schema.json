@@ -96,6 +96,33 @@
             "type": "string",
             "description": "Where/how this shows up on the AP exam (FRQ type, MCQ context, etc.)"
           },
+          "sections": {
+            "type": "array",
+            "description": "Optional structured breakdown (e.g. constitutional articles, amendments). Rendered as an expandable list on the detail page.",
+            "items": {
+              "type": "object",
+              "required": ["label", "title", "blurb"],
+              "properties": {
+                "label": {
+                  "type": "string",
+                  "description": "Short identifier, e.g. 'Article I', 'Amendment I'."
+                },
+                "title": {
+                  "type": "string",
+                  "description": "Plain-English title, e.g. 'Legislative Branch' or 'Freedom of Religion, Speech, Press, Assembly, Petition'."
+                },
+                "blurb": {
+                  "type": "string",
+                  "description": "1–3 sentence explanation in AP-student language."
+                },
+                "adi_prompt": {
+                  "type": "string",
+                  "description": "Optional pre-seeded Adi message for this specific section."
+                }
+              },
+              "additionalProperties": false
+            }
+          },
           "adi_prompts": {
             "type": "object",
             "required": ["quiz", "explain"],
