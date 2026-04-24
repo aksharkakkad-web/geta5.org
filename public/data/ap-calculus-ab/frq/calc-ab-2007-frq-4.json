@@ -25,8 +25,23 @@
       "scoring_points": [
         {
           "point_id": "a1",
-          "point_value": 1,
+          "point_value": 2,
           "description": "Correct derivative $x'(t) = e^{-t}(\\cos t - \\sin t)$ using product rule",
+          "official_rubric": "2 points: 1 point for correct $x'(t) = e^{-t}(\\cos t - \\sin t)$; 1 point for setting $x'(t) = 0$ to find candidates $t = \\frac{\\pi}{4}$ and $t = \\frac{5\\pi}{4}$.",
+          "sample_responses": [
+            {
+              "response": "$x'(t) = -e^{-t}\\sin t + e^{-t}\\cos t = e^{-t}(\\cos t - \\sin t)$. Setting $x'(t) = 0$: $\\cos t = \\sin t$, so $t = \\frac{\\pi}{4}$ and $t = \\frac{5\\pi}{4}$ on $[0, 2\\pi]$.",
+              "earned": true,
+              "commentary": "Product rule correctly applied; $e^{-t} > 0$ so only $\\cos t - \\sin t = 0$ matters, giving both critical points.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$x'(t) = e^{-t}(\\cos t + \\sin t)$",
+              "earned": false,
+              "commentary": "Sign error in product rule; the derivative of $\\sin t$ is $+\\cos t$ but the derivative of $e^{-t}$ is $-e^{-t}$, yielding $e^{-t}(\\cos t - \\sin t)$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -40,6 +55,15 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Sets $x'(t) = 0$ and finds $t = \\frac{5\\pi}{4}$ (and $t = \\frac{\\pi}{4}$) on $[0, 2\\pi]$",
+          "official_rubric": "1 point: correct identification of $t = \\frac{5\\pi}{4}$ as the answer with sign analysis showing $x' < 0$ before and $x' > 0$ after.",
+          "sample_responses": [
+            {
+              "response": "$x'(t) < 0$ for $\\frac{\\pi}{4} < t < \\frac{5\\pi}{4}$ and $x'(t) > 0$ for $\\frac{5\\pi}{4} < t < 2\\pi$, so $x$ has a local minimum at $t = \\frac{5\\pi}{4}$.",
+              "earned": true,
+              "commentary": "Sign chart of $\\cos t - \\sin t$ correctly determines $t = \\frac{5\\pi}{4}$ gives leftmost position.",
+              "source": "cb_guideline"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -53,6 +77,15 @@
           "point_id": "a3",
           "point_value": 1,
           "description": "Sign analysis or value comparison showing minimum (farthest left) at $t = \\frac{5\\pi}{4}$",
+          "official_rubric": "1 point: compares candidate values and concludes farthest left at $t = \\frac{5\\pi}{4}$.",
+          "sample_responses": [
+            {
+              "response": "$x(0) = 0$, $x(\\frac{5\\pi}{4}) = e^{-5\\pi/4}\\sin(\\frac{5\\pi}{4}) = -e^{-5\\pi/4}\\frac{\\sqrt{2}}{2} < 0$, $x(2\\pi) = 0$. The particle is farthest left at $t = \\frac{5\\pi}{4}$.",
+              "earned": true,
+              "commentary": "Checks all candidates (endpoints and interior critical points); $x(\\frac{5\\pi}{4})$ is the smallest value.",
+              "source": "cb_guideline"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -67,6 +100,21 @@
           "point_id": "a4",
           "point_value": 1,
           "description": "Correct conclusion: particle is farthest to the left at $t = \\frac{5\\pi}{4}$ with justification (also check endpoints)",
+          "official_rubric": "1 point: justification that $t = \\frac{5\\pi}{4}$ is the global minimum by comparing with endpoints; conclusion stated.",
+          "sample_responses": [
+            {
+              "response": "Since $x(\\frac{5\\pi}{4}) < x(0) = x(2\\pi) = 0$, the particle is farthest to the left at $t = \\frac{5\\pi}{4}$.",
+              "earned": true,
+              "commentary": "Explicitly compares all candidates; justification satisfies the requirement.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "The particle is farthest left at $t = \\frac{5\\pi}{4}$ because $x'$ is zero there.",
+              "earned": false,
+              "commentary": "$x' = 0$ alone shows a critical point, not a minimum; must verify sign change or compare values.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -94,6 +142,15 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Correct $x'(t) = e^{-t}(\\cos t - \\sin t)$",
+          "official_rubric": "2 points total for $x'(t)$ and $x''(t)$: 1 point each. $x''(t) = -2e^{-t}\\cos t$.",
+          "sample_responses": [
+            {
+              "response": "$x'(t) = e^{-t}(\\cos t - \\sin t)$",
+              "earned": true,
+              "commentary": "Correct first derivative by product rule.",
+              "source": "cb_guideline"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -106,6 +163,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct $x''(t)$",
+          "official_rubric": "1 point: $x''(t) = -2e^{-t}\\cos t$.",
+          "sample_responses": [
+            {
+              "response": "$x''(t) = -e^{-t}(\\cos t - \\sin t) + e^{-t}(-\\sin t - \\cos t) = -2e^{-t}\\cos t$",
+              "earned": true,
+              "commentary": "Differentiates $x'(t)=e^{-t}(\\cos t - \\sin t)$ by product rule; terms $\\sin t$ and $-\\sin t$ cancel.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$x''(t) = e^{-t}(-\\sin t - \\cos t)$",
+              "earned": false,
+              "commentary": "Forgot to apply product rule to $e^{-t}$; missing the $-e^{-t}(\\cos t - \\sin t)$ term.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -119,6 +191,15 @@
           "point_id": "b3",
           "point_value": 1,
           "description": "Substitutes $x$, $x'$, $x''$ into the equation $Ax'' + x' + x = 0$",
+          "official_rubric": "1 point: substitutes all three expressions into $Ax'' + x' + x = 0$.",
+          "sample_responses": [
+            {
+              "response": "$A(-2e^{-t}\\cos t) + e^{-t}(\\cos t - \\sin t) + e^{-t}\\sin t = 0$",
+              "earned": true,
+              "commentary": "All three functions correctly substituted; ready to simplify.",
+              "source": "cb_guideline"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -132,6 +213,15 @@
           "point_id": "b4",
           "point_value": 1,
           "description": "Simplifies correctly after dividing by $e^{-t}$",
+          "official_rubric": "1 point (combined with answer): simplifies to $(1-2A)\\cos t = 0$ for all $t$, hence $A = \\frac{1}{2}$.",
+          "sample_responses": [
+            {
+              "response": "Dividing by $e^{-t}$: $-2A\\cos t + \\cos t - \\sin t + \\sin t = 0 \\Rightarrow (1-2A)\\cos t = 0$ for all $t$.",
+              "earned": true,
+              "commentary": "$\\sin t$ terms cancel; factor $\\cos t$ shows coefficient must be zero.",
+              "source": "cb_guideline"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -146,6 +236,21 @@
           "point_id": "b5",
           "point_value": 1,
           "description": "Correct value $A = \\frac{1}{2}$",
+          "official_rubric": "1 point: $A = \\dfrac{1}{2}$.",
+          "sample_responses": [
+            {
+              "response": "$1 - 2A = 0 \\Rightarrow A = \\dfrac{1}{2}$",
+              "earned": true,
+              "commentary": "Coefficient of $\\cos t$ must be zero for the equation to hold for all $t$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$A = 2$",
+              "earned": false,
+              "commentary": "Algebraic error; $1 - 2A = 0$ gives $A = \\frac{1}{2}$, not $A = 2$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
