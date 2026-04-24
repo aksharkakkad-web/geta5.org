@@ -29,10 +29,25 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct difference quotient setup using adjacent table values",
+          "official_rubric": "1 point: approximation — $C'(3.5) \\approx \\dfrac{C(4)-C(3)}{4-3} = \\dfrac{12.8-11.2}{1} = 1.6$ ounces per minute",
+          "sample_responses": [
+            {
+              "response": "$C'(3.5) \\approx \\dfrac{C(4)-C(3)}{4-3} = \\dfrac{12.8-11.2}{1} = 1.6$ ounces per minute",
+              "earned": true,
+              "commentary": "Correctly uses the symmetric difference quotient with the two table values bracketing $t=3.5$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$C'(3.5) \\approx \\dfrac{C(5)-C(3)}{5-3} = \\dfrac{13.8-11.2}{2} = 1.3$ ounces per minute",
+              "earned": false,
+              "commentary": "Uses a wider interval spanning $t=3$ to $t=5$ rather than the adjacent pair $t=3$ to $t=4$ that brackets $t=3.5$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
-                "$C'(3.5) \\approx \\dfrac{C(4) - C(3)}{4 - 3} = \\dfrac{9 - 8}{1} = 1$"
+                "$C'(3.5) \\approx \\dfrac{C(4) - C(3)}{4 - 3} = \\dfrac{12.8 - 11.2}{1} = 1.6$"
               ]
             }
           ]
@@ -41,10 +56,25 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct answer with correct units",
+          "official_rubric": "1 point: units — ounces per minute",
+          "sample_responses": [
+            {
+              "response": "$C'(3.5) \\approx 1.6$ ounces per minute",
+              "earned": true,
+              "commentary": "Correct value with required units of ounces per minute.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$C'(3.5) \\approx 1.6$ ounces",
+              "earned": false,
+              "commentary": "Omits the 'per minute' denominator; the derivative represents a rate, so units must be ounces per minute.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
-                "$C'(3.5) \\approx 1$ ounce per minute"
+                "$C'(3.5) \\approx 1.6$ ounces per minute"
               ]
             }
           ]
@@ -62,11 +92,26 @@
         {
           "point_id": "b1",
           "point_value": 1,
-          "description": "Invokes the Mean Value Theorem with correct average rate of change",
+          "description": "Computes average rate of change on $[2,4]$ and invokes MVT",
+          "official_rubric": "1 point: $\\dfrac{C(4)-C(2)}{4-2} = \\dfrac{12.8-8.8}{2} = 2$ — uses this average rate of change",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{C(4)-C(2)}{4-2} = \\dfrac{12.8-8.8}{2} = 2$. Since $C$ is differentiable (hence continuous) on $[2,4]$, by the Mean Value Theorem there exists $t \\in (2,4)$ with $C'(t) = 2$.",
+              "earned": true,
+              "commentary": "Correctly computes the average rate of change equaling exactly 2, then invokes MVT to conclude the existence of a $t$ with $C'(t)=2$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$C(4) - C(2) = 12.8 - 8.8 = 4$ ounces, so gravel increased by 4 ounces in 2 minutes, averaging 2 oz/min.",
+              "earned": false,
+              "commentary": "Correctly computes the net change but does not invoke the MVT or conclude about the existence of a specific $t$ where $C'(t)=2$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
-                "By the Mean Value Theorem, since $C$ is differentiable on $[2, 4]$, there exists a $t$ in $(2, 4)$ such that $C'(t) = \\dfrac{C(4) - C(2)}{4 - 2} = \\dfrac{9 - 6}{2} = \\dfrac{3}{2}$"
+                "$\\dfrac{C(4)-C(2)}{4-2} = 2$"
               ]
             }
           ]
@@ -74,12 +119,26 @@
         {
           "point_id": "b2",
           "point_value": 1,
-          "description": "Correct conclusion: No, there need not be such a $t$ (MVT gives $3/2$, not $2$), or correctly argues from MVT",
+          "description": "Correct conclusion: Yes, by the MVT there is such a $t$",
+          "official_rubric": "1 point: conclusion, using MVT — therefore by the MVT there is at least one time $t$, $2 < t < 4$, for which $C'(t) = 2$",
+          "sample_responses": [
+            {
+              "response": "Yes. Since $C$ is differentiable, the MVT guarantees at least one $t \\in (2,4)$ where $C'(t) = \\frac{C(4)-C(2)}{4-2} = 2$.",
+              "earned": true,
+              "commentary": "Correctly concludes affirmatively using the MVT, citing differentiability as the hypothesis.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "No, because we cannot know the exact form of $C'$.",
+              "earned": false,
+              "commentary": "Incorrect conclusion; the MVT guarantees existence of such a $t$ since the average rate on $[2,4]$ is exactly 2 and $C$ is differentiable.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
-                "The average rate of change on $[2, 4]$ is $\\frac{3}{2} \\neq 2$, so the MVT does not guarantee $C'(t) = 2$ on this interval",
-                "Note: Since $C$ is differentiable and hence continuous, one must check whether $C'$ takes the value 2 — the average rate on $[2,4]$ is $3/2$, so there is no guaranteed $t$ with $C'(t) = 2$"
+                "Yes, by the MVT there exists $t \\in (2,4)$ such that $C'(t) = 2$"
               ]
             }
           ]
@@ -98,10 +157,25 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Correct midpoint sum setup with subinterval width 2 and midpoints $t = 1, 3, 5$",
+          "official_rubric": "1 point: midpoint sum — $\\frac{1}{6}[2 \\cdot C(1) + 2 \\cdot C(3) + 2 \\cdot C(5)] = \\frac{1}{6}(2\\cdot 5.3 + 2\\cdot 11.2 + 2\\cdot 13.8) = \\frac{1}{6}(60.6) = 10.1$ ounces",
+          "sample_responses": [
+            {
+              "response": "$\\frac{1}{6}\\left[2\\cdot C(1) + 2\\cdot C(3) + 2\\cdot C(5)\\right] = \\frac{1}{6}(2(5.3)+2(11.2)+2(13.8)) = \\frac{60.6}{6} = 10.1$ ounces",
+              "earned": true,
+              "commentary": "Correctly identifies three equal subintervals $[0,2],[2,4],[4,6]$ of width 2, uses midpoints $t=1,3,5$, and evaluates with the correct table values.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\frac{1}{6}\\left[C(0)+C(2)+C(4)+C(6)\\right] = \\frac{1}{6}(0+8.8+12.8+14.5)$ (trapezoidal, not midpoint)",
+              "earned": false,
+              "commentary": "Uses endpoint values rather than midpoint values; this is a trapezoidal approximation, not a midpoint sum.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
-                "$\\displaystyle\\int_0^6 C(t)\\,dt \\approx 2\\cdot C(1) + 2\\cdot C(3) + 2\\cdot C(5) = 2(4) + 2(8) + 2(10) = 8 + 16 + 20 = 44$ ounce-minutes"
+                "$\\frac{1}{6}[2\\cdot C(1) + 2\\cdot C(3) + 2\\cdot C(5)] = 10.1$ ounces"
               ]
             }
           ]
@@ -110,10 +184,25 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct average value approximation",
+          "official_rubric": "1 point: approximation — $\\approx 10.1$ ounces",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{1}{6}\\displaystyle\\int_0^6 C(t)\\,dt \\approx 10.1$ ounces",
+              "earned": true,
+              "commentary": "Correct numerical result from the midpoint sum.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\dfrac{1}{6}\\displaystyle\\int_0^6 C(t)\\,dt \\approx 7.333$ ounces",
+              "earned": false,
+              "commentary": "Incorrect value; likely used wrong table values in the midpoint sum.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
-                "$\\dfrac{1}{6}\\displaystyle\\int_0^6 C(t)\\,dt \\approx \\dfrac{44}{6} = \\dfrac{22}{3} \\approx 7.333$ ounces"
+                "$\\dfrac{1}{6}\\displaystyle\\int_0^6 C(t)\\,dt \\approx 10.1$ ounces"
               ]
             }
           ]
@@ -122,6 +211,21 @@
           "point_id": "c3",
           "point_value": 1,
           "description": "Correct contextual interpretation with correct units",
+          "official_rubric": "1 point: interpretation — $\\frac{1}{6}\\int_0^6 C(t)\\,dt$ is the average amount of coffee in the cup, in ounces, over the time interval $0 \\leq t \\leq 6$ minutes",
+          "sample_responses": [
+            {
+              "response": "$\\frac{1}{6}\\int_0^6 C(t)\\,dt$ represents the average amount of coffee in the cup, in ounces, over the 6-minute time interval.",
+              "earned": true,
+              "commentary": "Correctly identifies the expression as an average value and states the units (ounces) and interval.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "It is the total coffee produced over 6 minutes.",
+              "earned": false,
+              "commentary": "Describes the integral $\\int_0^6 C(t)\\,dt$ (total), not the average value; the $\\frac{1}{6}$ factor makes it the average.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -144,6 +248,21 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Correct derivative $B'(t)$",
+          "official_rubric": "1 point: $B'(t) = -16(-0.4)e^{-0.4t} = 6.4e^{-0.4t}$",
+          "sample_responses": [
+            {
+              "response": "$B'(t) = -16 \\cdot (-0.4)e^{-0.4t} = 6.4e^{-0.4t}$",
+              "earned": true,
+              "commentary": "Correctly differentiates $B(t) = 16 - 16e^{-0.4t}$ using the chain rule.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$B'(t) = -16e^{-0.4t}$",
+              "earned": false,
+              "commentary": "Forgot to apply the chain rule; omits the factor $-0.4$ from differentiating the exponent $-0.4t$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -156,6 +275,21 @@
           "point_id": "d2",
           "point_value": 1,
           "description": "Correct numerical answer with units",
+          "official_rubric": "1 point: $B'(5) = 6.4e^{-0.4(5)} = \\dfrac{6.4}{e^2}$ ounces per minute",
+          "sample_responses": [
+            {
+              "response": "$B'(5) = 6.4e^{-2} = \\dfrac{6.4}{e^2}$ ounces per minute",
+              "earned": true,
+              "commentary": "Correct evaluation with exact form; decimal approximation $\\approx 0.865$ ounces per minute is also accepted.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$B'(5) = 6.4e^{0.4 \\cdot 5} = 6.4e^2 \\approx 47.2$ ounces per minute",
+              "earned": false,
+              "commentary": "Sign error in the exponent; $e^{-0.4t}$ evaluated at $t=5$ gives $e^{-2}$, not $e^2$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
