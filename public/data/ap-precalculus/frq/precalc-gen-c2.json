@@ -31,7 +31,28 @@
             }
           ],
           "wrong_examples": ["$a + b(1) = 12.0$ and $a + b(25) = 28.7$ (used $d$ instead of $\\ln(d)$)", "Writing only one equation"],
-          "common_traps": ["$\\ln(1) = 0$, so the first equation immediately gives $a = 12.0$ — this simplification is key"]
+          "common_traps": ["$\\ln(1) = 0$, so the first equation immediately gives $a = 12.0$ — this simplification is key"],
+          "official_rubric": "The point is earned for two correct equations using $d = 1$ and $d = 25$: $a = 12.0$ (from $\\ln(1) = 0$) and $12 + b\\ln(25) = 28.7$. Using $d$ directly instead of $\\ln(d)$ in the model does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$T(1) = a + b\\ln(1) = a + 0 = a = 12.0$; $T(25) = 12 + b\\ln(25) = 28.7$",
+              "earned": true,
+              "commentary": "Correctly substitutes both data points into the model, applies $\\ln(1) = 0$ to determine $a = 12.0$, and writes the second equation with $\\ln(25)$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$a + b(1) = 12.0$ and $a + b(25) = 28.7$",
+              "earned": false,
+              "commentary": "Uses $d$ directly instead of $\\ln(d)$, treating the model as linear rather than logarithmic. The model is $T(d) = a + b\\ln(d)$, not $T(d) = a + bd$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$a = 12.0$; $12 + b\\ln(25) = 28.7$",
+              "earned": true,
+              "commentary": "Valid alternate form — states $a = 12.0$ directly (implied by $\\ln(1) = 0$) and writes the correct second equation. Both required equations are present.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "a2",
@@ -44,7 +65,28 @@
             }
           ],
           "wrong_examples": ["$b = 16.7/25 = 0.668$ (used $d$ instead of $\\ln(d)$ in denominator)", "$b = 5.19$ (decimal presentation error — not 3 decimal places)"],
-          "common_traps": ["Decimal presentation: $b$ must be given to at least 3 decimal places — $5.189$, not $5.19$"]
+          "common_traps": ["Decimal presentation: $b$ must be given to at least 3 decimal places — $5.189$, not $5.19$"],
+          "official_rubric": "The point is earned for $a = 12.0$ and $b \\approx 5.189$ (accept $[5.18, 5.20]$) with supporting work showing the division $b = 16.7/\\ln(25)$. Using $d = 25$ in the denominator instead of $\\ln(25)$ or reporting fewer than three decimal places does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$12 + b\\ln(25) = 28.7 \\Rightarrow b\\ln(25) = 16.7 \\Rightarrow b = \\frac{16.7}{\\ln(25)} = \\frac{16.7}{3.2189} \\approx 5.189$",
+              "earned": true,
+              "commentary": "Isolates $b\\ln(25)$, substitutes $\\ln(25) \\approx 3.2189$, and divides to obtain $b \\approx 5.189$ to three decimal places.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$b = \\frac{16.7}{25} = 0.668$",
+              "earned": false,
+              "commentary": "Divides by $d = 25$ instead of $\\ln(25)$. The model uses $\\ln(d)$, so the coefficient $b$ is obtained by dividing by $\\ln(25)$, not $25$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$b = 16.7 / 3.2189 \\approx 5.19$",
+              "earned": false,
+              "commentary": "Sets up the division correctly but reports $b$ to only two decimal places. Three decimal places are required; the correct value is $b \\approx 5.189$.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     },
@@ -67,7 +109,22 @@
             }
           ],
           "wrong_examples": ["$T(50) = 12 + 5.189 \\cdot 50 \\approx 271.5$ (used $d$ instead of $\\ln(d)$)", "Not showing the substitution step"],
-          "common_traps": ["The model uses $\\ln(d)$, not $d$ — substituting $50$ directly without taking $\\ln$ gives a completely wrong answer"]
+          "common_traps": ["The model uses $\\ln(d)$, not $d$ — substituting $50$ directly without taking $\\ln$ gives a completely wrong answer"],
+          "official_rubric": "The point is earned for the correct prediction $T(50) \\approx 32.30$°C (accept $[32.2, 32.4]$) with supporting work showing substitution of $d = 50$ into $T(d) = 12 + 5.189\\ln(d)$. Using $d = 50$ directly in the model (without the logarithm) does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$T(50) = 12 + 5.189\\ln(50) = 12 + 5.189 \\cdot 3.912 \\approx 12 + 20.30 \\approx 32.30$°C",
+              "earned": true,
+              "commentary": "Correctly substitutes $d = 50$, computes $\\ln(50) \\approx 3.912$, multiplies by $b = 5.189$, and adds the intercept to arrive at $32.30$°C.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$T(50) = 12 + 5.189 \\cdot 50 = 12 + 259.45 \\approx 271.5$°C",
+              "earned": false,
+              "commentary": "Multiplies $b$ by $d = 50$ instead of $\\ln(50)$. The model is logarithmic: $T(d) = 12 + 5.189\\ln(d)$.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "b2",
@@ -80,7 +137,22 @@
             }
           ],
           "wrong_examples": ["$d = 18/5.189 \\approx 3.469$ (forgot to take $e^{3.469}$)", "$d = 30/5.189$ (did not subtract $12$ first)"],
-          "common_traps": ["Two steps required: (1) isolate $\\ln(d)$ by dividing by $b$, (2) convert to exponential form $d = e^{\\text{result}}$"]
+          "common_traps": ["Two steps required: (1) isolate $\\ln(d)$ by dividing by $b$, (2) convert to exponential form $d = e^{\\text{result}}$"],
+          "official_rubric": "The point is earned for the correct depth $d \\approx 32.1$ meters (accept $[31.5, 32.7]$) with supporting work showing both the isolation of $\\ln(d)$ and the exponential conversion. Reporting $d = 3.469$ (the $\\ln$ value) without converting to $e^{3.469}$ does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$12 + 5.189\\ln(d) = 30 \\Rightarrow 5.189\\ln(d) = 18 \\Rightarrow \\ln(d) = 18/5.189 \\approx 3.469 \\Rightarrow d = e^{3.469} \\approx 32.1$ meters",
+              "earned": true,
+              "commentary": "Subtracts the intercept, divides by $b$ to isolate $\\ln(d)$, and converts to exponential form $d = e^{3.469}$, arriving at the correct depth.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$5.189\\ln(d) = 18 \\Rightarrow \\ln(d) \\approx 3.469 \\Rightarrow d \\approx 3.469$ meters",
+              "earned": false,
+              "commentary": "Correctly isolates $\\ln(d)$ but reports the value of $\\ln(d)$ as the depth. The conversion $d = e^{\\ln(d)}$ is required; $d \\approx e^{3.469} \\approx 32.1$, not $3.469$.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     },
@@ -103,7 +175,28 @@
             }
           ],
           "wrong_examples": ["'Overestimates' — incorrect; $18.12 < 22.6$, so the linear model gives a lower temperature than actual", "Not comparing to the actual data value $22.6$°C"],
-          "common_traps": ["Underestimate means the model predicts LESS than reality; $T_L(9) = 18.12 < 22.6 = T(9)$, so the linear model underestimates"]
+          "common_traps": ["Underestimate means the model predicts LESS than reality; $T_L(9) = 18.12 < 22.6 = T(9)$, so the linear model underestimates"],
+          "official_rubric": "The point is earned for the correct computation $T_L(9) = 18.12$°C and the explicit conclusion that the linear model underestimates, supported by comparing $18.12 < 22.6$. Stating 'overestimates' or not comparing to the actual data value does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$T_L(9) = 12 + 0.68(9) = 12 + 6.12 = 18.12$°C. Since $18.12 < 22.6$, the linear model underestimates the actual temperature at $d = 9$ meters.",
+              "earned": true,
+              "commentary": "Correctly evaluates the linear model at $d = 9$, compares to the data value $22.6$°C, and draws the right conclusion that the model underestimates.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$T_L(9) = 18.12$°C — the linear model overestimates.",
+              "earned": false,
+              "commentary": "Computes the correct $T_L(9)$ value but draws the wrong conclusion. Since $18.12 < 22.6$, the model predicts less than reality, which is an underestimate.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$T_L(9) = 12 + 0.68(9) = 18.12$°C, while the actual value is $22.6$°C, so the linear model underestimates by $4.48$°C.",
+              "earned": true,
+              "commentary": "Valid alternate form — computes $T_L(9)$, references the actual data value, and correctly identifies the underestimate (with the optional magnitude).",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "c2",
@@ -116,7 +209,28 @@
             }
           ],
           "wrong_examples": ["$d > 13/5.189 \\approx 2.506$ (forgot to take $e$)", "Giving a specific value instead of an interval ($d > 12.26$, not $d = 12.26$)"],
-          "common_traps": ["The answer is an inequality $d > 12.26$ because we are solving $T(d) > 25$, not $T(d) = 25$ — express as a range"]
+          "common_traps": ["The answer is an inequality $d > 12.26$ because we are solving $T(d) > 25$, not $T(d) = 25$ — express as a range"],
+          "official_rubric": "The point is earned for the correct depth range $d > 12.26$ meters (accept $[12.1, 12.4]$) with supporting work showing the inequality setup and the exponential conversion. Reporting only a specific value $d = 12.26$ without the inequality sign, or forgetting to convert from $\\ln(d)$ to $d$, does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$12 + 5.189\\ln(d) > 25 \\Rightarrow 5.189\\ln(d) > 13 \\Rightarrow \\ln(d) > 13/5.189 \\approx 2.506 \\Rightarrow d > e^{2.506} \\approx 12.26$ meters",
+              "earned": true,
+              "commentary": "Correctly maintains the inequality direction throughout, isolates $\\ln(d)$, and converts to exponential form to express the solution as $d > 12.26$ meters.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\ln(d) > 2.506 \\Rightarrow d > 2.506$ meters",
+              "earned": false,
+              "commentary": "Correctly isolates $\\ln(d)$ but reports the $\\ln(d)$ value as the depth. The conversion $d = e^{2.506} \\approx 12.26$ must be applied.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$d = e^{2.506} \\approx 12.26$ meters",
+              "earned": false,
+              "commentary": "Finds the threshold depth correctly but drops the inequality sign. The problem asks for the range where $T(d) > 25$, so the answer must be $d > 12.26$, not $d = 12.26$.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     }
