@@ -30,6 +30,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct integral setup for area",
+          "official_rubric": "1 point: Area $= \\int_0^1(xe^{x^2}+2x)\\,dx$",
+          "sample_responses": [
+            {
+              "response": "On $[0,1]$, $xe^{x^2} \\geq 0 \\geq -2x$. Area $= \\displaystyle\\int_0^1\\left(xe^{x^2}-(-2x)\\right)dx = \\int_0^1\\left(xe^{x^2}+2x\\right)dx$",
+              "earned": true,
+              "commentary": "Correctly identifies the top curve ($xe^{x^2}$), bottom curve ($-2x$), and integrates their difference from $x=0$ to $x=1$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Area $= \\displaystyle\\int_0^1 xe^{x^2}\\,dx$ (ignores the $y = -2x$ boundary)",
+              "earned": false,
+              "commentary": "Only integrates $xe^{x^2}$, omitting the bottom boundary $y = -2x$. The area between the curves requires the difference: top minus bottom.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -42,6 +57,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct antiderivative",
+          "official_rubric": "1 point: $\\int xe^{x^2}\\,dx = \\frac{1}{2}e^{x^2}$ via substitution $u = x^2$",
+          "sample_responses": [
+            {
+              "response": "Let $u = x^2$, $du = 2x\\,dx$: $\\displaystyle\\int xe^{x^2}\\,dx = \\frac{1}{2}\\int e^u\\,du = \\frac{1}{2}e^{x^2}$. So $\\int_0^1 xe^{x^2}\\,dx = \\frac{1}{2}(e^1 - e^0) = \\frac{1}{2}(e-1)$.",
+              "earned": true,
+              "commentary": "$u$-substitution correctly transforms the integral into $\\frac{1}{2}\\int e^u\\,du$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\displaystyle\\int xe^{x^2}\\,dx = xe^{x^2}$ (no substitution)",
+              "earned": false,
+              "commentary": "Incorrectly treats $e^{x^2}$ as if $x$ were a constant multiplier. The chain rule means $\\frac{d}{dx}e^{x^2} = 2xe^{x^2}$, so $\\int xe^{x^2}\\,dx = \\frac{1}{2}e^{x^2}$, not $xe^{x^2}$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -54,6 +84,21 @@
           "point_id": "a3",
           "point_value": 1,
           "description": "Correct numerical answer",
+          "official_rubric": "1 point: Area $= \\frac{e+1}{2}$",
+          "sample_responses": [
+            {
+              "response": "Area $= \\frac{1}{2}(e-1) + 1 = \\frac{e-1}{2} + \\frac{2}{2} = \\dfrac{e+1}{2}$",
+              "earned": true,
+              "commentary": "Correctly combines the two integral results and simplifies to the exact answer.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Area $= \\frac{1}{2}(e-1) + 1 = \\frac{e+1}{2} \\approx 1.86$ but writes $\\frac{e-1}{2}+1 = \\frac{e+1}{2}$... wait, student writes Area $= \\frac{e-1}{2}$ (forgets the $+1$ from $\\int_0^1 2x\\,dx$)",
+              "earned": false,
+              "commentary": "Omits the contribution $\\int_0^1 2x\\,dx = 1$ from the $y = -2x$ boundary, leaving the answer as $\\frac{e-1}{2}$ instead of $\\frac{e+1}{2}$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -76,6 +121,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Correct washer method setup",
+          "official_rubric": "1 point: $V = \\pi\\int_0^1\\left[(xe^{x^2}+2)^2-(2-2x)^2\\right]dx$",
+          "sample_responses": [
+            {
+              "response": "$V = \\pi\\displaystyle\\int_0^1\\left[(xe^{x^2}+2)^2-(2-2x)^2\\right]dx$ (washer method about $y=-2$)",
+              "earned": true,
+              "commentary": "Correctly applies the washer method with $R^2 - r^2$ where $R$ is the outer radius from the top curve to the axis and $r$ is the inner radius from the bottom curve to the axis.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$V = \\pi\\displaystyle\\int_0^1\\left[(xe^{x^2})^2-(-2x)^2\\right]dx$ (measures radii from $y=0$, not $y=-2$)",
+              "earned": false,
+              "commentary": "Computes radii from $y = 0$ rather than from the axis $y = -2$. The outer radius must be $|y_{\\text{top}} - y_{\\text{axis}}| = xe^{x^2} - (-2) = xe^{x^2}+2$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -88,6 +148,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct outer radius expression",
+          "official_rubric": "1 point: outer radius $= xe^{x^2}+2$",
+          "sample_responses": [
+            {
+              "response": "Outer radius: distance from $y = xe^{x^2}$ to $y = -2$ is $xe^{x^2} - (-2) = xe^{x^2}+2$",
+              "earned": true,
+              "commentary": "Correctly computes the perpendicular distance from the top curve to the axis of rotation.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Outer radius $= xe^{x^2}$ (forgets to add $2$ for the shift)",
+              "earned": false,
+              "commentary": "Measures the outer radius from $y = 0$ instead of from the axis $y = -2$. The distance is $xe^{x^2} - (-2) = xe^{x^2}+2$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -100,6 +175,21 @@
           "point_id": "b3",
           "point_value": 1,
           "description": "Correct inner radius expression",
+          "official_rubric": "1 point: inner radius $= 2 - 2x$",
+          "sample_responses": [
+            {
+              "response": "Inner radius: distance from $y = -2x$ to $y = -2$ is $-2x - (-2) = 2-2x$",
+              "earned": true,
+              "commentary": "On $[0,1]$, $-2x \\geq -2$, so the inner radius is $-2x - (-2) = 2 - 2x \\geq 0$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Inner radius $= 2x - 2 = 2(x-1)$ (reversed sign)",
+              "earned": false,
+              "commentary": "Reverses the subtraction order. On $[0,1]$, $-2x \\geq -2$, so the inner radius is $(-2x) - (-2) = 2-2x$, not $2x-2$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -122,6 +212,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Correct arc length integral for $y = xe^{x^2}$",
+          "official_rubric": "1 point: arc length of $y = xe^{x^2}$: $\\int_0^1\\sqrt{1+(e^{x^2}+2x^2 e^{x^2})^2}\\,dx$",
+          "sample_responses": [
+            {
+              "response": "$y' = e^{x^2} + x\\cdot 2xe^{x^2} = e^{x^2}(1+2x^2)$. Arc length $= \\displaystyle\\int_0^1\\sqrt{1+[e^{x^2}(1+2x^2)]^2}\\,dx$",
+              "earned": true,
+              "commentary": "Correctly differentiates $xe^{x^2}$ via the product rule and substitutes into the arc length formula $\\int\\sqrt{1+(y')^2}\\,dx$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Arc length $= \\displaystyle\\int_0^1\\sqrt{1+(xe^{x^2})^2}\\,dx$ (uses $y$ instead of $y'$)",
+              "earned": false,
+              "commentary": "Uses the function $xe^{x^2}$ instead of its derivative $(e^{x^2}+2x^2e^{x^2})$ in the arc length integrand.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -134,6 +239,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct length of the segment along $y = -2x$",
+          "official_rubric": "1 point: length of segment from $(0,0)$ to $(1,-2)$ is $\\sqrt{5}$",
+          "sample_responses": [
+            {
+              "response": "Segment from $(0,0)$ to $(1,-2)$ (the line $y=-2x$): length $= \\sqrt{1^2+(-2)^2} = \\sqrt{5}$",
+              "earned": true,
+              "commentary": "Uses the distance formula or recognizes the line segment has slope $-2$ over a run of $1$, giving length $\\sqrt{5}$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Length of $y = -2x$: $\\displaystyle\\int_0^1\\sqrt{1+4}\\,dx = \\sqrt{5}$ (also correct via arc length formula since slope is constant)",
+              "earned": true,
+              "commentary": "Equivalent approach using the arc length formula for a straight line; $\\sqrt{1+(-2)^2} = \\sqrt{5}$ constant, so integral $= \\sqrt{5}$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -146,6 +266,21 @@
           "point_id": "c3",
           "point_value": 1,
           "description": "Correct vertical segment length at $x = 1$",
+          "official_rubric": "1 point: vertical segment length $= e+2$; total perimeter $= \\int_0^1\\sqrt{1+(e^{x^2}+2x^2e^{x^2})^2}\\,dx + \\sqrt{5} + (e+2)$",
+          "sample_responses": [
+            {
+              "response": "Vertical segment at $x=1$: from $y = -2(1) = -2$ to $y = 1\\cdot e^1 = e$; length $= e-(-2) = e+2$. Perimeter $= \\displaystyle\\int_0^1\\sqrt{1+(e^{x^2}+2x^2e^{x^2})^2}\\,dx + \\sqrt{5} + (e+2)$",
+              "earned": true,
+              "commentary": "Correctly identifies the vertical segment endpoints at $x=1$ (bottom at $y=-2$, top at $y=e$) and assembles all three boundary pieces.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Vertical segment length $= e - 0 = e$ (uses $y=0$ instead of $y=-2$ as bottom)",
+              "earned": false,
+              "commentary": "The bottom of the vertical segment is at $y = -2x\\big|_{x=1} = -2$, not $y=0$. The length is $e-(-2) = e+2$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
