@@ -31,7 +31,28 @@
             }
           ],
           "wrong_examples": ["$a = 30$ with $c = 0$ — gives $H(0) = 30\\sin(0) + 35 = 35$ (midline, not minimum)", "$d = 0$ (forgetting the vertical shift — center is 35 m above ground)", "$b = 2$ (forgetting the $2\\pi$ in the period formula)"],
-          "common_traps": ["Since the passenger starts at the lowest point, the function must give its minimum at $t = 0$ — this requires either $a < 0$ (with appropriate $c$) or $a > 0$ with a phase shift"]
+          "common_traps": ["Since the passenger starts at the lowest point, the function must give its minimum at $t = 0$ — this requires either $a < 0$ (with appropriate $c$) or $a > 0$ with a phase shift"],
+          "official_rubric": "The point is earned for correct parameter values satisfying $|a| = 30$, $d = 35$, $b = \\frac{\\pi}{2}$, and a phase shift $c$ consistent with $H(0) = 5$ (the minimum). Acceptable forms include $H(t) = -30\\sin(\\frac{\\pi}{2}(t+1)) + 35$ and $H(t) = 30\\sin(\\frac{\\pi}{2}(t-1)) + 35$. A function that gives $H(0) = 35$ (midline) rather than $H(0) = 5$ (minimum) does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "Amplitude $= 30$, midline $= 35$, period $= 4 \\Rightarrow b = \\frac{2\\pi}{4} = \\frac{\\pi}{2}$. Passenger starts at minimum, so $a = -30$ and $H(0) = -30\\sin(\\frac{\\pi}{2}(0+1)) + 35 = -30 + 35 = 5$ ✓. Thus $H(t) = -30\\sin\\!\\left(\\frac{\\pi}{2}(t+1)\\right) + 35$.",
+              "earned": true,
+              "commentary": "Correctly identifies all four parameters and verifies that $H(0) = 5$ (the minimum) matches the boarding condition.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$H(t) = 30\\sin\\!\\left(\\frac{\\pi}{2}(t-1)\\right) + 35$",
+              "earned": true,
+              "commentary": "Valid alternate parameterization with positive amplitude and a phase shift of $-1$. Verification: $H(0) = 30\\sin(-\\pi/2) + 35 = -30 + 35 = 5$ ✓.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$H(t) = 30\\sin\\!\\left(\\frac{\\pi}{2}t\\right) + 35$",
+              "earned": false,
+              "commentary": "Gives $H(0) = 30\\sin(0) + 35 = 35$ (midline), not $5$ (minimum). The phase shift is missing — the passenger boards at the lowest point, not the midline.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "a2",
@@ -44,7 +65,22 @@
             }
           ],
           "wrong_examples": ["$H(1) = 65$ m (maximum height — incorrect for $t = 1$)", "$H(1) = 5$ m (minimum height — that is $t = 0$)"],
-          "common_traps": ["At $t = 1$ the passenger is at the midline height (halfway up), not at the maximum — $\\sin(\\pi) = 0$, so $H = d = 35$ m"]
+          "common_traps": ["At $t = 1$ the passenger is at the midline height (halfway up), not at the maximum — $\\sin(\\pi) = 0$, so $H = d = 35$ m"],
+          "official_rubric": "The point is earned for the correct height $H(1) = 35$ meters with supporting work showing substitution of $t = 1$ into the function. A response that claims $H(1) = 65$ m (maximum) or $H(1) = 5$ m (minimum) does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$H(1) = -30\\sin\\!\\left(\\frac{\\pi}{2}(1+1)\\right) + 35 = -30\\sin(\\pi) + 35 = -30(0) + 35 = 35$ meters",
+              "earned": true,
+              "commentary": "Correctly substitutes $t = 1$ into the function, evaluates $\\sin(\\pi) = 0$, and arrives at $H(1) = 35$ m (the midline — the passenger is halfway up at $t = 1$).",
+              "source": "synthesized"
+            },
+            {
+              "response": "$H(1) = 65$ m (maximum height)",
+              "earned": false,
+              "commentary": "Incorrectly claims the passenger is at the maximum at $t = 1$. The maximum ($65$ m) occurs at $t = 2$; at $t = 1$ the passenger is at the midline ($35$ m).",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     },
@@ -67,7 +103,28 @@
             }
           ],
           "wrong_examples": ["Only $t = 1, 3, 5$ (missing the second and third revolution values)", "Including $t = 0$ or $t = 12$ (not in the open interval $(0, 12)$)"],
-          "common_traps": ["There are two midline crossings per revolution and three full revolutions in 12 minutes — six total midline crossings in $(0, 12)$"]
+          "common_traps": ["There are two midline crossings per revolution and three full revolutions in 12 minutes — six total midline crossings in $(0, 12)$"],
+          "official_rubric": "The point is earned for all six correct exact values $t = 1, 3, 5, 7, 9, 11$ with no incorrect values. Missing any of the six or including $t = 0$ or $t = 12$ (endpoints excluded from the open interval) does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$H = 35 \\Rightarrow \\sin\\!\\left(\\frac{\\pi}{2}(t+1)\\right) = 0 \\Rightarrow \\frac{\\pi}{2}(t+1) = k\\pi \\Rightarrow t + 1 = 2k \\Rightarrow t = 1, 3, 5, 7, 9, 11$",
+              "earned": true,
+              "commentary": "Correctly sets $H = 35$ (midline), solves the trigonometric equation for all values in the open interval $(0, 12)$, and lists all six crossings.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$t = 1, 3, 5$ (one revolution's crossings per period, three periods counted)",
+              "earned": false,
+              "commentary": "Lists only the crossings from the first half-revolution's rise. There are two midline crossings per full revolution (one ascending, one descending), so three full revolutions give six crossings.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$t = 0, 1, 3, 5, 7, 9, 11, 12$",
+              "earned": false,
+              "commentary": "Includes $t = 0$ and $t = 12$, which are excluded from the open interval $(0, 12)$. The problem specifies $0 < t < 12$.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "b2",
@@ -80,7 +137,28 @@
             }
           ],
           "wrong_examples": ["'Negative' — incorrect; the passenger starts at the lowest point and moves upward", "'Positive because the Ferris wheel rotates' — not a mathematical justification"],
-          "common_traps": ["The passenger boards at the minimum ($t = 0$, $H = 5$ m) and moves toward the midline at $t = 1$ ($H = 35$ m) — height is increasing, so rate of change is positive"]
+          "common_traps": ["The passenger boards at the minimum ($t = 0$, $H = 5$ m) and moves toward the midline at $t = 1$ ($H = 35$ m) — height is increasing, so rate of change is positive"],
+          "official_rubric": "The point is earned for correctly stating the rate of change is positive with a justification that $H$ is increasing on $(0, 1)$ because the passenger rises from the minimum to the midline. A vague justification without referencing the increasing height does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "Positive. On $(0, 1)$, the passenger rises from $H(0) = 5$ m (minimum) to $H(1) = 35$ m (midline), so $H$ is increasing and its rate of change is positive.",
+              "earned": true,
+              "commentary": "Clearly states the direction (positive), justifies with specific height values showing $H$ increases from minimum to midline, satisfying the required justification.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Negative, because the Ferris wheel is spinning down.",
+              "earned": false,
+              "commentary": "Incorrect — the passenger boards at the lowest point and moves upward during $(0, 1)$, so the height is increasing and the rate of change is positive.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Positive, because the Ferris wheel is rotating.",
+              "earned": false,
+              "commentary": "States the correct answer but the justification does not reference the graph or the increasing height. The reasoning must show that $H$ increases on $(0, 1)$.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     },
@@ -103,7 +181,22 @@
             }
           ],
           "wrong_examples": ["(b) positive and decreasing — incorrect, $H$ increases from min to max on $(0, 2)$", "(c) or (d) negative — incorrect, minimum height is $5 > 0$"],
-          "common_traps": ["If both a letter choice and a written description are given, the written description is scored — ensure the written description matches choice (a)"]
+          "common_traps": ["If both a letter choice and a written description are given, the written description is scored — ensure the written description matches choice (a)"],
+          "official_rubric": "The point is earned for selecting choice (a) — $H$ is positive and increasing on $(0, 2)$. The minimum height is $5 > 0$ (always positive) and the passenger rises monotonically from $5$ m to $65$ m on this interval (always increasing).",
+          "sample_responses": [
+            {
+              "response": "(a) — $H$ is positive and increasing. On $(0, 2)$, the passenger rises from $5$ m (minimum) through $35$ m (midline) to $65$ m (maximum), so $H > 0$ throughout and strictly increases.",
+              "earned": true,
+              "commentary": "Correctly selects (a) and justifies both the positive sign (minimum height is $5 > 0$) and the increasing behavior (monotone rise from min to max over one half-period).",
+              "source": "synthesized"
+            },
+            {
+              "response": "(b) — $H$ is positive and decreasing.",
+              "earned": false,
+              "commentary": "Incorrectly identifies the behavior as decreasing. On $(0, 2)$ the passenger moves from the minimum to the maximum, so $H$ is strictly increasing.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "c2",
@@ -116,7 +209,22 @@
             }
           ],
           "wrong_examples": ["Solving for intersections without showing the equal-height equation", "Stating 'no solution exists' without justification"],
-          "common_traps": ["An exact closed-form solution does not exist — numerical or graphical methods are required and expected; showing the equation setup earns partial credit even without a precise numerical answer"]
+          "common_traps": ["An exact closed-form solution does not exist — numerical or graphical methods are required and expected; showing the equation setup earns partial credit even without a precise numerical answer"],
+          "official_rubric": "The point is earned for setting up $H(t) = H_2(t)$ and finding the first positive intersection $t \\approx 0.85$ minutes (accept $[0.80, 0.90]$) by numerical or graphical methods. A response that states 'no solution' without supporting verification does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "Setting $-30\\sin\\!\\left(\\frac{\\pi}{2}(t+1)\\right) + 35 = 20\\sin\\!\\left(\\frac{\\pi}{3}(t-1.5)\\right) + 40$. At $t = 0$: $H = 5$, $H_2 = 20\\sin(-\\pi/2) + 40 = 20$. At $t = 1$: $H = 35$, $H_2 = 20\\sin(-\\pi/6) + 40 = 30$. Since $H(0) < H_2(0)$ and $H(1) > H_2(1)$, by IVT there is a crossing near $t \\approx 0.85$.",
+              "earned": true,
+              "commentary": "Correctly sets up the equal-height equation, evaluates both functions at boundary points to locate the sign change, and uses the IVT to confirm a crossing near $t \\approx 0.85$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$H(t) = H_2(t)$ — no closed-form solution exists.",
+              "earned": false,
+              "commentary": "Sets up the equation but does not attempt a numerical or graphical solution. A specific approximate value for $t$ is required to earn the point.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     }
