@@ -27,6 +27,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct value of $G'(5)$",
+          "official_rubric": "1 point: $G'(5) = -24.588$ (or $-24.587$)",
+          "sample_responses": [
+            {
+              "response": "$G'(t) = 45 \\cdot \\left(-\\sin\\!\\left(\\frac{t^2}{18}\\right)\\right) \\cdot \\frac{2t}{18}$, so $G'(5) = -5t\\sin\\!\\left(\\frac{t^2}{18}\\right)\\Big|_{t=5} \\approx -24.588$ tons per hour per hour.",
+              "earned": true,
+              "commentary": "Correctly differentiates $G(t)$ using the chain rule and evaluates at $t = 5$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$G'(5) = 45 \\cdot \\left(-\\sin\\!\\left(\\frac{25}{18}\\right)\\right) = -24.588$",
+              "earned": false,
+              "commentary": "Forgot the factor $\\frac{2t}{18}$ from the chain rule; the constant 45 alone does not produce the correct value.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -39,6 +54,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct interpretation with correct units (tons per hour per hour)",
+          "official_rubric": "1 point: interpretation with units — the rate at which gravel is arriving is decreasing by 24.588 (or 24.587) tons per hour per hour at time $t = 5$ hours.",
+          "sample_responses": [
+            {
+              "response": "At $t = 5$ hours, the rate at which unprocessed gravel arrives at the plant is decreasing at approximately $24.588$ tons per hour per hour.",
+              "earned": true,
+              "commentary": "States the quantity is the rate of change of the arrival rate, gives correct sign interpretation, and includes units of tons per hour per hour.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "At $t = 5$, gravel is arriving at $-24.588$ tons per hour.",
+              "earned": false,
+              "commentary": "Misidentifies the quantity — $G'(5)$ is the rate of change of the arrival rate, not the arrival rate itself. Units are also wrong (should be tons per hour per hour).",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -62,6 +92,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Correct integral setup for total gravel arriving",
+          "official_rubric": "1 point: integral $\\int_0^8 G(t)\\,dt$",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^8 G(t)\\,dt = \\int_0^8 \\left(90 + 45\\cos\\!\\left(\\frac{t^2}{18}\\right)\\right)dt$",
+              "earned": true,
+              "commentary": "Correctly sets up the definite integral of the arrival rate over the full workday $[0, 8]$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\displaystyle\\int_0^8 (G(t) - 100)\\,dt$",
+              "earned": false,
+              "commentary": "This computes net change in gravel stockpile, not total arrivals. The problem asks only for total arriving gravel.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -74,6 +119,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct numerical answer",
+          "official_rubric": "1 point: answer $= 825.551$ tons",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^8 G(t)\\,dt \\approx 825.551$ tons",
+              "earned": true,
+              "commentary": "Correct numerical evaluation of the integral, rounded to three decimal places as the scoring guideline accepts.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\displaystyle\\int_0^8 G(t)\\,dt \\approx 720$ tons",
+              "earned": false,
+              "commentary": "Incorrect value; likely computed $90 \\times 8 = 720$ ignoring the cosine term. The full integral including the oscillatory term yields $\\approx 825.551$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -96,10 +156,25 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Correct evaluation of $G(5)$ and comparison to processing rate of 100",
+          "official_rubric": "1 point: compares $G(5)$ to 100 — $G(5) = 98.140764 < 100$",
+          "sample_responses": [
+            {
+              "response": "$G(5) = 90 + 45\\cos\\!\\left(\\frac{25}{18}\\right) \\approx 98.141$ tons per hour, which is less than the processing rate of 100 tons per hour.",
+              "earned": true,
+              "commentary": "Correctly evaluates $G(5) \\approx 98.141 < 100$, establishing that arrivals are less than processing at $t = 5$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$G(5) \\approx 105.460 > 100$, so gravel is increasing.",
+              "earned": false,
+              "commentary": "Incorrect numerical value for $G(5)$. The correct value is approximately $98.141$, not $105.460$; the cosine term is negative at $t=5$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
-                "$G(5) = 90 + 45\\cos\\!\\left(\\frac{25}{18}\\right) \\approx 90 + 45(0.3436) \\approx 105.460$ tons per hour"
+                "$G(5) = 90 + 45\\cos\\!\\left(\\frac{25}{18}\\right) \\approx 98.141$ tons per hour"
               ]
             }
           ]
@@ -107,11 +182,26 @@
         {
           "point_id": "c2",
           "point_value": 1,
-          "description": "Correct conclusion that gravel is increasing because $G(5) > 100$",
+          "description": "Correct conclusion that gravel is decreasing because $G(5) < 100$",
+          "official_rubric": "1 point: conclusion — at time $t = 5$, the rate at which unprocessed gravel is arriving is less than the rate at which it is being processed. Therefore, the amount of unprocessed gravel at the plant is decreasing at time $t = 5$.",
+          "sample_responses": [
+            {
+              "response": "Since $G(5) \\approx 98.141 < 100$, the arrival rate is less than the processing rate, so the amount of unprocessed gravel is decreasing at $t = 5$.",
+              "earned": true,
+              "commentary": "Correctly concludes decreasing because $G(5) < 100$, with valid reasoning linking arrival rate vs. processing rate to the net change.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Since $G'(5) < 0$, the amount of gravel is decreasing.",
+              "earned": false,
+              "commentary": "Uses the wrong quantity. $G'(5) < 0$ means the arrival rate is decreasing, not that the stockpile itself is decreasing. The stockpile comparison requires $G(5)$ vs. 100, not $G'(5)$ vs. 0.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
-                "Since $G(5) \\approx 105.460 > 100$, the amount of unprocessed gravel is increasing at $t = 5$"
+                "Since $G(5) \\approx 98.141 < 100$, the amount of unprocessed gravel is decreasing at $t = 5$"
               ]
             }
           ]
@@ -130,10 +220,25 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Sets up $G(t) - 100 = 0$ to find critical points and identifies candidates",
+          "official_rubric": "1 point: considers $A'(t) = G(t) - 100 = 0$ — finds $t = 4.923480$ as interior critical point, also checks endpoints $t = 0$ and $t = 8$",
+          "sample_responses": [
+            {
+              "response": "$A'(t) = G(t) - 100 = 0 \\Rightarrow t \\approx 4.923$. Check $t = 0$, $t \\approx 4.923$, and $t = 8$.",
+              "earned": true,
+              "commentary": "Correctly identifies the critical point by solving $G(t) = 100$ and includes both endpoints as candidates for the maximum.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Maximum occurs at $t = 4.923$ since $G'(4.923) = 0$.",
+              "earned": false,
+              "commentary": "Confuses $G'(t) = 0$ (max arrival rate) with $G(t) = 100$ (max stockpile). The stockpile is maximized when the net rate $G(t) - 100$ changes sign, i.e., $G(t) = 100$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
-                "$G(t) = 100$ at $t \\approx 5.118$ (within $[0, 8]$); also checks endpoints $t = 0$ and $t = 8$"
+                "$G(t) = 100$ at $t \\approx 4.923$ (within $[0, 8]$); also checks endpoints $t = 0$ and $t = 8$"
               ]
             }
           ]
@@ -142,11 +247,26 @@
           "point_id": "d2",
           "point_value": 1,
           "description": "Correct amount of unprocessed gravel expression using accumulation",
+          "official_rubric": "1 point: answer — evaluates $A(t) = 500 + \\int_0^t (G(s)-100)\\,ds$ at candidates; $A(0)=500$, $A(4.923)=635.376$, $A(8)=525.551$",
+          "sample_responses": [
+            {
+              "response": "$A(t) = 500 + \\displaystyle\\int_0^t (G(s)-100)\\,ds$. At $t \\approx 4.923$: $A(4.923) \\approx 635.376$ tons. At $t=0$: $500$ tons. At $t=8$: $\\approx 525.551$ tons.",
+              "earned": true,
+              "commentary": "Correctly constructs the accumulation function and evaluates it at all three candidate points.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$A(4.923) = 500 + G(4.923) \\approx 598$",
+              "earned": false,
+              "commentary": "Adds the arrival rate $G(4.923)$ directly instead of integrating the net rate $(G(s)-100)$ from 0 to $t$. This confuses the rate with accumulated amount.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
                 "Amount at time $t$: $500 + \\displaystyle\\int_0^t \\bigl(G(s) - 100\\bigr)\\,ds$",
-                "Evaluates at $t \\approx 5.118$: $500 + \\displaystyle\\int_0^{5.118}\\bigl(G(s)-100\\bigr)\\,ds \\approx 500 + 121.737 \\approx 621.737$ tons"
+                "Evaluates at $t \\approx 4.923$: $A(4.923) \\approx 635.376$ tons"
               ]
             }
           ]
@@ -155,11 +275,26 @@
           "point_id": "d3",
           "point_value": 1,
           "description": "Correct maximum value with justification comparing all candidates",
+          "official_rubric": "1 point: justification — the maximum amount of unprocessed gravel at the plant during this workday is $635.376$ tons (at $t \\approx 4.923$), justified by comparing all candidate values",
+          "sample_responses": [
+            {
+              "response": "Comparing $A(0)=500$, $A(4.923)\\approx 635.376$, $A(8)\\approx 525.551$: the maximum is $635.376$ tons, occurring at $t \\approx 4.923$ hours.",
+              "earned": true,
+              "commentary": "Correctly identifies the maximum by comparing all candidate values and states the maximum with correct value.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "The maximum is at $t = 4.923$ so there are $635.376$ tons.",
+              "earned": false,
+              "commentary": "States the answer without comparing to the endpoint values $A(0) = 500$ and $A(8) \\approx 525.551$. Justification requires showing the interior critical point produces a larger value than both endpoints.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
-                "The maximum amount of unprocessed gravel is approximately $621.737$ tons, occurring at $t \\approx 5.118$ hours",
-                "Justification: $G(t) - 100$ changes from positive to negative at $t \\approx 5.118$, confirming a maximum"
+                "The maximum amount of unprocessed gravel is approximately $635.376$ tons, occurring at $t \\approx 4.923$ hours",
+                "Justification: $G(t) - 100$ changes from positive to negative at $t \\approx 4.923$, confirming a maximum"
               ]
             }
           ]
