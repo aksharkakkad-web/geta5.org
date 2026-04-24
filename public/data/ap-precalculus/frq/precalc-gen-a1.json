@@ -31,7 +31,28 @@
             }
           ],
           "wrong_examples": ["$f(x) = (x+2)(x-1)(x-3)$ without determining $a$", "$f(x) = \\frac{4}{3}(x+2)(x-1)(x-3)$ (wrong sign on $a$)"],
-          "common_traps": ["Forgetting to include the leading coefficient $a$ — the zeros alone do not uniquely determine $f$", "Sign error: $a \\cdot 6 = -8$ gives $a = -4/3$, not $+4/3$"]
+          "common_traps": ["Forgetting to include the leading coefficient $a$ — the zeros alone do not uniquely determine $f$", "Sign error: $a \\cdot 6 = -8$ gives $a = -4/3$, not $+4/3$"],
+          "official_rubric": "The point is earned for the correct factored form $f(x) = -\\frac{4}{3}(x+2)(x-1)(x-3)$ with supporting work showing how $a$ is determined by substituting $f(0) = -8$. Acceptable response: Set up $f(x) = a(x+2)(x-1)(x-3)$, substitute $x = 0$ to get $a(2)(-1)(-3) = -8$, solve $6a = -8$ to obtain $a = -\\frac{4}{3}$.",
+          "sample_responses": [
+            {
+              "response": "$f(x) = a(x+2)(x-1)(x-3)$. At $x = 0$: $a(2)(-1)(-3) = -8 \\Rightarrow 6a = -8 \\Rightarrow a = -\\frac{4}{3}$. So $f(x) = -\\frac{4}{3}(x+2)(x-1)(x-3)$.",
+              "earned": true,
+              "commentary": "Correctly writes the factored form from the three zeros, substitutes the known point $f(0) = -8$ to isolate $a$, and arrives at the signed leading coefficient $-\\frac{4}{3}$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$f(x) = (x+2)(x-1)(x-3)$",
+              "earned": false,
+              "commentary": "Correctly identifies all three zeros but omits the leading coefficient $a$. The zeros alone do not uniquely determine the polynomial — supporting work finding $a$ is required.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$f(x) = a(x+2)(x-1)(x-3)$; at $x=0$: $6a = -8 \\Rightarrow a = \\frac{4}{3}$; so $f(x) = \\frac{4}{3}(x+2)(x-1)(x-3)$.",
+              "earned": false,
+              "commentary": "Shows correct setup and substitution but makes a sign error when solving $6a = -8$, writing $a = +\\frac{4}{3}$ instead of $-\\frac{4}{3}$. The wrong-sign leading coefficient does not earn the point.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "a2",
@@ -44,7 +65,28 @@
             }
           ],
           "wrong_examples": ["Stating 'concave down' — incorrect because the ARC is increasing", "Stating only 'increasing' without connecting to concavity"],
-          "common_traps": ["Confusing an increasing (but negative-to-positive) rate of change with the function itself decreasing — the ARC goes from $-10.67$ to $8$, which is increasing regardless of the sign change"]
+          "common_traps": ["Confusing an increasing (but negative-to-positive) rate of change with the function itself decreasing — the ARC goes from $-10.67$ to $8$, which is increasing regardless of the sign change"],
+          "official_rubric": "The point is earned for correctly identifying that the average rate of change is increasing on $[-2, 1]$ and connecting this to the conclusion that the graph of $f$ is concave up on that interval. Both the directional conclusion (increasing ARC) and the concavity interpretation (concave up) must be present.",
+          "sample_responses": [
+            {
+              "response": "The average rates of change $-10.67, 2.67, 8$ form an increasing sequence, so the average rate of change of $f$ is increasing on $[-2, 1]$. An increasing average rate of change means the graph of $f$ is concave up on this interval.",
+              "earned": true,
+              "commentary": "Explicitly notes the increasing sequence of ARC values and correctly links an increasing rate of change to concave-up behavior, satisfying both required elements.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The average rate of change goes from $-10.67$ to $8$, so the function is increasing.",
+              "earned": false,
+              "commentary": "Conflates the increasing average rate of change with the function itself increasing, and does not address concavity. The conclusion about concavity is required to earn the point.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The average rate of change is increasing on $[-2, 1]$, so the graph is concave down.",
+              "earned": false,
+              "commentary": "Correctly identifies the ARC as increasing but draws the wrong concavity conclusion — an increasing rate of change corresponds to concave up, not concave down.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     },
@@ -67,7 +109,28 @@
             }
           ],
           "wrong_examples": ["$h(-1) = g(-1) = 5(1.3)^{-1} \\approx 3.846$ (skipped composition — used $g(-1)$ instead of $g(f(-1))$)", "$h(-1) = 0.30$ (fewer than 3 decimal places — decimal presentation error)"],
-          "common_traps": ["Forgetting to first evaluate $f(-1)$ before applying $g$", "Reporting fewer than 3 decimal places on the first such error does not earn the point"]
+          "common_traps": ["Forgetting to first evaluate $f(-1)$ before applying $g$", "Reporting fewer than 3 decimal places on the first such error does not earn the point"],
+          "official_rubric": "The point is earned for a correct decimal approximation of $h(-1) \\approx 0.304$ (accept values in $[0.295, 0.313]$) with supporting work showing the intermediate evaluation $f(-1) \\approx -10.667$ before applying $g$. Decimal approximations must be correct to three places after the decimal point. The first decimal presentation error per question does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$f(-1) = -\\frac{4}{3}(1)(-2)(-4) = -\\frac{32}{3} \\approx -10.667$; $h(-1) = g(-10.667) = 5 \\cdot (1.3)^{-10.667} \\approx 0.304$.",
+              "earned": true,
+              "commentary": "Shows the required intermediate step $f(-1) \\approx -10.667$, then correctly applies $g$ to that value to obtain the three-decimal approximation $0.304$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$h(-1) = g(-1) = 5 \\cdot (1.3)^{-1} \\approx 3.846$",
+              "earned": false,
+              "commentary": "Skips the composition — applies $g$ directly to the input $-1$ rather than first computing $f(-1)$. This produces the wrong intermediate value and final answer.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$f(-1) \\approx -10.667$; $h(-1) = 5 \\cdot (1.3)^{-10.667} \\approx 0.30$",
+              "earned": false,
+              "commentary": "Sets up and executes the composition correctly but reports the answer to only two decimal places, which is a decimal presentation error; the first such error does not earn the point.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "b2",
@@ -80,7 +143,28 @@
             }
           ],
           "wrong_examples": ["$x = 5.28$ (decimal presentation error)", "Including extra incorrect values alongside $x \\approx 5.284$"],
-          "common_traps": ["Only one solution exists — the exponential $g$ is strictly increasing so $g(x) = 20$ has exactly one solution"]
+          "common_traps": ["Only one solution exists — the exponential $g$ is strictly increasing so $g(x) = 20$ has exactly one solution"],
+          "official_rubric": "The point is earned for the correct decimal approximation $x \\approx 5.284$ with no incorrect values included. Acceptable response: $5(1.3)^x = 20 \\Rightarrow (1.3)^x = 4 \\Rightarrow x = \\frac{\\ln 4}{\\ln 1.3} \\approx 5.284$. The first decimal presentation error per question does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$5(1.3)^x = 20 \\Rightarrow (1.3)^x = 4 \\Rightarrow x = \\frac{\\ln 4}{\\ln 1.3} \\approx 5.284$",
+              "earned": true,
+              "commentary": "Correctly isolates the exponential, applies the change-of-base formula, and reports the result to three decimal places with no extraneous values.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$x = 5.28$",
+              "earned": false,
+              "commentary": "The correct procedure was used but the answer is truncated to two decimal places; this is a decimal presentation error and does not earn the point on its first occurrence.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$x \\approx 5.284$ and $x \\approx -5.284$",
+              "earned": false,
+              "commentary": "Reports the correct value but also includes an extraneous negative solution. Since $g(x) = 5 \\cdot (1.3)^x$ is strictly increasing and positive, there is only one solution; including an incorrect value voids the point.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     },
@@ -103,7 +187,28 @@
             }
           ],
           "wrong_examples": ["$f$ has an inverse on $[1, 3]$ — incorrect", "Saying '$f$ is not one-to-one' without citing specific function values"],
-          "common_traps": ["Citing the horizontal line test or one-to-one language without providing specific function values is insufficient — must show $f(1) = f(3) = 0$"]
+          "common_traps": ["Citing the horizontal line test or one-to-one language without providing specific function values is insufficient — must show $f(1) = f(3) = 0$"],
+          "official_rubric": "The point is earned for stating that $f$ does not have an inverse on $[1, 3]$ with a reason that references the definition of a function and cites $f(1) = f(3) = 0$ as evidence that the same output corresponds to two distinct inputs. A response stating '$f$ has an inverse' earns zero for both points in Part (C).",
+          "sample_responses": [
+            {
+              "response": "$f$ does not have an inverse on $[1, 3]$ because $f(1) = f(3) = 0$, so the output $0$ corresponds to two distinct inputs. An inverse would require each output to map back to exactly one input.",
+              "earned": true,
+              "commentary": "Correctly concludes no inverse exists, references the definition of a function (unique input per output), and cites the specific function values $f(1) = f(3) = 0$ as required evidence.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$f$ does not have an inverse because it is not one-to-one.",
+              "earned": false,
+              "commentary": "States the correct conclusion but provides only a label ('not one-to-one') without citing specific function values. Specific values such as $f(1) = f(3) = 0$ are required to earn the point.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$f$ has an inverse on $[1, 3]$ because $f$ is continuous.",
+              "earned": false,
+              "commentary": "Incorrect conclusion — continuity does not imply invertibility. Since $f(1) = f(3) = 0$, $f$ maps two inputs to the same output and cannot have an inverse. This error forfeits both points in Part (C).",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "c2",
@@ -116,7 +221,22 @@
             }
           ],
           "wrong_examples": ["Explaining only the value above $4$ without addressing the non-invertibility", "Not referencing specific table values"],
-          "common_traps": ["Must use specific values from the table — a general statement about increasing then decreasing is insufficient without citing $f(1) = f(3) = 0$"]
+          "common_traps": ["Must use specific values from the table — a general statement about increasing then decreasing is insufficient without citing $f(1) = f(3) = 0$"],
+          "official_rubric": "The point is earned for an explanation that uses specific table values to show both that the graph reaches above $4$ (citing $f(2) = 4.44$) and that $f$ cannot be one-to-one on $[1, 3]$ (citing $f(1) = f(3) = 0$). Generic statements about the shape of the graph without referencing specific table values are insufficient.",
+          "sample_responses": [
+            {
+              "response": "The table shows $f(2) = 4.44 > 4$, so the graph must reach a value above $4$ on $(1, 3)$. Also, $f(1) = 0$ and $f(3) = 0$, so the output $0$ is achieved at two different inputs, which means $f$ cannot have an inverse on $[1, 3]$.",
+              "earned": true,
+              "commentary": "Uses both relevant pieces of table data: $f(2) = 4.44$ to justify a value above $4$, and $f(1) = f(3) = 0$ to demonstrate non-invertibility with specific function values.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The function increases then decreases on $[1, 3]$, so it is not one-to-one.",
+              "earned": false,
+              "commentary": "Makes a general shape argument without citing specific table values. The scoring rubric requires explicit reference to $f(1) = f(3) = 0$ and $f(2) = 4.44$ rather than a qualitative description.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     }
