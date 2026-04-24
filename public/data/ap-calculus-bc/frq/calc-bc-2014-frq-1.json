@@ -28,10 +28,25 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct average rate of change with units",
+          "official_rubric": "1 point: answer with units — $\\dfrac{A(30)-A(0)}{30-0} = -0.197$ (or $-0.196$) lbs/day",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{A(30)-A(0)}{30} = \\dfrac{6.687(0.931)^{30}-6.687}{30} \\approx -0.197$ pounds per day",
+              "earned": true,
+              "commentary": "Correct difference quotient with the required units of pounds per day.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$A'(15) \\approx -0.197$ pounds per day (uses derivative, not average rate)",
+              "earned": false,
+              "commentary": "Computes the instantaneous rate at the midpoint rather than the average rate of change $\\frac{A(30)-A(0)}{30}$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
-                "$\\dfrac{A(30) - A(0)}{30 - 0} = \\dfrac{6.687(0.931)^{30} - 6.687}{30} \\approx -0.197$ pounds per day"
+                "$\\dfrac{A(30) - A(0)}{30 - 0} \\approx -0.197$ pounds per day"
               ]
             }
           ]
@@ -50,6 +65,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Correct numerical value of $A'(15)$",
+          "official_rubric": "1 point: $A'(15) = 6.687(0.931)^{15}\\ln(0.931) \\approx -0.197$ pounds per day",
+          "sample_responses": [
+            {
+              "response": "$A'(t) = 6.687(0.931)^t \\ln(0.931)$, so $A'(15) = 6.687(0.931)^{15}\\ln(0.931) \\approx -0.197$ pounds per day",
+              "earned": true,
+              "commentary": "Correctly differentiates the exponential model using $\\frac{d}{dt}[b^t] = b^t \\ln b$ and evaluates at $t = 15$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$A'(15) = 6.687 \\cdot (0.931)^{15} \\cdot (-0.069) \\approx -0.013$",
+              "earned": false,
+              "commentary": "Uses $-0.069 \\approx -(1-0.931)$ instead of $\\ln(0.931) \\approx -0.0714$; the logarithm of the base, not $1$ minus the base, is required.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -62,6 +92,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct interpretation with units",
+          "official_rubric": "1 point: interpretation with units — at $t = 15$ days, the amount of grass clippings in the bin is decreasing at approximately $0.197$ pounds per day",
+          "sample_responses": [
+            {
+              "response": "At $t = 15$ days, the amount of grass clippings remaining in the bin is decreasing at a rate of approximately $0.197$ pounds per day.",
+              "earned": true,
+              "commentary": "Correctly identifies the quantity ($A'(15)$) as the rate of change of the amount, states it is decreasing, and includes correct units of pounds per day.",
+              "source": "synthesized"
+            },
+            {
+              "response": "After 15 days, about $0.197$ pounds of grass clippings have decomposed.",
+              "earned": false,
+              "commentary": "Misinterprets $A'(15)$ as an accumulated amount rather than an instantaneous rate. $A'(15)$ gives the rate at that instant, not a total; units should be pounds per day, not pounds.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -84,6 +129,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Correct setup of average value expression",
+          "official_rubric": "1 point: average value $= \\dfrac{1}{30}\\displaystyle\\int_0^{30} 6.687(0.931)^t\\,dt$",
+          "sample_responses": [
+            {
+              "response": "Average value $= \\dfrac{1}{30}\\displaystyle\\int_0^{30} A(t)\\,dt = \\dfrac{1}{30}\\int_0^{30} 6.687(0.931)^t\\,dt \\approx 2.848$ pounds",
+              "earned": true,
+              "commentary": "Correctly applies the average value formula $\\frac{1}{b-a}\\int_a^b f(t)\\,dt$ with $a=0$, $b=30$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Average value $= \\dfrac{A(0)+A(30)}{2} = \\dfrac{6.687+0.845}{2} \\approx 3.766$ pounds",
+              "earned": false,
+              "commentary": "Uses the trapezoidal average of endpoints rather than the integral average value formula. For a nonlinear function the integral average is not the same as the arithmetic mean of endpoints.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -96,6 +156,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct value of $t$",
+          "official_rubric": "1 point: solves $A(t) = $ average value to obtain $t \\approx 12.415$ days",
+          "sample_responses": [
+            {
+              "response": "Average $\\approx 2.848$ lbs. Solve $6.687(0.931)^t = 2.848 \\Rightarrow t = \\dfrac{\\ln(2.848/6.687)}{\\ln(0.931)} \\approx 12.415$ days",
+              "earned": true,
+              "commentary": "Correctly equates $A(t)$ to the computed average and solves the exponential equation for $t$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The average is $2.848$ pounds and it occurs at $t = 15$ days (midpoint of interval)",
+              "earned": false,
+              "commentary": "Incorrectly assumes the average value occurs at the midpoint of the time interval. Because $A$ is exponentially decreasing (not linear), the average is reached before the midpoint; the correct value is $t \\approx 12.415$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -118,6 +193,21 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Correct value of $A(30)$",
+          "official_rubric": "1 point: $A(30) = 6.687(0.931)^{30} \\approx 0.845$ pounds",
+          "sample_responses": [
+            {
+              "response": "$A(30) = 6.687(0.931)^{30} \\approx 0.845$ pounds",
+              "earned": true,
+              "commentary": "Correctly evaluates the model at $t = 30$ to obtain the anchor point for the linearization.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$A(30) \\approx 0.931^{30} \\approx 0.113$ pounds (omits leading coefficient)",
+              "earned": false,
+              "commentary": "Drops the coefficient $6.687$; the full expression $6.687(0.931)^{30}$ is required.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -130,6 +220,21 @@
           "point_id": "d2",
           "point_value": 1,
           "description": "Correct value of $A'(30)$",
+          "official_rubric": "1 point: $A'(30) = 6.687(0.931)^{30}\\ln(0.931) \\approx -0.058$ pounds per day",
+          "sample_responses": [
+            {
+              "response": "$A'(30) = 6.687(0.931)^{30}\\ln(0.931) \\approx -0.058$ pounds per day",
+              "earned": true,
+              "commentary": "Correctly differentiates and evaluates at $t = 30$ to obtain the slope of the linearization.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$A'(30) \\approx \\dfrac{A(30)-A(29)}{1} \\approx -0.060$ (uses difference quotient)",
+              "earned": false,
+              "commentary": "A numerical difference quotient may not match the required exact derivative value; the analytic derivative $A'(t) = 6.687(0.931)^t\\ln(0.931)$ is expected.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -142,6 +247,21 @@
           "point_id": "d3",
           "point_value": 1,
           "description": "Correct linear approximation $L(t)$",
+          "official_rubric": "1 point: $L(t) = 0.845 + (-0.058)(t-30) = 0.845 - 0.058(t-30)$",
+          "sample_responses": [
+            {
+              "response": "$L(t) = A(30) + A'(30)(t-30) \\approx 0.845 - 0.058(t-30)$",
+              "earned": true,
+              "commentary": "Correctly writes point-slope linearization at $t = 30$ using the values found in d1 and d2.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$L(t) = -0.058t + C$ where $C = A(0) = 6.687$",
+              "earned": false,
+              "commentary": "Uses the $y$-intercept form anchored at $t=0$ instead of the tangent line at $t=30$. The linearization must be centered at $t = 30$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -154,6 +274,21 @@
           "point_id": "d4",
           "point_value": 1,
           "description": "Correct predicted time when $L(t) = 0.5$",
+          "official_rubric": "1 point: sets $L(t) = 0.5$ and solves to obtain $t \\approx 35.884$ days",
+          "sample_responses": [
+            {
+              "response": "$0.5 = 0.845 - 0.058(t-30) \\Rightarrow t-30 = \\dfrac{0.845-0.5}{0.058} \\approx 5.948 \\Rightarrow t \\approx 35.948$ days",
+              "earned": true,
+              "commentary": "Correctly sets the linear model equal to $0.5$ and solves; small rounding differences are accepted.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Solve $6.687(0.931)^t = 0.5 \\Rightarrow t \\approx 37.3$ days",
+              "earned": false,
+              "commentary": "Uses the original exponential model $A(t)$ instead of the linear approximation $L(t)$. The problem specifically says to use $L(t)$ for $t > 30$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
