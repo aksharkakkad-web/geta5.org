@@ -31,6 +31,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct integral expression for $x(2)$ using the Fundamental Theorem: $x(2) = x(1) + \\int_1^2 \\cos(t^2)\\,dt$",
+          "official_rubric": "1 point: $x(2) = 3 + \\int_1^2 \\cos(t^2)\\,dt$",
+          "sample_responses": [
+            {
+              "response": "$x(2) = x(1) + \\displaystyle\\int_1^2 x'(t)\\,dt = 3 + \\int_1^2 \\cos(t^2)\\,dt$",
+              "earned": true,
+              "commentary": "Correctly applies the Fundamental Theorem using the known $x$-position at $t=1$ and the $x$-velocity component.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$x(2) = \\displaystyle\\int_0^2 \\cos(t^2)\\,dt$ (integrates from $0$ instead of $1$)",
+              "earned": false,
+              "commentary": "Integrates from $t=0$ but the position at $t=0$ is unknown; only the position at $t=1$ (which is $x=3$) is given.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -43,6 +58,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct numerical evaluation of the integral",
+          "official_rubric": "1 point: $\\int_1^2\\cos(t^2)\\,dt \\approx -0.450$",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_1^2\\cos(t^2)\\,dt \\approx -0.450$",
+              "earned": true,
+              "commentary": "Correct calculator evaluation of the Fresnel-type integral.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\displaystyle\\int_1^2\\cos(t^2)\\,dt = \\sin(t^2)\\Big|_1^2 = \\sin 4 - \\sin 1 \\approx -0.244$ (wrong antiderivative)",
+              "earned": false,
+              "commentary": "Attempts an algebraic antiderivative: $\\int \\cos(t^2)\\,dt \\neq \\sin(t^2)/(2t)$; this integral has no elementary antiderivative and must be evaluated numerically.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -55,6 +85,21 @@
           "point_id": "a3",
           "point_value": 1,
           "description": "Correct final answer: $x(2) \\approx 3 + (-0.450) \\approx 2.550$",
+          "official_rubric": "1 point: $x(2) \\approx 2.550$",
+          "sample_responses": [
+            {
+              "response": "$x(2) = 3 + (-0.450) \\approx 2.550$",
+              "earned": true,
+              "commentary": "Correctly adds the integral result to the initial $x$-position.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$x(2) = 3 + 0.450 = 3.450$ (sign error)",
+              "earned": false,
+              "commentary": "Uses $+0.450$ instead of $-0.450$. The integral $\\int_1^2\\cos(t^2)\\,dt$ is negative because $\\cos(t^2) < 0$ for much of the interval.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -77,6 +122,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Correct slope expression: $\\dfrac{dy}{dx} = \\dfrac{dy/dt}{dx/dt} = \\dfrac{e^{0.5t}}{\\cos(t^2)}$ set equal to $2$",
+          "official_rubric": "1 point: $\\frac{dy}{dx} = \\frac{e^{0.5t}}{\\cos(t^2)} = 2$",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{dy}{dx} = \\dfrac{dy/dt}{dx/dt} = \\dfrac{e^{0.5t}}{\\cos(t^2)} = 2$",
+              "earned": true,
+              "commentary": "Correctly forms the parametric slope and sets it equal to $2$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{dy}{dx} = \\dfrac{\\cos(t^2)}{e^{0.5t}} = 2$ (inverted ratio)",
+              "earned": false,
+              "commentary": "Inverts the slope fraction; $dy/dx = (dy/dt)/(dx/dt) = e^{0.5t}/\\cos(t^2)$, not the reciprocal.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -89,6 +149,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct answer: $t \\approx 0.840$",
+          "official_rubric": "1 point: $t \\approx 0.840$",
+          "sample_responses": [
+            {
+              "response": "Solving $e^{0.5t}/\\cos(t^2) = 2$ numerically on $(0,1)$: $t \\approx 0.840$",
+              "earned": true,
+              "commentary": "Correct numerical solution using a calculator.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$t \\approx 1.234$ (outside the interval $(0,1)$)",
+              "earned": false,
+              "commentary": "The problem specifies $0 < t < 1$; any solution outside this interval does not satisfy the constraint.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -111,6 +186,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Correct speed expression set equal to $3$: $\\sqrt{\\left[\\cos(t^2)\\right]^2 + \\left[e^{0.5t}\\right]^2} = 3$",
+          "official_rubric": "1 point: $\\sqrt{\\cos^2(t^2)+e^t} = 3$ (speed $= |\\mathbf{v}(t)| = 3$)",
+          "sample_responses": [
+            {
+              "response": "Speed $= \\sqrt{[x'(t)]^2+[y'(t)]^2} = \\sqrt{\\cos^2(t^2)+(e^{0.5t})^2} = \\sqrt{\\cos^2(t^2)+e^t} = 3$",
+              "earned": true,
+              "commentary": "Correctly writes speed as the magnitude of the velocity vector and sets it equal to $3$. Notes $(e^{0.5t})^2 = e^t$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Speed $= e^{0.5t} + \\cos(t^2) = 3$ (adds components instead of magnitude)",
+              "earned": false,
+              "commentary": "Speed is the magnitude $\\sqrt{(x')^2+(y')^2}$, not the sum of velocity components.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -123,6 +213,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct answer: $t \\approx 2.191$",
+          "official_rubric": "1 point: $t \\approx 2.191$",
+          "sample_responses": [
+            {
+              "response": "Solving $\\sqrt{\\cos^2(t^2)+e^t} = 3$ numerically: $t \\approx 2.191$",
+              "earned": true,
+              "commentary": "Correct numerical solution.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$t \\approx 1.732$ (solves $e^t = 3$ ignoring cosine term)",
+              "earned": false,
+              "commentary": "Ignores the $\\cos^2(t^2)$ term. The full speed expression $\\sqrt{\\cos^2(t^2)+e^t}=3$ must be solved numerically.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -145,6 +250,21 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Correct arc length integral: $\\int_0^1 \\sqrt{\\cos^2(t^2) + e^{t}}\\,dt$",
+          "official_rubric": "1 point: $\\int_0^1\\sqrt{\\cos^2(t^2)+e^t}\\,dt$",
+          "sample_responses": [
+            {
+              "response": "Total distance $= \\displaystyle\\int_0^1\\sqrt{[x'(t)]^2+[y'(t)]^2}\\,dt = \\int_0^1\\sqrt{\\cos^2(t^2)+e^t}\\,dt$",
+              "earned": true,
+              "commentary": "Correctly applies the arc length / total distance formula for parametric curves.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Total distance $= \\displaystyle\\int_0^1 \\cos(t^2)\\,dt + \\int_0^1 e^{0.5t}\\,dt$ (integrates components separately)",
+              "earned": false,
+              "commentary": "Adds the separate integrals of velocity components; total distance requires $\\int|\\mathbf{v}|\\,dt = \\int\\sqrt{(x')^2+(y')^2}\\,dt$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -157,6 +277,21 @@
           "point_id": "d2",
           "point_value": 1,
           "description": "Correct numerical answer: $\\approx 1.949$",
+          "official_rubric": "1 point: $\\approx 1.949$",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^1\\sqrt{\\cos^2(t^2)+e^t}\\,dt \\approx 1.949$",
+              "earned": true,
+              "commentary": "Correct numerical evaluation using a calculator.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\approx 1.549$ (integrates over wrong interval or uses wrong integrand)",
+              "earned": false,
+              "commentary": "Incorrect numerical value; the correct distance is $\\approx 1.949$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
