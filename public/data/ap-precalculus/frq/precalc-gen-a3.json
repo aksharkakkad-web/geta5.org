@@ -35,7 +35,28 @@
             }
           ],
           "wrong_examples": ["$a = 8$ (using full range instead of amplitude)", "$d = 0$ (forgetting the vertical shift)", "$b = 2\\pi/6 = \\pi/3$ (using half-period instead of full period for period formula)"],
-          "common_traps": ["Amplitude is half the range: $(14 - 6)/2 = 4$, not $8$", "Period is $12$ hours (max to next max), not $6$ hours (max to min which is only half-period)"]
+          "common_traps": ["Amplitude is half the range: $(14 - 6)/2 = 4$, not $8$", "Period is $12$ hours (max to next max), not $6$ hours (max to min which is only half-period)"],
+          "official_rubric": "The point is earned for all four correct parameter values: $a = 4$ (or $-4$), $d = 10$, $b = \\frac{\\pi}{6}$, and $c = 2$ (or $c = 8$ if $a = -4$). Acceptable alternate form: $D(t) = -4\\cos\\!\\left(\\frac{\\pi}{6}(t-8)\\right) + 10$. A response with $a = 8$ (full range instead of amplitude) or $b = \\frac{\\pi}{3}$ (half-period error) does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$a = (14-6)/2 = 4$; $d = (14+6)/2 = 10$; period $= 2 \\times (8-2) = 12$, so $b = \\frac{2\\pi}{12} = \\frac{\\pi}{6}$; cosine max at $t = 2$, so $c = 2$. Thus $D(t) = 4\\cos\\!\\left(\\frac{\\pi}{6}(t-2)\\right) + 10$.",
+              "earned": true,
+              "commentary": "Correctly derives all four parameters: amplitude from half-range, midline from average, period from doubling the max-to-min interval, and phase shift from the maximum time.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$D(t) = -4\\cos\\!\\left(\\frac{\\pi}{6}(t-8)\\right) + 10$",
+              "earned": true,
+              "commentary": "Valid alternative using the minimum at $t = 8$ as the reference. Negating $a$ and shifting to $c = 8$ correctly places the minimum at the appropriate time.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$a = 8$; $b = \\pi/6$; $c = 2$; $d = 10$",
+              "earned": false,
+              "commentary": "Uses the full range ($14 - 6 = 8$) as the amplitude instead of half the range ($4$). The amplitude must be the half-range.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "a2",
@@ -48,7 +69,28 @@
             }
           ],
           "wrong_examples": ["'$d$ is the vertical shift' without contextual meaning", "'$d$ is the maximum depth'"],
-          "common_traps": ["Must connect $d = 10$ to a real-world meaning about average or midline water depth — a purely mathematical statement is insufficient"]
+          "common_traps": ["Must connect $d = 10$ to a real-world meaning about average or midline water depth — a purely mathematical statement is insufficient"],
+          "official_rubric": "The point is earned for a contextual interpretation of $d = 10$ as the average or midline water depth (in feet) at the harbor. A purely mathematical statement such as '$d$ is the vertical shift' does not earn the point. The explanation must reference water depth.",
+          "sample_responses": [
+            {
+              "response": "$d = 10$ feet represents the average depth of the water at the harbor — the midline halfway between the maximum depth of $14$ feet and the minimum depth of $6$ feet.",
+              "earned": true,
+              "commentary": "Correctly identifies $d$ as the average (midline) depth and anchors the value in the context of the harbor's water depth with the specific maximum and minimum values.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$d$ is the vertical shift of the sinusoidal function.",
+              "earned": false,
+              "commentary": "Describes the mathematical role of $d$ but does not connect it to the context (water depth). A contextual interpretation referencing the water level is required.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$d = 10$ feet is the maximum depth of the water at the harbor.",
+              "earned": false,
+              "commentary": "Incorrect — $d$ is the midline (average), not the maximum. The maximum depth is $14$ feet.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     },
@@ -71,7 +113,28 @@
             }
           ],
           "wrong_examples": ["Only $t = 5$ and $t = 11$ (missing the second cycle values)", "Including $t = 2$ or $t = 8$ (these are the max/min, not midline crossings)"],
-          "common_traps": ["There are four midline crossings per day (two per cycle, two full cycles in 24 hours) — missing any of the four does not earn the point"]
+          "common_traps": ["There are four midline crossings per day (two per cycle, two full cycles in 24 hours) — missing any of the four does not earn the point"],
+          "official_rubric": "The point is earned for all four correct exact values $t = 5, 11, 17, 23$ with no incorrect values included. All four midline crossings within $[0, 24)$ are required.",
+          "sample_responses": [
+            {
+              "response": "$\\cos\\!\\left(\\frac{\\pi}{6}(t-2)\\right) = 0 \\Rightarrow \\frac{\\pi}{6}(t-2) = \\frac{\\pi}{2} + k\\pi \\Rightarrow t-2 = 3 + 6k \\Rightarrow t = 5, 11, 17, 23$",
+              "earned": true,
+              "commentary": "Correctly sets cosine equal to zero, applies the general solution, and identifies all four values in $[0, 24)$ by cycling through $k = 0, 1, 2, 3$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$t = 5$ and $t = 11$",
+              "earned": false,
+              "commentary": "Finds the two midline crossings in the first period ($0 \\leq t < 12$) but misses the corresponding values in the second period ($t = 17$ and $t = 23$). All four values are required.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$t = 2, 5, 8, 11, 17, 23$",
+              "earned": false,
+              "commentary": "Includes $t = 2$ (maximum, not midline) and $t = 8$ (minimum, not midline) alongside the correct midline values. Including incorrect values voids the point.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "b2",
@@ -84,7 +147,28 @@
             }
           ],
           "wrong_examples": ["Stating only 'decreasing and concave down' (misses the concavity change)", "Stating 'increasing' on any part of $(2, 8)$"],
-          "common_traps": ["The inflection point is at the midline crossing $t = 5$, halfway between max and min — concavity changes there, not at the max or min"]
+          "common_traps": ["The inflection point is at the midline crossing $t = 5$, halfway between max and min — concavity changes there, not at the max or min"],
+          "official_rubric": "The point is earned for correctly stating both that $D$ is decreasing on $(2, 8)$ and that concavity changes on the interval: concave down on $(2, 5)$ and concave up on $(5, 8)$. Stating only one concavity type without noting the change does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$D$ is decreasing on $(2, 8)$ because it moves from the maximum at $t = 2$ to the minimum at $t = 8$. The concavity changes at the midline crossing $t = 5$: concave down on $(2, 5)$ (rate of decrease is accelerating) and concave up on $(5, 8)$ (rate of decrease is decelerating toward the minimum).",
+              "earned": true,
+              "commentary": "Correctly identifies both the decreasing behavior and the sign change in concavity at the midline crossing $t = 5$, satisfying all required elements.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$D$ is decreasing and concave down on $(2, 8)$.",
+              "earned": false,
+              "commentary": "Correctly identifies the decreasing behavior but assigns a single concavity to the entire interval. Concavity changes at $t = 5$: concave down on $(2,5)$ and concave up on $(5,8)$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$D$ is increasing on $(2, 8)$ because it reaches a minimum at $t = 8$.",
+              "earned": false,
+              "commentary": "Incorrect — $D$ moves from the maximum ($14$ ft at $t = 2$) to the minimum ($6$ ft at $t = 8$), so it is decreasing, not increasing, on this interval.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     },
@@ -107,7 +191,22 @@
             }
           ],
           "wrong_examples": ["Setting $D = 10$ instead of $D = 11$ (solving for midline crossing instead of safe threshold)", "Setting $\\cos = -1/4$ (wrong direction of inequality)"],
-          "common_traps": ["The inequality direction: cosine $\\geq 1/4$ (not $\\leq$) corresponds to depth $\\geq 11$ ft since cosine is the function value relative to amplitude"]
+          "common_traps": ["The inequality direction: cosine $\\geq 1/4$ (not $\\leq$) corresponds to depth $\\geq 11$ ft since cosine is the function value relative to amplitude"],
+          "official_rubric": "The point is earned for correctly setting up $D(t) \\geq 11$, simplifying to $\\cos\\!\\left(\\frac{\\pi}{6}(t-2)\\right) \\geq \\frac{1}{4}$, and identifying the critical times $t \\approx 4.52$ and $t \\approx -0.52$ (equivalently $23.48$). Setting $D = 10$ (midline) or using the wrong inequality direction does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$D \\geq 11 \\Rightarrow 4\\cos\\!\\left(\\frac{\\pi}{6}(t-2)\\right) + 10 \\geq 11 \\Rightarrow \\cos\\!\\left(\\frac{\\pi}{6}(t-2)\\right) \\geq \\frac{1}{4}$; critical times at $t = 2 \\pm \\frac{6}{\\pi}\\arccos\\!\\left(\\frac{1}{4}\\right) \\approx 2 \\pm 2.52$, giving $t \\approx 4.52$ and $t \\approx -0.52$.",
+              "earned": true,
+              "commentary": "Correctly sets up the inequality, isolates the cosine, and computes the critical times using $\\arccos(1/4)$, identifying both boundary values.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$D = 10 \\Rightarrow \\cos\\!\\left(\\frac{\\pi}{6}(t-2)\\right) = 0 \\Rightarrow t = 5, 11, 17, 23$",
+              "earned": false,
+              "commentary": "Solves for when depth equals the midline ($10$ ft) rather than the safe threshold ($11$ ft). The problem asks for depth $\\geq 11$ ft, not depth $= 10$ ft.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "c2",
@@ -120,7 +219,28 @@
             }
           ],
           "wrong_examples": ["Only listing two intervals (forgetting the wrap-around interval near $t = 23.48$)", "Listing intervals where depth is less than $11$ ft (inverted inequality)"],
-          "common_traps": ["The cycle straddles midnight: the first safe window starts before $t = 0$, so within $[0, 24)$ it begins at $t = 0$; the last safe window wraps around to just before $t = 24$"]
+          "common_traps": ["The cycle straddles midnight: the first safe window starts before $t = 0$, so within $[0, 24)$ it begins at $t = 0$; the last safe window wraps around to just before $t = 24$"],
+          "official_rubric": "The point is earned for all three correct safe-entry intervals within $[0, 24)$: approximately $[0, 4.52)$, $(11.48, 16.52)$, and $(23.48, 24)$. Listing only two intervals (missing the wrap-around near midnight) or inverting the inequality does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "Safe-entry intervals: $\\left[0,\\ 4.52\\right)$, $\\left(11.48,\\ 16.52\\right)$, and $\\left(23.48,\\ 24\\right)$.",
+              "earned": true,
+              "commentary": "Correctly identifies all three intervals where $D \\geq 11$ ft within $[0, 24)$, including the wrap-around interval near midnight that begins at $t \\approx 23.48$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Safe-entry intervals: $\\left[0,\\ 4.52\\right)$ and $\\left(11.48,\\ 16.52\\right)$.",
+              "earned": false,
+              "commentary": "Identifies only two of the three required intervals. The third period also has depth $\\geq 11$ ft near $t = 23.48$ to midnight, wrapping around from the next cycle.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Safe-entry intervals: $\\left(4.52,\\ 11.48\\right)$ and $\\left(16.52,\\ 23.48\\right)$.",
+              "earned": false,
+              "commentary": "Inverts the inequality — these are the intervals where depth is below $11$ ft (unsafe), not above. The correct safe windows are centered on the maximum at $t = 2$ and $t = 14$.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     }
