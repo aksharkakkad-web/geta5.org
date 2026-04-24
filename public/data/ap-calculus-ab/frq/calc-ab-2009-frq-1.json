@@ -28,6 +28,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct computation using slope of $v$",
+          "official_rubric": "1 point: correct slope calculation $a(7.5) = v'(7.5) = \\dfrac{v(8) - v(7)}{8 - 7} = -0.1$ miles per minute².",
+          "sample_responses": [
+            {
+              "response": "$a(7.5) = \\dfrac{v(8) - v(7)}{8 - 7} = \\dfrac{(-0.1) - 0}{1} = -0.1$ miles per minute²",
+              "earned": true,
+              "commentary": "Uses the slope of the piecewise-linear $v$ graph on $[7, 8]$ as the acceleration at $t = 7.5$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$a(7.5) = \\dfrac{v(8) - v(4)}{8 - 4} = \\dfrac{-0.1 - (-0.1)}{4} = 0$ miles per minute²",
+              "earned": false,
+              "commentary": "Uses an incorrect interval; acceleration at $t = 7.5$ uses the slope on the segment containing $t = 7.5$, which is $[7, 8]$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -41,6 +56,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct units: miles per minute$^2$ (or equivalent)",
+          "official_rubric": "1 point: units of miles per minute² (or miles/min²) stated explicitly.",
+          "sample_responses": [
+            {
+              "response": "The acceleration is $-0.1$ miles per minute².",
+              "earned": true,
+              "commentary": "Velocity is in miles per minute and time in minutes, so acceleration has units miles per minute².",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "The acceleration is $-0.1$ miles per minute.",
+              "earned": false,
+              "commentary": "States units of velocity rather than acceleration; acceleration is the derivative of velocity so units gain an extra per-minute.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -63,6 +93,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Correct meaning with units",
+          "official_rubric": "1 point: $\\int_0^{12}v(t)\\,dt$ is the total distance, in miles, that Caren rode during the 12-minute trip.",
+          "sample_responses": [
+            {
+              "response": "$\\int_0^{12} v(t)\\,dt$ is the total distance, in miles, that Caren rode from $t = 0$ to $t = 12$ minutes.",
+              "earned": true,
+              "commentary": "Since $v$ can be negative (when she turns back), this integral gives total distance traveled (sum of absolute areas), not net displacement.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\int_0^{12} v(t)\\,dt$ is Caren's net displacement from home.",
+              "earned": false,
+              "commentary": "Net displacement would differ from total distance because she reverses direction; the CB rubric awards the point for 'total distance'.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -76,6 +121,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct value",
+          "official_rubric": "1 point: value $1.8$ miles (computed by summing absolute areas: $0.2 + 0.2 + 1.4 = 1.8$).",
+          "sample_responses": [
+            {
+              "response": "$\\int_0^{12}|v(t)|\\,dt = 0.2 + 0.2 + 1.4 = 1.8$ miles",
+              "earned": true,
+              "commentary": "Correctly adds the three triangular/trapezoidal areas on $[0,2]$, $[2,4]$, and $[4,12]$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\int_0^{12} v(t)\\,dt = 0.2 - 0.2 + 1.4 = 1.4$ miles",
+              "earned": false,
+              "commentary": "Computes signed integral (net displacement), not total distance; the area on $[2,4]$ is negative but contributes positively to total distance.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -99,6 +159,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Correct answer",
+          "official_rubric": "1 point: answer $t = 2$ minutes.",
+          "sample_responses": [
+            {
+              "response": "Caren turns around at $t = 2$ minutes.",
+              "earned": true,
+              "commentary": "At $t = 2$ her velocity changes sign from positive to negative, indicating a reversal of direction.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Caren turns around at $t = 4$ minutes.",
+              "earned": false,
+              "commentary": "At $t = 4$, velocity changes from negative back to positive (she resumes toward school); the turnaround back home is at $t = 2$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -112,6 +187,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct reason: this is the time at which her velocity changes from positive to negative",
+          "official_rubric": "1 point: reason — $v(t)$ changes from positive to negative at $t = 2$, so she reverses direction toward home.",
+          "sample_responses": [
+            {
+              "response": "At $t = 2$, her velocity changes from positive to negative, meaning she reverses direction and heads back home.",
+              "earned": true,
+              "commentary": "Positive velocity = moving away from home; sign change to negative = moving back toward home.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "At $t = 2$, her velocity is at its maximum.",
+              "earned": false,
+              "commentary": "Incorrect; at $t = 2$ her velocity is $0$ (it transitions through zero), not at a maximum.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -134,6 +224,21 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Sets up and evaluates Larry's distance",
+          "official_rubric": "1 point: sets up $\\int_0^{12} w(t)\\,dt$ to compute Larry's distance from school.",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^{12} \\frac{\\pi}{15}\\sin\\left(\\frac{\\pi t}{12}\\right)\\,dt$",
+              "earned": true,
+              "commentary": "Larry only moves toward school (velocity always positive), so total distance equals the integral of $w(t)$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$w(12) = \\frac{\\pi}{15}\\sin(\\pi) = 0$ miles",
+              "earned": false,
+              "commentary": "Evaluates the rate at $t = 12$, not the accumulated distance; must integrate $w(t)$ over $[0, 12]$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -148,6 +253,21 @@
           "point_id": "d2",
           "point_value": 1,
           "description": "Correct value",
+          "official_rubric": "1 point: Larry's distance $= \\int_0^{12}\\frac{\\pi}{15}\\sin\\!\\left(\\frac{\\pi t}{12}\\right)dt = 1.6$ miles.",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^{12} \\frac{\\pi}{15}\\sin\\left(\\frac{\\pi t}{12}\\right)\\,dt = \\left[-\\frac{12}{15}\\cos\\left(\\frac{\\pi t}{12}\\right)\\right]_0^{12} = \\frac{12}{15}(1+1) = \\frac{24}{15} = 1.6$ miles",
+              "earned": true,
+              "commentary": "Antidifferentiate, evaluate at limits; $\\cos(\\pi) = -1$ and $\\cos(0) = 1$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\int_0^{12} w(t)\\,dt \\approx 1.3$ miles",
+              "earned": false,
+              "commentary": "Incorrect numerical result; the exact answer is $\\frac{24}{15} = 1.6$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -161,6 +281,21 @@
           "point_id": "d3",
           "point_value": 1,
           "description": "Correct comparison and conclusion",
+          "official_rubric": "1 point: identifies Caren's distance from school as the displacement on $[4, 12]$ ($= 1.4$ miles) and concludes Caren lives closer.",
+          "sample_responses": [
+            {
+              "response": "Caren's net displacement toward school $= \\int_4^{12} v(t)\\,dt = 1.4$ miles. Since $1.4 < 1.6$, Caren lives closer to school.",
+              "earned": true,
+              "commentary": "After returning home at $t=4$, Caren travels $1.4$ miles to school; Larry travels $1.6$ miles.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Caren's total distance is $1.8$ miles and Larry's is $1.6$ miles, so Larry lives closer.",
+              "earned": false,
+              "commentary": "Uses total distance traveled (including the detour home) rather than distance from home to school; only the $[4,12]$ segment gets Caren to school.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [

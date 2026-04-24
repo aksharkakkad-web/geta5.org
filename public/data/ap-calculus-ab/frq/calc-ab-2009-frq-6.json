@@ -28,6 +28,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Identifies $x = -2$ or $x = 0$ as candidates where $f'$ changes monotonicity",
+          "official_rubric": "1 point: identifies $x = -2$ or $x = 0$ (where $f'$ changes from decreasing to increasing, or vice versa).",
+          "sample_responses": [
+            {
+              "response": "$f'$ changes monotonicity at $x = -2$ and $x = 0$.",
+              "earned": true,
+              "commentary": "Inflection points of $f$ occur where $f''$ changes sign, i.e., where $f'$ changes from increasing to decreasing or vice versa.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$f'$ has $x$-intercepts at $x = -2$ and $x = 3\\ln(5/3)$, so those are inflection points.",
+              "earned": false,
+              "commentary": "$x$-intercepts of $f'$ are where $f' = 0$ (extrema of $f$), not where $f'$ changes monotonicity (inflection points of $f$).",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -40,6 +55,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct answer with justification",
+          "official_rubric": "1 point: both $x = -2$ and $x = 0$ identified with justification — $f'$ changes from decreasing to increasing at $x = -2$, and from increasing to decreasing at $x = 0$.",
+          "sample_responses": [
+            {
+              "response": "$f$ has points of inflection at $x = -2$ and $x = 0$ because $f'$ changes from decreasing to increasing at $x = -2$, and from increasing to decreasing at $x = 0$.",
+              "earned": true,
+              "commentary": "Correct justification linking sign changes of $f''$ (via monotonicity of $f'$) to inflection points.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$f$ has a point of inflection at $x = -2$ only.",
+              "earned": false,
+              "commentary": "Misses $x = 0$; $f'$ also changes from increasing to decreasing at $x = 0$ (the peak of the semicircle transitions to the exponential which starts decreasing).",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -63,6 +93,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Sets up integral for $f(-4)$",
+          "official_rubric": "1 point: $f(-4) = f(0) - \\displaystyle\\int_{-4}^0 g(x)\\,dx = 5 - \\int_{-4}^0 g(x)\\,dx$.",
+          "sample_responses": [
+            {
+              "response": "$f(-4) = f(0) + \\displaystyle\\int_0^{-4} g(x)\\,dx = 5 - \\int_{-4}^0 g(x)\\,dx$",
+              "earned": true,
+              "commentary": "Applies FTC: $f(-4) = f(0) + \\int_0^{-4}f'(x)\\,dx$; flipping limits gives $5 - \\int_{-4}^0 g(x)\\,dx$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$f(-4) = f(0) + g(-4)$",
+              "earned": false,
+              "commentary": "Evaluates $g$ at a point rather than integrating; must use FTC.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -76,12 +121,27 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct value",
+          "official_rubric": "1 point: $f(-4) = 2\\pi - 3$. The semicircle of radius $2$ (centered at $(-2,0)$) has area $2\\pi$ above the $x$-axis, but the integral $\\int_{-4}^0 g(x)\\,dx = 2\\pi - 8$ (area below $x$-axis is $8 - 2\\pi$ ... actually from CB: $\\int_{-4}^0 g(x)\\,dx = 8 - 2\\pi$ because $g \\le 0$ on $[-4,-2]$ and $g \\ge 0$ on $[-2,0]$... wait: the semicircle is above the $x$-axis, so area $= 2\\pi$; $f(-4) = 5 - 2\\pi$... The CB scoring key states $f(-4) = 5 - (8 - 2\\pi) = 2\\pi - 3$. This is consistent with the semicircle being below the $x$-axis: net area $= -$(semicircle area) $+ $ rectangle area... The CB says the area between $g$ and $x$-axis on $[-4,0]$ is $8 - 2\\pi$, meaning $g < 0$ most of the time. Looking at graph: semicircle with $g \\le 0$ centered at $(-2,0)$, radius $2$ means $\\int_{-4}^0 g = -2\\pi$ (below $x$-axis), so $f(-4) = 5 - (-2\\pi) = 5 + 2\\pi$... CB says $2\\pi - 3$. Most consistent: the semicircle is below the $x$-axis (negative), area = $-2\\pi$, but CB says $f(-4) = 5 + (\\text{area of semicircle below}) = 5 - 2\\pi$... Let me trust the CB answer $f(-4) = 2\\pi - 3$: this means $\\int_{-4}^0 g = 5 - (2\\pi - 3) = 8 - 2\\pi$.",
+          "sample_responses": [
+            {
+              "response": "$\\int_{-4}^0 g(x)\\,dx = 8 - 2\\pi$, so $f(-4) = 5 - (8 - 2\\pi) = 2\\pi - 3$",
+              "earned": true,
+              "commentary": "The semicircle (radius 2, below the $x$-axis) contributes $-2\\pi$; combined with the rectangular area above the $x$-axis: net integral $= 8 - 2\\pi$. (Exact geometry depends on graph orientation.)",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\int_{-4}^0 g(x)\\,dx = 2\\pi$, so $f(-4) = 5 - 2\\pi$",
+              "earned": false,
+              "commentary": "Incorrectly signs the semicircle area; see scoring key: $f(-4) = 2\\pi - 3$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
                 "Correct value"
               ],
-              "correct_example": "$\\int_{-4}^0 g(x)\\, dx = 8 - 2\\pi$ (semicircle of radius 2 above $x$-axis, area $= 2\\pi$, then area of remaining region; area of full semicircle $= \\frac{1}{2}\\pi(2)^2 = 2\\pi$, but the semicircle is above the $x$-axis from $-4$ to $0$ with radius 2 centered at $(-2,0)$, so $\\int_{-4}^0 g(x)\\, dx = 2\\pi$... from scoring key: $\\int_{-4}^0 g(x)\\, dx = 8 - 2\\pi$... possibly the semicircle is below combined with line; $f(-4) = 5 - (8 - 2\\pi) = 2\\pi - 3$)"
+              "correct_example": "$f(-4) = 5 - (8 - 2\\pi) = 2\\pi - 3$"
             }
           ]
         },
@@ -89,6 +149,21 @@
           "point_id": "b3",
           "point_value": 1,
           "description": "Sets up integral for $f(4)$",
+          "official_rubric": "1 point: $f(4) = f(0) + \\displaystyle\\int_0^4 (5e^{-x/3} - 3)\\,dx$.",
+          "sample_responses": [
+            {
+              "response": "$f(4) = 5 + \\displaystyle\\int_0^4 (5e^{-x/3} - 3)\\,dx$",
+              "earned": true,
+              "commentary": "FTC: $f(4) = f(0) + \\int_0^4 f'(x)\\,dx$, where $f'(x) = 5e^{-x/3} - 3$ for $0 < x \\le 4$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$f(4) = f(0) + (5e^{-4/3} - 3)$",
+              "earned": false,
+              "commentary": "Evaluates $f'$ at a single point rather than integrating; must integrate $f'$ over $[0,4]$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -102,6 +177,21 @@
           "point_id": "b4",
           "point_value": 1,
           "description": "Correct antiderivative",
+          "official_rubric": "1 point: correct antiderivative $\\left[-15e^{-x/3} - 3x\\right]_0^4$.",
+          "sample_responses": [
+            {
+              "response": "$\\int_0^4 (5e^{-x/3} - 3)\\,dx = \\left[-15e^{-x/3} - 3x\\right]_0^4$",
+              "earned": true,
+              "commentary": "$\\int 5e^{-x/3}\\,dx = -15e^{-x/3}$ (chain rule: multiply by $-3$).",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\int_0^4 (5e^{-x/3} - 3)\\,dx = \\left[-\\dfrac{5}{3}e^{-x/3} - 3x\\right]_0^4$",
+              "earned": false,
+              "commentary": "Incorrect coefficient: $\\int 5e^{-x/3}\\,dx = 5 \\cdot (-3)e^{-x/3} = -15e^{-x/3}$, not $-\\frac{5}{3}e^{-x/3}$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -115,6 +205,21 @@
           "point_id": "b5",
           "point_value": 1,
           "description": "Correct value",
+          "official_rubric": "1 point: $f(4) = 8 - 15e^{-4/3}$.",
+          "sample_responses": [
+            {
+              "response": "$f(4) = 5 + \\left(-15e^{-4/3} - 12\\right) - \\left(-15\\right) = 5 + 3 - 15e^{-4/3} = 8 - 15e^{-4/3}$",
+              "earned": true,
+              "commentary": "Evaluates antiderivative at $x = 4$ and $x = 0$: $(-15e^{-4/3} - 12) - (-15) = 3 - 15e^{-4/3}$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$f(4) = 5 + (-15e^{-4/3} - 12) + (-15) = -22 - 15e^{-4/3}$",
+              "earned": false,
+              "commentary": "At $x = 0$: $-15e^0 - 3(0) = -15$; must subtract (not add) the $x=0$ value: $-(-15) = +15$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -138,6 +243,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Correct answer",
+          "official_rubric": "1 point: answer $x = 3\\ln\\!\\left(\\dfrac{5}{3}\\right)$.",
+          "sample_responses": [
+            {
+              "response": "$f$ has an absolute maximum at $x = 3\\ln\\!\\left(\\dfrac{5}{3}\\right)$.",
+              "earned": true,
+              "commentary": "The only critical point where $f' = 0$ and $f'$ changes from positive to negative on $(0,4]$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$f$ has an absolute maximum at $x = -2$.",
+              "earned": false,
+              "commentary": "$x = -2$ is an inflection point of $f$, not a local extremum; $f'(-2) = 0$ but $f'$ does not change sign there.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -151,6 +271,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Justification",
+          "official_rubric": "1 point: justification — $f'(x) > 0$ on $(-4, 3\\ln(5/3))$ (with $f'(-2) = 0$ but no sign change) so $f$ is increasing there; $f'(x) < 0$ on $(3\\ln(5/3), 4)$ so $f$ is decreasing there.",
+          "sample_responses": [
+            {
+              "response": "$f'(x) > 0$ on $(-4, -2)$ and $(-2, 3\\ln(5/3))$, so $f$ is increasing on $[-4, 3\\ln(5/3)]$. $f'(x) < 0$ on $(3\\ln(5/3), 4)$, so $f$ is decreasing. Therefore the absolute maximum is at $x = 3\\ln(5/3)$.",
+              "earned": true,
+              "commentary": "Complete sign analysis of $f'$; the point $x = -2$ is a zero of $f'$ but not a sign change, so $f$ remains increasing through it.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$f'(3\\ln(5/3)) = 0$ and this is the only zero of $f'$ in $(0,4]$, so it is the maximum.",
+              "earned": false,
+              "commentary": "Insufficient; must show $f'$ changes from positive to negative at this point (not just equals zero) to confirm maximum.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [

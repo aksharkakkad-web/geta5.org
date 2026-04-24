@@ -27,6 +27,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Sets up correct integral for profit",
+          "official_rubric": "1 point: profit $= 120(25) - \\displaystyle\\int_0^{25} 6\\sqrt{x}\\,dx$.",
+          "sample_responses": [
+            {
+              "response": "$\\text{Profit} = 120 \\cdot 25 - \\displaystyle\\int_0^{25} 6\\sqrt{x}\\,dx$",
+              "earned": true,
+              "commentary": "Revenue = price per meter × length; cost = integral of cost rate.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\text{Profit} = \\displaystyle\\int_0^{25} (120 - 6\\sqrt{x})\\,dx$",
+              "earned": true,
+              "commentary": "Equivalent form integrating profit rate per meter; also accepted.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -40,6 +55,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct answer",
+          "official_rubric": "1 point: answer $2500$ dollars.",
+          "sample_responses": [
+            {
+              "response": "$3000 - \\left[4x^{3/2}\\right]_0^{25} = 3000 - 4(125) = 3000 - 500 = 2500$ dollars",
+              "earned": true,
+              "commentary": "$\\int_0^{25} 6x^{1/2}\\,dx = 6 \\cdot \\frac{2}{3}x^{3/2}\\Big|_0^{25} = 4(125) = 500$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$3000 - 6\\sqrt{25} = 3000 - 30 = 2970$ dollars",
+              "earned": false,
+              "commentary": "Evaluates cost rate at $x = 25$ instead of integrating; must integrate $6\\sqrt{x}$ over $[0, 25]$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -63,6 +93,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Correct explanation with units",
+          "official_rubric": "1 point: $\\int_{25}^{30} 6\\sqrt{x}\\,dx$ is the additional cost, in dollars, of producing the portion of cable between 25 and 30 meters from the beginning (i.e., the difference in production cost between a 30-meter cable and a 25-meter cable).",
+          "sample_responses": [
+            {
+              "response": "$\\int_{25}^{30} 6\\sqrt{x}\\,dx$ is the additional cost, in dollars, to produce the segment of cable from 25 to 30 meters from the beginning — equivalently, the difference in cost between a 30-meter and a 25-meter cable.",
+              "earned": true,
+              "commentary": "Interprets the integral of a cost rate as the accumulated cost over the interval $[25,30]$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\int_{25}^{30} 6\\sqrt{x}\\,dx$ is the profit on the last 5 meters of cable.",
+              "earned": false,
+              "commentary": "This is only the cost portion, not profit; profit would also subtract revenue.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -86,6 +131,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Correct integral expression",
+          "official_rubric": "1 point: includes the integral $\\displaystyle\\int_0^k 6\\sqrt{x}\\,dx$ for total production cost.",
+          "sample_responses": [
+            {
+              "response": "$\\text{Cost} = \\displaystyle\\int_0^k 6\\sqrt{x}\\,dx$",
+              "earned": true,
+              "commentary": "Correctly sets up the total production cost as an integral.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\text{Cost} = 6\\sqrt{k} \\cdot k$",
+              "earned": false,
+              "commentary": "Multiplies the cost rate at $x = k$ by the length; must integrate since cost rate varies with $x$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -99,6 +159,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct profit expression",
+          "official_rubric": "1 point: complete profit expression $P(k) = 120k - \\displaystyle\\int_0^k 6\\sqrt{x}\\,dx$ dollars.",
+          "sample_responses": [
+            {
+              "response": "$P(k) = 120k - \\displaystyle\\int_0^k 6\\sqrt{x}\\,dx$",
+              "earned": true,
+              "commentary": "Revenue minus cost expressed as an integral.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$P(k) = \\displaystyle\\int_0^k 6\\sqrt{x}\\,dx - 120k$",
+              "earned": false,
+              "commentary": "Subtracts in the wrong order; profit = revenue $-$ cost, not cost $-$ revenue.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -122,6 +197,21 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Sets $P'(k) = 0$",
+          "official_rubric": "1 point: differentiates $P(k)$ and sets $P'(k) = 120 - 6\\sqrt{k} = 0$.",
+          "sample_responses": [
+            {
+              "response": "$P'(k) = 120 - 6\\sqrt{k} = 0$",
+              "earned": true,
+              "commentary": "By FTC, $\\frac{d}{dk}\\int_0^k 6\\sqrt{x}\\,dx = 6\\sqrt{k}$, so $P'(k) = 120 - 6\\sqrt{k}$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$P'(k) = 120 - 6k = 0 \\Rightarrow k = 20$",
+              "earned": false,
+              "commentary": "Differentiates $6\\sqrt{k}$ as $6k$ instead of $6\\sqrt{k}$; must use FTC correctly.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -135,6 +225,21 @@
           "point_id": "d2",
           "point_value": 1,
           "description": "Solves for $k$",
+          "official_rubric": "1 point: $k = 400$.",
+          "sample_responses": [
+            {
+              "response": "$6\\sqrt{k} = 120 \\Rightarrow \\sqrt{k} = 20 \\Rightarrow k = 400$ meters",
+              "earned": true,
+              "commentary": "Correct algebra.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\sqrt{k} = 20 \\Rightarrow k = \\sqrt{20} \\approx 4.5$",
+              "earned": false,
+              "commentary": "Forgot to square both sides; $\\sqrt{k} = 20$ gives $k = 400$, not $k = \\sqrt{20}$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -148,6 +253,21 @@
           "point_id": "d3",
           "point_value": 1,
           "description": "Correct maximum profit",
+          "official_rubric": "1 point: $P(400) = 16{,}000$ dollars.",
+          "sample_responses": [
+            {
+              "response": "$P(400) = 120(400) - \\left[4x^{3/2}\\right]_0^{400} = 48000 - 4(8000) = 48000 - 32000 = 16000$ dollars",
+              "earned": true,
+              "commentary": "$400^{3/2} = (400)^1 \\cdot (400)^{1/2} = 400 \\times 20 = 8000$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$P(400) = 120(400) - 6\\sqrt{400}(400) = 48000 - 48000 = 0$ dollars",
+              "earned": false,
+              "commentary": "Uses the cost rate at $k = 400$ times $k$ instead of the integral; production cost $= 4 \\cdot 400^{3/2} = 32000$, not $6\\sqrt{400} \\cdot 400 = 48000$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -161,6 +281,21 @@
           "point_id": "d4",
           "point_value": 1,
           "description": "Justification",
+          "official_rubric": "1 point: $P'(k) > 0$ for $0 < k < 400$ and $P'(k) < 0$ for $k > 400$, confirming a maximum; or equivalently, this is the only critical point and $P'' < 0$.",
+          "sample_responses": [
+            {
+              "response": "$P'(k) = 120 - 6\\sqrt{k} > 0$ for $k < 400$ and $P'(k) < 0$ for $k > 400$, so $P$ has a maximum at $k = 400$.",
+              "earned": true,
+              "commentary": "Sign analysis of $P'$ confirms the only critical point is a maximum.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$k = 400$ is the only critical point, so it must be the maximum.",
+              "earned": false,
+              "commentary": "Insufficient justification; must show sign change of $P'$ or use second derivative to confirm it is a maximum.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [

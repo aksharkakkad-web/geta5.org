@@ -28,6 +28,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Sets up the integral",
+          "official_rubric": "1 point: sets up $\\int_0^2 R(t)\\,dt$ as the total number of people entering.",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^2 R(t)\\,dt = \\int_0^2 (1380t^2 - 675t^3)\\,dt$",
+              "earned": true,
+              "commentary": "Integrates the entry rate over the full interval $[0,2]$ to accumulate total people.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$R(2) = 1380(4) - 675(8) = 120$ people",
+              "earned": false,
+              "commentary": "Evaluates the rate at $t = 2$, not the total; must integrate $R(t)$ over $[0,2]$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -41,6 +56,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct answer",
+          "official_rubric": "1 point: answer $980$ people.",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^2 (1380t^2 - 675t^3)\\,dt = \\left[460t^3 - \\frac{675}{4}t^4\\right]_0^2 = 3680 - 2700 = 980$ people",
+              "earned": true,
+              "commentary": "Correct antidifferentiation and evaluation.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\int_0^2 R(t)\\,dt \\approx 900$ people",
+              "earned": false,
+              "commentary": "Arithmetic error; the correct answer is exactly $980$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -64,6 +94,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Considers $R'(t) = 0$",
+          "official_rubric": "1 point: sets $R'(t) = 0$ to find critical points, i.e., $2760t - 2025t^2 = 0$.",
+          "sample_responses": [
+            {
+              "response": "$R'(t) = 2760t - 2025t^2 = t(2760 - 2025t) = 0$ at $t = 0$ and $t = \\dfrac{2760}{2025} \\approx 1.363$",
+              "earned": true,
+              "commentary": "Differentiates $R(t)$ and factors to find the two critical points in $[0, 2]$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$R'(t) = 1380t^2 - 675t^3 = 0$ (forgot to differentiate)",
+              "earned": false,
+              "commentary": "Sets $R(t) = 0$ rather than $R'(t) = 0$; must differentiate to find where the rate is maximized.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -77,6 +122,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Identifies interior critical point $t \\approx 1.362$ and considers $t = 0$ and $t = 2$",
+          "official_rubric": "1 point: identifies the interior critical point $t \\approx 1.362$ and compares $R$ at $t = 0$, $t \\approx 1.362$, and $t = 2$.",
+          "sample_responses": [
+            {
+              "response": "Critical points at $t = 0$ and $t \\approx 1.362$; also check endpoint $t = 2$. Evaluating: $R(0) = 0$, $R(1.362) \\approx 854.5$, $R(2) = 120$.",
+              "earned": true,
+              "commentary": "Full candidate check: interior critical point plus endpoints.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Only checks $t \\approx 1.362$ and concludes maximum there without comparing to $t = 2$.",
+              "earned": false,
+              "commentary": "Must compare against all candidates including endpoints; though $R(2) = 120 < R(1.362)$, the comparison is required.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -91,6 +151,21 @@
           "point_id": "b3",
           "point_value": 1,
           "description": "Correct answer with justification",
+          "official_rubric": "1 point: answer $t \\approx 1.362$ or $1.363$ hours with justification (e.g., $R(1.362) \\approx 854.527$ is the largest value).",
+          "sample_responses": [
+            {
+              "response": "Maximum rate occurs at $t \\approx 1.362$ hours since $R(0) = 0$, $R(1.362) \\approx 854.527$, $R(2) = 120$, and $R(1.362)$ is the largest.",
+              "earned": true,
+              "commentary": "Compares all candidates and identifies the maximum.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Maximum rate at $t = 2$ hours since that's when the auditorium closes.",
+              "earned": false,
+              "commentary": "$R(2) = 120 \\ll R(1.362) \\approx 854.527$; the rate is far lower at $t = 2$ than at the interior critical point.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -114,6 +189,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Sets up integral",
+          "official_rubric": "1 point: $w(2) - w(1) = \\displaystyle\\int_1^2 w'(t)\\,dt = \\int_1^2 (2-t)R(t)\\,dt$.",
+          "sample_responses": [
+            {
+              "response": "$w(2) - w(1) = \\displaystyle\\int_1^2 (2 - t)R(t)\\,dt = \\int_1^2 (2-t)(1380t^2 - 675t^3)\\,dt$",
+              "earned": true,
+              "commentary": "Applies FTC: the net change in $w$ from $t=1$ to $t=2$ equals the integral of $w'(t)$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$w(2) - w(1) = \\int_0^2 (2-t)R(t)\\,dt - \\int_0^1 (2-t)R(t)\\,dt$",
+              "earned": true,
+              "commentary": "Equivalent setup; simplifies to the same integral $\\int_1^2(2-t)R(t)\\,dt$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -127,6 +217,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct answer",
+          "official_rubric": "1 point: answer $387.5$ hours (total wait time for those entering after $t = 1$).",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_1^2 (2-t)(1380t^2 - 675t^3)\\,dt = 387.5$ hours",
+              "earned": true,
+              "commentary": "Correct numerical evaluation by calculator.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\int_1^2 (2-t)R(t)\\,dt \\approx 390$ hours",
+              "earned": false,
+              "commentary": "Incorrect; exact CB answer is $387.5$ hours.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -150,6 +255,21 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Sets up correct expression",
+          "official_rubric": "1 point: average wait $= \\dfrac{w(2)}{\\text{total people}} = \\dfrac{1}{980}\\displaystyle\\int_0^2 (2-t)R(t)\\,dt$.",
+          "sample_responses": [
+            {
+              "response": "$\\text{Average wait} = \\dfrac{\\int_0^2 (2-t)R(t)\\,dt}{\\int_0^2 R(t)\\,dt} = \\dfrac{w(2)}{980}$",
+              "earned": true,
+              "commentary": "Divides total wait time by total number of people to get average.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\text{Average wait} = \\dfrac{w(2) - w(1)}{\\int_1^2 R(t)\\,dt}$",
+              "earned": false,
+              "commentary": "Computes average for the $[1,2]$ sub-group only; must use all people who enter ($[0,2]$).",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -163,6 +283,21 @@
           "point_id": "d2",
           "point_value": 1,
           "description": "Correct answer",
+          "official_rubric": "1 point: answer $\\approx 0.775$ or $0.776$ hour.",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{1}{980}\\displaystyle\\int_0^2 (2-t)(1380t^2 - 675t^3)\\,dt \\approx 0.776$ hour",
+              "earned": true,
+              "commentary": "Correct to three decimal places.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\approx 0.5$ hour",
+              "earned": false,
+              "commentary": "Incorrect value; the integral $\\int_0^2(2-t)R(t)\\,dt \\approx 759.6$ and dividing by $980$ gives $\\approx 0.776$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [

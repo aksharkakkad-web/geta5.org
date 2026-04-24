@@ -28,6 +28,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct symmetric difference quotient",
+          "official_rubric": "1 point: correct difference quotient $f'(4) \\approx \\dfrac{f(5) - f(3)}{5 - 3} = -3$.",
+          "sample_responses": [
+            {
+              "response": "$f'(4) \\approx \\dfrac{f(5) - f(3)}{5 - 3} = \\dfrac{-2 - 4}{2} = -3$",
+              "earned": true,
+              "commentary": "Symmetric difference quotient centered at $x = 4$ using the table values at $x = 3$ and $x = 5$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$f'(4) \\approx \\dfrac{f(5) - f(2)}{5 - 2} = \\dfrac{-2 - 1}{3} = -1$",
+              "earned": false,
+              "commentary": "Uses a non-symmetric interval; the table provides values at $x = 3$ and $x = 5$ which bracket $x = 4$ symmetrically.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -51,6 +66,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Uses the Fundamental Theorem of Calculus",
+          "official_rubric": "1 point: applies FTC to $\\int_2^{13} f'(x)\\,dx = f(13) - f(2)$.",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_2^{13}(3 - 5f'(x))\\,dx = 3(11) - 5\\int_2^{13}f'(x)\\,dx = 33 - 5(f(13) - f(2))$",
+              "earned": true,
+              "commentary": "Linearity of the integral separates the constant and applies FTC to the $f'$ term.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\displaystyle\\int_2^{13}(3 - 5f'(x))\\,dx = (3 - 5f'(4))(11) = (3 - 5(-3))(11) = 198$",
+              "earned": false,
+              "commentary": "Treats the integrand as constant; must use FTC for $\\int f'(x)\\,dx$, not evaluate at a sample point.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -64,6 +94,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct answer",
+          "official_rubric": "1 point: answer $8$.",
+          "sample_responses": [
+            {
+              "response": "$33 - 5(6 - 1) = 33 - 25 = 8$",
+              "earned": true,
+              "commentary": "$f(13) = 6$ and $f(2) = 1$ from the table; $f(13) - f(2) = 5$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$33 - 5(6 + 1) = 33 - 35 = -2$",
+              "earned": false,
+              "commentary": "Sign error: FTC gives $f(13) - f(2) = 6 - 1 = 5$, not $6 + 1 = 7$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -87,6 +132,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Sets up correct left Riemann sum",
+          "official_rubric": "1 point: correct left Riemann sum structure with four subintervals $[2,3]$, $[3,5]$, $[5,8]$, $[8,13]$ using left endpoints.",
+          "sample_responses": [
+            {
+              "response": "$f(2)(1) + f(3)(2) + f(5)(3) + f(8)(5) = 1(1) + 4(2) + (-2)(3) + 3(5)$",
+              "earned": true,
+              "commentary": "Uses left endpoint function values with correct subinterval widths $1, 2, 3, 5$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$f(3)(1) + f(5)(2) + f(8)(3) + f(13)(5)$ (right Riemann sum)",
+              "earned": false,
+              "commentary": "Uses right endpoints; question specifies a left Riemann sum.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -100,6 +160,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct answer",
+          "official_rubric": "1 point: answer $18$.",
+          "sample_responses": [
+            {
+              "response": "$1(1) + 4(2) + (-2)(3) + 3(5) = 1 + 8 - 6 + 15 = 18$",
+              "earned": true,
+              "commentary": "Substitutes $f(2) = 1$, $f(3) = 4$, $f(5) = -2$, $f(8) = 3$ from the table.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$1 + 4 + (-2) + 3 = 6$ (forgot to multiply by widths)",
+              "earned": false,
+              "commentary": "Simply sums the function values without multiplying by subinterval widths; each term must be $f(x_i) \\cdot \\Delta x_i$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -123,6 +198,21 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Writes tangent line at $x = 5$",
+          "official_rubric": "1 point: tangent line at $x = 5$: $y = -2 + 3(x - 5)$.",
+          "sample_responses": [
+            {
+              "response": "$y = f(5) + f'(5)(x - 5) = -2 + 3(x - 5)$",
+              "earned": true,
+              "commentary": "Point-slope form using $f(5) = -2$ from the table and $f'(5) = 3$ as given.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$y = -2 + f'(4)(x - 5) = -2 + (-3)(x-5)$",
+              "earned": false,
+              "commentary": "Uses the estimated $f'(4) = -3$ instead of the given $f'(5) = 3$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -136,6 +226,21 @@
           "point_id": "d2",
           "point_value": 1,
           "description": "Shows $f(7) \\le 4$: since $f''(x) < 0$ on $[5,8]$, the graph is concave down, so tangent line lies above the curve; $f(7) \\le -2 + 3(2) = 4$",
+          "official_rubric": "1 point: since $f''(x) < 0$ on $[5,8]$, the graph is concave down, so the tangent line at $x = 5$ lies above the graph; evaluating at $x = 7$: $-2 + 3(2) = 4$, hence $f(7) \\le 4$.",
+          "sample_responses": [
+            {
+              "response": "Since $f''(x) < 0$ on $[5,8]$, the graph of $f$ is concave down, so the tangent line lies above the curve. At $x = 7$: tangent line value $= -2 + 3(7-5) = 4$. Therefore $f(7) \\le 4$.",
+              "earned": true,
+              "commentary": "Concave down means tangent line is an overestimate; evaluates at $x = 7$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Since $f''(x) < 0$, the tangent line lies below the curve, so $f(7) \\ge 4$.",
+              "earned": false,
+              "commentary": "Reverses the concavity conclusion; for concave-down functions, tangent lines are above the graph, giving an upper bound.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -148,6 +253,21 @@
           "point_id": "d3",
           "point_value": 1,
           "description": "Writes secant line through $(5, f(5))$ and $(8, f(8))$: slope $= \\frac{3-(-2)}{8-5} = \\frac{5}{3}$; $y = -2 + \\frac{5}{3}(x-5)$",
+          "official_rubric": "1 point: secant line through $(5, -2)$ and $(8, 3)$ with slope $\\dfrac{5}{3}$: $y = -2 + \\dfrac{5}{3}(x-5)$.",
+          "sample_responses": [
+            {
+              "response": "Slope $= \\dfrac{f(8) - f(5)}{8 - 5} = \\dfrac{3 - (-2)}{3} = \\dfrac{5}{3}$; secant line: $y = -2 + \\dfrac{5}{3}(x - 5)$.",
+              "earned": true,
+              "commentary": "Uses table values $f(5) = -2$ and $f(8) = 3$ to find the secant slope.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Secant slope $= \\dfrac{f(8) - f(5)}{8 - 5} = \\dfrac{3 - (-2)}{3} = \\dfrac{5}{3}$; evaluates $y = -2 + \\dfrac{5}{3}(2) = \\dfrac{4}{3}$.",
+              "earned": true,
+              "commentary": "Acceptable to write the secant line and directly evaluate at $x = 7$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -161,6 +281,21 @@
           "point_id": "d4",
           "point_value": 1,
           "description": "Shows $f(7) \\ge \\frac{4}{3}$: since $f''(x) < 0$ on $[5,8]$, the graph is concave down, so secant line lies below the curve; $f(7) \\ge -2 + \\frac{5}{3}(2) = -2 + \\frac{10}{3} = \\frac{4}{3}$",
+          "official_rubric": "1 point: since $f''(x) < 0$ on $[5,8]$, the graph is concave down, so the secant line lies below the graph on $(5,8)$; at $x = 7$: secant value $= -2 + \\frac{5}{3}(2) = \\frac{4}{3}$, hence $f(7) \\ge \\frac{4}{3}$.",
+          "sample_responses": [
+            {
+              "response": "Since $f'' < 0$ on $[5,8]$, the graph is concave down, so the secant line lies below the curve. At $x = 7$: $-2 + \\dfrac{5}{3}(2) = -2 + \\dfrac{10}{3} = \\dfrac{4}{3}$. Therefore $f(7) \\ge \\dfrac{4}{3}$.",
+              "earned": true,
+              "commentary": "Correctly applies the concavity result: concave down $\\Rightarrow$ secant below graph $\\Rightarrow$ lower bound.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Secant value at $x = 7$ is $\\frac{4}{3}$, so $f(7) \\ge \\frac{4}{3}$.",
+              "earned": false,
+              "commentary": "Gives the bound without justifying why the secant is a lower bound (must cite concave down / $f'' < 0$).",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [

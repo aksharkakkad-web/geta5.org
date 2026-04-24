@@ -27,6 +27,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct integrand",
+          "official_rubric": "1 point: correct integrand $2x - x^2$ (top curve $y = 2x$ minus bottom curve $y = x^2$) with limits $0$ to $2$.",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^2 (2x - x^2)\\,dx$",
+              "earned": true,
+              "commentary": "Intersections at $x = 0$ and $x = 2$; on $[0,2]$ the line $y = 2x$ is above $y = x^2$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\displaystyle\\int_0^2 (x^2 - 2x)\\,dx$",
+              "earned": false,
+              "commentary": "Inverted integrand; gives a negative area. Must subtract the lower curve from the upper.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -40,6 +55,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct antiderivative",
+          "official_rubric": "1 point: correct antiderivative $x^2 - \\dfrac{x^3}{3}$.",
+          "sample_responses": [
+            {
+              "response": "$\\left[x^2 - \\dfrac{x^3}{3}\\right]_0^2$",
+              "earned": true,
+              "commentary": "$\\int(2x - x^2)\\,dx = x^2 - \\frac{x^3}{3} + C$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\left[x^2 - x^3\\right]_0^2$",
+              "earned": false,
+              "commentary": "Missing the $\\frac{1}{3}$ factor; $\\int x^2\\,dx = \\frac{x^3}{3}$, not $x^3$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -53,6 +83,21 @@
           "point_id": "a3",
           "point_value": 1,
           "description": "Correct answer",
+          "official_rubric": "1 point: answer $\\dfrac{4}{3}$.",
+          "sample_responses": [
+            {
+              "response": "$\\left(4 - \\dfrac{8}{3}\\right) - 0 = \\dfrac{4}{3}$",
+              "earned": true,
+              "commentary": "Evaluates the antiderivative at $x = 2$ and $x = 0$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$4 - \\dfrac{8}{3} = \\dfrac{4}{3}$... writes $\\dfrac{12 - 8}{3} = \\dfrac{5}{3}$ (arithmetic error)",
+              "earned": false,
+              "commentary": "$12 - 8 = 4$, not $5$; correct answer is $\\frac{4}{3}$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -76,6 +121,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Correct integrand",
+          "official_rubric": "1 point: sets up $V = \\displaystyle\\int_0^2 A(x)\\,dx = \\int_0^2 \\sin\\!\\left(\\dfrac{\\pi}{2}x\\right)\\,dx$.",
+          "sample_responses": [
+            {
+              "response": "$V = \\displaystyle\\int_0^2 \\sin\\!\\left(\\dfrac{\\pi x}{2}\\right)\\,dx$",
+              "earned": true,
+              "commentary": "Volume = integral of cross-sectional area $A(x)$ over the $x$-extent of the base $[0, 2]$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$V = \\displaystyle\\int_0^{4/3} \\sin\\!\\left(\\dfrac{\\pi x}{2}\\right)\\,dx$",
+              "earned": false,
+              "commentary": "Uses the area of $R$ as the upper limit; the limits should be the $x$-extent of the region $[0, 2]$, not the area value.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -89,6 +149,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct antiderivative",
+          "official_rubric": "1 point: correct antiderivative $-\\dfrac{2}{\\pi}\\cos\\!\\left(\\dfrac{\\pi x}{2}\\right)$.",
+          "sample_responses": [
+            {
+              "response": "$\\left[-\\dfrac{2}{\\pi}\\cos\\!\\left(\\dfrac{\\pi x}{2}\\right)\\right]_0^2$",
+              "earned": true,
+              "commentary": "$\\int\\sin(\\frac{\\pi x}{2})\\,dx = -\\frac{2}{\\pi}\\cos(\\frac{\\pi x}{2}) + C$ via substitution $u = \\frac{\\pi x}{2}$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\left[-\\cos\\!\\left(\\dfrac{\\pi x}{2}\\right)\\right]_0^2$",
+              "earned": false,
+              "commentary": "Missing the $\\dfrac{2}{\\pi}$ factor from the chain rule / substitution.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -102,6 +177,21 @@
           "point_id": "b3",
           "point_value": 1,
           "description": "Correct answer",
+          "official_rubric": "1 point: answer $\\dfrac{4}{\\pi}$.",
+          "sample_responses": [
+            {
+              "response": "$-\\dfrac{2}{\\pi}\\cos(\\pi) + \\dfrac{2}{\\pi}\\cos(0) = \\dfrac{2}{\\pi} + \\dfrac{2}{\\pi} = \\dfrac{4}{\\pi}$",
+              "earned": true,
+              "commentary": "$\\cos(\\pi) = -1$ and $\\cos(0) = 1$, so both terms add to $\\frac{4}{\\pi}$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$-\\dfrac{2}{\\pi}\\cos(\\pi) - \\dfrac{2}{\\pi}\\cos(0) = \\dfrac{2}{\\pi} - \\dfrac{2}{\\pi} = 0$",
+              "earned": false,
+              "commentary": "Sign error in evaluation; $\\left[-\\frac{2}{\\pi}\\cos\\right]_0^2 = -\\frac{2}{\\pi}\\cos(\\pi) - \\left(-\\frac{2}{\\pi}\\cos(0)\\right) = \\frac{2}{\\pi} + \\frac{2}{\\pi}$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -125,6 +215,21 @@
           "point_id": "c1",
           "point_value": 2,
           "description": "Correct integrand: express boundaries in terms of $y$",
+          "official_rubric": "2 points: correct integrand. Rewrite boundaries in terms of $y$: $y = 2x \\Rightarrow x = y/2$ (right boundary); $y = x^2 \\Rightarrow x = \\sqrt{y}$ (left boundary). Side of square $= \\sqrt{y} - y/2$; area $= \\left(\\sqrt{y} - \\dfrac{y}{2}\\right)^2$.",
+          "sample_responses": [
+            {
+              "response": "$\\left(\\sqrt{y} - \\dfrac{y}{2}\\right)^2$",
+              "earned": true,
+              "commentary": "Cross sections perpendicular to $y$-axis have side length $= \\sqrt{y} - y/2$ (right boundary minus left boundary in $x$).",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\left(2x - x^2\\right)^2$ (in terms of $x$ rather than $y$)",
+              "earned": false,
+              "commentary": "Cross sections perpendicular to the $y$-axis require $y$ as the variable of integration; must express boundaries as $x$ in terms of $y$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -138,6 +243,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct limits",
+          "official_rubric": "1 point: correct limits $0$ to $4$ (region $R$ spans $y = 0$ to $y = 4$).",
+          "sample_responses": [
+            {
+              "response": "$V = \\displaystyle\\int_0^4 \\left(\\sqrt{y} - \\dfrac{y}{2}\\right)^2\\,dy$",
+              "earned": true,
+              "commentary": "Limits $0$ to $4$: the curves $y = 2x$ and $y = x^2$ intersect at $(0,0)$ and $(2,4)$, so $y$ ranges from $0$ to $4$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$V = \\displaystyle\\int_0^2 \\left(\\sqrt{y} - \\dfrac{y}{2}\\right)^2\\,dy$",
+              "earned": false,
+              "commentary": "Uses $y = 0$ to $y = 2$ (the $x$-extent), but since we integrate with respect to $y$, the limits must be the $y$-extent: $0$ to $4$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
