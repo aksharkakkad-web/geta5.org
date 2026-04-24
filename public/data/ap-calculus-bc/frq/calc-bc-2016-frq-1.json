@@ -29,6 +29,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct difference quotient setup using the surrounding table values",
+          "official_rubric": "1 point: $R'(2) \\approx \\frac{R(4)-R(1)}{4-1} = -80$",
+          "sample_responses": [
+            {
+              "response": "$R'(2) \\approx \\dfrac{R(4)-R(1)}{4-1} = \\dfrac{950-1190}{3} = -80$ liters per hour per hour",
+              "earned": true,
+              "commentary": "Correctly uses the two surrounding table points ($t=1$ and $t=4$) to estimate $R'(2)$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$R'(2) \\approx \\dfrac{R(4)-R(0)}{4-0} = \\dfrac{950-1340}{4} = -97.5$ (wrong interval)",
+              "earned": false,
+              "commentary": "Uses $t=0$ instead of $t=1$ as the left endpoint; the best estimate uses the two points that most tightly bracket $t=2$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -41,6 +56,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct units stated",
+          "official_rubric": "1 point: units — liters per hour per hour (liters/hour$^2$)",
+          "sample_responses": [
+            {
+              "response": "$R'(2) \\approx -80$ liters per hour per hour",
+              "earned": true,
+              "commentary": "Units of the rate of change of a rate (liters/hour) are liters/hour$^2$ or liters per hour per hour.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$R'(2) \\approx -80$ liters per hour",
+              "earned": false,
+              "commentary": "Liters per hour are units of $R(t)$ (rate), not $R'(t)$ (rate of rate). The derivative of a rate has units of liters/hour$^2$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -63,6 +93,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Correct left Riemann sum setup with appropriate subinterval widths",
+          "official_rubric": "1 point: $R(0)(1)+R(1)(3)+R(4)(4) = 1340+3570+3800$",
+          "sample_responses": [
+            {
+              "response": "Left sum: $R(0)\\cdot 1 + R(1)\\cdot 3 + R(4)\\cdot 4 = 1340(1)+1190(3)+950(4)$",
+              "earned": true,
+              "commentary": "Correctly uses left endpoints of subintervals $[0,1]$, $[1,4]$, $[4,8]$ with widths $1$, $3$, $4$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Left sum: $R(0)\\cdot 2 + R(2)\\cdot 2 + R(4)\\cdot 2 + R(6)\\cdot 2$ (uses equal subintervals not from table)",
+              "earned": false,
+              "commentary": "Uses equal-width subintervals not indicated by the table. Must use the four subintervals defined by the table data points $t = 0, 1, 4, 8$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -75,6 +120,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct numerical answer",
+          "official_rubric": "1 point: $8710$ liters",
+          "sample_responses": [
+            {
+              "response": "$1340 + 3570 + 3800 = 8710$ liters",
+              "earned": true,
+              "commentary": "Correct arithmetic.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$1340 + 3570 + 3800 = 8810$ liters (arithmetic error)",
+              "earned": false,
+              "commentary": "Arithmetic error; the correct sum is $8710$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -87,6 +147,21 @@
           "point_id": "b3",
           "point_value": 1,
           "description": "Correct conclusion (overestimate) with correct justification",
+          "official_rubric": "1 point: overestimate, because $R$ is decreasing so left Riemann sum overestimates",
+          "sample_responses": [
+            {
+              "response": "Overestimate. Since $R$ is decreasing, the left endpoint value is greater than the true average on each subinterval, so the left Riemann sum overestimates $\\int_0^8 R(t)\\,dt$.",
+              "earned": true,
+              "commentary": "Correct conclusion with correct reasoning: decreasing function $\\Rightarrow$ left sum $>$ integral.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Underestimate, because we only used three subintervals.",
+              "earned": false,
+              "commentary": "Number of subintervals does not determine over/underestimate; the monotonicity of $R$ does. Since $R$ is decreasing, the left sum is an overestimate.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -109,6 +184,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Correct integral setup for total water pumped in",
+          "official_rubric": "1 point: $50000 + \\int_0^8 W(t)\\,dt - 8710$",
+          "sample_responses": [
+            {
+              "response": "Total water $\\approx 50000 + \\displaystyle\\int_0^8 2000e^{-t^2/20}\\,dt - 8710$",
+              "earned": true,
+              "commentary": "Correctly assembles: initial amount plus water pumped in minus the Riemann sum estimate for water removed.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$50000 - 8710 = 41290$ liters (forgets to add water pumped in)",
+              "earned": false,
+              "commentary": "Subtracts the removed amount but forgets to add the water pumped in via $\\int_0^8 W(t)\\,dt$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -121,6 +211,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct numerical answer (using calculator value $\\int_0^8 W(t)\\,dt \\approx 7836.197$)",
+          "official_rubric": "1 point: $\\approx 49126$ liters",
+          "sample_responses": [
+            {
+              "response": "$50000 + 7836.197 - 8710 \\approx 49126$ liters",
+              "earned": true,
+              "commentary": "Correct calculator evaluation of $\\int_0^8 W(t)\\,dt$ and correct final arithmetic.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$50000 + 7836 - 8710 = 49026$ liters (arithmetic error)",
+              "earned": false,
+              "commentary": "Arithmetic error: $50000 + 7836 - 8710 = 49126$, not $49026$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -143,6 +248,21 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Correct evaluation showing $W(0) < R(0)$ and $W(8) > R(8)$ (or equivalent sign-change argument for $W - R$)",
+          "official_rubric": "1 point: $W(0) = 2000 > R(0) = 1340$ and $W(8) \\approx 90.7 < R(8) = 720$",
+          "sample_responses": [
+            {
+              "response": "$W(0) = 2000 > 1340 = R(0)$ and $W(8) = 2000e^{-64/20} \\approx 90.7 < 720 = R(8)$. So $W(t)-R(t)$ is positive at $t=0$ and negative at $t=8$.",
+              "earned": true,
+              "commentary": "Correctly evaluates both functions at the endpoints to establish the sign change needed for IVT.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$W$ starts at 2000 and decreases; $R$ starts at 1340 and decreases; they must cross.",
+              "earned": false,
+              "commentary": "Informal reasoning; must compute specific values of $W(0)$, $R(0)$, $W(8)$, $R(8)$ to establish the IVT conditions.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -155,6 +275,21 @@
           "point_id": "d2",
           "point_value": 1,
           "description": "Correct conclusion: yes, there exists such a time $t$, by the Intermediate Value Theorem (since $W - R$ is continuous and changes sign)",
+          "official_rubric": "1 point: Yes, by IVT — $W-R$ is continuous and changes sign on $(0,8)$",
+          "sample_responses": [
+            {
+              "response": "Yes. Since $W$ and $R$ are both continuous, $W-R$ is continuous. Because $W(0)-R(0) > 0$ and $W(8)-R(8) < 0$, by the IVT there exists $t \\in (0,8)$ with $W(t) = R(t)$.",
+              "earned": true,
+              "commentary": "Complete IVT argument: names IVT, establishes continuity, cites the sign change.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Yes, because $W$ decreases faster than $R$.",
+              "earned": false,
+              "commentary": "Does not invoke IVT or establish continuity and a sign change. The IVT must be explicitly cited with supporting values.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
