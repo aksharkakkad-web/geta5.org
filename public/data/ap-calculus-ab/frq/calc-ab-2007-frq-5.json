@@ -30,6 +30,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct linearization setup: $r(5.4) \\approx r(5) + r'(5)(5.4 - 5)$",
+          "official_rubric": "1 point: estimate $r(5.4) \\approx r(5) + r'(5)(0.4) = 30 + 2(0.4) = 30.8$ feet.",
+          "sample_responses": [
+            {
+              "response": "$r(5.4) \\approx r(5) + r'(5)(0.4) = 30 + 2(0.4) = 30.8$ feet.",
+              "earned": true,
+              "commentary": "Linear approximation at $t=5$; $r(5)=30$ ft and $r'(5)=2$ ft/min from the table.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$r(5.4) \\approx r(5) + r'(5) = 30 + 2 = 32$",
+              "earned": false,
+              "commentary": "Forgot to multiply $r'(5)$ by $\\Delta t = 0.4$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -43,6 +58,15 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct numerical estimate using table values",
+          "official_rubric": "1 point: correct numerical answer $30.8$ ft.",
+          "sample_responses": [
+            {
+              "response": "$r(5.4) \\approx 30.8$ feet",
+              "earned": true,
+              "commentary": "Correct value from linearization.",
+              "source": "cb_guideline"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -55,6 +79,21 @@
           "point_id": "a3",
           "point_value": 1,
           "description": "Estimate is greater than the true value because the graph of $r$ is concave down on $(0, 12)$, so the tangent line lies above the curve",
+          "official_rubric": "1 point: estimate is greater than the true value because $r$ is concave down on $(0,12)$, so the tangent line lies above the graph.",
+          "sample_responses": [
+            {
+              "response": "The estimate is greater than $r(5.4)$ because the graph of $r$ is concave down, so the tangent line lies above the graph.",
+              "earned": true,
+              "commentary": "Concavity argument correctly linked to overestimation by the tangent line.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "The estimate is less than $r(5.4)$ because $r$ is concave down.",
+              "earned": false,
+              "commentary": "Wrong conclusion; concave down means tangent line overestimates, not underestimates.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -82,6 +121,15 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Correct derivative expression using chain rule: $\\frac{dV}{dt} = 4\\pi r^2 \\frac{dr}{dt}$",
+          "official_rubric": "2 points: 1 point for $\\dfrac{dV}{dt} = 4\\pi r^2 \\dfrac{dr}{dt}$; 1 point for correct answer with units.",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{dV}{dt} = 4\\pi r^2 \\dfrac{dr}{dt}$",
+              "earned": true,
+              "commentary": "Chain rule applied to $V = \\frac{4}{3}\\pi r^3$.",
+              "source": "cb_guideline"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -95,6 +143,15 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Substitutes $r(5)$ and $r'(5)$ from table",
+          "official_rubric": "1 point: substitutes $r(5) = 30$ ft and $r'(5) = 2$ ft/min: $\\dfrac{dV}{dt}\\big|_{t=5} = 4\\pi(30)^2(2) = 7200\\pi$.",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{dV}{dt}\\big|_{t=5} = 4\\pi(30)^2(2) = 7200\\pi$",
+              "earned": true,
+              "commentary": "Correctly substitutes $r(5) = 30$ and $r'(5) = 2$ from the table.",
+              "source": "cb_guideline"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -107,6 +164,21 @@
           "point_id": "b3",
           "point_value": 1,
           "description": "Correct numerical answer with units (cubic feet per minute)",
+          "official_rubric": "1 point: $7200\\pi$ cubic feet per minute (units required).",
+          "sample_responses": [
+            {
+              "response": "$7200\\pi \\approx 22{,}619$ cubic feet per minute",
+              "earned": true,
+              "commentary": "Correct numerical answer with correct units.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$7200\\pi$",
+              "earned": false,
+              "commentary": "Correct value but units missing; CB requires units of measure.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -134,6 +206,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Correct right Riemann sum setup using table subintervals and right endpoint values of $r'$",
+          "official_rubric": "1 point: $\\int_0^{12} r'(t)\\,dt \\approx 2(4.0) + 3(2.0) + 2(1.2) + 4(0.6) + 1(0.5) = 19.3$ ft.",
+          "sample_responses": [
+            {
+              "response": "$2(4.0) + 3(2.0) + 2(1.2) + 4(0.6) + 1(0.5) = 8.0 + 6.0 + 2.4 + 2.4 + 0.5 = 19.3$ feet",
+              "earned": true,
+              "commentary": "Five subintervals $[0,2],[2,5],[5,7],[7,11],[11,12]$ with widths $2,3,2,4,1$; uses right endpoint $r'$ values.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$2(5.7) + 3(4.0) + 2(2.0) + 4(1.2) + 1(0.6) = 32.6$ feet",
+              "earned": false,
+              "commentary": "Uses left endpoints instead of right endpoints for a right Riemann sum.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -148,6 +235,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct interpretation: $\\int_0^{12} r'(t)\\, dt$ is the total change in radius (in feet) of the balloon from $t = 0$ to $t = 12$ minutes",
+          "official_rubric": "1 point: $\\int_0^{12} r'(t)\\,dt$ is the change in the radius, in feet, from $t=0$ to $t=12$ minutes.",
+          "sample_responses": [
+            {
+              "response": "$\\int_0^{12} r'(t)\\,dt$ represents the total change in the radius (in feet) of the balloon from $t = 0$ to $t = 12$ minutes.",
+              "earned": true,
+              "commentary": "FTC interpretation: integral of rate of change equals net change; units feet.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\int_0^{12} r'(t)\\,dt$ is the total rate of change of the radius.",
+              "earned": false,
+              "commentary": "Incorrect; integral of a rate is a net change, not a rate.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -172,6 +274,21 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "The approximation is less than $\\int_0^{12} r'(t)\\, dt$ because $r$ is concave down, meaning $r'$ is decreasing; a right Riemann sum for a decreasing function is an underestimate",
+          "official_rubric": "1 point: approximation is less than $\\int_0^{12} r'(t)\\,dt$ because $r$ is concave down, so $r'$ is decreasing, and a right Riemann sum underestimates a decreasing function.",
+          "sample_responses": [
+            {
+              "response": "The approximation $19.3$ ft is less than $\\int_0^{12} r'(t)\\,dt$ because $r$ is concave down on $(0,12)$, meaning $r'$ is decreasing. For a decreasing function, the right Riemann sum underestimates the integral.",
+              "earned": true,
+              "commentary": "Concavity $\\Rightarrow$ $r'$ decreasing $\\Rightarrow$ right endpoints give smaller values $\\Rightarrow$ underestimate.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "The approximation is greater because we used right endpoints.",
+              "earned": false,
+              "commentary": "Right endpoints overestimate for increasing functions, but $r'$ is decreasing (concave down), so right sum underestimates.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
