@@ -6,6 +6,7 @@ import { getSubject } from '@/utils/subjects'
 import { hasDocsCases, type DocsCasesData } from '@/utils/docsCases'
 import { BackToSubject } from '@/components/ui/BackToSubject'
 import { DocsCasesHubClient } from '@/components/docs-cases/DocsCasesHubClient'
+import { AuthGuard } from '@/components/auth/AuthGuard'
 
 interface PageProps {
   params: Promise<{ subject: string }>
@@ -39,37 +40,39 @@ export default async function DocsCasesHubPage({ params }: PageProps) {
   if (!data) notFound()
 
   return (
-    <div style={{
-      maxWidth: '90rem',
-      margin: '0 auto',
-      paddingLeft: '24px',
-      paddingRight: '24px',
-      paddingTop: '32px',
-      paddingBottom: '64px',
-      position: 'relative',
-    }}>
-      <div style={{ marginBottom: '16px' }}>
-        <BackToSubject subject={slug} />
-      </div>
-      <h1 style={{
-        fontSize: '1.875rem',
-        fontWeight: 700,
-        color: 'var(--text-primary)',
-        lineHeight: 1.2,
-        margin: '0 0 8px 0',
+    <AuthGuard requireAuth>
+      <div style={{
+        maxWidth: '90rem',
+        margin: '0 auto',
+        paddingLeft: '24px',
+        paddingRight: '24px',
+        paddingTop: '32px',
+        paddingBottom: '64px',
+        position: 'relative',
       }}>
-        Required Documents &amp; Cases
-      </h1>
-      <p style={{
-        fontSize: '0.9375rem',
-        color: 'var(--text-secondary)',
-        margin: '0 0 32px 0',
-        maxWidth: '70ch',
-      }}>
-        Memorize these {data.items.length} — they appear by name in MCQs and FRQs every year. Each entry has a one-sentence key takeaway and a concise summary of what you need to remember.
-      </p>
+        <div style={{ marginBottom: '16px' }}>
+          <BackToSubject subject={slug} />
+        </div>
+        <h1 style={{
+          fontSize: '1.875rem',
+          fontWeight: 700,
+          color: 'var(--text-primary)',
+          lineHeight: 1.2,
+          margin: '0 0 8px 0',
+        }}>
+          Required Documents &amp; Cases
+        </h1>
+        <p style={{
+          fontSize: '0.9375rem',
+          color: 'var(--text-secondary)',
+          margin: '0 0 32px 0',
+          maxWidth: '70ch',
+        }}>
+          Memorize these {data.items.length} — they appear by name in MCQs and FRQs every year. Each entry has a one-sentence key takeaway and a concise summary of what you need to remember.
+        </p>
 
-      <DocsCasesHubClient items={data.items} subject={slug} />
-    </div>
+        <DocsCasesHubClient items={data.items} subject={slug} />
+      </div>
+    </AuthGuard>
   )
 }

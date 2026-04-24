@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!subject) return {}
   return {
     title: `${subject.name} Study Guide — Free Review | geta5.app`,
-    description: `Free ${subject.name} study guide with core concepts, key terms, formulas, and exam tips. No signup required.`,
+    description: `${subject.name} study guide with core concepts, key terms, formulas, and exam tips. Sign up free to access.`,
   }
 }
 

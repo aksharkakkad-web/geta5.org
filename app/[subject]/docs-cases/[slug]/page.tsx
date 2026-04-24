@@ -7,6 +7,7 @@ import { getSubject } from '@/utils/subjects'
 import { hasDocsCases, kickerForItem, type DocsCasesData, type DocCaseItem } from '@/utils/docsCases'
 import { AdiQuizBlock } from '@/components/docs-cases/AdiQuizBlock'
 import { DocCaseSections } from '@/components/docs-cases/DocCaseSections'
+import { AuthGuard } from '@/components/auth/AuthGuard'
 
 interface PageProps {
   params: Promise<{ subject: string; slug: string }>
@@ -59,6 +60,7 @@ export default async function DocCaseDetailPage({ params }: PageProps) {
   const kicker = kickerForItem(item)
 
   return (
+    <AuthGuard requireAuth>
     <div style={{
       maxWidth: '54rem',
       margin: '0 auto',
@@ -214,6 +216,7 @@ export default async function DocCaseDetailPage({ params }: PageProps) {
         explainPrompt={item.adi_prompts.explain}
       />
     </div>
+    </AuthGuard>
   )
 }
 

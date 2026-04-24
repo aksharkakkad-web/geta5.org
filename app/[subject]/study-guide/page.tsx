@@ -47,7 +47,7 @@ export default function StudyGuidePage({ params }: StudyGuidePageProps) {
   }
 
   return (
-    <AuthGuard>
+    <AuthGuard requireAuth>
       <main style={{
         padding: '24px',
         maxWidth: view === 'reading' ? '1100px' : '960px',
