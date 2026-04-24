@@ -44,6 +44,27 @@
           "common_traps": [
             "The denominator of $V(x)$ is $1 + 0.4x$, not $0.4x$ — substitute carefully: $V(2) = 28/(1 + 0.8) = 28/1.8$",
             "Both rates are negative (depreciation), but they are being compared by magnitude — $-2.39 > -6.22$ on the number line"
+          ],
+          "official_rubric": "The point is earned for both correct average rates of change — approximately $-6.222$ thousand dollars/year on $[0,2]$ and $-2.394$ thousand dollars/year on $[2,4]$ — with supporting work showing $V(0)$, $V(2)$, $V(4)$, and both difference quotients.",
+          "sample_responses": [
+            {
+              "response": "$V(0) = 28$; $V(2) = 28/1.8 \\approx 15.556$; $V(4) = 28/2.6 \\approx 10.769$. Rate on $[0,2]$: $(15.556-28)/2 \\approx -6.222$ thousand $/yr$. Rate on $[2,4]$: $(10.769-15.556)/2 \\approx -2.394$ thousand $/yr$.",
+              "earned": true,
+              "commentary": "Correctly evaluates $V$ at all three points, computes both difference quotients with the correct denominator $2$, and reports negative rates reflecting depreciation.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Rate on $[0,2]$: $V(2) - V(0) \\approx 15.556 - 28 = -12.444$ thousand dollars.",
+              "earned": false,
+              "commentary": "Computes the difference in values but forgets to divide by the interval length of $2$. The average rate of change requires division by $\\Delta x = 2$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$V(2) = 28/(0.4 \\cdot 2) = 35$",
+              "earned": false,
+              "commentary": "Uses incorrect denominator $0.4x$ instead of $1 + 0.4x$. The correct substitution is $V(2) = 28/(1 + 0.8) = 28/1.8 \\approx 15.556$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -67,6 +88,27 @@
           "common_traps": [
             "When rates of change are negative, an 'increasing' rate means becoming less negative (closer to zero), which corresponds to concave UP — not concave down",
             "All three elements (direction of rate, concavity, context) are required; missing any one element does not earn the point"
+          ],
+          "official_rubric": "The point is earned for all three required elements: (1) the average rate of change is increasing (from $\\approx -6.222$ to $\\approx -2.394$, becoming less negative), (2) the graph is concave up, and (3) a contextual interpretation that the rate of depreciation is slowing. Missing any one element does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "The rate changes from $-6.222$ to $-2.394$, which is increasing (less negative). An increasing rate of change means the graph of $V$ is concave up. In context, the car is still depreciating, but it loses value more slowly as it ages.",
+              "earned": true,
+              "commentary": "Addresses all three required elements: increasing rate, concave up interpretation, and a contextual statement about slowing depreciation.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The rate of change goes from $-6.222$ to $-2.394$, which is decreasing because the values are getting larger in magnitude.",
+              "earned": false,
+              "commentary": "Confuses the direction — on the number line $-2.394 > -6.222$, so the rate is increasing (becoming less negative). A common error is comparing absolute magnitudes instead of signed values.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Rate is increasing; graph is concave up.",
+              "earned": false,
+              "commentary": "Correctly identifies the increasing rate and concave up behavior but omits the contextual interpretation about depreciation slowing. All three elements are required.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -99,6 +141,27 @@
           "common_traps": [
             "The limit notation must include all four components: 'lim', '$x \\to \\infty$', the function name, and the value — omitting any one component is an error",
             "The model has a horizontal asymptote at $y = 0$, not a vertical asymptote — $V$ is always positive and approaches zero from above"
+          ],
+          "official_rubric": "The point is earned for a correct limit statement $\\lim_{x \\to \\infty} V(x) = 0$ with all four notation components ('lim', '$x \\to \\infty$', $V$, $0$) AND a contextual interpretation. Omitting the 'lim' notation or stating the wrong limit value does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$\\lim_{x \\to \\infty} V(x) = 0$. As $x$ increases without bound, the car's resale value approaches $\\$0$ thousand but never reaches zero — the value is always positive.",
+              "earned": true,
+              "commentary": "Contains all four required limit notation components and provides a contextual interpretation about the car's value asymptotically approaching zero.",
+              "source": "synthesized"
+            },
+            {
+              "response": "As $x$ gets large, $V(x) \\to 0$.",
+              "earned": false,
+              "commentary": "Correctly identifies the limiting behavior but does not use the required 'lim' notation. All four components of limit notation must be present.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\lim_{x \\to \\infty} V(x) = 28$",
+              "earned": false,
+              "commentary": "States the initial value ($V(0) = 28$) as the limit instead of the horizontal asymptote value. As $x \\to \\infty$, the denominator $1 + 0.4x \\to \\infty$, so $V(x) \\to 0$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -122,6 +185,21 @@
           "common_traps": [
             "$V$ and $M$ are both in thousands of dollars — no unit conversion needed before setting them equal",
             "The crossover point is a practical decision point: beyond $x \\approx 8$ years, maintenance costs exceed resale value"
+          ],
+          "official_rubric": "The point is earned for the crossover value $x \\approx 8.0$ years (accept $[7.8, 8.2]$) obtained by technology with the equation $V(x) = M(x)$ set up AND a contextual interpretation of the crossover point for a car owner.",
+          "sample_responses": [
+            {
+              "response": "Set $\\frac{28}{1+0.4x} = 0.15(1.2)^x$. Using a graphing calculator to find the intersection, $x \\approx 8.0$ years. At this point, the cumulative maintenance cost equals the car's resale value — beyond $\\approx 8$ years, maintenance costs exceed what the car is worth.",
+              "earned": true,
+              "commentary": "Sets up the correct equation, uses technology to find the intersection, and interprets the crossover as the point where maintenance costs match resale value.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\frac{28}{1+0.4x} = 0.15(1.2)^x \\Rightarrow x \\approx 8.0$",
+              "earned": false,
+              "commentary": "Finds the correct crossover value but provides no contextual interpretation. The meaning of this crossover for a car owner must be explained.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -155,6 +233,21 @@
           "common_traps": [
             "$(1.2)^3 = 1.728$, not $3.6$ — evaluate the exponent before multiplying by $0.15$",
             "Supporting work must show both $V(3)$ and $M(3)$ individually; jumping straight to a sum without showing components does not earn the point"
+          ],
+          "official_rubric": "The point is earned for $T(3) \\approx 12.986$ thousand dollars (accept $[12.97, 13.00]$) with supporting work showing $V(3)$ and $M(3)$ computed separately. Jumping to a sum without showing both components does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$V(3) = 28/(1+1.2) = 28/2.2 \\approx 12.727$; $M(3) = 0.15 \\cdot (1.2)^3 = 0.15 \\cdot 1.728 \\approx 0.259$; $T(3) = 12.727 + 0.259 \\approx 12.986$ thousand dollars.",
+              "earned": true,
+              "commentary": "Shows both components ($V(3)$ and $M(3)$) calculated individually with correct intermediate values, then adds them to obtain $T(3)$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$T(3) = 28/2.2 + 0.15 \\approx 12.877$ thousand dollars.",
+              "earned": false,
+              "commentary": "Adds $0.15$ (the initial maintenance coefficient) instead of $0.15 \\cdot (1.2)^3 = 0.259$. The exponent must be evaluated: $M(3) = 0.15 \\cdot 1.728 \\approx 0.259$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -177,6 +270,21 @@
           "common_traps": [
             "$T$ decreases initially because $V$ drops steeply while $M$ grows slowly; eventually $M$ grows exponentially and dominates, pushing $T$ upward — the minimum is in between",
             "An interpretation is required, not just the $x$-value; state what the minimum represents in context"
+          ],
+          "official_rubric": "The point is earned for the approximate minimum location near $x \\approx 8.0$–$8.5$ years (accept $[7.5, 9.0]$) found by technology AND an interpretation that the minimum represents the year at which combined cost (resale value + maintenance) is lowest. Stating only the $x$-value without interpretation does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "Using a graphing calculator, $T(x)$ has a minimum near $x \\approx 8.3$ years on $[0, 15]$. This is the year at which the sum of the car's resale value and cumulative maintenance cost is at its lowest — the optimal point in the car's ownership lifecycle.",
+              "earned": true,
+              "commentary": "Uses technology to locate the minimum, gives an approximate $x$-value within the accepted range, and provides a contextual interpretation.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Minimum at $x \\approx 8.3$.",
+              "earned": false,
+              "commentary": "Finds the correct approximate minimum location but provides no contextual interpretation. The meaning of this minimum in the car ownership context is required.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
