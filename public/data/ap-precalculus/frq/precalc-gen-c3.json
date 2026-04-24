@@ -35,7 +35,28 @@
             }
           ],
           "wrong_examples": ["$a = 60$ (using full range instead of amplitude)", "$c = 201$ for sine form — this places maximum at $t = 201 + 365/4 \\approx 292$, not $t = 201$"],
-          "common_traps": ["In $a\\sin(b(t-c)) + d$, the maximum of sine occurs when its argument equals $\\pi/2$, NOT when $t = c$ — the phase shift $c$ is NOT the location of the maximum"]
+          "common_traps": ["In $a\\sin(b(t-c)) + d$, the maximum of sine occurs when its argument equals $\\pi/2$, NOT when $t = c$ — the phase shift $c$ is NOT the location of the maximum"],
+          "official_rubric": "The point is earned for all four correct parameter values consistent with the given temperature data: $a = 30$, $d = 65$, $b = \\frac{2\\pi}{365}$ (accept $\\frac{2\\pi}{362}$), and $c \\approx 110$ for the sine form (or $c = 20$ for the cosine form $W(t) = -30\\cos(b(t-20)) + 65$). Using the full range ($60$) instead of the amplitude ($30$), or incorrectly placing $c$ at the maximum time for the sine form, does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "Amplitude $= (95-35)/2 = 30$; midline $= (95+35)/2 = 65$; period $= 365$ so $b = 2\\pi/365$; maximum at $t = 201$: $c + 365/4 = 201 \\Rightarrow c \\approx 110$. So $W(t) = 30\\sin\\!\\left(\\frac{2\\pi}{365}(t-110)\\right) + 65$.",
+              "earned": true,
+              "commentary": "Correctly derives all four parameters from the data, including the phase shift by using the quarter-period offset from the maximum.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$W(t) = -30\\cos\\!\\left(\\frac{2\\pi}{365}(t-20)\\right) + 65$",
+              "earned": true,
+              "commentary": "Valid alternate form using the cosine version with minimum at $t = 20$. Verification: $W(20) = -30\\cos(0) + 65 = -30 + 65 = 35$°F ✓ (minimum).",
+              "source": "synthesized"
+            },
+            {
+              "response": "$a = 60$ (full range); $d = 65$; $b = 2\\pi/365$; $c = 110$",
+              "earned": false,
+              "commentary": "Uses the full temperature range ($95 - 35 = 60$) as the amplitude instead of half the range ($30$). The amplitude must be $(\\text{max} - \\text{min})/2$.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "a2",
@@ -48,7 +69,22 @@
             }
           ],
           "wrong_examples": ["$W(110) = 95^\\circ$F (maximum — incorrect for $t = 110$)", "Answer inconsistent with the parameterization given in part (i)"],
-          "common_traps": ["With $c = 110$, day $t = 110$ is at the midline crossing — the sinusoidal argument is $0$ and $\\sin(0) = 0$, giving $W = d = 65^\\circ$F"]
+          "common_traps": ["With $c = 110$, day $t = 110$ is at the midline crossing — the sinusoidal argument is $0$ and $\\sin(0) = 0$, giving $W = d = 65^\\circ$F"],
+          "official_rubric": "The point is earned for the correct prediction $W(110) = 65$°F consistent with the student's parameterization from part (i), with supporting work showing the substitution. A response inconsistent with the part (i) parameterization does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$W(110) = 30\\sin\\!\\left(\\frac{2\\pi}{365}(110-110)\\right) + 65 = 30\\sin(0) + 65 = 0 + 65 = 65$°F",
+              "earned": true,
+              "commentary": "Substitutes $t = 110$ into the function with $c = 110$, correctly evaluates $\\sin(0) = 0$, and arrives at the midline temperature $65$°F.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$W(110) = 95$°F (maximum temperature)",
+              "earned": false,
+              "commentary": "Incorrectly states the maximum. At $t = 110$ (midline crossing), the temperature equals the midline $d = 65$°F, not the maximum $95$°F which occurs at $t = 201$.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     },
@@ -71,7 +107,28 @@
             }
           ],
           "wrong_examples": ["Only $t = 110$ (missing the descending midline crossing)", "Including $t = 20$ or $t = 201$ (these are the min/max, not midline crossings)"],
-          "common_traps": ["Two midline crossings per year — one ascending ($t = 110$) and one descending ($t = 292.5$)"]
+          "common_traps": ["Two midline crossings per year — one ascending ($t = 110$) and one descending ($t = 292.5$)"],
+          "official_rubric": "The point is earned for both correct values $t = 110$ and $t = 292.5$ (or $t = 585/2$) with no incorrect values. Missing either value or including min/max days ($t = 20$ or $t = 201$) does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$W = 65 \\Rightarrow \\sin\\!\\left(\\frac{2\\pi}{365}(t-110)\\right) = 0 \\Rightarrow t = 110 + \\frac{365k}{2}$. In $[1, 365]$: $k = 0 \\Rightarrow t = 110$; $k = 1 \\Rightarrow t = 292.5$.",
+              "earned": true,
+              "commentary": "Correctly sets the sine equal to zero, solves the general equation, and identifies both solutions in the given interval.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$t = 110$",
+              "earned": false,
+              "commentary": "Finds only the ascending midline crossing. There is also a descending crossing at $t = 292.5$ (half a period later). Both are required.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$t = 110$ and $t = 292.5$ and $t = 20$ and $t = 201$",
+              "earned": false,
+              "commentary": "Includes the minimum ($t = 20$) and maximum ($t = 201$) days, which are not midline crossings. Including incorrect values voids the point.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "b2",
@@ -84,7 +141,28 @@
             }
           ],
           "wrong_examples": ["'Always concave up' or 'always concave down' — incorrect, concavity changes at the midline", "'Decreasing' on any part of $(20, 201)$ — incorrect, function increases from min to max"],
-          "common_traps": ["The inflection point is at the midline crossing (not at the max or min) — concavity changes from up to down at $t = 110$"]
+          "common_traps": ["The inflection point is at the midline crossing (not at the max or min) — concavity changes from up to down at $t = 110$"],
+          "official_rubric": "The point is earned for correctly stating that $W$ is increasing on $(20, 201)$ and that the concavity changes at the midline crossing $t = 110$: concave up on $(20, 110)$ and concave down on $(110, 201)$. Stating a single concavity for the entire interval does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$W$ is increasing on $(20, 201)$: the temperature rises from the minimum $35$°F to the maximum $95$°F. Concavity changes at the midline $t = 110$: concave up on $(20, 110)$ (rate of increase is increasing) and concave down on $(110, 201)$ (rate of increase is decreasing toward the maximum).",
+              "earned": true,
+              "commentary": "Correctly identifies the increasing behavior and the concavity change at the midline crossing $t = 110$, with separate concavity descriptions for each sub-interval.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$W$ is increasing and concave up on $(20, 201)$.",
+              "earned": false,
+              "commentary": "States only concave up for the entire interval. The concavity changes at the midline crossing $t = 110$ — concave up on $(20, 110)$ and concave down on $(110, 201)$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$W$ is decreasing on $(20, 201)$.",
+              "earned": false,
+              "commentary": "Incorrect direction — $W$ moves from the minimum ($35$°F) to the maximum ($95$°F) on this interval, so it is increasing throughout.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     },
@@ -107,7 +185,28 @@
             }
           ],
           "wrong_examples": ["Claiming $c_0 = 201$ because the maximum is at $t = 201$ — confusing maximum of the function with the shift parameter", "No identity or reasoning shown"],
-          "common_traps": ["$-30\\cos$ achieves its minimum (not maximum) when $\\cos = +1$ — a common confusion"]
+          "common_traps": ["$-30\\cos$ achieves its minimum (not maximum) when $\\cos = +1$ — a common confusion"],
+          "official_rubric": "The point is earned for a correct identity or reasoning connecting the cosine form to the minimum condition. Acceptable approaches include the identity $-\\cos\\theta = \\sin(\\theta - \\pi/2)$ or direct reasoning that $-30\\cos(b(t-c_0))$ is minimized when $\\cos = 1$, i.e., when $t = c_0$.",
+          "sample_responses": [
+            {
+              "response": "$-30\\cos(b(t-c_0))$ is minimized when $\\cos(b(t-c_0)) = 1$, which occurs when $b(t-c_0) = 0$, i.e., when $t = c_0$. So placing $c_0 = 20$ puts the minimum at day $20$.",
+              "earned": true,
+              "commentary": "Uses direct reasoning about when $-\\cos$ achieves its minimum (when the cosine argument is $0$), correctly identifying the relationship between $c_0$ and the minimum location.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Using $\\sin(\\theta - \\pi/2) = -\\cos\\theta$: $30\\sin(b(t-110)) = 30\\sin(b(t-110)) = -30\\cos(b(t-110) + \\pi/2)$. Shifting by $\\pi/2 = b \\cdot 365/4 \\approx 91.25$ days: cosine form has $c_0 = 110 - 91.25 = 18.75$.",
+              "earned": true,
+              "commentary": "Uses the identity $-\\cos\\theta = \\sin(\\theta - \\pi/2)$ to convert the sine form to cosine form and derives $c_0 = 18.75$ (also acceptable as an alternate exact value).",
+              "source": "synthesized"
+            },
+            {
+              "response": "$c_0 = 201$ because the maximum is at $t = 201$.",
+              "earned": false,
+              "commentary": "Confuses the maximum location with the cosine-form shift. For $-30\\cos$, the minimum (not maximum) occurs when $t = c_0$. The correct value is $c_0 = 20$.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "c2",
@@ -120,7 +219,22 @@
             }
           ],
           "wrong_examples": ["$c_0 = 0$ (no phase shift — minimum would be at $t = 0$, not $t = 20$)", "$c_0 = 201$ (this corresponds to the maximum, not minimum, location)"],
-          "common_traps": ["The minimum of $-30\\cos(b(t - c_0)) + 65$ occurs when $\\cos(b(t-c_0)) = 1$, i.e., at $t = c_0$ — so $c_0 = 20$ places the minimum at day $20$"]
+          "common_traps": ["The minimum of $-30\\cos(b(t - c_0)) + 65$ occurs when $\\cos(b(t-c_0)) = 1$, i.e., at $t = c_0$ — so $c_0 = 20$ places the minimum at day $20$"],
+          "official_rubric": "The point is earned for $c_0 = 20$ (or $c_0 = 18.75$ from the identity approach) with clear justification that this value places the minimum at $t = 20$.",
+          "sample_responses": [
+            {
+              "response": "For the minimum to occur at $t = 20$: since $-30\\cos(b(t-c_0))$ is minimized when $t = c_0$, we need $c_0 = 20$. Check: $W(20) = -30\\cos(0) + 65 = -30 + 65 = 35$°F ✓",
+              "earned": true,
+              "commentary": "Correctly identifies $c_0 = 20$ from the minimum condition and verifies by substituting $t = 20$ to confirm $W(20) = 35$°F.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$c_0 = 0$ — no phase shift needed.",
+              "earned": false,
+              "commentary": "With $c_0 = 0$, the minimum occurs at $t = 0$ (day $0$, before January 1), not at $t = 20$ (January 20). The phase shift must be $c_0 = 20$.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     }
