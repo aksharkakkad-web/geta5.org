@@ -28,6 +28,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct $f'(x) = 2kx + \\frac{1}{x}$",
+          "official_rubric": "1 point: $f'(x) = 2kx + \\dfrac{1}{x}$.",
+          "sample_responses": [
+            {
+              "response": "$f'(x) = 2kx + \\dfrac{1}{x}$",
+              "earned": true,
+              "commentary": "Derivative of $kx^2$ is $2kx$; derivative of $\\ln x$ is $\\frac{1}{x}$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$f'(x) = 2kx + x$",
+              "earned": false,
+              "commentary": "Incorrect derivative of $\\ln x$; $\\frac{d}{dx}\\ln x = \\frac{1}{x}$, not $x$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -41,6 +56,15 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct $f''(x) = 2k - \\frac{1}{x^2}$",
+          "official_rubric": "1 point: $f''(x) = 2k - \\dfrac{1}{x^2}$.",
+          "sample_responses": [
+            {
+              "response": "$f''(x) = 2k - \\dfrac{1}{x^2}$",
+              "earned": true,
+              "commentary": "Derivative of $2kx$ is $2k$; derivative of $\\frac{1}{x}$ is $-\\frac{1}{x^2}$.",
+              "source": "cb_guideline"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -64,6 +88,15 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Sets $f'(1) = 0$: $2k + 1 = 0 \\Rightarrow k = -\\frac{1}{2}$",
+          "official_rubric": "1 point: sets $f'(1) = 0$: $2k(1) + \\frac{1}{1} = 2k + 1 = 0 \\Rightarrow k = -\\dfrac{1}{2}$.",
+          "sample_responses": [
+            {
+              "response": "$f'(1) = 2k(1) + \\dfrac{1}{1} = 2k + 1 = 0 \\Rightarrow k = -\\dfrac{1}{2}$",
+              "earned": true,
+              "commentary": "Substitutes $x=1$ into $f'(x)$ and solves for $k$.",
+              "source": "cb_guideline"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -78,6 +111,15 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "With $k = -\\frac{1}{2}$, computes $f''(1) = 2(-\\frac{1}{2}) - 1 = -2 < 0$",
+          "official_rubric": "1 point: $f''(1) = 2\\left(-\\dfrac{1}{2}\\right) - \\dfrac{1}{1} = -1 - 1 = -2 < 0$.",
+          "sample_responses": [
+            {
+              "response": "$f''(1) = 2\\left(-\\dfrac{1}{2}\\right) - 1 = -1 - 1 = -2 < 0$",
+              "earned": true,
+              "commentary": "Substitutes $k = -\\frac{1}{2}$ and $x=1$ into $f''(x) = 2k - \\frac{1}{x^2}$.",
+              "source": "cb_guideline"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -90,6 +132,21 @@
           "point_id": "b3",
           "point_value": 1,
           "description": "Correct conclusion: relative maximum at $x = 1$ because $f''(1) < 0$ (second derivative test)",
+          "official_rubric": "1 point: $f$ has a relative maximum at $x=1$ by the Second Derivative Test ($f''(1) < 0$).",
+          "sample_responses": [
+            {
+              "response": "Since $f'(1) = 0$ and $f''(1) = -2 < 0$, by the Second Derivative Test, $f$ has a relative maximum at $x = 1$.",
+              "earned": true,
+              "commentary": "Both conditions of the 2nd derivative test stated; conclusion correct.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Since $f''(1) < 0$, $f$ has a relative minimum at $x = 1$.",
+              "earned": false,
+              "commentary": "Negative second derivative $\\Rightarrow$ concave down $\\Rightarrow$ relative maximum, not minimum.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -117,6 +174,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Sets up condition for inflection point on $x$-axis: $f(x_0) = 0$ AND $f''(x_0) = 0$",
+          "official_rubric": "1 point: correctly sets up both conditions: $f(x_0) = 0$ (on $x$-axis) AND $f''(x_0) = 0$ (inflection point).",
+          "sample_responses": [
+            {
+              "response": "At an inflection point on the $x$-axis: $f(x_0) = 0$ so $kx_0^2 + \\ln x_0 = 0$, and $f''(x_0) = 0$ so $2k - \\dfrac{1}{x_0^2} = 0$.",
+              "earned": true,
+              "commentary": "Both conditions correctly identified; point on $x$-axis requires $f=0$, inflection requires $f''=0$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Set $f''(x_0) = 0$: $2k = \\dfrac{1}{x_0^2}$.",
+              "earned": false,
+              "commentary": "Only sets $f''=0$; must also impose $f(x_0)=0$ since the inflection point is on the $x$-axis.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -130,6 +202,15 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "From $f''(x_0) = 0$: $x_0 = \\frac{1}{\\sqrt{2k}}$",
+          "official_rubric": "1 point: solves $f''(x_0)=0$ to get $x_0 = \\dfrac{1}{\\sqrt{2k}}$.",
+          "sample_responses": [
+            {
+              "response": "$2k - \\dfrac{1}{x_0^2} = 0 \\Rightarrow x_0^2 = \\dfrac{1}{2k} \\Rightarrow x_0 = \\dfrac{1}{\\sqrt{2k}}$",
+              "earned": true,
+              "commentary": "Correctly isolates $x_0$ from the inflection condition.",
+              "source": "cb_guideline"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -143,6 +224,15 @@
           "point_id": "c3",
           "point_value": 1,
           "description": "Substitutes $x_0 = \\frac{1}{\\sqrt{2k}}$ into $f(x_0) = 0$ and simplifies",
+          "official_rubric": "1 point: substitutes $x_0 = \\frac{1}{\\sqrt{2k}}$ into $f(x_0)=0$ and reduces to an equation in one variable.",
+          "sample_responses": [
+            {
+              "response": "$k\\cdot\\dfrac{1}{2k} + \\ln\\dfrac{1}{\\sqrt{2k}} = 0 \\Rightarrow \\dfrac{1}{2} - \\dfrac{1}{2}\\ln(2k) = 0$",
+              "earned": true,
+              "commentary": "$kx_0^2 = k\\cdot\\frac{1}{2k} = \\frac{1}{2}$ and $\\ln\\frac{1}{\\sqrt{2k}} = -\\frac{1}{2}\\ln(2k)$.",
+              "source": "cb_guideline"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -157,6 +247,21 @@
           "point_id": "c4",
           "point_value": 1,
           "description": "Correct value $k = \\frac{e}{2}$",
+          "official_rubric": "1 point: $k = \\dfrac{e}{2}$.",
+          "sample_responses": [
+            {
+              "response": "$\\ln(2k) = 1 \\Rightarrow 2k = e \\Rightarrow k = \\dfrac{e}{2}$",
+              "earned": true,
+              "commentary": "Solves $\\frac{1}{2}\\ln(2k) = \\frac{1}{2}$ to get $\\ln(2k)=1$, then $k = \\frac{e}{2}$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$k = \\dfrac{1}{2e}$",
+              "earned": false,
+              "commentary": "Algebraic error; from $2k = e$ we get $k = \\frac{e}{2}$, not $\\frac{1}{2e}$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
