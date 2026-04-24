@@ -31,7 +31,22 @@
             }
           ],
           "wrong_examples": ["Reporting only $3.0$ and $9.0$ (incomplete)", "Computing differences $3.5 - 0.5 = 3.0$ but not dividing by the interval length (though here $\\Delta t = 1$ so they are the same)"],
-          "common_traps": ["Since all intervals have length $1$, the average rate of change equals the simple difference in $C$ values — but showing the quotient form is good practice"]
+          "common_traps": ["Since all intervals have length $1$, the average rate of change equals the simple difference in $C$ values — but showing the quotient form is good practice"],
+          "official_rubric": "The point is earned for all four correct average rates of change — $3.0$, $9.0$, $12.6$, $13.8$ $\\mu$g/mL per hour — with supporting work showing each quotient. Missing any of the four or computing them from incorrect table values does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$[0,1]$: $\\frac{3.5-0.5}{1} = 3.0$; $[1,2]$: $\\frac{12.5-3.5}{1} = 9.0$; $[2,3]$: $\\frac{25.1-12.5}{1} = 12.6$; $[3,4]$: $\\frac{38.9-25.1}{1} = 13.8$",
+              "earned": true,
+              "commentary": "Shows all four difference quotients with correct numerators and denominator $= 1$, arriving at the four average rates of change.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$[0,1]$: $3.0$; $[1,2]$: $9.0$",
+              "earned": false,
+              "commentary": "Computes only two of the four required average rates of change. All four values are needed to earn the point.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "a2",
@@ -44,7 +59,28 @@
             }
           ],
           "wrong_examples": ["Concluding 'linear' — incorrect, the first differences are not constant", "Saying 'not linear' without explaining what constant first differences would look like"],
-          "common_traps": ["The justification must explicitly reference what constant first differences would mean — not just that the values change"]
+          "common_traps": ["The justification must explicitly reference what constant first differences would mean — not just that the values change"],
+          "official_rubric": "The point is earned for concluding that $C$ is better modeled by a higher-degree polynomial with a justification that explicitly states linear functions produce constant first differences, and that the first differences $3.0, 9.0, 12.6, 13.8$ are not constant. Concluding 'not linear' without the constant-first-differences reasoning does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "If $C$ were linear, the first differences would all be equal (constant). The values $3.0, 9.0, 12.6, 13.8$ are not constant, so $C$ is not linear on $[0, 4]$ — a higher-degree polynomial model is more appropriate.",
+              "earned": true,
+              "commentary": "Explicitly states the key property of linear functions (constant first differences) and uses the computed values to conclude that a higher-degree model is needed.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The concentration is increasing non-uniformly, so it is not linear.",
+              "earned": false,
+              "commentary": "Reaches the correct conclusion but does not reference constant first differences as the criterion for linearity. The justification must explicitly state that linear functions have constant first differences.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The first differences $3.0, 9.0, 12.6, 13.8$ are not constant, indicating a linear model is not appropriate. A linear function would produce equal (constant) first differences.",
+              "earned": true,
+              "commentary": "Valid alternative phrasing — states the observation (non-constant differences) and the criterion (linear means constant) in the opposite order. Both required elements are present.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     },
@@ -67,7 +103,28 @@
             }
           ],
           "wrong_examples": ["Concluding 'quadratic is appropriate' — incorrect, second differences are not constant", "Computing $6.0, 3.6, 1.2$ without drawing a conclusion"],
-          "common_traps": ["Quadratic functions have CONSTANT second differences — if second differences vary, the degree must be higher than 2"]
+          "common_traps": ["Quadratic functions have CONSTANT second differences — if second differences vary, the degree must be higher than 2"],
+          "official_rubric": "The point is earned for the correct second differences $6.0, 3.6, 1.2$ and the conclusion that a quadratic model is NOT appropriate, with a justification that quadratic functions produce constant second differences. Missing any second difference or drawing the wrong conclusion does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "Second differences: $9.0 - 3.0 = 6.0$; $12.6 - 9.0 = 3.6$; $13.8 - 12.6 = 1.2$. A quadratic function would have constant second differences. Since $6.0, 3.6, 1.2$ are not constant, a quadratic model is not appropriate — a cubic or higher-degree polynomial is needed.",
+              "earned": true,
+              "commentary": "Computes all three second differences correctly, states the quadratic constant-second-differences criterion, and concludes that the model must be at least cubic.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Second differences: $6.0, 3.6, 1.2$. These are not equal, so a quadratic is not appropriate.",
+              "earned": false,
+              "commentary": "Computes the second differences and reaches the right conclusion but does not state why non-constant second differences disqualify a quadratic. The justification must reference that quadratic functions have constant second differences.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Second differences: $6.0, 3.6, 1.2$. Since they are not constant, a quadratic model is appropriate.",
+              "earned": false,
+              "commentary": "Draws the wrong conclusion — non-constant second differences mean the model is NOT quadratic. A quadratic would require all three second differences to be equal.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "b2",
@@ -80,7 +137,28 @@
             }
           ],
           "wrong_examples": ["$12.0$ without units or contextual description", "$(51.5 + 3.5)/4 = 13.75$ (added instead of subtracted)"],
-          "common_traps": ["All three components required: (1) direction (increasing), (2) rate ($12.0$ $\\mu$g/mL/hr), and (3) time interval ($t = 1$ to $5$ hours)"]
+          "common_traps": ["All three components required: (1) direction (increasing), (2) rate ($12.0$ $\\mu$g/mL/hr), and (3) time interval ($t = 1$ to $5$ hours)"],
+          "official_rubric": "The point is earned for the correct average rate of change of $12.0$ $\\mu$g/mL per hour with all three contextual components: direction (increasing), rate ($12.0$ with units), and the specific time interval ($t = 1$ to $t = 5$ hours). Omitting any component does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$\\frac{C(5) - C(1)}{5 - 1} = \\frac{51.5 - 3.5}{4} = \\frac{48.0}{4} = 12.0$ $\\mu$g/mL per hour. Between $1$ and $5$ hours after the medication was taken, the drug concentration increased at an average rate of $12.0$ micrograms per milliliter per hour.",
+              "earned": true,
+              "commentary": "Shows the difference quotient, arrives at the correct value with units, and provides a contextual interpretation including direction (increased), rate ($12.0$ $\\mu$g/mL/hr), and time interval ($t = 1$ to $5$ hours).",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\frac{51.5 - 3.5}{4} = 12.0$",
+              "earned": false,
+              "commentary": "Computes the correct value but provides no contextual description with units and no interpretation. All three components (direction, rate with units, time interval) are required.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Between $t = 1$ and $t = 5$ hours, the concentration increased. The average rate of change was $12.0$.",
+              "earned": false,
+              "commentary": "Includes direction and time interval but omits the units ($\\mu$g/mL per hour). Units are part of a complete contextual interpretation for a rate of change.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     },
@@ -103,7 +181,22 @@
             }
           ],
           "wrong_examples": ["Giving two solutions (assuming the curve crosses $20$ twice when it only crosses once)", "Using algebra instead of technology for a cubic equation"],
-          "common_traps": ["The question specifies technology — verify by evaluating $C(9)$ to confirm concentration stays above $20$ through $t = 9$"]
+          "common_traps": ["The question specifies technology — verify by evaluating $C(9)$ to confirm concentration stays above $20$ through $t = 9$"],
+          "official_rubric": "The point is earned for $t \\approx 2.62$ (accept $[2.58, 2.66]$) as the only solution in $[0, 9]$, obtained by technology. Giving two crossing times (incorrectly assuming the curve drops below $20$ again) or failing to identify that only one crossing exists does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "Using technology, $C(t) = 20$ at $t \\approx 2.62$. Checking $C(9) \\approx 41.9 > 20$, so the concentration does not fall back below $20$ within $[0, 9]$. Only one crossing.",
+              "earned": true,
+              "commentary": "Uses technology to find the crossing, evaluates $C(9)$ to confirm no second crossing, and correctly concludes there is only one solution in the modeled domain.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Using technology, $C(t) = 20$ at $t \\approx 2.62$ and $t \\approx 8.10$.",
+              "earned": false,
+              "commentary": "Incorrectly reports a second crossing. Since $C(9) \\approx 41.9 > 20$, the concentration remains above $20$ through the end of the modeled domain — there is only one crossing.",
+              "source": "synthesized"
+            }
+          ]
         },
         {
           "point_id": "c2",
@@ -116,7 +209,28 @@
             }
           ],
           "wrong_examples": ["Effective interval listed as $(0, 9]$ (incorrectly including the interval before $t \\approx 2.62$)", "Not interpreting $C(9)$ in context"],
-          "common_traps": ["The interval begins at the crossing time $\\approx 2.62$, not at $t = 0$ — the drug is not immediately effective"]
+          "common_traps": ["The interval begins at the crossing time $\\approx 2.62$, not at $t = 0$ — the drug is not immediately effective"],
+          "official_rubric": "The point is earned for the correct effective interval $[2.62, 9]$ (consistent with the student's $t$-value from part (i)) AND the value $C(9) \\approx 41.9$ $\\mu$g/mL with a contextual interpretation that the medication is still effective at the end of the modeled period. Stating the interval as $[0, 9]$ or omitting the interpretation of $C(9)$ does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "Effective interval: approximately $[2.62, 9]$ hours. $C(9) = -0.4(729) + 4.2(81) - 0.8(9) + 0.5 \\approx 41.9$ $\\mu$g/mL $> 20$ $\\mu$g/mL, so the medication remains above the effective threshold at the end of the modeled period.",
+              "earned": true,
+              "commentary": "States the correct interval starting at the crossing time, computes $C(9)$ correctly, and interprets the result in context relative to the $20$ $\\mu$g/mL threshold.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Effective interval: $[0, 9]$ hours.",
+              "earned": false,
+              "commentary": "Incorrectly starts the effective interval at $t = 0$. The drug concentration is below $20$ $\\mu$g/mL until approximately $t = 2.62$ hours — the medication is not effective immediately after ingestion.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Effective interval: $[2.62, 9]$. $C(9) \\approx 41.9$ $\\mu$g/mL.",
+              "earned": false,
+              "commentary": "States the correct interval and $C(9)$ value but provides no contextual interpretation. The meaning of $C(9)$ relative to the $20$ $\\mu$g/mL effectiveness threshold must be stated.",
+              "source": "synthesized"
+            }
+          ]
         }
       ]
     }
