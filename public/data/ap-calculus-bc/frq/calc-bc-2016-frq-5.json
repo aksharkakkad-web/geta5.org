@@ -31,6 +31,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct average value formula set up",
+          "official_rubric": "1 point: $\\dfrac{1}{10}\\int_0^{10} \\dfrac{1}{3}(3 + h^2)\\,dh$",
+          "sample_responses": [
+            {
+              "response": "Average value $= \\dfrac{1}{10-0}\\displaystyle\\int_0^{10} \\dfrac{1}{3}(3 + h^2)\\,dh = \\dfrac{1}{10}\\int_0^{10} \\dfrac{1}{3}(3 + h^2)\\,dh$",
+              "earned": true,
+              "commentary": "Correctly applies the average value formula $\\frac{1}{b-a}\\int_a^b f(h)\\,dh$ with $a=0$, $b=10$, $f(h) = \\frac{1}{3}(3+h^2)$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{1}{10}\\displaystyle\\int_0^{10} \\left[\\dfrac{1}{3}(3 + h^2)\\right]^2 dh$ (squares the radius instead of averaging it)",
+              "earned": false,
+              "commentary": "Squares the integrand — this is the disk-method volume setup, not the average value. The average value of $r$ requires $\\frac{1}{10}\\int_0^{10} r\\,dh$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -43,6 +58,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct antiderivative",
+          "official_rubric": "1 point: antiderivative $= \\dfrac{1}{3}\\left[3h + \\dfrac{h^3}{3}\\right]$ (up to constant factor)",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{1}{10} \\cdot \\dfrac{1}{3}\\left[3h + \\dfrac{h^3}{3}\\right]_0^{10}$",
+              "earned": true,
+              "commentary": "Correctly integrates $\\frac{1}{3}(3+h^2) = 1 + \\frac{h^2}{3}$ term by term: antiderivative is $h + \\frac{h^3}{9}$ (or equivalently $\\frac{1}{3}[3h + h^3/3]$).",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{1}{10} \\cdot \\dfrac{1}{3}\\left[3h + h^2\\right]_0^{10}$ (integrates $h^2$ as $h^2$ instead of $h^3/3$)",
+              "earned": false,
+              "commentary": "Antiderivative of $h^2$ is $h^3/3$, not $h^2$. The power rule gives $\\int h^2\\,dh = h^3/3$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -55,6 +85,21 @@
           "point_id": "a3",
           "point_value": 1,
           "description": "Correct numerical answer",
+          "official_rubric": "1 point: $\\dfrac{109}{9}$ inches (or equivalent decimal)",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{1}{30}\\left[3(10) + \\dfrac{10^3}{3}\\right] = \\dfrac{1}{30}\\left[30 + \\dfrac{1000}{3}\\right] = \\dfrac{1}{30}\\cdot\\dfrac{90 + 1000}{3} = \\dfrac{1090}{90} = \\dfrac{109}{9}$ inches",
+              "earned": true,
+              "commentary": "Correctly evaluates the antiderivative at $h=10$ and $h=0$ and simplifies to $109/9$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{1}{30}[30 + 1000] = \\dfrac{1030}{30} = \\dfrac{103}{3}$ (treats $h^3/3$ as $h^3$)",
+              "earned": false,
+              "commentary": "$10^3 = 1000$ but divided by $3$ gives $1000/3$, not $1000$. Forgetting the $1/3$ from integrating $h^2$ inflates the result.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -77,6 +122,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Correct volume integral setup using disk method",
+          "official_rubric": "1 point: $V = \\pi \\int_0^{10} \\left[\\dfrac{1}{3}(3 + h^2)\\right]^2 dh$",
+          "sample_responses": [
+            {
+              "response": "$V = \\displaystyle\\int_0^{10} \\pi r^2\\,dh = \\pi\\int_0^{10} \\left[\\dfrac{1}{3}(3 + h^2)\\right]^2 dh = \\dfrac{\\pi}{9}\\int_0^{10}(3 + h^2)^2\\,dh$",
+              "earned": true,
+              "commentary": "Correctly sets up the disk/washer method: cross-sectional area $= \\pi r^2$, integrates over height from $0$ to $10$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$V = \\displaystyle\\int_0^{10} \\pi r\\,dh = \\pi\\int_0^{10} \\dfrac{1}{3}(3 + h^2)\\,dh$ (uses $r$ instead of $r^2$)",
+              "earned": false,
+              "commentary": "Volume of revolution requires $\\pi r^2$ (area of circular cross section), not $\\pi r$. Omitting the square gives the average-value integral from part (a), not volume.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -89,6 +149,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct expansion and antiderivative of the integrand",
+          "official_rubric": "1 point: $(3+h^2)^2 = 9 + 6h^2 + h^4$; antiderivative $= 9h + 2h^3 + \\dfrac{h^5}{5}$",
+          "sample_responses": [
+            {
+              "response": "$(3 + h^2)^2 = 9 + 6h^2 + h^4$. Antiderivative: $\\displaystyle\\int(9 + 6h^2 + h^4)\\,dh = 9h + 2h^3 + \\dfrac{h^5}{5}$",
+              "earned": true,
+              "commentary": "Correctly expands the binomial square and integrates term by term.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$(3+h^2)^2 = 9 + h^4$; antiderivative $= 9h + \\dfrac{h^5}{5}$ (omits the cross-term $6h^2$)",
+              "earned": false,
+              "commentary": "$(a+b)^2 = a^2 + 2ab + b^2$, so the cross term $2(3)(h^2) = 6h^2$ must be included. Dropping it gives an incorrect antiderivative.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -101,6 +176,21 @@
           "point_id": "b3",
           "point_value": 1,
           "description": "Correct numerical answer",
+          "official_rubric": "1 point: $V = \\dfrac{22090\\pi}{9}$ cubic inches",
+          "sample_responses": [
+            {
+              "response": "$V = \\dfrac{\\pi}{9}\\left[9(10) + 2(10)^3 + \\dfrac{(10)^5}{5}\\right] = \\dfrac{\\pi}{9}[90 + 2000 + 20000] = \\dfrac{22090\\pi}{9}$ cubic inches",
+              "earned": true,
+              "commentary": "Evaluates the antiderivative at $h=10$ (subtracting $h=0$ which contributes $0$) and multiplies by $\\pi/9$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$V = \\dfrac{\\pi}{9}[90 + 2000 + 20000] = \\dfrac{\\pi}{9}(22090) = \\dfrac{22090\\pi}{9}$, then states the answer in square inches rather than cubic inches",
+              "earned": false,
+              "commentary": "Correct numerical setup but wrong units. Volume is measured in cubic inches (in³), not square inches.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -123,6 +213,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Correct differentiation of $r = \\dfrac{1}{3}(3+h^2)$ with respect to $t$",
+          "official_rubric": "1 point: $\\dfrac{dr}{dt} = \\dfrac{2h}{3}\\dfrac{dh}{dt}$",
+          "sample_responses": [
+            {
+              "response": "Differentiating $r = \\dfrac{1}{3}(3 + h^2)$ with respect to $t$: $\\dfrac{dr}{dt} = \\dfrac{1}{3} \\cdot 2h \\cdot \\dfrac{dh}{dt} = \\dfrac{2h}{3}\\dfrac{dh}{dt}$",
+              "earned": true,
+              "commentary": "Correctly applies the chain rule: derivative of $h^2$ with respect to $t$ is $2h\\cdot(dh/dt)$; the constant $3$ differentiates to $0$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{dr}{dt} = \\dfrac{1}{3}(2h) = \\dfrac{2h}{3}$ (omits $dh/dt$)",
+              "earned": false,
+              "commentary": "Differentiates $h^2$ as $2h$ but forgets to multiply by $dh/dt$ (chain rule). The related-rates step requires $d/dt[h^2] = 2h\\cdot(dh/dt)$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -135,6 +240,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct substitution of $h = 3$ and $dr/dt = -1/3$",
+          "official_rubric": "1 point: $-\\dfrac{1}{3} = \\dfrac{2(3)}{3}\\dfrac{dh}{dt} = 2\\dfrac{dh}{dt}$",
+          "sample_responses": [
+            {
+              "response": "At $h = 3$, $\\dfrac{dr}{dt} = -\\dfrac{1}{3}$: $-\\dfrac{1}{3} = \\dfrac{2(3)}{3}\\cdot\\dfrac{dh}{dt} = 2\\dfrac{dh}{dt}$",
+              "earned": true,
+              "commentary": "Correctly substitutes the given values: $h=3$ gives coefficient $2(3)/3 = 2$, and $dr/dt = -1/3$ (negative since radius is decreasing).",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{1}{3} = \\dfrac{2(3)}{3}\\dfrac{dh}{dt}$ (uses $+1/3$ instead of $-1/3$)",
+              "earned": false,
+              "commentary": "The radius is decreasing, so $dr/dt = -1/3$ (negative). Using the positive value gives the wrong sign for $dh/dt$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -147,6 +267,21 @@
           "point_id": "c3",
           "point_value": 1,
           "description": "Correct answer with units",
+          "official_rubric": "1 point: $\\dfrac{dh}{dt} = -\\dfrac{1}{6}$ inch per second",
+          "sample_responses": [
+            {
+              "response": "$2\\dfrac{dh}{dt} = -\\dfrac{1}{3}$, so $\\dfrac{dh}{dt} = -\\dfrac{1}{6}$ inch per second.",
+              "earned": true,
+              "commentary": "Correctly solves for $dh/dt$ and states the appropriate units. The negative sign indicates the liquid height is decreasing.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{dh}{dt} = -\\dfrac{1}{6}$ (correct value, no units stated)",
+              "earned": false,
+              "commentary": "The problem asks 'what is the rate of change' — units (inches per second) are required for a complete answer.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
