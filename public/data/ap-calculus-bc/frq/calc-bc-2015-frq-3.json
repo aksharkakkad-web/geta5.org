@@ -29,6 +29,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct difference quotient using the surrounding table values at $t = 12$ and $t = 20$: $v'(16) \\approx \\dfrac{v(20) - v(12)}{20 - 12} = \\dfrac{240 - 200}{8} = 5$ meters per minute per minute",
+          "official_rubric": "1 point: $v'(16) \\approx \\frac{v(20)-v(12)}{20-12} = 5$ meters per minute per minute",
+          "sample_responses": [
+            {
+              "response": "$v'(16) \\approx \\dfrac{v(20)-v(12)}{20-12} = \\dfrac{240-200}{8} = 5$ meters per minute per minute",
+              "earned": true,
+              "commentary": "Correctly uses the symmetric difference quotient centered near $t=16$, using the two surrounding table values at $t=12$ and $t=20$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$v'(16) \\approx \\dfrac{v(24)-v(12)}{24-12} = \\dfrac{220-200}{12} \\approx 1.67$ m/min$^2$",
+              "earned": false,
+              "commentary": "Uses an asymmetric interval that does not bracket $t=16$ as closely; the best estimate uses $t=12$ and $t=20$ which surround $t=16$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -51,6 +66,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Correct contextual meaning: $\\int_0^{40} v(t)\\,dt$ is the total distance, in meters, that Johanna jogs during the 40-minute interval",
+          "official_rubric": "1 point: $\\int_0^{40}v(t)\\,dt$ is the total distance, in meters, Johanna jogs from $t=0$ to $t=40$ minutes",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^{40}v(t)\\,dt$ represents the total distance Johanna jogs over the 40-minute interval, measured in meters.",
+              "earned": true,
+              "commentary": "Correctly interprets the integral of velocity (which is always positive here) as total distance with appropriate units.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\displaystyle\\int_0^{40}v(t)\\,dt$ represents Johanna's displacement at $t = 40$ minutes.",
+              "earned": false,
+              "commentary": "Since $v(t) > 0$, total distance equals displacement here, but stating 'displacement' alone without specifying it equals total distance may lose the contextual connection. The intended interpretation is 'total distance jogged'.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -63,6 +93,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct right Riemann sum setup with the four subintervals $[0,12]$, $[12,20]$, $[20,24]$, $[24,40]$: $(12)(200) + (8)(240) + (4)(220) + (16)(150)$",
+          "official_rubric": "1 point: right sum $= (12)(200)+(8)(240)+(4)(220)+(16)(150)$",
+          "sample_responses": [
+            {
+              "response": "Right Riemann sum: $(12)v(12) + (8)v(20) + (4)v(24) + (16)v(40) = 12(200)+8(240)+4(220)+16(150)$",
+              "earned": true,
+              "commentary": "Correctly uses the right endpoint of each subinterval for the height and the width of each subinterval.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Left Riemann sum: $(12)v(0) + (8)v(12) + (4)v(20) + (16)v(24) = 0+1600+960+3520 = 6080$ (uses left endpoints)",
+              "earned": false,
+              "commentary": "Uses left endpoints rather than right endpoints. A right Riemann sum requires the right endpoint of each subinterval.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -75,6 +120,21 @@
           "point_id": "b3",
           "point_value": 1,
           "description": "Correct answer: $2400 + 1920 + 880 + 2400 = 7600$ meters",
+          "official_rubric": "1 point: $7600$ meters",
+          "sample_responses": [
+            {
+              "response": "$12(200)+8(240)+4(220)+16(150) = 2400+1920+880+2400 = 7600$ meters",
+              "earned": true,
+              "commentary": "Correct arithmetic.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$12(200)+8(240)+4(220)+16(150) = 2400+1920+880+2400 = 7500$ meters (arithmetic error)",
+              "earned": false,
+              "commentary": "Arithmetic error; the sum is $7600$ m.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -97,6 +157,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Correct derivative: $B'(t) = 3t^2 - 12t$",
+          "official_rubric": "1 point: $B'(t) = 3t^2 - 12t$",
+          "sample_responses": [
+            {
+              "response": "$B'(t) = 3t^2 - 12t + 0 = 3t^2 - 12t$",
+              "earned": true,
+              "commentary": "Correct power-rule differentiation of the cubic polynomial.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$B'(t) = 3t^2 - 6t$ (differentiates $-6t^2$ as $-6t$ instead of $-12t$)",
+              "earned": false,
+              "commentary": "Power-rule error: $\\frac{d}{dt}(-6t^2) = -12t$, not $-6t$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -109,6 +184,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct evaluation: $B'(5) = 3(25) - 12(5) = 75 - 60 = 15$ meters per minute per minute",
+          "official_rubric": "1 point: $B'(5) = 15$ meters per minute per minute",
+          "sample_responses": [
+            {
+              "response": "$B'(5) = 3(5)^2 - 12(5) = 75 - 60 = 15$ meters per minute per minute",
+              "earned": true,
+              "commentary": "Correct evaluation with required units of meters per minute per minute (acceleration).",
+              "source": "synthesized"
+            },
+            {
+              "response": "$B'(5) = 15$ meters per minute (wrong units)",
+              "earned": false,
+              "commentary": "Acceleration has units of (meters/min)/min = meters/min$^2$, not meters/min.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -131,6 +221,21 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Correct average value formula: $\\dfrac{1}{10 - 0}\\int_0^{10} B(t)\\,dt$",
+          "official_rubric": "1 point: $\\frac{1}{10}\\int_0^{10}B(t)\\,dt$",
+          "sample_responses": [
+            {
+              "response": "Average velocity $= \\dfrac{1}{10-0}\\displaystyle\\int_0^{10}(t^3-6t^2+300)\\,dt$",
+              "earned": true,
+              "commentary": "Correctly applies the average value formula $\\frac{1}{b-a}\\int_a^b f(t)\\,dt$ with $a=0$, $b=10$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Average velocity $= \\dfrac{B(0)+B(10)}{2} = \\dfrac{300+400}{2} = 350$ m/min",
+              "earned": false,
+              "commentary": "Uses the arithmetic mean of endpoint values; for a nonlinear function this differs from the integral average. The integral formula is required.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -143,6 +248,21 @@
           "point_id": "d2",
           "point_value": 1,
           "description": "Correct antiderivative and evaluation: $\\dfrac{1}{10}\\left[\\dfrac{t^4}{4} - 2t^3 + 300t\\right]_0^{10} = \\dfrac{1}{10}(2500 - 2000 + 3000)$",
+          "official_rubric": "1 point: $\\frac{1}{10}\\left[\\frac{t^4}{4}-2t^3+300t\\right]_0^{10} = \\frac{1}{10}(3500)$",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{1}{10}\\left[\\dfrac{t^4}{4}-2t^3+300t\\right]_0^{10} = \\dfrac{1}{10}\\left(\\dfrac{10000}{4}-2000+3000\\right) = \\dfrac{1}{10}(3500)$",
+              "earned": true,
+              "commentary": "Correct antiderivative and evaluation at the limits.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{1}{10}\\left[\\dfrac{t^4}{4}-3t^2+300t\\right]_0^{10}$ (wrong antiderivative of $-6t^2$)",
+              "earned": false,
+              "commentary": "Antiderivative of $-6t^2$ is $-2t^3$, not $-3t^2$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -155,6 +275,21 @@
           "point_id": "d3",
           "point_value": 1,
           "description": "Correct answer: $350$ meters per minute",
+          "official_rubric": "1 point: $350$ meters per minute",
+          "sample_responses": [
+            {
+              "response": "Average velocity $= \\dfrac{3500}{10} = 350$ meters per minute",
+              "earned": true,
+              "commentary": "Correct final answer with required units.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$350$ meters (wrong units — omits 'per minute')",
+              "earned": false,
+              "commentary": "Average velocity requires units of meters per minute, not meters.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
