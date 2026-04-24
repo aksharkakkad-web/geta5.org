@@ -29,6 +29,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct ratio test setup: $\\lim_{n \\to \\infty} \\left|\\dfrac{a_{n+1}}{a_n}\\right| = \\lim_{n \\to \\infty} \\left|\\dfrac{x^{n+1}}{(n+1) \\cdot 2^{n+1}} \\cdot \\dfrac{n \\cdot 2^n}{x^n}\\right|$",
+          "official_rubric": "1 point: ratio $= \\lim_{n\\to\\infty}\\left|\\frac{nx}{2(n+1)}\\right|$",
+          "sample_responses": [
+            {
+              "response": "$\\left|\\dfrac{a_{n+1}}{a_n}\\right| = \\left|\\dfrac{x^{n+1}}{(n+1)2^{n+1}}\\cdot\\dfrac{n\\cdot 2^n}{x^n}\\right| = \\left|\\dfrac{nx}{2(n+1)}\\right|$",
+              "earned": true,
+              "commentary": "Correctly forms the ratio and simplifies by cancelling $x^n$, $2^n$, and the alternating sign.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\left|\\dfrac{a_{n+1}}{a_n}\\right| = \\left|\\dfrac{x}{2}\\right|$ immediately (skips the $n/(n+1)$ factor)",
+              "earned": false,
+              "commentary": "The factor $n/(n+1)$ must appear in the ratio before taking the limit; the limit of $n/(n+1)$ is $1$, but the simplification step is required.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -41,6 +56,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct simplification of the limit: $\\lim_{n \\to \\infty} \\dfrac{n}{n+1} \\cdot \\dfrac{|x|}{2} = \\dfrac{|x|}{2}$",
+          "official_rubric": "1 point: $\\lim = \\frac{|x|}{2} < 1$",
+          "sample_responses": [
+            {
+              "response": "$\\lim_{n\\to\\infty}\\dfrac{n}{n+1}\\cdot\\dfrac{|x|}{2} = 1\\cdot\\dfrac{|x|}{2} = \\dfrac{|x|}{2}$. Series converges when $\\dfrac{|x|}{2} < 1$.",
+              "earned": true,
+              "commentary": "Takes the limit correctly ($n/(n+1)\\to 1$) and states convergence condition.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\lim_{n\\to\\infty}\\dfrac{n}{n+1}\\cdot\\dfrac{|x|}{2} = 0$ (wrong limit)",
+              "earned": false,
+              "commentary": "$n/(n+1) \\to 1$ as $n\\to\\infty$, not $0$. The limit of the ratio is $|x|/2$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -53,6 +83,21 @@
           "point_id": "a3",
           "point_value": 1,
           "description": "Correct conclusion: series converges when $\\dfrac{|x|}{2} < 1$, i.e., $|x| < 2$, so $R = 2$",
+          "official_rubric": "1 point: $R = 2$",
+          "sample_responses": [
+            {
+              "response": "$\\frac{|x|}{2} < 1 \\Rightarrow |x| < 2$, so $R = 2$.",
+              "earned": true,
+              "commentary": "Correct conclusion.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$R = \\frac{1}{2}$ (takes the reciprocal of the limit coefficient)",
+              "earned": false,
+              "commentary": "The convergence condition is $|x|/2 < 1$, so $|x| < 2$, giving $R = 2$, not $1/2$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -75,6 +120,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Differentiates the given series term-by-term: $f'(x) = \\dfrac{1}{2} - \\dfrac{x}{4} + \\dfrac{x^2}{8} - \\dfrac{x^3}{16} + \\cdots$",
+          "official_rubric": "1 point: $f'(x) = \\frac{1}{2}-\\frac{x}{4}+\\frac{x^2}{8}-\\frac{x^3}{16}+\\cdots$",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{d}{dx}\\left[\\dfrac{(-1)^{n+1}}{n\\cdot 2^n}x^n\\right] = \\dfrac{(-1)^{n+1}}{2^n}x^{n-1}$. First four terms: $\\frac{1}{2}-\\frac{x}{4}+\\frac{x^2}{8}-\\frac{x^3}{16}$",
+              "earned": true,
+              "commentary": "Correctly differentiates term-by-term, cancelling $n$ with the $1/n$ factor.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$f'(x) = 1 - \\dfrac{x}{2} + \\dfrac{x^2}{4} - \\cdots$ (off by factor of $2$)",
+              "earned": false,
+              "commentary": "Incorrectly simplifies the $n$-cancellation; the first term should be $1/2$, not $1$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -87,6 +147,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Recognizes this as a geometric series with first term $\\frac{1}{2}$ and ratio $-\\frac{x}{2}$",
+          "official_rubric": "1 point: geometric series, first term $\\frac{1}{2}$, ratio $-\\frac{x}{2}$",
+          "sample_responses": [
+            {
+              "response": "This is geometric with $a = \\frac{1}{2}$ and $r = -\\frac{x}{2}$ (each term is $-x/2$ times the previous).",
+              "earned": true,
+              "commentary": "Correctly identifies the geometric structure.",
+              "source": "synthesized"
+            },
+            {
+              "response": "This is a power series but not geometric (misidentifies).",
+              "earned": false,
+              "commentary": "The series $\\frac{1}{2}-\\frac{x}{4}+\\frac{x^2}{8}-\\cdots$ has constant ratio $-x/2$ between consecutive terms, which is the definition of a geometric series.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -99,6 +174,21 @@
           "point_id": "b3",
           "point_value": 1,
           "description": "Correct closed form: $f'(x) = \\dfrac{1/2}{1 + x/2} = \\dfrac{1}{2 + x}$ for $|x| < 2$",
+          "official_rubric": "1 point: $f'(x) = \\frac{1}{x+2}$",
+          "sample_responses": [
+            {
+              "response": "$f'(x) = \\dfrac{a}{1-r} = \\dfrac{1/2}{1-(-x/2)} = \\dfrac{1/2}{1+x/2} = \\dfrac{1}{2+x}$",
+              "earned": true,
+              "commentary": "Correctly applies the geometric series sum formula.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$f'(x) = \\dfrac{1/2}{1+x/2} = \\dfrac{1}{x+2}$... but writes $\\dfrac{1}{2-x}$ (wrong sign)",
+              "earned": false,
+              "commentary": "Denominator should be $1+x/2 = (2+x)/2$, not $1-x/2 = (2-x)/2$. Ratio is $-x/2$, so $1-r = 1+x/2$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -121,6 +211,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Correct first four terms of the Maclaurin series for $e^x$: $1 + x + \\dfrac{x^2}{2} + \\dfrac{x^3}{6} + \\cdots$",
+          "official_rubric": "1 point: $e^x = 1+x+\\frac{x^2}{2!}+\\frac{x^3}{3!}+\\cdots$",
+          "sample_responses": [
+            {
+              "response": "$e^x = 1 + x + \\dfrac{x^2}{2} + \\dfrac{x^3}{6} + \\cdots$",
+              "earned": true,
+              "commentary": "Standard Maclaurin series for $e^x$ recalled correctly.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$e^x = 1 + x + x^2 + x^3 + \\cdots$ (wrong coefficients)",
+              "earned": false,
+              "commentary": "Omits the factorial denominators; the correct series is $\\sum_{n=0}^\\infty x^n/n!$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -133,6 +238,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Multiplies $e^x$ series by $f(x)$ series and collects terms through degree 3: $g(x) = e^x f(x) = \\left(1 + x + \\dfrac{x^2}{2} + \\dfrac{x^3}{6} + \\cdots\\right)\\left(\\dfrac{x}{2} - \\dfrac{x^2}{8} + \\dfrac{x^3}{24} - \\cdots\\right)$",
+          "official_rubric": "1 point: correctly multiplies series through degree-3 terms",
+          "sample_responses": [
+            {
+              "response": "$g(x) = \\left(1+x+\\frac{x^2}{2}+\\frac{x^3}{6}+\\cdots\\right)\\left(\\frac{x}{2}-\\frac{x^2}{8}+\\frac{x^3}{24}-\\cdots\\right)$. Collecting through $x^3$: $x^1$ term: $\\frac{1}{2}\\cdot 1$; $x^2$ terms: $-\\frac{1}{8}+\\frac{1}{2}\\cdot 1$; $x^3$ terms: $\\frac{1}{24} - \\frac{1}{8} + \\frac{1}{4}$",
+              "earned": true,
+              "commentary": "Correctly identifies which products contribute to each degree and sets up the collection.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g(x) = e^x \\cdot f(x) \\approx \\frac{x}{2}\\cdot e^x$ (simplifies before multiplying series)",
+              "earned": false,
+              "commentary": "Cannot substitute before computing the polynomial; must multiply the series term-by-term through degree 3.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -145,6 +265,21 @@
           "point_id": "c3",
           "point_value": 1,
           "description": "Correct third-degree polynomial: $P_3(x) = \\dfrac{x}{2} + \\dfrac{3x^2}{8} + \\dfrac{x^3}{6}$",
+          "official_rubric": "1 point: $P_3(x) = \\frac{x}{2}+\\frac{3x^2}{8}+\\frac{x^3}{6}$",
+          "sample_responses": [
+            {
+              "response": "Coefficient of $x$: $\\frac{1}{2}$. Of $x^2$: $-\\frac{1}{8}+\\frac{1}{2} = \\frac{3}{8}$. Of $x^3$: $\\frac{1}{24}-\\frac{1}{8}+\\frac{1}{4} = \\frac{1}{24}-\\frac{3}{24}+\\frac{6}{24} = \\frac{4}{24} = \\frac{1}{6}$. So $P_3(x) = \\frac{x}{2}+\\frac{3x^2}{8}+\\frac{x^3}{6}$.",
+              "earned": true,
+              "commentary": "Correct coefficient collection for all three terms.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$P_3(x) = \\frac{x}{2} + \\frac{x^2}{8} + \\frac{x^3}{6}$ (wrong $x^2$ coefficient)",
+              "earned": false,
+              "commentary": "The $x^2$ coefficient comes from $1\\cdot(-1/8) + x\\cdot(1/2)|_{x^1\\text{ coeff}} = -1/8+1/2 = 3/8$, not $1/8$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
