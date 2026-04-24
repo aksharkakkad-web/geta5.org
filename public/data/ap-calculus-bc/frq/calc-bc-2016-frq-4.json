@@ -27,6 +27,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct differentiation of the right side with respect to $x$ (including the chain rule on $-y$)",
+          "official_rubric": "1 point: $\\frac{d^2y}{dx^2} = x - \\frac{dy}{dx}$",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{d}{dx}\\left(\\dfrac{dy}{dx}\\right) = \\dfrac{d}{dx}\\left(\\dfrac{x^2}{2}-y\\right) = x - \\dfrac{dy}{dx}$",
+              "earned": true,
+              "commentary": "Correctly differentiates both sides, applying the chain rule to $-y$ to get $-dy/dx$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{d^2y}{dx^2} = x$ (forgets to differentiate $-y$)",
+              "earned": false,
+              "commentary": "Omits the $-dy/dx$ term from differentiating $-y$ with respect to $x$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -39,6 +54,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct substitution of $dy/dx$ to express $d^2y/dx^2$ entirely in terms of $x$ and $y$",
+          "official_rubric": "1 point: $\\frac{d^2y}{dx^2} = x-\\frac{x^2}{2}+y$",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{d^2y}{dx^2} = x - \\dfrac{dy}{dx} = x - \\left(\\dfrac{x^2}{2}-y\\right) = x - \\dfrac{x^2}{2} + y$",
+              "earned": true,
+              "commentary": "Correctly substitutes the given $dy/dx$ expression to eliminate it.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{d^2y}{dx^2} = x - y$ (wrong substitution)",
+              "earned": false,
+              "commentary": "Substitutes $dy/dx = y$ rather than $dy/dx = x^2/2 - y$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -61,6 +91,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Correct evaluation of $dy/dx$ at $(-2, 8)$ showing it equals $0$ (a critical point)",
+          "official_rubric": "1 point: $\\frac{dy}{dx}\\big|_{(-2,8)} = \\frac{(-2)^2}{2} - 8 = 2 - 8 = -6 \\neq 0$",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{dy}{dx}\\bigg|_{(-2,8)} = \\dfrac{(-2)^2}{2} - 8 = 2 - 8 = -6$. Since $\\dfrac{dy}{dx} \\neq 0$ at $(-2, 8)$, the point is not a critical point.",
+              "earned": true,
+              "commentary": "Correctly substitutes $x = -2$, $y = 8$ into the differential equation and obtains $-6 \\neq 0$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{dy}{dx}\\bigg|_{(-2,8)} = \\dfrac{4}{2} - 8 = 0$, so the graph has a critical point at $(-2, 8)$.",
+              "earned": false,
+              "commentary": "Arithmetic error: $(-2)^2/2 = 4/2 = 2$, and $2 - 8 = -6$, not $0$. The slope is $-6$, not zero.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -78,6 +123,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct conclusion: neither a relative minimum nor a relative maximum, because $dy/dx \\neq 0$ at $(-2, 8)$",
+          "official_rubric": "1 point: Neither; $f'(-2) = -6 \\neq 0$, so the graph has neither a relative maximum nor a relative minimum at $(-2, 8)$",
+          "sample_responses": [
+            {
+              "response": "Since $f'(-2) = -6 \\neq 0$, the point $(-2, 8)$ is not a critical point of $f$. Therefore $f$ has neither a relative maximum nor a relative minimum at $(-2, 8)$.",
+              "earned": true,
+              "commentary": "Correct conclusion with correct justification: a relative extremum requires $f' = 0$, and the slope is $-6$ there.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Since $\\dfrac{d^2y}{dx^2}\\bigg|_{(-2,8)} = -2 - \\dfrac{4}{2} + 8 = 4 > 0$, the graph has a relative minimum at $(-2, 8)$.",
+              "earned": false,
+              "commentary": "Cannot determine relative extrema from the second derivative alone without first confirming $f' = 0$ at the point. Since $f'(-2) = -6 \\neq 0$, the second derivative test does not apply.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -100,6 +160,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Recognizes the $0/0$ indeterminate form and correctly applies L'Hôpital's Rule once",
+          "official_rubric": "1 point: recognizes $0/0$ form at $x = -1$ and applies L'Hôpital's Rule: $\\lim_{x \\to -1} \\dfrac{g'(x)}{6(x+1)}$",
+          "sample_responses": [
+            {
+              "response": "As $x \\to -1$: numerator $g(x) - 2 \\to g(-1) - 2 = 0$ and denominator $3(x+1)^2 \\to 0$. Indeterminate form $0/0$, so by L'Hôpital's Rule: $\\lim_{x \\to -1} \\dfrac{g'(x)}{6(x+1)}$.",
+              "earned": true,
+              "commentary": "Correctly identifies the $0/0$ indeterminate form using $g(-1) = 2$, then applies L'Hôpital to obtain $g'(x)/[6(x+1)]$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\lim_{x \\to -1} \\dfrac{g(x)-2}{3(x+1)^2} = \\dfrac{g'(-1)}{6(-1+1)} = \\dfrac{g'(-1)}{0}$",
+              "earned": false,
+              "commentary": "Evaluates L'Hôpital's result at $x = -1$ immediately, producing $0$ in the denominator again — the limit after first application still has $0/0$ form and requires a second application.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -112,6 +187,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Recognizes the $0/0$ form persists and applies L'Hôpital's Rule a second time (or uses Taylor/limit analysis)",
+          "official_rubric": "1 point: $g'(-1) = \\frac{(-1)^2}{2} - 2 = -\\frac{3}{2} \\neq 0$... wait — $g'(-1) = \\frac{1}{2}-2 = -\\frac{3}{2}$ and denominator $6(-1+1)=0$, so still $0/0$; apply L'Hôpital again: $\\lim_{x \\to -1} \\dfrac{g''(x)}{6}$",
+          "sample_responses": [
+            {
+              "response": "After first L'Hôpital: $\\lim_{x \\to -1} \\dfrac{g'(x)}{6(x+1)}$. At $x = -1$: $g'(-1) = \\dfrac{(-1)^2}{2} - 2 = \\dfrac{1}{2} - 2 = -\\dfrac{3}{2}$ and denominator $= 0$. Still $0/0$, so apply L'Hôpital again: $\\lim_{x \\to -1} \\dfrac{g''(x)}{6}$.",
+              "earned": true,
+              "commentary": "Correctly evaluates $g'(-1) = -3/2$ and notes numerator is non-zero... wait — $g'(-1) = -3/2 \\neq 0$, but denominator is $0$, so the ratio after first application still gives $-3/2$ over $0$, requiring a second application. Student correctly identifies this and applies L'Hôpital again.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\lim_{x \\to -1} \\dfrac{g'(x)}{6(x+1)} = \\dfrac{g'(-1)}{0}$; since $g'(-1) = -\\dfrac{3}{2}$, the limit is $-\\infty$.",
+              "earned": false,
+              "commentary": "Incorrectly concludes the limit is $-\\infty$ rather than recognizing the $0/0$ form persists (the numerator $g'(-1)$ is also evaluated at a point where another L'Hôpital application is needed).",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -124,6 +214,21 @@
           "point_id": "c3",
           "point_value": 1,
           "description": "Correct final answer",
+          "official_rubric": "1 point: $g''(-1) = (-1) - \\frac{1}{2} + 2 = \\frac{1}{2}$; limit $= \\dfrac{g''(-1)}{6} = \\dfrac{1}{12}$",
+          "sample_responses": [
+            {
+              "response": "$g''(-1) = (-1) - \\dfrac{(-1)^2}{2} + 2 = -1 - \\dfrac{1}{2} + 2 = \\dfrac{1}{2}$. Therefore the limit $= \\dfrac{g''(-1)}{6} = \\dfrac{1/2}{6} = \\dfrac{1}{12}$.",
+              "earned": true,
+              "commentary": "Uses $d^2y/dx^2 = x - x^2/2 + y$ from part (a) evaluated at $(-1, 2)$, correctly computing $g''(-1) = 1/2$ and the final limit $1/12$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g''(-1) = (-1) - \\dfrac{1}{2} + 2 = \\dfrac{1}{2}$; limit $= \\dfrac{g''(-1)}{6} = \\dfrac{1}{2} \\cdot 6 = 3$",
+              "earned": false,
+              "commentary": "Multiplies instead of divides: $\\frac{1/2}{6} = \\frac{1}{12}$, not $3$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -146,6 +251,21 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Correct first Euler step from $(0, 2)$ to $(0.5, y_1)$",
+          "official_rubric": "1 point: $\\frac{dy}{dx}\\big|_{(0,2)} = 0 - 2 = -2$; $y_1 = 2 + (-2)(0.5) = 1$",
+          "sample_responses": [
+            {
+              "response": "Step size $\\Delta x = 0.5$. At $(0, 2)$: $\\dfrac{dy}{dx} = \\dfrac{0^2}{2} - 2 = -2$. First Euler step: $y_1 = 2 + (-2)(0.5) = 2 - 1 = 1$. New point: $(0.5, 1)$.",
+              "earned": true,
+              "commentary": "Correctly evaluates the slope at $(0, 2)$, uses step size $0.5$, and computes $y_1 = 1$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "At $(0, 2)$: slope $= \\dfrac{0^2}{2} - 2 = -2$. $y_1 = 2 + (-2)(1) = 0$ (uses step size $1$ instead of $0.5$)",
+              "earned": false,
+              "commentary": "Uses step size $1$ instead of $\\Delta x = 0.5$. With two equal steps over $[0, 1]$, each step must have $\\Delta x = 0.5$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -158,6 +278,21 @@
           "point_id": "d2",
           "point_value": 1,
           "description": "Correct second Euler step from $(0.5, 1)$ to $(1, y_2)$",
+          "official_rubric": "1 point: $\\frac{dy}{dx}\\big|_{(0.5,1)} = \\frac{0.25}{2} - 1 = -0.875$; $h(1) \\approx 1 + (-0.875)(0.5) = 0.5625$",
+          "sample_responses": [
+            {
+              "response": "At $(0.5, 1)$: $\\dfrac{dy}{dx} = \\dfrac{(0.5)^2}{2} - 1 = \\dfrac{0.25}{2} - 1 = 0.125 - 1 = -0.875$. Second step: $h(1) \\approx 1 + (-0.875)(0.5) = 1 - 0.4375 = 0.5625$.",
+              "earned": true,
+              "commentary": "Correctly uses the updated point $(0.5, 1)$ from step 1, evaluates the slope, and computes $h(1) \\approx 0.5625$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "At $(0.5, 1)$: slope $= \\dfrac{(0.5)^2}{2} - 2 = -1.875$. $h(1) \\approx 1 + (-1.875)(0.5) = 0.0625$ (uses $y=2$ instead of $y=1$)",
+              "earned": false,
+              "commentary": "Uses the original $y = 2$ from the starting point instead of the updated $y_1 = 1$ from step 1. Euler's method requires using the most recently computed $y$-value.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
