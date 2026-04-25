@@ -31,6 +31,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct $x$-component of acceleration: $\\dfrac{d^2x}{dt^2}\\bigg|_{t=1} = 2(1)\\cos(1^2) = 2\\cos(1) \\approx 1.080$.",
+          "official_rubric": "1 point: $\\dfrac{d^2x}{dt^2} = 2t\\cos(t^2)$, evaluated at $t=1$ gives $2\\cos(1) \\approx 1.080$",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{dx}{dt} = \\sin(t^2)$, so $\\dfrac{d^2x}{dt^2} = 2t\\cos(t^2)$. At $t=1$: $\\dfrac{d^2x}{dt^2}\\bigg|_{t=1} = 2(1)\\cos(1) = 2\\cos(1) \\approx 1.080$.",
+              "earned": true,
+              "commentary": "Correctly applies the chain rule to differentiate $\\sin(t^2)$: derivative of outer function $\\cos(t^2)$ times derivative of inner function $2t$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{d^2x}{dt^2} = \\cos(t^2)$ at $t=1$ gives $\\cos(1) \\approx 0.540$.",
+              "earned": false,
+              "commentary": "Forgot the chain rule factor $2t$ when differentiating $\\sin(t^2)$. The correct derivative is $2t\\cos(t^2)$, not $\\cos(t^2)$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -48,6 +63,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct $y$-component of acceleration: $\\dfrac{d^2y}{dt^2}\\bigg|_{t=1} = -4\\cos(2) - 2\\sin(1) \\approx -3.328$.",
+          "official_rubric": "1 point: $\\dfrac{d^2y}{dt^2} = -4\\cos(2t) - 2\\sin(t)$, evaluated at $t=1$ gives $-4\\cos(2) - 2\\sin(1) \\approx -3.328$",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{dy}{dt} = -2\\sin(2t) + 2\\cos(t)$, so $\\dfrac{d^2y}{dt^2} = -4\\cos(2t) - 2\\sin(t)$. At $t=1$: $-4\\cos(2) - 2\\sin(1) \\approx -3.328$.",
+              "earned": true,
+              "commentary": "Differentiates $y(t) = \\cos(2t) + 2\\sin(t)$ twice correctly, applying the chain rule on $\\cos(2t)$ to get the factor of $-4$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{dy}{dt} = -2\\sin(2t) + 2\\cos(t)$, so $\\dfrac{d^2y}{dt^2} = 4\\cos(2t) - 2\\sin(t)$. At $t=1$: $4\\cos(2) - 2\\sin(1) \\approx -3.329$.",
+              "earned": false,
+              "commentary": "Sign error: differentiating $-2\\sin(2t)$ gives $-4\\cos(2t)$, not $+4\\cos(2t)$. The leading coefficient must be negative.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -75,6 +105,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Correct speed expression set equal to $1.5$: $\\sqrt{\\sin^2(t^2) + (-2\\sin(2t) + 2\\cos(t))^2} = 1.5$.",
+          "official_rubric": "1 point: speed $= \\sqrt{(dx/dt)^2 + (dy/dt)^2} = \\sqrt{\\sin^2(t^2) + (-2\\sin(2t)+2\\cos(t))^2} = 1.5$ with correct components",
+          "sample_responses": [
+            {
+              "response": "Speed $= \\sqrt{\\left(\\dfrac{dx}{dt}\\right)^2 + \\left(\\dfrac{dy}{dt}\\right)^2} = \\sqrt{\\sin^2(t^2) + (-2\\sin(2t)+2\\cos(t))^2}$. Set equal to $1.5$: $\\sqrt{\\sin^2(t^2) + (-2\\sin(2t)+2\\cos(t))^2} = 1.5$.",
+              "earned": true,
+              "commentary": "Correctly sets up the speed formula with both components under the radical and sets it equal to $1.5$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Speed $= \\sqrt{\\sin(t^2) + (-2\\sin(2t)+2\\cos(t))} = 1.5$.",
+              "earned": false,
+              "commentary": "Speed requires the sum of squares of the velocity components, not the sum of the components themselves. Each term under the radical must be squared.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -92,6 +137,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct first time: $t \\approx 0.443$.",
+          "official_rubric": "1 point: first $t$ with speed $= 1.5$ is $t \\approx 0.443$",
+          "sample_responses": [
+            {
+              "response": "Using a calculator to solve $\\sqrt{\\sin^2(t^2) + (-2\\sin(2t)+2\\cos(t))^2} = 1.5$ on $[0,\\pi]$, the first solution is $t \\approx 0.443$.",
+              "earned": true,
+              "commentary": "Correctly uses technology to find the smallest positive $t$ where speed equals $1.5$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The equation gives $t \\approx 1.247$ as the first solution.",
+              "earned": false,
+              "commentary": "Reports a later zero rather than the first. The problem requires the first time $t$ at which speed equals $1.5$, which occurs at $t \\approx 0.443$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -118,6 +178,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Correct slope formula: $\\dfrac{dy/dt}{dx/dt}\\bigg|_{t=1} = \\dfrac{-2\\sin(2)+2\\cos(1)}{\\sin(1)}$.",
+          "official_rubric": "1 point: slope $= \\dfrac{dy/dt}{dx/dt}\\bigg|_{t=1} = \\dfrac{-2\\sin(2)+2\\cos(1)}{\\sin(1)}$ with correct numerator and denominator",
+          "sample_responses": [
+            {
+              "response": "Slope $= \\dfrac{dy/dt}{dx/dt}\\bigg|_{t=1} = \\dfrac{-2\\sin(2(1))+2\\cos(1)}{\\sin(1^2)} = \\dfrac{-2\\sin(2)+2\\cos(1)}{\\sin(1)}$.",
+              "earned": true,
+              "commentary": "Correctly forms the ratio of $dy/dt$ over $dx/dt$ and substitutes $t=1$ into each component.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Slope $= \\dfrac{dx/dt}{dy/dt}\\bigg|_{t=1} = \\dfrac{\\sin(1)}{-2\\sin(2)+2\\cos(1)}$.",
+              "earned": false,
+              "commentary": "Inverted the ratio. The slope of the curve in the $xy$-plane is $dy/dx = (dy/dt)\\div(dx/dt)$, not $(dx/dt)\\div(dy/dt)$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -135,6 +210,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct slope value: $\\approx -2.141$.",
+          "official_rubric": "1 point: slope $\\approx -2.141$",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{-2\\sin(2)+2\\cos(1)}{\\sin(1)} \\approx \\dfrac{-1.801}{0.841} \\approx -2.141$.",
+              "earned": true,
+              "commentary": "Evaluates numerator and denominator numerically and divides to get the correct slope value.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Slope $\\approx -0.467$.",
+              "earned": false,
+              "commentary": "Likely computed $\\sin(1)\\div(-2\\sin(2)+2\\cos(1))$ (inverted ratio) or made a calculator error. The correct slope is approximately $-2.141$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -147,6 +237,21 @@
           "point_id": "c3",
           "point_value": 1,
           "description": "Correct $x$-coordinate: $x(1) = 1 + \\int_0^1 \\sin(t^2)\\,dt \\approx 1.310$.",
+          "official_rubric": "1 point: $x(1) = x(0) + \\int_0^1 \\sin(t^2)\\,dt = 1 + \\int_0^1 \\sin(t^2)\\,dt \\approx 1.310$",
+          "sample_responses": [
+            {
+              "response": "$x(1) = x(0) + \\displaystyle\\int_0^1 \\dfrac{dx}{dt}\\,dt = 1 + \\int_0^1 \\sin(t^2)\\,dt \\approx 1 + 0.310 = 1.310$.",
+              "earned": true,
+              "commentary": "Correctly uses the FTC with the given initial condition $x(0)=1$ to recover $x(1)$ by integrating $dx/dt$ from $0$ to $1$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$x(1) = \\displaystyle\\int_0^1 \\sin(t^2)\\,dt \\approx 0.310$.",
+              "earned": false,
+              "commentary": "Forgot to add the initial $x$-value of $1$. The particle starts at $(1,2)$ at $t=0$, so $x(1) = 1 + \\int_0^1 \\sin(t^2)\\,dt \\approx 1.310$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -175,6 +280,21 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Correct integral setup for arc length: $\\int_0^{\\pi} \\sqrt{\\left(\\dfrac{dx}{dt}\\right)^2 + \\left(\\dfrac{dy}{dt}\\right)^2}\\,dt = \\int_0^{\\pi}\\sqrt{\\sin^2(t^2) + (-2\\sin(2t)+2\\cos(t))^2}\\,dt$.",
+          "official_rubric": "1 point: $\\displaystyle\\int_0^{\\pi}\\sqrt{(dx/dt)^2 + (dy/dt)^2}\\,dt = \\int_0^{\\pi}\\sqrt{\\sin^2(t^2)+(-2\\sin(2t)+2\\cos(t))^2}\\,dt$ with correct limits and components",
+          "sample_responses": [
+            {
+              "response": "Total distance $= \\displaystyle\\int_0^{\\pi}\\sqrt{\\left(\\dfrac{dx}{dt}\\right)^2 + \\left(\\dfrac{dy}{dt}\\right)^2}\\,dt = \\int_0^{\\pi}\\sqrt{\\sin^2(t^2) + (-2\\sin(2t)+2\\cos(t))^2}\\,dt$.",
+              "earned": true,
+              "commentary": "Correctly identifies total distance as the arc length integral with limits $0$ to $\\pi$ and substitutes the correct velocity components.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Total distance $= \\displaystyle\\int_0^{\\pi}\\sqrt{\\sin^2(t^2) + (-2\\sin(2t)+2\\cos(t))^2}\\,dt$ with limits $0$ to $1$.",
+              "earned": false,
+              "commentary": "Used incorrect limits of integration. The problem specifies the time interval $0 \\leq t \\leq \\pi$, not $0$ to $1$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -193,6 +313,21 @@
           "point_id": "d2",
           "point_value": 1,
           "description": "Correct answer: approximately $4.706$.",
+          "official_rubric": "1 point: total distance $\\approx 4.706$",
+          "sample_responses": [
+            {
+              "response": "Using a calculator: $\\displaystyle\\int_0^{\\pi}\\sqrt{\\sin^2(t^2) + (-2\\sin(2t)+2\\cos(t))^2}\\,dt \\approx 4.706$.",
+              "earned": true,
+              "commentary": "Correctly uses technology to evaluate the arc length integral over $[0,\\pi]$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Total distance $\\approx 3.141$ (computed in degree mode).",
+              "earned": false,
+              "commentary": "Calculator was likely in degree mode instead of radian mode. All trigonometric expressions use radian measure; the correct answer is approximately $4.706$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
