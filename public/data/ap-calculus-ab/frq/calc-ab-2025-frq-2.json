@@ -34,6 +34,21 @@
               ],
               "correct_example": "$\\int_0^3 (g(x) - f(x))\\, dx$ or equivalent"
             }
+          ],
+          "official_rubric": "1 point: integrand $g(x)-f(x)$, $f(x)-g(x)$, or their absolute values in a definite integral.",
+          "sample_responses": [
+            {
+              "response": "Area $= \\displaystyle\\int_0^3 (g(x)-f(x))\\,dx$.",
+              "earned": true,
+              "commentary": "Since $g(x) \\ge f(x)$ on $[0,3]$, using $g-f$ as the integrand gives the area directly.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Area $= \\displaystyle\\int_0^3 (f(x)-g(x))\\,dx \\approx -5.137$, so area $= 5.137$.",
+              "earned": true,
+              "commentary": "Incorrect linkage (negative result) is treated as scratch work; the rubric awards this for the correct integrand form plus the correct final answer.",
+              "source": "cb_guideline"
+            }
           ]
         },
         {
@@ -46,6 +61,21 @@
                 "Correct answer"
               ],
               "correct_example": "$\\approx 5.137$ (or $5.136$)"
+            }
+          ],
+          "official_rubric": "1 point: correct answer $\\approx 5.137$ (or $5.136$).",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^3 (g(x)-f(x))\\,dx \\approx 5.137$.",
+              "earned": true,
+              "commentary": "Calculator evaluates the integral correctly to three decimal places.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\displaystyle\\int_0^3 (g(x)-f(x))\\,dx \\approx 5.14$ (rounded to two decimal places).",
+              "earned": false,
+              "commentary": "Inappropriately rounded; three decimal places required.",
+              "source": "synthesized"
             }
           ]
         }
@@ -70,6 +100,21 @@
               ],
               "correct_example": "$\\int_0^3 x(g(x)-f(x))\\, dx$"
             }
+          ],
+          "official_rubric": "1 point: definite integral with integrand as a product of two nonconstant factors, one being $x$ and the other $g(x)-f(x)$ or equivalent.",
+          "sample_responses": [
+            {
+              "response": "Volume $= \\displaystyle\\int_0^3 x\\cdot(g(x)-f(x))\\,dx$.",
+              "earned": true,
+              "commentary": "Cross section: rectangle with base $= g(x)-f(x)$ and height $= x$; area $= x(g(x)-f(x))$; integrate over $[0,3]$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Volume $= \\displaystyle\\int_0^3 3(g(x)-f(x))\\,dx$ (uses constant height $3$ instead of $x$).",
+              "earned": false,
+              "commentary": "The height of the cross section is $x$ (varies with position), not the constant $3$; the integrand must include $x$ as a nonconstant factor.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -82,6 +127,21 @@
                 "Correct answer"
               ],
               "correct_example": "$\\approx 7.705$ (or $7.704$)"
+            }
+          ],
+          "official_rubric": "1 point: correct answer $\\approx 7.705$ (or $7.704$).",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^3 x(g(x)-f(x))\\,dx \\approx 7.705$.",
+              "earned": true,
+              "commentary": "Calculator evaluation is correct to three decimal places.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\displaystyle\\int_0^3 x(f(x)-g(x))\\,dx \\approx -7.705$, so volume $= 7.705$.",
+              "earned": true,
+              "commentary": "Negative sign from reversed integrand; the rubric treats incorrect linkage as scratch work and awards the correct positive value.",
+              "source": "cb_guideline"
             }
           ]
         }
@@ -107,6 +167,21 @@
                 "$r = f(x) - (-2) = f(x) + 2$"
               ]
             }
+          ],
+          "official_rubric": "1 point: $R^2-r^2$ form where one of $\\{R,r\\}$ is a difference between $g(x)$ and a nonzero constant, and the other involves $f(x)$ and a nonzero constant.",
+          "sample_responses": [
+            {
+              "response": "Outer radius $R = g(x)-(-2) = g(x)+2$; inner radius $r = f(x)-(-2)=f(x)+2$. Integrand $\\sim R^2-r^2 = (g(x)+2)^2-(f(x)+2)^2$.",
+              "earned": true,
+              "commentary": "Correctly measures both radii from the axis $y=-2$ (below the region), yielding outer $R=g(x)+2$ and inner $r=f(x)+2$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Outer radius $R = g(x)$; inner radius $r = f(x)$. Integrand $= [g(x)]^2 - [f(x)]^2$ (ignores shift).",
+              "earned": false,
+              "commentary": "Does not account for the distance from the axis $y=-2$; both radii must be shifted by $+2$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -120,6 +195,21 @@
               ],
               "correct_example": "$\\pi\\int_0^3\\left[(g(x)+2)^2 - (f(x)+2)^2\\right]\\, dx$"
             }
+          ],
+          "official_rubric": "1 point: correct integrand $(g(x)+2)^2-(f(x)+2)^2$ (or mathematically equivalent).",
+          "sample_responses": [
+            {
+              "response": "$\\pi\\displaystyle\\int_0^3\\left[(g(x)+2)^2-(f(x)+2)^2\\right]dx$.",
+              "earned": true,
+              "commentary": "Correct washer integrand with both radii shifted to account for rotation about $y=-2$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\pi\\displaystyle\\int_0^3\\left[(f(x)+2)^2-(g(x)+2)^2\\right]dx$ (reversed but without compensating sign).",
+              "earned": true,
+              "commentary": "The rubric accepts this form for P6 only (reversed difference); to earn P7, must add a negative sign in front or reverse the limits.",
+              "source": "cb_guideline"
+            }
           ]
         },
         {
@@ -132,6 +222,21 @@
                 "Correct constant $\\pi$, limits $0$ to $3$,",
                 "differential $dx$"
               ]
+            }
+          ],
+          "official_rubric": "1 point: expression includes $\\pi$, correct limits $0$ to $3$, and differential $dx$.",
+          "sample_responses": [
+            {
+              "response": "$\\pi\\displaystyle\\int_0^3\\left[(g(x)+2)^2-(f(x)+2)^2\\right]dx$.",
+              "earned": true,
+              "commentary": "All required components present: $\\pi$, limits $[0,3]$, correct integrand, $dx$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\displaystyle\\int_0^3\\left[(g(x)+2)^2-(f(x)+2)^2\\right]dx$ (missing $\\pi$).",
+              "earned": false,
+              "commentary": "Volume by the washer method requires the factor $\\pi$; omitting $\\pi$ does not earn P7.",
+              "source": "synthesized"
             }
           ]
         }
@@ -156,6 +261,21 @@
               ],
               "correct_example": "$2x - 2 = 1 + \\pi\\cos(\\pi x)$"
             }
+          ],
+          "official_rubric": "1 point: general statement $f'(x) = g'(x)$, or specific equation $2x-2 = 1+\\pi\\cos(\\pi x)$.",
+          "sample_responses": [
+            {
+              "response": "Parallel tangent lines have equal slopes: $f'(x) = g'(x) \\Rightarrow 2x-2 = 1+\\pi\\cos(\\pi x)$.",
+              "earned": true,
+              "commentary": "Correctly equates the derivatives of both functions to find where their tangent lines have the same slope.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$f(x) = g(x) \\Rightarrow x^2-2x = x+\\sin(\\pi x)$ (equates functions instead of derivatives).",
+              "earned": false,
+              "commentary": "Equating $f=g$ finds the intersection of the curves, not parallel tangents; must equate $f'=g'$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -168,6 +288,21 @@
                 "Correct answer"
               ],
               "correct_example": "$x \\approx 0.676$ (or $0.675$)"
+            }
+          ],
+          "official_rubric": "1 point: correct answer $x \\approx 0.676$ (or $0.675$).",
+          "sample_responses": [
+            {
+              "response": "Solving $2x-2=1+\\pi\\cos(\\pi x)$ numerically: $x \\approx 0.676$.",
+              "earned": true,
+              "commentary": "Calculator solution of the transcendental equation gives the correct answer to three decimal places.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Solving: $x \\approx 0.68$ (rounded to two decimal places).",
+              "earned": false,
+              "commentary": "Insufficient precision; three decimal places required ($0.676$ or $0.675$).",
+              "source": "synthesized"
             }
           ]
         }
