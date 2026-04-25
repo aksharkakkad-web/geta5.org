@@ -28,6 +28,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "$g(-6) = \\displaystyle\\int_0^{-6} f(t)\\,dt = -\\displaystyle\\int_{-6}^0 f(t)\\,dt$. Since region $R$ has area 12 and lies below the $x$-axis in the second quadrant (where $f < 0$), $\\displaystyle\\int_{-6}^0 f(t)\\,dt = -12$, so $g(-6) = -(-12) = 12$... Alternatively: $f \\leq 0$ on $[-6,0]$ (region $R$ is below $x$-axis), so $\\displaystyle\\int_{-6}^{0} f(t)\\,dt = -12$, giving $g(-6) = -(-12) = 12$. Note: the exact sign depends on whether $f$ is above or below the $x$-axis in $[-6,0]$. Since $R$ is bounded by the graph, vertical line $x=-6$, and the axes, $f \\leq 0$ on $(-6,0)$, so $g(-6) = 12$.",
+          "official_rubric": "1 point: $g(-6) = 12$ (recognizes $\\int_{-6}^0 f\\,dt = -12$ because $f\\leq 0$ on $[-6,0]$ and area of $R$ is $12$)",
+          "sample_responses": [
+            {
+              "response": "$g(-6) = \\displaystyle\\int_0^{-6} f(t)\\,dt = -\\displaystyle\\int_{-6}^0 f(t)\\,dt$. Since $f \\leq 0$ on $[-6,0]$, $\\displaystyle\\int_{-6}^0 f(t)\\,dt = -12$. Therefore $g(-6) = -(-12) = 12$.",
+              "earned": true,
+              "commentary": "Correctly reverses the limits (picking up a negative sign), then uses the fact that $f\\leq 0$ on $[-6,0]$ so the signed integral equals $-12$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g(-6) = \\displaystyle\\int_0^{-6} f(t)\\,dt = -12$.",
+              "earned": false,
+              "commentary": "Forgets the sign reversal from flipping the limits. $g(-6) = \\int_0^{-6} f = -\\int_{-6}^0 f = -(-12) = 12$, not $-12$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -40,6 +55,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "For $0 \\leq x \\leq 7$, $f$ is linear with $f(0) = 0$ and slope $\\dfrac{3}{2}$, so $f(t) = \\dfrac{3}{2}t$. Thus $g(4) = \\displaystyle\\int_0^4 \\dfrac{3}{2}t\\,dt = \\dfrac{3}{2} \\cdot \\dfrac{t^2}{2}\\Big|_0^4 = \\dfrac{3}{4}(16) = 12$.",
+          "official_rubric": "1 point: $g(4) = 12$ (using $f(t) = \\frac{3}{2}t$ on $[0,7]$)",
+          "sample_responses": [
+            {
+              "response": "Since $f$ is linear on $[0,7]$ with $f(0)=0$ and slope $\\frac{3}{2}$, $g(4) = \\displaystyle\\int_0^4 \\frac{3}{2}t\\,dt = \\frac{3}{4}t^2\\Big|_0^4 = \\frac{3}{4}(16) = 12$.",
+              "earned": true,
+              "commentary": "Uses the geometric interpretation or direct integration of the linear $f(t) = \\frac{3}{2}t$ to obtain $g(4) = 12$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g(4) = f(4) = \\frac{3}{2}(4) = 6$.",
+              "earned": false,
+              "commentary": "Confuses $g(4) = \\int_0^4 f(t)\\,dt$ with $f(4)$. The accumulation function $g$ integrates $f$; it does not evaluate $f$ at the upper limit.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -52,6 +82,21 @@
           "point_id": "a3",
           "point_value": 1,
           "description": "$g(6) = \\displaystyle\\int_0^6 \\dfrac{3}{2}t\\,dt = \\dfrac{3}{4}(36) = 27$.",
+          "official_rubric": "1 point: $g(6) = 27$",
+          "sample_responses": [
+            {
+              "response": "$g(6) = \\displaystyle\\int_0^6 \\frac{3}{2}t\\,dt = \\frac{3}{4}t^2\\Big|_0^6 = \\frac{3}{4}(36) = 27$.",
+              "earned": true,
+              "commentary": "Correctly integrates $f(t) = \\frac{3}{2}t$ from $0$ to $6$, or equivalently computes the triangular area $\\frac{1}{2}(6)(9) = 27$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g(6) = \\frac{3}{2}(6) = 9$.",
+              "earned": false,
+              "commentary": "Evaluates $f(6) = 9$ instead of computing $g(6) = \\int_0^6 f(t)\\,dt = 27$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -74,6 +119,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "By the Fundamental Theorem of Calculus, $g'(x) = f(x)$. A critical point of $g$ occurs where $g'(x) = f(x) = 0$.",
+          "official_rubric": "1 point: by the Fundamental Theorem, $g'(x) = f(x)$; critical points occur where $f(x)=0$",
+          "sample_responses": [
+            {
+              "response": "By the Fundamental Theorem of Calculus, $g'(x) = f(x)$. Critical points of $g$ occur where $g'(x) = f(x) = 0$.",
+              "earned": true,
+              "commentary": "Correctly invokes FTC Part 1 to identify $g' = f$, then notes that critical points occur at zeros of $f$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g'(x) = f'(x)$ by the chain rule.",
+              "earned": false,
+              "commentary": "Confuses $g'(x) = f(x)$ (from FTC) with $g'(x) = f'(x)$. Since $g(x) = \\int_0^x f(t)\\,dt$, FTC Part 1 gives $g'(x) = f(x)$, not $f'(x)$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -86,6 +146,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Since $f(x) = \\dfrac{3}{2}x$ for $0 \\leq x \\leq 6$, $f(x) = 0$ only at $x = 0$. Thus $g$ has a critical point at $x = 0$. Because $f(x) > 0$ for $x > 0$, $g'(x) > 0$ for $x \\in (0, 6]$, so $x = 0$ is not a local minimum or maximum in the interior; $x = 0$ is a critical point (endpoint where $g' = 0$).",
+          "official_rubric": "1 point: $x=0$ is the only critical point of $g$ on $[0,6]$ because $f(x)=\\frac{3}{2}x=0$ only at $x=0$ on this interval",
+          "sample_responses": [
+            {
+              "response": "Since $f(x) = \\frac{3}{2}x$ on $[0,6]$, $f(x) = 0$ only at $x=0$. So $x=0$ is the only critical point of $g$ on $[0,6]$.",
+              "earned": true,
+              "commentary": "Correctly identifies that the linear function $f(x) = \\frac{3}{2}x$ equals zero only at the origin on the interval $[0,6]$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$g$ has no critical points on $[0,6]$ since $f(x) > 0$ for all $x > 0$.",
+              "earned": false,
+              "commentary": "Overlooks $x=0$, where $f(0) = 0$, giving $g'(0) = 0$. The endpoint $x=0$ is a critical point of $g$ because $g'(0)=0$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -113,6 +188,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "By the Fundamental Theorem of Calculus, $h(x) = \\displaystyle\\int_{-6}^x f'(t)\\,dt = f(x) - f(-6)$. Thus $h(6) = f(6) - f(-6)$. Using $f(6) = \\dfrac{3}{2}(6) = 9$ (from the linear piece on $[0,7]$) and reading $f(-6)$ from the graph. The numerical value of $h(6)$ depends on $f(-6)$ as read from the provided graph.",
+          "official_rubric": "1 point: $h(x) = f(x)-f(-6)$ by FTC, so $h(6) = f(6)-f(-6)$ with $f(6)=9$ from the linear piece",
+          "sample_responses": [
+            {
+              "response": "By the Fundamental Theorem: $h(x) = \\displaystyle\\int_{-6}^x f'(t)\\,dt = f(x)-f(-6)$. Thus $h(6) = f(6)-f(-6) = 9-f(-6)$.",
+              "earned": true,
+              "commentary": "Applies FTC correctly: $\\int_{-6}^x f'(t)\\,dt = f(x)-f(-6)$. Uses $f(6) = \\frac{3}{2}(6)=9$ from the linear formula.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$h(6) = \\displaystyle\\int_{-6}^6 f'(t)\\,dt = f'(6) = \\dfrac{3}{2}$.",
+              "earned": false,
+              "commentary": "Confuses the integral of $f'$ with the value of $f'$. By FTC, $\\int_{-6}^6 f'(t)\\,dt = f(6)-f(-6)$, which is a net change in $f$, not the value of the derivative.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -126,6 +216,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "By the Fundamental Theorem of Calculus, $h'(x) = f'(x)$. For $0 \\leq x \\leq 7$, $f$ is linear with slope $\\dfrac{3}{2}$, so $f'(6) = \\dfrac{3}{2}$. Thus $h'(6) = \\dfrac{3}{2}$.",
+          "official_rubric": "1 point: $h'(6) = f'(6) = \\dfrac{3}{2}$ (since $f$ is linear with slope $\\frac{3}{2}$ on $[0,7]$)",
+          "sample_responses": [
+            {
+              "response": "By FTC, $h'(x) = f'(x)$. Since $f$ is linear on $[0,7]$ with slope $\\frac{3}{2}$, $f'(6) = \\frac{3}{2}$, so $h'(6) = \\frac{3}{2}$.",
+              "earned": true,
+              "commentary": "Differentiates $h$ using FTC Part 1, then reads the slope of the linear piece of $f$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$h'(6) = \\dfrac{h(6)-h(0)}{6-0}$.",
+              "earned": false,
+              "commentary": "Uses an average rate of change instead of $h'(6) = f'(6)$. FTC immediately gives $h'(x) = f'(x)$, so $h'(6) = f'(6) = 3/2$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -138,6 +243,21 @@
           "point_id": "c3",
           "point_value": 1,
           "description": "$h''(x) = f''(x)$. Since $f$ is linear on $0 \\leq x \\leq 7$, $f''(x) = 0$ for $0 < x < 7$. Therefore $h''(6) = f''(6) = 0$.",
+          "official_rubric": "1 point: $h''(6) = f''(6) = 0$ because $f$ is linear on $[0,7]$",
+          "sample_responses": [
+            {
+              "response": "$h''(x) = f''(x)$. Since $f$ is linear on $[0,7]$, $f'' = 0$, so $h''(6) = 0$.",
+              "earned": true,
+              "commentary": "Uses that a linear function has zero second derivative.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$h''(6) = \\dfrac{3}{2}$ because the slope of $f$ is $\\dfrac{3}{2}$.",
+              "earned": false,
+              "commentary": "Confuses $f'$ (slope of $f$) with $f''$ (concavity of $f$). Since $f$ is linear, $f' = \\frac{3}{2}$ is constant, so $f'' = 0$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -151,6 +271,21 @@
           "point_id": "c4",
           "point_value": 1,
           "description": "All three values $h(6)$, $h'(6)$, $h''(6)$ computed correctly with supporting work shown.",
+          "official_rubric": "1 point: all three values $h(6)$, $h'(6)$, $h''(6)$ correct with work shown",
+          "sample_responses": [
+            {
+              "response": "$h(6)=9-f(-6)$, $h'(6)=\\dfrac{3}{2}$, $h''(6)=0$, with work shown for each.",
+              "earned": true,
+              "commentary": "Provides all three values with clear supporting calculations.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$h'(6)=\\dfrac{3}{2}$ and $h''(6)=0$, but $h(6)$ is not computed.",
+              "earned": false,
+              "commentary": "Omits $h(6)$. All three values are required with supporting work to earn this point.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
