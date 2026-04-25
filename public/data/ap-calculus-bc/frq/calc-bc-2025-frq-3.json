@@ -29,6 +29,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct difference quotient setup: $R'(1) \\approx \\frac{R(2) - R(0)}{2 - 0} = \\frac{150 - 120}{2} = \\frac{30}{2} = 15$.",
+          "official_rubric": "1 point: $R'(1)\\approx\\dfrac{R(2)-R(0)}{2-0} = \\dfrac{150-120}{2} = 15$",
+          "sample_responses": [
+            {
+              "response": "$R'(1) \\approx \\dfrac{R(2)-R(0)}{2-0} = \\dfrac{150-120}{2} = 15$ words per minute per minute.",
+              "earned": true,
+              "commentary": "Uses the average rate of change over $[0,2]$ (the interval containing $t=1$) as the approximation for $R'(1)$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$R'(1) \\approx \\dfrac{R(5)-R(0)}{5-0} = \\dfrac{140-120}{5} = 4$.",
+              "earned": false,
+              "commentary": "Uses the wider interval $[0,5]$ instead of $[0,2]$. The problem specifies approximating with the average rate of change over $[0,2]$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -41,6 +56,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct answer with units: $15$ words per minute per minute (i.e., words/min$^2$).",
+          "official_rubric": "1 point: units — words per minute per minute (words/min$^2$)",
+          "sample_responses": [
+            {
+              "response": "The approximation is $15$ words per minute per minute.",
+              "earned": true,
+              "commentary": "$R'(t)$ is the rate of change of reading rate; its units are (words/min) per minute = words/min².",
+              "source": "synthesized"
+            },
+            {
+              "response": "The approximation is $15$ words per minute.",
+              "earned": false,
+              "commentary": "Gives the units of $R(t)$ (reading rate), not the units of $R'(t)$. The derivative of a rate is words per minute per minute.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -63,6 +93,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Invokes the Intermediate Value Theorem with correct justification: $R$ is continuous on $[0, 10]$ (given), and $R(5) = 140$ and $R(10) = 160$, with $140 < 155 < 160$. By the IVT, there must exist $c$ in $(5, 10) \\subset (0, 10)$ such that $R(c) = 155$.",
+          "official_rubric": "1 point: cites IVT on $[5,10]$ (or $[0,10]$) with $R(5)=140 < 155 < 160 = R(10)$ and continuity of $R$",
+          "sample_responses": [
+            {
+              "response": "$R$ is continuous on $[0,10]$. Since $R(5)=140 < 155 < 160 = R(10)$, by the Intermediate Value Theorem there exists $c\\in(5,10)\\subset(0,10)$ such that $R(c)=155$.",
+              "earned": true,
+              "commentary": "Correctly cites IVT, identifies the bracketing interval $[5,10]$, and establishes the sandwich $140 < 155 < 160$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$R(0)=120 < 155 < 160=R(10)$, so by IVT there exists $c\\in(0,10)$ with $R(c)=155$.",
+              "earned": true,
+              "commentary": "Uses the full interval $[0,10]$ with $R(0)=120<155<160=R(10)$; this also brackets $155$ correctly. Both endpoints and the IVT are cited.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -75,6 +120,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct conclusion: Yes, there must be such a value $c$ in $(0, 10)$. The justification must identify the bracketing pair (e.g., $R(5) = 140 \\leq 155 \\leq R(10) = 160$) and cite continuity or the IVT.",
+          "official_rubric": "1 point: conclusion 'Yes' with justification citing IVT and bracketing",
+          "sample_responses": [
+            {
+              "response": "Yes. By the IVT, since $R$ is continuous and $140 < 155 < 160$, there must exist such a $c\\in(0,10)$.",
+              "earned": true,
+              "commentary": "States the conclusion 'Yes' and links it to IVT with correct bracketing.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The table shows $R$ goes from $140$ to $160$, so by inspection $R$ must equal $155$ somewhere.",
+              "earned": false,
+              "commentary": "Relies on visual inspection rather than formally invoking the Intermediate Value Theorem and citing continuity. A valid justification must name the theorem and demonstrate the sandwich condition.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -97,6 +157,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Correct trapezoidal sum setup with the three subintervals $[0,2]$, $[2,5]$, and $[5,10]$: $$\\frac{2}{2}(120 + 150) + \\frac{3}{2}(150 + 140) + \\frac{5}{2}(140 + 160)$$",
+          "official_rubric": "1 point: $\\dfrac{2}{2}(120+150) + \\dfrac{3}{2}(150+140) + \\dfrac{5}{2}(140+160)$",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^{10}R(t)\\,dt \\approx \\dfrac{2}{2}(120+150) + \\dfrac{3}{2}(150+140) + \\dfrac{5}{2}(140+160)$.",
+              "earned": true,
+              "commentary": "Correctly applies the trapezoidal rule: each term is $\\frac{\\Delta t}{2}(R_\\text{left}+R_\\text{right})$ using the three subintervals $[0,2]$, $[2,5]$, $[5,10]$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{1}{2}(10)(120+160) = 1400$.",
+              "earned": false,
+              "commentary": "Uses only two endpoints and a single trapezoid over $[0,10]$, ignoring the table data at $t=2$ and $t=5$. The problem requires three subintervals using all four data points.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -109,6 +184,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct answer: $\\frac{2}{2}(270) + \\frac{3}{2}(290) + \\frac{5}{2}(300) = 270 + 435 + 750 = 1455$ words.",
+          "official_rubric": "1 point: $1455$ words",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{2}{2}(270)+\\dfrac{3}{2}(290)+\\dfrac{5}{2}(300) = 270+435+750 = 1455$ words.",
+              "earned": true,
+              "commentary": "Correctly sums the three trapezoidal areas.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$270+435+750 = 1545$.",
+              "earned": false,
+              "commentary": "Arithmetic error: $270+435+750 = 1455$, not $1545$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -131,6 +221,21 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Correctly sets up the inequality $W(t) \\geq 100$, i.e., $100 + 8t - 10t^2 \\geq 100$, which simplifies to $8t - 10t^2 \\geq 0$, or $2t(4 - 5t) \\geq 0$.",
+          "official_rubric": "1 point: $W(t)\\geq 100$ simplifies to $8t-10t^2 \\geq 0$, i.e., $2t(4-5t)\\geq 0$",
+          "sample_responses": [
+            {
+              "response": "$100+8t-10t^2 \\geq 100 \\Rightarrow 8t-10t^2 \\geq 0 \\Rightarrow 2t(4-5t)\\geq 0$.",
+              "earned": true,
+              "commentary": "Correctly subtracts $100$ from both sides and factors the resulting quadratic.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$W(t)\\geq 100$: $100+8t-10t^2=100 \\Rightarrow t=0$ or $t=\\frac{4}{5}$.",
+              "earned": false,
+              "commentary": "Solves the equation $W(t)=100$ rather than the inequality $W(t)\\geq 100$. While finding the zeros is part of the process, the student must identify the inequality setup.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -143,6 +248,21 @@
           "point_id": "d2",
           "point_value": 1,
           "description": "Correctly finds the critical values: $2t(4 - 5t) = 0$ gives $t = 0$ or $t = \\frac{4}{5} = 0.8$. Since the parabola opens downward, $W(t) \\geq 100$ for $0 \\leq t \\leq 0.8$.",
+          "official_rubric": "1 point: zeros at $t=0$ and $t=\\dfrac{4}{5}$; $W(t)\\geq 100$ on $\\left[0,\\frac{4}{5}\\right]$",
+          "sample_responses": [
+            {
+              "response": "$2t(4-5t)=0 \\Rightarrow t=0$ or $t=\\dfrac{4}{5}$. Since $-10t^2$ makes the parabola open downward, $W(t)\\geq 100$ for $0\\leq t\\leq \\dfrac{4}{5}$.",
+              "earned": true,
+              "commentary": "Correctly solves the equality and identifies the interval where the downward parabola stays above $W=100$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$2t(4-5t)=0 \\Rightarrow t=0$ or $t=\\dfrac{4}{5}$, so $W\\geq 100$ for $t\\geq\\dfrac{4}{5}$.",
+              "earned": false,
+              "commentary": "Incorrect direction of inequality. The parabola $-10t^2+8t$ opens downward, so it is non-negative between the roots $t=0$ and $t=4/5$, not outside them.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -155,6 +275,21 @@
           "point_id": "d3",
           "point_value": 1,
           "description": "Correct conclusion: the teacher's reading rate is at least $100$ words per minute for $\\frac{4}{5}$ minutes (or $0.8$ minutes) in the interval $0 \\leq t \\leq 10$.",
+          "official_rubric": "1 point: $\\dfrac{4}{5}$ minutes (or $0.8$ minutes) — the length of the interval $\\left[0,\\frac{4}{5}\\right]$",
+          "sample_responses": [
+            {
+              "response": "The teacher's reading rate is at least $100$ words per minute for $\\dfrac{4}{5} - 0 = \\dfrac{4}{5}$ minutes.",
+              "earned": true,
+              "commentary": "Correctly computes the length of the interval $[0, 4/5]$ as $4/5$ minutes.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The reading rate is at least $100$ for $t\\in[0, 0.8]$, which is the interval $[0, 0.8]$.",
+              "earned": false,
+              "commentary": "States the interval but does not give the duration (length). The problem asks for the number of minutes, which is $0.8 - 0 = 0.8$ minutes.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
