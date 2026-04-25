@@ -235,8 +235,8 @@ const OUTPUT_SCHEMA = `OUTPUT FORMAT — respond with raw JSON only (no markdown
           "sub_results": [
             { "element": "<required_element text>", "student_evidence_quote": "<EXACT verbatim substring of student response, or empty string if absent>", "met": false }
           ],
-          "reasoning": "<1 sentence>",
-          "suggestion": "<if earned=0: 1-2 sentences explaining what was needed AND how the student's own words could be improved to earn this point. Reference the correct_example if available. If the student was completely off-topic, explain what the rubric required instead. null if earned=max>"
+          "reasoning": "<1 sentence. If earned=0, NAME the specific defect — e.g., factual error + the correction, attribution error + correct source, reasoning gap + missing mechanism, scope error + what is out of scope. NEVER parrot the rubric like 'lacks connection to claims' or 'does not fully address the prompt'. See SPECIFIC-ERROR DIAGNOSIS RULE below.>",
+          "suggestion": "<if earned=0: 1-2 sentences that (a) quote or reference the student's actual error, (b) provide the specific correction (right fact, right attribution, right mechanism, right scope), and (c) show how the student's attempt could be revised to earn. null if earned=max>"
         }
       ],
       "earned": 0,
@@ -259,6 +259,40 @@ SUGGESTION RULE: For each missed point (earned=0), the suggestion MUST:
 4. ANCHOR to the correct_example: your suggested improvement MUST be consistent with the "Reference example" from the scoring rubric. Do NOT invent criteria beyond what the rubric specifies.
 5. If the student was completely off-topic, explain what the rubric required and adapt the correct_example to a student-friendly model response.
 Set suggestion to null for earned points.
+
+SPECIFIC-ERROR DIAGNOSIS RULE (non-negotiable for both reasoning AND suggestion fields when earned=0):
+
+The student deserves to know what they got WRONG, not just what the rubric wanted. Reasoning and suggestion must NAME the concrete defect using one of these categories. Rubric-restatement is BANNED.
+
+Diagnosis categories (pick the best fit and be specific):
+- FACTUAL ERROR — student stated a fact that is wrong. Name the error AND the correction.
+  ✗ "The response mentions feminism but lacks a connection to specific claims." (parrots the rubric, names no actual error)
+  ✓ "Attributes 'A Vindication of the Rights of Woman' to Elizabeth Cady Stanton — that work is Mary Wollstonecraft's (1792). Stanton wrote the Declaration of Sentiments (1848). With the correct attribution, this would earn."
+- ATTRIBUTION ERROR — right concept, wrong person / case / source / document. Name the correct attribution.
+  ✗ "Cites the wrong case."
+  ✓ "Names Brown v. Board as the controlling case on student speech — the relevant case is Tinker v. Des Moines (1969)."
+- CHRONOLOGY ERROR — right concept, wrong era. Give the correct period.
+  ✗ "The example is not from the right time period."
+  ✓ "Cites the 1964 Civil Rights Act as evidence of Reconstruction-era legislation. Reconstruction is 1865–1877; the relevant laws are the 13th/14th/15th Amendments and the Civil Rights Acts of 1866 and 1875."
+- SCOPE / RELEVANCE ERROR — student's evidence is accurate but does not connect to what the prompt asks. Name what is out of scope and what belongs.
+- REASONING GAP — correct fact, no HOW or WHY where the rubric requires explanation. Name the specific mechanism the student should have explained.
+  ✗ "Does not fully explain."
+  ✓ "States that bicameralism makes legislation harder without explaining the mechanism: both chambers must pass identical text, and any difference goes to conference committee, so a bill dies if the two chambers cannot reconcile."
+- VAGUENESS — on-topic but too general to satisfy a required element. Name what specificity was needed (which clause, which case, which study, which formula, which numerical value).
+- TERMINOLOGY ERROR — wrong term for the correct concept. Name both.
+  ✗ "Uses the wrong terminology."
+  ✓ "Calls the Necessary and Proper Clause an 'enumerated power' — it is an implied power. The prompt required an enumerated power (e.g., Commerce Clause)."
+- OFF-TOPIC — unrelated to the prompt. State what the prompt actually asked.
+- MATH: COMPUTATION / SETUP / UNITS / SIG-FIG / PRECISION ERROR — name which specific step broke, with numbers. ✓ "Evaluates $\\int_0^2 x\\,dx$ as 4 instead of 2 — the antiderivative is $x^2/2$, so $[x^2/2]_0^2 = 2$."
+
+BANNED phrasings (reject yourself if tempted — these are non-diagnostic rubric-restatement):
+- "mentions X but lacks connection to Y"
+- "does not fully address the prompt"
+- "the answer is vague" / "lacks sufficient detail" / "is too general"
+- "does not meet the criteria" / "does not earn the point because it does not [rubric language]"
+- Any phrasing that only describes what the rubric wanted without naming what the student did wrong
+
+SELF-CHECK before finalizing earned=0: Can you name a CONCRETE defect using one of the categories above? If not — if your diagnosis would have to be "they just didn't say enough" — the point probably SHOULD earn. Go back and reconsider whether the student satisfied the INTENT via a path you missed (see APPROACH FLEXIBILITY framing).
 
 EVIDENCE RULE (STRICT — server rejects non-verbatim quotes): student_evidence_quote MUST be a VERBATIM, CHARACTER-FOR-CHARACTER substring of the student's response. Server-side verification rejects quotes that can't be found in the student's actual text.
   - COPY EXACT CHARACTERS. Do NOT fix grammar, standardize punctuation, expand abbreviations, or improve wording.
@@ -299,7 +333,8 @@ function renderScoringPoints(points: FRQScoringPoint[]): string {
         }).join('\n')}`
       : ''
     return `    POINT ${sp.point_id} [${sp.point_value} pt]: ${sp.description}
-      ALTERNATIVES (any ONE earns the point):
+      APPROACH FLEXIBILITY: The enumerated alternatives below show SAMPLE paths an earning response can take — they are NOT exhaustive. A response earns this point if it satisfies the rubric INTENT described above, even if the student's reasoning takes a path not literally listed. Match the student to the INTENT (and to the spirit of any EARNED sample_response below), not to a specific wording. RUBRIC STRICTNESS remains: if the response fails to establish the intent, deny the point. Flexibility is about approach, not about lowering the bar.
+      ALTERNATIVES (any ONE clearly earns the point; other valid approaches may also earn if they satisfy the INTENT):
 ${alts}
       WRONG ANSWERS (0 points):
 ${wrongs}${traps}${officialRubric}${samples}`
@@ -538,7 +573,7 @@ Significant figures (chemistry):
 
 DEPENDENCIES: Cross-point dependencies are enforced server-side after your grading (e.g., Row D rebuttal auto-zeroed if Row A thesis = 0 in AP Gov Argument Essays). You do not need to apply the cascade yourself — grade each point independently on its own merits and let the server enforce.
 
-SUGGESTION TONE (strict): Be clinical and precise. Do not sugarcoat. State exactly why the point was not earned and what the rubric required. Use language like "This does not earn the point because..." or "The rubric requires X — the response provided Y, which is insufficient because..." Show the correct approach without hedging. Reference specific rubric language when available.`
+SUGGESTION TONE (strict): Be clinical and precise. Do not sugarcoat. Name the specific defect per the SPECIFIC-ERROR DIAGNOSIS RULE — not a rubric paraphrase. Use language like "This does not earn because [factual error / attribution error / reasoning gap / scope mismatch / etc.]: [the concrete correction]." Show the correct approach without hedging. If you catch yourself writing "lacks connection", "too vague", or "does not fully address" as your diagnosis, STOP and name WHAT was wrong and WHAT it should be.`
 
 const STRICT_CALIBRATION = `CALIBRATION EXAMPLES (strict mode):
 
@@ -703,17 +738,26 @@ export function buildFRQAuditorPrompt(
 ): string {
   const gradableParts = question.parts.filter(p => !p.requires_drawing)
 
-  const role = `You are an auditor reviewing another AP grader's work. Your job is to catch false positives — points the first grader awarded that the student did not actually earn. You only LOWER scores, never raise them. If in doubt, downgrade. False positives are worse than false negatives in strict mode.`
+  const role = `You are an auditor reviewing another AP grader's work. A real AP reader's job is to reward valid reasoning wherever it appears while denying credit for responses that fail the rubric. The first grader may have made TWO kinds of error — (1) awarding credit the student did not earn (false positive), or (2) denying credit the student DID earn via a valid alternative path the first grader missed (false negative). Fix both. Default strongly toward the first pass — only change a score when you have clear, quotable evidence.`
 
-  const auditInstructions = `AUDIT INSTRUCTIONS:
-For each awarded point (earned > 0) in the first-pass result, verify:
-  1. Is student_evidence_quote actually a verbatim substring of the student's response for that part?
-  2. Does the quote satisfy EVERY required element in the chosen alternative?
+  const auditInstructions = `AUDIT INSTRUCTIONS (bidirectional):
+
+FOR EACH AWARDED POINT (earned > 0 in first pass), verify:
+  1. Is student_evidence_quote an actual substring of the student's response for that part?
+  2. Does the quote satisfy EVERY required element in the chosen alternative, OR the rubric point's INTENT via a different valid path?
   3. Is the student's usage contextually correct, or just keyword-matching?
+  If any check fails: set earned to 0, clear the quote to "", explain the downgrade in reasoning.
 
-If any check fails: set earned to 0, set all sub_results met to false, clear the quote to "", update reasoning to explain the downgrade.
-Do NOT raise any earned value that was 0 in the first pass.
-Do NOT change scores that are already 0.`
+FOR EACH DENIED POINT (earned = 0 in first pass), re-check whether the student earned it via an alternative path the first grader missed. To RAISE the score you MUST all of the following:
+  A. Quote ≥8 contiguous words of the student's actual response text (verbatim substring) as student_evidence_quote.
+  B. Explain in reasoning WHICH rubric INTENT (from POINT description or an EARNED sample_response) the quoted text satisfies — name it explicitly.
+  C. Confirm the response does NOT match any of the rubric's WRONG ANSWERS or COMMON TRAPS for this point.
+  D. Confirm the student's path is a genuinely valid AP approach — not a superficial keyword match, not a restating of the prompt, not an off-topic tangent that happens to mention a rubric term.
+  If you cannot satisfy A AND B AND C AND D, leave the score at 0. Do NOT raise based on speculation or charity.
+
+PHILOSOPHY: An AP teacher grades the STUDENT'S reasoning, not a dictionary match to the rubric. Flexibility on APPROACH (multiple valid paths may earn the same point) — strictness on the RUBRIC (every point requires genuine demonstration of the intent). Do not be lenient; do not be rigid. Both are failures.
+
+Never raise a score ABOVE the point's max. Never invent a quote. When raising a point, the new sub_results must have met=true and a verbatim student_evidence_quote.`
 
   const studentBlock = renderStudentBlock(gradableParts, responses, question.frq_type)
 
@@ -724,7 +768,7 @@ ${JSON.stringify(firstPassResult, null, 2)}`
   const rubricBlock = `SCORING RUBRIC FOR REFERENCE:
 ${gradableParts.map(renderPartBlock).join('\n\n')}`
 
-  const outputInstruction = `OUTPUT the corrected grading using the SAME JSON schema as the first pass. Raw JSON only, no markdown fences. Recalculate earned, total_score, and update feedback/missed/takeaway only if a downgrade changes them.`
+  const outputInstruction = `OUTPUT the corrected grading using the SAME JSON schema as the first pass. Raw JSON only, no markdown fences. Recalculate earned and total_score whenever any point changes (up or down). Update feedback/missed/takeaway only if a change invalidates them. If you make no changes, return the first-pass result exactly.`
 
   const documentsBlock = question.documents?.length
     ? renderDocumentsBlock(question.documents)
