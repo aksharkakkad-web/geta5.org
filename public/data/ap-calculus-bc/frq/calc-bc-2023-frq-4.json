@@ -28,6 +28,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct answer — neither — with correct reason: $f'$ does not change sign at $x = 6$ (it is positive on both sides), so $f$ has neither a relative minimum nor a relative maximum there.",
+          "official_rubric": "1 point: neither, because $f'$ does not change sign at $x=6$ (positive on both sides)",
+          "sample_responses": [
+            {
+              "response": "$f$ has neither a relative minimum nor a relative maximum at $x=6$ because $f'(6)$ approaches positive values from both sides — the semicircle keeps $f' > 0$ just to the left of $x=6$, and the line segment from $(6,2)$ to $(8,0)$ keeps $f' > 0$ just to the right. Since $f'$ does not change sign, there is no extremum.",
+              "earned": true,
+              "commentary": "Correctly identifies that $f'$ stays positive on both sides of $x=6$ and connects this to the absence of a sign change, which is required for an extremum.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$f$ has a relative minimum at $x=6$ because $f'$ reaches its highest value of $2$ at the end of the semicircle.",
+              "earned": false,
+              "commentary": "Confuses the behavior of $f'$ with the behavior of $f$. The fact that $f'(6)=2$ does not create an extremum of $f$; what matters is whether $f'$ changes sign at $x=6$, which it does not.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -55,6 +70,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Correct intervals: $(4, 6)$ and $(6, 8)$, or equivalently $(4, 8)$.",
+          "official_rubric": "1 point: $(4,6)$ and $(6,8)$ (or $(4,8)$) — the intervals where $f'$ is decreasing",
+          "sample_responses": [
+            {
+              "response": "$f$ is concave down on $(4,6)$ and $(6,8)$.",
+              "earned": true,
+              "commentary": "Correctly identifies both sub-intervals where $f'$ is decreasing: the right half of the semicircle $(4,6)$ and the right line segment $(6,8)$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$f$ is concave down on $(2,4)$.",
+              "earned": false,
+              "commentary": "On $(2,4)$ the semicircle of $f'$ is increasing (from $0$ to $2$), so $f'' > 0$ there, making $f$ concave up, not concave down.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -76,6 +106,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct reason: $f$ is concave down where $f'$ is decreasing (i.e., where $f'' < 0$). The graph of $f'$ is decreasing on $(4, 6)$ and $(6, 8)$.",
+          "official_rubric": "1 point: reason — $f$ is concave down where $f'$ is decreasing ($f'' < 0$), and $f'$ is decreasing on those intervals",
+          "sample_responses": [
+            {
+              "response": "$f$ is concave down where $f''<0$, i.e., where $f'$ is decreasing. The graph of $f'$ is decreasing on $(4,6)$ (the right half of the semicircle) and on $(6,8)$ (the right line segment going from $2$ down to $0$).",
+              "earned": true,
+              "commentary": "Correctly links concavity of $f$ to the monotonicity of $f'$, and reads the correct decreasing intervals from the graph.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$f$ is concave down where $f'<0$. The graph shows $f'<0$ on $(-2,0)$.",
+              "earned": false,
+              "commentary": "Confuses the sign of $f'$ with the monotonicity of $f'$. Concavity of $f$ depends on where $f'$ is decreasing ($f''<0$), not on where $f'$ is negative.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -103,6 +148,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Evaluates limits of numerator and denominator separately: numerator $\\to f(2) - 3(2) = 1 - 6 = -5$ and denominator $x^2 - 5x + 6 = (x-2)(x-3) \\to 0$ as $x \\to 2$.",
+          "official_rubric": "1 point: numerator $\\to f(2)-6 = -5$ and denominator $\\to 0$ as $x\\to 2$",
+          "sample_responses": [
+            {
+              "response": "As $x\\to 2$: numerator $\\to f(2) - 3(2) = 1 - 6 = -5$; denominator $x^2-5x+6 = (x-2)(x-3) \\to (0)(-1) = 0$.",
+              "earned": true,
+              "commentary": "Correctly substitutes $x=2$ into numerator and denominator separately before evaluating the limit.",
+              "source": "synthesized"
+            },
+            {
+              "response": "As $x\\to 2$: numerator $\\to f(2) - 3(2) = 1 - 6 = -5$; denominator $\\to 0$. So this is $0/0$, apply L'Hopital.",
+              "earned": false,
+              "commentary": "Mistakenly identifies $-5/0$ as an indeterminate $0/0$ form. The numerator approaches $-5 \\neq 0$, so this is not indeterminate and L'Hopital does not apply.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -120,6 +180,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Recognizes this is a nonzero/$0$ form, not an indeterminate form, so L'Hopital's Rule does not apply.",
+          "official_rubric": "1 point: recognizes $-5/0$ is not indeterminate — L'Hopital does not apply; limit does not exist",
+          "sample_responses": [
+            {
+              "response": "Since the numerator approaches $-5 \\neq 0$ and the denominator approaches $0$, this is not an indeterminate form. L'Hopital's Rule does not apply.",
+              "earned": true,
+              "commentary": "Correctly identifies the form as nonzero over zero, ruling out L'Hopital and setting up the conclusion that the limit does not exist.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Applying L'Hopital: $\\lim_{x\\to 2}\\dfrac{f'(x)-3}{2x-5} = \\dfrac{f'(2)-3}{4-5} = \\dfrac{2-3}{-1} = 1$.",
+              "earned": false,
+              "commentary": "L'Hopital requires a $0/0$ or $\\pm\\infty/\\pm\\infty$ indeterminate form. Since the numerator $\\to -5 \\neq 0$, L'Hopital does not apply and the limit does not exist.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -136,6 +211,21 @@
           "point_id": "c3",
           "point_value": 1,
           "description": "Correct conclusion: the limit does not exist.",
+          "official_rubric": "1 point: the limit does not exist (nonzero numerator over zero denominator)",
+          "sample_responses": [
+            {
+              "response": "Because the numerator approaches $-5$ and the denominator approaches $0$, the limit does not exist.",
+              "earned": true,
+              "commentary": "States the correct conclusion with the correct reasoning: a nonzero value divided by a quantity approaching zero grows without bound, so the limit does not exist.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The limit equals $-\\infty$.",
+              "earned": false,
+              "commentary": "Stating $-\\infty$ claims the limit exists (as an extended real number with a specific sign), but that requires checking whether both one-sided limits are $-\\infty$. The correct answer is simply that the limit does not exist.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -161,6 +251,21 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Considers all critical points in $(-2, 8)$ where $f'(x) = 0$ (namely $x = 0$) and the endpoints $x = -2$ and $x = 8$.",
+          "official_rubric": "1 point: identifies critical point $x=0$ (where $f'=0$) and endpoints $x=-2$ and $x=8$ as candidates",
+          "sample_responses": [
+            {
+              "response": "$f'(x) = 0$ at $x=0$ (where the left line segment crosses the $x$-axis). Candidates for absolute minimum: $x=0$, $x=-2$, and $x=8$.",
+              "earned": true,
+              "commentary": "Correctly identifies the only interior zero of $f'$ at $x=0$ along with both endpoints.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The only candidate is the endpoint $x=-2$ since $f'$ is positive on most of the interval.",
+              "earned": false,
+              "commentary": "Misses the critical point at $x=0$ where $f'$ changes sign from negative to positive, and also misses the endpoint $x=8$. All three candidates must be evaluated.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -178,6 +283,21 @@
           "point_id": "d2",
           "point_value": 1,
           "description": "Correct computation of $f$-values at candidates using $f(2) = 1$ and definite integrals of $f'$: $f(0) = -1$, $f(-2) = 1$, $f(8) = 3 + 2\\pi$.",
+          "official_rubric": "1 point: $f(0) = f(2) - \\int_0^2 f'\\,dx = 1 - 2 = -1$; $f(-2) = 1$; $f(8) = 3+2\\pi$ (or all computed from the anchor $f(2)=1$ via geometric area)",
+          "sample_responses": [
+            {
+              "response": "On $[-2,2]$, $f'(x)=x$. $f(0) = f(2) - \\displaystyle\\int_0^2 x\\,dx = 1 - [x^2/2]_0^2 = 1 - 2 = -1$. $f(-2) = f(2) - \\int_{-2}^2 x\\,dx = 1 - 0 = 1$. $f(8) = f(2) + \\int_2^6 f'\\,dx + \\int_6^8 f'\\,dx = 1 + 2\\pi + 2 = 3+2\\pi$.",
+              "earned": true,
+              "commentary": "Uses $f(2)=1$ as the anchor and integrates the geometric areas (triangle, semicircle, trapezoid) to accumulate $f$-values at each candidate.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$f(0) = f(2) - \\int_0^2 x\\,dx = 1 - 4 = -3$.",
+              "earned": false,
+              "commentary": "Arithmetic error: $\\int_0^2 x\\,dx = [x^2/2]_0^2 = 2$, not $4$. So $f(0) = 1-2 = -1$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -195,6 +315,21 @@
           "point_id": "d3",
           "point_value": 1,
           "description": "Correct answer: the absolute minimum value of $f$ on $[-2, 8]$ is $-1$, occurring at $x = 0$.",
+          "official_rubric": "1 point: absolute minimum value is $-1$ (at $x=0$), supported by comparison of all candidate values",
+          "sample_responses": [
+            {
+              "response": "Comparing: $f(-2)=1$, $f(0)=-1$, $f(8)=3+2\\pi$. The smallest value is $f(0) = -1$, so the absolute minimum value of $f$ on $[-2,8]$ is $-1$.",
+              "earned": true,
+              "commentary": "Compares all three candidate values and correctly identifies $-1$ as the absolute minimum with the comparison as justification.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The absolute minimum is at $x=0$ because $f'$ changes from negative to positive there.",
+              "earned": false,
+              "commentary": "Identifies a local minimum at $x=0$ correctly, but does not justify it as the absolute minimum by comparing with endpoint values. A complete answer must include evaluation at $x=-2$ and $x=8$ as well.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
