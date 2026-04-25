@@ -47,19 +47,22 @@ export default function DrillSession({ session, subject, onComplete, onStartFres
 
   const [filterMode, setFilterMode] = useState<DrillFilter>('all')
 
-  const [workingDeck, setWorkingDeck] = useState<SessionState['cards']>(() =>
-    session.workingDeck ?? [...session.cards]
-  )
-  const workingDeckRef = useRef(workingDeck)
-  workingDeckRef.current = workingDeck
-
-  // Style settings — persisted; plan frozen for this session
+  // Style plan must be computed before workingDeck so the reorderedDeck is available
+  // for the fresh-session initializer below.
   const [styles, setStyles] = useState<DrillStyleSettings>(() => loadDrillStyles())
   const [settingsOpen, setSettingsOpen] = useState(false)
   const [blockedMsg, setBlockedMsg] = useState(false)
   const stylePlanRef = useRef<StylePlan>(
     computeStylePlan(session.workingDeck ?? [...session.cards], loadDrillStyles())
   )
+
+  // Resumed drafts keep their saved working deck; fresh sessions use the style plan's
+  // reordered deck so matching rounds are spread out and contain topically similar cards.
+  const [workingDeck, setWorkingDeck] = useState<SessionState['cards']>(() =>
+    session.workingDeck ?? stylePlanRef.current.reorderedDeck
+  )
+  const workingDeckRef = useRef(workingDeck)
+  workingDeckRef.current = workingDeck
 
   const handleFilterChange = (newFilter: DrillFilter) => {
     if (newFilter === filterMode) return
