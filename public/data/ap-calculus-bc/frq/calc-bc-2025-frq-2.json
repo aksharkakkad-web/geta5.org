@@ -32,6 +32,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct derivative and answer: $\\frac{dr}{d\\theta} = -4\\cos\\theta\\sin\\theta = -2\\sin(2\\theta)$. At $\\theta = 1.3$: $\\frac{dr}{d\\theta}\\big|_{\\theta=1.3} = -2\\sin(2.6) \\approx -0.969$ (accepted range: $-0.970$ to $-0.968$).",
+          "official_rubric": "1 point: $\\dfrac{dr}{d\\theta} = -4\\cos\\theta\\sin\\theta$ (or $-2\\sin 2\\theta$), evaluated at $\\theta=1.3$ to give $\\approx -0.969$",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{dr}{d\\theta} = \\dfrac{d}{d\\theta}(2\\cos^2\\theta) = 2\\cdot 2\\cos\\theta\\cdot(-\\sin\\theta) = -4\\cos\\theta\\sin\\theta = -2\\sin(2\\theta)$. At $\\theta=1.3$: $-2\\sin(2.6)\\approx -0.969$.",
+              "earned": true,
+              "commentary": "Correctly differentiates $r=2\\cos^2\\theta$ using the chain rule and evaluates at $\\theta=1.3$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{dr}{d\\theta} = -2\\cos\\theta\\sin\\theta\\big|_{\\theta=1.3} \\approx -0.484$.",
+              "earned": false,
+              "commentary": "Forgot the factor of $2$ from the chain rule: $\\frac{d}{d\\theta}(2\\cos^2\\theta) = 2\\cdot 2\\cos\\theta(-\\sin\\theta) = -4\\cos\\theta\\sin\\theta$, not $-2\\cos\\theta\\sin\\theta$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -54,6 +69,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Correct polar area formula setup: $A = \\frac{1}{2}\\int_0^{\\pi/2} r^2\\,d\\theta = \\frac{1}{2}\\int_0^{\\pi/2} (2\\cos^2\\theta)^2\\,d\\theta = \\frac{1}{2}\\int_0^{\\pi/2} 4\\cos^4\\theta\\,d\\theta = 2\\int_0^{\\pi/2} \\cos^4\\theta\\,d\\theta$.",
+          "official_rubric": "1 point: polar area $= \\frac{1}{2}\\int_0^{\\pi/2}(2\\cos^2\\theta)^2\\,d\\theta = 2\\int_0^{\\pi/2}\\cos^4\\theta\\,d\\theta$",
+          "sample_responses": [
+            {
+              "response": "$A = \\dfrac{1}{2}\\displaystyle\\int_0^{\\pi/2}r^2\\,d\\theta = \\dfrac{1}{2}\\int_0^{\\pi/2}(2\\cos^2\\theta)^2\\,d\\theta = 2\\int_0^{\\pi/2}\\cos^4\\theta\\,d\\theta$.",
+              "earned": true,
+              "commentary": "Correctly applies the polar area formula $A = \\frac{1}{2}\\int r^2\\,d\\theta$ with the correct limits and squaring of $r = 2\\cos^2\\theta$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$A = \\displaystyle\\int_0^{\\pi/2}(2\\cos^2\\theta)^2\\,d\\theta$ (omitting the $\\frac{1}{2}$ factor).",
+              "earned": false,
+              "commentary": "Forgets the $\\frac{1}{2}$ factor in the polar area formula $A = \\frac{1}{2}\\int r^2\\,d\\theta$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -66,6 +96,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct simplification using power-reduction identity: $\\cos^4\\theta = \\left(\\frac{1+\\cos(2\\theta)}{2}\\right)^2 = \\frac{1 + 2\\cos(2\\theta) + \\cos^2(2\\theta)}{4} = \\frac{3}{8} + \\frac{\\cos(2\\theta)}{2} + \\frac{\\cos(4\\theta)}{8}$. Integrand becomes $2\\cos^4\\theta = \\frac{3}{4} + \\cos(2\\theta) + \\frac{\\cos(4\\theta)}{4}$.",
+          "official_rubric": "1 point: uses power-reduction identity $\\cos^2\\theta = \\frac{1+\\cos(2\\theta)}{2}$ to reduce $\\cos^4\\theta$ to integrable form",
+          "sample_responses": [
+            {
+              "response": "$\\cos^4\\theta = \\left(\\dfrac{1+\\cos(2\\theta)}{2}\\right)^2 = \\dfrac{1+2\\cos(2\\theta)+\\cos^2(2\\theta)}{4} = \\dfrac{3}{8}+\\dfrac{\\cos(2\\theta)}{2}+\\dfrac{\\cos(4\\theta)}{8}$.",
+              "earned": true,
+              "commentary": "Applies the half-angle identity twice to reduce $\\cos^4\\theta$ to a linear combination of cosines with doubled angles.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\displaystyle\\int\\cos^4\\theta\\,d\\theta = \\frac{\\cos^3\\theta\\sin\\theta}{4}+\\frac{3}{8}\\theta+\\frac{3\\sin(2\\theta)}{16}$ (by reduction formula).",
+              "earned": true,
+              "commentary": "Alternatively applies the reduction formula for $\\int\\cos^n\\theta\\,d\\theta$; this is an acceptable alternate method to reach the correct antiderivative.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -78,6 +123,21 @@
           "point_id": "b3",
           "point_value": 1,
           "description": "Correct area value: $A = 2\\int_0^{\\pi/2}\\cos^4\\theta\\,d\\theta = 2 \\cdot \\frac{3\\pi}{16} = \\frac{3\\pi}{8} \\approx 1.178$.",
+          "official_rubric": "1 point: $A = \\dfrac{3\\pi}{8}$ (or $\\approx 1.178$)",
+          "sample_responses": [
+            {
+              "response": "$A = 2\\displaystyle\\int_0^{\\pi/2}\\cos^4\\theta\\,d\\theta = 2\\cdot\\frac{3\\pi}{16} = \\frac{3\\pi}{8}$.",
+              "earned": true,
+              "commentary": "Correctly evaluates the integral using the Wallis formula $\\int_0^{\\pi/2}\\cos^4\\theta\\,d\\theta = \\frac{3\\pi}{16}$ and multiplies by $2$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$A = 2\\displaystyle\\int_0^{\\pi/2}\\cos^4\\theta\\,d\\theta = \\frac{\\pi}{4}$.",
+              "earned": false,
+              "commentary": "Incorrect value; $\\int_0^{\\pi/2}\\cos^4\\theta\\,d\\theta = \\frac{3\\pi}{16}$, so $A = 2\\cdot\\frac{3\\pi}{16} = \\frac{3\\pi}{8}$, not $\\frac{\\pi}{4}$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -100,6 +160,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Correctly sets up the condition for farthest from the $y$-axis: maximizes $|x|$ by setting $\\frac{dx}{d\\theta} = 4\\sin\\theta\\cos^2\\theta - 2\\sin^3\\theta = 0$ and identifies critical points in $\\left(0, \\frac{\\pi}{2}\\right)$.",
+          "official_rubric": "1 point: sets $\\dfrac{dx}{d\\theta} = 4\\sin\\theta\\cos^2\\theta - 2\\sin^3\\theta = 0$ to find candidates for maximum $|x|$",
+          "sample_responses": [
+            {
+              "response": "To maximize distance from the $y$-axis, set $\\dfrac{dx}{d\\theta} = 4\\sin\\theta\\cos^2\\theta - 2\\sin^3\\theta = 0$.",
+              "earned": true,
+              "commentary": "Correctly identifies that farthest from the $y$-axis means maximum $|x|$, so sets the derivative of $x$ with respect to $\\theta$ equal to zero.",
+              "source": "synthesized"
+            },
+            {
+              "response": "To find farthest from $y$-axis, set $\\dfrac{dr}{d\\theta} = -4\\cos\\theta\\sin\\theta = 0$.",
+              "earned": false,
+              "commentary": "Maximizing $r$ (distance from origin) is not the same as maximizing $|x|$ (distance from $y$-axis). The correct condition uses $dx/d\\theta = 0$, where $x = r\\cos\\theta$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -112,6 +187,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Correctly factors and solves: $2\\sin\\theta(2\\cos^2\\theta - \\sin^2\\theta) = 0$, giving $\\sin\\theta = 0$ (endpoint $\\theta = 0$) or $2\\cos^2\\theta = \\sin^2\\theta$, i.e., $\\tan^2\\theta = 2$, so $\\theta = \\arctan(\\sqrt{2}) \\approx 0.955$.",
+          "official_rubric": "1 point: factors to $2\\sin\\theta(2\\cos^2\\theta-\\sin^2\\theta)=0$, giving $\\theta=0$ or $\\theta=\\arctan(\\sqrt{2})\\approx 0.955$",
+          "sample_responses": [
+            {
+              "response": "$4\\sin\\theta\\cos^2\\theta - 2\\sin^3\\theta = 2\\sin\\theta(2\\cos^2\\theta-\\sin^2\\theta)=0$. So $\\sin\\theta=0$ (i.e., $\\theta=0$) or $\\tan^2\\theta=2$, giving $\\theta=\\arctan(\\sqrt{2})\\approx 0.955$.",
+              "earned": true,
+              "commentary": "Correctly factors the equation and identifies both solutions in $[0,\\pi/2]$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$4\\sin\\theta\\cos^2\\theta - 2\\sin^3\\theta = 0 \\Rightarrow \\cos^2\\theta = \\frac{1}{2}\\sin^2\\theta \\Rightarrow \\theta = \\arctan(\\sqrt{2})$.",
+              "earned": false,
+              "commentary": "Divides by $\\sin\\theta$ without checking $\\sin\\theta=0$, losing the endpoint solution $\\theta=0$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -124,6 +214,21 @@
           "point_id": "c3",
           "point_value": 1,
           "description": "Justification: at $\\theta = 0$, $x = r\\cos\\theta = 2\\cos^3(0) = 2$. At $\\theta = \\arctan(\\sqrt{2})$, $\\cos^2\\theta = \\frac{1}{3}$, so $r = 2\\cdot\\frac{1}{3} = \\frac{2}{3}$ and $x = r\\cos\\theta = \\frac{2}{3}\\cdot\\frac{1}{\\sqrt{3}} = \\frac{2}{3\\sqrt{3}} \\approx 0.385$. At $\\theta = \\frac{\\pi}{2}$, $x = 0$. Comparing, the maximum $x$-value occurs at $\\theta = 0$. Alternatively, verifies sign change of $\\frac{dx}{d\\theta}$ or compares candidate values to confirm the maximum.",
+          "official_rubric": "1 point: compares $x$-values at candidates — $x(0)=2$, $x(\\arctan\\sqrt{2})\\approx 0.385$, $x(\\pi/2)=0$ — concluding maximum at $\\theta=0$",
+          "sample_responses": [
+            {
+              "response": "At $\\theta=0$: $x = 2\\cos^2(0)\\cos(0) = 2$. At $\\theta=\\arctan(\\sqrt{2})$: $\\cos^2\\theta=\\frac{1}{3}$, so $x = \\frac{2}{3}\\cdot\\frac{1}{\\sqrt{3}} \\approx 0.385$. At $\\theta=\\frac{\\pi}{2}$: $x=0$. Maximum $x=2$ at $\\theta=0$.",
+              "earned": true,
+              "commentary": "Compares $x = r\\cos\\theta$ at all three candidate angles and correctly identifies $\\theta=0$ as giving the maximum.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The maximum distance from the $y$-axis occurs at $\\theta = \\arctan(\\sqrt{2})$ since that is the interior critical point.",
+              "earned": false,
+              "commentary": "Assumes the interior critical point is the maximum without comparing to the endpoints. The $x$-value at $\\theta=0$ is $2$, which is larger than the $x$-value at $\\theta=\\arctan(\\sqrt{2})\\approx 0.385$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -146,6 +251,21 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Correct setup using the chain rule: $\\frac{dr}{dt} = \\frac{dr}{d\\theta} \\cdot \\frac{d\\theta}{dt}$, with $\\frac{dr}{d\\theta}\\big|_{\\theta=1.3} \\approx -0.969$ from part (a) and $\\frac{d\\theta}{dt} = 15$.",
+          "official_rubric": "1 point: $\\dfrac{dr}{dt} = \\dfrac{dr}{d\\theta}\\cdot\\dfrac{d\\theta}{dt}$ with $\\dfrac{dr}{d\\theta}\\big|_{\\theta=1.3}\\approx -0.969$ and $\\dfrac{d\\theta}{dt}=15$",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{dr}{dt} = \\dfrac{dr}{d\\theta}\\cdot\\dfrac{d\\theta}{dt} = (-0.969)(15)$.",
+              "earned": true,
+              "commentary": "Uses the chain rule to relate $dr/dt$ to the known quantities $dr/d\\theta$ (from part a) and $d\\theta/dt = 15$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{dr}{dt} = \\dfrac{dr/d\\theta}{d\\theta/dt} = \\dfrac{-0.969}{15} \\approx -0.065$.",
+              "earned": false,
+              "commentary": "Divides instead of multiplying. The chain rule gives $\\frac{dr}{dt} = \\frac{dr}{d\\theta}\\cdot\\frac{d\\theta}{dt}$, not a ratio.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -158,6 +278,21 @@
           "point_id": "d2",
           "point_value": 1,
           "description": "Correct answer: $\\frac{dr}{dt} = (-0.969)(15) \\approx -14.535$ (accepted range $-14.550$ to $-14.520$). The distance from the origin is decreasing at approximately $14.535$ units per unit time.",
+          "official_rubric": "1 point: $\\dfrac{dr}{dt} \\approx -14.535$",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{dr}{dt} = (-0.969)(15) \\approx -14.535$. The distance from the origin is decreasing at $14.535$ units per unit time.",
+              "earned": true,
+              "commentary": "Correct multiplication and interpretation: the negative value means $r$ is decreasing, so the particle is moving closer to the origin.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{dr}{dt} \\approx 14.535$.",
+              "earned": false,
+              "commentary": "Drops the negative sign. Since $dr/d\\theta < 0$ at $\\theta=1.3$, $dr/dt = (dr/d\\theta)(d\\theta/dt) < 0$; the distance from the origin is decreasing.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
