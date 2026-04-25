@@ -35,6 +35,21 @@
               ],
               "correct_example": "$\\frac{dy}{dx}\\big|_{(2,4)} = \\frac{-2(2)}{3+4(4)} = \\frac{-4}{19}$"
             }
+          ],
+          "official_rubric": "1 point: correct slope $\\frac{dy}{dx}\\big|_{(2,4)} = \\frac{-2(2)}{3+4(4)} = -\\frac{4}{19}$.",
+          "sample_responses": [
+            {
+              "response": "$\\left.\\dfrac{dy}{dx}\\right|_{(2,4)} = \\dfrac{-2(2)}{3+4(4)} = \\dfrac{-4}{19}$.",
+              "earned": true,
+              "commentary": "Substitutes $x=2$, $y=4$ into the given formula for $\\frac{dy}{dx}$ correctly.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\left.\\dfrac{dy}{dx}\\right|_{(2,4)} = \\dfrac{-2(2)}{3+4} = \\dfrac{-4}{7}$ (omits the coefficient on $y$).",
+              "earned": false,
+              "commentary": "Substitutes $4y=4$ instead of $4y=4(4)=16$ in the denominator; the denominator is $3+4y = 3+16=19$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -47,6 +62,21 @@
                 "Correct linear approximation"
               ],
               "correct_example": "$y \\approx 4 + \\frac{-4}{19}(3-2) = 4 - \\frac{4}{19} = \\frac{72}{19}$"
+            }
+          ],
+          "official_rubric": "1 point: correct linear approximation $y \\approx 4 + \\left(-\\frac{4}{19}\\right)(3-2) = \\frac{72}{19}$.",
+          "sample_responses": [
+            {
+              "response": "Using the tangent line at $(2,4)$ with slope $-\\frac{4}{19}$: $y \\approx 4 + \\left(-\\dfrac{4}{19}\\right)(3-2) = 4 - \\dfrac{4}{19} = \\dfrac{72}{19}$.",
+              "earned": true,
+              "commentary": "Applies the linearization formula $L(x) = f(a) + f'(a)(x-a)$ with $a=2$, $f(2)=4$, $f'(2)=-4/19$, evaluated at $x=3$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$y \\approx 4 + \\left(-\\dfrac{4}{19}\\right)(3) = 4 - \\dfrac{12}{19}$ (uses $x$ instead of $x - 2$).",
+              "earned": false,
+              "commentary": "Fails to subtract the base point $a=2$; the linear approximation formula uses $(x-a) = (3-2) = 1$, not $x=3$.",
+              "source": "synthesized"
             }
           ]
         }
@@ -70,6 +100,21 @@
                 "Sets $\\frac{dy}{dx} = 0$ to find where horizontal tangent occurs, leading to $x = 0$, so the point of tangency would need to be $(0, 1)$"
               ]
             }
+          ],
+          "official_rubric": "1 point: sets $\\frac{dy}{dx}=0 \\Rightarrow -2x=0 \\Rightarrow x=0$; for $y=1$ and $x=0$, the candidate tangent point is $(0,1)$.",
+          "sample_responses": [
+            {
+              "response": "For $y=1$ to be a horizontal tangent, we need $\\frac{dy}{dx}=0$. Setting $\\frac{-2x}{3+4y}=0$ gives $x=0$. If $y=1$, then the point of tangency would be $(0,1)$.",
+              "earned": true,
+              "commentary": "Correctly deduces that a horizontal tangent requires $x=0$ and identifies the candidate point as $(0,1)$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Substituting $y=1$: $x^2+3(1)+2(1)^2=x^2+5=48 \\Rightarrow x=\\pm\\sqrt{43}$. Then $\\frac{dy}{dx}\\big|_{(\\sqrt{43},1)} = \\frac{-2\\sqrt{43}}{7} \\ne 0$, so no horizontal tangent.",
+              "earned": true,
+              "commentary": "Alternate approach: finds the intersection of $y=1$ with the curve and checks whether $\\frac{dy}{dx}=0$ there; also earns the point.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -82,6 +127,21 @@
                 "Correct conclusion with reason"
               ],
               "correct_example": "The point $(0, 1)$ is not on the curve because $0^2 + 3(1) + 2(1)^2 = 5 \\ne 48$; therefore $y = 1$ is NOT tangent to the curve"
+            }
+          ],
+          "official_rubric": "1 point: $(0,1)$ is not on the curve ($0^2+3(1)+2(1)^2=5\\ne 48$), so $y=1$ is not tangent to the curve.",
+          "sample_responses": [
+            {
+              "response": "Check: $0^2 + 3(1) + 2(1)^2 = 0+3+2 = 5 \\ne 48$. The point $(0,1)$ is not on the curve, so the line $y=1$ is not tangent to the curve.",
+              "earned": true,
+              "commentary": "Verifies the candidate point does not lie on the curve, completing the contradiction that rules out $y=1$ as a tangent.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Since $x=0$ when $\\frac{dy}{dx}=0$, $y=1$ is tangent to the curve at $(0,1)$.",
+              "earned": false,
+              "commentary": "Fails to verify that $(0,1)$ lies on the curve; a tangent line must touch the curve, but $(0,1)$ satisfies only $\\frac{dy}{dx}=0$, not the curve equation.",
+              "source": "synthesized"
             }
           ]
         }
@@ -104,6 +164,21 @@
               "required_elements": [
                 "No, the tangent line is not vertical; at $(\\sqrt{48}, 0)$, the denominator $3 + 4(0) = 3 \\ne 0$, so $\\frac{dy}{dx} = \\frac{-2\\sqrt{48}}{3}$ is defined (not undefined); therefore the tangent is not vertical"
               ]
+            }
+          ],
+          "official_rubric": "1 point: at $(\\sqrt{48},0)$, denominator $3+4(0)=3\\ne 0$, so $\\frac{dy}{dx}$ is defined and the tangent is not vertical.",
+          "sample_responses": [
+            {
+              "response": "At $(\\sqrt{48}, 0)$: denominator of $\\frac{dy}{dx}$ is $3+4(0) = 3 \\ne 0$. So $\\frac{dy}{dx} = \\frac{-2\\sqrt{48}}{3}$ is defined. Therefore the tangent line is not vertical.",
+              "earned": true,
+              "commentary": "A vertical tangent would require $\\frac{dy}{dx}$ to be undefined, which requires the denominator to be $0$; since denominator $= 3 \\ne 0$, slope is finite.",
+              "source": "synthesized"
+            },
+            {
+              "response": "At $(\\sqrt{48},0)$: $\\frac{dy}{dx} = \\frac{-2\\sqrt{48}}{3+0} = \\frac{-2\\sqrt{48}}{3}$. This is a real number so the tangent is vertical.",
+              "earned": false,
+              "commentary": "Contradiction: a defined, finite slope means the tangent is NOT vertical; a vertical tangent line has undefined slope.",
+              "source": "synthesized"
             }
           ]
         }

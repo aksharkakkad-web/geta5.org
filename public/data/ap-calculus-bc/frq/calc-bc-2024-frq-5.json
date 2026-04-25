@@ -29,6 +29,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "By the Fundamental Theorem of Calculus, $h'(x) = \\sqrt{1 + (f'(x))^2}$. Therefore $h'(\\pi) = \\sqrt{1 + (f'(\\pi))^2}$.",
+          "official_rubric": "1 point: by FTC, $h'(x) = \\sqrt{1+(f'(x))^2}$, so $h'(\\pi) = \\sqrt{1+(f'(\\pi))^2}$",
+          "sample_responses": [
+            {
+              "response": "By FTC Part 1, $h'(x) = \\sqrt{1+(f'(x))^2}$. Therefore $h'(\\pi) = \\sqrt{1+(f'(\\pi))^2}$.",
+              "earned": true,
+              "commentary": "Correctly differentiates the accumulation integral using FTC Part 1.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$h'(\\pi) = \\sqrt{1+f''(\\pi)^2}$.",
+              "earned": false,
+              "commentary": "Uses $f''$ instead of $f'$. FTC gives $h'(x) = \\sqrt{1+(f'(x))^2}$, not $\\sqrt{1+(f''(x))^2}$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -41,6 +56,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Substituting $f'(\\pi) = -3$: $h'(\\pi) = \\sqrt{1 + (-3)^2} = \\sqrt{1 + 9} = \\sqrt{10}$.",
+          "official_rubric": "1 point: $h'(\\pi) = \\sqrt{10}$",
+          "sample_responses": [
+            {
+              "response": "$h'(\\pi) = \\sqrt{1+(-3)^2} = \\sqrt{1+9} = \\sqrt{10}$.",
+              "earned": true,
+              "commentary": "Substitutes $f'(\\pi)=-3$ from the table and computes $\\sqrt{10}$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$h'(\\pi) = \\sqrt{1+(3)^2} = \\sqrt{10}$.",
+              "earned": true,
+              "commentary": "Uses $|f'(\\pi)|=3$; since $(-3)^2=3^2$, the answer $\\sqrt{10}$ is still correct.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -63,6 +93,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "The integral $\\displaystyle\\int_0^{2\\pi} \\sqrt{1 + (f'(x))^2}\\,dx$ gives the arc length of the graph of $f$.",
+          "official_rubric": "1 point: the integral gives the arc length of the graph of $f$",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^{2\\pi}\\sqrt{1+(f'(x))^2}\\,dx$ gives the arc length of the graph of $f$.",
+              "earned": true,
+              "commentary": "Correctly identifies the arc length formula $\\int\\sqrt{1+(f'(x))^2}\\,dx$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\displaystyle\\int_0^{2\\pi}\\sqrt{1+(f'(x))^2}\\,dx$ gives the area under the graph of $f$.",
+              "earned": false,
+              "commentary": "Confuses arc length with area. The arc length formula involves $\\sqrt{1+(f')^2}$, not just $f$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -75,6 +120,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Specifically, it is the arc length of the graph of $f$ over the interval $0 \\leq x \\leq 2\\pi$.",
+          "official_rubric": "1 point: specifically the arc length of the graph of $f$ on $[0, 2\\pi]$",
+          "sample_responses": [
+            {
+              "response": "It is the arc length of the graph of $f$ on the interval $0 \\leq x \\leq 2\\pi$.",
+              "earned": true,
+              "commentary": "Specifies both the correct geometric meaning (arc length) and the correct interval.",
+              "source": "synthesized"
+            },
+            {
+              "response": "It is the arc length of $f$.",
+              "earned": false,
+              "commentary": "States arc length but omits the specific interval $[0, 2\\pi]$, which is required for a complete interpretation.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -101,6 +161,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Correct Euler's method setup with step size $\\Delta x = \\pi$:\n- Step 1: $f(\\pi) \\approx f(0) + f'(0) \\cdot \\pi = 0 + 3\\pi = 3\\pi$\n- Step 2: $f(2\\pi) \\approx f(\\pi) + f'(\\pi) \\cdot \\pi = 3\\pi + (-3)\\pi = 3\\pi - 3\\pi = 0$",
+          "official_rubric": "1 point: Euler's method with step $\\Delta x = \\pi$; first step gives $f(\\pi) \\approx 0 + 3\\pi = 3\\pi$",
+          "sample_responses": [
+            {
+              "response": "Two equal steps from $x=0$ to $x=2\\pi$: $\\Delta x = \\pi$. Step 1: $f(\\pi)\\approx f(0)+f'(0)\\cdot\\pi = 0+3\\pi = 3\\pi$. Step 2: $f(2\\pi)\\approx f(\\pi)+f'(\\pi)\\cdot\\pi = 3\\pi+(-3)\\pi = 0$.",
+              "earned": true,
+              "commentary": "Correctly applies Euler's method: uses $\\Delta x=\\pi$, reads $f'(0)=3$ and $f'(\\pi)=-3$ from the table, and chains the two steps.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$f(2\\pi)\\approx f(0)+f'(0)\\cdot 2\\pi = 0+3(2\\pi) = 6\\pi$.",
+              "earned": false,
+              "commentary": "Uses only one step of size $2\\pi$ instead of two steps of size $\\pi$. Euler's method with two steps requires updating $f'$ at $x=\\pi$ before proceeding to $x=2\\pi$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -114,6 +189,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct answer: $f(2\\pi) \\approx 3\\pi + (-3)(\\pi) = 0$.",
+          "official_rubric": "1 point: $f(2\\pi) \\approx 0$",
+          "sample_responses": [
+            {
+              "response": "$f(2\\pi) \\approx 3\\pi + (-3)(\\pi) = 3\\pi - 3\\pi = 0$.",
+              "earned": true,
+              "commentary": "Uses $f'(\\pi) = -3$ from the table for the second Euler step and obtains the correct answer $0$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$f(2\\pi) \\approx 3\\pi + (3)(\\pi) = 6\\pi$.",
+              "earned": false,
+              "commentary": "Uses $f'(\\pi) = 3$ (the value at $x=0$) instead of $f'(\\pi) = -3$ for the second step. Each Euler step must use the derivative at the current $x$ value.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -140,6 +230,21 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Correct identification and setup of integration by parts with $u = t + 5$ and $dv = \\cos\\!\\left(\\dfrac{t}{4}\\right)dt$, so $du = dt$ and $v = 4\\sin\\!\\left(\\dfrac{t}{4}\\right)$.",
+          "official_rubric": "1 point: integration by parts with $u=t+5$, $dv=\\cos(t/4)\\,dt$, giving $v=4\\sin(t/4)$",
+          "sample_responses": [
+            {
+              "response": "Let $u=t+5$, $dv=\\cos(t/4)\\,dt$. Then $du=dt$ and $v=4\\sin(t/4)$.",
+              "earned": true,
+              "commentary": "Chooses the standard LIATE selection: $u$ is the polynomial factor and $dv$ is the trigonometric factor. Correctly computes $v = \\int\\cos(t/4)\\,dt = 4\\sin(t/4)$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Let $u=\\cos(t/4)$, $dv=(t+5)\\,dt$. Then $du=-\\frac{1}{4}\\sin(t/4)\\,dt$ and $v=\\frac{(t+5)^2}{2}$.",
+              "earned": false,
+              "commentary": "Reverses the LIATE choice. Choosing $u=\\cos(t/4)$ leads to a more complex remaining integral $\\int \\frac{(t+5)^2}{2}\\cdot(-\\frac{1}{4}\\sin(t/4))\\,dt$, which requires another integration by parts. The standard choice $u=t+5$ simplifies the problem.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -153,6 +258,21 @@
           "point_id": "d2",
           "point_value": 1,
           "description": "Correct application of integration by parts formula: $\\displaystyle\\int (t+5)\\cos\\!\\left(\\dfrac{t}{4}\\right)dt = 4(t+5)\\sin\\!\\left(\\dfrac{t}{4}\\right) - \\displaystyle\\int 4\\sin\\!\\left(\\dfrac{t}{4}\\right)dt$.",
+          "official_rubric": "1 point: $\\displaystyle\\int(t+5)\\cos(t/4)\\,dt = 4(t+5)\\sin(t/4) - \\displaystyle\\int 4\\sin(t/4)\\,dt$",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int(t+5)\\cos(t/4)\\,dt = uv - \\int v\\,du = 4(t+5)\\sin(t/4) - \\displaystyle\\int 4\\sin(t/4)\\,dt$.",
+              "earned": true,
+              "commentary": "Correctly applies the integration by parts formula $\\int u\\,dv = uv - \\int v\\,du$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\displaystyle\\int(t+5)\\cos(t/4)\\,dt = 4(t+5)\\sin(t/4) + \\displaystyle\\int 4\\sin(t/4)\\,dt$.",
+              "earned": false,
+              "commentary": "Uses a plus sign instead of minus. The integration by parts formula is $\\int u\\,dv = uv - \\int v\\,du$; the sign must be negative.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -165,6 +285,21 @@
           "point_id": "d3",
           "point_value": 1,
           "description": "Correct evaluation of the remaining integral and final answer: $\\displaystyle\\int 4\\sin\\!\\left(\\dfrac{t}{4}\\right)dt = 4 \\cdot (-4\\cos(t/4)) = -16\\cos(t/4)$. Therefore:\n$$\\displaystyle\\int (t+5)\\cos\\!\\left(\\dfrac{t}{4}\\right)dt = 4(t+5)\\sin\\!\\left(\\dfrac{t}{4}\\right) + 16\\cos\\!\\left(\\dfrac{t}{4}\\right) + C$$",
+          "official_rubric": "1 point: final answer $4(t+5)\\sin(t/4)+16\\cos(t/4)+C$",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int 4\\sin(t/4)\\,dt = 4\\cdot(-4\\cos(t/4)) = -16\\cos(t/4)$. So the full answer is $4(t+5)\\sin(t/4) - (-16\\cos(t/4)) + C = 4(t+5)\\sin(t/4)+16\\cos(t/4)+C$.",
+              "earned": true,
+              "commentary": "Correctly integrates $4\\sin(t/4)$: the chain rule factor gives $\\int\\sin(t/4)\\,dt = -4\\cos(t/4)$, so $\\int 4\\sin(t/4)\\,dt = -16\\cos(t/4)$. Subtracting a negative gives $+16\\cos(t/4)$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$4(t+5)\\sin(t/4) - 4\\cos(t/4) + C$.",
+              "earned": false,
+              "commentary": "Incorrect coefficient on the cosine term. $\\int\\sin(t/4)\\,dt = -4\\cos(t/4)$ (chain rule factor), so $\\int 4\\sin(t/4)\\,dt = -16\\cos(t/4)$; after subtraction the coefficient is $+16$, not $+4$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
