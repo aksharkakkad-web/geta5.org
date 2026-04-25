@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import { useTheme } from 'next-themes'
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -76,15 +77,19 @@ function parseInlineMath(text: string): React.ReactNode[] {
   return nodes
 }
 
-/**
- * Deep-merges dark theme colors into a Chart.js config.
- * Uses hex values since var() CSS custom properties don't work in JS Chart.js config.
- * CSS custom property equivalents:
- *   #a1a1a1 = --text-secondary
- *   #f5f5f5 = --text-primary
- *   #222222 = --bg-border
- */
-function applyDarkTheme(config: Record<string, unknown>): Record<string, unknown> {
+interface ChartColors { secondary: string; primary: string; grid: string }
+
+function getChartColors(): ChartColors {
+  if (typeof window === 'undefined') return { secondary: '#a1a1a1', primary: '#f5f5f5', grid: '#1a1a2e' }
+  const s = getComputedStyle(document.documentElement)
+  return {
+    secondary: s.getPropertyValue('--text-secondary').trim() || '#a1a1a1',
+    primary: s.getPropertyValue('--text-primary').trim() || '#f5f5f5',
+    grid: s.getPropertyValue('--bg-border').trim() || '#1a1a2e',
+  }
+}
+
+function applyChartTheme(config: Record<string, unknown>, colors: ChartColors): Record<string, unknown> {
   const options = (config.options as Record<string, unknown>) ?? {}
   const plugins = (options.plugins as Record<string, unknown>) ?? {}
   const legend = (plugins.legend as Record<string, unknown>) ?? {}
@@ -97,7 +102,7 @@ function applyDarkTheme(config: Record<string, unknown>): Record<string, unknown
       ...legend,
       labels: {
         ...legendLabels,
-        color: '#a1a1a1',
+        color: colors.secondary,
       },
     },
   }
@@ -105,11 +110,10 @@ function applyDarkTheme(config: Record<string, unknown>): Record<string, unknown
   if (titlePlugin && Object.keys(titlePlugin).length > 0) {
     themedPlugins.title = {
       ...titlePlugin,
-      color: '#f5f5f5',
+      color: colors.primary,
     }
   }
 
-  // Apply dark theme to all scales
   const scales = (options.scales as Record<string, Record<string, unknown>>) ?? {}
   const themedScales: Record<string, Record<string, unknown>> = {}
   for (const [key, scale] of Object.entries(scales)) {
@@ -117,8 +121,8 @@ function applyDarkTheme(config: Record<string, unknown>): Record<string, unknown
     const grid = (scale.grid as Record<string, unknown>) ?? {}
     themedScales[key] = {
       ...scale,
-      ticks: { ...ticks, color: '#a1a1a1' },
-      grid: { ...grid, color: '#222222' },
+      ticks: { ...ticks, color: colors.secondary },
+      grid: { ...grid, color: colors.grid },
     }
   }
 
@@ -135,6 +139,9 @@ function applyDarkTheme(config: Record<string, unknown>): Record<string, unknown
 // ─── Component ────────────────────────────────────────────────────────────────
 
 export default function StimulusRenderer({ stimulus }: StimulusRendererProps) {
+  useTheme() // subscribe to theme changes so chart colors re-resolve on toggle
+  const chartColors = getChartColors()
+
   if (stimulus.type === 'none' || stimulus.content == null) {
     return null
   }
@@ -221,7 +228,7 @@ export default function StimulusRenderer({ stimulus }: StimulusRendererProps) {
 
   if (stimulus.type === 'chart') {
     const rawConfig = stimulus.content as Record<string, unknown>
-    const themedConfig = applyDarkTheme(rawConfig)
+    const themedConfig = applyChartTheme(rawConfig, chartColors)
     const chartType = rawConfig.type as string
 
     // For line charts, use Fritsch-Carlson monotone cubic interpolation.
@@ -305,7 +312,7 @@ export default function StimulusRenderer({ stimulus }: StimulusRendererProps) {
           legend: {
             // Only show the actual curve labels — hide crosshair pseudo-datasets.
             labels: {
-              color: '#a1a1a1',
+              color: chartColors.secondary,
               filter: (item: { text: string }) => item.text !== '',
             },
           },
@@ -315,7 +322,7 @@ export default function StimulusRenderer({ stimulus }: StimulusRendererProps) {
                 title: {
                   display: true,
                   text: titleText,
-                  color: '#f5f5f5',
+                  color: chartColors.primary,
                   font: { size: 13 },
                 },
               }
@@ -326,7 +333,7 @@ export default function StimulusRenderer({ stimulus }: StimulusRendererProps) {
             type: 'linear' as const,
             min: -axisRange,
             max: axisRange,
-            grid: { color: '#222222' },
+            grid: { color: chartColors.grid },
             ticks: {
               // Hide numeric axis labels — only the curve shape matters for polar plots.
               display: false,
@@ -336,7 +343,7 @@ export default function StimulusRenderer({ stimulus }: StimulusRendererProps) {
             type: 'linear' as const,
             min: -axisRange,
             max: axisRange,
-            grid: { color: '#222222' },
+            grid: { color: chartColors.grid },
             ticks: { display: false },
           },
         },

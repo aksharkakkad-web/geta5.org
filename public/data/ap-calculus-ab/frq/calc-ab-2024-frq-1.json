@@ -38,6 +38,21 @@
           ],
           "common_traps": [
             "Omitting units from the answer"
+          ],
+          "official_rubric": "1 point: estimate $C'(5) \\approx \\frac{C(7)-C(3)}{7-3} = \\frac{69-85}{4} = -4$ with supporting work showing the difference quotient.",
+          "sample_responses": [
+            {
+              "response": "I used the average rate of change over $[3,7]$: $C'(5) \\approx \\dfrac{C(7)-C(3)}{7-3} = \\dfrac{69-85}{4} = \\dfrac{-16}{4} = -4$ degrees Celsius per minute.",
+              "earned": true,
+              "commentary": "Correctly applies the symmetric difference quotient using adjacent table values, showing all supporting work.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$C'(5) \\approx \\dfrac{C(12)-C(0)}{12-0} = \\dfrac{55-100}{12} \\approx -3.75$ degrees Celsius per minute.",
+              "earned": false,
+              "commentary": "Uses the full interval $[0,12]$ instead of the interval $[3,7]$ that brackets $t=5$; this is not the closest available difference quotient to $t=5$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -53,6 +68,21 @@
           ],
           "common_traps": [
             "Omitting units from the answer"
+          ],
+          "official_rubric": "1 point: correct units — degrees Celsius per minute (or equivalent).",
+          "sample_responses": [
+            {
+              "response": "The answer is $-4$ degrees Celsius per minute.",
+              "earned": true,
+              "commentary": "Units match the rate of change of temperature with respect to time.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The answer is $-4$.",
+              "earned": false,
+              "commentary": "Correct numerical answer but units are omitted; the rubric requires explicit units for this point.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -76,6 +106,21 @@
               ],
               "correct_example": "$(3-0)C(0) + (7-3)C(3) + (12-7)C(7)$"
             }
+          ],
+          "official_rubric": "1 point: correct form $(3-0)C(0) + (7-3)C(3) + (12-7)C(7)$ — subinterval widths times left-endpoint values.",
+          "sample_responses": [
+            {
+              "response": "Left Riemann sum: $(3-0)C(0) + (7-3)C(3) + (12-7)C(7) = 3(100) + 4(85) + 5(69)$.",
+              "earned": true,
+              "commentary": "Correctly identifies the three left endpoints $t=0,3,7$ and their respective subinterval widths $3,4,5$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Right Riemann sum: $(3-0)C(3) + (7-3)C(7) + (12-7)C(12) = 3(85)+4(69)+5(55) = 255+276+275 = 806$.",
+              "earned": false,
+              "commentary": "Uses right endpoints instead of left endpoints; the problem specifically asks for a left Riemann sum.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -89,6 +134,21 @@
               ],
               "correct_example": "$3(100) + 4(85) + 5(69) = 300 + 340 + 345 = 985$"
             }
+          ],
+          "official_rubric": "1 point: correct numerical estimate $3(100)+4(85)+5(69) = 985$ using table values.",
+          "sample_responses": [
+            {
+              "response": "$3(100) + 4(85) + 5(69) = 300 + 340 + 345 = 985$.",
+              "earned": true,
+              "commentary": "Evaluates the left Riemann sum correctly by substituting table values and computing the sum.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$3(100) + 4(85) + 5(69) = 300 + 340 + 345 = 985$, so $\\dfrac{1}{12}(985) \\approx 82.083$.",
+              "earned": true,
+              "commentary": "Also earns the point; applying the $\\frac{1}{12}$ factor here is fine since the sum 985 is shown.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -101,6 +161,21 @@
                 "Correct interpretation"
               ],
               "correct_example": "$\\frac{1}{12}\\int_0^{12} C(t)\\, dt$ is the average temperature of the coffee (in degrees Celsius) over the time interval from $t = 0$ to $t = 12$ minutes"
+            }
+          ],
+          "official_rubric": "1 point: $\\frac{1}{12}\\int_0^{12} C(t)\\,dt$ is the average temperature of the coffee (in degrees Celsius) over the interval $0 \\le t \\le 12$ minutes.",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{1}{12}\\displaystyle\\int_0^{12} C(t)\\,dt$ represents the average temperature of the coffee, in degrees Celsius, over the 12-minute interval.",
+              "earned": true,
+              "commentary": "Correctly identifies the expression as an average value with appropriate context and implicit units.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{1}{12}\\displaystyle\\int_0^{12} C(t)\\,dt$ is the total change in temperature over 12 minutes.",
+              "earned": false,
+              "commentary": "Confuses average value with net change; $\\int_0^{12}C'(t)\\,dt$ would be total change, not $\\frac{1}{12}\\int C(t)\\,dt$.",
+              "source": "synthesized"
             }
           ]
         }
@@ -131,6 +206,21 @@
           ],
           "common_traps": [
             "Using an incorrect initial condition"
+          ],
+          "official_rubric": "1 point: correct integral setup $C(20) = C(12) + \\int_{12}^{20} C'(t)\\,dt$ using FTC with initial condition.",
+          "sample_responses": [
+            {
+              "response": "Using the Fundamental Theorem of Calculus: $C(20) = C(12) + \\displaystyle\\int_{12}^{20} C'(t)\\,dt$.",
+              "earned": true,
+              "commentary": "Correctly applies the accumulation form of FTC: future value equals initial value plus net change.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$C(20) = \\displaystyle\\int_{12}^{20} C'(t)\\,dt \\approx -14.671$.",
+              "earned": false,
+              "commentary": "Evaluates the integral but omits the initial condition $C(12)$; only gives net change, not actual temperature.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -149,6 +239,21 @@
           ],
           "common_traps": [
             "Using an incorrect initial condition"
+          ],
+          "official_rubric": "1 point: uses $C(12) = 55$ as the initial condition.",
+          "sample_responses": [
+            {
+              "response": "$C(20) = 55 + \\displaystyle\\int_{12}^{20} C'(t)\\,dt$.",
+              "earned": true,
+              "commentary": "Correctly substitutes $C(12)=55$ from the table as the starting value for the accumulation.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$C(20) = 100 + \\displaystyle\\int_{12}^{20} C'(t)\\,dt$.",
+              "earned": false,
+              "commentary": "Uses $C(0)=100$ as the initial condition instead of $C(12)=55$; the formula given for $C'(t)$ is only valid on $[12,20]$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -168,6 +273,21 @@
           ],
           "common_traps": [
             "Using an incorrect initial condition"
+          ],
+          "official_rubric": "1 point: correct answer $C(20) \\approx 40.329$ (or $40.328$) degrees Celsius.",
+          "sample_responses": [
+            {
+              "response": "$C(20) = 55 + \\displaystyle\\int_{12}^{20} \\frac{-4.55e^{0.01t}}{t}\\,dt \\approx 55 + (-14.671) = 40.329$ degrees Celsius.",
+              "earned": true,
+              "commentary": "Calculator gives $\\int_{12}^{20} C'(t)\\,dt \\approx -14.671$; adding to initial value $55$ gives the correct temperature.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$C(20) = 55 + \\displaystyle\\int_{12}^{20} \\frac{-4.55e^{0.01t}}{t}\\,dt \\approx 55 + 14.671 = 69.671$.",
+              "earned": false,
+              "commentary": "Sign error: the integral evaluates to a negative value (temperature is decreasing); adding instead of accounting for the negative gives a temperature higher than $C(12)$.",
+              "source": "synthesized"
+            }
           ]
         }
       ]

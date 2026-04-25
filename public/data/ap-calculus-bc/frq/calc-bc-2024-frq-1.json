@@ -29,6 +29,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct setup and computation: $C'(5) \\approx \\dfrac{C(7) - C(3)}{7 - 3} = \\dfrac{67 - 82}{4} = \\dfrac{-15}{4} = -3.75$",
+          "official_rubric": "1 point: $C'(5) \\approx \\dfrac{C(7)-C(3)}{7-3} = \\dfrac{67-82}{4} = -3.75$",
+          "sample_responses": [
+            {
+              "response": "Using the average rate of change on $[3,7]$: $C'(5) \\approx \\dfrac{C(7)-C(3)}{7-3} = \\dfrac{67-82}{4} = \\dfrac{-15}{4} = -3.75$ degrees Celsius per minute.",
+              "earned": true,
+              "commentary": "Correctly uses the centered interval $[3,7]$ containing $t=5$, substitutes table values, and evaluates the difference quotient.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$C'(5) \\approx \\dfrac{C(7)-C(0)}{7-0} = \\dfrac{67-90}{7} \\approx -3.286$ degrees Celsius per minute.",
+              "earned": false,
+              "commentary": "Uses the wrong interval $[0,7]$ instead of the interval $[3,7]$ that brackets $t=5$. The approximation should use adjacent table values closest to the point of interest.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -41,6 +56,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct units: degrees Celsius per minute",
+          "official_rubric": "1 point: correct units — degrees Celsius per minute",
+          "sample_responses": [
+            {
+              "response": "The approximation is $-3.75$ degrees Celsius per minute.",
+              "earned": true,
+              "commentary": "Attaches the correct units: the rate of temperature change is measured in degrees Celsius divided by minutes.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The approximation is $-3.75$ degrees Celsius.",
+              "earned": false,
+              "commentary": "Omits 'per minute' — the result is a rate (derivative), so the units must be degrees Celsius per minute, not just degrees Celsius.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -67,6 +97,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Correct left Riemann sum form using the three subintervals $[0,3]$, $[3,7]$, $[7,12]$: $C(0) \\cdot 3 + C(3) \\cdot 4 + C(7) \\cdot 5$",
+          "official_rubric": "1 point: correct left Riemann sum setup — $C(0)\\cdot 3 + C(3)\\cdot 4 + C(7)\\cdot 5$",
+          "sample_responses": [
+            {
+              "response": "Left Riemann sum: $C(0)\\cdot 3 + C(3)\\cdot 4 + C(7)\\cdot 5 = 90(3)+82(4)+67(5)$.",
+              "earned": true,
+              "commentary": "Uses the left endpoint of each subinterval ($t=0,3,7$) multiplied by the corresponding subinterval width ($3,4,5$).",
+              "source": "synthesized"
+            },
+            {
+              "response": "$C(3)\\cdot 3 + C(7)\\cdot 4 + C(12)\\cdot 5$.",
+              "earned": false,
+              "commentary": "This is a right Riemann sum, not a left Riemann sum. A left Riemann sum uses the left endpoint of each subinterval.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -79,6 +124,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct numerical estimate: $90(3) + 82(4) + 67(5) = 270 + 328 + 335 = 933$ degree-minutes",
+          "official_rubric": "1 point: correct numerical answer — $933$ (degree-minutes)",
+          "sample_responses": [
+            {
+              "response": "$90(3)+82(4)+67(5) = 270+328+335 = 933$ degree-minutes.",
+              "earned": true,
+              "commentary": "Correctly multiplies each left-endpoint value by its subinterval width and sums the products.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$90(3)+82(4)+67(5) = 270+328+335 = 943$.",
+              "earned": false,
+              "commentary": "Arithmetic error: $270+328+335 = 933$, not $943$. Each product is correct but the final sum is wrong.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -91,6 +151,21 @@
           "point_id": "b3",
           "point_value": 1,
           "description": "Correct contextual interpretation with units: $\\dfrac{1}{12}\\displaystyle\\int_0^{12} C(t)\\,dt$ is the average temperature of the coffee, in degrees Celsius, over the time interval from $t = 0$ to $t = 12$ minutes.",
+          "official_rubric": "1 point: $\\dfrac{1}{12}\\displaystyle\\int_0^{12}C(t)\\,dt$ is the average temperature of the coffee, in degrees Celsius, over the interval $0 \\leq t \\leq 12$ minutes.",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{1}{12}\\displaystyle\\int_0^{12}C(t)\\,dt$ represents the average temperature of the coffee, in degrees Celsius, over the first 12 minutes.",
+              "earned": true,
+              "commentary": "Identifies the quantity as an average value, names the correct physical quantity (temperature of coffee), includes appropriate units, and specifies the time interval.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{1}{12}\\displaystyle\\int_0^{12}C(t)\\,dt$ is the total temperature of the coffee over the 12 minutes.",
+              "earned": false,
+              "commentary": "Says 'total' instead of 'average.' Multiplying by $\\frac{1}{12}$ produces the average value of a function, not a total accumulation.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -119,6 +194,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Correct integral setup using the Fundamental Theorem of Calculus: $C(20) = C(12) + \\displaystyle\\int_{12}^{20} C'(t)\\,dt = 55 + \\displaystyle\\int_{12}^{20} \\left(-\\dfrac{2e^{0.01t}}{\\sqrt{t}}\\right)dt$",
+          "official_rubric": "1 point: $C(20) = C(12) + \\displaystyle\\int_{12}^{20} C'(t)\\,dt$ with limits $12$ to $20$ and the given $C'(t)$ substituted",
+          "sample_responses": [
+            {
+              "response": "$C(20) = C(12) + \\displaystyle\\int_{12}^{20} C'(t)\\,dt = 55 + \\displaystyle\\int_{12}^{20}\\!\\left(-\\dfrac{2e^{0.01t}}{\\sqrt{t}}\\right)dt$.",
+              "earned": true,
+              "commentary": "Correctly applies the Net Change Theorem: the value at $t=20$ equals the value at $t=12$ plus the integral of the rate of change over $[12,20]$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$C(20) = C(0) + \\displaystyle\\int_{0}^{20} C'(t)\\,dt$.",
+              "earned": false,
+              "commentary": "The model $C'(t) = -\\frac{2e^{0.01t}}{\\sqrt{t}}$ is only valid for $12 \\leq t \\leq 20$. The limits of integration must be $12$ to $20$, and the initial value must be $C(12) = 55$, not $C(0) = 90$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -136,6 +226,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct use of initial condition $C(12) = 55$",
+          "official_rubric": "1 point: uses $C(12) = 55$ as the initial condition",
+          "sample_responses": [
+            {
+              "response": "From the table, $C(12) = 55$, so $C(20) = 55 + \\displaystyle\\int_{12}^{20} C'(t)\\,dt$.",
+              "earned": true,
+              "commentary": "Correctly identifies and applies $C(12) = 55$ as the anchor value for the accumulation formula.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$C(20) = 90 + \\displaystyle\\int_{12}^{20} C'(t)\\,dt$.",
+              "earned": false,
+              "commentary": "Uses $C(0) = 90$ instead of $C(12) = 55$. Because the integral runs from $t=12$, the anchor must be the temperature at $t=12$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -151,6 +256,21 @@
           "point_id": "c3",
           "point_value": 1,
           "description": "Correct answer: $C(20) \\approx 43.368$ degrees Celsius (calculator value)",
+          "official_rubric": "1 point: $C(20) \\approx 43.368$ degrees Celsius",
+          "sample_responses": [
+            {
+              "response": "$C(20) = 55 + \\displaystyle\\int_{12}^{20}\\!\\left(-\\dfrac{2e^{0.01t}}{\\sqrt{t}}\\right)dt \\approx 55 + (-11.632) \\approx 43.368$ degrees Celsius.",
+              "earned": true,
+              "commentary": "Correctly evaluates the definite integral with a calculator and adds it to the initial value to get $\\approx 43.368$ °C.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$C(20) \\approx 55 + (-12.5) = 42.5$ degrees Celsius.",
+              "earned": false,
+              "commentary": "Incorrect numerical evaluation of the integral. The correct integral value is approximately $-11.632$, giving $C(20) \\approx 43.368$, not $42.5$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -173,6 +293,21 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "The temperature is changing at a decreasing rate because $C''(t) < 0$ for $12 < t < 20$. For $t$ in this interval, $0.02t < 0.4 < 1$, so $0.02t - 1 < 0$, making $C''(t) < 0$. Since $C'(t) < 0$ and $C''(t) < 0$, the derivative $C'(t)$ is becoming more negative, meaning the rate of temperature change is decreasing (the coffee is cooling faster).",
+          "official_rubric": "1 point: the temperature is changing at a decreasing rate because $C''(t) < 0$ for $12 < t < 20$ (since $0.02t - 1 < 0$ on this interval, as $0.02t < 1$ for $t < 50$)",
+          "sample_responses": [
+            {
+              "response": "For $12 < t < 20$, $0.02t < 0.4 < 1$, so $0.02t - 1 < 0$. Since $e^{0.01t} > 0$ and $t^{3/2} > 0$, we have $C''(t) = \\dfrac{e^{0.01t}(0.02t-1)}{t^{3/2}} < 0$. Therefore the temperature is changing at a decreasing rate.",
+              "earned": true,
+              "commentary": "Evaluates the sign of $C''(t)$ by analyzing each factor and correctly concludes it is negative on the interval, so $C'(t)$ is decreasing.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Since $C'(t) < 0$ on $[12,20]$, the temperature is decreasing, so the rate is decreasing.",
+              "earned": false,
+              "commentary": "Confuses the sign of $C'$ (which tells us temperature is falling) with the sign of $C''$ (which tells us whether the rate of change is increasing or decreasing). The question asks about the rate of change of $C'$, which requires analyzing $C''$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [

@@ -1,6 +1,7 @@
 // components/ChartRenderer.tsx
 'use client'
 import { useEffect, useRef } from 'react'
+import { useTheme } from 'next-themes'
 import { Chart, ChartConfiguration, registerables } from 'chart.js'
 
 Chart.register(...registerables)
@@ -10,17 +11,27 @@ interface Props {
   className?: string
 }
 
+function getChartColors() {
+  if (typeof window === 'undefined') return { secondary: '#a1a1a1', grid: '#1a1a2e' }
+  const s = getComputedStyle(document.documentElement)
+  return {
+    secondary: s.getPropertyValue('--text-secondary').trim() || '#a1a1a1',
+    grid: s.getPropertyValue('--bg-border').trim() || '#1a1a2e',
+  }
+}
+
 export default function ChartRenderer({ config, className = '' }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const chartRef = useRef<Chart | null>(null)
+  const { resolvedTheme } = useTheme()
 
   useEffect(() => {
     if (!canvasRef.current) return
-    // Destroy existing chart before re-creating (avoids double-destroy on config change)
     if (chartRef.current) {
       chartRef.current.destroy()
       chartRef.current = null
     }
+    const colors = getChartColors()
     chartRef.current = new Chart(canvasRef.current, {
       ...config,
       options: {
@@ -29,7 +40,7 @@ export default function ChartRenderer({ config, className = '' }: Props) {
         plugins: {
           ...config.options?.plugins,
           legend: {
-            labels: { color: '#a1a1a1' },
+            labels: { color: colors.secondary },
             ...config.options?.plugins?.legend,
           },
         },
@@ -39,8 +50,8 @@ export default function ChartRenderer({ config, className = '' }: Props) {
                 k,
                 {
                   ...v,
-                  ticks: { color: '#a1a1a1', ...((v as Record<string, unknown>).ticks as object | undefined) },
-                  grid: { color: '#222222', ...((v as Record<string, unknown>).grid as object | undefined) },
+                  ticks: { color: colors.secondary, ...((v as Record<string, unknown>).ticks as object | undefined) },
+                  grid: { color: colors.grid, ...((v as Record<string, unknown>).grid as object | undefined) },
                 },
               ])
             )
@@ -49,9 +60,9 @@ export default function ChartRenderer({ config, className = '' }: Props) {
     })
     return () => {
       chartRef.current?.destroy()
-      chartRef.current = null // prevent double-destroy on config change
+      chartRef.current = null
     }
-  }, [config])
+  }, [config, resolvedTheme])
 
   return (
     <div className={className} style={{ position: 'relative', maxWidth: '100%' }}>

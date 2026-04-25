@@ -59,7 +59,7 @@ export default function FRQShortcutsModal({ open, onClose }: FRQShortcutsModalPr
         style={{
           position: 'absolute',
           inset: 0,
-          background: 'rgba(5, 5, 8, 0.85)',
+          background: 'var(--bg-header-alpha)',
           backdropFilter: 'blur(4px)',
           WebkitBackdropFilter: 'blur(4px)',
         }}

@@ -19,7 +19,9 @@ function getModelForStrictness(_strictness: GradingStrictness) {
   // ~1 point spread across tiers on borderline responses because the same
   // reasoning engine applies different criteria, rather than a weaker model
   // missing things a stronger one catches.
-  // Strict additionally runs a two-pass auditor that only downgrades scores.
+  // Strict additionally runs a bidirectional two-pass auditor that can either
+  // downgrade false positives OR recover false negatives from valid alternative
+  // reasoning paths the first grader missed. Strong bias toward first pass.
   return openai('gpt-4o')
 }
 
@@ -601,7 +603,9 @@ export async function POST(req: Request) {
       }
     }
 
-    // Two-pass grading for strict: auditor only lowers scores, never raises them.
+    // Two-pass grading for strict: bidirectional auditor can downgrade false
+    // positives OR recover points the first grader denied if the student
+    // demonstrated a valid alternative path (strong bias toward first pass).
     if (validStrictness === 'strict') {
       try {
         const auditorPrompt = buildFRQAuditorPrompt(question, responses, grading, validStrictness)
