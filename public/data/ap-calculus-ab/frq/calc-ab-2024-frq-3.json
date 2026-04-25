@@ -33,6 +33,21 @@
                 "follows the slope field, with $H > 1$ maintained for $t$ up to approximately $t = 4.5$ before turning; curve must be consistent with the slope field"
               ]
             }
+          ],
+          "official_rubric": "1 point: solution curve through $(0,4)$, consistent with the slope field direction, remaining above $y=1$ through approximately $t=4.5$.",
+          "sample_responses": [
+            {
+              "response": "I drew a curve starting at $(0,4)$, rising slightly then peaking near $t=\\pi \\approx 3.14$, then decreasing, staying well above $y=1$ throughout the visible field.",
+              "earned": true,
+              "commentary": "Curve starts at the required initial point and follows the slope field, showing a maximum near $t=\\pi$ where $\\cos(t/2)=0$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "I drew a curve starting at $(0,4)$ that decreases immediately and crosses below $y=1$ near $t=2$.",
+              "earned": false,
+              "commentary": "Curve contradicts the slope field: at $(0,4)$, $\\frac{dH}{dt}=\\frac{1}{2}(4-1)\\cos(0)=1.5>0$, so $H$ should initially increase, not decrease.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -56,6 +71,21 @@
                 "since $H(t) > 1$, this requires $\\cos\\left(\\frac{t}{2}\\right) = 0$, giving $t = \\pi$"
               ]
             }
+          ],
+          "official_rubric": "1 point: considers sign of $\\frac{dH}{dt}$; since $H(t)>1$ the factor $(H-1)\\ne 0$, so $\\frac{dH}{dt}=0$ requires $\\cos(t/2)=0$, identifying $t=\\pi$.",
+          "sample_responses": [
+            {
+              "response": "Setting $\\frac{dH}{dt}=0$: since $H(t)>1$ on $0<t<5$, the factor $H-1 \\ne 0$, so we need $\\cos(t/2)=0$, giving $t/2=\\pi/2$, i.e., $t=\\pi$.",
+              "earned": true,
+              "commentary": "Correctly uses the given condition $H(t)>1$ to eliminate $H-1=0$ as a source of critical points, then isolates $\\cos(t/2)=0$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Setting $H-1=0$ gives $H=1$; since $H(0)=4$ the critical point is when $H=1$.",
+              "earned": false,
+              "commentary": "Incorrectly sets $H-1=0$; the problem states $H(t)>1$ on this interval, so $H$ never equals $1$ there.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -67,6 +97,21 @@
               "required_elements": [
                 "Correctly identifies $t = \\pi$ as the critical point"
               ]
+            }
+          ],
+          "official_rubric": "1 point: identifies $t=\\pi$ as the critical point in $(0,5)$.",
+          "sample_responses": [
+            {
+              "response": "$\\cos(t/2)=0 \\Rightarrow t/2 = \\pi/2 \\Rightarrow t=\\pi$ is the critical point in $(0,5)$.",
+              "earned": true,
+              "commentary": "Solves $\\cos(t/2)=0$ correctly for $t$ in the given interval.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\cos(t/2)=0$ at $t=\\pi, 3\\pi, \\ldots$; I'll use $t=3\\pi$ as the critical point in $(0,5)$.",
+              "earned": false,
+              "commentary": "$3\\pi \\approx 9.42$ is outside the interval $(0,5)$; only $t=\\pi \\approx 3.14$ lies in the required range.",
+              "source": "synthesized"
             }
           ]
         },
@@ -80,6 +125,21 @@
                 "Correct classification as relative maximum with justification"
               ],
               "correct_example": "$\\frac{dH}{dt} > 0$ for $0 < t < \\pi$ and $\\frac{dH}{dt} < 0$ for $\\pi < t < 5$, so $H$ changes from increasing to decreasing at $t = \\pi$"
+            }
+          ],
+          "official_rubric": "1 point: relative maximum at $t=\\pi$ with justification — $\\frac{dH}{dt}$ changes from positive to negative at $t=\\pi$.",
+          "sample_responses": [
+            {
+              "response": "For $0<t<\\pi$: $\\cos(t/2)>0$ and $H-1>0$, so $\\frac{dH}{dt}>0$ ($H$ increasing). For $\\pi<t<5$: $\\cos(t/2)<0$ and $H-1>0$, so $\\frac{dH}{dt}<0$ ($H$ decreasing). Since $\\frac{dH}{dt}$ changes from $+$ to $-$, $t=\\pi$ is a relative maximum.",
+              "earned": true,
+              "commentary": "First derivative sign analysis on both sides of $t=\\pi$ confirms the sign change from positive to negative, establishing a relative maximum.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Since $\\frac{dH}{dt}=0$ at $t=\\pi$, this is a relative maximum.",
+              "earned": false,
+              "commentary": "A zero derivative alone is not sufficient for classification; must demonstrate sign change of $\\frac{dH}{dt}$ (or use the second derivative test) to justify the classification.",
+              "source": "synthesized"
             }
           ]
         }

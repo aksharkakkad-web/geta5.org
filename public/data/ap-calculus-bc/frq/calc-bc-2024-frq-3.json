@@ -29,6 +29,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "The solution curve must pass through $(0, 4)$ and follow the slope field. At $t = 0$: $\\dfrac{dH}{dt} = \\dfrac{1}{2}(4-1)\\cos(0) = \\dfrac{3}{2} > 0$, so the curve initially increases. Since $\\cos(t/2) = 0$ at $t = \\pi$, the curve reaches a maximum there and then decreases for $\\pi < t < 5$. The curve must be consistent with the given slope field marks.",
+          "official_rubric": "1 point: solution curve passes through $(0,4)$ and is consistent with the slope field (increases to a maximum near $t=\\pi$, then decreases)",
+          "sample_responses": [
+            {
+              "response": "The curve passes through $(0,4)$, increases (positive slope) for $0<t<\\pi$ since $\\cos(t/2)>0$ and $H>1$, reaches a maximum at $t=\\pi$ where $\\cos(\\pi/2)=0$, then decreases for $\\pi<t<5$.",
+              "earned": true,
+              "commentary": "Correctly traces the solution curve: starts at $(0,4)$, increases while $dH/dt>0$, then turns at $t=\\pi$ and decreases — all consistent with the given slope field.",
+              "source": "synthesized"
+            },
+            {
+              "response": "A curve through $(0,4)$ that continuously decreases toward $H=1$.",
+              "earned": false,
+              "commentary": "The curve should initially increase (since $dH/dt = \\frac{1}{2}(3)(1) = 3/2 > 0$ at $t=0$) before reaching a maximum at $t=\\pi$ and then decreasing. A continuously decreasing curve contradicts the slope field.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -52,6 +67,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Sets $\\dfrac{dH}{dt} = 0$. Since $H(t) > 1$ on $(0, 5)$, we have $H - 1 \\neq 0$, so $\\cos\\!\\left(\\dfrac{t}{2}\\right) = 0$, giving $\\dfrac{t}{2} = \\dfrac{\\pi}{2}$, so $t = \\pi$.",
+          "official_rubric": "1 point: since $H>1$ implies $H-1\\neq 0$, sets $\\cos(t/2)=0$ and obtains $t=\\pi$",
+          "sample_responses": [
+            {
+              "response": "Setting $\\dfrac{dH}{dt} = \\dfrac{1}{2}(H-1)\\cos\\!\\left(\\dfrac{t}{2}\\right) = 0$: since $H>1$ on $(0,5)$, $H-1\\neq 0$, so $\\cos\\!\\left(\\dfrac{t}{2}\\right)=0$. Thus $\\dfrac{t}{2}=\\dfrac{\\pi}{2}$, giving $t=\\pi$.",
+              "earned": true,
+              "commentary": "Correctly uses the given fact that $H>1$ to eliminate the $H-1$ factor, then solves $\\cos(t/2)=0$ in $(0,5)$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{dH}{dt}=0$ when $H=1$ or $\\cos(t/2)=0$. So $t=\\pi$ and also wherever $H=1$.",
+              "earned": false,
+              "commentary": "Includes $H=1$ as a condition, but the problem states $H>1$ on $(0,5)$, so the only critical point in $(0,5)$ comes from $\\cos(t/2)=0$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -65,6 +95,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Determines the type of critical point by analyzing the sign of $\\dfrac{dH}{dt}$. For $0 < t < \\pi$, $\\cos(t/2) > 0$ and $H - 1 > 0$, so $\\dfrac{dH}{dt} > 0$. For $\\pi < t < 5$, $\\cos(t/2) < 0$ and $H - 1 > 0$, so $\\dfrac{dH}{dt} < 0$. Therefore $H$ changes from increasing to decreasing at $t = \\pi$.",
+          "official_rubric": "1 point: sign of $\\dfrac{dH}{dt}$ changes from positive ($0<t<\\pi$) to negative ($\\pi<t<5$) at $t=\\pi$",
+          "sample_responses": [
+            {
+              "response": "For $0<t<\\pi$: $\\cos(t/2)>0$ and $H-1>0$, so $\\dfrac{dH}{dt}>0$. For $\\pi<t<5$: $\\cos(t/2)<0$ and $H-1>0$, so $\\dfrac{dH}{dt}<0$. The sign changes from positive to negative at $t=\\pi$.",
+              "earned": true,
+              "commentary": "Correctly analyzes both factors of $dH/dt$ on either side of $t=\\pi$ and confirms the sign change.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$H''(\\pi) < 0$, so $t=\\pi$ is a relative maximum by the second derivative test.",
+              "earned": false,
+              "commentary": "The problem requires a first-derivative sign-change argument, not the second derivative test. While the conclusion might be correct, the scoring awards the point for showing that $dH/dt$ changes sign from $+$ to $-$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -77,6 +122,21 @@
           "point_id": "b3",
           "point_value": 1,
           "description": "Correct conclusion: $H$ has a relative maximum at $t = \\pi$ because $\\dfrac{dH}{dt}$ changes from positive to negative there.",
+          "official_rubric": "1 point: $H$ has a relative maximum at $t=\\pi$ because $\\dfrac{dH}{dt}$ changes from positive to negative",
+          "sample_responses": [
+            {
+              "response": "Since $\\dfrac{dH}{dt}$ changes from positive to negative at $t=\\pi$, $H$ has a relative maximum at $t=\\pi$.",
+              "earned": true,
+              "commentary": "States the correct classification and links it explicitly to the sign change of $dH/dt$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$H$ has a relative minimum at $t=\\pi$.",
+              "earned": false,
+              "commentary": "Incorrect classification. The sign of $dH/dt$ changes from positive to negative (not negative to positive), so the function changes from increasing to decreasing — indicating a relative maximum.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -104,6 +164,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Correct separation of variables: $\\dfrac{dH}{H - 1} = \\dfrac{1}{2}\\cos\\!\\left(\\dfrac{t}{2}\\right)dt$",
+          "official_rubric": "1 point: correctly separates variables — $\\dfrac{dH}{H-1} = \\dfrac{1}{2}\\cos\\!\\left(\\dfrac{t}{2}\\right)dt$",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{dH}{dt} = \\dfrac{1}{2}(H-1)\\cos\\!\\left(\\dfrac{t}{2}\\right) \\Rightarrow \\dfrac{dH}{H-1} = \\dfrac{1}{2}\\cos\\!\\left(\\dfrac{t}{2}\\right)dt$.",
+              "earned": true,
+              "commentary": "Correctly divides both sides by $(H-1)$ and multiplies by $dt$ to isolate the $H$ and $t$ variables on opposite sides.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$(H-1)\\,dH = \\dfrac{1}{2}\\cos\\!\\left(\\dfrac{t}{2}\\right)dt$.",
+              "earned": false,
+              "commentary": "Multiplies by $(H-1)$ instead of dividing. The left side should be $\\frac{dH}{H-1}$, not $(H-1)\\,dH$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -116,6 +191,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct antiderivative of the left side: $\\ln|H - 1|$",
+          "official_rubric": "1 point: correct antiderivative of left side — $\\ln|H-1|$",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int \\dfrac{dH}{H-1} = \\ln|H-1|$.",
+              "earned": true,
+              "commentary": "Applies the standard $\\int \\frac{du}{u} = \\ln|u|$ antidifferentiation rule with $u = H-1$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\displaystyle\\int \\dfrac{dH}{H-1} = \\dfrac{1}{(H-1)^2}$.",
+              "earned": false,
+              "commentary": "Applies a power rule instead of the logarithm rule. $\\int \\frac{dH}{H-1}$ is a logarithmic integral, not a power integral.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -128,6 +218,21 @@
           "point_id": "c3",
           "point_value": 1,
           "description": "Correct antiderivative of the right side: $\\dfrac{1}{2} \\cdot 2\\sin\\!\\left(\\dfrac{t}{2}\\right) = \\sin\\!\\left(\\dfrac{t}{2}\\right) + C$",
+          "official_rubric": "1 point: correct antiderivative of right side — $\\sin\\!\\left(\\dfrac{t}{2}\\right)+C$",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int \\dfrac{1}{2}\\cos\\!\\left(\\dfrac{t}{2}\\right)dt = \\dfrac{1}{2} \\cdot 2\\sin\\!\\left(\\dfrac{t}{2}\\right) + C = \\sin\\!\\left(\\dfrac{t}{2}\\right)+C$.",
+              "earned": true,
+              "commentary": "Correctly applies chain rule compensation: $\\int \\cos(t/2)\\,dt = 2\\sin(t/2)$, so multiplying by $1/2$ gives $\\sin(t/2)$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\displaystyle\\int \\dfrac{1}{2}\\cos\\!\\left(\\dfrac{t}{2}\\right)dt = \\dfrac{1}{2}\\sin\\!\\left(\\dfrac{t}{2}\\right)+C$.",
+              "earned": false,
+              "commentary": "Forgets the factor of $2$ from the chain rule. $\\frac{d}{dt}\\sin(t/2) = \\frac{1}{2}\\cos(t/2)$, so $\\int \\cos(t/2)\\,dt = 2\\sin(t/2)$; the prefactor $1/2$ then cancels to give $\\sin(t/2)$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -140,6 +245,21 @@
           "point_id": "c4",
           "point_value": 1,
           "description": "Correct use of initial condition $H(0) = 4$: $\\ln|4 - 1| = \\sin(0) + C \\Rightarrow \\ln 3 = C$",
+          "official_rubric": "1 point: applies $H(0)=4$ to obtain $C=\\ln 3$",
+          "sample_responses": [
+            {
+              "response": "At $t=0$, $H=4$: $\\ln|4-1| = \\sin(0)+C \\Rightarrow \\ln 3 = 0 + C \\Rightarrow C = \\ln 3$.",
+              "earned": true,
+              "commentary": "Correctly substitutes the initial condition to solve for the constant of integration.",
+              "source": "synthesized"
+            },
+            {
+              "response": "At $t=0$, $H=4$: $\\ln|4-1| = \\sin(0)+C \\Rightarrow 3 = C$.",
+              "earned": false,
+              "commentary": "$\\ln|4-1| = \\ln 3 \\approx 1.099$, not $3$. The constant $C = \\ln 3$, not $C = 3$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -156,6 +276,21 @@
           "point_id": "c5",
           "point_value": 1,
           "description": "Correctly solves for $H(t)$: $\\ln(H - 1) = \\sin\\!\\left(\\dfrac{t}{2}\\right) + \\ln 3 \\Rightarrow H - 1 = 3e^{\\sin(t/2)} \\Rightarrow H(t) = 1 + 3e^{\\sin(t/2)}$",
+          "official_rubric": "1 point: correctly solves for $H(t) = 1 + 3e^{\\sin(t/2)}$",
+          "sample_responses": [
+            {
+              "response": "$\\ln(H-1) = \\sin\\!\\left(\\dfrac{t}{2}\\right)+\\ln 3 \\Rightarrow H-1 = e^{\\sin(t/2)+\\ln 3} = 3e^{\\sin(t/2)} \\Rightarrow H(t) = 1 + 3e^{\\sin(t/2)}$.",
+              "earned": true,
+              "commentary": "Exponentiates both sides, uses the property $e^{A+\\ln B} = Be^A$, then solves for $H$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$H(t) = 3e^{\\sin(t/2)}$.",
+              "earned": false,
+              "commentary": "Omits the $+1$ shift. After exponentiating, $H - 1 = 3e^{\\sin(t/2)}$, so $H = 1 + 3e^{\\sin(t/2)}$. Dropping the $+1$ gives an incorrect particular solution that does not satisfy $H(0) = 4$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
