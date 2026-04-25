@@ -200,6 +200,21 @@
               ],
               "correct_example": "$h(6) = \\int_{-6}^6 f'(t)\\, dt = f(6) - f(-6)$; from graph $f(6) = -1$ and $f(-6) = 0$ (or consistent values), so $h(6) = -1 - 0 = -1$ or $h(6) = f(6) - f(-6) = -1 - (-0.5) = -1.5$ (accept $-1.5$ as the scoring key answer)"
             }
+          ],
+          "official_rubric": "1 point: uses FTC: $h(6) = \\int_{-6}^6 f'(t)\\,dt = f(6) - f(-6)$.",
+          "sample_responses": [
+            {
+              "response": "By FTC, $h(6) = \\displaystyle\\int_{-6}^6 f'(t)\\,dt = f(6) - f(-6) = -1 - (-\\tfrac{1}{2}) = -\\tfrac{1}{2}$... or per graph: $f(6)=-1$, $f(-6)=0.5$, so $h(6) = -1 - 0.5 = -1.5$.",
+              "earned": true,
+              "commentary": "Correctly applies FTC Part 2 to express the integral of $f'$ as the net change in $f$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$h(6) = \\displaystyle\\int_{-6}^6 f'(t)\\,dt = f'(6) - f'(-6)$.",
+              "earned": false,
+              "commentary": "Incorrectly applies FTC: $\\int_a^b f'(t)\\,dt = f(b)-f(a)$ (net change in $f$, not in $f'$).",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -211,6 +226,21 @@
               "required_elements": [
                 "$h'(6) = f'(6)$; from the linear portion of the graph, slope $= -\\frac{1}{2}$, so $h'(6) = -\\frac{1}{2}$"
               ]
+            }
+          ],
+          "official_rubric": "1 point: $h'(6) = f'(6) = -\\frac{1}{2}$ (slope of the linear portion of $f$).",
+          "sample_responses": [
+            {
+              "response": "By FTC, $h'(x) = f'(x)$, so $h'(6) = f'(6)$. From the graph, $f$ is linear on $[0,7]$ with slope $\\frac{-1-2}{6-(-... \\,)}$... reading the slope as $-\\frac{1}{2}$, so $h'(6) = -\\frac{1}{2}$.",
+              "earned": true,
+              "commentary": "Applies FTC to get $h'=f'$, then reads the slope of the linear portion of $f$ directly from the graph.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$h'(6) = h(6) + 1 = -1.5 + 1 = -0.5$ (guesses instead of differentiating).",
+              "earned": false,
+              "commentary": "Arbitrary arithmetic; $h'(6)$ requires recognizing $h'(x)=f'(x)$ via FTC and reading $f'(6)$ from the graph slope.",
+              "source": "synthesized"
             }
           ]
         },
@@ -225,6 +255,21 @@
                 "$f'' = 0$"
               ]
             }
+          ],
+          "official_rubric": "1 point: $h''(6) = f''(6) = 0$ because $f$ is linear on $[0,7]$ so $f''=0$.",
+          "sample_responses": [
+            {
+              "response": "$h''(x) = f''(x)$. Since $f$ is linear on $[0,7]$, its second derivative is $0$. Therefore $h''(6) = f''(6) = 0$.",
+              "earned": true,
+              "commentary": "A linear function has constant slope, so $f''=0$ everywhere on that linear segment.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$h''(6) = -\\frac{1}{2}$ (using the slope value again).",
+              "earned": false,
+              "commentary": "Confuses $h'(6) = f'(6) = -\\frac{1}{2}$ with $h''(6)$; since $f$ is linear, the slope is constant and its derivative (second derivative) is $0$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -237,6 +282,21 @@
                 "All three values correct",
                 "consistent"
               ]
+            }
+          ],
+          "official_rubric": "1 point: all three values $h(6)$, $h'(6)$, $h''(6)$ correct and consistent with the graph.",
+          "sample_responses": [
+            {
+              "response": "$h(6) = f(6)-f(-6) = -1.5$, $h'(6) = f'(6) = -\\tfrac{1}{2}$, $h''(6) = f''(6) = 0$.",
+              "earned": true,
+              "commentary": "All three values derived correctly through sequential application of FTC and graph reading.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$h(6)=-1.5$, $h'(6) = -\\tfrac{1}{2}$, $h''(6) = -\\tfrac{1}{4}$ (arithmetic error in second derivative).",
+              "earned": false,
+              "commentary": "$h''(6)=f''(6)=0$ since $f$ is linear; a non-zero second derivative contradicts the given information that $f$ is linear on $[0,7]$.",
+              "source": "synthesized"
             }
           ]
         }
