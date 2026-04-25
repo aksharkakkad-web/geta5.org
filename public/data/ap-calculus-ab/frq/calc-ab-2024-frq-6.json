@@ -34,6 +34,21 @@
               ],
               "correct_example": "$f(x) - g(x) = (x^2 + 2) - (x^2 - 2x) = 2x + 2$, or presented as $f(x) - g(x)$"
             }
+          ],
+          "official_rubric": "1 point: correct integrand $f(x)-g(x) = (x^2+2)-(x^2-2x) = 2x+2$ (top minus bottom on $[0,2]$).",
+          "sample_responses": [
+            {
+              "response": "Since $f(x) \\ge g(x)$ on $[0,2]$, area $= \\int_0^2 [f(x)-g(x)]\\,dx = \\int_0^2 [(x^2+2)-(x^2-2x)]\\,dx = \\int_0^2 (2x+2)\\,dx$.",
+              "earned": true,
+              "commentary": "Correctly identifies $f$ as the top curve, subtracts $g$ to get the height of the region, and simplifies.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\int_0^2 [g(x)-f(x)]\\,dx = \\int_0^2 [-(2x+2)]\\,dx$ (reversed subtraction without absolute value).",
+              "earned": false,
+              "commentary": "This integrand is non-positive on $[0,2]$, yielding a negative value; for area, must use $f-g$ (top minus bottom) or include absolute value.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -46,6 +61,21 @@
                 "Correct complete expression"
               ],
               "correct_example": "$\\int_0^2 (f(x) - g(x))\\, dx$ or $\\int_0^2 (2x+2)\\, dx$"
+            }
+          ],
+          "official_rubric": "1 point: complete expression $\\int_0^2 (f(x)-g(x))\\,dx$ with correct limits $0$ to $2$.",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^2 (2x+2)\\,dx$.",
+              "earned": true,
+              "commentary": "Complete expression with correct limits $[0,2]$ and simplified integrand.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\displaystyle\\int_0^5 (f(x)-g(x))\\,dx$ (wrong limits).",
+              "earned": false,
+              "commentary": "Uses limits $0$ to $5$ instead of $0$ to $2$; region $R$ is bounded from $x=0$ to $x=2$ as specified.",
+              "source": "synthesized"
             }
           ]
         }
@@ -73,6 +103,21 @@
           ],
           "common_traps": [
             "Incorrect antiderivative"
+          ],
+          "official_rubric": "1 point: correct integrand for cross-sectional area $\\frac{1}{2}[g(x)]^2 = \\frac{1}{2}(x^2-2x)^2$.",
+          "sample_responses": [
+            {
+              "response": "The base of each rectangle is $g(x) = x^2-2x$ and height $= \\frac{1}{2}g(x)$. Area of cross section $= \\frac{1}{2}(x^2-2x)^2$.",
+              "earned": true,
+              "commentary": "Cross-section area = base × height = $g(x) \\cdot \\frac{1}{2}g(x) = \\frac{1}{2}[g(x)]^2$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Cross section area $= \\frac{1}{2}g(x) = \\frac{1}{2}(x^2-2x)$ (missing the square).",
+              "earned": false,
+              "commentary": "Area of rectangle = base × height = $g(x) \\cdot \\frac{g(x)}{2} = \\frac{[g(x)]^2}{2}$; not $\\frac{g(x)}{2}$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -88,6 +133,21 @@
           ],
           "common_traps": [
             "Incorrect antiderivative"
+          ],
+          "official_rubric": "1 point: correct limits $x=2$ to $x=5$ in a definite integral with an integrand of the form $a\\cdot[g(x)]^2$.",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_2^5 \\frac{1}{2}(x^2-2x)^2\\,dx$.",
+              "earned": true,
+              "commentary": "Limits $2$ to $5$ match region $S$ as described; integrand includes the factor $\\frac{1}{2}[g(x)]^2$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\displaystyle\\int_0^5 \\frac{1}{2}(x^2-2x)^2\\,dx$ (wrong lower limit).",
+              "earned": false,
+              "commentary": "Region $S$ runs from $x=2$ to $x=5$, not $x=0$; incorrect lower limit.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -104,6 +164,21 @@
           ],
           "common_traps": [
             "Incorrect antiderivative"
+          ],
+          "official_rubric": "1 point: correct antiderivative $\\frac{1}{2}\\left[\\frac{x^5}{5} - x^4 + \\frac{4x^3}{3}\\right]$ after expanding $(x^2-2x)^2$.",
+          "sample_responses": [
+            {
+              "response": "Expanding: $(x^2-2x)^2 = x^4-4x^3+4x^2$. Antiderivative: $\\frac{1}{2}\\left[\\frac{x^5}{5}-x^4+\\frac{4x^3}{3}\\right]$.",
+              "earned": true,
+              "commentary": "Correctly expands the square and integrates term-by-term using the power rule.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Antiderivative of $\\frac{1}{2}(x^2-2x)^2$ is $\\frac{1}{2}\\cdot\\frac{(x^2-2x)^3}{3(2x-2)}$ (u-substitution error).",
+              "earned": false,
+              "commentary": "The substitution $u=x^2-2x$ requires dividing by $u'=2x-2$, but $2x-2$ is not constant so this substitution does not simplify the integral; must expand and integrate term-by-term.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -120,6 +195,21 @@
           ],
           "common_traps": [
             "Incorrect antiderivative"
+          ],
+          "official_rubric": "1 point: correct answer $\\frac{414}{5}$ (or equivalent exact form).",
+          "sample_responses": [
+            {
+              "response": "$\\frac{1}{2}\\left[\\left(\\frac{3125}{5}-625+\\frac{500}{3}\\right)-\\left(\\frac{32}{5}-16+\\frac{32}{3}\\right)\\right] = \\frac{1}{2}\\cdot\\frac{828}{5} = \\frac{414}{5}$.",
+              "earned": true,
+              "commentary": "Evaluates the antiderivative at $x=5$ and $x=2$, then subtracts to get the exact volume.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\frac{1}{2}\\left[\\frac{5^5}{5}-5^4+\\frac{4(5^3)}{3}\\right] = \\frac{1}{2}\\left[625-625+\\frac{500}{3}\\right] = \\frac{250}{3}$ (forgot to subtract lower limit).",
+              "earned": false,
+              "commentary": "Failed to subtract the antiderivative evaluated at $x=2$; the definite integral requires $F(5)-F(2)$.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -143,6 +233,21 @@
                 "inner radius $= 20 - g(x) = 20 - (x^2-2x)$, i.e., $R^2 - r^2$ form"
               ]
             }
+          ],
+          "official_rubric": "1 point: correct washer method form with outer radius $R=20$ (from axis $y=20$ to $x$-axis $y=0$) and inner radius $r=20-g(x)$.",
+          "sample_responses": [
+            {
+              "response": "Rotating about $y=20$: outer radius $= 20-0 = 20$, inner radius $= 20-g(x)$. Volume $= \\pi\\displaystyle\\int_2^5 \\left[20^2-(20-g(x))^2\\right]dx$.",
+              "earned": true,
+              "commentary": "Correctly applies the washer method: both radii are measured from the axis $y=20$ down to the curve ($g(x)$) and to the $x$-axis ($y=0$).",
+              "source": "synthesized"
+            },
+            {
+              "response": "Volume $= \\pi\\displaystyle\\int_2^5 [g(x)]^2\\,dx = \\pi\\displaystyle\\int_2^5 (x^2-2x)^2\\,dx$ (disk method, ignoring the $y=20$ axis).",
+              "earned": false,
+              "commentary": "Disk method without the axis of rotation shift; rotating about $y=20$ requires measuring radii from $y=20$, yielding washers, not simple disks.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -155,6 +260,21 @@
                 "Correct integrand"
               ],
               "correct_example": "$\\pi\\left[(20)^2 - (20 - (x^2-2x))^2\\right]$ or $\\pi\\left[20^2 - (20-g(x))^2\\right]$"
+            }
+          ],
+          "official_rubric": "1 point: correct integrand $\\pi\\left[20^2-(20-g(x))^2\\right] = \\pi\\left[400-(20-(x^2-2x))^2\\right]$.",
+          "sample_responses": [
+            {
+              "response": "$\\pi\\left[400-(20-(x^2-2x))^2\\right]$.",
+              "earned": true,
+              "commentary": "Correctly squares both radii and takes their difference multiplied by $\\pi$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\pi\\left[(20+g(x))^2 - 20^2\\right]$ (radii measured in wrong direction).",
+              "earned": false,
+              "commentary": "Since $y=20$ is above the region, radii are $20-y_{\\text{value}}$, not $20+y_{\\text{value}}$; the inner radius is $20-g(x)$.",
+              "source": "synthesized"
             }
           ]
         },
@@ -169,6 +289,21 @@
                 "differential $dx$"
               ],
               "correct_example": "$\\pi\\int_2^5 \\left[(20)^2 - (20-(x^2-2x))^2\\right]\\, dx$"
+            }
+          ],
+          "official_rubric": "1 point: complete expression includes $\\pi$, limits $2$ to $5$, and $dx$.",
+          "sample_responses": [
+            {
+              "response": "$\\pi\\displaystyle\\int_2^5 \\left[400-(20-(x^2-2x))^2\\right]\\,dx$.",
+              "earned": true,
+              "commentary": "All required elements present: factor of $\\pi$, correct limits, correct integrand, $dx$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\displaystyle\\int_2^5 \\left[400-(20-(x^2-2x))^2\\right]\\,dx$ (missing $\\pi$).",
+              "earned": false,
+              "commentary": "Volume by the washer method requires the factor $\\pi$ from the disc area formula $\\pi r^2$; omitting $\\pi$ gives an incorrect expression.",
+              "source": "synthesized"
             }
           ]
         }
