@@ -31,6 +31,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct integral setup for average value: $\\frac{1}{4}\\int_0^4 C(t)\\,dt$, where $C(t) = 3 + \\int_0^t 4u\\,e^{0.2u}\\,du$. Equivalently, the student correctly sets up the average value expression using the Fundamental Theorem of Calculus.",
+          "official_rubric": "1 point: sets up average value $\\frac{1}{4}\\int_0^4 C(t)\\,dt$ with $C(t) = 3+\\int_0^t 4u\\,e^{0.2u}\\,du$",
+          "sample_responses": [
+            {
+              "response": "Average $= \\dfrac{1}{4-0}\\displaystyle\\int_0^4 C(t)\\,dt = \\dfrac{1}{4}\\int_0^4\\!\\left(3+\\int_0^t 4u\\,e^{0.2u}\\,du\\right)dt$.",
+              "earned": true,
+              "commentary": "Correctly applies the average value formula $\\frac{1}{b-a}\\int_a^b f(t)\\,dt$ with $a=0$, $b=4$, and expresses $C(t)$ using the accumulation integral from the rate $C'$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Average $= \\dfrac{1}{4}\\int_0^4 C'(t)\\,dt = \\dfrac{1}{4}\\int_0^4 4t\\,e^{0.2t}\\,dt$.",
+              "earned": false,
+              "commentary": "Averages the rate $C'(t)$, not the quantity $C(t)$. The average rate of change and the average value of $C$ are different things; the problem asks for the average number of acres affected.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -43,6 +58,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct answer: approximately $26.264$ acres (or the value obtained by correctly evaluating the integral with a calculator, accepted in range $26.263$–$26.265$).",
+          "official_rubric": "1 point: $\\approx 26.264$ acres",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{1}{4}\\displaystyle\\int_0^4 C(t)\\,dt \\approx 26.264$ acres.",
+              "earned": true,
+              "commentary": "Correct calculator evaluation of the average value integral.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\dfrac{1}{4}\\displaystyle\\int_0^4 C(t)\\,dt \\approx 22.7$ acres.",
+              "earned": false,
+              "commentary": "Incorrect numerical result, likely from using $C'(t)$ rather than $C(t)$ in the integrand. The correct average value is approximately $26.264$ acres.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -65,6 +95,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Correct setup: computes the average rate of change $\\frac{C(4) - C(0)}{4 - 0}$ and sets it equal to $C'(t) = 4t\\,e^{0.2t}$, showing the equation to be solved. Note $C(4) = 3 + \\int_0^4 4t\\,e^{0.2t}\\,dt \\approx 3 + 82.434 \\approx 85.434$, so the average rate of change $\\approx \\frac{85.434 - 3}{4} \\approx 20.609$ acres per week.",
+          "official_rubric": "1 point: sets $C'(t) = \\frac{C(4)-C(0)}{4}$, i.e., $4t\\,e^{0.2t} = \\frac{C(4)-3}{4} \\approx 20.609$",
+          "sample_responses": [
+            {
+              "response": "Average rate of change $= \\dfrac{C(4)-C(0)}{4-0} = \\dfrac{C(4)-3}{4}$. Setting $C'(t) = 4t\\,e^{0.2t}$ equal to this average rate gives the equation $4t\\,e^{0.2t} = \\dfrac{C(4)-3}{4}$.",
+              "earned": true,
+              "commentary": "Correctly identifies the average rate of change as the slope of the secant line over $[0,4]$ and sets the instantaneous rate $C'(t)$ equal to it.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Sets $C'(t) = \\dfrac{1}{4}\\displaystyle\\int_0^4 C'(t)\\,dt$ to find when instantaneous rate equals average rate.",
+              "earned": false,
+              "commentary": "Confuses average value of $C'$ with average rate of change of $C$. The average rate of change is $\\frac{C(4)-C(0)}{4}$, not the average of the derivative over the interval.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -77,6 +122,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct answer: $t \\approx 2.976$ weeks (accepted in range $2.975$–$2.977$).",
+          "official_rubric": "1 point: $t \\approx 2.976$ weeks",
+          "sample_responses": [
+            {
+              "response": "Solving $4t\\,e^{0.2t} \\approx 20.609$ with a calculator gives $t \\approx 2.976$ weeks.",
+              "earned": true,
+              "commentary": "Correctly solves the transcendental equation numerically.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$t \\approx 3.2$ weeks.",
+              "earned": false,
+              "commentary": "Incorrect numerical solution; likely used the average value of $C$ rather than the average rate of change of $C$ in the equation.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -99,6 +159,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Correct limit expression: $\\lim_{t \\to \\infty} C'(t) = \\lim_{t \\to \\infty} 4t\\,e^{0.2t}$.",
+          "official_rubric": "1 point: $\\displaystyle\\lim_{t\\to\\infty} C'(t) = \\lim_{t\\to\\infty} 4t\\,e^{0.2t}$",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\lim_{t\\to\\infty} C'(t) = \\lim_{t\\to\\infty} 4t\\,e^{0.2t}$.",
+              "earned": true,
+              "commentary": "Correctly writes the limit of the rate of change model as $t\\to\\infty$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\displaystyle\\lim_{t\\to\\infty} C(t) = \\lim_{t\\to\\infty}\\left(3+\\int_0^t 4u\\,e^{0.2u}\\,du\\right)$.",
+              "earned": false,
+              "commentary": "Writes the limit of the accumulation function $C(t)$, not the limit of the rate of change $C'(t)$. The problem asks about the end behavior of the rate of change.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -111,6 +186,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct evaluation: the limit equals $\\infty$ (diverges to positive infinity), since $4t\\,e^{0.2t}$ grows without bound as $t \\to \\infty$. Both the polynomial factor $4t$ and the exponential factor $e^{0.2t}$ grow without bound.",
+          "official_rubric": "1 point: limit equals $\\infty$ (grows without bound), since the exponential dominates",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\lim_{t\\to\\infty} 4t\\,e^{0.2t} = \\infty$, because both $4t$ and $e^{0.2t}$ grow without bound as $t\\to\\infty$.",
+              "earned": true,
+              "commentary": "Correctly evaluates the limit as $\\infty$ and provides reasoning about the growth of the factors.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\displaystyle\\lim_{t\\to\\infty} 4t\\,e^{0.2t} = 0$, because $t$ grows slower than $e^{0.2t}$.",
+              "earned": false,
+              "commentary": "Incorrect. The product of a growing polynomial and a growing exponential diverges to $\\infty$, not $0$. A limit of $0$ for an exponential product would only arise if the exponent were negative.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -133,6 +223,21 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Correctly differentiates $A(t)$ using the Fundamental Theorem of Calculus: $A'(t) = C'(t) - 0.1\\ln t = 4t\\,e^{0.2t} - 0.1\\ln t$ for $4 \\leq t \\leq 36$.",
+          "official_rubric": "1 point: $A'(t) = C'(t) - 0.1\\ln t = 4t\\,e^{0.2t} - 0.1\\ln t$",
+          "sample_responses": [
+            {
+              "response": "By FTC, $A'(t) = C'(t) - \\dfrac{d}{dt}\\displaystyle\\int_4^t 0.1\\ln x\\,dx = C'(t) - 0.1\\ln t = 4t\\,e^{0.2t} - 0.1\\ln t$.",
+              "earned": true,
+              "commentary": "Correctly differentiates $A(t) = C(t) - \\int_4^t 0.1\\ln x\\,dx$ using FTC Part 1.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$A'(t) = C'(t) - 0.1/t$.",
+              "earned": false,
+              "commentary": "Differentiates $\\ln t$ as $1/t$ instead of recognizing that the integrand is $0.1\\ln x$, so by FTC the derivative of $\\int_4^t 0.1\\ln x\\,dx$ with respect to $t$ is $0.1\\ln t$, not $0.1/t$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -145,6 +250,21 @@
           "point_id": "d2",
           "point_value": 1,
           "description": "Correctly analyzes the sign of $A'(t)$: since $C'(t) = 4t\\,e^{0.2t} > 0$ for all $t \\geq 4$ and the remediation rate $0.1\\ln t$ is much smaller than $4t\\,e^{0.2t}$ on $[4, 36]$, concludes that $A'(t) > 0$ for all $t$ in $[4, 36]$. (At $t = 4$: $C'(4) = 16e^{0.8} \\approx 35.7$ while $0.1\\ln 4 \\approx 0.139$, so $A'(4) > 0$; similarly at $t = 36$, $C'(36) \\gg 0.1\\ln 36$.)",
+          "official_rubric": "1 point: $A'(t) > 0$ for all $t$ in $[4,36]$ because $4t\\,e^{0.2t} \\gg 0.1\\ln t$ (exponential term dominates logarithmic term)",
+          "sample_responses": [
+            {
+              "response": "At $t=4$: $A'(4) = 4(4)e^{0.8} - 0.1\\ln 4 \\approx 35.7 - 0.139 > 0$. Since $4t\\,e^{0.2t}$ grows much faster than $0.1\\ln t$, $A'(t) > 0$ for all $t\\in[4,36]$.",
+              "earned": true,
+              "commentary": "Evaluates both terms at the left endpoint and notes the exponential dominates throughout the interval.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$A'(t) = 4t\\,e^{0.2t} - 0.1\\ln t = 0$ somewhere in $[4,36]$, so $A$ has a critical point.",
+              "earned": false,
+              "commentary": "Incorrect claim that the two terms are equal on $[4,36]$. Since $4t\\,e^{0.2t} \\gg 0.1\\ln t$ throughout the interval, $A'(t)>0$ everywhere and there is no interior critical point.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -157,6 +277,21 @@
           "point_id": "d3",
           "point_value": 1,
           "description": "Correct conclusion with justification: $A$ attains its maximum value at $t = 36$ because $A'(t) > 0$ for all $t$ in $[4, 36]$, which means $A$ is strictly increasing on the entire interval, so the maximum occurs at the right endpoint.",
+          "official_rubric": "1 point: maximum at $t=36$ because $A'(t)>0$ throughout $[4,36]$, so $A$ is increasing and the maximum is at the right endpoint",
+          "sample_responses": [
+            {
+              "response": "Since $A'(t) > 0$ for all $t\\in[4,36]$, $A$ is strictly increasing on this interval. The maximum therefore occurs at the right endpoint $t = 36$.",
+              "earned": true,
+              "commentary": "Correctly links the positivity of $A'$ to monotone increasing behavior and identifies the right endpoint as the maximum.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The maximum occurs at $t=4$ because that is when the remediation begins.",
+              "earned": false,
+              "commentary": "Incorrect. $A'(t)>0$ on $[4,36]$ means $A$ is increasing, not decreasing. The maximum of an increasing function on a closed interval is at the right endpoint $t=36$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [

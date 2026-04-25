@@ -37,6 +37,21 @@
               ],
               "correct_example": "$\\frac{1}{4-0}\\int_0^4 C(t)\\, dt$"
             }
+          ],
+          "official_rubric": "1 point: correct integral $\\int_0^4 C(t)\\,dt$ with evidence of division by $4$ (e.g., factor $\\frac{1}{4}$ shown or implied by the correct answer).",
+          "sample_responses": [
+            {
+              "response": "Average $= \\dfrac{1}{4-0}\\displaystyle\\int_0^4 C(t)\\,dt = \\dfrac{1}{4}\\displaystyle\\int_0^4 C(t)\\,dt$.",
+              "earned": true,
+              "commentary": "Correct average value formula: divide the integral by the length of the interval $4-0=4$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\displaystyle\\int_0^4 C(t)\\,dt \\approx 11.113$ acres (no division by 4).",
+              "earned": false,
+              "commentary": "Computes the total accumulation but omits division by the interval length; average value requires dividing by $4$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -49,6 +64,21 @@
                 "Correct answer"
               ],
               "correct_example": "$\\frac{1}{4}\\int_0^4 C(t)\\, dt = \\frac{1}{4}(11.112896) \\approx 2.778$ acres"
+            }
+          ],
+          "official_rubric": "1 point: correct answer $\\approx 2.778$ acres (or $2.777$).",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{1}{4}\\displaystyle\\int_0^4 C(t)\\,dt = \\dfrac{1}{4}(11.113) \\approx 2.778$ acres.",
+              "earned": true,
+              "commentary": "Calculator evaluation is correct; answer is accurate to three decimal places.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\dfrac{1}{4}\\displaystyle\\int_0^4 C(t)\\,dt \\approx 2.8$ acres (rounded to one decimal).",
+              "earned": false,
+              "commentary": "Inappropriate rounding; rubric requires accuracy to three decimal places.",
+              "source": "synthesized"
             }
           ]
         }
@@ -73,6 +103,21 @@
               ],
               "correct_example": "$\\frac{C(4) - C(0)}{4 - 0} = \\frac{5.128 - 0}{4} \\approx 1.282$"
             }
+          ],
+          "official_rubric": "1 point: presents the expression or value for the average rate of change: $\\frac{C(4)-C(0)}{4-0} \\approx 1.282$.",
+          "sample_responses": [
+            {
+              "response": "Average rate of change $= \\dfrac{C(4)-C(0)}{4-0} = \\dfrac{5.128-0}{4} \\approx 1.282$ acres per week.",
+              "earned": true,
+              "commentary": "Correctly applies the average rate of change formula using $C(4)\\approx 5.128$ and $C(0)=0$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Just presenting $t = 1.282$ without showing the average rate of change expression.",
+              "earned": false,
+              "commentary": "The rubric requires presenting the average rate of change expression or value, not just the resulting time $t$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -86,6 +131,21 @@
                 "solves"
               ],
               "correct_example": "$\\frac{38}{25 + t^2} = 1.282 \\Rightarrow t \\approx 2.154$ weeks"
+            }
+          ],
+          "official_rubric": "1 point: correct answer $t \\approx 2.154$ (or $2.153$) supported by the equation $C'(t) = \\text{avg rate}$.",
+          "sample_responses": [
+            {
+              "response": "Setting $C'(t) = 1.282$: $\\dfrac{38}{25+t^2} = 1.282 \\Rightarrow t \\approx 2.154$ weeks.",
+              "earned": true,
+              "commentary": "Correctly equates instantaneous rate to average rate and solves with a calculator.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$C'(t) = 1.282 \\Rightarrow t \\approx 2.15$ (insufficient decimal places).",
+              "earned": false,
+              "commentary": "Answer must be accurate to three decimal places; $2.15$ rounds incorrectly and does not meet the precision requirement.",
+              "source": "synthesized"
             }
           ]
         }
@@ -110,6 +170,21 @@
               ],
               "correct_example": "$\\lim_{t \\to \\infty} C'(t) = \\lim_{t \\to \\infty} \\frac{38}{25 + t^2}$"
             }
+          ],
+          "official_rubric": "1 point: writes either $\\lim_{t\\to\\infty} C'(t)$ or $\\lim_{t\\to\\infty} \\frac{38}{25+t^2}$.",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\lim_{t\\to\\infty} C'(t) = \\lim_{t\\to\\infty} \\frac{38}{25+t^2}$.",
+              "earned": true,
+              "commentary": "Correct limit expression describing end behavior of the rate of change.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\displaystyle\\lim_{t\\to\\infty} C(t) = \\lim_{t\\to\\infty} 7.6\\arctan(0.2t)$.",
+              "earned": true,
+              "commentary": "Writing $\\lim_{t\\to\\infty} C(t)$ (not $C'$) earns P5 but is ineligible for P6 (the value would be $7.6\\cdot\\frac{\\pi}{2}$, not $0$).",
+              "source": "cb_guideline"
+            }
           ]
         },
         {
@@ -122,6 +197,21 @@
                 "Correct evaluation"
               ],
               "correct_example": "$\\lim_{t \\to \\infty} \\frac{38}{25+t^2} = 0$"
+            }
+          ],
+          "official_rubric": "1 point: correct value $0$ (only earned if limit expression is $\\lim_{t\\to\\infty} C'(t)$).",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\lim_{t\\to\\infty} \\frac{38}{25+t^2} = 0$ because the numerator is constant and the denominator grows without bound.",
+              "earned": true,
+              "commentary": "As $t\\to\\infty$, $25+t^2\\to\\infty$ so the fraction approaches $0$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\displaystyle\\lim_{t\\to\\infty} \\frac{38}{25+t^2} = \\frac{38}{\\infty} = \\infty$ (incorrect arithmetic with infinity).",
+              "earned": false,
+              "commentary": "Arithmetic with infinity is treated as scratch work per the rubric; a constant divided by an increasingly large denominator approaches $0$, not $\\infty$.",
+              "source": "synthesized"
             }
           ]
         }
