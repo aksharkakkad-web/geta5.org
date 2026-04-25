@@ -34,6 +34,21 @@
                 "lies entirely below the horizontal line $M = 40$"
               ]
             }
+          ],
+          "official_rubric": "1 point: solution curve must pass through $(0,5)$, extend close to left and right edges of the slope field, have no obvious conflicts with slope lines, and lie entirely below $M = 40$.",
+          "sample_responses": [
+            {
+              "response": "Sketch an increasing, concave-down curve starting at $(0, 5)$ that rises toward $M = 40$ as $t$ increases, consistent with the slope field slopes, never touching or crossing $M = 40$.",
+              "earned": true,
+              "commentary": "The general solution $M(t) = 40 - 35e^{-t/4}$ is increasing and concave down ($M'' < 0$), approaching the equilibrium $M = 40$ asymptotically; starting at $M(0)=5$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Sketch a curve that passes through $(0,5)$ but crosses the $M = 40$ line.",
+              "earned": false,
+              "commentary": "The problem states $M(t) < 40$ for all $t$; a curve that crosses $M = 40$ contradicts this condition and would conflict with the horizontal slope-field lines at $M = 40$.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -57,6 +72,21 @@
               ],
               "correct_example": "$\\frac{dM}{dt}\\big|_{t=0} = \\frac{1}{4}(40 - 5) = \\frac{35}{4}$"
             }
+          ],
+          "official_rubric": "1 point: correct slope $\\frac{dM}{dt}\\big|_{t=0} = \\frac{1}{4}(40-5) = \\frac{35}{4}$; value may appear in the tangent line equation or the approximation.",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{dM}{dt}\\bigg|_{t=0} = \\dfrac{1}{4}(40-5) = \\dfrac{35}{4}$.",
+              "earned": true,
+              "commentary": "Substitutes $M(0) = 5$ into the differential equation; the slope of the tangent at $t=0$ is $\\frac{35}{4} = 8.75$ degrees per minute.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\dfrac{dM}{dt}\\bigg|_{t=0} = \\dfrac{1}{4}(40-0) = 10$ (uses $M = 0$ instead of $M(0) = 5$).",
+              "earned": false,
+              "commentary": "Must substitute the given initial condition $M(0) = 5$ into the differential equation, not $M = 0$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -69,6 +99,21 @@
                 "Correct linear approximation"
               ],
               "correct_example": "$M(2) \\approx 5 + \\frac{35}{4}(2) = 5 + \\frac{35}{2} = 22.5$°C"
+            }
+          ],
+          "official_rubric": "1 point: correct approximation $M(2) \\approx 22.5$; must use tangent line through $(0,5)$ with the correct slope; any simplification error forfeits this point.",
+          "sample_responses": [
+            {
+              "response": "$M(2) \\approx 5 + \\dfrac{35}{4}(2) = 5 + \\dfrac{35}{2} = 5 + 17.5 = 22.5$°C.",
+              "earned": true,
+              "commentary": "Tangent line: $L(t) = 5 + \\frac{35}{4}t$; evaluating at $t=2$ gives $5 + \\frac{35}{2} = 22.5$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$M(2) \\approx 5 + \\dfrac{35}{4}(2) = 5 + 17 = 22$ (arithmetic error: $\\frac{35}{4}\\cdot 2 = 17.5$, not $17$).",
+              "earned": false,
+              "commentary": "$\\frac{35}{4} \\times 2 = \\frac{70}{4} = 17.5$, not $17$; any arithmetic error in simplification forfeits the approximation point.",
+              "source": "synthesized"
             }
           ]
         }
@@ -96,6 +141,21 @@
           ],
           "wrong_examples": [
             "does not earn first point but is eligible for second point"
+          ],
+          "official_rubric": "1 point: correct expression $\\frac{d^2M}{dt^2} = -\\frac{1}{16}(40-M)$ (in terms of $M$); presenting only the intermediate $-\\frac{1}{4}\\frac{dM}{dt}$ (not in terms of $M$) does not earn this point but is eligible for the second point.",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{d^2M}{dt^2} = \\dfrac{d}{dt}\\left[\\dfrac{1}{4}(40-M)\\right] = -\\dfrac{1}{4}\\dfrac{dM}{dt} = -\\dfrac{1}{4}\\cdot\\dfrac{1}{4}(40-M) = -\\dfrac{1}{16}(40-M)$.",
+              "earned": true,
+              "commentary": "Differentiates the right side with respect to $t$ using chain rule, then substitutes the DE to express $\\frac{d^2M}{dt^2}$ solely in terms of $M$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\dfrac{d^2M}{dt^2} = \\dfrac{1}{16}(40-M)$ (positive, wrong sign).",
+              "earned": false,
+              "commentary": "The chain rule on $\\frac{1}{4}(40-M)$ gives $-\\frac{1}{4}\\frac{dM}{dt}$, which is negative (since $M$ is increasing and $40-M > 0$); omitting the negative sign produces the wrong expression.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -111,6 +171,21 @@
           ],
           "wrong_examples": [
             "does not earn first point but is eligible for second point"
+          ],
+          "official_rubric": "1 point: must state $\\frac{d^2M}{dt^2} < 0$ (or graph is concave down) over the interval AND conclude overestimate; an argument based on concavity at a single point does not earn this point.",
+          "sample_responses": [
+            {
+              "response": "Since $M(t) < 40$, we have $40-M > 0$, so $\\dfrac{d^2M}{dt^2} = -\\dfrac{1}{16}(40-M) < 0$. Therefore the graph of $M$ is concave down, and the tangent line approximation is an overestimate.",
+              "earned": true,
+              "commentary": "Concave-down graphs lie below their tangent lines; since $M$ is concave down for $M < 40$, the tangent line at $t=0$ gives a value above the true curve, making it an overestimate.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "At $t = 0$: $\\dfrac{d^2M}{dt^2} = -\\dfrac{35}{16} < 0$, so the approximation is an overestimate.",
+              "earned": false,
+              "commentary": "The rubric requires the concavity argument to hold over an interval, not just at a single point; citing only $\\frac{d^2M}{dt^2}$ at $t=0$ does not establish the conclusion for $t = 2$.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -134,6 +209,21 @@
               ],
               "correct_example": "$\\frac{dM}{40-M} = \\frac{1}{4}\\, dt$"
             }
+          ],
+          "official_rubric": "1 point: correctly separates variables so that all $M$ terms are on one side and $t$ terms on the other; a response with no separation earns 0 out of 4 points.",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{dM}{40-M} = \\dfrac{1}{4}\\,dt$.",
+              "earned": true,
+              "commentary": "Divides both sides by $(40-M)$ and multiplies both sides by $dt$; $M$ and $dM$ are now on the left, $t$ and $dt$ on the right.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$dM = \\dfrac{1}{4}(40-M)\\,dt$ (rewritten DE, not separated).",
+              "earned": false,
+              "commentary": "This is just the original DE written in differential form; the variables are not separated — both $M$ and $dM$ must be isolated on one side before integrating.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -146,6 +236,21 @@
                 "Correct antiderivatives"
               ],
               "correct_example": "$-\\ln|40-M| = \\frac{t}{4} + C$ (or equivalent)"
+            }
+          ],
+          "official_rubric": "1 point: correct antiderivatives on both sides; $-\\ln|40-M|$ on the left and $\\frac{t}{4}$ on the right; a response without absolute value symbols is still eligible for all 4 points.",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int \\dfrac{dM}{40-M} = \\displaystyle\\int \\dfrac{1}{4}\\,dt \\Rightarrow -\\ln|40-M| = \\dfrac{t}{4} + C$.",
+              "earned": true,
+              "commentary": "Left side: $\\int\\frac{dM}{40-M} = -\\ln|40-M|$ (u-substitution with $u=40-M$, $du=-dM$); right side: $\\int\\frac{1}{4}dt = \\frac{t}{4}$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\ln|40-M| = \\dfrac{t}{4} + C$ (missing the negative sign).",
+              "earned": false,
+              "commentary": "$\\int\\frac{1}{40-M}dM = -\\ln|40-M| + C$; omitting the negative sign from the left antiderivative is an error that prevents earning this point.",
+              "source": "synthesized"
             }
           ]
         },
@@ -160,6 +265,21 @@
               ],
               "correct_example": "$-\\ln(35) = 0 + C$, so $C = -\\ln 35$"
             }
+          ],
+          "official_rubric": "1 point: correctly incorporates the constant of integration and substitutes $t=0$, $M=5$; must earn points d1 and d2 to be eligible.",
+          "sample_responses": [
+            {
+              "response": "Using $M(0) = 5$: $-\\ln|40-5| = \\dfrac{0}{4} + C \\Rightarrow C = -\\ln 35$.",
+              "earned": true,
+              "commentary": "Substitutes the initial condition into the general solution to solve for the constant; $-\\ln(35)$ is correct since $40-5=35>0$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$-\\ln|40-M| = \\dfrac{t}{4}$ (no constant of integration; applies initial condition but loses $C$).",
+              "earned": false,
+              "commentary": "A response with no constant of integration can earn at most the first 2 separation points; it is not eligible for this point.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -172,6 +292,21 @@
                 "Solves for $M$"
               ],
               "correct_example": "$M(t) = 40 - 35e^{-t/4}$"
+            }
+          ],
+          "official_rubric": "1 point: correct explicit solution $M(t) = 40 - 35e^{-t/4}$ (or equivalent); must earn first three points to be eligible.",
+          "sample_responses": [
+            {
+              "response": "$40-M = 35e^{-t/4} \\Rightarrow M(t) = 40 - 35e^{-t/4}$.",
+              "earned": true,
+              "commentary": "Exponentiates both sides: $e^{-\\ln(40-M)} = e^{t/4-\\ln 35} \\Rightarrow 40-M = 35e^{-t/4}$; then solves for $M$ to get the particular solution.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$M(t) = 40 + 35e^{-t/4}$ (sign error on the exponential term).",
+              "earned": false,
+              "commentary": "$40 - M = 35e^{-t/4}$ gives $M = 40 - 35e^{-t/4}$, not $40 + 35e^{-t/4}$; a plus sign would mean $M > 40$ for all $t$, contradicting $M(t) < 40$.",
+              "source": "synthesized"
             }
           ]
         }
