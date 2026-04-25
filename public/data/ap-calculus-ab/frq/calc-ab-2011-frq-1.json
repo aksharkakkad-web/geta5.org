@@ -27,6 +27,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Evaluates $v(5.5) \\approx -0.453$ and $a(5.5) \\approx -1.359$: both negative",
+          "official_rubric": "1 point: $v(5.5) \\approx -0.45337$ and $a(5.5) \\approx -1.35851$; both are negative.",
+          "sample_responses": [
+            {
+              "response": "$v(5.5) \\approx -0.453 < 0$ and $a(5.5) \\approx -1.359 < 0$",
+              "earned": true,
+              "commentary": "Calculator evaluation of $v(t)$ and $a(t)$ at $t = 5.5$ confirms both are negative.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$v(5.5) \\approx 0.453 > 0$ and $a(5.5) \\approx -1.359 < 0$",
+              "earned": false,
+              "commentary": "Incorrect sign for $v(5.5)$; at $t = 5.5$, $v(5.5) = 2\\sin(e^{5.5/4})+1 \\approx -0.453 < 0$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -40,6 +55,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct conclusion with reason: speed is increasing at $t = 5.5$ because velocity and acceleration have the same sign",
+          "official_rubric": "1 point: speed is increasing at $t = 5.5$ because velocity and acceleration have the same sign (both negative).",
+          "sample_responses": [
+            {
+              "response": "Speed is increasing at $t = 5.5$ because $v(5.5) < 0$ and $a(5.5) < 0$ — velocity and acceleration have the same sign.",
+              "earned": true,
+              "commentary": "When $v$ and $a$ have the same sign, speed $= |v|$ is increasing.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Speed is decreasing at $t = 5.5$ because velocity is negative.",
+              "earned": false,
+              "commentary": "Negative velocity alone does not determine speed; speed increases when $v$ and $a$ have the same sign.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -63,6 +93,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Sets up average velocity",
+          "official_rubric": "1 point: average velocity $= \\dfrac{1}{6}\\displaystyle\\int_0^6 v(t)\\,dt$.",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{1}{6}\\displaystyle\\int_0^6 v(t)\\,dt$",
+              "earned": true,
+              "commentary": "Average velocity $= \\frac{1}{b-a}\\int_a^b v(t)\\,dt$ with $a=0$, $b=6$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\dfrac{1}{6}\\displaystyle\\int_0^6 |v(t)|\\,dt$",
+              "earned": false,
+              "commentary": "That setup gives average speed, not average velocity; must not take the absolute value.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -76,6 +121,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct answer",
+          "official_rubric": "1 point: answer $\\approx 1.949$.",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{1}{6}\\displaystyle\\int_0^6 v(t)\\,dt \\approx 1.949$",
+              "earned": true,
+              "commentary": "Calculator evaluation correct to three decimal places.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\dfrac{1}{6}\\displaystyle\\int_0^6 v(t)\\,dt \\approx 2.1$",
+              "earned": false,
+              "commentary": "Incorrect numerical value; correct calculator answer is $\\approx 1.949$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -99,6 +159,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Sets up total distance",
+          "official_rubric": "1 point: total distance $= \\displaystyle\\int_0^6 |v(t)|\\,dt$.",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^6 |v(t)|\\,dt$",
+              "earned": true,
+              "commentary": "Total distance = integral of speed = $\\int|v(t)|\\,dt$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\displaystyle\\int_0^6 v(t)\\,dt$ (no absolute value)",
+              "earned": false,
+              "commentary": "Without absolute value, cancellations between positive and negative displacements give net displacement, not total distance.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -112,6 +187,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct answer",
+          "official_rubric": "1 point: answer $\\approx 12.573$.",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^6 |v(t)|\\,dt \\approx 12.573$",
+              "earned": true,
+              "commentary": "Calculator evaluation correct.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\displaystyle\\int_0^6 |v(t)|\\,dt \\approx 11.7$",
+              "earned": false,
+              "commentary": "Incorrect; correct answer is $\\approx 12.573$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -135,6 +225,21 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Finds $v(t) = 0$",
+          "official_rubric": "1 point: finds $v(t) = 0$ at $t = b \\approx 5.19552$ where $v$ changes from positive to negative.",
+          "sample_responses": [
+            {
+              "response": "$v(t) = 0$ at $t \\approx 5.196$; $v$ changes from positive to negative here, so the particle reverses direction.",
+              "earned": true,
+              "commentary": "Correct zero from calculator; sign change confirms direction change.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$v(t) = 0$ at $t \\approx 2.5$ (wrong zero)",
+              "earned": false,
+              "commentary": "Incorrect; the only direction change in $[0,6]$ is at $t \\approx 5.196$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -148,6 +253,21 @@
           "point_id": "d2",
           "point_value": 1,
           "description": "Sets up position integral",
+          "official_rubric": "1 point: $x(b) = x(0) + \\displaystyle\\int_0^b v(t)\\,dt = 2 + \\displaystyle\\int_0^b v(t)\\,dt$.",
+          "sample_responses": [
+            {
+              "response": "$x(b) = 2 + \\displaystyle\\int_0^b v(t)\\,dt$ where $b \\approx 5.196$",
+              "earned": true,
+              "commentary": "Uses accumulation: $x(b) = x(0) + \\int_0^b v(t)\\,dt$; $x(0) = 2$ given.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$x(b) = \\displaystyle\\int_0^b v(t)\\,dt$ (omits $x(0) = 2$)",
+              "earned": false,
+              "commentary": "Missing initial position $x(0) = 2$; must add it to the integral.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -161,6 +281,21 @@
           "point_id": "d3",
           "point_value": 1,
           "description": "Correct answer",
+          "official_rubric": "1 point: answer $x(b) \\approx 14.134$ (or $14.135$).",
+          "sample_responses": [
+            {
+              "response": "$x(b) = 2 + \\displaystyle\\int_0^{5.196} v(t)\\,dt \\approx 14.134$",
+              "earned": true,
+              "commentary": "Correct calculator evaluation.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$x(b) \\approx 12.573$ (uses total distance instead of position)",
+              "earned": false,
+              "commentary": "Confuses total distance $\\approx 12.573$ with position; position $= x(0) + \\int_0^b v(t)\\,dt$, not $\\int_0^b |v(t)|\\,dt$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [

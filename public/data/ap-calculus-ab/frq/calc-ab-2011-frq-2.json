@@ -27,6 +27,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct approximation",
+          "official_rubric": "1 point: $H'(3.5) \\approx \\dfrac{H(5) - H(2)}{5 - 2} = \\dfrac{52 - 60}{3} = -\\dfrac{8}{3} \\approx -2.667$ (or $-2.666$) degrees Celsius per minute.",
+          "sample_responses": [
+            {
+              "response": "$H'(3.5) \\approx \\dfrac{H(5) - H(2)}{5 - 2} = \\dfrac{52 - 60}{3} = -\\dfrac{8}{3} \\approx -2.667$ °C/min",
+              "earned": true,
+              "commentary": "Symmetric difference quotient using the table values bracketing $t = 3.5$: $t = 2$ and $t = 5$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$H'(3.5) \\approx \\dfrac{H(5) - H(0)}{5 - 0} = \\dfrac{52 - 66}{5} = -2.8$ °C/min",
+              "earned": false,
+              "commentary": "Uses $t = 0$ and $t = 5$ rather than the two values closest to $t = 3.5$; must use $t = 2$ and $t = 5$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -50,6 +65,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Correct meaning with units",
+          "official_rubric": "1 point: $\\frac{1}{10}\\int_0^{10} H(t)\\,dt$ is the average temperature of the tea, in degrees Celsius, over the 10 minutes.",
+          "sample_responses": [
+            {
+              "response": "$\\frac{1}{10}\\int_0^{10} H(t)\\,dt$ represents the average temperature of the tea in degrees Celsius over the 10-minute period.",
+              "earned": true,
+              "commentary": "Average value of a function formula: $\\frac{1}{b-a}\\int_a^b f(t)\\,dt$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\frac{1}{10}\\int_0^{10} H(t)\\,dt$ is the rate at which the tea cools.",
+              "earned": false,
+              "commentary": "Misidentifies the expression; dividing the integral of temperature by 10 gives average temperature, not cooling rate.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -63,6 +93,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct trapezoidal sum",
+          "official_rubric": "1 point: correct trapezoidal sum using subintervals $[0,2]$, $[2,5]$, $[5,9]$, $[9,10]$ with widths $2$, $3$, $4$, $1$.",
+          "sample_responses": [
+            {
+              "response": "$\\frac{1}{10}\\left[2 \\cdot \\frac{66+60}{2} + 3 \\cdot \\frac{60+52}{2} + 4 \\cdot \\frac{52+44}{2} + 1 \\cdot \\frac{44+43}{2}\\right]$",
+              "earned": true,
+              "commentary": "Four trapezoids with widths $2$, $3$, $4$, $1$ matching the table intervals.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\frac{1}{10}\\left[\\frac{66+60}{2} + \\frac{60+52}{2} + \\frac{52+44}{2} + \\frac{44+43}{2}\\right]$",
+              "earned": false,
+              "commentary": "Treats all subintervals as width 1; must multiply each trapezoid by its actual width ($2$, $3$, $4$, $1$).",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -76,6 +121,21 @@
           "point_id": "b3",
           "point_value": 1,
           "description": "Correct estimate",
+          "official_rubric": "1 point: answer $52.95$ degrees Celsius.",
+          "sample_responses": [
+            {
+              "response": "$\\frac{1}{10}(126 + 168 + 192 + 43.5) = \\frac{529.5}{10} = 52.95$ °C",
+              "earned": true,
+              "commentary": "$2(63) + 3(56) + 4(48) + 1(43.5) = 126 + 168 + 192 + 43.5 = 529.5$; divided by $10$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\frac{1}{10}(126 + 168 + 192 + 43.5) = 53.1$ °C",
+              "earned": false,
+              "commentary": "Arithmetic error; $529.5 / 10 = 52.95$, not $53.1$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -99,6 +159,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Correct value by FTC",
+          "official_rubric": "1 point: $\\int_0^{10} H'(t)\\,dt = H(10) - H(0) = 43 - 66 = -23$ degrees Celsius (by FTC Part 2).",
+          "sample_responses": [
+            {
+              "response": "$\\int_0^{10} H'(t)\\,dt = H(10) - H(0) = 43 - 66 = -23$ degrees Celsius",
+              "earned": true,
+              "commentary": "Direct application of FTC: $\\int_a^b f'(t)\\,dt = f(b) - f(a)$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\int_0^{10} H'(t)\\,dt \\approx -2.667$ (uses derivative approximation)",
+              "earned": false,
+              "commentary": "Uses the approximate derivative value from part (a) instead of FTC; correct answer is $H(10) - H(0) = -23$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -112,6 +187,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct meaning with units: the temperature of the tea drops 23 degrees Celsius from $t = 0$ to $t = 10$ minutes",
+          "official_rubric": "1 point: $\\int_0^{10} H'(t)\\,dt = -23$ degrees Celsius is the total change (decrease) in tea temperature over the 10-minute period.",
+          "sample_responses": [
+            {
+              "response": "The temperature of the tea drops 23 degrees Celsius from $t = 0$ to $t = 10$ minutes.",
+              "earned": true,
+              "commentary": "The integral of the rate of change gives the net change; $-23$ °C means a $23$°C decrease.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "The temperature of the tea is $-23$°C at time $t = 10$.",
+              "earned": false,
+              "commentary": "Confuses net change with final value; the integral gives the change in temperature, not the temperature itself.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -134,6 +224,21 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Correct integrand for biscuit temperature",
+          "official_rubric": "1 point: uses $\\displaystyle\\int_0^{10} B'(t)\\,dt$ as part of accumulation for $B(10)$.",
+          "sample_responses": [
+            {
+              "response": "$B(10) = B(0) + \\displaystyle\\int_0^{10} B'(t)\\,dt = 100 + \\displaystyle\\int_0^{10}(-13.84e^{-0.173t})\\,dt$",
+              "earned": true,
+              "commentary": "Applies FTC: $B(10) = B(0) + \\int_0^{10} B'(t)\\,dt$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$B(10) = \\displaystyle\\int_0^{10} B'(t)\\,dt$",
+              "earned": false,
+              "commentary": "Omits initial condition $B(0) = 100$; must add it to the integral.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -147,6 +252,21 @@
           "point_id": "d2",
           "point_value": 1,
           "description": "Uses initial condition $B(0) = 100$",
+          "official_rubric": "1 point: uses $B(0) = 100$: $B(10) = 100 + \\displaystyle\\int_0^{10}(-13.84e^{-0.173t})\\,dt \\approx 34.183$°C.",
+          "sample_responses": [
+            {
+              "response": "$B(10) = 100 + \\displaystyle\\int_0^{10}(-13.84e^{-0.173t})\\,dt \\approx 100 - 65.817 \\approx 34.183$ °C",
+              "earned": true,
+              "commentary": "Correct application with initial condition; $\\int_0^{10}(-13.84e^{-0.173t})\\,dt \\approx -65.817$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$B(10) = 100 + \\displaystyle\\int_0^{10}(13.84e^{-0.173t})\\,dt \\approx 165.817$ °C",
+              "earned": false,
+              "commentary": "Uses positive integrand instead of $-13.84e^{-0.173t}$; biscuits are cooling, so $B'(t) < 0$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -160,6 +280,21 @@
           "point_id": "d3",
           "point_value": 1,
           "description": "Correct answer",
+          "official_rubric": "1 point: answer $H(10) - B(10) \\approx 8.817$ degrees Celsius (biscuits are cooler).",
+          "sample_responses": [
+            {
+              "response": "$H(10) - B(10) = 43 - 34.183 \\approx 8.817$ degrees Celsius cooler",
+              "earned": true,
+              "commentary": "Subtracts biscuit temperature from tea temperature to get how much cooler the biscuits are.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$B(10) - H(10) = 34.183 - 43 = -8.817$ degrees Celsius",
+              "earned": false,
+              "commentary": "Sign reversed; the question asks how much cooler the biscuits are (positive answer): $H(10) - B(10) \\approx 8.817$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
