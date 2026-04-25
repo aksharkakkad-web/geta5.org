@@ -35,6 +35,21 @@
               ],
               "correct_example": "$(2\\cdot1-4)e^{1-4}$)"
             }
+          ],
+          "official_rubric": "1 point: presents $x_H'(t)$, $x_H'(1)$, or $(2t-4)e^{t^2-4t}$ (chain rule applied to $x_H$).",
+          "sample_responses": [
+            {
+              "response": "$v_H(t) = x_H'(t) = (2t-4)e^{t^2-4t}$, so $v_H(1) = (2-4)e^{-3} = -2e^{-3}$.",
+              "earned": true,
+              "commentary": "Differentiates $e^{t^2-4t}$ using the chain rule: derivative of exponent is $2t-4$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$v_H(1) = -2e^{-3}$ (unsupported).",
+              "earned": false,
+              "commentary": "An unsupported answer earns P2 but not P1; must show the differentiation work.",
+              "source": "cb_guideline"
+            }
           ]
         },
         {
@@ -47,6 +62,21 @@
                 "Correct answer"
               ],
               "correct_example": "$v_H(1) = (2-4)e^{-3} = -2e^{-3}$"
+            }
+          ],
+          "official_rubric": "1 point: correct answer $-2e^{-3}$ or equivalent.",
+          "sample_responses": [
+            {
+              "response": "$v_H(1) = (2(1)-4)e^{1^2-4(1)} = -2e^{-3}$.",
+              "earned": true,
+              "commentary": "Substitutes $t=1$ into the derivative formula.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$v_H(1) = 2e^{-3}$ (sign error).",
+              "earned": false,
+              "commentary": "At $t=1$: $2t-4 = 2-4 = -2$, not $+2$; the velocity is negative at $t=1$.",
+              "source": "synthesized"
             }
           ]
         }
@@ -71,6 +101,21 @@
               ],
               "correct_example": "$v_H(t) = (2t-4)e^{t^2-4t} = 0 \\Rightarrow t = 2$; $v_J(t) = 2t(t^2-1)^3 = 0 \\Rightarrow t = 1$ for $0 < t < 5$"
             }
+          ],
+          "official_rubric": "1 point: sets $v_H=0$ or $v_J=0$, or identifies $t=2$ for particle H or $t=1$ for particle J in $(0,5)$.",
+          "sample_responses": [
+            {
+              "response": "$v_H(t)=0 \\Rightarrow 2t-4=0 \\Rightarrow t=2$. $v_J(t)=0 \\Rightarrow 2t(t^2-1)^3=0 \\Rightarrow t=0$ or $t=1$ (in $(0,5)$: $t=1$).",
+              "earned": true,
+              "commentary": "Identifies the zero of $v_H$ at $t=2$ and the relevant zero of $v_J$ at $t=1$ in the open interval.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Identifies the interval $1<t<2$ directly.",
+              "earned": true,
+              "commentary": "Identifying the correct interval directly is one of the ways to earn P3.",
+              "source": "cb_guideline"
+            }
           ]
         },
         {
@@ -84,6 +129,21 @@
               ],
               "correct_example": "$v_H < 0$ for $0 < t < 2$, $v_H > 0$ for $2 < t < 5$; or $v_J < 0$ for $0 < t < 1$, $v_J > 0$ for $1 < t < 5$"
             }
+          ],
+          "official_rubric": "1 point: complete sign analysis of velocity for at least one particle on $(0,5)$.",
+          "sample_responses": [
+            {
+              "response": "For particle $H$: $v_H < 0$ for $0<t<2$ (moving left), $v_H>0$ for $2<t<5$ (moving right).",
+              "earned": true,
+              "commentary": "Complete sign analysis of $v_H$ on the full interval; this alone earns P4.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$v_H$ changes sign at $t=2$ and $v_J$ changes at $t=1$ (no full direction analysis for either particle).",
+              "earned": false,
+              "commentary": "Must provide a sign analysis on the full interval for at least one particle, not just identify the zero.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -95,6 +155,21 @@
               "required_elements": [
                 "Correct answer with complete reasoning: particles move in opposite directions for $1 < t < 2$ (H moves left, J moves right)"
               ]
+            }
+          ],
+          "official_rubric": "1 point: correct answer $1<t<2$ with correct full direction analyses for both particles.",
+          "sample_responses": [
+            {
+              "response": "Particle $H$: left for $0<t<2$, right for $2<t<5$. Particle $J$: left for $0<t<1$, right for $1<t<5$. Opposite directions: $1<t<2$ (H left, J right).",
+              "earned": true,
+              "commentary": "Provides complete analyses of both particles and correctly intersects the intervals where they move in opposite directions.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Particles move in opposite directions for $0<t<2$.",
+              "earned": false,
+              "commentary": "On $0<t<1$ both particles move left (same direction); the opposite-direction interval is only $1<t<2$.",
+              "source": "synthesized"
             }
           ]
         }
@@ -120,6 +195,21 @@
                 "acceleration have the same sign"
               ]
             }
+          ],
+          "official_rubric": "1 point: speed is increasing because $v_J(2)>0$ and $v_J'(2)>0$ have the same sign.",
+          "sample_responses": [
+            {
+              "response": "From part (b), $v_J(t)>0$ for $1<t<5$, so $v_J(2)>0$. Given $v_J'(2)>0$. Since $v_J$ and $v_J'$ have the same sign at $t=2$, the speed is increasing.",
+              "earned": true,
+              "commentary": "Imports the sign of $v_J(2)$ from part (b) and combines with the given $v_J'(2)>0$ to conclude speed is increasing.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Speed is increasing because $v_J'(2)>0$ means $v_J$ is increasing.",
+              "earned": false,
+              "commentary": "Incomplete: must also establish $v_J(2)>0$; speed $=|v_J|$ increases when $v_J$ and $v_J'$ have the same sign, which requires knowing the sign of both.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -143,6 +233,21 @@
               ],
               "correct_example": "$\\int_0^2 v_J(t)\\, dt = \\int_0^2 2t(t^2-1)^3\\, dt$"
             }
+          ],
+          "official_rubric": "1 point: indefinite or definite integral with integrand $v_J(t)$ or $2t(t^2-1)^3$.",
+          "sample_responses": [
+            {
+              "response": "$x_J(2) = x_J(0) + \\displaystyle\\int_0^2 v_J(t)\\,dt = 7 + \\displaystyle\\int_0^2 2t(t^2-1)^3\\,dt$.",
+              "earned": true,
+              "commentary": "Accumulation form: new position = initial position + integral of velocity.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$x_J(2) = \\displaystyle\\int_0^2 v_J(t)\\,dt$ (omits initial position).",
+              "earned": true,
+              "commentary": "Earns P7 for the correct integrand; P8 and P9 will handle initial condition and final value.",
+              "source": "cb_guideline"
+            }
           ]
         },
         {
@@ -156,6 +261,21 @@
               ],
               "correct_example": "$\\frac{1}{4}(t^2-1)^4 + C$ (using $u = t^2-1$, $du = 2t\\, dt$)"
             }
+          ],
+          "official_rubric": "1 point: correct antiderivative $\\frac{1}{4}(t^2-1)^4$.",
+          "sample_responses": [
+            {
+              "response": "Let $u = t^2-1$, $du = 2t\\,dt$: $\\displaystyle\\int 2t(t^2-1)^3\\,dt = \\displaystyle\\int u^3\\,du = \\dfrac{u^4}{4} = \\dfrac{(t^2-1)^4}{4}$.",
+              "earned": true,
+              "commentary": "U-substitution correctly identifies $u=t^2-1$ and evaluates the resulting power.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\displaystyle\\int 2t(t^2-1)^3\\,dt = \\dfrac{(t^2-1)^4}{4} \\cdot \\dfrac{1}{2t}$ (incorrect chain rule compensation).",
+              "earned": false,
+              "commentary": "Dividing by $2t$ is incorrect; the $2t$ is the $du$ factor, not something to divide out separately.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -168,6 +288,21 @@
                 "Correct answer"
               ],
               "correct_example": "$x_J(2) = 7 + \\int_0^2 2t(t^2-1)^3\\, dt = 7 + \\frac{1}{4}\\left[(3)^4 - (-1)^4\\right] = 7 + \\frac{1}{4}(80) = 7 + 20 = 27$"
+            }
+          ],
+          "official_rubric": "1 point: correct answer $x_J(2) = 27$ (only eligible with correct antiderivative).",
+          "sample_responses": [
+            {
+              "response": "$x_J(2) = 7 + \\left[\\dfrac{(t^2-1)^4}{4}\\right]_0^2 = 7 + \\dfrac{(3)^4}{4} - \\dfrac{(-1)^4}{4} = 7 + \\dfrac{81-1}{4} = 7+20 = 27$.",
+              "earned": true,
+              "commentary": "Evaluates the definite integral using FTC and adds initial position $7$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$x_J(2) = 7 + \\dfrac{(t^2-1)^4}{4}\\Big|_0^2 = 7 + \\dfrac{3^4}{4} = 7 + \\dfrac{81}{4}$ (forgot to subtract lower limit).",
+              "earned": false,
+              "commentary": "Must subtract $F(0)$: $\\frac{(-1)^4}{4} = \\frac{1}{4}$; the definite integral is $\\frac{81}{4}-\\frac{1}{4}=20$, not $\\frac{81}{4}$.",
+              "source": "synthesized"
             }
           ]
         }
