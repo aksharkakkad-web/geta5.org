@@ -203,6 +203,21 @@
               ],
               "correct_example": "$3y^2 \\frac{dy}{dt} + 2x \\frac{dy}{dt} + 2y \\frac{dx}{dt} = 0$"
             }
+          ],
+          "official_rubric": "1 point: differentiates $y^3+2xy=24$ implicitly with respect to $t$: $3y^2\\frac{dy}{dt}+2y\\frac{dx}{dt}+2x\\frac{dy}{dt}=0$.",
+          "sample_responses": [
+            {
+              "response": "Differentiating $y^3+2xy=24$ with respect to $t$: $3y^2\\dfrac{dy}{dt} + 2y\\dfrac{dx}{dt} + 2x\\dfrac{dy}{dt} = 0$.",
+              "earned": true,
+              "commentary": "Applies chain rule to $y^3$ (giving $3y^2\\frac{dy}{dt}$) and product rule to $2xy$ (giving $2y\\frac{dx}{dt}+2x\\frac{dy}{dt}$).",
+              "source": "synthesized"
+            },
+            {
+              "response": "Differentiating: $3y^2\\dfrac{dy}{dt} + 2xy = 0$ (forgot product rule on $2xy$).",
+              "earned": false,
+              "commentary": "Treats $2xy$ as if $x$ is constant; both $x$ and $y$ depend on $t$, so the product rule gives $2y\\frac{dx}{dt}+2x\\frac{dy}{dt}$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -214,6 +229,21 @@
               "required_elements": [
                 "Correct differentiation result (all three terms correct)"
               ]
+            }
+          ],
+          "official_rubric": "1 point: all three terms of the differentiated equation are correct.",
+          "sample_responses": [
+            {
+              "response": "$3y^2\\dfrac{dy}{dt} + 2y\\dfrac{dx}{dt} + 2x\\dfrac{dy}{dt} = 0$ — all three terms correct.",
+              "earned": true,
+              "commentary": "Each term correctly applies the appropriate differentiation rule ($d/dt$ of $y^3$, product rule on $xy$).",
+              "source": "synthesized"
+            },
+            {
+              "response": "$3y^2\\dfrac{dy}{dt} + 2\\dfrac{dx}{dt}\\dfrac{dy}{dt} = 0$ (incorrect product rule application).",
+              "earned": false,
+              "commentary": "The product rule on $2xy$ should give $2y\\frac{dx}{dt}+2x\\frac{dy}{dt}$, not $2\\frac{dx}{dt}\\frac{dy}{dt}$.",
+              "source": "synthesized"
             }
           ]
         },
@@ -227,6 +257,21 @@
                 "Substitutes $\\frac{dy}{dt} = -2$ correctly"
               ]
             }
+          ],
+          "official_rubric": "1 point: substitutes $\\frac{dy}{dt}=-2$ (decreasing = negative) at $(x,y)=(4,2)$.",
+          "sample_responses": [
+            {
+              "response": "At $(4,2)$ with $\\frac{dy}{dt}=-2$: $3(4)(-2) + 2(2)\\frac{dx}{dt} + 2(4)(-2) = 0 \\Rightarrow -24 + 4\\frac{dx}{dt} - 16 = 0$.",
+              "earned": true,
+              "commentary": "Correctly uses $\\frac{dy}{dt}=-2$ (since $y$ is decreasing) and substitutes the coordinates $(4,2)$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Substituting $\\frac{dy}{dt}=2$ (uses $+2$ instead of $-2$).",
+              "earned": false,
+              "commentary": "The $y$-coordinate is decreasing, so $\\frac{dy}{dt}=-2$, not $+2$; using the wrong sign propagates through to an incorrect final answer.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -239,6 +284,21 @@
                 "Correct answer"
               ],
               "correct_example": "$\\frac{dx}{dt} = 10$ units per second; from $3(4)(-2) + 2(4)(-2) + 2(2)\\frac{dx}{dt} = 0 \\Rightarrow -24 - 16 + 4\\frac{dx}{dt} = 0 \\Rightarrow \\frac{dx}{dt} = 10$"
+            }
+          ],
+          "official_rubric": "1 point: correct answer $\\frac{dx}{dt} = 10$ units per second.",
+          "sample_responses": [
+            {
+              "response": "$-24 + 4\\dfrac{dx}{dt} - 16 = 0 \\Rightarrow 4\\dfrac{dx}{dt} = 40 \\Rightarrow \\dfrac{dx}{dt} = 10$ units per second.",
+              "earned": true,
+              "commentary": "Solves for $\\frac{dx}{dt}$ correctly after substituting all known values.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$3(4)(2)+2(2)\\dfrac{dx}{dt}+2(4)(2)=0 \\Rightarrow 24+4\\dfrac{dx}{dt}+16=0 \\Rightarrow \\dfrac{dx}{dt}=-10$.",
+              "earned": false,
+              "commentary": "Using $\\frac{dy}{dt}=+2$ instead of $-2$ gives $\\frac{dx}{dt}=-10$; the sign of $\\frac{dy}{dt}$ is critical.",
+              "source": "synthesized"
             }
           ]
         }
