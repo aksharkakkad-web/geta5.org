@@ -167,6 +167,21 @@
           ],
           "common_traps": [
             "Incorrect antiderivative"
+          ],
+          "official_rubric": "1 point: correct separation — all $H$ terms on one side, all $t$ terms on the other: $\\dfrac{dH}{H-1} = \\dfrac{1}{2}\\cos\\!\\left(\\dfrac{t}{2}\\right)dt$.",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{dH}{H-1} = \\dfrac{1}{2}\\cos\\!\\left(\\dfrac{t}{2}\\right)dt$.",
+              "earned": true,
+              "commentary": "Divides both sides by $(H-1)$ and multiplies by $dt$, cleanly separating variables.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$dH = \\dfrac{1}{2}(H-1)\\cos\\!\\left(\\dfrac{t}{2}\\right)dt$ (unseparated).",
+              "earned": false,
+              "commentary": "Variables are not separated; $H$ still appears on the right side, so the equation cannot be integrated directly.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -183,6 +198,21 @@
           ],
           "common_traps": [
             "Incorrect antiderivative"
+          ],
+          "official_rubric": "1 point: correct antiderivative of left side $\\int \\frac{dH}{H-1} = \\ln|H-1|$.",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int \\frac{dH}{H-1} = \\ln|H-1|$.",
+              "earned": true,
+              "commentary": "Recognizes the $\\frac{1}{u}$ pattern with $u=H-1$; antiderivative is $\\ln|u|$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\displaystyle\\int \\frac{dH}{H-1} = (H-1)^{-1}$ (power rule error).",
+              "earned": false,
+              "commentary": "The power rule gives $\\int u^n du = \\frac{u^{n+1}}{n+1}$ but does not apply when $n=-1$; for $n=-1$ the antiderivative is $\\ln|u|$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -199,6 +229,21 @@
           ],
           "common_traps": [
             "Incorrect antiderivative"
+          ],
+          "official_rubric": "1 point: correct antiderivative of right side $\\int \\frac{1}{2}\\cos(t/2)\\,dt = \\sin(t/2) + C$.",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int \\frac{1}{2}\\cos\\!\\left(\\frac{t}{2}\\right)dt = \\sin\\!\\left(\\frac{t}{2}\\right) + C$.",
+              "earned": true,
+              "commentary": "Uses substitution $u=t/2$: $\\int \\frac{1}{2}\\cos(u)\\cdot 2\\,du/2 = \\int \\cos(u)\\,du\\cdot\\frac{1}{2}\\cdot 2 = \\sin(t/2)$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\displaystyle\\int \\frac{1}{2}\\cos\\!\\left(\\frac{t}{2}\\right)dt = \\frac{1}{4}\\sin\\!\\left(\\frac{t}{2}\\right) + C$.",
+              "earned": false,
+              "commentary": "Incorrect chain-rule factor; $\\frac{d}{dt}\\sin(t/2) = \\frac{1}{2}\\cos(t/2)$, so $\\int \\frac{1}{2}\\cos(t/2)\\,dt = \\sin(t/2)$, not $\\frac{1}{4}\\sin(t/2)$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -214,6 +259,21 @@
           ],
           "common_traps": [
             "Incorrect antiderivative"
+          ],
+          "official_rubric": "1 point: applies $H(0)=4$ to obtain $C=\\ln 3$ (or equivalent).",
+          "sample_responses": [
+            {
+              "response": "Substituting $t=0$, $H=4$: $\\ln|4-1| = \\sin(0) + C \\Rightarrow \\ln 3 = 0 + C$, so $C = \\ln 3$.",
+              "earned": true,
+              "commentary": "Correctly substitutes the initial condition into the general solution to solve for the constant.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Substituting $t=0$, $H=4$: $\\ln(4) = \\sin(0)+C \\Rightarrow C = \\ln 4$.",
+              "earned": false,
+              "commentary": "Left side should be $\\ln|H-1| = \\ln|4-1| = \\ln 3$, not $\\ln H = \\ln 4$; the antiderivative is $\\ln|H-1|$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -230,6 +290,21 @@
           ],
           "common_traps": [
             "Incorrect antiderivative"
+          ],
+          "official_rubric": "1 point: solves for $H$ to obtain $H(t) = 1 + 3e^{\\sin(t/2)}$.",
+          "sample_responses": [
+            {
+              "response": "$\\ln(H-1) = \\sin(t/2) + \\ln 3 \\Rightarrow H-1 = e^{\\sin(t/2)+\\ln 3} = 3e^{\\sin(t/2)} \\Rightarrow H(t) = 1 + 3e^{\\sin(t/2)}$.",
+              "earned": true,
+              "commentary": "Exponentiates both sides and uses $e^{\\ln 3}=3$ to write the particular solution explicitly.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\ln(H-1) = \\sin(t/2) + \\ln 3 \\Rightarrow H(t) = e^{\\sin(t/2) + \\ln 3} = e^{\\sin(t/2)+\\ln 3}$ (not simplified).",
+              "earned": false,
+              "commentary": "Fails to simplify $e^{\\ln 3}=3$ and $e^{\\sin(t/2)+\\ln 3}=3e^{\\sin(t/2)}$; the final form must clearly show $H(t)=1+3e^{\\sin(t/2)}$ or equivalent.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
