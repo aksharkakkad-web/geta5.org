@@ -35,6 +35,21 @@
               ],
               "correct_example": "$3y^2\\frac{dy}{dx} - 2y\\frac{dy}{dx} - \\frac{dy}{dx} + \\frac{x}{2} = 0$"
             }
+          ],
+          "official_rubric": "1 point: correct implicit differentiation of $y^3-y^2-y+\\frac{1}{4}x^2=0$ with respect to $x$.",
+          "sample_responses": [
+            {
+              "response": "$\\dfrac{d}{dx}(y^3-y^2-y+\\tfrac{1}{4}x^2)=0 \\Rightarrow 3y^2\\dfrac{dy}{dx}-2y\\dfrac{dy}{dx}-\\dfrac{dy}{dx}+\\dfrac{x}{2}=0$.",
+              "earned": true,
+              "commentary": "Chain rule applied to each $y$-term; $\\frac{d}{dx}(y^3)=3y^2\\frac{dy}{dx}$, etc.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$3y^2-2y-1+\\dfrac{x}{2}=0$ (treats $y$ as a constant, no $\\frac{dy}{dx}$ factors).",
+              "earned": false,
+              "commentary": "Fails to apply the chain rule; each $y$-term must be multiplied by $\\frac{dy}{dx}$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -47,6 +62,21 @@
                 "Correctly solves for $\\frac{dy}{dx}$ to verify the given expression"
               ],
               "correct_example": "$(3y^2 - 2y - 1)\\frac{dy}{dx} = -\\frac{x}{2}$, so $\\frac{dy}{dx} = \\frac{-x}{2(3y^2-2y-1)}$"
+            }
+          ],
+          "official_rubric": "1 point: correctly isolates $\\frac{dy}{dx}$ to produce the given expression (no subsequent errors; must earn P1).",
+          "sample_responses": [
+            {
+              "response": "$(3y^2-2y-1)\\dfrac{dy}{dx} = -\\dfrac{x}{2} \\Rightarrow \\dfrac{dy}{dx} = \\dfrac{-x}{2(3y^2-2y-1)}$.",
+              "earned": true,
+              "commentary": "Collects all $\\frac{dy}{dx}$ terms and divides both sides by the coefficient to verify the given form.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$(3y^2-2y-1)\\dfrac{dy}{dx} = -\\dfrac{x}{2} \\Rightarrow \\dfrac{dy}{dx} = \\dfrac{-x}{3y^2-2y-1}$ (missing factor of 2).",
+              "earned": false,
+              "commentary": "Forgot to include the factor of 2 from the $\\frac{x}{2}$ term in the denominator; must arrive at the exact given expression.",
+              "source": "synthesized"
             }
           ]
         }
@@ -71,6 +101,21 @@
               ],
               "correct_example": "$\\frac{dy}{dx}\\big|_{(2,-1)} = \\frac{-2}{2(3(1)+2+(-1))} = \\frac{-2}{2(4)} = -\\frac{1}{4}$"
             }
+          ],
+          "official_rubric": "1 point: correct slope $\\frac{dy}{dx}\\big|_{(2,-1)} = -\\frac{1}{4}$.",
+          "sample_responses": [
+            {
+              "response": "$\\left.\\dfrac{dy}{dx}\\right|_{(2,-1)} = \\dfrac{-2}{2(3(-1)^2-2(-1)-1)} = \\dfrac{-2}{2(3+2-1)} = \\dfrac{-2}{8} = -\\dfrac{1}{4}$.",
+              "earned": true,
+              "commentary": "Substitutes $x=2$, $y=-1$ into the given $\\frac{dy}{dx}$ formula; denominator $3y^2-2y-1$ at $y=-1$ is $3+2-1=4$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\left.\\dfrac{dy}{dx}\\right|_{(2,-1)} = \\dfrac{-2}{2(3(1)+2+1)} = \\dfrac{-2}{12} = -\\dfrac{1}{6}$ (sign error on $-2y$).",
+              "earned": false,
+              "commentary": "At $y=-1$: $-2y = -2(-1) = +2$, so $3y^2-2y-1 = 3+2-1=4$; using $+1$ instead of $+2$ gives the wrong denominator.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -83,6 +128,21 @@
                 "Correct linear approximation"
               ],
               "correct_example": "$y \\approx -1 - \\frac{1}{4}(1.6 - 2) = -1 + \\frac{1}{4}(0.4) = -1 + 0.1 = -0.9$"
+            }
+          ],
+          "official_rubric": "1 point: correct linear approximation $y \\approx -1 - \\frac{1}{4}(1.6-2) = -0.9$.",
+          "sample_responses": [
+            {
+              "response": "$y \\approx -1 + \\left(-\\dfrac{1}{4}\\right)(1.6-2) = -1 + \\dfrac{1}{4}(0.4) = -1+0.1 = -0.9$.",
+              "earned": true,
+              "commentary": "Correct application: $L(x) = y_0 + m(x-x_0)$ with $y_0=-1$, $m=-\\frac{1}{4}$, $x=1.6$, $x_0=2$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$y \\approx -1 - \\dfrac{1}{4}(1.6) = -1 - 0.4 = -1.4$ (uses $x$ instead of $x-x_0$).",
+              "earned": false,
+              "commentary": "Linear approximation uses $(x-x_0) = 1.6-2 = -0.4$, not $x=1.6$; must subtract the base point.",
+              "source": "synthesized"
             }
           ]
         }
@@ -107,6 +167,21 @@
               ],
               "correct_example": "$2(3y^2 - 2y - 1) = 0 \\Rightarrow (3y+1)(y-1) = 0$"
             }
+          ],
+          "official_rubric": "1 point: sets denominator $2(3y^2-2y-1)=0$ (or equivalent) to find vertical tangent.",
+          "sample_responses": [
+            {
+              "response": "Vertical tangent when $\\frac{dy}{dx}$ is undefined: $2(3y^2-2y-1) = 0 \\Rightarrow (3y+1)(y-1)=0 \\Rightarrow y=-\\frac{1}{3}$ or $y=1$.",
+              "earned": true,
+              "commentary": "Correctly factors the denominator quadratic and finds both solutions.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Vertical tangent when numerator $= 0$: $-x=0 \\Rightarrow x=0$.",
+              "earned": false,
+              "commentary": "A vertical tangent requires the denominator to be zero (making $\\frac{dy}{dx}$ undefined), not the numerator; setting the numerator to zero gives a horizontal tangent.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -118,6 +193,21 @@
               "required_elements": [
                 "Correct $y$-coordinate: since $y > 0$, the answer is $y = 1$"
               ]
+            }
+          ],
+          "official_rubric": "1 point: correct answer $y=1$ (must discard $y=-\\frac{1}{3}$ using $y>0$ condition).",
+          "sample_responses": [
+            {
+              "response": "$y=-\\frac{1}{3}$ or $y=1$. Since $y>0$, the $y$-coordinate is $y=1$.",
+              "earned": true,
+              "commentary": "Correctly applies the given constraint $y>0$ to select the only valid solution.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$y=-\\frac{1}{3}$ and $y=1$, so the $y$-coordinates are $-\\frac{1}{3}$ and $1$ (fails to apply constraint).",
+              "earned": false,
+              "commentary": "Must clearly identify $y=1$ as the only solution satisfying $y>0$; giving both without selecting earns no credit.",
+              "source": "synthesized"
             }
           ]
         }
