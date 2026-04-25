@@ -33,6 +33,21 @@
                 "By the Fundamental Theorem of Calculus, $g'(x) = f(x)$"
               ]
             }
+          ],
+          "official_rubric": "1 point: states $g'(x) = f(x)$ or $g'(8) = f(8)$ via FTC.",
+          "sample_responses": [
+            {
+              "response": "By the Fundamental Theorem of Calculus, $g'(x) = f(x)$, so $g'(8) = f(8) = 1$.",
+              "earned": true,
+              "commentary": "FTC Part 1: derivative of accumulation function equals the integrand evaluated at $x$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$g'(8) = f(8) - f(6) = 1 - 0 = 1$.",
+              "earned": false,
+              "commentary": "This earns P2 (correct value) but not P1; FTC gives $g'(x)=f(x)$ directly, not $f(x)-f(6)$.",
+              "source": "cb_guideline"
+            }
           ]
         },
         {
@@ -44,6 +59,21 @@
               "required_elements": [
                 "$g'(8) = f(8) = 1$"
               ]
+            }
+          ],
+          "official_rubric": "1 point: $g'(8) = f(8) = 1$ (correct value from graph).",
+          "sample_responses": [
+            {
+              "response": "$g'(8) = f(8) = 1$.",
+              "earned": true,
+              "commentary": "Reads $f(8)=1$ from the graph (linear segment).",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$g'(8) = f(8) = 0$ (reads wrong value from graph).",
+              "earned": false,
+              "commentary": "Incorrect graph reading; $f(8)=1$ on the linear portion of the graph.",
+              "source": "synthesized"
             }
           ]
         }
@@ -68,6 +98,21 @@
               ],
               "correct_example": "$x = -3$, $x = 3$, and $x = 6$ (all three, no extras)"
             }
+          ],
+          "official_rubric": "1 point: exactly $x=-3$, $x=3$, and $x=6$ — no additional values and none missing.",
+          "sample_responses": [
+            {
+              "response": "Points of inflection at $x=-3$, $x=3$, and $x=6$.",
+              "earned": true,
+              "commentary": "All three values where $f$ attains a relative extremum (and thus $f'$ changes sign); no extras.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Points of inflection at $x=-3$, $x=3$, $x=6$, and $x=9$.",
+              "earned": false,
+              "commentary": "Including $x=9$ as an additional point of inflection is incorrect; $f$ does not change between increasing/decreasing at $x=9$, so P3 is not earned.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -80,6 +125,21 @@
                 "Correct reason tied to the graph of $f$"
               ],
               "correct_example": "$g$ has points of inflection where $g'' = f'$ changes sign, i.e., where $f$ changes from increasing to decreasing or decreasing to increasing"
+            }
+          ],
+          "official_rubric": "1 point: reason tied to $f$ — $g$ has inflection points where $f$ changes from increasing to decreasing or vice versa (i.e., where $f$ has a relative extremum).",
+          "sample_responses": [
+            {
+              "response": "$g$ has points of inflection at $x=-3$, $x=3$, $x=6$ because $f$ (equivalently $g'$) changes from decreasing to increasing or increasing to decreasing at those $x$-values.",
+              "earned": true,
+              "commentary": "Ties the reason to the behavior of $f$, as required by the rubric.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$g$ has points of inflection at those $x$-values because $g$ changes concavity there.",
+              "earned": false,
+              "commentary": "Uses an ambiguous term 'the graph' or states concavity without tying it to $f$; rubric requires the reason to reference $f$ (the derivative of $g$).",
+              "source": "synthesized"
             }
           ]
         }
@@ -104,6 +164,21 @@
                 "height 3)"
               ]
             }
+          ],
+          "official_rubric": "1 point: $g(12) = 9$ (labeled), using the area of the triangular region from $x=6$ to $x=12$.",
+          "sample_responses": [
+            {
+              "response": "$g(12) = \\displaystyle\\int_6^{12} f(t)\\,dt = \\frac{1}{2}(6)(3) = 9$.",
+              "earned": true,
+              "commentary": "Linear segment forms a triangle; area $= \\frac{1}{2}\\cdot\\text{base}\\cdot\\text{height} = \\frac{1}{2}(6)(3)=9$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$9$ (unlabeled).",
+              "earned": false,
+              "commentary": "Rubric requires a label; an unlabeled value earns no credit for either part (c) answer.",
+              "source": "cb_guideline"
+            }
           ]
         },
         {
@@ -115,6 +190,21 @@
               "required_elements": [
                 "$g(0) = \\int_6^0 f(t)\\, dt = -\\int_0^6 f(t)\\, dt = -\\frac{\\pi(3)^2}{2} = -\\frac{9\\pi}{2}$ (semicircle of radius 3)"
               ]
+            }
+          ],
+          "official_rubric": "1 point: $g(0) = -\\frac{9\\pi}{2}$ (labeled), using the reversed-sign area of the upper semicircle of radius 3.",
+          "sample_responses": [
+            {
+              "response": "$g(0) = \\displaystyle\\int_6^0 f(t)\\,dt = -\\displaystyle\\int_0^6 f(t)\\,dt = -\\frac{\\pi(3)^2}{2} = -\\frac{9\\pi}{2}$.",
+              "earned": true,
+              "commentary": "Reversing the limits introduces a negative sign; $\\int_0^6 f(t)\\,dt = $ area of upper semicircle $= \\frac{\\pi(3)^2}{2}$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$g(0) = \\dfrac{9\\pi}{2}$ (positive, missing the sign reversal).",
+              "earned": false,
+              "commentary": "Integrating from $6$ to $0$ reverses the direction; the sign must be negative since the limits go from right to left over a positive-$f$ region.",
+              "source": "synthesized"
             }
           ]
         }
@@ -145,6 +235,21 @@
           ],
           "common_traps": [
             "Using a local argument instead of a global argument for optimization"
+          ],
+          "official_rubric": "1 point: considers $g'(x)=f(x)=0$ or discusses sign changes of $f$; identifies critical points $x=0$ and $x=6$.",
+          "sample_responses": [
+            {
+              "response": "Setting $g'(x) = f(x) = 0$: from the graph, $f(x)=0$ at $x=0$ and $x=6$ in $[-6,12]$.",
+              "earned": true,
+              "commentary": "Links $g'=f$ via FTC and reads the zeros of $f$ from the graph as critical points.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Just stating $x=0$ and $x=6$ without any setup.",
+              "earned": false,
+              "commentary": "Must consider $g'(x)=f(x)=0$ or equivalent; bare values do not earn P7.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -164,6 +269,21 @@
           ],
           "common_traps": [
             "Using a local argument instead of a global argument for optimization"
+          ],
+          "official_rubric": "1 point: global argument — evaluates or reasons about $g$ at all candidates: $g(-6)=0$, $g(0)=-\\frac{9\\pi}{2}$, $g(6)=0$, $g(12)=9$.",
+          "sample_responses": [
+            {
+              "response": "Candidates test: $g(-6)=0$, $g(0)=-\\frac{9\\pi}{2}\\approx-14.1$, $g(6)=0$, $g(12)=9$. The minimum is $g(0)=-\\frac{9\\pi}{2}$, so absolute min at $x=0$.",
+              "earned": true,
+              "commentary": "Evaluates $g$ at both endpoints and all critical points; compares to identify global minimum.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$g''(0) = f'(0) > 0$, so $x=0$ is a local minimum.",
+              "earned": false,
+              "commentary": "Second derivative test is a local argument; for an absolute minimum on a closed interval, must evaluate $g$ at all candidate points globally.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -183,6 +303,21 @@
           ],
           "common_traps": [
             "Using a local argument instead of a global argument for optimization"
+          ],
+          "official_rubric": "1 point: correct answer $x=0$.",
+          "sample_responses": [
+            {
+              "response": "On $[-6,12]$, $g$ attains its absolute minimum at $x=0$.",
+              "earned": true,
+              "commentary": "$g(0)=-\\frac{9\\pi}{2}$ is less than all other candidate values.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$g$ attains its absolute minimum at $x=-6$.",
+              "earned": false,
+              "commentary": "$g(-6)=\\int_6^{-6}f(t)\\,dt = 0$; this is not the minimum — $g(0) = -\\frac{9\\pi}{2} \\approx -14.1 < 0$.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
