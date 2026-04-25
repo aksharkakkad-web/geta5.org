@@ -52,6 +52,15 @@ export default function DrillSession({ session, subject, onComplete, onStartFres
   const [styles, setStyles] = useState<DrillStyleSettings>(() => loadDrillStyles())
   const [settingsOpen, setSettingsOpen] = useState(false)
   const [blockedMsg, setBlockedMsg] = useState(false)
+  // Show hint only for users who have never saved style preferences (key absent in localStorage)
+  const [showStylesHint, setShowStylesHint] = useState(() =>
+    typeof window !== 'undefined' && window.localStorage.getItem('ascendly_drill_styles') === null
+  )
+
+  function dismissStylesHint() {
+    setShowStylesHint(false)
+    saveDrillStyles(loadDrillStyles()) // writes the key so the hint never reappears
+  }
   const stylePlanRef = useRef<StylePlan>(
     computeStylePlan(session.workingDeck ?? [...session.cards], loadDrillStyles())
   )
@@ -294,6 +303,22 @@ export default function DrillSession({ session, subject, onComplete, onStartFres
           )}
         </div>
       </div>
+
+      {/* One-time hint for new users: typed recall is the default */}
+      {showStylesHint && !settingsOpen && (
+        <div style={{ marginTop: '8px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px', padding: '8px 12px', borderRadius: 'var(--radius-md)', background: 'color-mix(in srgb, var(--accent) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--accent) 20%, transparent)' }}>
+          <span style={{ fontSize: '0.8125rem', color: 'var(--text-secondary)', lineHeight: 1.4 }}>
+            <span style={{ color: 'var(--accent)', fontWeight: 600 }}>Typed recall</span> is on by default — the most effective way to study. Tap <Settings size={11} style={{ display: 'inline', verticalAlign: 'middle', marginBottom: '1px' }} /> to add other styles.
+          </span>
+          <button
+            onClick={dismissStylesHint}
+            style={{ flexShrink: 0, background: 'transparent', border: 'none', cursor: 'pointer', color: 'var(--text-muted)', padding: '2px', display: 'flex', alignItems: 'center' }}
+            aria-label="Dismiss"
+          >
+            <X size={13} />
+          </button>
+        </div>
+      )}
 
       {/* Settings panel */}
       {settingsOpen && (
