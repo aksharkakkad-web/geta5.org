@@ -38,6 +38,21 @@
           ],
           "wrong_examples": [
             "earns no points"
+          ],
+          "official_rubric": "1 point: considers $v(t) = 0$ or the sign of $v(t)$; earns only if the response includes the analysis (bare answer of $t=56$ earns nothing).",
+          "sample_responses": [
+            {
+              "response": "Stephen changes direction when $v(t) = 0$. For $0 < t < 90$: $v(t) = 0 \\Rightarrow \\sin\\left(\\frac{\\pi t}{56}\\right) = 0 \\Rightarrow t = 56$.",
+              "earned": true,
+              "commentary": "$2.38e^{-0.02t} > 0$ for all $t$, so $v(t) = 0$ only when $\\sin(\\pi t/56) = 0$, i.e., $\\pi t/56 = \\pi$, giving $t = 56$ in the interval.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Stephen changes direction at $t = 56$.",
+              "earned": false,
+              "commentary": "An unsupported answer of $t = 56$ with no analysis of $v(t) = 0$ or sign change earns neither point.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -53,6 +68,21 @@
           ],
           "wrong_examples": [
             "earns no points"
+          ],
+          "official_rubric": "1 point: states $t = 56$ is the answer with reason that velocity changes sign there. Must earn P1 first.",
+          "sample_responses": [
+            {
+              "response": "Stephen changes direction at $t = 56$ seconds because his velocity changes sign from positive to negative at that time.",
+              "earned": true,
+              "commentary": "For $0 < t < 56$: $v(t) > 0$ (moving in one direction); for $56 < t < 90$: $v(t) < 0$ (moving in the opposite direction); the sign change confirms direction reversal.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Stephen changes direction at $t = 56$ seconds because his acceleration equals zero there.",
+              "earned": false,
+              "commentary": "Direction change is indicated by a sign change in velocity, not by acceleration being zero; $a(56) = 0$ is neither necessary nor sufficient for direction change.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -76,6 +106,21 @@
               ],
               "correct_example": "$a(60) = v'(60) \\approx -0.036$ meters per second per second"
             }
+          ],
+          "official_rubric": "1 point: must explicitly show $v'(60) = a(60)$ or $v(t) = a(t)$; minimum accepted is $v'(60) = -0.036$. Simply writing $a(60) = -0.036$ without the connection to $v'$ does not earn this point.",
+          "sample_responses": [
+            {
+              "response": "$a(60) = v'(60) \\approx -0.036$ meters per second per second.",
+              "earned": true,
+              "commentary": "Correctly links acceleration to the derivative of velocity and computes $v'(60)$ numerically; connection $a=v'$ is explicit.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$a(60) \\approx -0.036$ meters per second per second (no setup shown).",
+              "earned": false,
+              "commentary": "The connection $a(60) = v'(60)$ must be shown explicitly; stating only the numerical value without the derivative setup does not earn this point.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -87,6 +132,21 @@
               "required_elements": [
                 "Correct units: meters per second per second (or m/s$^2$)"
               ]
+            }
+          ],
+          "official_rubric": "1 point: units of meters per second per second (m/s² or m/sec²) stated; must have a declared value for $a(60)$ to be eligible.",
+          "sample_responses": [
+            {
+              "response": "Stephen's acceleration at $t = 60$ seconds is $-0.036$ meters per second per second.",
+              "earned": true,
+              "commentary": "Acceleration has dimensions of $\\frac{\\text{meters/second}}{\\text{second}}$ = meters per second per second; this is correct.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Stephen's acceleration at $t = 60$ seconds is $-0.036$ meters per second.",
+              "earned": false,
+              "commentary": "Meters per second is the unit of velocity, not acceleration; acceleration must be expressed as meters per second per second (or m/s²).",
+              "source": "synthesized"
             }
           ]
         },
@@ -100,6 +160,21 @@
                 "Stephen is speeding up at $t = 60$ seconds because $v(60) \\approx -0.160 < 0$",
                 "$a(60) \\approx -0.036 < 0$ have the same sign"
               ]
+            }
+          ],
+          "official_rubric": "1 point: conclusion consistent with a negative $v(60)$ and the declared $a(60)$; may state $v(60)$ and $a(60)$ have the same sign without computing $v(60)$ explicitly.",
+          "sample_responses": [
+            {
+              "response": "Stephen is speeding up at $t = 60$ seconds because $v(60) \\approx -0.160 < 0$ and $a(60) \\approx -0.036 < 0$ have the same sign.",
+              "earned": true,
+              "commentary": "An object speeds up when velocity and acceleration have the same sign (both pulling in the same direction); both are negative here, confirming Stephen is speeding up.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Stephen is slowing down at $t = 60$ seconds because his acceleration is negative.",
+              "earned": false,
+              "commentary": "Negative acceleration alone does not imply slowing down; since velocity is also negative at $t = 60$, the speed $|v|$ is increasing — Stephen is speeding up.",
+              "source": "synthesized"
             }
           ]
         }
@@ -124,6 +199,21 @@
               ],
               "correct_example": "$\\left|\\int_{20}^{80} v(t)\\, dt\\right|$ or equivalently $\\left|x(80) - x(20)\\right|$"
             }
+          ],
+          "official_rubric": "1 point: $\\int_{20}^{80} v(t)\\,dt$ (signed integral giving displacement); note $\\int_{20}^{80}|v(t)|\\,dt$ would give total distance, which is a different quantity.",
+          "sample_responses": [
+            {
+              "response": "Distance $= \\left|\\displaystyle\\int_{20}^{80} v(t)\\,dt\\right|$.",
+              "earned": true,
+              "commentary": "Distance between two positions equals the absolute value of displacement, which is $|\\int_{20}^{80} v(t)\\,dt|$; the unsigned integral gives the signed displacement.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Distance $= \\displaystyle\\int_{20}^{80} |v(t)|\\,dt$ (total path length instead of distance between positions).",
+              "earned": false,
+              "commentary": "$\\int_{20}^{80}|v(t)|\\,dt$ gives the total path length, not the distance between the two positions; the problem asks for distance between positions, which uses the (unsigned) displacement integral.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -136,6 +226,21 @@
                 "Correct answer"
               ],
               "correct_example": "$\\approx 23.384$ (or $23.383$) meters"
+            }
+          ],
+          "official_rubric": "1 point: correct answer $23.384$ (or $23.383$) meters; earned regardless of whether the setup point was earned.",
+          "sample_responses": [
+            {
+              "response": "$\\left|\\displaystyle\\int_{20}^{80} v(t)\\,dt\\right| \\approx 23.384$ meters.",
+              "earned": true,
+              "commentary": "Calculator evaluation gives $\\int_{20}^{80} v(t)\\,dt \\approx 23.384$; since the value is positive, the absolute value does not change it.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\left|\\displaystyle\\int_{20}^{80} v(t)\\,dt\\right| \\approx 23.38$ meters (two decimal places).",
+              "earned": false,
+              "commentary": "Three decimal places are required; $23.38$ is insufficiently precise.",
+              "source": "synthesized"
             }
           ]
         }
@@ -160,6 +265,21 @@
               ],
               "correct_example": "$\\int_0^{90} |v(t)|\\, dt$ or equivalent split: $\\int_0^{56} v(t)\\, dt - \\int_{56}^{90} v(t)\\, dt$"
             }
+          ],
+          "official_rubric": "1 point: $\\int_0^{90}|v(t)|\\,dt$ or equivalent split at $t=56$: $\\int_0^{56} v(t)\\,dt - \\int_{56}^{90} v(t)\\,dt$.",
+          "sample_responses": [
+            {
+              "response": "Total distance $= \\displaystyle\\int_0^{90} |v(t)|\\,dt$.",
+              "earned": true,
+              "commentary": "Total distance (arc length along the number line) is always $\\int|v(t)|\\,dt$; the absolute value accounts for the direction reversal at $t = 56$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "Total distance $= \\displaystyle\\int_0^{90} v(t)\\,dt$ (signed integral, no absolute value).",
+              "earned": false,
+              "commentary": "The signed integral $\\int_0^{90} v(t)\\,dt$ gives net displacement (which could cancel if Stephen swims back), not total distance traveled; absolute value or splitting at $t=56$ is required.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -172,6 +292,21 @@
                 "Correct answer"
               ],
               "correct_example": "$\\approx 62.164$ meters"
+            }
+          ],
+          "official_rubric": "1 point: correct answer $62.164$ meters; earned regardless of whether the setup point was earned.",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^{90}|v(t)|\\,dt \\approx 62.164$ meters.",
+              "earned": true,
+              "commentary": "Calculator evaluation of the total distance integral gives $62.164$ meters to three decimal places.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\displaystyle\\int_0^{90}|v(t)|\\,dt \\approx 62.2$ meters.",
+              "earned": false,
+              "commentary": "Must report three decimal places; $62.2$ is insufficiently precise and does not earn the answer point.",
+              "source": "synthesized"
             }
           ]
         }
