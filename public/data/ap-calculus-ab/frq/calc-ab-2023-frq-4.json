@@ -37,6 +37,21 @@
           ],
           "wrong_examples": [
             "does not earn the point"
+          ],
+          "official_rubric": "1 point: answer 'neither' with reason that $f'$ does not change sign at $x = 6$; stating only '$f' > 0$ on both sides' without explicitly noting no sign change does not earn the point.",
+          "sample_responses": [
+            {
+              "response": "$f'(x) > 0$ on $(2, 6)$ and $f'(x) > 0$ on $(6, 8)$. Since $f'$ does not change sign at $x = 6$, there is neither a relative maximum nor a relative minimum at $x = 6$.",
+              "earned": true,
+              "commentary": "The first derivative test requires a sign change of $f'$ for a local extremum; since $f' > 0$ on both sides of $x=6$, no extremum exists there.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$f'(x) > 0$ on $(2, 6)$ and $f'(x) > 0$ on $(6, 8)$, so there is neither a maximum nor minimum at $x = 6$ (no mention of sign change).",
+              "earned": false,
+              "commentary": "Must explicitly state that $f'$ does not change sign at $x = 6$; simply noting $f' > 0$ on both sides without drawing the sign-change conclusion is insufficient.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -60,6 +75,21 @@
               ],
               "correct_example": "$(-2, 0)$ and $(4, 6)$"
             }
+          ],
+          "official_rubric": "1 point: exactly $(-2, 0)$ and $(4, 6)$ (may include one or both endpoints); if only one interval is given with correct reason, earns 1 of the 2 available points total.",
+          "sample_responses": [
+            {
+              "response": "$f$ is concave down on $(-2, 0)$ and $(4, 6)$.",
+              "earned": true,
+              "commentary": "These are the intervals on which $f'$ (the graph shown) is decreasing, which means $f'' < 0$, hence $f$ is concave down.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$f$ is concave down on $(-2, 0)$ only (misses $(4,6)$).",
+              "earned": false,
+              "commentary": "Both intervals must be listed for this point; giving only one of the two correct intervals does not earn P3.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -72,6 +102,21 @@
                 "Correct reason"
               ],
               "correct_example": "$f'$ is decreasing on these intervals (so $f'' < 0$)"
+            }
+          ],
+          "official_rubric": "1 point: reason must correctly reference the behavior of $f'$ (e.g., $f'$ is decreasing); must earn the intervals point first to be eligible.",
+          "sample_responses": [
+            {
+              "response": "$f$ is concave down on $(-2, 0)$ and $(4, 6)$ because $f'$ is decreasing on those intervals.",
+              "earned": true,
+              "commentary": "Concavity of $f$ is determined by the sign of $f'' = (f')'$; where $f'$ is decreasing, $(f')' < 0$, so $f'' < 0$ and $f$ is concave down.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$f$ is concave down on $(-2, 0)$ and $(4, 6)$ because the graph of $f$ curves downward.",
+              "earned": false,
+              "commentary": "Describing the shape of $f$ itself is circular; the reason must reference $f'$ decreasing or $f'' < 0$ on those intervals.",
+              "source": "synthesized"
             }
           ]
         }
@@ -100,6 +145,21 @@
           ],
           "wrong_examples": [
             "does not earn first point"
+          ],
+          "official_rubric": "1 point: presents two separate limits for numerator and denominator; a response that jumps directly to '$\\frac{0}{0}$' without evaluating the two limits separately does not earn this point.",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\lim_{x\\to 2}(6f(x)-3x) = 6(1)-6 = 0$ and $\\displaystyle\\lim_{x\\to 2}(x^2-5x+6) = 4-10+6 = 0$; since this is $\\frac{0}{0}$ form, apply L'Hôpital's Rule.",
+              "earned": true,
+              "commentary": "Uses $f(2)=1$ (given); both the numerator and denominator limits are shown individually before invoking L'Hôpital's Rule.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "The limit is $\\dfrac{0}{0}$ so apply L'Hôpital's Rule (no separate limits shown).",
+              "earned": false,
+              "commentary": "Must show the two limits separately; presenting only the final $\\frac{0}{0}$ form without each individual limit does not earn this point.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -116,6 +176,21 @@
           ],
           "wrong_examples": [
             "does not earn first point"
+          ],
+          "official_rubric": "1 point: applies L'Hôpital's Rule by presenting at least one correct derivative in the ratio; must show differentiation of numerator and/or denominator.",
+          "sample_responses": [
+            {
+              "response": "By L'Hôpital's Rule: $\\displaystyle\\lim_{x\\to 2}\\dfrac{6f(x)-3x}{x^2-5x+6} = \\displaystyle\\lim_{x\\to 2}\\dfrac{6f'(x)-3}{2x-5}$.",
+              "earned": true,
+              "commentary": "Differentiates numerator to $6f'(x)-3$ and denominator to $2x-5$; both derivatives are correct.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\displaystyle\\lim_{x\\to 2}\\dfrac{6f'(x)-3x}{2x-5}$ (forgets to differentiate the $-3x$ term fully — should give $-3$, not $-3x$).",
+              "earned": false,
+              "commentary": "The derivative of the numerator $6f(x)-3x$ is $6f'(x)-3$, not $6f'(x)-3x$; failing to differentiate $-3x$ correctly means the L'Hôpital's step is incorrect.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -132,6 +207,21 @@
           ],
           "wrong_examples": [
             "does not earn first point"
+          ],
+          "official_rubric": "1 point: correct answer $3$ with supporting work showing substitution of $f'(2) = 0$ (from graph) and $x = 2$.",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\lim_{x\\to 2}\\dfrac{6f'(x)-3}{2x-5} = \\dfrac{6f'(2)-3}{2(2)-5} = \\dfrac{6(0)-3}{-1} = \\dfrac{-3}{-1} = 3$.",
+              "earned": true,
+              "commentary": "From the graph, $f'(2) = 0$ (the semicircle portion of $f'$ passes through $x=2$); substituting gives $\\frac{-3}{-1} = 3$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$\\displaystyle\\lim_{x\\to 2}\\dfrac{6f'(x)-3}{2x-5} = \\dfrac{6(1)-3}{2(2)-5} = \\dfrac{3}{-1} = -3$ (uses $f'(2)=1$ instead of $f'(2)=0$).",
+              "earned": false,
+              "commentary": "From the graph of $f'$, the value at $x=2$ is $f'(2)=0$ (the semicircle from $x=2$ to $x=6$ starts at zero); using $f'(2)=1=f(2)$ confuses the function with its derivative.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -155,6 +245,21 @@
               ],
               "correct_example": "$x = -1$, $x = 2$, $x = 6$"
             }
+          ],
+          "official_rubric": "1 point: states $f'(x) = 0$ or equivalent; listing zeros of $f'$ without the statement is not sufficient.",
+          "sample_responses": [
+            {
+              "response": "Critical points where $f'(x) = 0$: from the graph, $f'(x) = 0$ at $x = -1$, $x = 2$, and $x = 6$.",
+              "earned": true,
+              "commentary": "From the graph: the two line segments cross zero at $x=-1$ and $x=2$; the semicircle touches zero at $x=2$ and $x=6$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "The candidates are $x = -2, -1, 2, 6, 8$ (lists values without stating $f' = 0$).",
+              "earned": false,
+              "commentary": "Must explicitly state $f'(x) = 0$ as the criterion for identifying critical points; bare listing does not earn this point.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -169,6 +274,21 @@
               ],
               "correct_example": "$f(-2) = 3$, $f(-1) = 4$, $f(2) = 1$, $f(6) = 7 - \\pi$, $f(8) = 11 - 2\\pi$ (using FTC from $f(2) = 1$)"
             }
+          ],
+          "official_rubric": "1 point: correctly evaluates $f$ at all candidates; any error in any $f$-value forfeits this point; must consider both endpoints.",
+          "sample_responses": [
+            {
+              "response": "$f(-2)=3$, $f(-1)=4$, $f(2)=1$, $f(6)=7-\\pi$, $f(8)=11-2\\pi$. The minimum is $f(2)=1$.",
+              "earned": true,
+              "commentary": "Uses $f(2)=1$ (given) and FTC: $f(x) = 1 + \\int_2^x f'(t)\\,dt$; integrates the graph of $f'$ (line segments and semicircle) from $x=2$ to each candidate.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "$f(-2)=3$, $f(-1)=4$, $f(2)=1$, $f(6)=7+\\pi$ (wrong sign on semicircle area).",
+              "earned": false,
+              "commentary": "The semicircle in $f'$ is above the $x$-axis from $x=2$ to $x=6$, contributing $+\\frac{\\pi(2)^2}{2} = 2\\pi$ to $f(6) - f(2)$; $f(6) = 1 + 2\pi + (2)(2)/2... $ — any error in computing these integrals forfeits the justification point.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -181,6 +301,21 @@
                 "Correct answer"
               ],
               "correct_example": "The absolute minimum value is $f(2) = 1$"
+            }
+          ],
+          "official_rubric": "1 point: correct answer stating the minimum VALUE is $1$ (not just the location $x = 2$).",
+          "sample_responses": [
+            {
+              "response": "Since $f(2) = 1 < f(-2) = 3 < f(-1) = 4 < f(6) = 7-\\pi < f(8) = 11-2\\pi$, the absolute minimum value is $\\mathbf{1}$.",
+              "earned": true,
+              "commentary": "$7-\\pi \\approx 3.86$ and $11-2\\pi \\approx 4.72$, all greater than $1$; the minimum value is $f(2)=1$.",
+              "source": "cb_guideline"
+            },
+            {
+              "response": "The absolute minimum occurs at $x = 2$.",
+              "earned": false,
+              "commentary": "The rubric awards the answer point for the minimum VALUE ($f(2)=1$), not merely for stating the location; must declare the value $1$.",
+              "source": "synthesized"
             }
           ]
         }
