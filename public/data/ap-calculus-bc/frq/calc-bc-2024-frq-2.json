@@ -30,6 +30,21 @@
           "point_id": "a1",
           "point_value": 1,
           "description": "Correct setup for speed as magnitude of the velocity vector: $\\text{speed} = \\sqrt{\\left(\\dfrac{dx}{dt}\\bigg|_{t=2}\\right)^2 + \\left(\\dfrac{dy}{dt}\\bigg|_{t=2}\\right)^2}$. At $t = 2$: $\\dfrac{dx}{dt} = 4 - 2 - 6 = -4$ and $\\dfrac{dy}{dt} = 3\\cos(4)$.",
+          "official_rubric": "1 point: speed $= \\sqrt{\\left(\\frac{dx}{dt}\\right)^2+\\left(\\frac{dy}{dt}\\right)^2}$ evaluated at $t=2$, with $\\frac{dx}{dt}\\big|_{t=2}=-4$ and $\\frac{dy}{dt}\\big|_{t=2}=3\\cos(4)$",
+          "sample_responses": [
+            {
+              "response": "At $t=2$: $\\dfrac{dx}{dt}=4-2-6=-4$ and $\\dfrac{dy}{dt}=3\\cos(4)$. Speed $= \\sqrt{(-4)^2+(3\\cos 4)^2}$.",
+              "earned": true,
+              "commentary": "Correctly sets up speed as the magnitude of the velocity vector and evaluates both component derivatives at $t=2$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Velocity at $t=2$ is $\\langle -4,\\, 3\\cos(4)\\rangle$.",
+              "earned": false,
+              "commentary": "Reports the velocity vector, not the scalar speed. Speed requires taking the magnitude: $\\sqrt{(-4)^2+(3\\cos 4)^2}$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -46,6 +61,21 @@
           "point_id": "a2",
           "point_value": 1,
           "description": "Correct answer: $\\text{speed} = \\sqrt{(-4)^2 + (3\\cos 4)^2} = \\sqrt{16 + 9\\cos^2(4)} \\approx 4.382$ (or equivalent decimal)",
+          "official_rubric": "1 point: speed $\\approx 4.382$ (or $\\sqrt{16+9\\cos^2(4)}$)",
+          "sample_responses": [
+            {
+              "response": "$\\text{speed} = \\sqrt{16+9\\cos^2(4)} \\approx 4.382$ units per second.",
+              "earned": true,
+              "commentary": "Correctly computes the magnitude and gives the decimal approximation to three decimal places.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\text{speed} = \\sqrt{(-4)^2+(3\\cos 4)^2} = \\sqrt{16+9} = 5$.",
+              "earned": false,
+              "commentary": "Incorrectly simplifies $\\cos(4) = 1$. The argument is $4$ radians, not $4\\pi$; $\\cos(4) \\approx -0.654$, so $9\\cos^2(4) \\approx 3.84$, not $9$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -68,6 +98,21 @@
           "point_id": "b1",
           "point_value": 1,
           "description": "Correct arc length integral setup: $\\displaystyle\\int_0^2 \\sqrt{\\left(\\frac{dx}{dt}\\right)^2 + \\left(\\frac{dy}{dt}\\right)^2}\\,dt = \\displaystyle\\int_0^2 \\sqrt{(t^2 - t - 6)^2 + 9\\cos^2(t^2)}\\,dt$",
+          "official_rubric": "1 point: total distance $= \\displaystyle\\int_0^2 \\sqrt{\\left(\\frac{dx}{dt}\\right)^2+\\left(\\frac{dy}{dt}\\right)^2}\\,dt = \\displaystyle\\int_0^2\\sqrt{(t^2-t-6)^2+9\\cos^2(t^2)}\\,dt$",
+          "sample_responses": [
+            {
+              "response": "Total distance $= \\displaystyle\\int_0^2\\sqrt{(t^2-t-6)^2+9\\cos^2(t^2)}\\,dt$.",
+              "earned": true,
+              "commentary": "Correctly uses the parametric arc length formula $\\int\\sqrt{(dx/dt)^2+(dy/dt)^2}\\,dt$ with the correct limits $[0,2]$ and the given component derivatives.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Total distance $= \\displaystyle\\int_0^2 \\sqrt{(t^2-t-6)^2+9\\cos^2(t^2)}\\,dt$ is the displacement.",
+              "earned": false,
+              "commentary": "The integral of the speed gives total distance traveled, not displacement. Displacement would require the net change in position $(x(2)-x(0),y(2)-y(0))$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -84,6 +129,21 @@
           "point_id": "b2",
           "point_value": 1,
           "description": "Correct answer (calculator): $\\approx 9.671$ (or equivalent decimal)",
+          "official_rubric": "1 point: total distance $\\approx 9.671$",
+          "sample_responses": [
+            {
+              "response": "$\\displaystyle\\int_0^2\\sqrt{(t^2-t-6)^2+9\\cos^2(t^2)}\\,dt \\approx 9.671$ units.",
+              "earned": true,
+              "commentary": "Correctly evaluates the arc length integral with a calculator.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\displaystyle\\int_0^2\\sqrt{(t^2-t-6)^2+9\\cos^2(t^2)}\\,dt \\approx 8.5$.",
+              "earned": false,
+              "commentary": "Incorrect numerical result. The correct calculator value is approximately $9.671$; an answer of $8.5$ indicates an arithmetic or calculator input error.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -106,6 +166,21 @@
           "point_id": "c1",
           "point_value": 1,
           "description": "Correct definite integral setup using the known position at $t = 2$: $y(0) = y(2) - \\displaystyle\\int_0^2 \\frac{dy}{dt}\\,dt = 4 - \\displaystyle\\int_0^2 3\\cos(t^2)\\,dt$",
+          "official_rubric": "1 point: $y(0) = y(2) - \\displaystyle\\int_0^2 \\frac{dy}{dt}\\,dt = 4 - \\displaystyle\\int_0^2 3\\cos(t^2)\\,dt$",
+          "sample_responses": [
+            {
+              "response": "$y(0) = y(2) - \\displaystyle\\int_0^2 \\frac{dy}{dt}\\,dt = 4 - \\displaystyle\\int_0^2 3\\cos(t^2)\\,dt$.",
+              "earned": true,
+              "commentary": "Uses the Net Change Theorem in reverse: since $y(2) = y(0) + \\int_0^2 y'\\,dt$, rearranging gives $y(0) = y(2) - \\int_0^2 y'\\,dt$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$y(0) = y(2) + \\displaystyle\\int_0^2 3\\cos(t^2)\\,dt$.",
+              "earned": false,
+              "commentary": "Adds instead of subtracts. To go backward from $t=2$ to $t=0$, we must subtract the integral (or equivalently, integrate from $2$ to $0$).",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -119,6 +194,21 @@
           "point_id": "c2",
           "point_value": 1,
           "description": "Correct use of initial condition $y(2) = 4$",
+          "official_rubric": "1 point: correctly uses $y(2) = 4$",
+          "sample_responses": [
+            {
+              "response": "Since the particle is at $(1, 4)$ at $t=2$, we have $y(2) = 4$, so $y(0) = 4 - \\displaystyle\\int_0^2 3\\cos(t^2)\\,dt$.",
+              "earned": true,
+              "commentary": "Correctly reads the known position from the problem statement and identifies $y(2) = 4$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$y(0) = 1 - \\displaystyle\\int_0^2 3\\cos(t^2)\\,dt$.",
+              "earned": false,
+              "commentary": "Uses $x(2) = 1$ (the $x$-coordinate) instead of $y(2) = 4$. The particle is at $(1, 4)$, so the $y$-coordinate known is $4$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -135,6 +225,21 @@
           "point_id": "c3",
           "point_value": 1,
           "description": "Correct answer (calculator): $y(0) = 4 - \\displaystyle\\int_0^2 3\\cos(t^2)\\,dt \\approx 4 - 2.467 \\approx 1.533$ (or equivalent decimal)",
+          "official_rubric": "1 point: $y(0) \\approx 1.533$",
+          "sample_responses": [
+            {
+              "response": "$y(0) = 4 - \\displaystyle\\int_0^2 3\\cos(t^2)\\,dt \\approx 4 - 2.467 \\approx 1.533$.",
+              "earned": true,
+              "commentary": "Correctly evaluates the integral with a calculator and subtracts from $4$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$y(0) \\approx 4 - 3\\sin(4) \\approx 4 - 2.27 \\approx 1.73$.",
+              "earned": false,
+              "commentary": "Attempts to antidifferentiate $3\\cos(t^2)$ as $3\\sin(t)/2$, which is incorrect because the chain rule prevents a simple antiderivative. The integral $\\int_0^2 3\\cos(t^2)\\,dt$ must be evaluated numerically.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -157,6 +262,21 @@
           "point_id": "d1",
           "point_value": 1,
           "description": "Considers the sign of $\\dfrac{dy}{dt} = 3\\cos(t^2)$. The particle moves toward the $x$-axis (downward, i.e., $y$ decreasing) when $\\dfrac{dy}{dt} < 0$, which requires $\\cos(t^2) < 0$.",
+          "official_rubric": "1 point: the particle moves toward the $x$-axis when $\\dfrac{dy}{dt} < 0$, i.e., $\\cos(t^2) < 0$",
+          "sample_responses": [
+            {
+              "response": "Since the particle is in the first quadrant, moving toward the $x$-axis means $y$ is decreasing, so $\\dfrac{dy}{dt} = 3\\cos(t^2) < 0$, which occurs when $\\cos(t^2) < 0$.",
+              "earned": true,
+              "commentary": "Correctly identifies that 'toward the $x$-axis' means decreasing $y$, so $dy/dt < 0$, and simplifies to $\\cos(t^2)<0$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The particle moves toward the $x$-axis when $\\dfrac{dx}{dt} < 0$.",
+              "earned": false,
+              "commentary": "Considers the wrong component. Moving toward the $x$-axis depends on the vertical direction, so the relevant condition is on $dy/dt$, not $dx/dt$.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [
@@ -170,6 +290,21 @@
           "point_id": "d2",
           "point_value": 1,
           "description": "Correct answer with reason: The particle moves toward the $x$-axis when $\\dfrac{dy}{dt} < 0$, i.e., when $\\cos(t^2) < 0$. This occurs when $t^2 \\in \\left(\\frac{\\pi}{2} + k\\pi, \\frac{3\\pi}{2} + k\\pi\\right)$ for integer $k \\geq 0$. In the interval $[2, 8]$, $\\dfrac{dy}{dt} < 0$ on approximately $2.507 < t < 2.802$ and $3.070 < t < 3.431$ (and other subintervals where $\\cos(t^2) < 0$).",
+          "official_rubric": "1 point: identifies correct subintervals of $[2,8]$ where $\\cos(t^2)<0$ (e.g., approximately $2.507 < t < 2.802$ and $3.070 < t < 3.431$) with reason $\\dfrac{dy}{dt} < 0$",
+          "sample_responses": [
+            {
+              "response": "The particle moves toward the $x$-axis when $\\cos(t^2)<0$. Using a calculator, $\\cos(t^2)=0$ when $t^2=\\frac{\\pi}{2},\\frac{3\\pi}{2},\\frac{5\\pi}{2},\\ldots$, giving $t\\approx 1.253, 2.171, 2.507, 2.802, 3.070, 3.431, \\ldots$ On $[2,8]$, $\\cos(t^2)<0$ on approximately $2.507<t<2.802$ and $3.070<t<3.431$ (and further subintervals).",
+              "earned": true,
+              "commentary": "Finds the zeros of $\\cos(t^2)$ in $[2,8]$ with a calculator, then identifies the subintervals where the cosine is negative.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$\\cos(t^2) < 0$ when $t^2 > \\pi/2$, so the particle moves toward the $x$-axis for all $t > \\sqrt{\\pi/2} \\approx 1.253$ in $[2,8]$.",
+              "earned": false,
+              "commentary": "Incorrectly assumes $\\cos(t^2)$ remains negative for all $t > \\sqrt{\\pi/2}$. Cosine is oscillatory; it alternates between positive and negative as $t^2$ increases, so there are multiple distinct subintervals.",
+              "source": "synthesized"
+            }
+          ],
           "alternatives": [
             {
               "required_elements": [

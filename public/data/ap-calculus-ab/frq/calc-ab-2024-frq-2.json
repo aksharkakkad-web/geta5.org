@@ -37,6 +37,21 @@
           ],
           "wrong_examples": [
             "does not earn the second point"
+          ],
+          "official_rubric": "1 point: finds $t_R \\approx 1.426$ (or $1.425$) by solving $v(t)=0$ in the interval $0 < t < 2$.",
+          "sample_responses": [
+            {
+              "response": "Setting $v(t) = \\ln(t^2-4t+5)-0.2t = 0$ and solving with the calculator in $0 < t < 2$: $t_R \\approx 1.426$.",
+              "earned": true,
+              "commentary": "Correctly identifies and computes the zero of $v(t)$ using calculator solver in the given interval.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$v(t) = 0$ gives $t_R \\approx 2.883$ in $0 < t < 2$.",
+              "earned": false,
+              "commentary": "$t \\approx 2.883$ is a zero of $v(t)$ but lies outside $0 < t < 2$; the problem specifies the rest time is in that interval, so the answer must be $t_R \\approx 1.426$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -52,6 +67,21 @@
           ],
           "wrong_examples": [
             "does not earn the second point"
+          ],
+          "official_rubric": "1 point: particle moves to the right for $0 < t < t_R$ because $v(t) > 0$ on that interval.",
+          "sample_responses": [
+            {
+              "response": "For $0 < t < 1.426$, $v(t) > 0$, so the particle is moving to the right on that interval.",
+              "earned": true,
+              "commentary": "Correctly states direction and provides the required justification referencing the sign of velocity.",
+              "source": "synthesized"
+            },
+            {
+              "response": "The particle is moving to the right for $0 < t < 1.426$.",
+              "earned": false,
+              "commentary": "States the correct direction but provides no justification; rubric requires referencing $v(t) > 0$ as the reason.",
+              "source": "synthesized"
+            }
           ]
         }
       ]
@@ -75,6 +105,21 @@
               ],
               "correct_example": "$a(1.5) = v'(1.5) \\approx -1$ (or $-0.999$); using $v'(t) = \\frac{2t-4}{t^2-4t+5} - 0.2$"
             }
+          ],
+          "official_rubric": "1 point: $a(1.5) = v'(1.5) \\approx -1$ (or $-0.999$) with setup showing the derivative.",
+          "sample_responses": [
+            {
+              "response": "$a(1.5) = v'(1.5)$; using the calculator to evaluate $v'(1.5) \\approx -1$.",
+              "earned": true,
+              "commentary": "Correctly identifies acceleration as the derivative of velocity and evaluates it numerically at $t=1.5$.",
+              "source": "synthesized"
+            },
+            {
+              "response": "$a(1.5) = v(1.5) \\approx -0.077$.",
+              "earned": false,
+              "commentary": "Confuses velocity with acceleration; acceleration is $v'(t)$, not $v(t)$.",
+              "source": "synthesized"
+            }
           ]
         },
         {
@@ -87,6 +132,21 @@
                 "Speed is increasing at $t = 1.5$ because $v(1.5) \\approx -0.077 < 0$",
                 "$a(1.5) \\approx -1 < 0$ have the same sign"
               ]
+            }
+          ],
+          "official_rubric": "1 point: speed is increasing at $t=1.5$ because $v(1.5) \\approx -0.077 < 0$ and $a(1.5) \\approx -1 < 0$ have the same sign.",
+          "sample_responses": [
+            {
+              "response": "$v(1.5) \\approx -0.077 < 0$ and $a(1.5) \\approx -1 < 0$. Since $v$ and $a$ have the same sign, speed is increasing at $t=1.5$.",
+              "earned": true,
+              "commentary": "Evaluates both velocity and acceleration, correctly identifies same sign, and draws the correct conclusion about speed.",
+              "source": "synthesized"
+            },
+            {
+              "response": "Speed is decreasing at $t=1.5$ because $v(1.5) < 0$ (particle is moving left).",
+              "earned": false,
+              "commentary": "Incorrect conclusion; a negative velocity does not mean speed is decreasing. Since $a(1.5)<0$ matches the sign of $v(1.5)<0$, the particle is speeding up (in the negative direction).",
+              "source": "synthesized"
             }
           ]
         }
