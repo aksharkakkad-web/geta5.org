@@ -11,8 +11,8 @@ export interface DrillStyleSettings {
 
 const DEFAULTS: DrillStyleSettings = {
   typed_recall: true,
-  tap_to_select: true,
-  matching: true,
+  tap_to_select: false,
+  matching: false,
 }
 
 export function loadDrillStyles(): DrillStyleSettings {
