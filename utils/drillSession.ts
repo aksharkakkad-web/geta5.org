@@ -21,6 +21,7 @@ export interface DrillCard {
   group?: string             // region/empire/theme label for browse grouping
   format_hint?: string       // name_to_formula only
   choices?: DrillChoice[]    // concept_mc only
+  accepted_answers?: string[]
 }
 
 export type DrillMode =
