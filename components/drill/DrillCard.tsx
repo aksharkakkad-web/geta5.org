@@ -444,7 +444,7 @@ function DefaultCard({ card, onAnswer, onNext, isRetry }: DrillCardProps) {
     } else {
       // All other typed-recall modes: fuzzy match with built-in normalisation
       // (lowercase, trim, collapse spaces, Levenshtein tolerance)
-      isCorrect = fuzzyMatch(input, card.answer ?? '', [])
+      isCorrect = fuzzyMatch(input, card.answer ?? '', card.accepted_answers ?? [])
     }
     const v: 'correct' | 'wrong' = isCorrect ? 'correct' : 'wrong'
     if (isCorrect) playCorrect(); else playWrong()
