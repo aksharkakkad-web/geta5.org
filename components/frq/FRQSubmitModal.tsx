@@ -5,6 +5,7 @@ import { createPortal } from 'react-dom'
 import { X } from 'lucide-react'
 import type { GradingStrictness } from '@/utils/frqSession'
 import { getLastStrictness, setLastStrictness } from '@/utils/frqSession'
+import { getFRQCallCost } from '@/utils/frqGrading'
 
 interface FRQSubmitModalProps {
   open: boolean
@@ -245,14 +246,44 @@ export default function FRQSubmitModal({ open, onClose, onSubmit, remainingCalls
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div
                     style={{
-                      fontSize: '0.9375rem',
-                      fontWeight: 600,
-                      color: isSelected ? 'var(--text-primary)' : 'var(--text-secondary)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
                       marginBottom: '2px',
-                      transition: 'color 150ms ease',
                     }}
                   >
-                    {option.label}
+                    <div
+                      style={{
+                        fontSize: '0.9375rem',
+                        fontWeight: 600,
+                        color: isSelected ? 'var(--text-primary)' : 'var(--text-secondary)',
+                        transition: 'color 150ms ease',
+                      }}
+                    >
+                      {option.label}
+                    </div>
+                    <span
+                      style={{
+                        fontSize: '0.6875rem',
+                        fontWeight: 600,
+                        letterSpacing: '0.02em',
+                        padding: '2px 7px',
+                        borderRadius: '999px',
+                        color: option.value === 'strict'
+                          ? 'var(--accent)'
+                          : 'var(--text-muted)',
+                        background: option.value === 'strict'
+                          ? 'color-mix(in srgb, var(--accent) 14%, transparent)'
+                          : 'color-mix(in srgb, var(--text-muted) 12%, transparent)',
+                        border: option.value === 'strict'
+                          ? '1px solid color-mix(in srgb, var(--accent) 30%, transparent)'
+                          : '1px solid transparent',
+                        whiteSpace: 'nowrap',
+                      }}
+                      aria-label={`Costs ${getFRQCallCost(option.value)} credits`}
+                    >
+                      {getFRQCallCost(option.value)} credits
+                    </span>
                   </div>
                   <div
                     style={{

@@ -42,11 +42,35 @@ import {
   saveFRQCompletion,
 } from '@/utils/frqSession'
 import type { FRQ, FRQGradingResult, GradingStrictness, FRQDraft, FRQCompletion } from '@/utils/frqSession'
+import { getFRQCallCost } from '@/utils/frqGrading'
 import { logEvent } from '@/utils/analytics'
 import { lsGet, lsSet, LS_KEYS } from '@/utils/localStorage'
 import { syncStats } from '@/utils/persistence'
 import { useAdi } from '@/components/adi/AdiProvider'
 import { BackToSubject } from '@/components/ui/BackToSubject'
+
+interface QueuedSubmission {
+  id: string
+  question_id: string
+  subject: string
+  strictness: GradingStrictness
+  created_at: string
+}
+
+function formatSubmittedAt(iso: string): string {
+  const submitted = new Date(iso)
+  if (Number.isNaN(submitted.getTime())) return ''
+  const now = Date.now()
+  const diffMs = now - submitted.getTime()
+  const diffMin = Math.floor(diffMs / 60000)
+  if (diffMin < 1) return 'just now'
+  if (diffMin < 60) return `${diffMin} min ago`
+  const diffHr = Math.floor(diffMin / 60)
+  if (diffHr < 24) return `${diffHr} hr ago`
+  const diffDay = Math.floor(diffHr / 24)
+  if (diffDay < 7) return diffDay === 1 ? 'yesterday' : `${diffDay} days ago`
+  return submitted.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })
+}
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -101,6 +125,8 @@ export default function FRQPage({ params }: PageProps) {
   const [timerStartedAt, setTimerStartedAt] = useState<number | null>(null)
   const [showTimesUp, setShowTimesUp] = useState(false)
   const [completions, setCompletions] = useState<Record<string, FRQCompletion>>({})
+  const [queuedSubmissions, setQueuedSubmissions] = useState<QueuedSubmission[]>([])
+  const [gradingQueuedId, setGradingQueuedId] = useState<string | null>(null)
   const timerCancelledRef = useRef(false)
 
 
@@ -169,6 +195,35 @@ export default function FRQPage({ params }: PageProps) {
 
   useEffect(() => {
     setCompletions(loadFRQCompletions(subject))
+  }, [subject])
+
+  // Load the user's queued submissions for this subject so we can surface a
+  // "Pending review" list above the question selector. Re-fetched after each
+  // grade-queued attempt and after a fresh submission ends in 'queued'.
+  async function refreshQueuedSubmissions() {
+    try {
+      const res = await fetch(`/api/frq/queue?subject=${encodeURIComponent(subject)}`)
+      if (!res.ok) return
+      const data = await res.json()
+      const all = Array.isArray(data?.submissions) ? data.submissions : []
+      const queuedOnly: QueuedSubmission[] = all
+        .filter((s: { grading_status: string }) => s.grading_status === 'queued')
+        .map((s: { id: string; question_id: string; subject: string; strictness?: string; created_at: string }) => ({
+          id: s.id,
+          question_id: s.question_id,
+          subject: s.subject,
+          strictness: (s.strictness === 'light' || s.strictness === 'strict' ? s.strictness : 'moderate') as GradingStrictness,
+          created_at: s.created_at,
+        }))
+      setQueuedSubmissions(queuedOnly)
+    } catch {
+      // Non-blocking — pending list just stays as it was.
+    }
+  }
+
+  useEffect(() => {
+    refreshQueuedSubmissions()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [subject])
 
   useEffect(() => {
@@ -270,6 +325,71 @@ export default function FRQPage({ params }: PageProps) {
     setShowSubmitModal(true)
   }
 
+  async function handleGradeQueued(item: QueuedSubmission) {
+    if (gradingQueuedId) return // prevent double-tap re-entry
+
+    const question = questions.find(q => q.id === item.question_id)
+    if (!question) {
+      setError('That question is no longer available. Skipping it.')
+      // Drop the orphan from the local list so the user can move on.
+      setQueuedSubmissions(prev => prev.filter(s => s.id !== item.id))
+      return
+    }
+
+    setGradingQueuedId(item.id)
+    setError(null)
+
+    try {
+      const res = await fetch('/api/frq/grade-queued', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ submissionId: item.id }),
+      })
+      const data = await res.json()
+
+      if (data.status === 'graded') {
+        const responses = (data.responses ?? {}) as Record<string, string>
+        setSelectedQuestion(question)
+        setGradingResult(data.result)
+        setGradingStrictness(item.strictness)
+        setGradingSubmissionId(data.submissionId ?? item.id)
+        setGradingResponses(responses)
+        saveFRQCompletion(subject, question.id, data.result.total_score, data.result.max_score, responses)
+        setCompletions(loadFRQCompletions(subject))
+
+        // Drop this item from the pending list and update remaining-calls.
+        setQueuedSubmissions(prev => prev.filter(s => s.id !== item.id))
+        setRemainingCalls(prev => Math.max(0, prev - getFRQCallCost(item.strictness)))
+
+        logEvent({
+          event_type: 'frq_completed_queued',
+          subject,
+          unit: question.related_units?.[0] ? `unit-${question.related_units[0]}` : undefined,
+          metadata: {
+            question_id: question.id,
+            frq_type: question.frq_type,
+            strictness: item.strictness,
+            score: data.result?.total_score ?? undefined,
+            max_score: data.result?.max_score ?? undefined,
+          },
+        })
+        syncStats()
+        setPhase('results')
+      } else if (data.status === 'queued') {
+        setQueuedMessage(data.message ?? 'Still over your daily limit. Try again after midnight EST.')
+        setPhase('queued')
+        // The submission is still queued — keep it in the list for next time.
+        refreshQueuedSubmissions()
+      } else {
+        setError(data.message ?? 'Could not grade this submission. Try again shortly.')
+      }
+    } catch {
+      setError('Could not reach the server. Check your connection and try again.')
+    } finally {
+      setGradingQueuedId(null)
+    }
+  }
+
   function handleBackToSelect() {
     timerCancelledRef.current = true
     setTimerStartedAt(null)
@@ -341,6 +461,8 @@ export default function FRQPage({ params }: PageProps) {
         clearFRQDraft(subject)
         setQueuedMessage(data.message ?? 'Your answer has been saved. Adi will grade it when your daily limit resets.')
         setPhase('queued')
+        // Surface the freshly queued submission on the next visit to select.
+        refreshQueuedSubmissions()
       } else {
         // Server returned an error shape
         const message = data.message ?? 'Something went wrong. Please try again.'
@@ -530,6 +652,122 @@ export default function FRQPage({ params }: PageProps) {
                 {displayName}
               </p>
             </div>
+
+            {/* Pending review — queued submissions awaiting grading */}
+            {queuedSubmissions.length > 0 && (
+              <section
+                aria-label="Pending review"
+                style={{
+                  marginBottom: '24px',
+                  background: 'var(--bg-card)',
+                  border: '1px solid color-mix(in srgb, var(--accent) 30%, var(--bg-border))',
+                  borderRadius: 'var(--radius-lg)',
+                  padding: '20px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '14px',
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: '12px', flexWrap: 'wrap' }}>
+                  <div>
+                    <h2
+                      style={{
+                        fontSize: '1rem',
+                        fontWeight: 700,
+                        color: 'var(--text-primary)',
+                        margin: 0,
+                        marginBottom: '2px',
+                        fontFamily: 'var(--font-outfit)',
+                      }}
+                    >
+                      Pending review
+                    </h2>
+                    <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.45 }}>
+                      You hit your daily limit on these. Tap to grade with today&apos;s credits.
+                    </p>
+                  </div>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+                    {remainingCalls} credit{remainingCalls === 1 ? '' : 's'} left today
+                  </span>
+                </div>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                  {queuedSubmissions.map(item => {
+                    const q = questions.find(qq => qq.id === item.question_id)
+                    const cost = getFRQCallCost(item.strictness)
+                    const insufficient = remainingCalls < cost
+                    const isGrading = gradingQueuedId === item.id
+                    const disabled = isGrading || insufficient
+                    const title = q?.title || q?.id || item.question_id
+                    const subtitle = q?.frq_type ? q.frq_type.replace(/_/g, ' ') : ''
+
+                    return (
+                      <div
+                        key={item.id}
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'space-between',
+                          gap: '12px',
+                          padding: '12px 14px',
+                          borderRadius: 'var(--radius-md)',
+                          background: 'color-mix(in srgb, var(--bg-card-hover, var(--accent)) 6%, transparent)',
+                          border: '1px solid var(--bg-border)',
+                          flexWrap: 'wrap',
+                        }}
+                      >
+                        <div style={{ flex: '1 1 220px', minWidth: 0 }}>
+                          <div
+                            style={{
+                              fontSize: '0.875rem',
+                              fontWeight: 600,
+                              color: 'var(--text-primary)',
+                              overflow: 'hidden',
+                              textOverflow: 'ellipsis',
+                              whiteSpace: 'nowrap',
+                            }}
+                          >
+                            {title}
+                          </div>
+                          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '2px' }}>
+                            Submitted {formatSubmittedAt(item.created_at)}
+                            {subtitle ? ` · ${subtitle}` : ''}
+                            {' · '}
+                            <span style={{ textTransform: 'capitalize' }}>{item.strictness}</span>
+                          </div>
+                        </div>
+                        <button
+                          onClick={() => handleGradeQueued(item)}
+                          disabled={disabled}
+                          aria-busy={isGrading}
+                          style={{
+                            padding: '8px 14px',
+                            borderRadius: 'var(--radius-md)',
+                            border: 'none',
+                            background: disabled ? 'var(--bg-border)' : 'var(--accent)',
+                            color: disabled ? 'var(--text-muted)' : 'white',
+                            fontSize: '0.8125rem',
+                            fontWeight: 600,
+                            cursor: disabled ? 'not-allowed' : 'pointer',
+                            fontFamily: 'var(--font-outfit)',
+                            transition: 'background 150ms ease, transform 150ms ease',
+                            whiteSpace: 'nowrap',
+                          }}
+                          onMouseEnter={e => {
+                            if (!disabled) (e.currentTarget as HTMLButtonElement).style.background = 'var(--accent-hover)'
+                          }}
+                          onMouseLeave={e => {
+                            if (!disabled) (e.currentTarget as HTMLButtonElement).style.background = 'var(--accent)'
+                          }}
+                        >
+                          {isGrading ? 'Grading…' : insufficient ? `Need ${cost} credits` : `Grade now (${cost})`}
+                        </button>
+                      </div>
+                    )
+                  })}
+                </div>
+              </section>
+            )}
 
             {/* No questions available */}
             {questions.length === 0 ? (

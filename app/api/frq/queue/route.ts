@@ -19,6 +19,7 @@ export async function GET(req: Request) {
       question_id,
       subject,
       grading_status,
+      strictness,
       created_at,
       frq_results (
         total_score,

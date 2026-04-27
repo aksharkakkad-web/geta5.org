@@ -7,8 +7,8 @@ function getSupabaseAdmin() {
   return createClient(url, key)
 }
 
-export const DAILY_USER_LIMIT = 30
-export const GLOBAL_DAILY_BUDGET_CENTS = 150 // $1.50
+export const DAILY_USER_LIMIT = 20
+export const GLOBAL_DAILY_BUDGET_CENTS = 100 // $1.00
 export const COST_PER_CALL_CENTS = 0.1 // ~$0.001 per call = 0.1 cents
 
 // In-memory cache: fast-deny optimization (authoritative check is the DB via atomic RPC)
