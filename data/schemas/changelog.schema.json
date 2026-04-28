@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Changelog",
+  "description": "User-visible changelog entries shown in the popup on first visit after a push",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "date", "type", "title", "body"],
+    "properties": {
+      "id": {
+        "type": "string",
+        "description": "Date-stable slug, format YYYY-MM-DD-short-slug. Must be unique across the file."
+      },
+      "date": {
+        "type": "string",
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+        "description": "ISO-style YYYY-MM-DD"
+      },
+      "type": {
+        "type": "string",
+        "enum": ["fix", "feature", "content", "improvement"]
+      },
+      "title": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 80
+      },
+      "body": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "additionalProperties": false
+  }
+}
