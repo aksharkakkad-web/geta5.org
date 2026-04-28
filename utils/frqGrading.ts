@@ -316,10 +316,14 @@ export async function runFRQGrading(params: {
       .update({ grading_status: 'queued' })
       .eq('id', submissionId)
 
+    const message = usage.reason === 'global_limit'
+      ? `Adi has hit today's grading budget. Your response is saved — come back after ${usage.resetAtEST} to grade it.`
+      : `Your response has been saved. You can grade it after your daily limit resets at ${usage.resetAtEST}.`
+
     return {
       status: 'queued',
       submissionId,
-      message: 'Your response has been saved. Adi will grade it when your daily limit resets.',
+      message,
       resetAtEST: usage.resetAtEST,
     }
   }

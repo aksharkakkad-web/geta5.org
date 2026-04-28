@@ -12,6 +12,7 @@ interface FRQSubmitModalProps {
   onClose: () => void
   onSubmit: (strictness: GradingStrictness) => void
   remainingCalls: number
+  dailyLimit: number
 }
 
 const STRICTNESS_OPTIONS: Array<{
@@ -36,7 +37,7 @@ const STRICTNESS_OPTIONS: Array<{
   },
 ]
 
-export default function FRQSubmitModal({ open, onClose, onSubmit, remainingCalls }: FRQSubmitModalProps) {
+export default function FRQSubmitModal({ open, onClose, onSubmit, remainingCalls, dailyLimit }: FRQSubmitModalProps) {
   const [selected, setSelected] = useState<GradingStrictness>('moderate')
 
   useEffect(() => {
@@ -367,7 +368,22 @@ export default function FRQSubmitModal({ open, onClose, onSubmit, remainingCalls
             lineHeight: 1.5,
           }}
         >
-          This uses 2 of your 30 daily Adi calls · {remainingCalls} remaining
+          {(() => {
+            const cost = getFRQCallCost(selected)
+            const insufficient = remainingCalls < cost
+            if (insufficient) {
+              return (
+                <span style={{ color: 'var(--accent-warning)' }}>
+                  Only {remainingCalls} of {dailyLimit} credits left today — submitting now will queue this for grading after your daily limit resets.
+                </span>
+              )
+            }
+            return (
+              <>
+                This uses {cost} of your {dailyLimit} daily Adi credits · {remainingCalls} remaining
+              </>
+            )
+          })()}
         </p>
       </div>
     </div>

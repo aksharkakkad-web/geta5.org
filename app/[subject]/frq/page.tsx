@@ -117,7 +117,11 @@ export default function FRQPage({ params }: PageProps) {
   const [showSubmitModal, setShowSubmitModal] = useState(false)
   const [showShortcuts, setShowShortcuts] = useState(false)
   const [showMathTutorial, setShowMathTutorial] = useState(false)
-  const [remainingCalls, setRemainingCalls] = useState(30)
+  // 20 matches the current DAILY_USER_LIMIT in utils/adiRateLimit.ts. /api/adi-usage
+   // overrides this on first load — the local default only matters before the
+   // request resolves (or if it fails).
+  const [remainingCalls, setRemainingCalls] = useState(20)
+  const [dailyLimit, setDailyLimit] = useState(20)
   const [error, setError] = useState<string | null>(null)
   const [queuedMessage, setQueuedMessage] = useState<string>('Your answer has been saved. Adi will grade it when your daily limit resets.')
   const [desmosOpen, setDesmosOpen] = useState(false)
@@ -150,8 +154,10 @@ export default function FRQPage({ params }: PageProps) {
         if (usageRes.status === 'fulfilled' && usageRes.value.ok) {
           try {
             const usageData = await usageRes.value.json()
-            const remaining = (usageData.limit ?? 30) - (usageData.count ?? 0)
-            setRemainingCalls(Math.max(0, remaining))
+            const limit = typeof usageData.limit === 'number' ? usageData.limit : 20
+            const count = typeof usageData.count === 'number' ? usageData.count : 0
+            setDailyLimit(limit)
+            setRemainingCalls(Math.max(0, limit - count))
           } catch {
             // Non-blocking — keep default
           }
@@ -1132,6 +1138,7 @@ export default function FRQPage({ params }: PageProps) {
           onClose={() => setShowSubmitModal(false)}
           onSubmit={handleSubmit}
           remainingCalls={remainingCalls}
+          dailyLimit={dailyLimit}
         />
 
         {/* ── Time's Up overlay ───────────────────────────────────────────── */}
