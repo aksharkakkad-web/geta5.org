@@ -9,6 +9,7 @@ import { AdiProvider } from '@/components/adi/AdiProvider'
 import { AdiBubble } from '@/components/adi/AdiBubble'
 import { AdiChatPanel } from '@/components/adi/AdiChatPanel'
 import ActiveTimeTracker from '@/components/ActiveTimeTracker'
+import { ChangelogModal } from '@/components/Changelog/ChangelogModal'
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -45,6 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <AdiBubble />
               <AdiChatPanel />
               <ActiveTimeTracker />
+              <ChangelogModal />
             </AdiProvider>
           </AuthProvider>
         </Providers>
