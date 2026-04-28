@@ -229,7 +229,10 @@ function normalize(s: string): string {
     // Strip markdown emphasis so quote-matching survives **bold**, *italic*,
     // __underline__, and `code` formatting in student text or LLM-returned
     // quotes (LLMs frequently drop these characters when copying).
-    .replace(/[*_`]/g, '')
+    // Also strip ASCII single/double quotes — the LLM frequently swaps " for '
+    // when citing nested-quote text inside its own JSON string, which would
+    // otherwise break substring and word-set match.
+    .replace(/[*_`'"]/g, '')
     .toLowerCase()
     .replace(/\s+/g, ' ')
     .trim()

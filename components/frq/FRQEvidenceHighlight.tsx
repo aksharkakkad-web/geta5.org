@@ -14,6 +14,48 @@ interface FRQEvidenceHighlightProps {
   onSpanClick?: (pointId: string) => void
 }
 
+// Build a normalized version of a string + a mapping back to original positions.
+// Strips markdown emphasis and quote characters and lowercases — the same
+// transforms verifyEvidence applies on the server, so what the server treats
+// as a match also gets a visible highlight here.
+function normalizeWithPositions(s: string): { normalized: string; positions: number[] } {
+  let normalized = ''
+  const positions: number[] = []
+  for (let i = 0; i < s.length; i++) {
+    const ch = s[i]
+    // Skip markdown emphasis chars: * _ `
+    if (ch === '*' || ch === '_' || ch === '`') continue
+    // Skip ASCII and curly quote chars (single + double)
+    const code = ch.charCodeAt(0)
+    if (
+      code === 0x27 || code === 0x22 ||                         // ' "
+      (code >= 0x2018 && code <= 0x201F) ||                     // ‘ ’ ‚ ‛ “ ” „ ‟
+      code === 0x2032 || code === 0x2033                        // ′ ″
+    ) continue
+    normalized += ch.toLowerCase()
+    positions.push(i)
+  }
+  return { normalized, positions }
+}
+
+// Locate `quote` inside `text` allowing markdown/quote-char drift between them.
+// Returns positions in the ORIGINAL text. Returns null if no fuzzy match exists.
+function findFuzzyQuotePosition(text: string, quote: string): { start: number; end: number } | null {
+  if (!quote) return null
+  const exactIdx = text.indexOf(quote)
+  if (exactIdx !== -1) return { start: exactIdx, end: exactIdx + quote.length }
+
+  const { normalized: nText, positions: pText } = normalizeWithPositions(text)
+  const { normalized: nQuote } = normalizeWithPositions(quote)
+  if (!nQuote) return null
+
+  const idx = nText.indexOf(nQuote)
+  if (idx === -1) return null
+
+  const lastIdx = idx + nQuote.length - 1
+  return { start: pText[idx], end: pText[lastIdx] + 1 }
+}
+
 /**
  * Splits the student response text into plain segments and highlighted segments.
  * Earned quotes: indigo underline. Missed quotes: amber dashed underline.
@@ -26,10 +68,18 @@ export default function FRQEvidenceHighlight({
 }: FRQEvidenceHighlightProps) {
   if (!text) return null
 
-  // Filter to non-empty quotes that actually appear in the text
-  const valid = evidence.filter(e => e.quote && text.includes(e.quote))
+  // Resolve each evidence quote to a fuzzy-matched position in the original
+  // text. Quotes that don't fuzzy-match are dropped (as before).
+  const located = evidence
+    .map(ev => {
+      if (!ev.quote) return null
+      const pos = findFuzzyQuotePosition(text, ev.quote)
+      if (!pos) return null
+      return { start: pos.start, end: pos.end, ev }
+    })
+    .filter((x): x is { start: number; end: number; ev: EvidenceSpan } => x !== null)
 
-  if (valid.length === 0) {
+  if (located.length === 0) {
     return (
       <span style={{ fontSize: '0.9375rem', lineHeight: 1.85, color: 'var(--text-secondary)' }}>
         {text}
@@ -45,13 +95,7 @@ export default function FRQEvidenceHighlight({
   const segments: Segment[] = []
 
   // Build a list of (start, end, evidence) sorted by position
-  const hits: { start: number; end: number; ev: EvidenceSpan }[] = []
-  for (const ev of valid) {
-    const idx = text.indexOf(ev.quote)
-    if (idx !== -1) {
-      hits.push({ start: idx, end: idx + ev.quote.length, ev })
-    }
-  }
+  const hits = located.slice()
   // Sort by start position, resolve overlaps by taking earliest
   hits.sort((a, b) => a.start - b.start)
 
