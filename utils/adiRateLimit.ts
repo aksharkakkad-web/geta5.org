@@ -1,4 +1,5 @@
 import { createClient } from '@supabase/supabase-js'
+import type { GradingStrictness } from './frqSession'
 
 // Use service role key for server-side writes (bypasses RLS)
 function getSupabaseAdmin() {
@@ -7,114 +8,208 @@ function getSupabaseAdmin() {
   return createClient(url, key)
 }
 
-export const DAILY_USER_LIMIT = 20
-export const GLOBAL_DAILY_BUDGET_CENTS = 100 // $1.00
-export const COST_PER_CALL_CENTS = 0.1 // ~$0.001 per call = 0.1 cents
+// Per-user daily caps, kept in separate buckets so a heavy FRQ user still has
+// Adi capacity (and vice versa). Adi is ~100x cheaper per call than FRQ, so
+// pooling them in a single bucket would let FRQ users starve Adi.
+export const ADI_DAILY_LIMIT = 30
+export const FRQ_DAILY_LIMIT = 3
 
-// In-memory cache: fast-deny optimization (authoritative check is the DB via atomic RPC)
-const cache = new Map<string, { count: number; date: string }>()
+// Realistic per-call OpenAI cost in cents. These charge against the global
+// safety meter (GLOBAL_DAILY_BUDGET_CENTS). Update if model or prompt size
+// changes — undercounting here is what let $2 of real spend through against a
+// $1 cap previously.
+export const ADI_COST_CENTS = 0.1            // gpt-4o-mini, ~2k in / 500 out ≈ $0.001
+export const FRQ_MODERATE_COST_CENTS = 10    // gpt-4o multi-pass ≈ $0.10
+export const FRQ_STRICT_COST_CENTS = 15      // adds an auditor pass ≈ $0.15
 
-function todayUTC(): string {
-  return new Date().toISOString().split('T')[0]
-}
+// Global cost cap: emergency brake only. Per-user limits should keep aggregate
+// well below this on any normal day. If this fires, something is going wrong
+// (abuse, retry loop, or unexpected scale).
+export const GLOBAL_DAILY_BUDGET_CENTS = 800 // $8
 
-export async function checkAndIncrementUsage(userId: string, callCost: number = 1): Promise<{
+type CheckResult = {
   allowed: boolean
   reason?: 'user_limit' | 'global_limit'
   current: number
   limit: number
   resetAtEST: string
-}> {
-  const today = todayUTC()
+}
+
+// Per-bucket fast-deny caches (authoritative check is the DB via atomic RPC)
+const adiCache = new Map<string, { count: number; date: string }>()
+const frqCache = new Map<string, { count: number; date: string }>()
+
+function todayUTC(): string {
+  return new Date().toISOString().split('T')[0]
+}
+
+async function isGlobalOverBudget(today: string): Promise<boolean> {
   const supabase = getSupabaseAdmin()
-
-  // --- Fast-deny from cache (avoids DB round-trip for already-limited users) ---
-  const cached = cache.get(userId)
-  if (cached && cached.date === today && cached.count + callCost > DAILY_USER_LIMIT) {
-    return {
-      allowed: false,
-      reason: 'user_limit',
-      current: cached.count,
-      limit: DAILY_USER_LIMIT,
-      resetAtEST: getResetTimeEST(),
-    }
-  }
-
-  // --- Check global safety valve ---
-  const { data: globalRow } = await supabase
+  const { data } = await supabase
     .from('adi_usage')
     .select('estimated_cost_cents')
     .eq('user_id', 'GLOBAL')
     .eq('date', today)
     .single()
+  return !!data && data.estimated_cost_cents >= GLOBAL_DAILY_BUDGET_CENTS
+}
 
-  if (globalRow && globalRow.estimated_cost_cents >= GLOBAL_DAILY_BUDGET_CENTS) {
-    return { allowed: false, reason: 'global_limit', current: DAILY_USER_LIMIT, limit: DAILY_USER_LIMIT, resetAtEST: getResetTimeEST() }
-  }
-
-  // --- Atomic check-and-increment via RPC (race-safe) ---
-  // For multi-call operations (e.g., FRQ grading = 2 calls), we increment by callCost
-  const { data: newCount, error: rpcError } = await supabase.rpc('check_and_increment_adi_usage', {
-    p_user_id: userId,
+function fireGlobalIncrement(costCents: number, today: string): void {
+  // Fire-and-forget — don't block the request on the global meter update.
+  const supabase = getSupabaseAdmin()
+  supabase.rpc('increment_global_adi_usage', {
     p_date: today,
-    p_cost_cents: COST_PER_CALL_CENTS * callCost,
-    p_limit: DAILY_USER_LIMIT,
-  })
+    p_cost_cents: costCents,
+  }).then(({ error }) => { if (error) console.error('global usage increment failed:', error) })
+}
 
-  if (rpcError) {
-    // Fail open — if DB is unreachable, let the user through.
-    // IP burst protection in the route handler is still active as a backstop.
-    console.error('adi_usage RPC failed:', rpcError)
-    return { allowed: true, current: 0, limit: DAILY_USER_LIMIT, resetAtEST: getResetTimeEST() }
-  }
+export async function checkAndIncrementAdiUsage(userId: string): Promise<CheckResult> {
+  const today = todayUTC()
+  const supabase = getSupabaseAdmin()
 
-  // RPC returns -1 when already at/over the limit
-  if (newCount === -1) {
-    cache.set(userId, { count: DAILY_USER_LIMIT, date: today })
+  const cached = adiCache.get(userId)
+  if (cached && cached.date === today && cached.count >= ADI_DAILY_LIMIT) {
     return {
       allowed: false,
       reason: 'user_limit',
-      current: DAILY_USER_LIMIT,
-      limit: DAILY_USER_LIMIT,
+      current: cached.count,
+      limit: ADI_DAILY_LIMIT,
       resetAtEST: getResetTimeEST(),
     }
   }
 
-  // Success — update cache and fire global increment
-  cache.set(userId, { count: newCount, date: today })
+  if (await isGlobalOverBudget(today)) {
+    return {
+      allowed: false,
+      reason: 'global_limit',
+      current: cached?.count ?? 0,
+      limit: ADI_DAILY_LIMIT,
+      resetAtEST: getResetTimeEST(),
+    }
+  }
 
-  supabase.rpc('increment_global_adi_usage', {
+  const { data: newCount, error: rpcError } = await supabase.rpc('check_and_increment_adi_usage', {
+    p_user_id: userId,
     p_date: today,
-    p_cost_cents: COST_PER_CALL_CENTS * callCost,
-  }).then(({ error }) => { if (error) console.error('global adi_usage increment failed:', error) })
+    p_cost_cents: ADI_COST_CENTS,
+    p_limit: ADI_DAILY_LIMIT,
+  })
+
+  if (rpcError) {
+    // Fail open — IP burst protection in the route handler is still active.
+    console.error('adi_usage RPC failed:', rpcError)
+    return { allowed: true, current: 0, limit: ADI_DAILY_LIMIT, resetAtEST: getResetTimeEST() }
+  }
+
+  if (newCount === -1) {
+    adiCache.set(userId, { count: ADI_DAILY_LIMIT, date: today })
+    return {
+      allowed: false,
+      reason: 'user_limit',
+      current: ADI_DAILY_LIMIT,
+      limit: ADI_DAILY_LIMIT,
+      resetAtEST: getResetTimeEST(),
+    }
+  }
+
+  adiCache.set(userId, { count: newCount, date: today })
+  fireGlobalIncrement(ADI_COST_CENTS, today)
 
   return {
     allowed: true,
     current: newCount,
-    limit: DAILY_USER_LIMIT,
+    limit: ADI_DAILY_LIMIT,
     resetAtEST: getResetTimeEST(),
   }
 }
 
-export async function getUserUsageToday(userId: string): Promise<{ count: number; limit: number; resetAtEST: string }> {
+export async function checkAndIncrementFRQUsage(
+  userId: string,
+  strictness: GradingStrictness,
+): Promise<CheckResult> {
   const today = todayUTC()
-  const cached = cache.get(userId)
+  const supabase = getSupabaseAdmin()
+  const cost = strictness === 'strict' ? FRQ_STRICT_COST_CENTS : FRQ_MODERATE_COST_CENTS
 
-  if (cached && cached.date === today) {
-    return { count: cached.count, limit: DAILY_USER_LIMIT, resetAtEST: getResetTimeEST() }
+  const cached = frqCache.get(userId)
+  if (cached && cached.date === today && cached.count >= FRQ_DAILY_LIMIT) {
+    return {
+      allowed: false,
+      reason: 'user_limit',
+      current: cached.count,
+      limit: FRQ_DAILY_LIMIT,
+      resetAtEST: getResetTimeEST(),
+    }
   }
 
+  if (await isGlobalOverBudget(today)) {
+    return {
+      allowed: false,
+      reason: 'global_limit',
+      current: cached?.count ?? 0,
+      limit: FRQ_DAILY_LIMIT,
+      resetAtEST: getResetTimeEST(),
+    }
+  }
+
+  const { data: newCount, error: rpcError } = await supabase.rpc('check_and_increment_frq_usage', {
+    p_user_id: userId,
+    p_date: today,
+    p_cost_cents: cost,
+    p_limit: FRQ_DAILY_LIMIT,
+  })
+
+  if (rpcError) {
+    console.error('frq_usage RPC failed:', rpcError)
+    return { allowed: true, current: 0, limit: FRQ_DAILY_LIMIT, resetAtEST: getResetTimeEST() }
+  }
+
+  if (newCount === -1) {
+    frqCache.set(userId, { count: FRQ_DAILY_LIMIT, date: today })
+    return {
+      allowed: false,
+      reason: 'user_limit',
+      current: FRQ_DAILY_LIMIT,
+      limit: FRQ_DAILY_LIMIT,
+      resetAtEST: getResetTimeEST(),
+    }
+  }
+
+  frqCache.set(userId, { count: newCount, date: today })
+  fireGlobalIncrement(cost, today)
+
+  return {
+    allowed: true,
+    current: newCount,
+    limit: FRQ_DAILY_LIMIT,
+    resetAtEST: getResetTimeEST(),
+  }
+}
+
+export async function getUserUsageToday(userId: string): Promise<{
+  adi: { count: number; limit: number }
+  frq: { count: number; limit: number }
+  resetAtEST: string
+}> {
+  const today = todayUTC()
   const supabase = getSupabaseAdmin()
   const { data } = await supabase
     .from('adi_usage')
-    .select('call_count')
+    .select('call_count, frq_count')
     .eq('user_id', userId)
     .eq('date', today)
     .single()
 
-  const count = data?.call_count ?? 0
-  cache.set(userId, { count, date: today })
-  return { count, limit: DAILY_USER_LIMIT, resetAtEST: getResetTimeEST() }
+  const adiCount = data?.call_count ?? 0
+  const frqCount = data?.frq_count ?? 0
+  adiCache.set(userId, { count: adiCount, date: today })
+  frqCache.set(userId, { count: frqCount, date: today })
+
+  return {
+    adi: { count: adiCount, limit: ADI_DAILY_LIMIT },
+    frq: { count: frqCount, limit: FRQ_DAILY_LIMIT },
+    resetAtEST: getResetTimeEST(),
+  }
 }
 
 function getResetTimeEST(): string {
@@ -123,7 +218,7 @@ function getResetTimeEST(): string {
     now.getUTCFullYear(),
     now.getUTCMonth(),
     now.getUTCDate() + 1,
-    0, 0, 0
+    0, 0, 0,
   ))
   const estOffset = -5 * 60 * 60 * 1000
   const estMidnight = new Date(tomorrowMidnightUTC.getTime() + estOffset)

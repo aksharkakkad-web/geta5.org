@@ -1,15 +1,9 @@
 import { generateText } from 'ai'
 import { openai } from '@ai-sdk/openai'
 import { createClient as createAdminClient } from '@supabase/supabase-js'
-import { checkAndIncrementUsage } from './adiRateLimit'
+import { checkAndIncrementFRQUsage } from './adiRateLimit'
 import { buildFRQGradingPrompt, buildFRQAuditorPrompt } from './frqGradingPrompt'
 import type { FRQ, FRQGradingResult, FRQGradingPart, FRQGradingPointResult, GradingStrictness } from './frqSession'
-
-export function getFRQCallCost(strictness: GradingStrictness): number {
-  // Strict runs a bidirectional two-pass auditor in addition to the primary
-  // grading call, so it costs one more credit than light/moderate.
-  return strictness === 'strict' ? 4 : 3
-}
 
 function getModelForStrictness(_strictness: GradingStrictness) {
   // All tiers share the same model (gpt-4o); rigor differences come from the
@@ -342,7 +336,7 @@ export async function runFRQGrading(params: {
   // Rate-limit gate. If over, mark as queued and bounce. The user will see a
   // pending-review card and can tap "Grade now" once their daily allotment
   // resets.
-  const usage = await checkAndIncrementUsage(userId, getFRQCallCost(strictness))
+  const usage = await checkAndIncrementFRQUsage(userId, strictness)
   if (!usage.allowed) {
     await admin
       .from('frq_submissions')

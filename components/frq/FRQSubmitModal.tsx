@@ -5,7 +5,6 @@ import { createPortal } from 'react-dom'
 import { X } from 'lucide-react'
 import type { GradingStrictness } from '@/utils/frqSession'
 import { getLastStrictness, setLastStrictness } from '@/utils/frqSession'
-import { getFRQCallCost } from '@/utils/frqGrading'
 
 interface FRQSubmitModalProps {
   open: boolean
@@ -247,44 +246,14 @@ export default function FRQSubmitModal({ open, onClose, onSubmit, remainingCalls
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div
                     style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '8px',
+                      fontSize: '0.9375rem',
+                      fontWeight: 600,
+                      color: isSelected ? 'var(--text-primary)' : 'var(--text-secondary)',
+                      transition: 'color 150ms ease',
                       marginBottom: '2px',
                     }}
                   >
-                    <div
-                      style={{
-                        fontSize: '0.9375rem',
-                        fontWeight: 600,
-                        color: isSelected ? 'var(--text-primary)' : 'var(--text-secondary)',
-                        transition: 'color 150ms ease',
-                      }}
-                    >
-                      {option.label}
-                    </div>
-                    <span
-                      style={{
-                        fontSize: '0.6875rem',
-                        fontWeight: 600,
-                        letterSpacing: '0.02em',
-                        padding: '2px 7px',
-                        borderRadius: '999px',
-                        color: option.value === 'strict'
-                          ? 'var(--accent)'
-                          : 'var(--text-muted)',
-                        background: option.value === 'strict'
-                          ? 'color-mix(in srgb, var(--accent) 14%, transparent)'
-                          : 'color-mix(in srgb, var(--text-muted) 12%, transparent)',
-                        border: option.value === 'strict'
-                          ? '1px solid color-mix(in srgb, var(--accent) 30%, transparent)'
-                          : '1px solid transparent',
-                        whiteSpace: 'nowrap',
-                      }}
-                      aria-label={`Costs ${getFRQCallCost(option.value)} credits`}
-                    >
-                      {getFRQCallCost(option.value)} credits
-                    </span>
+                    {option.label}
                   </div>
                   <div
                     style={{
@@ -368,22 +337,15 @@ export default function FRQSubmitModal({ open, onClose, onSubmit, remainingCalls
             lineHeight: 1.5,
           }}
         >
-          {(() => {
-            const cost = getFRQCallCost(selected)
-            const insufficient = remainingCalls < cost
-            if (insufficient) {
-              return (
-                <span style={{ color: 'var(--accent-warning)' }}>
-                  Only {remainingCalls} of {dailyLimit} credits left today — submitting now will queue this for grading after your daily limit resets.
-                </span>
-              )
-            }
-            return (
-              <>
-                This uses {cost} of your {dailyLimit} daily Adi credits · {remainingCalls} remaining
-              </>
-            )
-          })()}
+          {remainingCalls <= 0 ? (
+            <span style={{ color: 'var(--accent-warning)' }}>
+              You&apos;ve used all {dailyLimit} of today&apos;s FRQ grades — submitting now will queue this for grading after your daily limit resets.
+            </span>
+          ) : (
+            <>
+              {remainingCalls} of {dailyLimit} FRQ grade{dailyLimit === 1 ? '' : 's'} left today
+            </>
+          )}
         </p>
       </div>
     </div>

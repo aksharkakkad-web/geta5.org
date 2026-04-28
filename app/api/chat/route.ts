@@ -1,7 +1,7 @@
 import { streamText } from 'ai'
 import { openai } from '@ai-sdk/openai'
 import { buildSystemPrompt, type AdiContext } from '@/utils/adiPrompt'
-import { checkAndIncrementUsage } from '@/utils/adiRateLimit'
+import { checkAndIncrementAdiUsage } from '@/utils/adiRateLimit'
 import { createClient } from '@/lib/supabase-server'
 
 // IP burst protection: 10 requests/minute per IP (defense against rapid-fire scripts)
@@ -54,7 +54,7 @@ export async function POST(req: Request) {
   }
 
   // 3. Per-user + global rate limit check
-  const usage = await checkAndIncrementUsage(user.id)
+  const usage = await checkAndIncrementAdiUsage(user.id)
 
   if (!usage.allowed) {
     const message = usage.reason === 'global_limit'

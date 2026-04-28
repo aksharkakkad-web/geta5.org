@@ -42,7 +42,6 @@ import {
   saveFRQCompletion,
 } from '@/utils/frqSession'
 import type { FRQ, FRQGradingResult, GradingStrictness, FRQDraft, FRQCompletion } from '@/utils/frqSession'
-import { getFRQCallCost } from '@/utils/frqGrading'
 import { logEvent } from '@/utils/analytics'
 import { lsGet, lsSet, LS_KEYS } from '@/utils/localStorage'
 import { syncStats } from '@/utils/persistence'
@@ -117,11 +116,11 @@ export default function FRQPage({ params }: PageProps) {
   const [showSubmitModal, setShowSubmitModal] = useState(false)
   const [showShortcuts, setShowShortcuts] = useState(false)
   const [showMathTutorial, setShowMathTutorial] = useState(false)
-  // 20 matches the current DAILY_USER_LIMIT in utils/adiRateLimit.ts. /api/adi-usage
-   // overrides this on first load — the local default only matters before the
-   // request resolves (or if it fails).
-  const [remainingCalls, setRemainingCalls] = useState(20)
-  const [dailyLimit, setDailyLimit] = useState(20)
+  // 3 matches FRQ_DAILY_LIMIT in utils/adiRateLimit.ts. /api/adi-usage overrides
+  // this on first load — the local default only matters before the request
+  // resolves (or if it fails).
+  const [remainingCalls, setRemainingCalls] = useState(3)
+  const [dailyLimit, setDailyLimit] = useState(3)
   const [error, setError] = useState<string | null>(null)
   const [queuedMessage, setQueuedMessage] = useState<string>('Your answer has been saved. Adi will grade it when your daily limit resets.')
   const [desmosOpen, setDesmosOpen] = useState(false)
@@ -150,12 +149,12 @@ export default function FRQPage({ params }: PageProps) {
           fetch('/api/adi-usage'),
         ])
 
-        // Parse usage
+        // Parse usage — only the FRQ bucket matters on this page
         if (usageRes.status === 'fulfilled' && usageRes.value.ok) {
           try {
             const usageData = await usageRes.value.json()
-            const limit = typeof usageData.limit === 'number' ? usageData.limit : 20
-            const count = typeof usageData.count === 'number' ? usageData.count : 0
+            const limit = typeof usageData?.frq?.limit === 'number' ? usageData.frq.limit : 3
+            const count = typeof usageData?.frq?.count === 'number' ? usageData.frq.count : 0
             setDailyLimit(limit)
             setRemainingCalls(Math.max(0, limit - count))
           } catch {
@@ -365,7 +364,7 @@ export default function FRQPage({ params }: PageProps) {
 
         // Drop this item from the pending list and update remaining-calls.
         setQueuedSubmissions(prev => prev.filter(s => s.id !== item.id))
-        setRemainingCalls(prev => Math.max(0, prev - getFRQCallCost(item.strictness)))
+        setRemainingCalls(prev => Math.max(0, prev - 1))
 
         logEvent({
           event_type: 'frq_completed_queued',
@@ -689,19 +688,18 @@ export default function FRQPage({ params }: PageProps) {
                       Pending review
                     </h2>
                     <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.45 }}>
-                      You hit your daily limit on these. Tap to grade with today&apos;s credits.
+                      You hit your daily FRQ limit on these. Tap to grade once a slot frees up.
                     </p>
                   </div>
                   <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-                    {remainingCalls} credit{remainingCalls === 1 ? '' : 's'} left today
+                    {remainingCalls} grade{remainingCalls === 1 ? '' : 's'} left today
                   </span>
                 </div>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                   {queuedSubmissions.map(item => {
                     const q = questions.find(qq => qq.id === item.question_id)
-                    const cost = getFRQCallCost(item.strictness)
-                    const insufficient = remainingCalls < cost
+                    const insufficient = remainingCalls < 1
                     const isGrading = gradingQueuedId === item.id
                     const disabled = isGrading || insufficient
                     const title = q?.title || q?.id || item.question_id
@@ -766,7 +764,7 @@ export default function FRQPage({ params }: PageProps) {
                             if (!disabled) (e.currentTarget as HTMLButtonElement).style.background = 'var(--accent)'
                           }}
                         >
-                          {isGrading ? 'Grading…' : insufficient ? `Need ${cost} credits` : `Grade now (${cost})`}
+                          {isGrading ? 'Grading…' : insufficient ? 'No grades left' : 'Grade now'}
                         </button>
                       </div>
                     )
