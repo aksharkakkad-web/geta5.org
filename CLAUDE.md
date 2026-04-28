@@ -90,6 +90,29 @@ If session context contains `GSD AUTO-RESUME SIGNAL`, immediately invoke `/gsd:p
 ### Content JSON Files:
 When writing any file under `/data/`, the pipeline is: Researcher → Planner → Writer → Reviewer (subagent) → only then can Coder integrate it. No shortcuts.
 
+### Changelog Discipline:
+Whenever a commit/push contains a user-visible change, append an entry to `public/data/changelog.json` BEFORE pushing. Entry format:
+
+~~~json
+{
+  "id": "YYYY-MM-DD-short-slug",
+  "date": "YYYY-MM-DD",
+  "type": "fix" | "feature" | "content" | "improvement",
+  "title": "Short, plain-language title (≤ 80 chars)",
+  "body": "1–3 sentences a student would understand. No internal jargon, file names, or technical terms."
+}
+~~~
+
+Use these `type` values:
+- `fix` — bug fixes, broken behavior corrected
+- `feature` — new capability the user can do
+- `content` — new questions, units, drills, study guides
+- `improvement` — UX polish, performance, clearer copy
+
+Skip the entry if the push only contains: refactors, dependency bumps, internal cleanup, tooling, planning docs, or work-in-progress code that is not user-visible.
+
+Entries are newest-first in the array. Each `id` must be unique.
+
 ## Critical Rules
 1. NEVER render formulas as plain text — KaTeX always
 2. NEVER skip the screenshot loop — see Workflow Enforcement above
@@ -101,6 +124,7 @@ When writing any file under `/data/`, the pipeline is: Researcher → Planner �
 8. Every MCQ must have per-choice explanations (correct + each distractor)
 9. Answer scrambling must be verified across 20+ renders — no positional bias
 10. Update this file immediately when any architectural decision is made
+11. After any user-visible push (fix, feature, or content add), append a new entry to `public/data/changelog.json` BEFORE pushing. Skip for: pure refactors, dependency bumps, internal cleanup, tooling changes, planning docs.
 
 ## Content Standards Summary
 - MCQ difficulty: 20% easy / 45% medium / 35% hard per unit
