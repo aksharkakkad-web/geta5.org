@@ -26,9 +26,17 @@ function getSupabaseAdmin() {
 }
 
 function sanitizeGrading(question: FRQ, raw: FRQGradingResult): FRQGradingResult {
-  const gradableParts = question.parts.filter(p => !p.requires_drawing)
+  let gradableParts = question.parts.filter(p => !p.requires_drawing)
   const rawParts = Array.isArray(raw.parts) ? raw.parts : []
   const rawByLetter = new Map(rawParts.map(p => [p.letter, p]))
+
+  // LEQ presents 3 choose-one options; the AI grades only the chosen one.
+  // Filter to that single part so max_score stays 6, not 18.
+  if (question.frq_type === 'leq' && rawParts.length === 1) {
+    const chosenLetter = rawParts[0].letter
+    const chosenPart = gradableParts.find(p => p.letter === chosenLetter)
+    if (chosenPart) gradableParts = [chosenPart]
+  }
 
   function synthesizeZeroPointResult(
     sp: { point_id: string; point_value: number; description: string; alternatives?: { required_elements: string[]; correct_example: string }[] }
@@ -505,7 +513,8 @@ export function isBlankResponse(text: unknown): boolean {
 
 export function buildBlankResult(question: FRQ): FRQGradingResult {
   const gradableParts = question.parts.filter(p => !p.requires_drawing)
-  const max_score = gradableParts.reduce((sum, p) => sum + p.point_value, 0)
+  // LEQ has 3 choose-one option-parts; use total_points (6) instead of summing all.
+  const max_score = question.frq_type === 'leq' ? question.total_points : gradableParts.reduce((sum, p) => sum + p.point_value, 0)
   const parts: FRQGradingPart[] = gradableParts.map(p => ({
     letter: p.letter,
     earned: 0,

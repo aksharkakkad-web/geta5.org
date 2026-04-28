@@ -102,7 +102,7 @@ export default function FRQSAQLayout({
               <textarea
                 value={value}
                 onChange={(e) => onResponseChange(key, e.target.value)}
-                placeholder={`Part ${key.toLowerCase()}: Write 1–2 sentences...`}
+                placeholder={`Part ${key.toLowerCase()}...`}
                 aria-label={`Part ${key.toUpperCase()} response`}
                 style={{
                   width: '100%',
