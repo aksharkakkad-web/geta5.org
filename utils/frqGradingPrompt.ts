@@ -221,13 +221,16 @@ GENERAL SCORING CONVENTIONS:
 // ─── Output Schema ────────────────────────────────────────────────────────────
 
 const OUTPUT_SCHEMA = `OUTPUT FORMAT — respond with raw JSON only (no markdown fences):
+
+CRITICAL POINT_ID RULE: For every point_results entry, copy the EXACT point_id string shown in the rubric below (after the word "POINT"). Do NOT invent or modify IDs. The rubric may use ids like "a", "a1", "b2", "c", "d" — use whatever the rubric literally contains. If the rubric says "POINT a [1 pt]", your output must use "point_id": "a" — NOT "a1". If the rubric says "POINT a1 [1 pt]", use "a1". The placeholder shown in the schema example below (<COPY-EXACT-FROM-RUBRIC>) is a placeholder, not a literal value to copy.
+
 {
   "parts": [
     {
       "letter": "a",
       "point_results": [
         {
-          "point_id": "a1",
+          "point_id": "<COPY-EXACT-FROM-RUBRIC>",
           "description": "<copy of description>",
           "earned": 0,
           "max": 1,

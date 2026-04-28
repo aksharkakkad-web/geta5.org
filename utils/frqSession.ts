@@ -103,6 +103,7 @@ export interface FRQGradingPointResult {
   sub_results: FRQGradingSubResult[]
   reasoning: string              // 1-sentence grader justification
   suggestion: string | null      // improvement hint for missed points, null if earned
+  synthesized?: boolean          // true when the LLM did not return this point and the server filled it with a 0 placeholder. Cascade dependencies must NOT trigger off a synthesized 0 — it is "ungraded", not "failed".
 }
 
 export interface FRQGradingPart {

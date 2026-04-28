@@ -54,6 +54,7 @@ function sanitizeGrading(question: FRQ, raw: FRQGradingResult): FRQGradingResult
       sub_results: [],
       reasoning,
       suggestion,
+      synthesized: true,
     }
   }
 
@@ -149,45 +150,62 @@ function enforceDependencies(question: FRQ, grading: FRQGradingResult): FRQGradi
   const frqType = question.frq_type
   const parts = grading.parts.map(part => ({ ...part }))
 
-  function findPoint(pointId: string): { earned: number } | undefined {
-    for (const p of parts) {
-      const pr = p.point_results?.find(r => r.point_id === pointId)
-      if (pr) return pr
-    }
-    return undefined
+  // Structural lookup — finds a scoring point by part letter and position
+  // within that part. This is robust to point_id naming variation across FRQ
+  // data files (some use "a"/"b"/"c"/"d", others use "a1"/"b1"/"c1"/"d1").
+  // index can be a number (0 = first, -1 = last) or 'first' / 'last'.
+  function findPointAt(letter: string, index: number | 'first' | 'last'): FRQGradingPointResult | undefined {
+    const part = parts.find(p => p.letter === letter)
+    if (!part?.point_results || part.point_results.length === 0) return undefined
+    const i = index === 'first' ? 0
+            : index === 'last' ? part.point_results.length - 1
+            : index < 0 ? part.point_results.length + index
+            : index
+    return part.point_results[i]
   }
 
-  function zeroPoint(pointId: string, reason: string) {
-    for (const part of parts) {
-      if (!part.point_results) continue
-      const pr = part.point_results.find(r => r.point_id === pointId)
-      if (pr && pr.earned > 0) {
-        pr.earned = 0
-        pr.reasoning = `${pr.reasoning} [server: ${reason}]`
-        if (pr.sub_results) pr.sub_results = pr.sub_results.map(sr => ({ ...sr, met: false }))
-      }
-    }
+  function zeroPointResult(pr: FRQGradingPointResult | undefined, reason: string) {
+    if (!pr || pr.earned <= 0) return
+    pr.earned = 0
+    pr.reasoning = `${pr.reasoning} [server: ${reason}]`
+    if (pr.sub_results) pr.sub_results = pr.sub_results.map(sr => ({ ...sr, met: false }))
+  }
+
+  // A synthesized point means the LLM did not grade it — we filled in a 0
+  // placeholder. That is NOT a real "the student failed this row" signal,
+  // so cascading other rows off of it would compound the grading error.
+  function isUnreliableZero(pr: FRQGradingPointResult | undefined): boolean {
+    if (!pr) return true
+    if (pr.synthesized) return true
+    return false
   }
 
   if (frqType === 'argument_essay') {
-    const thesis = findPoint('a1')
-    if (!thesis || thesis.earned === 0) {
-      zeroPoint('d1', 'rebuttal requires thesis')
-      zeroPoint('b3', 'evidence tier 3 requires thesis')
+    // Thesis = first scoring point in part 'a'.
+    // Tier-3 evidence = last scoring point in part 'b' (highest tier).
+    // Rebuttal = first scoring point in part 'd'.
+    const thesis = findPointAt('a', 'first')
+    if (thesis && thesis.earned === 0 && !isUnreliableZero(thesis)) {
+      zeroPointResult(findPointAt('d', 'first'), 'rebuttal requires thesis')
+      zeroPointResult(findPointAt('b', 'last'), 'evidence tier 3 requires thesis')
     }
   }
 
   if (frqType === 'dbq') {
-    const ev3 = findPoint('a3')
-    if (!ev3 || ev3.earned === 0) {
-      zeroPoint('a4', 'evidence+ requires evidence base')
+    // a3 / a4 are the document-evidence base and the +1 evidence-supports
+    // point on DBQs (rubric is stable across the World History DBQ files).
+    const ev3 = parts.flatMap(p => p.point_results ?? []).find(pr => pr.point_id === 'a3')
+    const ev4 = parts.flatMap(p => p.point_results ?? []).find(pr => pr.point_id === 'a4')
+    if (ev3 && ev3.earned === 0 && !isUnreliableZero(ev3)) {
+      zeroPointResult(ev4, 'evidence+ requires evidence base')
     }
   }
 
   if (frqType === 'leq') {
-    const ev1 = findPoint('a3')
-    if (!ev1 || ev1.earned === 0) {
-      zeroPoint('a4', 'evidence+ requires evidence base')
+    const ev1 = parts.flatMap(p => p.point_results ?? []).find(pr => pr.point_id === 'a3')
+    const ev2 = parts.flatMap(p => p.point_results ?? []).find(pr => pr.point_id === 'a4')
+    if (ev1 && ev1.earned === 0 && !isUnreliableZero(ev1)) {
+      zeroPointResult(ev2, 'evidence+ requires evidence base')
     }
   }
 
@@ -208,6 +226,10 @@ function normalize(s: string): string {
     .replace(/[–—―]/g, '-')
     .replace(/[  -​﻿]/g, ' ')
     .replace(/…/g, '...')
+    // Strip markdown emphasis so quote-matching survives **bold**, *italic*,
+    // __underline__, and `code` formatting in student text or LLM-returned
+    // quotes (LLMs frequently drop these characters when copying).
+    .replace(/[*_`]/g, '')
     .toLowerCase()
     .replace(/\s+/g, ' ')
     .trim()
