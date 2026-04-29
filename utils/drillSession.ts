@@ -56,6 +56,10 @@ export interface SessionState {
   isRetry: boolean
   unitSlug: string | 'all'
   startedAt?: number          // Date.now() when session began
+  // In-memory only — pool of all subject drill cards used to fill out matching
+  // groups when the active cluster has fewer than 4 cards. Not persisted to
+  // localStorage; DrillSession will lazy-load this on resume if missing.
+  subjectPool?: DrillCard[]
 }
 
 export type DrillView = 'unit-select' | 'session' | 'results'

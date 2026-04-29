@@ -6,7 +6,7 @@ import { Check, X, Settings } from 'lucide-react'
 import DrillCard from '@/components/drill/DrillCard'
 import MatchingCard from '@/components/drill/MatchingCard'
 import { SessionState, saveDrillDraft, clearDrillDraft, insertRetryCard, matchesFilter } from '@/utils/drillSession'
-import type { DrillFilter } from '@/utils/drillSession'
+import type { DrillCard as DrillCardType, DrillFilter } from '@/utils/drillSession'
 import { getSubject } from '@/utils/subjects'
 import { scramble } from '@/utils/scramble'
 import { lsGet, lsSet, LS_KEYS } from '@/utils/localStorage'
@@ -47,8 +47,6 @@ export default function DrillSession({ session, subject, onComplete, onStartFres
 
   const [filterMode, setFilterMode] = useState<DrillFilter>('all')
 
-  // Style plan must be computed before workingDeck so the reorderedDeck is available
-  // for the fresh-session initializer below.
   const [styles, setStyles] = useState<DrillStyleSettings>(() => loadDrillStyles())
   const [settingsOpen, setSettingsOpen] = useState(false)
   const [blockedMsg, setBlockedMsg] = useState(false)
@@ -61,17 +59,89 @@ export default function DrillSession({ session, subject, onComplete, onStartFres
     setShowStylesHint(false)
     saveDrillStyles(loadDrillStyles()) // writes the key so the hint never reappears
   }
-  const stylePlanRef = useRef<StylePlan>(
-    computeStylePlan(session.workingDeck ?? [...session.cards], loadDrillStyles())
+
+  // Filler pool: every drill card in the subject. Used to round out matching
+  // groups when the active cluster has fewer than 4 cards. Fresh sessions
+  // receive this from UnitSelector; resumed drafts lazy-fetch below.
+  const [fillerPool, setFillerPool] = useState<DrillCardType[] | undefined>(session.subjectPool)
+  const fillerPoolRef = useRef(fillerPool)
+  fillerPoolRef.current = fillerPool
+
+  const [stylePlan, setStylePlan] = useState<StylePlan>(() =>
+    computeStylePlan(session.workingDeck ?? [...session.cards], loadDrillStyles(), {
+      fillerPool: session.subjectPool,
+    })
   )
 
   // Resumed drafts keep their saved working deck; fresh sessions use the style plan's
   // reordered deck so matching rounds are spread out and contain topically similar cards.
   const [workingDeck, setWorkingDeck] = useState<SessionState['cards']>(() =>
-    session.workingDeck ?? stylePlanRef.current.reorderedDeck
+    session.workingDeck ?? stylePlan.reorderedDeck
   )
   const workingDeckRef = useRef(workingDeck)
   workingDeckRef.current = workingDeck
+
+  // Lazy-fetch the full subject pool when resuming a draft (subjectPool wasn't
+  // persisted to localStorage). Used for filler matching groups when the user
+  // toggles styles mid-session.
+  useEffect(() => {
+    if (fillerPool !== undefined) return
+    const subjectInfo = getSubject(subject)
+    if (!subjectInfo) return
+    let cancelled = false
+    Promise.allSettled(
+      subjectInfo.units.map(u =>
+        fetch(`/data/${subject}/drills/unit-${u.number}.json`)
+          .then(r => (r.ok ? r.json() : null))
+          .then(d => (d?.cards as DrillCardType[] | undefined) ?? null)
+      )
+    ).then(results => {
+      if (cancelled) return
+      const all: DrillCardType[] = []
+      for (const r of results) {
+        if (r.status === 'fulfilled' && r.value) all.push(...r.value)
+      }
+      setFillerPool(all)
+    })
+    return () => {
+      cancelled = true
+    }
+  }, [fillerPool, subject])
+
+  // Re-plan when styles change. Skip the initial render so the fresh-session
+  // plan computed in the useState initializer above isn't immediately overwritten.
+  // planVersion bumps on every re-plan and is appended to card keys so both
+  // DrillCard and MatchingCard fully remount even if the new card has the same id.
+  const [planVersion, setPlanVersion] = useState(0)
+  const isInitialStylesRender = useRef(true)
+  useEffect(() => {
+    if (isInitialStylesRender.current) {
+      isInitialStylesRender.current = false
+      return
+    }
+    const deck = workingDeckRef.current
+    const idx = currentIndexRef.current
+    const past = deck.slice(0, idx)
+    const futureRaw = deck.slice(idx)
+    const seen = new Set<string>()
+    const futureCards: DrillCardType[] = []
+    for (const c of futureRaw) {
+      if (!seen.has(c.id)) {
+        seen.add(c.id)
+        futureCards.push(c)
+      }
+    }
+    // Filler pool is the global subject pool plus any past (already-rendered)
+    // cards — those serve as the "prior questions" the user can reuse for
+    // padding orphan groups.
+    const pool = [...past, ...(fillerPoolRef.current ?? [])]
+    const newPlan = computeStylePlan(futureCards, styles, { fillerPool: pool })
+    setStylePlan(newPlan)
+    setWorkingDeck([...past, ...newPlan.reorderedDeck])
+    setPlanVersion(v => v + 1)
+    // currentIndex stays equal to past.length, so the slot at idx now holds
+    // the first card of the new plan — the visible card "transforms" immediately.
+  }, [styles])
 
   const handleFilterChange = (newFilter: DrillFilter) => {
     if (newFilter === filterMode) return
@@ -102,7 +172,8 @@ export default function DrillSession({ session, subject, onComplete, onStartFres
     })
   }
 
-  // Auto-save draft on index advance
+  // Auto-save draft on index advance OR working-deck change (style toggles
+  // re-plan the tail without advancing the index).
   useEffect(() => {
     if (currentIndex > 0) {
       saveDrillDraft(subject, {
@@ -124,7 +195,7 @@ export default function DrillSession({ session, subject, onComplete, onStartFres
         }
       }
     }
-  }, [currentIndex]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [currentIndex, workingDeck]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const totalCards = workingDeck.length
   const currentCard = workingDeck[currentIndex]
@@ -188,31 +259,35 @@ export default function DrillSession({ session, subject, onComplete, onStartFres
   // Matching group completion handler
   const handleMatchingDone = useCallback((group: MatchingGroup, verdicts: Record<string, 'correct' | 'wrong'>) => {
     const idx = currentIndexRef.current
-    const groupSize = group.cards.length
+    // Real cards = cluster members from the active deck. Fillers (viewOnlyIds)
+    // are borrowed from the broader pool to round out a group of 4 — their
+    // verdicts don't count toward stats, retries, or the user's record.
+    const realCards = group.cards.filter(c => !group.viewOnlyIds.has(c.id))
+    const realCount = realCards.length
 
-    // Record answers
+    // Record answers for real cards only
     const newAnswers = {
       ...answersRef.current,
-      ...Object.fromEntries(Object.entries(verdicts).map(([id, v]) => [id, { verdict: v, userInput: '' }])),
+      ...Object.fromEntries(realCards.map(c => [c.id, { verdict: verdicts[c.id], userInput: '' }])),
     }
     setAnswers(newAnswers)
     answersRef.current = newAnswers
 
-    // Log + counters
-    for (const c of group.cards) {
+    // Log + counters — real cards only
+    for (const c of realCards) {
       logEvent({ event_type: 'drill_answer', subject, unit: c.unit, metadata: { correct: verdicts[c.id] === 'correct', mode: 'matching' } })
     }
-    lsSet(LS_KEYS.totalQuestions, lsGet<number>(LS_KEYS.totalQuestions, 0) + groupSize)
-    lsSet(LS_KEYS.drillCount, lsGet<number>(LS_KEYS.drillCount, 0) + groupSize)
-    const correct = Object.values(verdicts).filter(v => v === 'correct').length
+    lsSet(LS_KEYS.totalQuestions, lsGet<number>(LS_KEYS.totalQuestions, 0) + realCount)
+    lsSet(LS_KEYS.drillCount, lsGet<number>(LS_KEYS.drillCount, 0) + realCount)
+    const correct = realCards.filter(c => verdicts[c.id] === 'correct').length
     lsSet(LS_KEYS.drillCorrect, lsGet<number>(LS_KEYS.drillCorrect, 0) + correct)
 
     if (!isAuthenticated && shouldBlockAccess()) { setGateBlocked(true); return }
 
-    // Insert retries for wrong cards (after the full group span)
+    // Insert retries for wrong real cards (skip fillers — they aren't part of the deck)
     let nextDeck = workingDeckRef.current
-    const lastMemberIdx = idx + groupSize - 1
-    for (const wrongCard of group.cards.filter(c => verdicts[c.id] === 'wrong')) {
+    const lastMemberIdx = idx + realCount - 1
+    for (const wrongCard of realCards.filter(c => verdicts[c.id] === 'wrong')) {
       nextDeck = insertRetryCard(nextDeck, wrongCard, lastMemberIdx)
     }
     if (nextDeck !== workingDeckRef.current) {
@@ -220,7 +295,7 @@ export default function DrillSession({ session, subject, onComplete, onStartFres
       setWorkingDeck(nextDeck)
     }
 
-    const nextIndex = idx + groupSize
+    const nextIndex = idx + realCount
     if (nextIndex >= nextDeck.length) {
       clearDrillDraft(subject)
       onComplete({ ...session, index: nextIndex, answers: newAnswers })
@@ -230,10 +305,12 @@ export default function DrillSession({ session, subject, onComplete, onStartFres
   }, [isAuthenticated, subject, session, onComplete]) // eslint-disable-line react-hooks/exhaustive-deps
 
   // Determine what to render for the current slot
-  const stylePlan = stylePlanRef.current
   const matchingGroup = stylePlan.matchingAnchorMap.get(currentCard?.id ?? '')
-  // Only show matching if none of the group's cards have been answered yet (handles retry card edge case)
-  const groupConsumed = matchingGroup && matchingGroup.cards.some(c => answersRef.current[c.id])
+  // Only show matching if no real (non-filler) member of the group has been answered yet
+  // (handles retry card edge case where a group's anchor is replayed after partial completion).
+  const groupConsumed = matchingGroup && matchingGroup.cards.some(c =>
+    !matchingGroup.viewOnlyIds.has(c.id) && answersRef.current[c.id]
+  )
   const activeMatchingGroup = matchingGroup && !groupConsumed ? matchingGroup : undefined
   const isOrphanMember = !activeMatchingGroup && stylePlan.groupMemberIds.has(currentCard?.id ?? '')
   const presentStyle = activeMatchingGroup
@@ -325,7 +402,7 @@ export default function DrillSession({ session, subject, onComplete, onStartFres
         <div style={{ marginTop: '10px', background: 'var(--bg-card)', border: '1px solid var(--bg-border)', borderRadius: 'var(--radius-md)', padding: '16px 20px' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
             <span style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--text-muted)' }}>Question Styles</span>
-            <span style={{ fontSize: '0.6875rem', color: 'var(--text-muted)' }}>Takes effect next session</span>
+            <span style={{ fontSize: '0.6875rem', color: 'var(--text-muted)' }}>Applies right away</span>
           </div>
 
           {([
@@ -391,13 +468,13 @@ export default function DrillSession({ session, subject, onComplete, onStartFres
       <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: '24px', paddingBottom: '24px' }}>
         {activeMatchingGroup ? (
           <MatchingCard
-            key={`matching-${activeMatchingGroup.anchorId}-${currentIndex}`}
+            key={`matching-${activeMatchingGroup.anchorId}-${currentIndex}-v${planVersion}`}
             cards={activeMatchingGroup.cards}
             onComplete={(verdicts) => handleMatchingDone(activeMatchingGroup, verdicts)}
           />
         ) : (
           <DrillCard
-            key={`${currentCard.id}-${currentIndex}`}
+            key={`${currentCard.id}-${currentIndex}-v${planVersion}`}
             card={currentCard}
             onAnswer={handleAnswer}
             onNext={handleNext}

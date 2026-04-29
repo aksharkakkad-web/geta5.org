@@ -85,7 +85,7 @@ export default function UnitSelector({ subject, onStart, draft, onResume }: Unit
       onResume?.()
       return
     }
-    onStart({ cards: scramble(allLoadedCards), index: 0, answers: {}, isRetry: false, unitSlug: 'all', startedAt: Date.now() })
+    onStart({ cards: scramble(allLoadedCards), index: 0, answers: {}, isRetry: false, unitSlug: 'all', startedAt: Date.now(), subjectPool: allLoadedCards })
   }
 
   const handleUnitClick = (unitNumber: number, cards: DrillCard[]) => {
@@ -94,7 +94,7 @@ export default function UnitSelector({ subject, onStart, draft, onResume }: Unit
       onResume?.()
       return
     }
-    onStart({ cards: scramble(cards), index: 0, answers: {}, isRetry: false, unitSlug, startedAt: Date.now() })
+    onStart({ cards: scramble(cards), index: 0, answers: {}, isRetry: false, unitSlug, startedAt: Date.now(), subjectPool: allLoadedCards })
   }
 
   if (loading) {
