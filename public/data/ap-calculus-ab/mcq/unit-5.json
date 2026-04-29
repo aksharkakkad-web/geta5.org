@@ -1695,27 +1695,27 @@
       "choices": [
         {
           "id": "A",
-          "text": "$f$ has local minima at $x=1$ and $x=5$, and a local maximum at $x=3$... wait — re-evaluating: $f'<0$ outside $(1,5)$ and $f'>0$ inside $(1,5)$",
+          "text": "$f$ has local minima at $x=1$ and $x=5$, and a local maximum at $x=3$",
           "is_correct": false,
-          "explanation": "A parabola opening upward with roots at 1 and 5 has $f'<0$ outside and $f'>0$ inside. So $f$ has local minima at $x=1$ and $x=5$."
+          "explanation": "For an upward-opening parabola, $f' > 0$ outside $(1,5)$ and $f' < 0$ inside. At $x=1$, $f'$ changes from $+$ to $-$ (local maximum of $f$), not a minimum. At $x=3$, $f'$ has its minimum value (an inflection point of $f$, not a local extremum)."
         },
         {
           "id": "B",
           "text": "$f$ has a local minimum at $x=1$, is increasing on $(1,5)$, and has a local maximum at $x=5$",
-          "is_correct": true,
-          "explanation": "$f'<0$ for $x<1$ and $x>5$; $f'>0$ for $1<x<5$. Sign changes: $-$ to $+$ at $x=1$ (local min) and $+$ to $-$ at $x=5$ (local max). Inflection at $x=3$ (where $f'$ has min, meaning $f''=0$ changes sign)."
+          "is_correct": false,
+          "explanation": "This describes the behavior of a downward-opening parabola. For an upward-opening parabola, $f' > 0$ for $x < 1$ and $x > 5$, and $f' < 0$ for $1 < x < 5$. So $f$ is decreasing on $(1,5)$ and has a local maximum (not minimum) at $x=1$."
         },
         {
           "id": "C",
           "text": "$f$ is concave up for $x < 3$ and concave down for $x > 3$",
           "is_correct": false,
-          "explanation": "$f''$ (the derivative of $f'$) determines concavity. $f'$ has a minimum at $x=3$, meaning $f''(3)=0$ with $f''>0$ to the right (since $f'$ is increasing) and $f''<0$ to the left — actually the reverse. $f'$ is a parabola opening up: $f''$ (slope of $f'$) is $<0$ for $x<3$ (decreasing), $=0$ at $x=3$, $>0$ for $x>3$ (increasing). So $f$ is concave down then up."
+          "explanation": "$f''$ is the slope of $f'$. Since $f'(x) = (x-1)(x-5) = x^2 - 6x + 5$, we get $f''(x) = 2x - 6$, which is $< 0$ for $x < 3$ (concave down) and $> 0$ for $x > 3$ (concave up). The concavity description is reversed."
         },
         {
           "id": "D",
           "text": "$f$ has a local maximum at $x=1$ and a local minimum at $x=5$",
-          "is_correct": false,
-          "explanation": "At $x=1$: $f'$ changes from $-$ to $+$, giving a local minimum. At $x=5$: $f'$ changes from $+$ to $-$, giving a local maximum."
+          "is_correct": true,
+          "explanation": "For an upward-opening parabola, $f'(x) > 0$ for $x < 1$ and $x > 5$, and $f'(x) < 0$ for $1 < x < 5$. At $x=1$, $f'$ changes from $+$ to $-$, so $f$ has a local maximum by the First Derivative Test. At $x=5$, $f'$ changes from $-$ to $+$, so $f$ has a local minimum. $f$ is decreasing on $(1,5)$."
         }
       ],
       "subject": "ap-calculus-ab",
