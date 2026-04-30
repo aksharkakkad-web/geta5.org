@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Countries",
+  "description": "Per-subject country reference (currently AP Comparative Government only)",
+  "type": "object",
+  "required": ["subject", "items"],
+  "properties": {
+    "subject": { "type": "string" },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id", "title", "regime_type", "regime_category",
+          "byline", "key_takeaway", "summary",
+          "key_institutions", "required_cases", "comparative_themes",
+          "paired_with", "exam_appearance", "sections", "adi_prompts"
+        ],
+        "properties": {
+          "id": { "type": "string", "enum": ["uk", "russia", "china", "iran", "mexico", "nigeria"] },
+          "title": { "type": "string" },
+          "regime_type": { "type": "string" },
+          "regime_category": { "type": "string", "enum": ["democratic", "hybrid", "authoritarian"] },
+          "byline": { "type": "string" },
+          "key_takeaway": { "type": "string" },
+          "summary": { "type": "string" },
+          "key_institutions": { "type": "array", "items": { "type": "string" } },
+          "required_cases": { "type": "array", "items": { "type": "string" } },
+          "comparative_themes": { "type": "array", "items": { "type": "string" } },
+          "paired_with": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "title", "relation"],
+              "properties": {
+                "id": { "type": "string" },
+                "title": { "type": "string" },
+                "relation": { "type": "string" }
+              }
+            }
+          },
+          "exam_appearance": { "type": "string" },
+          "sections": {
+            "type": "array",
+            "minItems": 5,
+            "maxItems": 5,
+            "items": {
+              "type": "object",
+              "required": ["label", "title", "blurb", "adi_prompt"],
+              "properties": {
+                "label": { "type": "string" },
+                "title": { "type": "string" },
+                "blurb": { "type": "string" },
+                "adi_prompt": { "type": "string" }
+              }
+            }
+          },
+          "adi_prompts": {
+            "type": "object",
+            "required": ["quiz", "explain"],
+            "properties": {
+              "quiz": { "type": "string" },
+              "explain": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -160,6 +160,33 @@ const ICONS: Record<string, {
       </>
     ),
   },
+  'ap-comparative-government': {
+    colors: ['#fda4af', '#e11d48', '#fb7185'],
+    lightColors: ['#9f1239', '#881337', '#be123c'],
+    glow: '#e11d48',
+    lightGlow: '#9f1239',
+    render: (c, gid) => (
+      <>
+        {/* Globe outline (wireframe — distinct from world-history's filled globe) */}
+        <circle cx="40" cy="32" r="20" fill="none" stroke={`url(#${gid})`} strokeWidth="2" />
+        {/* Latitude lines */}
+        <ellipse cx="40" cy="32" rx="20" ry="6" fill="none" stroke={c[2]} strokeWidth="0.7" opacity={0.5} />
+        <ellipse cx="40" cy="32" rx="20" ry="14" fill="none" stroke={c[2]} strokeWidth="0.7" opacity={0.4} />
+        {/* Longitude line (vertical meridian) */}
+        <ellipse cx="40" cy="32" rx="6" ry="20" fill="none" stroke={c[2]} strokeWidth="0.7" opacity={0.5} />
+        {/* Six country pins — distributed across globe */}
+        <circle cx="32" cy="22" r="2" fill={c[1]} />
+        <circle cx="48" cy="24" r="2" fill={c[1]} />
+        <circle cx="28" cy="34" r="2" fill={c[1]} />
+        <circle cx="52" cy="36" r="2" fill={c[1]} />
+        <circle cx="36" cy="44" r="2" fill={c[1]} />
+        <circle cx="46" cy="46" r="2" fill={c[1]} />
+        {/* Inner highlight on a couple of pins */}
+        <circle cx="32" cy="22" r="0.8" fill={c[2]} opacity={0.9} />
+        <circle cx="48" cy="24" r="0.8" fill={c[2]} opacity={0.9} />
+      </>
+    ),
+  },
 }
 
 const DEFAULT_ICON = {

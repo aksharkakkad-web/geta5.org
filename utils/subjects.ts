@@ -121,6 +121,18 @@ const SUBJECTS: Subject[] = [
       { number: 9, name: 'Applications of Thermodynamics' },
     ],
   },
+  {
+    slug: 'ap-comparative-government',
+    name: 'AP Comp Gov',
+    examDate: '2026-05-05T12:00:00',
+    units: [
+      { number: 1, name: 'Political Systems, Regimes, and Governments' },
+      { number: 2, name: 'Political Institutions' },
+      { number: 3, name: 'Political Culture and Participation' },
+      { number: 4, name: 'Party and Electoral Systems and Citizen Organizations' },
+      { number: 5, name: 'Political and Economic Changes and Development' },
+    ],
+  },
 ]
 
 export function getSubject(slug: string): Subject | undefined {
