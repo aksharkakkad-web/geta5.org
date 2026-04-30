@@ -9,7 +9,6 @@ import { getSubject } from '@/utils/subjects'
 import { saveMCQDraft, clearMCQDraft } from '@/utils/mcqSession'
 import type { MCQSessionState, MCQAnswer } from '@/utils/mcqSession'
 import { lsGet, lsSet, LS_KEYS } from '@/utils/localStorage'
-import { logEvent } from '@/utils/analytics'
 import { shouldBlockAccess } from '@/utils/freeTrialGate'
 import { useAuth } from '@/contexts/AuthContext'
 
@@ -87,13 +86,6 @@ export default function MCQSession({ session, subject, onComplete, onStartFresh 
 
   const handleAnswer = (questionId: string, selectedChoiceId: string, isCorrect: boolean) => {
     setAnswers(prev => ({ ...prev, [questionId]: { selectedChoiceId, isCorrect } }))
-    const q = session.questions[currentIndex]
-    logEvent({
-      event_type: 'mcq_answer',
-      subject,
-      unit: q?.unit ?? session.unitSlug,
-      metadata: { correct: isCorrect },
-    })
   }
 
   const handleNext = () => {

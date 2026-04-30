@@ -10,7 +10,6 @@ import type { DrillCard as DrillCardType, DrillFilter } from '@/utils/drillSessi
 import { getSubject } from '@/utils/subjects'
 import { scramble } from '@/utils/scramble'
 import { lsGet, lsSet, LS_KEYS } from '@/utils/localStorage'
-import { logEvent } from '@/utils/analytics'
 import { shouldBlockAccess } from '@/utils/freeTrialGate'
 import { useAuth } from '@/contexts/AuthContext'
 import {
@@ -220,13 +219,6 @@ export default function DrillSession({ session, subject, onComplete, onStartFres
     userInput: string
   ) => {
     setAnswers(prev => ({ ...prev, [cardId]: { verdict, userInput } }))
-    const card = workingDeckRef.current[currentIndexRef.current]
-    logEvent({
-      event_type: 'drill_answer',
-      subject,
-      unit: card?.unit ?? session.unitSlug,
-      metadata: { correct: verdict === 'correct', mode: card?.mode },
-    })
   }
 
   const handleNext = () => {
@@ -273,10 +265,7 @@ export default function DrillSession({ session, subject, onComplete, onStartFres
     setAnswers(newAnswers)
     answersRef.current = newAnswers
 
-    // Log + counters — real cards only
-    for (const c of realCards) {
-      logEvent({ event_type: 'drill_answer', subject, unit: c.unit, metadata: { correct: verdicts[c.id] === 'correct', mode: 'matching' } })
-    }
+    // Counters — real cards only
     lsSet(LS_KEYS.totalQuestions, lsGet<number>(LS_KEYS.totalQuestions, 0) + realCount)
     lsSet(LS_KEYS.drillCount, lsGet<number>(LS_KEYS.drillCount, 0) + realCount)
     const correct = realCards.filter(c => verdicts[c.id] === 'correct').length

@@ -6,7 +6,7 @@ import { syncStats } from '@/utils/persistence'
 import { useAuth } from '@/contexts/AuthContext'
 
 const IDLE_TIMEOUT = 180_000  // 3 min of no interaction = idle (accounts for reading FRQ docs, MCQ stimuli)
-const SYNC_INTERVAL = 60_000  // sync to Supabase every 60s while active (halves CPU vs 30s)
+const SYNC_INTERVAL = 180_000 // sync to Supabase every 3min while active; beforeunload + visibilitychange catch the gaps
 
 /**
  * Tracks real active time on the site.
