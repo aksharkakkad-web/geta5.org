@@ -39,6 +39,15 @@ type CheckResult = {
 const adiCache = new Map<string, { count: number; date: string }>()
 const frqCache = new Map<string, { count: number; date: string }>()
 
+// Allowlist of user UUIDs that bypass all rate limits (per-user, global, and
+// cost accounting). Set FOUNDER_USER_IDS to a comma-separated list of
+// Supabase auth UUIDs in Vercel + .env.local. Empty/unset = no bypass.
+function isFounder(userId: string): boolean {
+  const raw = process.env.FOUNDER_USER_IDS
+  if (!raw) return false
+  return raw.split(',').map(s => s.trim()).filter(Boolean).includes(userId)
+}
+
 function todayUTC(): string {
   return new Date().toISOString().split('T')[0]
 }
@@ -66,6 +75,10 @@ function fireGlobalIncrement(costCents: number, today: string): void {
 export async function checkAndIncrementAdiUsage(userId: string): Promise<CheckResult> {
   const today = todayUTC()
   const supabase = getSupabaseAdmin()
+
+  if (isFounder(userId)) {
+    return { allowed: true, current: 0, limit: ADI_DAILY_LIMIT, resetAtEST: getResetTimeEST() }
+  }
 
   const cached = adiCache.get(userId)
   if (cached && cached.date === today && cached.count >= ADI_DAILY_LIMIT) {
@@ -130,6 +143,10 @@ export async function checkAndIncrementFRQUsage(
   const today = todayUTC()
   const supabase = getSupabaseAdmin()
   const cost = strictness === 'strict' ? FRQ_STRICT_COST_CENTS : FRQ_MODERATE_COST_CENTS
+
+  if (isFounder(userId)) {
+    return { allowed: true, current: 0, limit: FRQ_DAILY_LIMIT, resetAtEST: getResetTimeEST() }
+  }
 
   const cached = frqCache.get(userId)
   if (cached && cached.date === today && cached.count >= FRQ_DAILY_LIMIT) {
