@@ -2,17 +2,24 @@ import { generateText } from 'ai'
 import { openai } from '@ai-sdk/openai'
 import { google } from '@ai-sdk/google'
 import { createClient as createAdminClient } from '@supabase/supabase-js'
-import { checkAndIncrementFRQUsage, isFounder } from './adiRateLimit'
+import { checkAndIncrementFRQUsage } from './adiRateLimit'
 import { buildFRQGradingPrompt } from './frqGradingPrompt'
 import type { FRQ, FRQGradingResult, FRQGradingPart, FRQGradingPointResult, GradingStrictness } from './frqSession'
 
 // Three-tier routing by FRQ type. Cheaper models for simpler rubrics; gpt-4o
 // kept for the essay-types where deep reasoning carries the most weight.
 // Strictness is expressed via the prompt, not the model choice.
+//
+// 2026-05-01: SAQ + concept_application TEMPORARILY moved off Gemini Flash
+// because the production Google AI Studio key is on free tier and was
+// 429'ing under normal traffic. Once billing is enabled on that key,
+// move both back to gemini-2.5-flash — Flash is ~50% cheaper than
+// gpt-4o-mini for the same accuracy on short structured rubrics.
 function getModelForFRQ(frqType: string) {
-  // Cheap tier — short, structured, deterministic. Gemini Flash handles fine.
+  // Cheap tier — short, structured, deterministic. gpt-4o-mini is the
+  // fallback while Gemini billing is still pending; restore Flash later.
   if (frqType === 'saq' || frqType === 'concept_application') {
-    return google('gemini-2.5-flash')
+    return openai('gpt-4o-mini')
   }
   // Mid tier — tiered rubrics with subtle distinctions. gpt-4o-mini is sharper
   // than Flash on these but ~94% cheaper than gpt-4o.
@@ -432,28 +439,22 @@ export async function runFRQGrading(params: {
       }
       grading = sanitizeGrading(question, parsed)
     } catch (parseErr) {
-      const parseErrMsg = (parseErr as Error)?.message
-      const responsePreview = result.text?.slice(0, 500)
       console.error('Failed to parse FRQ grading response', {
-        error: parseErrMsg,
+        error: (parseErr as Error)?.message,
         questionId: question.id,
         frqType: question.frq_type,
         responseLength: result.text?.length,
-        responsePreview,
+        responsePreview: result.text?.slice(0, 500),
       })
       await admin
         .from('frq_submissions')
         .update({ grading_status: 'queued' })
         .eq('id', submissionId)
 
-      const founderDebug = isFounder(userId)
-        ? `\n\n[FOUNDER DEBUG] parse_fail: ${parseErrMsg} | qid=${question.id} | type=${question.frq_type} | responseLen=${result.text?.length ?? 0} | preview=${(responsePreview ?? '').replace(/\s+/g, ' ').slice(0, 200)}`
-        : ''
-
       return {
         status: 'queued',
         submissionId,
-        message: `Adi had trouble reading the grading response. Your answer is saved — try grading it again from your queue in a minute.${founderDebug}`,
+        message: 'Adi had trouble reading the grading response. Your answer is saved — try grading it again from your queue in a minute.',
       }
     }
 
@@ -494,12 +495,9 @@ export async function runFRQGrading(params: {
     // Log the underlying error so we can diagnose persistent failures.
     // After 3 SDK retries, a thrown error is either a 4xx or a sustained 5xx.
     const e = error as Error & { cause?: unknown; statusCode?: number; status?: number }
-    const errMsg = e?.message ?? 'unknown'
-    const errStatus = e?.statusCode ?? e?.status ?? 'n/a'
-    const errCause = e?.cause ? String((e.cause as { message?: string }).message ?? e.cause).slice(0, 200) : 'n/a'
     console.error('FRQ grading error:', {
-      message: errMsg,
-      status: errStatus,
+      message: e?.message,
+      status: e?.statusCode ?? e?.status,
       cause: e?.cause,
       questionId: question.id,
       frqType: question.frq_type,
@@ -509,16 +507,10 @@ export async function runFRQGrading(params: {
       .update({ grading_status: 'queued' })
       .eq('id', submissionId)
 
-    const responseKeys = Object.keys(responses ?? {}).join(',') || '(empty)'
-    const responseLens = Object.entries(responses ?? {}).map(([k, v]) => `${k}:${(typeof v === 'string' ? v : '').length}`).join(',') || '(empty)'
-    const founderDebug = isFounder(userId)
-      ? `\n\n[FOUNDER DEBUG] llm_error: ${errMsg} | status=${errStatus} | cause=${errCause} | qid=${question.id} | type=${question.frq_type} | responseKeys=[${responseKeys}] | responseLens=[${responseLens}]`
-      : ''
-
     return {
       status: 'queued',
       submissionId,
-      message: `Adi is having trouble grading right now. Your answer is saved — try grading it again from your queue in a few minutes.${founderDebug}`,
+      message: 'Adi is having trouble grading right now. Your answer is saved — try grading it again from your queue in a few minutes.',
     }
   }
 }
