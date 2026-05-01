@@ -4,6 +4,8 @@ import { buildSystemPrompt, type AdiContext } from '@/utils/adiPrompt'
 import { checkAndIncrementAdiUsage } from '@/utils/adiRateLimit'
 import { createClient } from '@/lib/supabase-server'
 
+export const maxDuration = 60
+
 // IP burst protection: 10 requests/minute per IP (defense against rapid-fire scripts)
 const ipBurst = new Map<string, { count: number; resetAt: number }>()
 const IP_BURST_LIMIT = 10

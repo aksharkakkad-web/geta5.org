@@ -5,6 +5,8 @@ import { readFile } from 'fs/promises'
 import path from 'path'
 import { createClient as createAdminClient } from '@supabase/supabase-js'
 
+export const maxDuration = 60
+
 function getSupabaseAdmin() {
   return createAdminClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,

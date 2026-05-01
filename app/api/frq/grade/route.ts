@@ -5,6 +5,11 @@ import { readFile } from 'fs/promises'
 import path from 'path'
 import { createClient as createAdminClient } from '@supabase/supabase-js'
 
+// Allow up to 60s for grading on Vercel Pro. Default is shorter and Gemini's
+// cold start + a couple of retries can blow past it, leaving the user with a
+// "queued" UI when the grade would have succeeded with a few more seconds.
+export const maxDuration = 60
+
 function getSupabaseAdmin() {
   return createAdminClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,

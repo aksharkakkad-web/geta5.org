@@ -381,11 +381,29 @@ export async function runFRQGrading(params: {
 
     let grading: FRQGradingResult
     try {
-      const cleanText = result.text.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim()
-      const parsed = JSON.parse(cleanText) as FRQGradingResult
+      // Defensive parsing: models occasionally wrap JSON in fences, prefix
+      // with a sentence ("Here is the grading:"), or trail with whitespace.
+      // Strip known fences first, then if that fails, fall back to extracting
+      // the substring between the first `{` and last `}`.
+      const stripped = result.text.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim()
+      let parsed: FRQGradingResult
+      try {
+        parsed = JSON.parse(stripped) as FRQGradingResult
+      } catch {
+        const first = stripped.indexOf('{')
+        const last = stripped.lastIndexOf('}')
+        if (first === -1 || last === -1 || last <= first) throw new Error('no json object found')
+        parsed = JSON.parse(stripped.slice(first, last + 1)) as FRQGradingResult
+      }
       grading = sanitizeGrading(question, parsed)
-    } catch {
-      console.error('Failed to parse FRQ grading response:', result.text)
+    } catch (parseErr) {
+      console.error('Failed to parse FRQ grading response', {
+        error: (parseErr as Error)?.message,
+        questionId: question.id,
+        frqType: question.frq_type,
+        responseLength: result.text?.length,
+        responsePreview: result.text?.slice(0, 500),
+      })
       await admin
         .from('frq_submissions')
         .update({ grading_status: 'queued' })
