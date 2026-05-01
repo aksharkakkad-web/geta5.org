@@ -121,6 +121,7 @@ export default function FRQPage({ params }: PageProps) {
   // resolves (or if it fails).
   const [remainingCalls, setRemainingCalls] = useState(3)
   const [dailyLimit, setDailyLimit] = useState(3)
+  const [resetAtEST, setResetAtEST] = useState<string>('')
   const [error, setError] = useState<string | null>(null)
   const [queuedMessage, setQueuedMessage] = useState<string>('You’ve hit your daily limit. Your answer is saved — come back to grade it tomorrow.')
   const [desmosOpen, setDesmosOpen] = useState(false)
@@ -157,6 +158,7 @@ export default function FRQPage({ params }: PageProps) {
             const count = typeof usageData?.frq?.count === 'number' ? usageData.frq.count : 0
             setDailyLimit(limit)
             setRemainingCalls(Math.max(0, limit - count))
+            if (typeof usageData?.resetAtEST === 'string') setResetAtEST(usageData.resetAtEST)
           } catch {
             // Non-blocking — keep default
           }
@@ -201,6 +203,26 @@ export default function FRQPage({ params }: PageProps) {
   useEffect(() => {
     setCompletions(loadFRQCompletions(subject))
   }, [subject])
+
+  // Re-fetch the FRQ usage counter from the server. Local state can drift
+  // after a submission (initial fetch only runs on page load), and the
+  // founder bypass means count stays at 0 server-side regardless. Call this
+  // after every grade attempt so the "X grades left" badge stays in sync
+  // with what the server actually thinks the user's daily count is.
+  async function refreshUsage() {
+    try {
+      const res = await fetch('/api/adi-usage')
+      if (!res.ok) return
+      const data = await res.json()
+      const limit = typeof data?.frq?.limit === 'number' ? data.frq.limit : 3
+      const count = typeof data?.frq?.count === 'number' ? data.frq.count : 0
+      setDailyLimit(limit)
+      setRemainingCalls(Math.max(0, limit - count))
+      if (typeof data?.resetAtEST === 'string') setResetAtEST(data.resetAtEST)
+    } catch {
+      // Non-blocking — counter just stays at its previous value.
+    }
+  }
 
   // Load the user's queued submissions for this subject so we can surface a
   // "Pending review" list above the question selector. Re-fetched after each
@@ -362,9 +384,11 @@ export default function FRQPage({ params }: PageProps) {
         saveFRQCompletion(subject, question.id, data.result.total_score, data.result.max_score, responses)
         setCompletions(loadFRQCompletions(subject))
 
-        // Drop this item from the pending list and update remaining-calls.
+        // Drop this item from the pending list and refresh remaining-calls
+        // from the server (more accurate than local decrement, especially
+        // for founder-bypass users whose count never actually goes up).
         setQueuedSubmissions(prev => prev.filter(s => s.id !== item.id))
-        setRemainingCalls(prev => Math.max(0, prev - 1))
+        refreshUsage()
 
         logEvent({
           event_type: 'frq_completed_queued',
@@ -385,6 +409,7 @@ export default function FRQPage({ params }: PageProps) {
         setPhase('queued')
         // The submission is still queued — keep it in the list for next time.
         refreshQueuedSubmissions()
+        refreshUsage()
       } else {
         setError(data.message ?? 'Could not grade this submission. Try again shortly.')
       }
@@ -439,6 +464,7 @@ export default function FRQPage({ params }: PageProps) {
         saveFRQCompletion(subject, selectedQuestion.id, data.result.total_score, data.result.max_score, responses)
         setCompletions(loadFRQCompletions(subject))
         setPhase('results')
+        refreshUsage()
 
         // Increment counters
         const partCount = selectedQuestion.parts?.length ?? 1
@@ -468,6 +494,7 @@ export default function FRQPage({ params }: PageProps) {
         setPhase('queued')
         // Surface the freshly queued submission on the next visit to select.
         refreshQueuedSubmissions()
+        refreshUsage()
       } else {
         // Server returned an error shape
         const message = data.message ?? 'Something went wrong. Please try again.'
@@ -688,11 +715,21 @@ export default function FRQPage({ params }: PageProps) {
                       Pending review
                     </h2>
                     <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.45 }}>
-                      You hit your daily FRQ limit on these. Tap to grade once a slot frees up.
+                      {remainingCalls > 0
+                        ? 'Tap to grade now.'
+                        : resetAtEST
+                          ? `You hit your daily FRQ limit. Tap to grade after limits reset at ${resetAtEST}.`
+                          : 'You hit your daily FRQ limit. Tap to grade once a slot frees up.'}
                     </p>
                   </div>
-                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textAlign: 'right' }}>
                     {remainingCalls} grade{remainingCalls === 1 ? '' : 's'} left today
+                    {resetAtEST && (
+                      <>
+                        <br />
+                        <span style={{ fontSize: '0.7rem' }}>Resets {resetAtEST}</span>
+                      </>
+                    )}
                   </span>
                 </div>
 
