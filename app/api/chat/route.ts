@@ -113,6 +113,7 @@ export async function POST(req: Request) {
     system: systemPrompt,
     messages: recentMessages,
     maxOutputTokens: 1024,
+    maxRetries: 3,
   })
 
   return result.toTextStreamResponse()

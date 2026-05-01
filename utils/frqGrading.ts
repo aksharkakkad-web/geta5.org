@@ -366,12 +366,17 @@ export async function runFRQGrading(params: {
         ]
       : 'Grade this FRQ submission according to the rubric. Respond with the JSON scoring object only.'
 
+    // maxRetries handles transient errors (rate limits, cold-start timeouts,
+    // 5xx blips) inside a single function invocation so users don't see
+    // "queued" for retryable failures. The SDK does NOT retry 4xx errors
+    // (bad request, auth) — those still throw and we mark queued correctly.
     const result = await generateText({
       model: getModelForFRQ(question.frq_type),
       system: systemPrompt,
       messages: [{ role: 'user', content: gradingUserContent }],
       maxOutputTokens: 3072,
       temperature: 0,
+      maxRetries: 3,
     })
 
     let grading: FRQGradingResult
@@ -427,7 +432,16 @@ export async function runFRQGrading(params: {
       result: grading,
     }
   } catch (error) {
-    console.error('FRQ grading error:', error)
+    // Log the underlying error so we can diagnose persistent failures.
+    // After 3 SDK retries, a thrown error is either a 4xx or a sustained 5xx.
+    const e = error as Error & { cause?: unknown; statusCode?: number; status?: number }
+    console.error('FRQ grading error:', {
+      message: e?.message,
+      status: e?.statusCode ?? e?.status,
+      cause: e?.cause,
+      questionId: question.id,
+      frqType: question.frq_type,
+    })
     await admin
       .from('frq_submissions')
       .update({ grading_status: 'queued' })
