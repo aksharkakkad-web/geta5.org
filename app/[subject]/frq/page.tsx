@@ -122,7 +122,7 @@ export default function FRQPage({ params }: PageProps) {
   const [remainingCalls, setRemainingCalls] = useState(3)
   const [dailyLimit, setDailyLimit] = useState(3)
   const [error, setError] = useState<string | null>(null)
-  const [queuedMessage, setQueuedMessage] = useState<string>('Your answer has been saved. Adi will grade it when your daily limit resets.')
+  const [queuedMessage, setQueuedMessage] = useState<string>('You’ve hit your daily limit. Your answer is saved — come back to grade it tomorrow.')
   const [desmosOpen, setDesmosOpen] = useState(false)
   const [timedMode, setTimedMode] = useState(true)
   const [timerStartedAt, setTimerStartedAt] = useState<number | null>(null)
@@ -464,7 +464,7 @@ export default function FRQPage({ params }: PageProps) {
         })
       } else if (data.status === 'queued') {
         clearFRQDraft(subject)
-        setQueuedMessage(data.message ?? 'Your answer has been saved. Adi will grade it when your daily limit resets.')
+        setQueuedMessage(data.message ?? 'You’ve hit your daily limit. Your answer is saved — come back to grade it tomorrow.')
         setPhase('queued')
         // Surface the freshly queued submission on the next visit to select.
         refreshQueuedSubmissions()
@@ -1076,7 +1076,7 @@ export default function FRQPage({ params }: PageProps) {
                     fontFamily: 'var(--font-outfit)',
                   }}
                 >
-                  Response Queued
+                  Saved for later
                 </h2>
                 <p
                   style={{

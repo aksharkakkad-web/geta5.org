@@ -380,8 +380,8 @@ export async function runFRQGrading(params: {
       .eq('id', submissionId)
 
     const message = usage.reason === 'global_limit'
-      ? `Adi has hit today's grading budget. Your response is saved — come back after ${usage.resetAtEST} to grade it.`
-      : `Your response has been saved. You can grade it after your daily limit resets at ${usage.resetAtEST}.`
+      ? `Adi has hit today's grading budget for everyone. Your answer is saved — come back to grade it tomorrow at ${usage.resetAtEST}.`
+      : `You've hit your daily limit. Your answer is saved — come back to grade it tomorrow at ${usage.resetAtEST}.`
 
     return {
       status: 'queued',
@@ -447,7 +447,7 @@ export async function runFRQGrading(params: {
       return {
         status: 'queued',
         submissionId,
-        message: 'Grading encountered an issue. Adi will retry shortly.',
+        message: 'Adi had trouble reading the grading response. Your answer is saved — try grading it again from your queue in a minute.',
       }
     }
 
@@ -503,7 +503,7 @@ export async function runFRQGrading(params: {
     return {
       status: 'queued',
       submissionId,
-      message: 'Grading temporarily unavailable. Adi will grade this when possible.',
+      message: 'Adi is having trouble grading right now. Your answer is saved — try grading it again from your queue in a few minutes.',
     }
   }
 }
