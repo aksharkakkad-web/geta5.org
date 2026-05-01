@@ -42,7 +42,7 @@ const frqCache = new Map<string, { count: number; date: string }>()
 // Allowlist of user UUIDs that bypass all rate limits (per-user, global, and
 // cost accounting). Set FOUNDER_USER_IDS to a comma-separated list of
 // Supabase auth UUIDs in Vercel + .env.local. Empty/unset = no bypass.
-function isFounder(userId: string): boolean {
+export function isFounder(userId: string): boolean {
   const raw = process.env.FOUNDER_USER_IDS
   if (!raw) return false
   return raw.split(',').map(s => s.trim()).filter(Boolean).includes(userId)

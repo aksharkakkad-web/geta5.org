@@ -2,7 +2,7 @@ import { generateText } from 'ai'
 import { openai } from '@ai-sdk/openai'
 import { google } from '@ai-sdk/google'
 import { createClient as createAdminClient } from '@supabase/supabase-js'
-import { checkAndIncrementFRQUsage } from './adiRateLimit'
+import { checkAndIncrementFRQUsage, isFounder } from './adiRateLimit'
 import { buildFRQGradingPrompt } from './frqGradingPrompt'
 import type { FRQ, FRQGradingResult, FRQGradingPart, FRQGradingPointResult, GradingStrictness } from './frqSession'
 
@@ -432,22 +432,28 @@ export async function runFRQGrading(params: {
       }
       grading = sanitizeGrading(question, parsed)
     } catch (parseErr) {
+      const parseErrMsg = (parseErr as Error)?.message
+      const responsePreview = result.text?.slice(0, 500)
       console.error('Failed to parse FRQ grading response', {
-        error: (parseErr as Error)?.message,
+        error: parseErrMsg,
         questionId: question.id,
         frqType: question.frq_type,
         responseLength: result.text?.length,
-        responsePreview: result.text?.slice(0, 500),
+        responsePreview,
       })
       await admin
         .from('frq_submissions')
         .update({ grading_status: 'queued' })
         .eq('id', submissionId)
 
+      const founderDebug = isFounder(userId)
+        ? `\n\n[FOUNDER DEBUG] parse_fail: ${parseErrMsg} | qid=${question.id} | type=${question.frq_type} | responseLen=${result.text?.length ?? 0} | preview=${(responsePreview ?? '').replace(/\s+/g, ' ').slice(0, 200)}`
+        : ''
+
       return {
         status: 'queued',
         submissionId,
-        message: 'Adi had trouble reading the grading response. Your answer is saved — try grading it again from your queue in a minute.',
+        message: `Adi had trouble reading the grading response. Your answer is saved — try grading it again from your queue in a minute.${founderDebug}`,
       }
     }
 
@@ -488,9 +494,12 @@ export async function runFRQGrading(params: {
     // Log the underlying error so we can diagnose persistent failures.
     // After 3 SDK retries, a thrown error is either a 4xx or a sustained 5xx.
     const e = error as Error & { cause?: unknown; statusCode?: number; status?: number }
+    const errMsg = e?.message ?? 'unknown'
+    const errStatus = e?.statusCode ?? e?.status ?? 'n/a'
+    const errCause = e?.cause ? String((e.cause as { message?: string }).message ?? e.cause).slice(0, 200) : 'n/a'
     console.error('FRQ grading error:', {
-      message: e?.message,
-      status: e?.statusCode ?? e?.status,
+      message: errMsg,
+      status: errStatus,
       cause: e?.cause,
       questionId: question.id,
       frqType: question.frq_type,
@@ -500,10 +509,16 @@ export async function runFRQGrading(params: {
       .update({ grading_status: 'queued' })
       .eq('id', submissionId)
 
+    const responseKeys = Object.keys(responses ?? {}).join(',') || '(empty)'
+    const responseLens = Object.entries(responses ?? {}).map(([k, v]) => `${k}:${(typeof v === 'string' ? v : '').length}`).join(',') || '(empty)'
+    const founderDebug = isFounder(userId)
+      ? `\n\n[FOUNDER DEBUG] llm_error: ${errMsg} | status=${errStatus} | cause=${errCause} | qid=${question.id} | type=${question.frq_type} | responseKeys=[${responseKeys}] | responseLens=[${responseLens}]`
+      : ''
+
     return {
       status: 'queued',
       submissionId,
-      message: 'Adi is having trouble grading right now. Your answer is saved — try grading it again from your queue in a few minutes.',
+      message: `Adi is having trouble grading right now. Your answer is saved — try grading it again from your queue in a few minutes.${founderDebug}`,
     }
   }
 }
