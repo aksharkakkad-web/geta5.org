@@ -49,11 +49,11 @@ RULES:
 
 function renderScoringPoints(points: FRQScoringPoint[]): string {
   return points.map(sp => {
-    const alts = sp.alternatives.map((alt, i) => {
-      const elements = alt.required_elements.map(e => `          - ${e}`).join('\n')
-      return `        Alternative ${i + 1} — ALL of:\n${elements}\n        Reference example: ${alt.correct_example}`
+    const alts = (sp.alternatives ?? []).map((alt, i) => {
+      const elements = (alt.required_elements ?? []).map(e => `          - ${e}`).join('\n')
+      return `        Alternative ${i + 1} — ALL of:\n${elements}\n        Reference example: ${alt.correct_example ?? ''}`
     }).join('\n')
-    const wrongs = sp.wrong_examples.map(w => `        - ${w}`).join('\n')
+    const wrongs = (sp.wrong_examples ?? []).map(w => `        - ${w}`).join('\n')
     const traps = sp.common_traps?.length
       ? `\n      COMMON TRAPS:\n${sp.common_traps.map(t => `        - ${t}`).join('\n')}`
       : ''
