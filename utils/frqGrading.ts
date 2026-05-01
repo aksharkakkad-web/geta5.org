@@ -16,8 +16,11 @@ function getModelForFRQ(frqType: string) {
   }
   // Mid tier — tiered rubrics with subtle distinctions. gpt-4o-mini is sharper
   // than Flash on these but ~94% cheaper than gpt-4o.
+  // multi_part_math is intentionally NOT in this tier — production data shows
+  // it's already running ~24pp below the AP benchmark on gpt-4o, so moving it
+  // to a weaker model would compound the calibration gap. Keep on gpt-4o until
+  // we can understand whether the harshness is rubric-side or grader-side.
   if (
-    frqType === 'multi_part_math' ||
     frqType === 'multi_part_text' ||
     frqType === 'quantitative_analysis' ||
     frqType === 'scotus_comparison'
