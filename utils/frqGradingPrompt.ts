@@ -67,9 +67,9 @@ function renderScoringPoints(points: FRQScoringPoint[]): string {
         }).join('\n')}`
       : ''
     return `    POINT ${sp.point_id} [${sp.point_value} pt]: ${sp.description}
-      ALTERNATIVES (any ONE earns; other valid paths may earn if they satisfy the INTENT — see GRADING STANCE):
+      EXAMPLES OF EARNING RESPONSES (illustrative, NOT exhaustive — any historically/scientifically/mathematically defensible response addressing the prompt earns this point, even if it doesn't match any listed example):
 ${alts}
-      WRONG ANSWERS (0 points):
+      EXAMPLES OF NON-EARNING RESPONSES (illustrative — these patterns fail the prompt; not a complete list of disqualifying answers):
 ${wrongs}${traps}${officialRubric}${samples}`
   }).join('\n\n')
 }
@@ -123,7 +123,7 @@ function renderDocumentsBlock(documents: FRQDocument[]): string {
 
 const LIGHT_MODE = `LIGHT MODE: Grade as an encouraging teacher. Award credit when the student's response demonstrates understanding, even with imprecise language or partial connections. On multi-element rubric rows ("X AND Y"), award if most elements are present and intent is clear on the missing one. Give benefit of the doubt on rebuttal/refutation rows when the student engages an opposing view at all. Suggestion tone: warm, constructive, lead with what worked.`
 
-const MODERATE_MODE = `MODERATE MODE: Grade as a calibrated AP reader following official scoring guidelines. Award the point when the student's response satisfies the intent of any listed alternative — including via a valid path not literally enumerated. Award thesis/claim rows generously (any defensible position with a reason earns). Apply rubric strictness on multi-element rows ("claim AND reasoning" needs both) and on rebuttal rows (acknowledging an opposing view without engaging it does not earn). Suggestion tone: balanced and direct.`
+const MODERATE_MODE = `MODERATE MODE: Grade as a calibrated AP reader following official scoring guidelines. The College Board's standard is that listed earning examples are ILLUSTRATIVE, not EXHAUSTIVE — any historically/scientifically/mathematically defensible response addressing the prompt earns the point, even if it doesn't match any enumerated example. For history/government FRQs, credit the causal mechanism the student demonstrates — a slightly out-of-period example is acceptable when the mechanism is correct. For chemistry/math, credit the underlying concept when the chemical or mathematical identity is clear despite minor transcription typos. Award thesis/claim rows generously (any defensible position with a reason earns). Apply rubric strictness on multi-element rows ("claim AND reasoning" needs both) and on rebuttal rows (acknowledging an opposing view without engaging it does not earn). Suggestion tone: balanced and direct.`
 
 const STRICT_MODE = `STRICT MODE: Grade with literal rubric application and zero tolerance for ambiguity. Multi-element rows require every element. Hedged or unclear positions on claim/thesis rows do not earn. Tiered evidence rows: award only the tier whose criteria are literally met. Demand specificity on evidence rows (named people/dates/policies, not vague references). Suggestion tone: clinical and precise.`
 

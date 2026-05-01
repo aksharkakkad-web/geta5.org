@@ -279,6 +279,22 @@ function normalizeLaTeX(s: string): string {
   return r
 }
 
+// Verifies the LLM's cited evidence quotes against the actual student text as
+// a last-ditch defense against quote hallucination. The LLM is the calibrated
+// judge of correctness — verifyEvidence's job is NOT to second-guess intent,
+// only to catch fabricated quotes. Earlier versions zeroed any point whose
+// sub_result quotes couldn't be string-matched; that punished creative answers
+// where the LLM paraphrased the student's wording (the most common case for
+// open-ended FRQ responses with valid alternate paths).
+//
+// Current behavior:
+//   - Quote matches verbatim / LaTeX-normalized / sentence-by-sentence / 30%+
+//     word overlap → treat as real evidence (paraphrase is fine).
+//   - Quote has no overlap with the student text AND every sub_result for that
+//     point is a hallucination → zero the point as a defense-in-depth check
+//     against pure model fabrication.
+//   - Mixed: some quotes match, others don't → keep LLM's earned value,
+//     append a soft note so the user can spot-check.
 function verifyEvidence(grading: FRQGradingResult, responses: Record<string, string>): FRQGradingResult {
   const essayText = responses['essay'] ?? ''
   const parts = grading.parts.map(part => {
@@ -288,10 +304,16 @@ function verifyEvidence(grading: FRQGradingResult, responses: Record<string, str
     const studentLaTeX = normalize(normalizeLaTeX(studentRaw))
     const studentWordSet = new Set(studentNorm.split(/\s+/))
     const pointResults = part.point_results.map(pr => {
+      let checked = 0
+      let unmatched = 0
       const subResults = pr.sub_results.map(sr => {
         if (!sr.met) return sr
+        checked++
         const quote = sr.student_evidence_quote ?? ''
-        if (quote.trim() === '') return { ...sr, met: false }
+        if (quote.trim() === '') {
+          unmatched++
+          return { ...sr, met: false }
+        }
         const quoteNorm = normalize(quote)
         if (studentNorm.includes(quoteNorm)) return sr
         const quoteLaTeX = normalize(normalizeLaTeX(quote))
@@ -301,15 +323,28 @@ function verifyEvidence(grading: FRQGradingResult, responses: Record<string, str
         const quoteWords = quoteNorm.split(/\s+/).filter(w => w.length >= 4)
         if (quoteWords.length >= 4) {
           const matches = quoteWords.filter(w => studentWordSet.has(w)).length
-          if (matches / quoteWords.length >= 0.85) return sr
+          // 30% overlap means the quote is a paraphrase of real student text,
+          // not a hallucination. Treat as matched.
+          if (matches / quoteWords.length >= 0.30) return sr
         }
+        unmatched++
         return { ...sr, met: false }
       })
-      const allMet = subResults.length > 0 && subResults.every(sr => sr.met)
-      const earned = allMet ? pr.max : 0
-      const reasoning = earned < pr.earned
-        ? 'The specific evidence quote the grader cited could not be matched to the text of your response. The grader may have paraphrased your wording. Rewrite your evidence more explicitly in your essay, or resubmit for another grading attempt.'
-        : pr.reasoning
+
+      let earned = pr.earned
+      let reasoning = pr.reasoning
+      if (checked > 0 && unmatched === checked && pr.earned > 0) {
+        // Every cited quote is unrecognizable in the student's response. Most
+        // likely the model fabricated evidence — zero this row as a safety net.
+        earned = 0
+        reasoning = 'The evidence Adi cited for this row could not be found anywhere in your response. This row was reset to 0 as a safety check against grading errors. If your response does address this rubric criterion, regrade for a fresh evaluation.'
+      } else if (unmatched > 0 && pr.earned > 0) {
+        // Partial mismatch — likely paraphrase. Keep the earned value and just
+        // flag it so the user can spot-check.
+        const note = '\n\nNote: Adi paraphrased part of your evidence when scoring this row. If the grade looks wrong, regrade for a fresh evaluation.'
+        reasoning = `${pr.reasoning ?? ''}${note}`
+      }
+
       return { ...pr, sub_results: subResults, earned, reasoning }
     })
     const partEarned = pointResults.reduce((sum, pr) => sum + pr.earned, 0)
