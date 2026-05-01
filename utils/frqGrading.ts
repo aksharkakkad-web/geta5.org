@@ -97,37 +97,82 @@ function sanitizeGrading(question: FRQ, raw: FRQGradingResult): FRQGradingResult
     let pointResults: FRQGradingPointResult[] | undefined
 
     if (Array.isArray(rp?.point_results) && rp.point_results.length > 0) {
-      const returnedByPointId = new Map<string, FRQGradingPointResult>()
-      for (const pr of rp.point_results) {
-        const prMax = typeof pr.max === 'number' && Number.isFinite(pr.max) ? pr.max : 1
-        const prEarned = typeof pr.earned === 'number' && Number.isFinite(pr.earned)
-          ? Math.max(0, Math.min(prMax, Math.round(pr.earned)))
+      // Build a normalized version of every returned point_result with the
+      // numeric clamps and field defaults applied. We'll then map them onto
+      // expected points using a multi-strategy match:
+      //   1. exact point_id match (verbatim copy from rubric — preferred)
+      //   2. case-insensitive match (model dropped or capitalized differently)
+      //   3. positional fallback (LLM returned the right N results but with
+      //      non-matching IDs; trust the order). This is critical for smaller
+      //      models like gpt-4o-mini which sometimes invent IDs like "1"/"2"
+      //      or "Part A" instead of copying "a"/"b"/"c" verbatim.
+      // Without #3, every mismatched-ID case used to collapse all expected
+      // points to synthesizeZeroPointResult — silently zeroing valid grading.
+      const normalize = (pr: Record<string, unknown>, fallbackId: string, fallbackMax: number, fallbackDescription: string): FRQGradingPointResult => {
+        const rawMax = pr.max
+        const prMax = typeof rawMax === 'number' && Number.isFinite(rawMax) ? rawMax : fallbackMax
+        const rawEarned = pr.earned
+        const prEarned = typeof rawEarned === 'number' && Number.isFinite(rawEarned)
+          ? Math.max(0, Math.min(prMax, Math.round(rawEarned)))
           : 0
-        const confidence = typeof pr.confidence === 'number' && Number.isFinite(pr.confidence)
-          ? Math.max(0, Math.min(1, pr.confidence))
+        const rawConfidence = pr.confidence
+        const confidence = typeof rawConfidence === 'number' && Number.isFinite(rawConfidence)
+          ? Math.max(0, Math.min(1, rawConfidence))
           : 0.5
-        const suggestion = prEarned === 0 && typeof pr.suggestion === 'string' && pr.suggestion.trim()
-          ? pr.suggestion
+        const rawSuggestion = pr.suggestion
+        const suggestion = prEarned === 0 && typeof rawSuggestion === 'string' && rawSuggestion.trim()
+          ? rawSuggestion
           : null
-        returnedByPointId.set(pr.point_id, {
-          point_id: pr.point_id,
-          description: pr.description,
+        return {
+          point_id: fallbackId,
+          description: typeof pr.description === 'string' ? pr.description : fallbackDescription,
           earned: prEarned,
           max: prMax,
           confidence,
-          sub_results: Array.isArray(pr.sub_results) ? pr.sub_results : [],
+          sub_results: Array.isArray(pr.sub_results) ? pr.sub_results as FRQGradingPointResult['sub_results'] : [],
           reasoning: typeof pr.reasoning === 'string' ? pr.reasoning : '',
           suggestion,
-        })
+        }
       }
 
       if (expectedPoints.length > 0) {
-        pointResults = expectedPoints.map(sp => {
-          const returned = returnedByPointId.get(sp.point_id)
-          return returned ?? synthesizeZeroPointResult(sp)
-        })
+        const returnedByExactId = new Map<string, typeof rp.point_results[number]>()
+        const returnedByLowerId = new Map<string, typeof rp.point_results[number]>()
+        for (const pr of rp.point_results) {
+          if (typeof pr.point_id === 'string') {
+            returnedByExactId.set(pr.point_id, pr)
+            returnedByLowerId.set(pr.point_id.toLowerCase(), pr)
+          }
+        }
+
+        // Count how many expected ids the model actually returned by exact match.
+        const exactHits = expectedPoints.filter(sp => returnedByExactId.has(sp.point_id)).length
+        const lowerHits = expectedPoints.filter(sp => returnedByLowerId.has(sp.point_id.toLowerCase())).length
+        const usePositional = exactHits === 0 && lowerHits === 0 && rp.point_results.length === expectedPoints.length
+
+        if (usePositional) {
+          console.warn('FRQ point_id mismatch — falling back to positional match', {
+            question_id: question.id,
+            part_letter: p.letter,
+            expected_ids: expectedPoints.map(sp => sp.point_id),
+            returned_ids: rp.point_results.map(pr => pr.point_id),
+          })
+          pointResults = expectedPoints.map((sp, i) =>
+            normalize(rp.point_results![i] as unknown as Record<string, unknown>, sp.point_id, sp.point_value, sp.description)
+          )
+        } else {
+          pointResults = expectedPoints.map(sp => {
+            const exact = returnedByExactId.get(sp.point_id)
+            if (exact) return normalize(exact as unknown as Record<string, unknown>, sp.point_id, sp.point_value, sp.description)
+            const lower = returnedByLowerId.get(sp.point_id.toLowerCase())
+            if (lower) return normalize(lower as unknown as Record<string, unknown>, sp.point_id, sp.point_value, sp.description)
+            return synthesizeZeroPointResult(sp)
+          })
+        }
       } else {
-        pointResults = Array.from(returnedByPointId.values())
+        pointResults = rp.point_results.map(pr =>
+          normalize(pr as unknown as Record<string, unknown>, typeof pr.point_id === 'string' ? pr.point_id : 'unknown', 1, '')
+        )
       }
       earned = Math.min(maxForPart, pointResults.reduce((sum, pr) => sum + pr.earned, 0))
     } else if (expectedPoints.length > 0) {
