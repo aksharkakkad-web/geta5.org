@@ -1,5 +1,5 @@
 import { streamText } from 'ai'
-import { google } from '@ai-sdk/google'
+import { openai } from '@ai-sdk/openai'
 import { buildSystemPrompt, type AdiContext } from '@/utils/adiPrompt'
 import { checkAndIncrementAdiUsage } from '@/utils/adiRateLimit'
 import { createClient } from '@/lib/supabase-server'
@@ -111,7 +111,7 @@ export async function POST(req: Request) {
   const systemPrompt = await buildSystemPrompt(context)
 
   const result = streamText({
-    model: google('gemini-2.5-flash'),
+    model: openai('gpt-4o-mini'),
     system: systemPrompt,
     messages: recentMessages,
     maxOutputTokens: 1024,
