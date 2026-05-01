@@ -1,14 +1,32 @@
 import { generateText } from 'ai'
 import { openai } from '@ai-sdk/openai'
+import { google } from '@ai-sdk/google'
 import { createClient as createAdminClient } from '@supabase/supabase-js'
 import { checkAndIncrementFRQUsage } from './adiRateLimit'
 import { buildFRQGradingPrompt } from './frqGradingPrompt'
 import type { FRQ, FRQGradingResult, FRQGradingPart, FRQGradingPointResult, GradingStrictness } from './frqSession'
 
-function getModelForStrictness(_strictness: GradingStrictness) {
-  // All tiers share the same model (gpt-4o); rigor differences come from the
-  // grading PROMPT (mode-specific stance paragraph) only. Strict no longer
-  // gets a bidirectional auditor pass — we accept the simpler single-call flow.
+// Three-tier routing by FRQ type. Cheaper models for simpler rubrics; gpt-4o
+// kept for the essay-types where deep reasoning carries the most weight.
+// Strictness is expressed via the prompt, not the model choice.
+function getModelForFRQ(frqType: string) {
+  // Cheap tier — short, structured, deterministic. Gemini Flash handles fine.
+  if (frqType === 'saq' || frqType === 'concept_application') {
+    return google('gemini-2.5-flash')
+  }
+  // Mid tier — tiered rubrics with subtle distinctions. gpt-4o-mini is sharper
+  // than Flash on these but ~94% cheaper than gpt-4o.
+  if (
+    frqType === 'multi_part_math' ||
+    frqType === 'multi_part_text' ||
+    frqType === 'quantitative_analysis' ||
+    frqType === 'scotus_comparison'
+  ) {
+    return openai('gpt-4o-mini')
+  }
+  // Premium tier — DBQ, LEQ, argument_essay, essay, ebq, aaq, plus any
+  // unrecognized type. These need depth: rebuttal traps, HAPP analysis,
+  // multi-step argumentation. gpt-4o stays.
   return openai('gpt-4o')
 }
 
@@ -346,7 +364,7 @@ export async function runFRQGrading(params: {
       : 'Grade this FRQ submission according to the rubric. Respond with the JSON scoring object only.'
 
     const result = await generateText({
-      model: getModelForStrictness(strictness),
+      model: getModelForFRQ(question.frq_type),
       system: systemPrompt,
       messages: [{ role: 'user', content: gradingUserContent }],
       maxOutputTokens: 3072,
