@@ -2,13 +2,13 @@ import { generateText } from 'ai'
 import { openai } from '@ai-sdk/openai'
 import { createClient as createAdminClient } from '@supabase/supabase-js'
 import { checkAndIncrementFRQUsage } from './adiRateLimit'
-import { buildFRQGradingPrompt, buildFRQAuditorPrompt } from './frqGradingPrompt'
+import { buildFRQGradingPrompt } from './frqGradingPrompt'
 import type { FRQ, FRQGradingResult, FRQGradingPart, FRQGradingPointResult, GradingStrictness } from './frqSession'
 
 function getModelForStrictness(_strictness: GradingStrictness) {
   // All tiers share the same model (gpt-4o); rigor differences come from the
-  // grading PROMPT, plus strict's bidirectional auditor pass. See the longer
-  // note kept in the original grade route for context.
+  // grading PROMPT (mode-specific stance paragraph) only. Strict no longer
+  // gets a bidirectional auditor pass — we accept the simpler single-call flow.
   return openai('gpt-4o')
 }
 
@@ -298,26 +298,6 @@ function verifyEvidence(grading: FRQGradingResult, responses: Record<string, str
   return { ...grading, parts, total_score }
 }
 
-function detectMissingPointIds(question: FRQ, parsed: FRQGradingResult): string[] {
-  const gradableParts = question.parts.filter(p => !p.requires_drawing)
-  const returned = new Set<string>()
-  const rawParts = Array.isArray(parsed.parts) ? parsed.parts : []
-  for (const rp of rawParts) {
-    const pointResults = Array.isArray(rp.point_results) ? rp.point_results : []
-    for (const pr of pointResults) {
-      if (typeof pr.point_id === 'string' && pr.point_id) returned.add(pr.point_id)
-    }
-  }
-  const missing: string[] = []
-  for (const p of gradableParts) {
-    const scoringPoints = Array.isArray(p.scoring_points) ? p.scoring_points : []
-    for (const sp of scoringPoints) {
-      if (!returned.has(sp.point_id)) missing.push(sp.point_id)
-    }
-  }
-  return missing
-}
-
 export type FRQGradingApiResponse =
   | { status: 'graded'; submissionId: string; result: FRQGradingResult }
   | { status: 'queued'; submissionId: string; message: string; resetAtEST?: string }
@@ -374,11 +354,10 @@ export async function runFRQGrading(params: {
     })
 
     let grading: FRQGradingResult
-    let parsedPrimary: FRQGradingResult
     try {
       const cleanText = result.text.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim()
-      parsedPrimary = JSON.parse(cleanText) as FRQGradingResult
-      grading = sanitizeGrading(question, parsedPrimary)
+      const parsed = JSON.parse(cleanText) as FRQGradingResult
+      grading = sanitizeGrading(question, parsed)
     } catch {
       console.error('Failed to parse FRQ grading response:', result.text)
       await admin
@@ -393,69 +372,12 @@ export async function runFRQGrading(params: {
       }
     }
 
-    // Completeness retry — re-call with a focused prompt naming missing point_ids.
-    const missingPointIds = detectMissingPointIds(question, parsedPrimary)
-    if (missingPointIds.length > 0) {
-      try {
-        const retrySystem = buildFRQGradingPrompt(question, responses, strictness)
-        const missingList = missingPointIds.join(', ')
-        const retryUserText = `Your previous grading attempt was INCOMPLETE. You did not return point_results for these rubric point_ids: ${missingList}. Grade the student's response AGAIN with a COMPLETE JSON output that includes EVERY rubric part and EVERY point_id — even those that earn 0. Pay special attention to the missing point_ids listed above; they must each appear in your output with a real reasoning explanation (not a generic "not evaluated" message). Respond with the JSON scoring object only.`
-        const retryUserContent = stimulusImageBuffer
-          ? [
-              { type: 'image' as const, image: stimulusImageBuffer },
-              { type: 'text' as const, text: retryUserText },
-            ]
-          : retryUserText
-
-        const retryResult = await generateText({
-          model: getModelForStrictness(strictness),
-          system: retrySystem,
-          messages: [{ role: 'user', content: retryUserContent }],
-          maxOutputTokens: 3072,
-          temperature: 0,
-        })
-        const cleanRetry = retryResult.text.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim()
-        const parsedRetry = JSON.parse(cleanRetry) as FRQGradingResult
-
-        const retryMissing = detectMissingPointIds(question, parsedRetry)
-        if (retryMissing.length < missingPointIds.length) {
-          grading = sanitizeGrading(question, parsedRetry)
-          console.log('FRQ completeness retry improved response', {
-            question_id: question.id,
-            primary_missing: missingPointIds.length,
-            retry_missing: retryMissing.length,
-          })
-        }
-      } catch (retryErr) {
-        console.warn('FRQ completeness retry failed, using primary grading', retryErr)
-      }
-    }
-
-    if (strictness === 'strict') {
-      try {
-        const auditorPrompt = buildFRQAuditorPrompt(question, responses, grading, strictness)
-        const auditorUserContent = stimulusImageBuffer
-          ? [
-              { type: 'image' as const, image: stimulusImageBuffer },
-              { type: 'text' as const, text: 'Audit the grading result. Respond with the corrected JSON scoring object only.' },
-            ]
-          : 'Audit the grading result. Respond with the corrected JSON scoring object only.'
-
-        const auditorResult = await generateText({
-          model: getModelForStrictness(strictness),
-          system: auditorPrompt,
-          messages: [{ role: 'user', content: auditorUserContent }],
-          maxOutputTokens: 3072,
-          temperature: 0,
-        })
-        const cleanAuditor = auditorResult.text.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim()
-        const parsedAuditor = JSON.parse(cleanAuditor) as FRQGradingResult
-        grading = sanitizeGrading(question, parsedAuditor)
-      } catch (auditorErr) {
-        console.warn('FRQ auditor pass failed to parse, using primary grading', auditorErr)
-      }
-    }
-
+    // Single-call flow: trust the primary grading, then run server-side
+    // post-processing. sanitizeGrading already fills in synthesized 0-point
+    // placeholders for any rubric point_ids the model dropped, so a
+    // completeness retry is no longer necessary. The strict-mode auditor pass
+    // was also removed — strictness is now expressed purely via the prompt's
+    // mode-specific stance paragraph.
     grading = enforceDependencies(question, grading)
     grading = verifyEvidence(grading, responses)
 
@@ -505,6 +427,90 @@ export function isBlankResponse(text: unknown): boolean {
   return text.trim().length === 0
 }
 
+// Detects responses that have content but are not realistic grading targets
+// (gibberish, single-character spam, "idk", etc.) so we can short-circuit
+// before paying gpt-4o to grade them. Operates on a SINGLE part response —
+// the route layer is responsible for combining per-part decisions.
+export function isLowEffortResponse(text: string, frqType?: string): boolean {
+  if (typeof text !== 'string') return false
+  const trimmed = text.trim()
+  if (trimmed.length === 0) return false // blank handled by isBlankResponse — don't double-classify
+
+  // Math types get more lenient handling — short numeric/symbolic answers like
+  // "2" or "f'(x)=2x" are perfectly valid grading inputs.
+  const isMath = frqType === 'multi_part_math'
+
+  // 1) Type-aware minimum length.
+  // Math is intentionally lenient: a single numeric answer like "2" or "x=5"
+  // is a valid grading target on multi_part_math FRQs (Calc/Precalc/Chem all
+  // include parts where the only correct response is a number). We let any
+  // non-blank math response through this gate; the explicit-rejects gate
+  // below still catches "?" / "..." / "n/a".
+  let minLen: number
+  if (isMath) {
+    minLen = 1
+  } else if (
+    frqType === 'saq' ||
+    frqType === 'concept_application' ||
+    frqType === 'quantitative_analysis' ||
+    frqType === 'scotus_comparison' ||
+    frqType === 'multi_part_text'
+  ) {
+    minLen = 20
+  } else if (
+    frqType === 'dbq' ||
+    frqType === 'leq' ||
+    frqType === 'essay' ||
+    frqType === 'argument_essay' ||
+    frqType === 'ebq'
+  ) {
+    minLen = 80
+  } else {
+    minLen = 20
+  }
+  if (trimmed.length < minLen) return true
+
+  // 2) Explicit short-list rejects (case-insensitive, after trim, with light
+  //    punctuation normalization for trailing periods/question marks).
+  const normalized = trimmed.toLowerCase().replace(/['']/g, "'")
+  const REJECTS = new Set([
+    'idk', 'i dont know', "i don't know", 'no idea',
+    '?', '??', '???',
+    'skip', 'n/a', 'na',
+    '.', '..', '...',
+  ])
+  if (REJECTS.has(normalized)) return true
+
+  // Math types skip the remaining text-shape heuristics — formulas legitimately
+  // look like "single-character spam" (e.g., "x x x") or lack vowel-bearing
+  // English words (e.g., "f(x)=3x^2+2").
+  if (isMath) return false
+
+  // 3) Single-character spam: same character ≥80% of the response (whitespace
+  //    excluded). Catches "aaaaaaa", ".....", "------".
+  const noWs = trimmed.replace(/\s+/g, '')
+  if (noWs.length > 0) {
+    const counts = new Map<string, number>()
+    for (const ch of noWs) {
+      const lower = ch.toLowerCase()
+      counts.set(lower, (counts.get(lower) ?? 0) + 1)
+    }
+    let topCount = 0
+    for (const c of counts.values()) if (c > topCount) topCount = c
+    if (topCount / noWs.length >= 0.8) return true
+  }
+
+  // 4) Looks-like-text: must contain at least one alphabetic word of 3+ letters
+  //    that includes a vowel. Catches keyboard-mash like "qwertyuiop", "zxcvbn",
+  //    "asdfghjkl" — none of those tokens contain a vowel-bearing 3+ letter run.
+  //    A "word" here is any maximal run of [A-Za-z].
+  const wordMatches = trimmed.match(/[A-Za-z]+/g) ?? []
+  const hasRealWord = wordMatches.some(w => w.length >= 3 && /[aeiouAEIOU]/.test(w))
+  if (!hasRealWord) return true
+
+  return false
+}
+
 export function buildBlankResult(question: FRQ): FRQGradingResult {
   const gradableParts = question.parts.filter(p => !p.requires_drawing)
   // LEQ has 3 choose-one option-parts; use total_points (6) instead of summing all.
@@ -521,5 +527,27 @@ export function buildBlankResult(question: FRQ): FRQGradingResult {
     max_score,
     parts,
     takeaway: 'No response was submitted. Even a short attempt at each part gives Adi something to grade — try writing down what you know before submitting next time.',
+  }
+}
+
+// Mirrors buildBlankResult but for low-effort responses where the user wrote
+// something but it's not gradable (gibberish, "idk", under length floor, etc.).
+// Same 0/max shape, different copy so the user understands why they got no
+// feedback and what to do next.
+export function buildLowEffortResult(question: FRQ): FRQGradingResult {
+  const gradableParts = question.parts.filter(p => !p.requires_drawing)
+  const max_score = question.frq_type === 'leq' ? question.total_points : gradableParts.reduce((sum, p) => sum + p.point_value, 0)
+  const parts: FRQGradingPart[] = gradableParts.map(p => ({
+    letter: p.letter,
+    earned: 0,
+    max: p.point_value,
+    feedback: 'Response was too short or unclear to grade.',
+    missed: 'Add a substantive attempt — at least a sentence or two showing your reasoning — and resubmit.',
+  }))
+  return {
+    total_score: 0,
+    max_score,
+    parts,
+    takeaway: 'Your response was too short or unclear for Adi to grade. Even a few sentences attempting each part will let Adi give you specific feedback.',
   }
 }

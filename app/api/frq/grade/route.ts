@@ -1,6 +1,6 @@
 import { createClient } from '@/lib/supabase-server'
 import type { FRQ, GradingStrictness } from '@/utils/frqSession'
-import { runFRQGrading, isBlankResponse, buildBlankResult } from '@/utils/frqGrading'
+import { runFRQGrading, isBlankResponse, buildBlankResult, isLowEffortResponse, buildLowEffortResult } from '@/utils/frqGrading'
 import { readFile } from 'fs/promises'
 import path from 'path'
 import { createClient as createAdminClient } from '@supabase/supabase-js'
@@ -83,6 +83,31 @@ export async function POST(req: Request) {
   const allBlank = allResponseValues.every(v => isBlankResponse(v)) &&
     gradableLetters.every(letter => isBlankResponse(responses[letter]))
 
+  // Low-effort detection: shape-of-response heuristics that can short-circuit
+  // BEFORE we hit runFRQGrading (which is what bills the user's daily quota
+  // via checkAndIncrementFRQUsage). Real-world cost driver: ~40 production
+  // submissions in April scored 0/max with content like "asdf" or "idk" —
+  // gpt-4o still ran a full grading pass on each.
+  // Essay-type FRQs store everything under the 'essay' key; multi-part types
+  // require EVERY gradable letter to look low-effort (don't penalize a student
+  // who attempted parts a/b but skipped c).
+  const isEssayType = (
+    question.frq_type === 'dbq' ||
+    question.frq_type === 'leq' ||
+    question.frq_type === 'essay' ||
+    question.frq_type === 'argument_essay' ||
+    question.frq_type === 'ebq'
+  )
+  let allLowEffort = false
+  if (!allBlank) {
+    if (isEssayType) {
+      allLowEffort = isLowEffortResponse(responses['essay'] ?? '', question.frq_type)
+    } else {
+      allLowEffort = gradableLetters.length > 0 &&
+        gradableLetters.every(letter => isLowEffortResponse(responses[letter] ?? '', question.frq_type))
+    }
+  }
+
   const admin = getSupabaseAdmin()
 
   // 4. Create submission record (persist strictness so we can regrade later
@@ -129,15 +154,41 @@ export async function POST(req: Request) {
     })
   }
 
+  // 4c. If everything looks low-effort (gibberish, "idk", under length floor),
+  // synthesize a 0/max result with explanatory copy — same flow as allBlank.
+  // CRITICAL: this MUST run before runFRQGrading so it does not consume the
+  // user's daily FRQ allowance via checkAndIncrementFRQUsage.
+  if (allLowEffort) {
+    const grading = buildLowEffortResult(question)
+    await admin
+      .from('frq_results')
+      .insert({
+        submission_id: submission.id,
+        total_score: grading.total_score,
+        max_score: grading.max_score,
+        part_breakdown: grading.parts,
+        adi_takeaway: grading.takeaway,
+      })
+    await admin
+      .from('frq_submissions')
+      .update({ grading_status: 'graded' })
+      .eq('id', submission.id)
+    return Response.json({
+      status: 'graded',
+      submissionId: submission.id,
+      result: grading,
+    })
+  }
+
   // 5. Load stimulus image for image-only questions (stimulus_image set, stimulus null)
   let stimulusImageBuffer: Buffer | null = null
   if (question.stimulus_image && !question.stimulus) {
     stimulusImageBuffer = await loadStimulusImage(question.stimulus_image)
   }
 
-  // 6. Hand off to the shared grading pipeline. This handles rate limiting,
-  // LLM grading, completeness retry, strict-mode auditor, dependency
-  // enforcement, evidence verification, and persisting the result.
+  // 6. Hand off to the shared grading pipeline: rate limiting, a single LLM
+  // grading call, dependency enforcement, evidence verification, and
+  // persisting the result.
   const payload = await runFRQGrading({
     submissionId: submission.id,
     userId: user.id,

@@ -1,228 +1,12 @@
 // utils/frqGradingPrompt.ts
-// Builds system prompts for FRQ grading and auditing.
-// Two passes in strict mode: grader → auditor (downgrades weak credits only).
+// Builds the system prompt for FRQ grading.
+// One pass per grade: role + stance + mode + question rubric + student response.
 
 import type { FRQ, FRQDocument, FRQPart, FRQScoringPoint, GradingStrictness } from '@/utils/frqSession'
 
-// ─── Per-Subject General Rubric Blocks ────────────────────────────────────────
-// Math subjects have no general rubric — scoring is entirely question-specific.
-
-const RUBRICS: Record<string, string> = {
-  'ap-psychology': `## AP Psychology FRQ General Rubric (New 2024-2025 Format, first administered May 2025)
-Section I: 75 MCQs, 90 minutes, 66.7% of score. Section II: AAQ + EBQ, 70 min total, 33.3% of score.
-  - AAQ: 25 min (10 reading + 15 writing)
-  - EBQ: 45 min (15 reading + 30 writing)
-
-Both FRQs worth 7 points. The old "use these concepts to explain" FRQs are obsolete.
-
-FRQ 1: ARTICLE ANALYSIS QUESTION (AAQ) — 7 points across SIX parts (A–F)
-- Part A: Research Method (1 pt) — Accurately identify the methodology (experiment, correlational, case study, naturalistic observation, meta-analysis)
-- Part B: Research Variable (1 pt) — Measurable/quantifiable (operational) definition as used in the study
-- Part C: Statistic Interpretation (1 pt) — Explains what the identified statistic means in context (not a restatement)
-- Part D: Ethical Guidelines (1 pt) — Identifies an ethical guideline ACTUALLY APPLIED in the study (not one that should have been)
-- Part E: Generalizability (1 pt) — Explains extent using specific participant-variable evidence
-- Part F: Argumentation (2 pts — tiered):
-    1 pt = uses a specific result OR names a concept (not both)
-    2 pts = uses specific accurately-interpreted finding AND explains how it supports/refutes the concept/hypothesis
-
-FRQ 2: EVIDENCE-BASED QUESTION (EBQ) — 7 points: distribution 1 + 1 + 2 + 1 + 2
-- Part A: Claim (1 pt) — Defensible, specific claim relevant to the question
-- Part B(i): Evidence from Source 1 (1 pt) — One correctly cited, specific, accurate, relevant piece
-- Part B(ii): Explanation + Application (2 pts — tiered):
-    1 pt = explains evidence-claim relationship
-    2 pts = additionally applies a CED-named psych perspective/theory/concept/research finding
-- Part C(i): Evidence from Different Source (1 pt) — Different source, different evidence
-- Part C(ii): Explanation + Application (2 pts — tiered): Same two-tier as B(ii), but must apply a DIFFERENT CED-named concept
-
-KEY EBQ RULES (2025 SG):
-- Citations delimit evidence from reasoning ("All text before the citation will be considered evidence")
-- The claim (Part A) can earn regardless of whether B/C succeed
-- Certain concepts that appear in the source materials themselves (e.g. "confederate", "statistically significant", "operant conditioning" per 2025 SG) may not earn the application point — the concept must come from student knowledge
-
-GENERAL SCORING NOTES:
-- Each point earned independently
-- Definitions alone are NOT sufficient — must connect to the scenario/study
-- Accept reasonable synonyms for AP terms
-- No penalty for extra incorrect info unless it contradicts the correct answer
-- AAQ Ethical Guidelines point is STRICT — the guideline must be one the researchers actually applied, not one they should have applied`,
-
-  'ap-world-history': `## AP World History: Modern FRQ General Rubric (CED 2020, 2023 refinement, current through May 2026)
-
-Exam weighting:
-- Section I Part B: 3 SAQs, 40 min, 20% of score (Q1/Q2 required; Q3 OR Q4 choice)
-- Section II: 1 DBQ (60 min recommended including 15-min reading, 25%) + 1 LEQ (40 min recommended, 15%)
-
-GENERAL NOTES (all types):
-- Each row scored independently
-- Historically defensible content required; minor errors acceptable if they don't detract
-- Essays are first-draft prose — grammar/spelling not penalized unless meaning is obscured
-- "Identify" = specific answer (name, term, phrase)
-- "Describe" = relevant characteristics with detail
-- "Explain" = how/why reasoning
-
-DBQ SCORING (7 points) — scoring rows (2024 SG):
-- A Thesis/Claim (1 pt): Historically defensible thesis that establishes a line of reasoning, located in intro or conclusion, more than a restatement
-- B Contextualization (1 pt): Broader events/developments/processes before, during, or continuing after the time frame relevant to prompt. More than a phrase or reference
-- C Evidence from Documents (1 pt): ACCURATELY DESCRIBES (not just quotes) content of at least 3 documents
-- C Evidence from Documents+ (+1 pt, total 2): SUPPORTS an argument using at least 4 documents. The 4 may be spread across sub-arguments or counterarguments
-- C Evidence Beyond Documents (1 pt): At least one ADDITIONAL specific piece of evidence beyond the documents, different from contextualization, more than a phrase
-- D Sourcing (HAPP) (1 pt): For at least 2 documents, EXPLAIN how or why the doc's Historical situation, Audience, Purpose, OR Point of view is relevant to an argument. Merely identifying HAPP does NOT earn
-- D Complex Understanding (1 pt): Sophisticated argumentation (multiple themes, causes/effects, continuities/changes, cross-period) OR effective evidence use (all 7 docs, sourcing 4+ docs, or combining docs with outside evidence). Must be developed — more than a phrase
-
-LEQ SCORING (6 points):
-- A Thesis/Claim (1 pt): Same criteria as DBQ thesis
-- B Contextualization (1 pt): Same criteria as DBQ contextualization
-- C Evidence (1 pt): At least 2 specific and relevant pieces of evidence
-- C Evidence supports argument (+1 pt, total 2): Uses at least 2 specific + relevant pieces to SUPPORT an argument
-- D Historical Reasoning (1 pt): Uses comparison, causation, or continuity/change to frame an argument (may be uneven)
-- D Complexity (1 pt): Same as DBQ complexity. Effective-evidence path for LEQ requires at least 4 pieces supporting a nuanced argument
-
-SAQ SCORING (3 points per question): Parts (a), (b), (c) scored 1 pt each independently
-- Q1 has a secondary-source stimulus; Q2 has a primary-source stimulus; Q3 and Q4 have no stimulus
-
-SCORING NOTES:
-- Complex Understanding is the lowest-earned row — requires development, not just a phrase
-- HAPP requires explaining how/why the element matters, not just identification
-- 2023 refinement: 4 documents may be used across sub-arguments or counterarguments — this language held through 2024 and 2025`,
-
-  'ap-government': `## AP U.S. Government and Politics FRQ General Rubric (CED 2023, 2024/2025 SG — current through May 2026)
-
-Section II: 100 minutes, 50% of exam. Always 4 FRQs in this fixed order:
-
-QUESTION 1: CONCEPT APPLICATION (3 pts, ~20 min)
-- A Describe (1 pt): Describe a concept illustrated in the scenario
-- B Explain (1 pt): Explain HOW that concept affects/produces a political outcome in the scenario
-- C Explain (1 pt): Explain HOW a DIFFERENT actor/institution could respond, counteract, or apply the concept. (Must apply to a NEW actor — restating B fails)
-
-QUESTION 2: QUANTITATIVE ANALYSIS (4 pts, ~20 min)
-- A Identify (1 pt): Specific data value/category
-- B Describe (1 pt): Pattern, trend, similarity, or difference
-- C Conclude (1 pt): Draw a conclusion about what the data imply
-- D Explain (1 pt): HOW the data/trend relates to a political principle, institution, process, policy, or behavior
-
-QUESTION 3: SCOTUS COMPARISON (4 pts, ~20 min) — THREE lettered parts (NOT four):
-- A Identify (1 pt): Identify a constitutional clause/provision/amendment common to the required AND non-required cases
-- B TIERED (1 or 2 pts):
-    1 pt = Describe relevant facts OR the holding of the REQUIRED case
-    2 pts = Explain HOW the facts of BOTH cases led to similar or different holdings
-- C Explain (1 pt): Explain how the decision relates to a political institution, process, behavior, or democratic principle
-(A non-required case on this FRQ is always accompanied by a summary of facts, issue, and holding per CED p.27)
-
-QUESTION 4: ARGUMENT ESSAY (6 pts, ~40 min) — four rows:
-- A Claim/Thesis (1 pt): Defensible claim/thesis establishing a line of reasoning. May appear anywhere in response
-- B Evidence (0-3 pts tiered):
-    1 pt = one relevant piece
-    2 pts = one specific + relevant piece supporting thesis, OR two relevant pieces
-    3 pts = two specific + relevant pieces supporting thesis, AT LEAST ONE from a listed foundational document. Requires Row A
-- C Reasoning (1 pt): Use classification, process, causation, or comparison to explain how/why evidence supports the argument. Requires specific + relevant evidence
-- D Alternate Perspectives (1 pt): DESCRIBE an alternate perspective AND REBUT/REFUTE it. Merely stating the opposing view fails. Requires Row A
-
-REQUIRED FOUNDATIONAL DOCUMENTS (9):
-Declaration of Independence; Articles of Confederation; U.S. Constitution; Federalist 10; Brutus 1; Federalist 51; Federalist 70; Federalist 78; Letter from a Birmingham Jail.
-
-REQUIRED SUPREME COURT CASES (14 — Roe v. Wade REMOVED Fall 2023):
-Marbury v. Madison (1803); McCulloch v. Maryland (1819); Schenck v. U.S. (1919); Brown v. Board (1954); Baker v. Carr (1962); Engel v. Vitale (1962); Gideon v. Wainwright (1963); Tinker v. Des Moines (1969); NYT v. U.S. (1971); Wisconsin v. Yoder (1972); Shaw v. Reno (1993); U.S. v. Lopez (1995); McDonald v. Chicago (2010); Citizens United v. FEC (2010).
-
-GENERAL NOTES:
-- "Identify" = indicate/provide info without elaboration
-- "Describe" = relevant characteristics (more than mentioning a term)
-- "Explain" = how/why a relationship exists
-- Row D phrase "rebuttal or refutation" is load-bearing — identifying without refuting fails
-- Row B evidence tier 3 requires Row A thesis
-- Row D rebuttal requires Row A thesis`,
-
-  'ap-calculus-ab': `## AP Calculus AB FRQ General Scoring Notes (CED 2024, current through May 2026)
-Section II: 6 FRQs × 9 points = 54 total points, 90 minutes, 50% of exam.
-Part A: 2 FRQs (Q1-Q2), GRAPHING CALCULATOR REQUIRED, 30 minutes.
-Part B: 4 FRQs (Q3-Q6), NO calculator, 60 minutes.
-
-GENERAL SCORING CONVENTIONS:
-- Each point is earned independently — no deductions for wrong work elsewhere
-- Must SHOW WORK: a correct answer with no supporting work earns 0 on "show work" points
-- +C requirement: any antiderivative/indefinite integral that omits +C loses 1 point (once per question, not per part)
-- UNITS: if the problem specifies units and the answer requires them, missing/wrong units loses 1 point (once per question)
-- Decimal precision: final answers must be accurate to 3+ decimal places unless stated otherwise
-- Sign analysis: for increasing/decreasing or concavity arguments, must explicitly state the sign of the derivative, not just "it's positive"
-- Equivalent expressions earn full credit (e.g., 1-cos(x) = -cos(x)+1)
-- Alternative valid methods earn full credit if mathematically sound and reach the correct answer
-- Simplification is NOT required unless the problem says "simplify"
-- Limit notation: must use proper limit notation, not just "plug in" or "as x approaches"`,
-
-  'ap-calculus-bc': `## AP Calculus BC FRQ General Scoring Notes (CED 2024, current through May 2026)
-Section II: 6 FRQs × 9 points = 54 total points, 90 minutes, 50% of exam.
-Part A: 2 FRQs (Q1-Q2), CALCULATOR REQUIRED, 30 minutes.
-Part B: 4 FRQs (Q3-Q6), NO calculator, 60 minutes.
-Q1, Q3, Q4 typically shared with AB; Q2, Q5, Q6 are BC-only.
-BC includes all AB content plus series, parametric/polar, and advanced integration.
-
-GENERAL SCORING CONVENTIONS:
-- All AP Calculus AB scoring conventions apply (show work, +C, units, decimal precision, sign analysis, equivalent expressions)
-- Series convergence: must name the test used AND show all conditions are met — "by the ratio test it converges" alone is insufficient
-- Interval of convergence: must check endpoints separately and state the interval with correct brackets/parentheses
-- Parametric/polar: must show the setup (integral bounds, integrand) not just the answer
-- Integration by parts / partial fractions: show the decomposition or u/dv choices, not just the final antiderivative
-- Taylor/Maclaurin: if asked for "first n terms," provide exactly n nonzero terms
-- Euler's method: must show the iterative steps, not just the final approximation
-- Lagrange error bound: must state and apply the bound formula with correct (n+1)th derivative bound`,
-
-  'ap-precalculus': `## AP Precalculus FRQ General Scoring Notes (CED 2025, current through May 2026)
-Section II: 4 FRQs × 6 points = 24 total points, 60 minutes, 37.5% of exam.
-
-FIXED TASK MODELS in order:
-- Q1: Function Concepts — calculator REQUIRED, Part A (2-2-2 distribution)
-- Q2: Modeling a Non-Periodic Context — calculator REQUIRED, Part A (2-3-1 distribution; Part B has i/ii/iii = 3pts, Part C = 1pt)
-- Q3: Modeling a Periodic Context — calculator NOT PERMITTED, Part B (2-2-2)
-- Q4: Symbolic Manipulations — calculator NOT PERMITTED, Part B (2-2-2)
-
-Unit 4 (vectors/matrices/parametric) is NOT assessed.
-Calculator capabilities required: plot graphs, find zeros/intersections/min/max, tabulate, numerically solve, compute regression equations (linear/quadratic/cubic/quartic/exponential/logarithmic/sinusoidal) with residual plotting. Does NOT require numerical derivative/integral.
-
-PARTIAL CREDIT: 2-point parts use "First Column / Second Column" grading — student earns 1 pt by meeting one criterion from each of two columns.
-
-DECIMAL ACCURACY (Q1 & Q2 only): 3 decimal places (rounded or truncated). Trailing zeros not required. The FIRST decimal-presentation error per question is FORGIVEN; subsequent parts remain eligible. Q2 additionally penalizes the first part where exact form is given when decimals were required.
-
-LIMIT NOTATION (end behavior): Response must include all four components — \`lim\`, \`x → ∞\` (or -∞), the function, and the value. Missing "x → ∞" earns only partial credit.
-
-SINUSOIDAL Q3(B): Must use form $h(t) = a\\sin(b(t+c))+d$. Cosine-form answers receive partial credit only.
-
-GENERAL SCORING CONVENTIONS:
-- Each point is earned independently
-- Must SHOW WORK: correct answers without supporting reasoning earn 0 on "justify" or "show work" points
-- EXACT VALUES required on no-calculator questions — decimal approximations earn 0 unless the problem says "approximate"
-- Calculator questions: round to 3+ decimal places unless stated otherwise
-- Function notation must be used correctly — f(x) not just "the function"
-- Transformations: must describe both the type and direction (e.g., "horizontal shift left 3" not just "shift")
-- Domain restrictions: must state in interval or inequality notation, not just words
-- End behavior: must reference the function values approaching a limit, not just "goes up" or "goes down"
-- Inverse functions: verify domain/range swap is stated when required
-- Logarithmic/exponential equivalence: either form accepted if mathematically correct`,
-
-  'ap-chemistry': `## AP Chemistry FRQ General Scoring Notes (CED 2024, current through May 2026)
-Section II: 7 FRQs = 46 total points, 105 minutes. Calculators PERMITTED throughout Section II.
-- Q1, Q2, Q3: LONG FRQs, 10 points each (23 minutes each recommended). Q1 is almost always lab-based with explicit error-propagation analysis.
-- Q4, Q5, Q6, Q7: SHORT FRQs, 4 points each (9 minutes each recommended).
-- Every exam requires at least one particulate-level drawing.
-- Periodic Table and Equations/Constants sheet provided.
-
-GENERAL SCORING CONVENTIONS:
-- Each point is earned independently
-- Significant figures: answers must use correct sig figs based on given data. Wrong sig figs on a calculation loses 1 point (once per question, not per part)
-- UNITS: must include correct units on final numerical answers. Missing/wrong units loses 1 point (once per question)
-- Balanced equations: coefficients must be lowest whole-number ratios. Fractional coefficients earn 0 unless the problem specifies otherwise
-- Particulate diagrams: must show correct relative numbers AND types of particles
-- Equilibrium expressions: products over reactants, pure solids/liquids omitted
-- Thermodynamics sign conventions: exothermic = negative ΔH, endothermic = positive ΔH — reversed signs earn 0
-- "Justify" or "Explain" requires connecting the claim to specific chemical principles — restating the claim is insufficient
-- Accept reasonable equivalent chemical terminology (e.g., "dissociate" = "ionize" for strong acids in water)
-- Electron configurations: accept noble gas shorthand or full notation
-- Lewis structures: must show all lone pairs and formal charges if nonzero`,
-}
-
 // ─── Output Schema ────────────────────────────────────────────────────────────
 
-const OUTPUT_SCHEMA = `OUTPUT FORMAT — respond with raw JSON only (no markdown fences):
-
-CRITICAL POINT_ID RULE: For every point_results entry, copy the EXACT point_id string shown in the rubric below (after the word "POINT"). Do NOT invent or modify IDs. The rubric may use ids like "a", "a1", "b2", "c", "d" — use whatever the rubric literally contains. If the rubric says "POINT a [1 pt]", your output must use "point_id": "a" — NOT "a1". If the rubric says "POINT a1 [1 pt]", use "a1". The placeholder shown in the schema example below (<COPY-EXACT-FROM-RUBRIC>) is a placeholder, not a literal value to copy.
+const OUTPUT_SCHEMA = `OUTPUT FORMAT — respond with raw JSON only (no markdown fences). Schema:
 
 {
   "parts": [
@@ -236,10 +20,10 @@ CRITICAL POINT_ID RULE: For every point_results entry, copy the EXACT point_id s
           "max": 1,
           "confidence": 0.95,
           "sub_results": [
-            { "element": "<required_element text>", "student_evidence_quote": "<EXACT verbatim substring of student response, or empty string if absent>", "met": false }
+            { "element": "<required_element text>", "student_evidence_quote": "<verbatim substring of student response, or \\"\\" if absent>", "met": false }
           ],
-          "reasoning": "<1 sentence. If earned=0, NAME the specific defect — e.g., factual error + the correction, attribution error + correct source, reasoning gap + missing mechanism, scope error + what is out of scope. NEVER parrot the rubric like 'lacks connection to claims' or 'does not fully address the prompt'. See SPECIFIC-ERROR DIAGNOSIS RULE below.>",
-          "suggestion": "<if earned=0: 1-2 sentences that (a) quote or reference the student's actual error, (b) provide the specific correction (right fact, right attribution, right mechanism, right scope), and (c) show how the student's attempt could be revised to earn. null if earned=max>"
+          "reasoning": "<1 sentence; when earned=0, name the specific defect>",
+          "suggestion": "<1-2 sentences if earned=0; null if earned=max>"
         }
       ],
       "earned": 0,
@@ -253,65 +37,13 @@ CRITICAL POINT_ID RULE: For every point_results entry, copy the EXACT point_id s
   "takeaway": "<one key improvement tip>"
 }
 
-CONFIDENCE RULE: Set confidence between 0 and 1 for each point_result. Use 0.9+ when the rubric criteria clearly match or clearly don't match the student's response. Use 0.6-0.9 when the response is ambiguous or borderline. Use below 0.6 only when you genuinely cannot determine if the criterion is met. Be calibrated — don't default to 0.95 on everything.
-
-SUGGESTION RULE: For each missed point (earned=0), the suggestion MUST:
-1. Reference what the student actually wrote (quote their words if they wrote anything relevant)
-2. Explain specifically what was missing or incorrect
-3. Show how their response could be revised to earn the point — build on their attempt, don't replace it entirely
-4. ANCHOR to the correct_example: your suggested improvement MUST be consistent with the "Reference example" from the scoring rubric. Do NOT invent criteria beyond what the rubric specifies.
-5. If the student was completely off-topic, explain what the rubric required and adapt the correct_example to a student-friendly model response.
-Set suggestion to null for earned points.
-
-SPECIFIC-ERROR DIAGNOSIS RULE (non-negotiable for both reasoning AND suggestion fields when earned=0):
-
-The student deserves to know what they got WRONG, not just what the rubric wanted. Reasoning and suggestion must NAME the concrete defect using one of these categories. Rubric-restatement is BANNED.
-
-Diagnosis categories (pick the best fit and be specific):
-- FACTUAL ERROR — student stated a fact that is wrong. Name the error AND the correction.
-  ✗ "The response mentions feminism but lacks a connection to specific claims." (parrots the rubric, names no actual error)
-  ✓ "Attributes 'A Vindication of the Rights of Woman' to Elizabeth Cady Stanton — that work is Mary Wollstonecraft's (1792). Stanton wrote the Declaration of Sentiments (1848). With the correct attribution, this would earn."
-- ATTRIBUTION ERROR — right concept, wrong person / case / source / document. Name the correct attribution.
-  ✗ "Cites the wrong case."
-  ✓ "Names Brown v. Board as the controlling case on student speech — the relevant case is Tinker v. Des Moines (1969)."
-- CHRONOLOGY ERROR — right concept, wrong era. Give the correct period.
-  ✗ "The example is not from the right time period."
-  ✓ "Cites the 1964 Civil Rights Act as evidence of Reconstruction-era legislation. Reconstruction is 1865–1877; the relevant laws are the 13th/14th/15th Amendments and the Civil Rights Acts of 1866 and 1875."
-- SCOPE / RELEVANCE ERROR — student's evidence is accurate but does not connect to what the prompt asks. Name what is out of scope and what belongs.
-- REASONING GAP — correct fact, no HOW or WHY where the rubric requires explanation. Name the specific mechanism the student should have explained.
-  ✗ "Does not fully explain."
-  ✓ "States that bicameralism makes legislation harder without explaining the mechanism: both chambers must pass identical text, and any difference goes to conference committee, so a bill dies if the two chambers cannot reconcile."
-- VAGUENESS — on-topic but too general to satisfy a required element. Name what specificity was needed (which clause, which case, which study, which formula, which numerical value).
-- TERMINOLOGY ERROR — wrong term for the correct concept. Name both.
-  ✗ "Uses the wrong terminology."
-  ✓ "Calls the Necessary and Proper Clause an 'enumerated power' — it is an implied power. The prompt required an enumerated power (e.g., Commerce Clause)."
-- OFF-TOPIC — unrelated to the prompt. State what the prompt actually asked.
-- MATH: COMPUTATION / SETUP / UNITS / SIG-FIG / PRECISION ERROR — name which specific step broke, with numbers. ✓ "Evaluates $\\int_0^2 x\\,dx$ as 4 instead of 2 — the antiderivative is $x^2/2$, so $[x^2/2]_0^2 = 2$."
-
-BANNED phrasings (reject yourself if tempted — these are non-diagnostic rubric-restatement):
-- "mentions X but lacks connection to Y"
-- "does not fully address the prompt"
-- "the answer is vague" / "lacks sufficient detail" / "is too general"
-- "does not meet the criteria" / "does not earn the point because it does not [rubric language]"
-- Any phrasing that only describes what the rubric wanted without naming what the student did wrong
-
-SELF-CHECK before finalizing earned=0: Can you name a CONCRETE defect using one of the categories above? If not — if your diagnosis would have to be "they just didn't say enough" — the point probably SHOULD earn. Go back and reconsider whether the student satisfied the INTENT via a path you missed (see APPROACH FLEXIBILITY framing).
-
-EVIDENCE RULE (STRICT — server rejects non-verbatim quotes): student_evidence_quote MUST be a VERBATIM, CHARACTER-FOR-CHARACTER substring of the student's response. Server-side verification rejects quotes that can't be found in the student's actual text.
-  - COPY EXACT CHARACTERS. Do NOT fix grammar, standardize punctuation, expand abbreviations, or improve wording.
-  - If the student wrote "Fed 10 argued factions cause problems" do NOT quote it as "Federalist 10 argued that factions cause problems" — that paraphrase will be rejected.
-  - Preserve original spelling, capitalization, and punctuation exactly as the student wrote them.
-  - Preserve original Unicode: if the student used curly quotes, em-dashes, or special characters, keep them.
-  - If you cannot find verbatim support for a required element, set student_evidence_quote to "" and mark met: false. Do NOT paraphrase what the student "meant" — only what they literally wrote.
-QUOTING RULE: Quote SHORT contiguous substrings — one sentence or key phrase at most. Do NOT combine non-adjacent sentences into a single quote. If evidence spans multiple sentences, quote the MOST relevant single sentence. The server rejects quotes that skip text in the middle.
-
-ESSAY COMPLETENESS RULE (CRITICAL — violations will be rejected): For essay-type questions (DBQ, LEQ, argument_essay, essay, ebq), the student writes ONE essay or one body of text that is graded against MULTIPLE rubric parts. You MUST return a result for EVERY part listed in the rubric — do NOT skip parts just because the response is a single essay. Grade each part's criteria independently against the full response text.
-
-HARD REQUIREMENTS for your JSON output:
-1. The "parts" array MUST have EXACTLY one entry per rubric part (same letters as the rubric).
-2. Each part's "point_results" array MUST have EXACTLY one entry per point_id listed in that part's rubric. If the rubric says part "b" has points b1, b2, and b3, you must return point_results for b1, b2, AND b3 — even if all three are 0.
-3. If a criterion is not met, set earned=0 and describe what was missing in reasoning + suggestion. Do NOT omit the entry.
-4. Count your output: if the rubric has N parts and M total scoring_points across those parts, your output must have N entries in "parts" and M total entries across all "point_results" arrays. Verify before submitting.`
+RULES:
+- POINT_ID: copy each point_id EXACTLY as shown in the rubric (after the word "POINT") — never invent or modify. The <COPY-EXACT-FROM-RUBRIC> token is a placeholder.
+- EVIDENCE: student_evidence_quote MUST be a verbatim character-for-character substring of the student's response — preserve original spelling, capitalization, punctuation, Unicode. Do NOT paraphrase, fix grammar, expand abbreviations, or stitch non-adjacent text. If no verbatim support, set quote to "" and met=false. Quote SHORT contiguous substrings (one sentence or key phrase max).
+- ESSAY COMPLETENESS: for DBQ, LEQ, argument_essay, essay, and ebq the student writes ONE essay graded against MULTIPLE rubric parts — return a result for EVERY rubric part, grading each part's criteria independently against the full essay text.
+- DIAGNOSIS: when earned=0, reasoning must name the specific defect (wrong fact, wrong attribution, missing reasoning, missing specificity, off-topic, computation error, etc.) and suggestion must show how the student's actual attempt could be revised to earn — not just restate the rubric.
+- CONFIDENCE: 0.9+ when criteria clearly match or clearly don't; 0.6–0.9 for borderline; below 0.6 only when genuinely undecidable.
+- COMPLETENESS: "parts" must have one entry per rubric part (same letters). Each part's "point_results" must have one entry per point_id in that part's rubric — never skip; set earned=0 with reasoning instead. Each part's earned must equal sum of its point_results[].earned. total_score must equal sum of parts[].earned.`
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -326,18 +58,16 @@ function renderScoringPoints(points: FRQScoringPoint[]): string {
       ? `\n      COMMON TRAPS:\n${sp.common_traps.map(t => `        - ${t}`).join('\n')}`
       : ''
     const officialRubric = sp.official_rubric
-      ? `\n      OFFICIAL COLLEGE BOARD RUBRIC LANGUAGE:\n        ${sp.official_rubric}`
+      ? `\n      OFFICIAL CB RUBRIC: ${sp.official_rubric}`
       : ''
     const samples = sp.sample_responses?.length
-      ? `\n      ANNOTATED SAMPLE RESPONSES (use these to calibrate your grading):\n${sp.sample_responses.map((s, i) => {
+      ? `\n      SAMPLE RESPONSES (calibration):\n${sp.sample_responses.map((s, i) => {
           const verdict = s.earned ? 'EARNED' : 'DID NOT EARN'
-          const src = s.source === 'cb_guideline' ? 'from CB scoring guideline' : 'synthesized from rubric'
-          return `        Sample ${i + 1} (${verdict}, ${src}):\n          Response: "${s.response}"\n          Commentary: ${s.commentary}`
+          return `        ${i + 1}. ${verdict} — "${s.response}"\n           ${s.commentary}`
         }).join('\n')}`
       : ''
     return `    POINT ${sp.point_id} [${sp.point_value} pt]: ${sp.description}
-      APPROACH FLEXIBILITY: The enumerated alternatives below show SAMPLE paths an earning response can take — they are NOT exhaustive. A response earns this point if it satisfies the rubric INTENT described above, even if the student's reasoning takes a path not literally listed. Match the student to the INTENT (and to the spirit of any EARNED sample_response below), not to a specific wording. RUBRIC STRICTNESS remains: if the response fails to establish the intent, deny the point. Flexibility is about approach, not about lowering the bar.
-      ALTERNATIVES (any ONE clearly earns the point; other valid approaches may also earn if they satisfy the INTENT):
+      ALTERNATIVES (any ONE earns; other valid paths may earn if they satisfy the INTENT — see GRADING STANCE):
 ${alts}
       WRONG ANSWERS (0 points):
 ${wrongs}${traps}${officialRubric}${samples}`
@@ -386,220 +116,16 @@ function renderDocumentsBlock(documents: FRQDocument[]): string {
   return `DOCUMENTS (the student wrote their response using these sources):\n\n${docs}`
 }
 
-// ─── Task Verb Definitions ───────────────────────────────────────────────────
-// AP exams distinguish sharply between these verbs. Students commonly lose points
-// by "describing" when asked to "explain."
+// ─── Strictness Mode Stances ──────────────────────────────────────────────────
+// One paragraph per mode. The per-point alternatives + sample_responses in the
+// rubric data are what actually calibrate severity; the mode stance just sets
+// the tone for borderline calls and suggestion phrasing.
 
-const TASK_VERB_BLOCK = `TASK VERB DEFINITIONS (apply when evaluating whether a student's response meets a criterion):
-- IDENTIFY: Indicate or provide information about a topic without elaboration. A name, term, or phrase is sufficient.
-- DESCRIBE: Provide the relevant characteristics of a specified topic. More than just mentioning a term — must include detail or context.
-- EXPLAIN: Provide information about HOW or WHY a relationship, process, pattern, position, situation, or outcome occurs. Must show causal or logical reasoning, not just state facts.
-- COMPARE: Provide a description or explanation of similarities AND/OR differences.
-- EVALUATE: Judge the merits/significance of something, usually with "to what extent" framing.
+const LIGHT_MODE = `LIGHT MODE: Grade as an encouraging teacher. Award credit when the student's response demonstrates understanding, even with imprecise language or partial connections. On multi-element rubric rows ("X AND Y"), award if most elements are present and intent is clear on the missing one. Give benefit of the doubt on rebuttal/refutation rows when the student engages an opposing view at all. Suggestion tone: warm, constructive, lead with what worked.`
 
-CRITICAL DISTINCTION: If a criterion says "Explain" and the student only "Describes" (states facts without showing how/why), award 0. If a criterion says "Describe" and the student only "Identifies" (mentions a term without characteristics), award 0.`
+const MODERATE_MODE = `MODERATE MODE: Grade as a calibrated AP reader following official scoring guidelines. Award the point when the student's response satisfies the intent of any listed alternative — including via a valid path not literally enumerated. Award thesis/claim rows generously (any defensible position with a reason earns). Apply rubric strictness on multi-element rows ("claim AND reasoning" needs both) and on rebuttal rows (acknowledging an opposing view without engaging it does not earn). Suggestion tone: balanced and direct.`
 
-// ─── Per-FRQ-Type Calibration ────────────────────────────────────────────────
-// Real examples drawn from College Board scoring guidelines to anchor the AI.
-
-const FRQ_TYPE_CALIBRATION: Record<string, string> = {
-  'dbq': `DBQ CALIBRATION:
-THESIS (1pt) — The bar for thesis is LOW. It must: (1) take a defensible position, AND (2) establish a line of reasoning (give at least one reason). Sophistication is NOT required.
-THESIS (1pt) — EARNS (sophisticated): "Communist rule fundamentally transformed Soviet and Chinese societies by restructuring class hierarchies, but the extent of transformation varied as traditional gender roles and rural-urban divides persisted." — Defensible claim with analytic categories.
-THESIS (1pt) — EARNS (simple but valid): "Communist rule transformed Soviet and Chinese societies because it changed the economy and the role of women in society." — Takes a position ("transformed") AND gives reasons ("economy" + "role of women"). This earns the point even though it's simple.
-THESIS (1pt) — DOES NOT EARN: "Communist rule transformed Soviet and Chinese societies between 1930 and 1990." — Restates the prompt without any reasoning about HOW or WHY.
-THESIS (1pt) — DOES NOT EARN: "There were many changes under communist rule." — Too vague, no specific claim.
-CRITICAL: A "because" clause with at least one reason = line of reasoning = thesis point earned. Do NOT reject theses for being simple, conversational, or lacking sophistication. AP readers award the thesis point generously.
-SOURCING (1pt) — EARNS: "Document 3 was written by a Soviet official in 1946, so its positive portrayal of women's liberation likely served propaganda purposes to legitimize the regime abroad." — Explains HOW the purpose/audience affects the document's meaning.
-SOURCING (1pt) — DOES NOT EARN: "Document 3 was written by Alexandra Kollontai, a Russian politician." — Only identifies the source without explaining relevance to the argument.`,
-
-  'leq': `LEQ CALIBRATION:
-CONTEXTUALIZATION (1pt) — EARNS: "Following the devastation of World War I and the collapse of European empires, nationalist movements gained momentum across Asia and Africa, as colonized peoples drew on Wilsonian ideals of self-determination." — Describes broader context with specific detail.
-CONTEXTUALIZATION (1pt) — DOES NOT EARN: "There were many changes in the world during this time period." — Overgeneralized, no specific historical content.
-COMPLEXITY (1pt) — EARNS: Addresses both similarities AND differences, OR analyzes multiple perspectives, OR connects across time periods with nuance.
-COMPLEXITY (1pt) — DOES NOT EARN: A single-track argument that only addresses one side.`,
-
-  'saq': `SAQ CALIBRATION:
-1-POINT PART — EARNS: "Europeans used gunpowder weapons to conquer new territories, which gave them a significant military advantage over Indigenous peoples who lacked comparable technology." — Names a specific method AND provides relevant detail.
-1-POINT PART — DOES NOT EARN: "Europeans went to the Americas." — Too vague, does not name a specific method or provide relevant characteristics.`,
-
-  'concept_application': `GOV CONCEPT APPLICATION CALIBRATION:
-DESCRIBE (1pt) — EARNS: "The EPA used its rule-making authority to interpret and implement environmental laws differently under different administrations." — Names a specific bureaucratic power connected to the scenario.
-DESCRIBE (1pt) — DOES NOT EARN: "The EPA enforced the law." — Too vague, does not name the specific power.
-EXPLAIN (1pt) — EARNS: "The president could limit the EPA's power by issuing an executive order that gives the agency specific guidance on how to interpret the new law." — Shows HOW the president affects the power.
-EXPLAIN (1pt) — DOES NOT EARN: "The president can affect the EPA." — States that an effect exists without explaining the mechanism.`,
-
-  'quantitative_analysis': `GOV QUANTITATIVE ANALYSIS CALIBRATION:
-IDENTIFY (1pt) — EARNS: "Mandatory spending." — Correctly reads the data.
-DESCRIBE (1pt) — EARNS: "As a percentage of total federal spending, mandatory spending increased while discretionary spending decreased." — Describes BOTH trends shown in the data.
-DESCRIBE (1pt) — DOES NOT EARN: "Spending changed over time." — Does not specify which type or direction.
-CONCLUDE (1pt) — EARNS: "Congress has decreased discretionary spending as mandatory spending has grown, suggesting that entitlement programs are crowding out other budget priorities." — Goes BEYOND restating the data to draw an inference.
-CONCLUDE (1pt) — DOES NOT EARN: "Mandatory spending went up and discretionary went down." — Restates the data without drawing a conclusion.`,
-
-  'scotus_comparison': `GOV SCOTUS COMPARISON CALIBRATION (3 lettered parts A/B/C — Part B is tiered 1-or-2 pts):
-
-PART A — Identify constitutional clause/provision/amendment (1pt):
-EARNS: "Both cases deal with the Commerce Clause in Article I, Section 8 of the Constitution." — Names a specific clause/provision/amendment common to BOTH cases.
-DOES NOT EARN: "Both cases are about the Constitution." — Too vague; doesn't identify the specific clause.
-
-PART B — TIERED (1 pt OR 2 pts):
-TIER 1 (1 pt) EARNS: "In Citizens United v. FEC, the Court ruled that corporate political spending is a form of protected free speech under the First Amendment." — Describes facts or holding of the REQUIRED case.
-TIER 1 (1 pt) DOES NOT EARN: "The Court made a decision about campaign finance." — Too vague; doesn't describe facts or holding.
-
-TIER 2 (2 pts) EARNS: "In Lopez, the Court found that possessing a firearm in a school zone was not economic activity connected to interstate commerce, while in Katzenbach, the restaurant's refusal to serve Black customers directly affected interstate commerce through food supply chains — so the Court ruled the federal government had commerce power in Katzenbach but not Lopez." — EXPLAINS HOW the facts of BOTH cases led to similar or different holdings.
-TIER 2 (2 pts) DOES NOT EARN: "Lopez was about guns and Katzenbach was about restaurants. The Court ruled differently in each case." — Describes each case separately but does NOT explain the connection between facts and holdings.
-
-IMPORTANT: Award Tier 1 (1pt) OR Tier 2 (2pts) — NOT both. Model these as two scoring_points b1 (1pt describe) and b2 (1pt, the +1 for explaining both cases). Award b2 only if the response explains how BOTH cases' facts led to their holdings (comparative reasoning).
-
-PART C — Explain relation to political institution/process/behavior/principle (1pt):
-EARNS: "The Lopez decision illustrates judicial review by showing how the Supreme Court limits congressional power when Congress exceeds its enumerated authority under the Commerce Clause." — Connects the decision to a specific institution/principle.
-DOES NOT EARN: "The case is important for the government." — No specific connection to an institution, process, or principle.`,
-
-  'argument_essay': `GOV ARGUMENT ESSAY CALIBRATION:
-THESIS (1pt) — The bar for thesis is LOW. A thesis earns the point when it: (1) takes a clear position on the prompt, AND (2) provides at least one reason ("because..."). Complexity, sophistication, or document references are NOT required for the thesis point.
-THESIS (1pt) — EARNS: "The expanded powers of the national government benefit policy making because it allows for more consistency across states and makes it easier to respond to large scale problems." — Takes a position ("benefit") AND establishes reasoning ("consistency" + "large scale problems"). This IS a line of reasoning even though the language is simple.
-THESIS (1pt) — EARNS: "Expanded national power hinders policy making because it reduces state autonomy and creates one-size-fits-all policies that ignore local needs." — Position + two reasons = line of reasoning.
-THESIS (1pt) — DOES NOT EARN: "The national government has expanded its powers over time." — This is a factual statement, not a claim about whether it benefits or hinders policy making. No position taken.
-THESIS (1pt) — DOES NOT EARN: "Federalism is important in the United States." — Generic statement with no position on the specific prompt and no reasoning.
-THESIS (1pt) — DOES NOT EARN: "There are pros and cons to expanded national power." — Acknowledges both sides without taking a position.
-CRITICAL: Do NOT deny the thesis point because the language is "too simple" or "not sophisticated enough." If the student takes a position and gives a reason, the thesis point is earned. AP scoring explicitly states the thesis is about clarity and defensibility, not complexity.
-EVIDENCE (3pts tiered):
-  1pt: Names one relevant piece of evidence (e.g., "The First Amendment")
-  2pts: Uses one specific piece of evidence to SUPPORT the thesis (e.g., "The First Amendment protects free speech, which allows citizens to criticize the government — a check on tyranny")
-  3pts: Uses TWO specific pieces of evidence supporting the thesis, at least one from the listed foundational documents
-REBUTTAL (1pt) — THIS IS THE MOST MIS-GRADED ROW. Read carefully.
-
-EARNS — student describes the opposing view AND then REFUTES, REBUTS, OR CONCEDES-and-REAFFIRMS it:
-  (refute): "Critics argue judicial review gives unelected judges too much power, BUT the system of checks and balances ensures constitutional amendments can override court decisions." — Acknowledges opposing view AND shows why it fails.
-  (concede + reaffirm): "Brutus 1 warned expanded national power would hurt states. This concern has merit — states have lost some autonomy. HOWEVER, federalism still reserves significant powers to states via the 10th Amendment and policy areas like education, so the benefits of uniform national policy outweigh the loss." — Acknowledges opposing view, concedes partial truth, then shows why the original thesis still stands.
-
-DOES NOT EARN — "validates the concern" without rebutting:
-  WRONG (validates, doesn't refute): "In Brutus 1, the author argues a strong central government could take away rights from states. This is an important concern because if the national government has too much power, it might ignore what states want." — This AGREES with the opposing view. No rebuttal, no concession+reaffirmation. 0 pts.
-  WRONG (acknowledges without engaging): "Some people disagree with this." or "There are arguments on both sides." — Mere acknowledgment. 0 pts.
-  WRONG (restates thesis without addressing opposition): "Some argue expanded power is bad, but I believe it helps." — No engagement with the specific opposing argument. 0 pts.
-  WRONG (concede + generic reaffirm that doesn't engage the specific concern): "In Brutus 1, the author argues expanded national power could take rights from states. Even though this is a concern, the national government is still important because it can create laws that apply to everyone and keep the country unified." — The rebuttal RESTATES why national power matters but doesn't address the SPECIFIC concern about states' rights being eroded. Generic reasons pivoting away from the critique ≠ engagement. 0 pts.
-
-CRITICAL DISTINCTION — the failure mode: students commonly describe the opposing view and then say "this is an important concern" or "this is a valid point" or similar VALIDATION language, then move on without engaging. This is AGREEMENT, not rebuttal. Do NOT award this row in that case.
-
-CHECKLIST for Row D:
-1. Is an alternate/opposing perspective DESCRIBED (with specific claim or source)?
-2. Does the student then REBUT it (show it's wrong), REFUTE it (counter with logic/evidence), or CONCEDE it + REAFFIRM the thesis (show why thesis still stands despite the concern)?
-3. Does the rebuttal reasoning address the SPECIFIC opposing concern raised, or does it introduce unrelated reasons? Generic-reaffirm pattern = 0.
-4. Both 1 AND 2 must be true, and (3) must be satisfied. If only (1), award 0.
-
-Also verify: Row D cannot earn if Row A (thesis) = 0. This is enforced server-side regardless.`,
-
-  'multi_part_math': `MATH FRQ CALIBRATION:
-SETUP POINT (1pt) — EARNS: Shows the correct formula/integral/equation with appropriate notation. The setup alone earns the point even if the final computation has errors.
-SETUP POINT (1pt) — DOES NOT EARN: Jumps straight to an answer without showing the mathematical setup.
-ANSWER POINT (1pt) — EARNS: Correct numerical/symbolic answer. Accept equivalent forms. Calculator questions: 3+ decimal places. No-calculator: exact values required.
-ANSWER POINT (1pt) — DOES NOT EARN: Correct setup but arithmetic/algebra error in the final answer (earns setup point, not answer point).
-JUSTIFICATION POINT (1pt) — EARNS: For optimization/existence, must test ALL critical points and endpoints (Candidates Test) OR show sign change analysis on the correct interval.
-JUSTIFICATION POINT (1pt) — DOES NOT EARN: Uses only a local test (First/Second Derivative Test at one point) when a global argument is required.`,
-
-  'essay': `PSYCHOLOGY ESSAY FRQ CALIBRATION:
-Same scoring standards as multi_part_text — each criterion is independently evaluated.
-For Argumentation points (2pt tier): 1pt for citing results, 2pts for explaining HOW results support/refute the hypothesis with explicit reasoning.`,
-
-  'multi_part_text': `PSYCHOLOGY FRQ CALIBRATION:
-CONCEPT APPLICATION (1pt) — EARNS: "The dependent variable, reaction time, was operationally defined as the number of milliseconds between the stimulus appearing and the participant pressing the button." — Identifies the variable AND provides a measurable/quantifiable definition.
-CONCEPT APPLICATION (1pt) — DOES NOT EARN: "The dependent variable was how fast they reacted." — Names the variable but the definition is not measurable/quantifiable.
-ARGUMENTATION (2pt tier):
-  1pt: Uses results from the study but does not explain how they support/refute the hypothesis.
-  2pts: Uses specific results AND explains HOW they support or refute the hypothesis with reasoning.`,
-}
-
-// ─── Strict Mode Blocks ───────────────────────────────────────────────────────
-
-const STRICT_MODE_BLOCK = `STRICT MODE: Apply the rubric LITERALLY with zero tolerance for ambiguity. Your job is to catch every error, not to encourage. A strong response can still earn full credit; a borderline or hedged response should expect to lose points. Strict mode should produce scores roughly 1 point lower than moderate mode on the same borderline response.
-
-UNIVERSAL STRICT RULES (apply to every FRQ type — essay, math, chemistry, SAQ, etc.):
-- For each scoring point, deny credit if ANY required element is missing, vague, wrong-context, or only partially present.
-- Multi-element criteria (e.g., "claim AND reasoning") require BOTH — one without the other is 0.
-- "Sympathy points" are prohibited. Do not award because the student "seems to understand" or "is close" — grade what they literally wrote.
-- Keyword matching in wrong context = 0 (e.g., defining a term without applying it to the scenario).
-- Hedged or unclear positions on claim/thesis/argument rows may be denied if they fail to take a defensible stance or establish reasoning.
-
-STRICT APPLICATION BY ROW TYPE:
-
-Claim / Thesis rows (essays):
-- Deny if the position is unclear, heavily hedged ("maybe", "probably", "it depends"), or lacks explicit reasoning.
-- "Both sides have merit" without picking one = 0.
-- Position without any "because..." or equivalent line of reasoning = 0.
-
-Evidence rows (essays, SAQs):
-- Demand specificity — named people/dates/events/policies, not vague references.
-- Tiered evidence rows: award only the tier whose criteria are LITERALLY met, not the tier the student attempted.
-- For tier-3-style rows requiring "specific pieces supporting thesis from listed foundational documents," both specificity AND direct support are required.
-
-Reasoning / Analysis rows:
-- Demand explicit causal, comparative, or classificatory logic linking evidence to claim.
-- Restating evidence is not reasoning. Vague "this shows..." without HOW or WHY = 0.
-
-Rebuttal / Refutation rows:
-- Demand actual refutation, rebuttal, or concession-plus-reaffirmation.
-- Describing the opposing view and validating it ("this is an important concern") = 0.
-- Merely acknowledging that disagreement exists = 0.
-- Concession-plus-reaffirmation only earns when the reaffirmation DIRECTLY engages the specific opposing concern raised. A reaffirmation that merely restates the thesis with new generic reasons (e.g., "still important because of unity/consistency/efficiency") without addressing the specific critique = 0. The test: does the reaffirmation answer the opposing argument, or does it change the subject?
-
-Sourcing / HAPP rows (DBQ):
-- Demand explanation of HOW the historical situation, audience, purpose, or point of view is RELEVANT TO THE ARGUMENT.
-- Mere identification of the source, author, or date = 0.
-
-Complexity / Sophistication rows:
-- Demand genuine nuance: multiple perspectives engaged, acknowledged tensions, cross-period connections, OR effective use of all available evidence.
-- Restating the thesis with additional adjectives is not complexity = 0.
-
-Setup / Calculate rows (math, chemistry):
-- Demand correct formula/equation with proper notation, bounds, and variables.
-- Answer-only with no setup = 0 (bald-answer rule, per CB scoring).
-- Calculator syntax (fnInt, nDeriv) instead of mathematical notation = 0.
-
-Justification rows (math, chemistry):
-- Demand theorem citation AND verification of ALL hypotheses (IVT needs continuity; MVT needs continuity on [a,b] AND differentiability on (a,b); Candidates Test needs critical points AND endpoints).
-- Missing any required hypothesis = 0, even if conclusion is correct.
-- For chemistry "justify/predict" rows: demand direction/claim AND chemistry-principle reasoning (Coulombic attraction, Q vs K, ΔG = ΔH - TΔS, Le Châtelier, particulate reasoning). Claim without valid reasoning = 0.
-
-Write-equation rows (chemistry):
-- Demand balanced equation with lowest whole-number coefficients (unless prompt specifies otherwise).
-- Fractional coefficients = 0.
-- Wrong state symbols when the prompt requires them = 0.
-
-Units rows (math, chemistry):
-- One units point per contextual FRQ. Missing any required unit on any sub-answer forfeits the row.
-
-Decimal precision rows (calculator-active math):
-- Demand 3+ decimal places on calculator Qs unless prompt specifies.
-
-Significant figures (chemistry):
-- When sig figs are scored, wrong sig figs = 0 on that row (even if the numeric value is right).
-
-DEPENDENCIES: Cross-point dependencies are enforced server-side after your grading (e.g., Row D rebuttal auto-zeroed if Row A thesis = 0 in AP Gov Argument Essays). You do not need to apply the cascade yourself — grade each point independently on its own merits and let the server enforce.
-
-SUGGESTION TONE (strict): Be clinical and precise. Do not sugarcoat. Name the specific defect per the SPECIFIC-ERROR DIAGNOSIS RULE — not a rubric paraphrase. Use language like "This does not earn because [factual error / attribution error / reasoning gap / scope mismatch / etc.]: [the concrete correction]." Show the correct approach without hedging. If you catch yourself writing "lacks connection", "too vague", or "does not fully address" as your diagnosis, STOP and name WHAT was wrong and WHAT it should be.`
-
-const STRICT_CALIBRATION = `CALIBRATION EXAMPLES (strict mode):
-
-Example of CORRECT 0-point grading:
-  Criterion: "Identify the research method"
-  Required elements: ["names 'survey' or equivalent", "connects to the study"]
-  Student response: "They did a study on kids."
-  Scoring: 0/1 — student did not name a specific method; "a study" is too vague.
-  student_evidence_quote: ""
-
-Example of CORRECT 1-point grading:
-  Criterion: "Identify the research method"
-  Required elements: ["names 'survey' or equivalent", "connects to the study"]
-  Student response: "The researchers used a survey to ask participants about their attachment styles."
-  Scoring: 1/1 — names 'survey' AND connects to the study.
-  student_evidence_quote: "The researchers used a survey to ask participants about their attachment styles"
-
-Example of CORRECT 0-point grading (keyword present, wrong context):
-  Criterion: "Explain how scarcity affects consumer behavior"
-  Required elements: ["references scarcity", "explains effect on behavior"]
-  Student response: "Scarcity is when there is not enough of something."
-  Scoring: 0/1 — student defined the term but did not apply it to consumer behavior.
-  student_evidence_quote: ""`
+const STRICT_MODE = `STRICT MODE: Grade with literal rubric application and zero tolerance for ambiguity. Multi-element rows require every element. Hedged or unclear positions on claim/thesis rows do not earn. Tiered evidence rows: award only the tier whose criteria are literally met. Demand specificity on evidence rows (named people/dates/policies, not vague references). Suggestion tone: clinical and precise.`
 
 // ─── Prompt Builders ──────────────────────────────────────────────────────────
 
@@ -610,100 +136,15 @@ export function buildFRQGradingPrompt(
 ): string {
   const gradableParts = question.parts.filter(p => !p.requires_drawing)
   const gradablePoints = gradableParts.reduce((sum, p) => sum + p.point_value, 0)
-  const subjectRubric = RUBRICS[question.subject] ?? ''
 
-  const role = `You are Adi, an AP exam grader. You grade free response questions strictly according to the scoring criteria below. You are fair but rigorous — you grade like an experienced AP reader.`
+  const role = `You are Adi, an experienced AP exam grader. You grade free-response questions strictly against the scoring criteria below — fair but rigorous, like a calibrated AP reader.`
 
-  const answerKeyFirewall = `ANSWER-KEY FIREWALL: The REFERENCE answers below are your answer key — they show what a correct student response looks like. You may NOT credit the student for anything that appears only in the reference. Your job is to check whether the STUDENT'S OWN WORDS demonstrate the required elements.`
+  const gradingStance = `GRADING STANCE: A point is earned when the student's response satisfies the INTENT of any one alternative listed for that point — even via a valid path not literally enumerated. Quote the student's words as evidence for every awarded point. Deny only when no alternative's intent is satisfied. Credit only what the student's own words demonstrate — never credit content that appears only in the reference example.`
 
-  const pessimisticPrior = `PESSIMISTIC PRIOR: Every scoring point starts at 0. You may only raise a point to its full value if the student's response satisfies the required elements of at least one alternative. Quote the relevant student text as evidence. If no supporting text exists, the point MUST remain at 0. There is no partial credit — AP points are binary.
-IMPORTANT BALANCE: While you start at 0, you must also be FAIR. Real AP readers err on the side of awarding points when the response is defensible. Do NOT set an artificially high bar. If the student's response reasonably meets the criteria — even with simple or informal language — award the point. The goal is accuracy, not harshness.`
-
-  const strictnessBlock = strictness === 'strict'
-    ? `${STRICT_MODE_BLOCK}\n\n${STRICT_CALIBRATION}`
-    : strictness === 'light'
-    ? `LIGHT MODE: Grade as an encouraging teacher focused on student growth. Award credit when a student's response demonstrates understanding, even with imprecise language or incomplete connections. Expect roughly 1 point ABOVE moderate on borderline responses.
-
-UNIVERSAL LIGHT RULES (apply to every FRQ type):
-- When a rubric requires multiple elements joined by AND, award the point if most elements are present and the response shows clear intent toward the missing one.
-- Vague references to correct concepts still earn if the reference is identifiable.
-- Minor arithmetic/notation errors on math/chem computations are ignored if the underlying method is correct.
-- Missing units, partial sig figs, or loose decimal precision are ignored on single-row basis (still apply the rubric's one-per-FRQ unit and sig-fig rules, but generously).
-
-LIGHT APPLICATION BY ROW TYPE:
-
-Claim / Thesis rows: Award if student takes ANY position, even hedged or soft. A single reason (explicit or implied) is enough.
-
-Evidence / Specific-reference rows: Award the highest tier the student attempted. If student uses relevant evidence roughly connected to thesis, award tier 3 even if connection is informal.
-
-Reasoning / Analysis rows: Award if student makes any causal connection, even implicit. Do not demand explicit "because X → Y" structure.
-
-Rebuttal / Refutation rows: Give benefit of the doubt. If student describes an opposing perspective and acknowledges its existence (even without explicit refutation), award the point. "This is an important concern" counts as engagement in light mode.
-
-Sourcing / HAPP rows (DBQ): Award if student mentions purpose, audience, or historical situation near a document reference. Do not demand deep explanation.
-
-Complexity rows: Award if any secondary perspective or tension appears in the response.
-
-Setup / Calculate rows (math, chem): Award setup if the student wrote any recognizable formula/expression close to correct; award answer if the value is approximately right (within reasonable computational error).
-
-Justification rows (math, chem): Award if student names the theorem/principle, even without fully verifying all hypotheses. For chem "justify/predict" rows, accept claim + gesture at reasoning.
-
-Write-equation rows (chem): Ignore minor coefficient errors if the equation is structurally correct and near-balanced.
-
-Goal in light mode: encourage attempts. A thoughtful but imperfect response should earn most available points.
-
-SUGGESTION TONE (light): Be encouraging and constructive. Lead with what the student did well. Frame improvements as "next time, try adding..." or "you're close — to strengthen this, consider..." Never say "you failed to" or "this does not earn the point."`
-    : `MODERATE MODE: Grade as a calibrated AP reader following the official scoring guidelines as written — no extra generosity, no extra harshness. This is the baseline mode real AP readers use. Apply the rubric LITERALLY but allow generous reads on rows that the AP rubric itself explicitly grades generously (notably thesis/claim).
-
-UNIVERSAL MODERATE RULES (apply to every FRQ type):
-- Multi-element criteria (e.g., "claim AND reasoning") require both — one without the other is 0. No partial credit on binary rubric points.
-- Specificity matters where the rubric demands it (evidence rows, calculate rows, sourcing rows).
-- Keyword matching in wrong context = 0 (e.g., defining a term without applying it).
-- Award thesis/claim rows generously: if the student takes a position AND provides at least one reason (however simple), award the point. AP readers explicitly grade this row for clarity and defensibility, not sophistication.
-
-MODERATE APPLICATION BY ROW TYPE:
-
-Claim / Thesis rows: Generous. Position + reason = 1 point. Hedged language ("probably", "maybe") is OK as long as a position is taken.
-
-Evidence rows: Tier 3 requires TWO SPECIFIC pieces supporting thesis (not just topically relevant). At least one from listed foundational documents when specified. Vague references to events without named people/dates/policies fail to count as "specific".
-
-Reasoning rows: Require the student to explain HOW the evidence supports the claim, using causation, comparison, classification, or process. Restating the evidence is not reasoning.
-
-Rebuttal / Refutation rows: Require actual rebuttal, refutation, or concession-plus-reaffirmation. Describing the opposing view and saying "this is a concern" without engaging does NOT earn — that is agreement, not rebuttal. Common failure mode: balanced-sounding response that doesn't actually push back.
-
-Sourcing / HAPP rows (DBQ): Require the student to EXPLAIN how or why the purpose/audience/situation/point-of-view affects the document's meaning for their argument. Mere identification fails.
-
-Complexity rows: Require genuine nuance — acknowledged tensions, multiple themes, or cross-period connections. Not just a second idea bolted on.
-
-Setup / Calculate rows (math, chem): Require correct formula/equation with proper notation and bounds. Bald answer (numeric without setup) forfeits both setup and answer points. Calculator syntax (fnInt, nDeriv) is not mathematical notation.
-
-Justification rows (math, chem): Require theorem citation AND verification of required hypotheses (IVT → continuity; MVT → continuity on [a,b] AND differentiability on (a,b); Candidates Test → critical points AND endpoints). For chem "justify/predict" rows: direction/claim AND chemistry-principle reasoning (Coulombic, Q vs K, ΔG = ΔH - TΔS, Le Châtelier, particulate). Claim without reasoning = 0.
-
-Write-equation rows (chem): Require balanced equation with lowest whole-number coefficients. Fractional coefficients fail unless prompt specifies.
-
-Units / Decimals / Sig figs: Apply once-per-FRQ rules per CB guidelines. Missing units where required forfeits the units row.
-
-Goal in moderate mode: match what an average AP reader would award — not adversarial, but not forgiving on rubric-specific failure modes either.
-
-SUGGESTION TONE (moderate): Be balanced and direct. Acknowledge what was done correctly, then clearly state what was missing. Use neutral language like "to earn this point, the response needed..." or "the rubric requires X, but the response only provided Y."`
-
-  const generalRules = `GENERAL RULES:
-- COMPLETENESS IS MANDATORY. Your output MUST contain one entry in "parts" for EVERY rubric part listed below, and within each part, one entry in "point_results" for EVERY point_id in that part's rubric. Skipping a part or a point_id is not acceptable — if the student's response does not address a criterion, set earned=0 and provide feedback explaining what was missing. This applies especially to essay-type FRQs (DBQ, LEQ, argument_essay, essay, ebq) where the single essay must be evaluated against every rubric row.
-- BLANK OR MISSING RESPONSES EARN ZERO POINTS. If a part's response is "[NO RESPONSE]", empty, or clearly non-substantive (e.g., "idk", "?"), award 0 for every point of that part — but you must STILL return a point_result for each point_id with earned=0 and feedback.
-- Grade ONLY what the student actually wrote. Never credit the student for content that appears only in the rubric.
-- Equivalent mathematical expressions earn full credit (e.g., 1-cos(9) = -cos(9)+1).
-- Alternative valid solution methods earn full credit if they reach the correct answer.
-- For essays: grammar/spelling are not graded — focus on content and reasoning.
-- For legacy parts without scoring_points, synthesize one point_result per rubric_criterion with inferred sub_results.
-- earned in each part MUST equal the sum of its point_results[].earned.
-- total_score MUST equal the sum of parts[].earned.
-
-CROSS-POINT DEPENDENCY RULES (enforce these strictly):
-- AP Gov Argument Essay: Row D (Rebuttal) can only be earned if Row A (Thesis) is earned. If Thesis=0, set Rebuttal=0 regardless of response quality.
-- AP Gov Argument Essay: Row B Evidence tier 3 (foundational documents) requires Row A (Thesis). If Thesis=0, Evidence caps at tier 2.
-- DBQ: Evidence from Docs+ (4-doc argument) can only be earned if Evidence from Docs (3-doc descriptive) is also earned. The tiers are progressive.
-- LEQ: Evidence+ (evidence supporting argument) can only be earned if basic Evidence (two specific examples) is earned.
-- These dependencies reflect real AP scoring — readers enforce them. Do NOT award a dependent point if its prerequisite is not met.`
+  const strictnessBlock =
+    strictness === 'strict' ? STRICT_MODE
+    : strictness === 'light' ? LIGHT_MODE
+    : MODERATE_MODE
 
   const questionBlock = `QUESTION: ${question.title}
 Total Gradable Points: ${gradablePoints}${question.stimulus ? `\n\nSTIMULUS:\n${question.stimulus}` : ''}${question.documents?.length ? `\n\n${renderDocumentsBlock(question.documents)}` : ''}
@@ -713,18 +154,10 @@ ${gradableParts.map(renderPartBlock).join('\n\n')}`
 
   const studentBlock = renderStudentBlock(gradableParts, responses, question.frq_type)
 
-  // FRQ-type-specific calibration examples (anchors grading to College Board standard)
-  const typeCalibration = FRQ_TYPE_CALIBRATION[question.frq_type] ?? ''
-
   const sections = [
     role,
-    answerKeyFirewall,
-    pessimisticPrior,
-    subjectRubric,
-    TASK_VERB_BLOCK,
-    typeCalibration,
+    gradingStance,
     strictnessBlock,
-    generalRules,
     OUTPUT_SCHEMA,
     questionBlock,
     studentBlock,
@@ -733,58 +166,3 @@ ${gradableParts.map(renderPartBlock).join('\n\n')}`
   return sections.filter(Boolean).join('\n\n')
 }
 
-export function buildFRQAuditorPrompt(
-  question: FRQ,
-  responses: Record<string, string>,
-  firstPassResult: unknown,
-  strictness: GradingStrictness = 'strict'
-): string {
-  const gradableParts = question.parts.filter(p => !p.requires_drawing)
-
-  const role = `You are an auditor reviewing another AP grader's work. A real AP reader's job is to reward valid reasoning wherever it appears while denying credit for responses that fail the rubric. The first grader may have made TWO kinds of error — (1) awarding credit the student did not earn (false positive), or (2) denying credit the student DID earn via a valid alternative path the first grader missed (false negative). Fix both. Default strongly toward the first pass — only change a score when you have clear, quotable evidence.`
-
-  const auditInstructions = `AUDIT INSTRUCTIONS (bidirectional):
-
-FOR EACH AWARDED POINT (earned > 0 in first pass), verify:
-  1. Is student_evidence_quote an actual substring of the student's response for that part?
-  2. Does the quote satisfy EVERY required element in the chosen alternative, OR the rubric point's INTENT via a different valid path?
-  3. Is the student's usage contextually correct, or just keyword-matching?
-  If any check fails: set earned to 0, clear the quote to "", explain the downgrade in reasoning.
-
-FOR EACH DENIED POINT (earned = 0 in first pass), re-check whether the student earned it via an alternative path the first grader missed. To RAISE the score you MUST all of the following:
-  A. Quote ≥8 contiguous words of the student's actual response text (verbatim substring) as student_evidence_quote.
-  B. Explain in reasoning WHICH rubric INTENT (from POINT description or an EARNED sample_response) the quoted text satisfies — name it explicitly.
-  C. Confirm the response does NOT match any of the rubric's WRONG ANSWERS or COMMON TRAPS for this point.
-  D. Confirm the student's path is a genuinely valid AP approach — not a superficial keyword match, not a restating of the prompt, not an off-topic tangent that happens to mention a rubric term.
-  If you cannot satisfy A AND B AND C AND D, leave the score at 0. Do NOT raise based on speculation or charity.
-
-PHILOSOPHY: An AP teacher grades the STUDENT'S reasoning, not a dictionary match to the rubric. Flexibility on APPROACH (multiple valid paths may earn the same point) — strictness on the RUBRIC (every point requires genuine demonstration of the intent). Do not be lenient; do not be rigid. Both are failures.
-
-Never raise a score ABOVE the point's max. Never invent a quote. When raising a point, the new sub_results must have met=true and a verbatim student_evidence_quote.`
-
-  const studentBlock = renderStudentBlock(gradableParts, responses, question.frq_type)
-
-  const firstPassBlock = `FIRST-PASS GRADING RESULT (review this):
-${JSON.stringify(firstPassResult, null, 2)}`
-
-  // Reuse the scoring rubric so the auditor can check elements against the source
-  const rubricBlock = `SCORING RUBRIC FOR REFERENCE:
-${gradableParts.map(renderPartBlock).join('\n\n')}`
-
-  const outputInstruction = `OUTPUT the corrected grading using the SAME JSON schema as the first pass. Raw JSON only, no markdown fences. Recalculate earned and total_score whenever any point changes (up or down). Update feedback/missed/takeaway only if a change invalidates them. If you make no changes, return the first-pass result exactly.`
-
-  const documentsBlock = question.documents?.length
-    ? renderDocumentsBlock(question.documents)
-    : ''
-
-  return [
-    role,
-    auditInstructions,
-    studentBlock,
-    documentsBlock,
-    rubricBlock,
-    firstPassBlock,
-    OUTPUT_SCHEMA,
-    outputInstruction,
-  ].filter(Boolean).join('\n\n')
-}
