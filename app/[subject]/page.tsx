@@ -7,6 +7,7 @@ import { SubjectAnalytics } from '@/components/ui/SubjectAnalytics'
 import { SubjectHubClient } from '@/components/ui/SubjectHubClient'
 import { hasFRQs } from '@/utils/frqSession'
 import { hasDocsCases } from '@/utils/docsCases'
+import { hasCountriesHub } from '@/utils/subjects'
 
 // Force dynamic rendering so "days to go" is always current, never frozen at build time
 export const dynamic = 'force-dynamic'
@@ -92,6 +93,13 @@ export default async function SubjectPage({ params }: SubjectPageProps) {
       colorKey: 'indigo' as const,
     },
     {
+      title: 'Required Countries',
+      description: 'Comparative country profiles',
+      iconName: 'countries' as const,
+      href: `/${subject.slug}/countries`,
+      colorKey: 'cyan' as const,
+    },
+    {
       title: 'FRQ Practice',
       description: 'Free response with AI grading',
       iconName: 'frq' as const,
@@ -110,6 +118,7 @@ export default async function SubjectPage({ params }: SubjectPageProps) {
   const filteredModes = modes.filter(m => {
     if (m.title === 'FRQ Practice') return hasFRQs(subject.slug)
     if (m.title === 'Docs & Cases') return hasDocsCases(subject.slug)
+    if (m.title === 'Required Countries') return hasCountriesHub(subject.slug)
     return true
   })
 

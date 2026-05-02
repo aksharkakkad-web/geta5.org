@@ -53,25 +53,43 @@ interface PolarDataset {
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 /**
- * Splits text on $...$ inline math tokens.
- * Plain text segments → <span>, math segments → <KatexRenderer />.
+ * Splits text on $...$ inline math tokens, then on **bold** markdown
+ * within remaining text. Math → <KatexRenderer />, bold → <strong>,
+ * everything else → <span>. Bold parsing is a guard against stray
+ * markdown left in stimulus content by content-generation agents.
  */
 function parseInlineMath(text: string): React.ReactNode[] {
-  const regex = /\$([^$]+)\$/g
+  const mathRegex = /\$([^$]+)\$/g
   const nodes: React.ReactNode[] = []
   let lastIndex = 0
   let match: RegExpExecArray | null
 
-  while ((match = regex.exec(text)) !== null) {
+  const pushFormatted = (str: string, keyBase: string) => {
+    const boldRegex = /\*\*([^*]+)\*\*/g
+    let last = 0
+    let m: RegExpExecArray | null
+    while ((m = boldRegex.exec(str)) !== null) {
+      if (m.index > last) {
+        nodes.push(<span key={`${keyBase}-${last}`}>{str.slice(last, m.index)}</span>)
+      }
+      nodes.push(<strong key={`${keyBase}-b-${m.index}`}>{m[1]}</strong>)
+      last = boldRegex.lastIndex
+    }
+    if (last < str.length) {
+      nodes.push(<span key={`${keyBase}-${last}`}>{str.slice(last)}</span>)
+    }
+  }
+
+  while ((match = mathRegex.exec(text)) !== null) {
     if (match.index > lastIndex) {
-      nodes.push(<span key={`text-${lastIndex}`}>{text.slice(lastIndex, match.index)}</span>)
+      pushFormatted(text.slice(lastIndex, match.index), `text-${lastIndex}`)
     }
     nodes.push(<KatexRenderer key={`math-${match.index}`} formula={match[1]} displayMode={false} />)
-    lastIndex = regex.lastIndex
+    lastIndex = mathRegex.lastIndex
   }
 
   if (lastIndex < text.length) {
-    nodes.push(<span key={`text-${lastIndex}`}>{text.slice(lastIndex)}</span>)
+    pushFormatted(text.slice(lastIndex), `text-${lastIndex}`)
   }
 
   return nodes
@@ -149,28 +167,22 @@ export default function StimulusRenderer({ stimulus }: StimulusRendererProps) {
   if (stimulus.type === 'text') {
     const content = stimulus.content as string
     return (
-      <>
-        <blockquote
-          className="stimulus-text"
-          style={{
-            background: 'var(--bg-card)',
-            borderLeft: '3px solid var(--accent)',
-            padding: '16px 20px',
-            borderRadius: 'var(--radius-md)',
-            overflowY: 'auto',
-            fontSize: '0.9375rem',
-            lineHeight: 1.7,
-            color: 'var(--text-secondary)',
-            margin: 0,
-          }}
-        >
-          {parseInlineMath(content)}
-        </blockquote>
-        <style>{`
-          .stimulus-text { max-height: 240px; }
-          @media (min-width: 640px) { .stimulus-text { max-height: 320px; } }
-        `}</style>
-      </>
+      <blockquote
+        className="stimulus-text"
+        style={{
+          background: 'var(--bg-card)',
+          borderLeft: '3px solid var(--accent)',
+          padding: '16px 20px',
+          borderRadius: 'var(--radius-md)',
+          fontSize: '0.9375rem',
+          lineHeight: 1.7,
+          color: 'var(--text-secondary)',
+          margin: 0,
+          whiteSpace: 'pre-wrap',
+        }}
+      >
+        {parseInlineMath(content)}
+      </blockquote>
     )
   }
 

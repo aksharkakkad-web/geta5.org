@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { BookOpen, ClipboardList, BookMarked, Trophy, PenLine, Library, Landmark } from 'lucide-react'
+import { BookOpen, ClipboardList, BookMarked, Trophy, PenLine, Library, Landmark, Globe } from 'lucide-react'
 import { ModeIcon } from '@/components/3d/ModeIcon'
 
 const colorMap = {
@@ -60,6 +60,7 @@ const iconMap = {
   frq: PenLine,
   vocab: Library,
   'docs-cases': Landmark,
+  countries: Globe,
 } as const
 
 type IconName = keyof typeof iconMap

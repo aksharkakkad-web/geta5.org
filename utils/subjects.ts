@@ -152,3 +152,8 @@ const FORMULA_SUBJECT_SLUGS = new Set([
 export function getVocabLabel(slug: string): 'Vocab' | 'Formulas' {
   return FORMULA_SUBJECT_SLUGS.has(slug) ? 'Formulas' : 'Vocab'
 }
+
+/** Check if a subject has a Countries hub. Only AP Comparative Government. */
+export function hasCountriesHub(slug: string): boolean {
+  return slug === 'ap-comparative-government'
+}

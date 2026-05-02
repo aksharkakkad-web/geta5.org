@@ -96,6 +96,14 @@ export function Header() {
         >
           Founder
         </Link>
+        <Link
+          href="/feedback"
+          style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', textDecoration: 'none', transition: 'color 0.15s ease' }}
+          onMouseEnter={e => (e.currentTarget.style.color = 'var(--text-primary)')}
+          onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-secondary)')}
+        >
+          Feedback
+        </Link>
       </div>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
