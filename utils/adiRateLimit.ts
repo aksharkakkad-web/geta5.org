@@ -31,7 +31,7 @@ export const FRQ_STRICT_COST_CENTS = 4       // strict no longer adds a 2nd pass
 // Global cost cap: emergency brake only. Per-user limits should keep aggregate
 // well below this on any normal day. If this fires, something is going wrong
 // (abuse, retry loop, or unexpected scale).
-export const GLOBAL_DAILY_BUDGET_CENTS = 3000 // $30 — sized for AP-exam-week traffic
+export const GLOBAL_DAILY_BUDGET_CENTS = 1000 // $10 — ~5x real-cost buffer at current traffic
 
 type CheckResult = {
   allowed: boolean
