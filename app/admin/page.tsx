@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Chart, registerables } from 'chart.js'
 
 Chart.register(...registerables)
@@ -51,10 +51,47 @@ export default function AdminPage() {
   const [loading, setLoading] = useState(false)
   const [empty, setEmpty] = useState(false)
   const [dbError, setDbError] = useState('')
-  const [tab, setTab] = useState<'analytics' | 'users'>('analytics')
+  const [tab, setTab] = useState<'analytics' | 'users' | 'feedback'>('analytics')
   const [users, setUsers] = useState<any[]>([])
   const [selectedUser, setSelectedUser] = useState<any>(null)
   const [usersLoading, setUsersLoading] = useState(false)
+  const [feedback, setFeedback] = useState<any[]>([])
+  const [feedbackCounts, setFeedbackCounts] = useState({ new: 0, reviewed: 0, resolved: 0 })
+  const [feedbackLoading, setFeedbackLoading] = useState(false)
+  const [feedbackFilter, setFeedbackFilter] = useState<'all' | 'new' | 'reviewed' | 'resolved'>('all')
+  const [expandedFeedbackId, setExpandedFeedbackId] = useState<string | null>(null)
+  const [adminNotes, setAdminNotes] = useState<Record<string, string>>({})
+
+  const fetchFeedback = async (statusFilter = feedbackFilter) => {
+    setFeedbackLoading(true)
+    try {
+      const qs = statusFilter === 'all' ? '' : `?status=${statusFilter}`
+      const res = await fetch(`/api/admin/feedback${qs}`, {
+        headers: { 'x-admin-password': password },
+      })
+      const data = await res.json()
+      setFeedback(data.items ?? [])
+      setFeedbackCounts(data.counts ?? { new: 0, reviewed: 0, resolved: 0 })
+    } catch {} finally { setFeedbackLoading(false) }
+  }
+
+  const updateFeedbackStatus = async (id: string, status: string) => {
+    await fetch(`/api/admin/feedback/${id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json', 'x-admin-password': password },
+      body: JSON.stringify({ status }),
+    })
+    fetchFeedback()
+  }
+
+  const saveFeedbackNote = async (id: string) => {
+    await fetch(`/api/admin/feedback/${id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json', 'x-admin-password': password },
+      body: JSON.stringify({ admin_note: adminNotes[id] ?? '' }),
+    })
+    fetchFeedback()
+  }
 
   const fetchUsers = async () => {
     setUsersLoading(true)
@@ -150,6 +187,16 @@ export default function AdminPage() {
           fontSize: '0.85rem',
           fontWeight: 600,
         }}>Users</button>
+        <button onClick={() => { setTab('feedback'); if (feedback.length === 0) fetchFeedback('all') }} style={{
+          padding: '8px 20px',
+          borderRadius: '8px',
+          border: 'none',
+          background: tab === 'feedback' ? 'rgba(99, 102, 241, 0.2)' : 'rgba(255, 255, 255, 0.05)',
+          color: tab === 'feedback' ? '#a78bfa' : 'var(--text-secondary)',
+          cursor: 'pointer',
+          fontSize: '0.85rem',
+          fontWeight: 600,
+        }}>Feedback</button>
       </div>
 
       {/* ── Users Tab ── */}
@@ -246,6 +293,183 @@ export default function AdminPage() {
               {(!selectedUser.progress || selectedUser.progress.length === 0) && (
                 <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>No progress data yet.</div>
               )}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* ── Feedback Tab ── */}
+      {tab === 'feedback' && (
+        <div>
+          {/* Counter cards */}
+          <div style={{ display: 'flex', gap: '12px', marginBottom: '20px' }}>
+            {(['new', 'reviewed', 'resolved'] as const).map(s => (
+              <div key={s} style={{ ...cardBg, padding: '16px 20px', minWidth: '120px' }}>
+                <div style={{ fontSize: '1.4rem', fontWeight: 700, color: s === 'new' ? '#a78bfa' : 'var(--text-primary)' }}>
+                  {feedbackCounts[s]}
+                </div>
+                <div style={{ fontSize: '0.65rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em', marginTop: '4px' }}>
+                  {s}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Filter pills */}
+          <div style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
+            {(['all', 'new', 'reviewed', 'resolved'] as const).map(f => (
+              <button
+                key={f}
+                onClick={() => { setFeedbackFilter(f); fetchFeedback(f) }}
+                style={{
+                  padding: '6px 14px',
+                  borderRadius: '20px',
+                  border: 'none',
+                  background: feedbackFilter === f ? 'rgba(99, 102, 241, 0.2)' : 'rgba(255, 255, 255, 0.05)',
+                  color: feedbackFilter === f ? '#a78bfa' : 'var(--text-secondary)',
+                  cursor: 'pointer',
+                  fontSize: '0.75rem',
+                  fontWeight: 600,
+                  textTransform: 'capitalize',
+                }}
+              >
+                {f}
+              </button>
+            ))}
+          </div>
+
+          {feedbackLoading ? (
+            <div style={{ color: 'var(--text-secondary)', fontSize: '0.8rem', padding: '24px 0' }}>Loading feedback...</div>
+          ) : feedback.length === 0 ? (
+            <div style={{ color: 'var(--text-secondary)', fontSize: '0.8rem', padding: '24px 0' }}>No feedback yet.</div>
+          ) : (
+            <div style={{ ...cardBg, padding: '0', overflow: 'hidden' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.75rem' }}>
+                <thead>
+                  <tr style={{ borderBottom: '1px solid var(--bg-border)', backgroundColor: 'rgba(255,255,255,0.02)' }}>
+                    <Th left>Date</Th>
+                    <Th left>Category</Th>
+                    <Th left>Message</Th>
+                    <Th left>User</Th>
+                    <Th left>Contact</Th>
+                    <Th left>Status</Th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {feedback.map((row: any) => {
+                    const isExpanded = expandedFeedbackId === row.id
+                    const categoryColors: Record<string, string> = {
+                      bug: '#ef4444',
+                      feature: '#6366f1',
+                      content: '#f59e0b',
+                      other: '#94a3b8',
+                    }
+                    const catColor = categoryColors[row.category] ?? '#94a3b8'
+                    return (
+                      <React.Fragment key={row.id}>
+                        <tr
+                          onClick={() => {
+                            setExpandedFeedbackId(isExpanded ? null : row.id)
+                            if (!isExpanded && !(row.id in adminNotes)) {
+                              setAdminNotes(prev => ({ ...prev, [row.id]: row.admin_note ?? '' }))
+                            }
+                          }}
+                          style={{ borderBottom: isExpanded ? 'none' : '1px solid var(--bg-border)', cursor: 'pointer', transition: 'background 0.15s' }}
+                          onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.03)')}
+                          onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
+                        >
+                          <Td left>{new Date(row.created_at).toLocaleDateString()}</Td>
+                          <Td left>
+                            <span style={{
+                              display: 'inline-block',
+                              padding: '2px 8px',
+                              borderRadius: '12px',
+                              fontSize: '0.65rem',
+                              fontWeight: 600,
+                              background: `${catColor}22`,
+                              color: catColor,
+                            }}>
+                              {row.category}
+                            </span>
+                          </Td>
+                          <Td left>
+                            {isExpanded
+                              ? row.message
+                              : row.message.length > 120
+                                ? `${row.message.slice(0, 120)}…`
+                                : row.message}
+                          </Td>
+                          <Td left>{row.user_email ?? 'anonymous'}</Td>
+                          <Td left>{row.contact_email ?? '—'}</Td>
+                          <Td left>
+                            <select
+                              value={row.status}
+                              onClick={e => e.stopPropagation()}
+                              onChange={e => updateFeedbackStatus(row.id, e.target.value)}
+                              style={{
+                                background: 'var(--bg-secondary)',
+                                border: '1px solid var(--bg-border)',
+                                borderRadius: '6px',
+                                color: 'var(--text-primary)',
+                                fontSize: '0.7rem',
+                                padding: '3px 6px',
+                                cursor: 'pointer',
+                              }}
+                            >
+                              <option value="new">new</option>
+                              <option value="reviewed">reviewed</option>
+                              <option value="resolved">resolved</option>
+                            </select>
+                          </Td>
+                        </tr>
+                        {isExpanded && (
+                          <tr style={{ borderBottom: '1px solid var(--bg-border)' }}>
+                            <td colSpan={6} style={{ padding: '12px 16px', backgroundColor: 'rgba(255,255,255,0.02)' }}>
+                              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                                <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
+                                  <span style={{ fontWeight: 600, color: 'var(--text-primary)' }}>Full message:</span>{' '}
+                                  {row.message}
+                                </div>
+                                {row.page_url && (
+                                  <div style={{ fontSize: '0.7rem', color: 'var(--text-secondary)' }}>
+                                    <span style={{ fontWeight: 600 }}>Page:</span>{' '}
+                                    <code style={{ color: 'var(--accent)', fontSize: '0.7rem' }}>{row.page_url}</code>
+                                  </div>
+                                )}
+                                {row.user_agent && (
+                                  <div style={{ fontSize: '0.68rem', color: 'var(--text-secondary)', wordBreak: 'break-all' }}>
+                                    <span style={{ fontWeight: 600 }}>User agent:</span> {row.user_agent}
+                                  </div>
+                                )}
+                                <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-start', marginTop: '4px' }}>
+                                  <textarea
+                                    value={adminNotes[row.id] ?? row.admin_note ?? ''}
+                                    onChange={e => setAdminNotes(prev => ({ ...prev, [row.id]: e.target.value }))}
+                                    placeholder="Admin note..."
+                                    rows={2}
+                                    style={{
+                                      ...inputStyle,
+                                      flex: 1,
+                                      resize: 'vertical',
+                                      fontFamily: 'inherit',
+                                    }}
+                                  />
+                                  <button
+                                    onClick={e => { e.stopPropagation(); saveFeedbackNote(row.id) }}
+                                    style={{ ...btnStyle, padding: '8px 14px', fontSize: '0.72rem', whiteSpace: 'nowrap' }}
+                                  >
+                                    Save note
+                                  </button>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        )}
+                      </React.Fragment>
+                    )
+                  })}
+                </tbody>
+              </table>
             </div>
           )}
         </div>

@@ -135,11 +135,14 @@ export function ChangelogModal() {
         </header>
 
         <div style={{ padding: '0 20px', overflowY: 'auto', flex: 1 }}>
-          {/* Only show the newest unseen entry. When multiple changelog
-              entries ship close together, stacking them all overwhelms the
-              user — close() marks unseen[0] as seen, which silently absorbs
-              all older unseen entries via findUnseen's slice semantics. */}
-          <ChangelogEntry entry={unseen[0]} />
+          {unseen.map((entry, i) => (
+            <div
+              key={entry.id}
+              style={i > 0 ? { borderTop: '1px solid var(--bg-border)' } : undefined}
+            >
+              <ChangelogEntry entry={entry} />
+            </div>
+          ))}
         </div>
 
         <footer style={{ padding: '12px 20px 16px', borderTop: '1px solid var(--bg-border)' }}>
