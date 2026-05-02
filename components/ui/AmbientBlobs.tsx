@@ -8,10 +8,10 @@ interface AmbientBlobsProps {
 }
 
 export function AmbientBlobs({
-  color1 = 'rgba(99,102,241,0.1)',
-  color2 = 'rgba(139,92,246,0.07)',
-  size1 = 350,
-  size2 = 250,
+  color1 = 'rgba(99,102,241,0.07)',
+  color2 = 'rgba(139,92,246,0.05)',
+  size1 = 600,
+  size2 = 500,
 }: AmbientBlobsProps) {
   return (
     <>
@@ -21,11 +21,11 @@ export function AmbientBlobs({
           position: 'absolute',
           width: `${size1}px`,
           height: `${size1}px`,
-          background: `radial-gradient(circle, ${color1}, transparent 70%)`,
+          background: `radial-gradient(circle, ${color1} 0%, transparent 100%)`,
           borderRadius: '50%',
-          filter: 'blur(80px)',
-          top: '-120px',
-          left: '-80px',
+          filter: 'blur(120px)',
+          top: '-260px',
+          left: '-200px',
           pointerEvents: 'none',
           animation: 'blobFloat1 10s ease-in-out infinite',
         }}
@@ -36,11 +36,11 @@ export function AmbientBlobs({
           position: 'absolute',
           width: `${size2}px`,
           height: `${size2}px`,
-          background: `radial-gradient(circle, ${color2}, transparent 70%)`,
+          background: `radial-gradient(circle, ${color2} 0%, transparent 100%)`,
           borderRadius: '50%',
-          filter: 'blur(80px)',
-          top: '-50px',
-          right: '-40px',
+          filter: 'blur(120px)',
+          top: '-200px',
+          right: '-180px',
           pointerEvents: 'none',
           animation: 'blobFloat2 12s ease-in-out infinite',
         }}

@@ -21,7 +21,7 @@ export function HeroSection() {
   }))
 
   return (
-    <div style={{ paddingTop: '80px', paddingBottom: '16px', position: 'relative', overflow: 'hidden' }}>
+    <div style={{ paddingTop: '80px', paddingBottom: '16px', position: 'relative' }}>
       <AmbientBlobs />
 
       {/* Hero text — staggered word reveal */}

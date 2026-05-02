@@ -59,7 +59,7 @@ export function Header() {
       backgroundColor: 'var(--bg-header-alpha)',
       backdropFilter: 'blur(12px)',
       WebkitBackdropFilter: 'blur(12px)',
-      borderBottom: '1px solid var(--border-subtle)',
+      borderBottom: isAtTop ? '1px solid transparent' : '1px solid var(--border-subtle)',
       display: 'flex',
       alignItems: 'center',
       paddingLeft: '24px',
