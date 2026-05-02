@@ -64,13 +64,30 @@ const STRICTNESS_LABEL: Record<GradingStrictness, string> = {
 }
 
 export default function FRQResults({
-  result,
+  result: rawResult,
   strictness,
   drawingParts = [],
   onAskAdi,
   onNextQuestion,
   onRetry,
 }: FRQResultsProps) {
+  // Defensive clamp: pre-fix submissions stored in Supabase can have part.earned
+  // exceed part.max (and total_score exceed max_score) when the rubric had
+  // tiered scoring_points whose values summed higher than the part. The grading
+  // pipeline now clamps server-side, but legacy results need this safety net.
+  const result = React.useMemo(() => {
+    const clampedParts = rawResult.parts.map(p => ({
+      ...p,
+      earned: Math.min(p.earned, p.max),
+    }))
+    const clampedTotal = Math.min(
+      rawResult.total_score,
+      clampedParts.reduce((s, p) => s + p.earned, 0),
+      rawResult.max_score,
+    )
+    return { ...rawResult, parts: clampedParts, total_score: clampedTotal }
+  }, [rawResult])
+
   const pct = result.max_score > 0 ? result.total_score / result.max_score : 0
   const scoreColor = getScoreColor(pct * 100)
   const scoreGlow = getScoreGlow(pct * 100)

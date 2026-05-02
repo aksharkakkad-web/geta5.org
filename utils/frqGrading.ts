@@ -4,7 +4,99 @@ import { google } from '@ai-sdk/google'
 import { createClient as createAdminClient } from '@supabase/supabase-js'
 import { checkAndIncrementFRQUsage } from './adiRateLimit'
 import { buildFRQGradingPrompt } from './frqGradingPrompt'
+import { applyMathVerification } from './frqMathVerifier'
 import type { FRQ, FRQGradingResult, FRQGradingPart, FRQGradingPointResult, GradingStrictness } from './frqSession'
+
+// Phrases that indicate the LLM thinks the student wrote nothing. Used by
+// validateFeedbackStrings to detect the "non-blank response, blank-feedback"
+// hallucination class.
+const BLANK_FEEDBACK_MARKERS = [
+  'no response submitted',
+  'no response provided',
+  'no answer was written',
+  'no attempt was made',
+  'did not provide a response',
+  'the student did not provide',
+  "didn't provide a response",
+]
+
+function looksLikeBlankFeedback(text: string | null | undefined): boolean {
+  if (!text) return false
+  const lower = text.toLowerCase()
+  return BLANK_FEEDBACK_MARKERS.some(m => lower.includes(m))
+}
+
+// Replaces feedback strings that claim "no response submitted" when the
+// student actually wrote ≥ 50 chars. The grader hallucinates this class
+// when a long essay touches one rubric row only tangentially — instead of
+// marking "criterion not addressed" it sometimes emits the blank-response
+// template. Pure code, no LLM call.
+export function validateFeedbackStrings(
+  question: FRQ,
+  responses: Record<string, string>,
+  grading: FRQGradingResult
+): FRQGradingResult {
+  const essayText = (responses['essay'] ?? '').trim()
+  const isEssay = ['dbq', 'leq', 'essay', 'argument_essay', 'ebq', 'aaq'].includes(question.frq_type)
+  const newParts = grading.parts.map(part => {
+    const studentText = isEssay
+      ? essayText
+      : ((responses[part.letter] ?? '').trim() || essayText)
+    // Only fix feedback when the response clearly is non-blank. A 30-char
+    // attempt could legitimately fail to address the criterion.
+    if (studentText.length < 50) return part
+
+    const next = { ...part }
+    if (looksLikeBlankFeedback(part.feedback)) {
+      next.feedback = part.earned > 0
+        ? 'Adi credited this row but the original feedback string was malformed. Score is based on the rubric criteria.'
+        : 'Adi did not credit this row. The response did not clearly satisfy the rubric criteria for this row — review the criteria above and the per-point reasoning for what was missing.'
+    }
+    if (looksLikeBlankFeedback(part.missed)) {
+      next.missed = part.earned >= part.max
+        ? null
+        : 'See the per-point reasoning below for which criteria were not satisfied.'
+    }
+    if (next.point_results) {
+      next.point_results = next.point_results.map(pr => {
+        if (looksLikeBlankFeedback(pr.reasoning)) {
+          return {
+            ...pr,
+            reasoning: pr.earned > 0
+              ? 'Credited based on rubric criteria.'
+              : 'This rubric row was not satisfied by the response. Review the rubric description above for the specific criterion.',
+          }
+        }
+        return pr
+      })
+    }
+    return next
+  })
+  return { ...grading, parts: newParts }
+}
+
+// Some essay-type FRQs (DBQ, LEQ, argument_essay) historically returned a
+// single rubric row when the rubric calls for 5–6. sanitizeGrading already
+// fills missing rows with synthesized 0-placeholders, but we additionally
+// log when the LLM returned an unexpectedly small set so we can spot the
+// regression in production logs without blocking the response.
+function logEssayShapeIssues(question: FRQ, raw: { parts?: { letter: string }[] }): void {
+  const ESSAY_TYPES = new Set(['dbq', 'leq', 'argument_essay', 'essay', 'ebq', 'aaq'])
+  if (!ESSAY_TYPES.has(question.frq_type)) return
+  const expected = question.parts.filter(p => !p.requires_drawing).length
+  const got = Array.isArray(raw.parts) ? raw.parts.length : 0
+  // LEQ legitimately has the LLM grade 1 of 3 choose-one parts, so single-row
+  // output is correct for that type.
+  if (question.frq_type === 'leq' && got === 1) return
+  if (got < expected) {
+    console.warn('FRQ essay shape: LLM returned fewer parts than rubric expects', {
+      question_id: question.id,
+      frq_type: question.frq_type,
+      expected_parts: expected,
+      returned_parts: got,
+    })
+  }
+}
 
 // Three-tier routing by FRQ type. Cheaper models for simpler rubrics; gpt-4o
 // kept for the essay-types where deep reasoning carries the most weight.
@@ -47,7 +139,7 @@ function getSupabaseAdmin() {
   )
 }
 
-function sanitizeGrading(question: FRQ, raw: FRQGradingResult): FRQGradingResult {
+export function sanitizeGrading(question: FRQ, raw: FRQGradingResult): FRQGradingResult {
   let gradableParts = question.parts.filter(p => !p.requires_drawing)
   const rawParts = Array.isArray(raw.parts) ? raw.parts : []
   const rawByLetter = new Map(rawParts.map(p => [p.letter, p]))
@@ -221,7 +313,7 @@ function sanitizeGrading(question: FRQ, raw: FRQGradingResult): FRQGradingResult
   return { total_score, max_score, parts, takeaway }
 }
 
-function enforceDependencies(question: FRQ, grading: FRQGradingResult): FRQGradingResult {
+export function enforceDependencies(question: FRQ, grading: FRQGradingResult): FRQGradingResult {
   const frqType = question.frq_type
   const parts = grading.parts.map(part => ({ ...part }))
 
@@ -286,10 +378,16 @@ function enforceDependencies(question: FRQ, grading: FRQGradingResult): FRQGradi
 
   for (const part of parts) {
     if (part.point_results) {
-      part.earned = part.point_results.reduce((sum, pr) => sum + pr.earned, 0)
+      // Clamp to part.max — some FRQ rubrics encode tiered scoring as multiple
+      // scoring_points whose point_values sum higher than part.max (e.g. SCOTUS
+      // comparison b1=1pt + b2=2pt for a 2pt part). Without this clamp the
+      // grader can report 3/2 on a single part and 5/4 on the question.
+      const summed = part.point_results.reduce((sum, pr) => sum + pr.earned, 0)
+      part.earned = Math.min(part.max, summed)
     }
   }
-  const total_score = parts.reduce((sum, p) => sum + p.earned, 0)
+  const summedTotal = parts.reduce((sum, p) => sum + p.earned, 0)
+  const total_score = Math.min(grading.max_score, summedTotal)
 
   return { ...grading, parts, total_score }
 }
@@ -347,7 +445,7 @@ function normalizeLaTeX(s: string): string {
 //     against pure model fabrication.
 //   - Mixed: some quotes match, others don't → keep LLM's earned value,
 //     append a soft note so the user can spot-check.
-function verifyEvidence(grading: FRQGradingResult, responses: Record<string, string>): FRQGradingResult {
+export function verifyEvidence(grading: FRQGradingResult, responses: Record<string, string>): FRQGradingResult {
   const essayText = responses['essay'] ?? ''
   const parts = grading.parts.map(part => {
     if (!part.point_results || part.point_results.length === 0) return part
@@ -399,10 +497,13 @@ function verifyEvidence(grading: FRQGradingResult, responses: Record<string, str
 
       return { ...pr, sub_results: subResults, earned, reasoning }
     })
-    const partEarned = pointResults.reduce((sum, pr) => sum + pr.earned, 0)
+    // Clamp to part.max — see enforceDependencies for the tiered-rubric case.
+    const summedPart = pointResults.reduce((sum, pr) => sum + pr.earned, 0)
+    const partEarned = Math.min(part.max, summedPart)
     return { ...part, point_results: pointResults, earned: partEarned }
   })
-  const total_score = parts.reduce((sum, p) => sum + p.earned, 0)
+  const summedTotal = parts.reduce((sum, p) => sum + p.earned, 0)
+  const total_score = Math.min(grading.max_score, summedTotal)
   return { ...grading, parts, total_score }
 }
 
@@ -482,6 +583,7 @@ export async function runFRQGrading(params: {
         if (first === -1 || last === -1 || last <= first) throw new Error('no json object found')
         parsed = JSON.parse(stripped.slice(first, last + 1)) as FRQGradingResult
       }
+      logEssayShapeIssues(question, parsed)
       grading = sanitizeGrading(question, parsed)
     } catch (parseErr) {
       console.error('Failed to parse FRQ grading response', {
@@ -511,6 +613,24 @@ export async function runFRQGrading(params: {
     // mode-specific stance paragraph.
     grading = enforceDependencies(question, grading)
     grading = verifyEvidence(grading, responses)
+
+    // Math verification — pure code, zero LLM cost. Conservatively overrides
+    // earned=0 → earned=max on "answer" scoring points where the student's
+    // numerical answer demonstrably matches the rubric within tolerance.
+    // Never overrides the other direction — a credited symbolic answer the
+    // verifier can't parse must stay credited.
+    const mathCheck = applyMathVerification(question, responses, grading)
+    if (mathCheck.outcome.applied) {
+      console.info('FRQ math verifier override applied', {
+        question_id: question.id,
+        deltas: mathCheck.outcome.deltas,
+      })
+    }
+    grading = mathCheck.grading
+
+    // Feedback sanity — replace "no response submitted" feedback strings on
+    // parts where the student actually wrote ≥ 50 chars. Pure code.
+    grading = validateFeedbackStrings(question, responses, grading)
 
     const { error: resultError } = await admin
       .from('frq_results')
