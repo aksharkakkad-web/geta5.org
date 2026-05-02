@@ -18,14 +18,20 @@ export const FRQ_DAILY_LIMIT = 3
 // safety meter (GLOBAL_DAILY_BUDGET_CENTS). Update if model or prompt size
 // changes — undercounting here is what let $2 of real spend through against a
 // $1 cap previously.
+//
+// 2026-05-02: FRQ costs realigned after May-1 single-pass simplification.
+// Most FRQ types route to gpt-4o-mini (~0.15¢ real cost); only DBQ/LEQ/essay
+// tier routes to gpt-4o (~2.5¢). Old 10¢/15¢ constants were calibrated against
+// the deprecated multi-pass gpt-4o pipeline and were inflating the global
+// meter ~5-60x, locking out all non-founder users.
 export const ADI_COST_CENTS = 0.1            // gpt-4o-mini, ~2k in / 500 out ≈ $0.001
-export const FRQ_MODERATE_COST_CENTS = 10    // gpt-4o multi-pass ≈ $0.10
-export const FRQ_STRICT_COST_CENTS = 15      // adds an auditor pass ≈ $0.15
+export const FRQ_MODERATE_COST_CENTS = 3     // blended single-pass mini/4o ≈ $0.01-0.03
+export const FRQ_STRICT_COST_CENTS = 4       // strict no longer adds a 2nd pass
 
 // Global cost cap: emergency brake only. Per-user limits should keep aggregate
 // well below this on any normal day. If this fires, something is going wrong
 // (abuse, retry loop, or unexpected scale).
-export const GLOBAL_DAILY_BUDGET_CENTS = 800 // $8
+export const GLOBAL_DAILY_BUDGET_CENTS = 3000 // $30 — sized for AP-exam-week traffic
 
 type CheckResult = {
   allowed: boolean
