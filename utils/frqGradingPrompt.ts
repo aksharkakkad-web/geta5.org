@@ -130,6 +130,8 @@ CRITICAL — DO NOT ADD REQUIREMENTS NOT IN THE RUBRIC. Match the rubric criteri
 
 For SAQ-type prompts in particular (1-point identify/describe/explain rows): a named example that fits the category requested + a brief connection to the prompt's framing earns the point. "Gandhi led revolt against British rule" earns "non-Western nationalist leader" without a multi-sentence treatise on what nationalism means.
 
+NAME PARITY: Apply the same explanation bar regardless of which named leader, case, document, theorem, person, or term appears in the response. If "Gandhi" alone earns an identification row, then "Sun Yat-Sen" alone, "Simón Bolívar" alone, "Hồ Chí Minh" alone, and "Toussaint L'Ouverture" alone all earn it identically. If "Federalist 10" alone satisfies a foundational-document row, then "Brutus 1" alone, "Federalist 51" alone, and "Letter from a Birmingham Jail" alone all satisfy it identically. Do not require fuller explanation, more historical context, or a tighter connection for less canonical names than you require for canonical ones — that asymmetry is a graded inconsistency you must avoid.
+
 Suggestion tone: balanced and direct.`
 
 const STRICT_MODE = `STRICT MODE: Grade with literal rubric application and zero tolerance for ambiguity. Multi-element rows require every element. Hedged or unclear positions on claim/thesis rows do not earn. Tiered evidence rows: award only the tier whose criteria are literally met. Demand specificity on evidence rows (named people/dates/policies, not vague references). Suggestion tone: clinical and precise.`

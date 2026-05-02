@@ -1,0 +1,181 @@
+{
+  "_comment": "Regression fixture for the FRQ grader. Each case has: id, question_id, subject, responses (per-part keyed), expected (per-part earned with rationale), tags. Runner: scripts/test-frq-regression.mjs. Add new cases when you confirm a grading bug; keep the fixture under ~30 cases so a full run is cheap (~$0.05-0.10 in API costs).",
+  "cases": [
+    {
+      "id": "world-2021-saq-1-a-gandhi-bare",
+      "question_id": "world-2021-saq-1",
+      "subject": "ap-world-history",
+      "responses": {
+        "a": "One non-Western nationalist leader whose actions might be used to illustrate the author's argument is Mohandas Gandhi.",
+        "b": "One way the world revolution of Westernization disrupted non-Western societies was by replacing traditional education systems with Western schooling, which forced colonized populations to internalize the colonizer's values and made resistance harder over generations.",
+        "c": "Historians in the late twentieth century reinterpreted Western imperialism more nuancedly because of decolonization movements that revealed both the long-term cultural damage and the partial modernization brought by Western rule."
+      },
+      "expected": {
+        "a": 1,
+        "rationale": "Bare identification of a defensible non-Western nationalist leader. SAQ part (a) is identification-only — no causal explanation required. Compare with Sun Yat-Sen case below; both should earn identically (name parity)."
+      },
+      "tags": ["name-parity", "saq-identify"]
+    },
+    {
+      "id": "world-2021-saq-1-a-sunyatsen-bare",
+      "question_id": "world-2021-saq-1",
+      "subject": "ap-world-history",
+      "responses": {
+        "a": "One non-Western nationalist leader whose actions might be used to illustrate the author's argument is Sun Yat Sen.",
+        "b": "One way the world revolution of Westernization disrupted non-Western societies was by replacing traditional education systems with Western schooling, which forced colonized populations to internalize the colonizer's values and made resistance harder over generations.",
+        "c": "Historians in the late twentieth century reinterpreted Western imperialism more nuancedly because of decolonization movements that revealed both the long-term cultural damage and the partial modernization brought by Western rule."
+      },
+      "expected": {
+        "a": 1,
+        "rationale": "Bare identification of Sun Yat-Sen — equally defensible as Gandhi (founder of ROC, Western-educated). Must earn identically to the Gandhi case to satisfy name parity."
+      },
+      "tags": ["name-parity", "saq-identify"]
+    },
+    {
+      "id": "world-2021-saq-1-a-bolivar-bare",
+      "question_id": "world-2021-saq-1",
+      "subject": "ap-world-history",
+      "responses": {
+        "a": "One non-Western nationalist leader whose actions might be used to illustrate the author's argument is Simón Bolívar.",
+        "b": "One way the world revolution of Westernization disrupted non-Western societies was by replacing traditional education systems with Western schooling, which forced colonized populations to internalize the colonizer's values and made resistance harder over generations.",
+        "c": "Historians in the late twentieth century reinterpreted Western imperialism more nuancedly because of decolonization movements that revealed both the long-term cultural damage and the partial modernization brought by Western rule."
+      },
+      "expected": {
+        "a": 1,
+        "rationale": "Bolívar is a defensible Latin American (non-Western) nationalist leader who used Enlightenment ideas. Should earn identically to Gandhi/Sun Yat-Sen."
+      },
+      "tags": ["name-parity", "saq-identify"]
+    },
+    {
+      "id": "world-2021-saq-1-a-stalin-wrong",
+      "question_id": "world-2021-saq-1",
+      "subject": "ap-world-history",
+      "responses": {
+        "a": "One non-western leader would be Joseph Stalin.",
+        "b": "Westernization forced trade.",
+        "c": "Decolonization happened."
+      },
+      "expected": {
+        "a": 0,
+        "rationale": "Stalin is a European leader, not non-Western. Correct denial. This case keeps the grader from over-rewarding name parity — wrong-region leaders should still fail."
+      },
+      "tags": ["name-parity", "negative-control"]
+    },
+    {
+      "id": "world-2025-set2-saq-3-b-ottoman-cannon",
+      "question_id": "world-2025-set2-saq-3",
+      "subject": "ap-world-history",
+      "responses": {
+        "a": "Trade routes such as the Silk Road facilitated the spread of gunpowder technologies before 1500 by enabling Chinese gunpowder weapons to reach the Middle East and Europe.",
+        "b": "The Ottomans used cannon technology to breach the walls of Constantinople in 1453, allowing them to conquer the Byzantine Empire and expand their land-based empire.",
+        "c": "Navigational technologies like the magnetic compass enabled Atlantic crossings, leading to the creation of trans-oceanic trade networks that fundamentally restructured the global economy through the Columbian Exchange."
+      },
+      "expected": {
+        "b": 1,
+        "rationale": "Specific empire (Ottoman) + specific technology (cannon) + specific historical effect (Constantinople conquest, empire expansion). This is a textbook earning response. Earlier batches showed the grader denying this while crediting more generic 'gunpowder weapons increased combat efficiency' answers — that inversion is the bug."
+      },
+      "tags": ["specificity", "inverted-credit"]
+    },
+    {
+      "id": "world-2025-set2-saq-3-b-generic-gunpowder",
+      "question_id": "world-2025-set2-saq-3",
+      "subject": "ap-world-history",
+      "responses": {
+        "a": "Trade routes such as the Silk Road facilitated the spread of gunpowder technologies before 1500 by enabling Chinese gunpowder weapons to reach the Middle East and Europe.",
+        "b": "Gunpowder weapons increased combat efficiency which allowed for greater expansion.",
+        "c": "Navigational technologies like the magnetic compass enabled Atlantic crossings, leading to the creation of trans-oceanic trade networks that fundamentally restructured the global economy through the Columbian Exchange."
+      },
+      "expected": {
+        "b": 1,
+        "rationale": "Generic but defensible — names the technology (gunpowder weapons) and connects to land-empire growth (greater expansion). Should earn. Listed as a calibration check: if this earns and the Ottoman+cannon case fails, we have inversion."
+      },
+      "tags": ["specificity", "saq-baseline"]
+    },
+    {
+      "id": "calc-ab-2005-frq-1-correct-answers",
+      "question_id": "calc-ab-2005-frq-1",
+      "subject": "ap-calculus-ab",
+      "responses": {
+        "a": "Bounds: 0 to 0.178218. Integrand: 4^(-x) - (1 + sin(πx)). Computing: ∫₀^0.178218 [4^(-x) - (1 + sin(πx))] dx = 0.064.",
+        "b": "Bounds: 0.178218 to 1. Integrand: (1 + sin(πx)) - 4^(-x). Area = 1.144.",
+        "c": "Volume = π ∫₀^0.178218 [(1+sin(πx))² - (4^(-x))²] dx = something or use disk. Skipping."
+      },
+      "expected": {
+        "a": 3,
+        "rationale": "All three a-points should earn: limits (0 to 0.178218), integrand (g-f for region R), and answer (0.064). The math verifier should catch the answer-point even if the LLM is uncertain."
+      },
+      "tags": ["math-verifier", "calc-ab"]
+    },
+    {
+      "id": "calc-ab-2005-frq-1-wrong-region",
+      "question_id": "calc-ab-2005-frq-1",
+      "subject": "ap-calculus-ab",
+      "responses": {
+        "a": "∫₀^1.31677 [(1+sin(πx)) - 4^(-x)] dx = 1.203.",
+        "b": "∫₀^1.31677 stuff = 3.736.",
+        "c": "π ∫₀^1.31677 [...] = 20.118."
+      },
+      "expected": {
+        "a": 0,
+        "rationale": "Student computed the wrong region (used S limits and integrand for R). 0/3 is correct. Math verifier should NOT override here — observed 1.203 doesn't match expected 0.064/0.065. Negative control for the verifier."
+      },
+      "tags": ["math-verifier", "negative-control"]
+    },
+    {
+      "id": "world-2025-set2-leq-1-real-attempt",
+      "question_id": "world-2025-set2-leq-1",
+      "subject": "ap-world-history",
+      "responses": {
+        "essay": "During the period circa 1450 to 1750, the world was transitioning to maritime empires due to improvements in navigational technology and new shipbuilding techniques such as the compass and lateen sail. Many Europeans began to travel westward in hopes of finding an easier route to Asia, but instead they found the Americas. They then began to form colonies and plantations across the Atlantic. Movements of people, plants, and pathogens led to significant social, cultural, and demographic changes across the Atlantic region through the spread of diseases such as smallpox, the introduction of new goods through the Columbian Exchange, and the trans-Atlantic slave trade. When the Europeans invaded America, they brought their armies but also their diseases. Native populations had no resistance to smallpox and died in massive numbers. This restructured the social order: Natives lost their land and political power, becoming a subjugated underclass. The Columbian Exchange transformed both continents demographically: potatoes from the Americas drove a population boom in Ireland, while wheat and horses from Europe transformed Indigenous societies in North America. Finally, the trans-Atlantic slave trade forcibly relocated millions of Africans to plantations in the Americas, reshaping the demographics of three continents and producing the racialized social hierarchies that persisted for centuries."
+      },
+      "expected": {
+        "essay_total_min": 4,
+        "rationale": "Real LEQ attempt with thesis, contextualization, and 2+ specific evidence. Should score 4-5/6. The 'no response submitted' bug from earlier batches must NOT fire here — response is ~1100 chars."
+      },
+      "tags": ["leq", "feedback-validator"]
+    },
+    {
+      "id": "world-2025-set2-leq-1-blank",
+      "question_id": "world-2025-set2-leq-1",
+      "subject": "ap-world-history",
+      "responses": {
+        "essay": ""
+      },
+      "expected": {
+        "essay_total": 0,
+        "rationale": "Genuine blank — must be caught by isBlankResponse short-circuit and produce buildBlankResult, which DOES say 'no response submitted'. Negative control for the feedback validator."
+      },
+      "tags": ["leq", "blank", "negative-control"]
+    },
+    {
+      "id": "gov-2019-frq-3-c-lobby-strategy",
+      "question_id": "gov-2019-frq-3",
+      "subject": "ap-government",
+      "responses": {
+        "a": "The Equal Protection Clause of the Fourteenth Amendment is the constitutional basis for both decisions.",
+        "b": "Both Brown v. Board and Hernandez v. Texas struck down state-sanctioned discrimination using the Equal Protection Clause. In Brown the Court ruled that segregated schools violated equal protection; in Hernandez the Court extended that protection to Mexican Americans excluded from juries.",
+        "c": "An interest group could use the Hernandez precedent as the legal foundation for lobbying Congress to pass anti-discrimination legislation. With a Supreme Court precedent supporting their cause, the group could credibly pressure legislators by citing case law in committee testimony and using the precedent as evidence in public-awareness campaigns."
+      },
+      "expected": {
+        "c": 1,
+        "rationale": "Specific strategy (lobby Congress with precedent as legal foundation) + concrete mechanism (committee testimony, public campaigns). This pattern was repeatedly under-credited in May 2 data with vague 'lacks specificity' feedback."
+      },
+      "tags": ["gov-frq-3", "specificity-bias"]
+    },
+    {
+      "id": "gov-2025-set2-frq-3-b-brief-comparison",
+      "question_id": "gov-2025-set2-frq-3",
+      "subject": "ap-government",
+      "responses": {
+        "a": "The Equal Protection Clause is the basis for both these cases.",
+        "b": "Both Shaw v. Reno and Bush v. Vera struck down districts that were drawn solely on the basis of race, finding such districts unconstitutional under the Equal Protection Clause.",
+        "c": "The decision in Bush v. Vera reflects the democratic ideal of republicanism — when districts are racially gerrymandered, voters cannot be equally represented and the principle of representative government is violated. Striking such districts down ensures equal political representation."
+      },
+      "expected": {
+        "b": 2,
+        "rationale": "Brief but complete — describes the relevant fact (race-based drawing) AND connects the two cases to similar holdings (struck down, unconstitutional under Equal Protection). Earlier batches showed inconsistent grading on equivalent content (some 1/2, some 2/2). This case anchors the higher score."
+      },
+      "tags": ["scotus-comparison", "consistency"]
+    }
+  ]
+}
