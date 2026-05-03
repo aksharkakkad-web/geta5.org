@@ -75,6 +75,111 @@ export function validateFeedbackStrings(
   return { ...grading, parts: newParts }
 }
 
+// Phrases that signal positive evaluation in feedback / reasoning strings.
+// Used by reconcileFeedbackScoreContradictions to detect cases where Adi
+// wrote praise but assigned earned=0 (the contradictory output class seen
+// in submission 2b24b1fc-c).
+const POSITIVE_FEEDBACK_MARKERS = [
+  'effectively',
+  'clearly identifies',
+  'clearly explains',
+  'clearly draws',
+  'correctly identifies',
+  'correctly explains',
+  'correctly describes',
+  'correctly notes',
+  'accurately identifies',
+  'accurately describes',
+  'accurately explains',
+  'well articulated',
+  'well-articulated',
+  'well supported',
+  'well-supported',
+  'demonstrates a clear',
+  'demonstrates strong',
+  'shows a clear',
+  'meets the rubric',
+]
+
+// Phrases that, even when present, signal the response did NOT fully earn —
+// these neutralize a positive marker that appears alongside them.
+const NEGATING_QUALIFIERS = [
+  'but',
+  'however',
+  'lacks',
+  'missing',
+  'fails to',
+  'did not',
+  "didn't",
+  'does not',
+  "doesn't",
+  'incomplete',
+  'partial',
+  'unclear',
+  'vague',
+]
+
+function hasOnlyPositiveSignal(text: string | null | undefined): boolean {
+  if (!text) return false
+  const lower = text.toLowerCase()
+  const hasPositive = POSITIVE_FEEDBACK_MARKERS.some(m => lower.includes(m))
+  if (!hasPositive) return false
+  const hasNegating = NEGATING_QUALIFIERS.some(q => {
+    // Word-boundary check so "but" doesn't match "tribute" and "fails to"
+    // is matched as a phrase, not a substring of "fails too".
+    const re = new RegExp(`\\b${q.replace(/'/g, "\\'")}\\b`, 'i')
+    return re.test(lower)
+  })
+  return !hasNegating
+}
+
+// Detects and resolves the "praise + earned=0" contradiction class. When the
+// LLM produced internally inconsistent JSON (positive prose, zero score),
+// the prose is the more reliable signal — score hallucination is more
+// common than reasoning hallucination on top of correct evaluation.
+// Conservatively raises earned to max only when the feedback is purely
+// positive (no negating qualifier anywhere). Logs every override.
+export function reconcileFeedbackScoreContradictions(
+  question: FRQ,
+  grading: FRQGradingResult
+): FRQGradingResult {
+  const overrides: Array<{ part: string; point_id: string; before: number; after: number; reasoning: string }> = []
+  const newParts = grading.parts.map(part => {
+    if (!part.point_results || part.point_results.length === 0) return part
+    const newPointResults = part.point_results.map(pr => {
+      if (pr.earned >= pr.max) return pr
+      // Only fire when BOTH reasoning and the part-level feedback are purely
+      // positive — single-source positive could be a tone artifact.
+      const reasoningPositive = hasOnlyPositiveSignal(pr.reasoning)
+      if (!reasoningPositive) return pr
+      overrides.push({
+        part: part.letter,
+        point_id: pr.point_id,
+        before: pr.earned,
+        after: pr.max,
+        reasoning: pr.reasoning,
+      })
+      return {
+        ...pr,
+        earned: pr.max,
+        confidence: 0.85,
+        reasoning: `${pr.reasoning} [server: feedback/score contradiction reconciled — Adi's feedback was unambiguously positive while the score was 0; score raised to match feedback.]`,
+        suggestion: null,
+      }
+    })
+    const partEarned = Math.min(part.max, newPointResults.reduce((sum, pr) => sum + pr.earned, 0))
+    return { ...part, point_results: newPointResults, earned: partEarned }
+  })
+  const total_score = Math.min(grading.max_score, newParts.reduce((sum, p) => sum + p.earned, 0))
+  if (overrides.length > 0) {
+    console.warn('FRQ feedback/score contradiction reconciled', {
+      question_id: question.id,
+      overrides,
+    })
+  }
+  return { ...grading, parts: newParts, total_score }
+}
+
 // Some essay-type FRQs (DBQ, LEQ, argument_essay) historically returned a
 // single rubric row when the rubric calls for 5–6. sanitizeGrading already
 // fills missing rows with synthesized 0-placeholders, but we additionally
@@ -631,6 +736,12 @@ export async function runFRQGrading(params: {
     // Feedback sanity — replace "no response submitted" feedback strings on
     // parts where the student actually wrote ≥ 50 chars. Pure code.
     grading = validateFeedbackStrings(question, responses, grading)
+
+    // Score/feedback consistency — when the LLM produced positive prose with
+    // earned=0 (a contradictory-JSON failure mode), trust the prose and
+    // raise the score. Conservative: requires fully positive reasoning with
+    // no negating qualifier. Pure code.
+    grading = reconcileFeedbackScoreContradictions(question, grading)
 
     const { error: resultError } = await admin
       .from('frq_results')
