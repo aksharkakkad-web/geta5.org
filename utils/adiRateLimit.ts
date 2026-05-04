@@ -28,10 +28,12 @@ export const ADI_COST_CENTS = 0.1            // gpt-4o-mini, ~2k in / 500 out �
 export const FRQ_MODERATE_COST_CENTS = 3     // blended single-pass mini/4o ≈ $0.01-0.03
 export const FRQ_STRICT_COST_CENTS = 4       // strict no longer adds a 2nd pass
 
-// Global cost cap: emergency brake only. Per-user limits should keep aggregate
-// well below this on any normal day. If this fires, something is going wrong
-// (abuse, retry loop, or unexpected scale).
-export const GLOBAL_DAILY_BUDGET_CENTS = 800 // $8 — ~4x real-cost buffer with corrected FRQ accounting
+// Global cost cap intentionally disabled — per-user limits + IP burst
+// protection are the only enforcement. The constant is retained at a sentinel
+// value for any callers/tooling that still import it; isGlobalOverBudget is
+// no longer wired into the hot path. We still increment the GLOBAL usage row
+// so we keep aggregate analytics in adi_usage.
+export const GLOBAL_DAILY_BUDGET_CENTS = Number.POSITIVE_INFINITY
 
 type CheckResult = {
   allowed: boolean
@@ -58,17 +60,6 @@ function todayUTC(): string {
   return new Date().toISOString().split('T')[0]
 }
 
-async function isGlobalOverBudget(today: string): Promise<boolean> {
-  const supabase = getSupabaseAdmin()
-  const { data } = await supabase
-    .from('adi_usage')
-    .select('estimated_cost_cents')
-    .eq('user_id', 'GLOBAL')
-    .eq('date', today)
-    .single()
-  return !!data && data.estimated_cost_cents >= GLOBAL_DAILY_BUDGET_CENTS
-}
-
 function fireGlobalIncrement(costCents: number, today: string): void {
   // Fire-and-forget — don't block the request on the global meter update.
   const supabase = getSupabaseAdmin()
@@ -92,16 +83,6 @@ export async function checkAndIncrementAdiUsage(userId: string): Promise<CheckRe
       allowed: false,
       reason: 'user_limit',
       current: cached.count,
-      limit: ADI_DAILY_LIMIT,
-      resetAtEST: getResetTimeEST(),
-    }
-  }
-
-  if (await isGlobalOverBudget(today)) {
-    return {
-      allowed: false,
-      reason: 'global_limit',
-      current: cached?.count ?? 0,
       limit: ADI_DAILY_LIMIT,
       resetAtEST: getResetTimeEST(),
     }
@@ -160,16 +141,6 @@ export async function checkAndIncrementFRQUsage(
       allowed: false,
       reason: 'user_limit',
       current: cached.count,
-      limit: FRQ_DAILY_LIMIT,
-      resetAtEST: getResetTimeEST(),
-    }
-  }
-
-  if (await isGlobalOverBudget(today)) {
-    return {
-      allowed: false,
-      reason: 'global_limit',
-      current: cached?.count ?? 0,
       limit: FRQ_DAILY_LIMIT,
       resetAtEST: getResetTimeEST(),
     }
