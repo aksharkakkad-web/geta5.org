@@ -3,6 +3,19 @@
 
 import { lsGet, lsSet, lsClear, LS_KEYS } from '@/utils/localStorage'
 
+// ─── Feature flags ────────────────────────────────────────────────────────────
+
+/**
+ * AI grading kill-switch. When false:
+ *   - The FRQ submit flow skips /api/frq/grade entirely (no API cost)
+ *   - Strictness selector, daily-limit counter, queued-grading UI all hide
+ *   - Submit transitions to a "self-grade" view: response + rubric + copy-for-external-AI
+ *   - The /api/frq/grade and /api/frq/grade-queued routes also short-circuit so
+ *     a manually-crafted client request can't bypass the freeze
+ * Flip to true to re-enable AI grading. No other code changes needed.
+ */
+export const FRQ_AI_GRADING_ENABLED = false
+
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 export type FRQType =

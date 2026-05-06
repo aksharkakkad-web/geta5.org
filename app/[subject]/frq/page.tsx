@@ -17,6 +17,7 @@ import FRQSAQLayout from '@/components/frq/FRQSAQLayout'
 import FRQSubmitModal from '@/components/frq/FRQSubmitModal'
 import FRQResults from '@/components/frq/FRQResults'
 import FRQBreakdown from '@/components/frq/FRQBreakdown'
+import FRQSelfGrade from '@/components/frq/FRQSelfGrade'
 import FRQMathTutorial from '@/components/frq/FRQMathTutorial'
 import FRQShortcutsModal from '@/components/frq/FRQShortcutsModal'
 import FRQSourceLinks from '@/components/frq/FRQSourceLinks'
@@ -40,6 +41,7 @@ import {
   getLastStrictness,
   loadFRQCompletions,
   saveFRQCompletion,
+  FRQ_AI_GRADING_ENABLED,
 } from '@/utils/frqSession'
 import type { FRQ, FRQGradingResult, GradingStrictness, FRQDraft, FRQCompletion } from '@/utils/frqSession'
 import { logEvent } from '@/utils/analytics'
@@ -73,7 +75,7 @@ function formatSubmittedAt(iso: string): string {
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-type Phase = 'loading' | 'select' | 'ready' | 'answer' | 'submitting' | 'results' | 'queued'
+type Phase = 'loading' | 'select' | 'ready' | 'answer' | 'submitting' | 'results' | 'queued' | 'self-grade'
 
 interface PageProps {
   params: Promise<{ subject: string }>
@@ -144,14 +146,16 @@ export default function FRQPage({ params }: PageProps) {
 
     async function load() {
       try {
-        // Fetch manifest and usage in parallel
-        const [manifestRes, usageRes] = await Promise.allSettled([
-          fetch(`/data/${subject}/frq/manifest.json`),
-          fetch('/api/adi-usage'),
-        ])
+        // When AI grading is paused, don't bother fetching the usage counter —
+        // there's nothing to display and no quota to enforce.
+        const fetches: Promise<Response>[] = [fetch(`/data/${subject}/frq/manifest.json`)]
+        if (FRQ_AI_GRADING_ENABLED) {
+          fetches.push(fetch('/api/adi-usage'))
+        }
+        const [manifestRes, usageRes] = await Promise.allSettled(fetches)
 
         // Parse usage — only the FRQ bucket matters on this page
-        if (usageRes.status === 'fulfilled' && usageRes.value.ok) {
+        if (FRQ_AI_GRADING_ENABLED && usageRes && usageRes.status === 'fulfilled' && usageRes.value.ok) {
           try {
             const usageData = await usageRes.value.json()
             const limit = typeof usageData?.frq?.limit === 'number' ? usageData.frq.limit : 3
@@ -210,6 +214,7 @@ export default function FRQPage({ params }: PageProps) {
   // after every grade attempt so the "X grades left" badge stays in sync
   // with what the server actually thinks the user's daily count is.
   async function refreshUsage() {
+    if (!FRQ_AI_GRADING_ENABLED) return
     try {
       const res = await fetch('/api/adi-usage')
       if (!res.ok) return
@@ -228,6 +233,7 @@ export default function FRQPage({ params }: PageProps) {
   // "Pending review" list above the question selector. Re-fetched after each
   // grade-queued attempt and after a fresh submission ends in 'queued'.
   async function refreshQueuedSubmissions() {
+    if (!FRQ_AI_GRADING_ENABLED) return
     try {
       const res = await fetch(`/api/frq/queue?subject=${encodeURIComponent(subject)}`)
       if (!res.ok) return
@@ -306,7 +312,11 @@ export default function FRQPage({ params }: PageProps) {
     setShowTimesUp(true)
     setTimeout(() => {
       setShowTimesUp(false)
-      handleSubmit(getLastStrictness())
+      if (!FRQ_AI_GRADING_ENABLED) {
+        handleSelfGradeSubmit()
+      } else {
+        handleSubmit(getLastStrictness())
+      }
     }, 3000)
   }
 
@@ -349,7 +359,42 @@ export default function FRQPage({ params }: PageProps) {
   }
 
   function handleOpenSubmitModal() {
+    // AI grading paused — skip the strictness/quota modal entirely and route
+    // straight to the self-grade view. Same effect as the user picking
+    // "moderate" but no API call ever happens.
+    if (!FRQ_AI_GRADING_ENABLED) {
+      handleSelfGradeSubmit()
+      return
+    }
     setShowSubmitModal(true)
+  }
+
+  function handleSelfGradeSubmit() {
+    if (!selectedQuestion) return
+    timerCancelledRef.current = true
+    setGradingResponses({ ...responses })
+    clearFRQDraft(subject)
+
+    // Still increment "I worked through this FRQ" counters — practice happened
+    // even without AI scoring. We deliberately do NOT call saveFRQCompletion:
+    // there's no real score to save, and we don't want a 0/X stuck on the card.
+    const partCount = selectedQuestion.parts?.length ?? 1
+    lsSet(LS_KEYS.totalQuestions, lsGet<number>(LS_KEYS.totalQuestions, 0) + partCount)
+    lsSet(LS_KEYS.frqCount, lsGet<number>(LS_KEYS.frqCount, 0) + 1)
+    syncStats()
+
+    logEvent({
+      event_type: 'frq_self_graded',
+      subject,
+      unit: selectedQuestion.related_units?.[0] ? `unit-${selectedQuestion.related_units[0]}` : undefined,
+      metadata: {
+        question_id: selectedQuestion.id,
+        frq_type: selectedQuestion.frq_type,
+        parts_count: partCount,
+      },
+    })
+
+    setPhase('self-grade')
   }
 
   async function handleGradeQueued(item: QueuedSubmission) {
@@ -438,6 +483,14 @@ export default function FRQPage({ params }: PageProps) {
   async function handleSubmit(strictness: GradingStrictness) {
     if (!selectedQuestion) return
     setShowSubmitModal(false)
+
+    // Defense in depth — if the kill-switch is off, never even start the
+    // grading flow regardless of who called us.
+    if (!FRQ_AI_GRADING_ENABLED) {
+      handleSelfGradeSubmit()
+      return
+    }
+
     setPhase('submitting')
     setError(null)
 
@@ -685,8 +738,49 @@ export default function FRQPage({ params }: PageProps) {
               </p>
             </div>
 
+            {/* Pause banner — shown only when AI grading is disabled */}
+            {!FRQ_AI_GRADING_ENABLED && (
+              <section
+                aria-label="AI grading paused"
+                style={{
+                  marginBottom: '24px',
+                  padding: '16px 20px',
+                  borderRadius: 'var(--radius-lg)',
+                  background: 'color-mix(in srgb, var(--accent) 10%, transparent)',
+                  border: '1px solid color-mix(in srgb, var(--accent) 32%, transparent)',
+                }}
+              >
+                <h2
+                  style={{
+                    fontSize: '0.9375rem',
+                    fontWeight: 700,
+                    color: 'var(--text-primary)',
+                    margin: 0,
+                    marginBottom: '6px',
+                    fontFamily: 'var(--font-outfit)',
+                  }}
+                >
+                  AI grading is temporarily paused
+                </h2>
+                <p
+                  style={{
+                    fontSize: '0.8125rem',
+                    color: 'var(--text-secondary)',
+                    margin: 0,
+                    lineHeight: 1.55,
+                  }}
+                >
+                  Due to high demand and limited grading resources, our AI
+                  grader is on pause. You can still write any FRQ — when you
+                  submit, you&apos;ll see your response next to the official rubric
+                  with a one-click button to copy everything into your own AI
+                  tool (Gemini, ChatGPT, Claude) for feedback.
+                </p>
+              </section>
+            )}
+
             {/* Pending review — queued submissions awaiting grading */}
-            {queuedSubmissions.length > 0 && (
+            {FRQ_AI_GRADING_ENABLED && queuedSubmissions.length > 0 && (
               <section
                 aria-label="Pending review"
                 style={{
@@ -1048,6 +1142,17 @@ export default function FRQPage({ params }: PageProps) {
           />
         )}
 
+        {/* ── Self-Grade (AI grading paused) ─────────────────────────────── */}
+        {phase === 'self-grade' && selectedQuestion && (
+          <FRQSelfGrade
+            question={selectedQuestion}
+            responses={gradingResponses}
+            subject={subject}
+            onNextQuestion={handleNextQuestion}
+            onRetry={handleRetry}
+          />
+        )}
+
         {/* ── Queued ─────────────────────────────────────────────────────── */}
         {phase === 'queued' && (
           <div
@@ -1168,13 +1273,15 @@ export default function FRQPage({ params }: PageProps) {
           open={showMathTutorial}
           onClose={handleMathTutorialClose}
         />
-        <FRQSubmitModal
-          open={showSubmitModal}
-          onClose={() => setShowSubmitModal(false)}
-          onSubmit={handleSubmit}
-          remainingCalls={remainingCalls}
-          dailyLimit={dailyLimit}
-        />
+        {FRQ_AI_GRADING_ENABLED && (
+          <FRQSubmitModal
+            open={showSubmitModal}
+            onClose={() => setShowSubmitModal(false)}
+            onSubmit={handleSubmit}
+            remainingCalls={remainingCalls}
+            dailyLimit={dailyLimit}
+          />
+        )}
 
         {/* ── Time's Up overlay ───────────────────────────────────────────── */}
         {showTimesUp && (

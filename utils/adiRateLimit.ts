@@ -11,7 +11,12 @@ function getSupabaseAdmin() {
 // Per-user daily caps, kept in separate buckets so a heavy FRQ user still has
 // Adi capacity (and vice versa). Adi is ~100x cheaper per call than FRQ, so
 // pooling them in a single bucket would let FRQ users starve Adi.
-export const ADI_DAILY_LIMIT = 30
+//
+// 2026-05-06: Adi cap soft-capped from 30 → 10 alongside the FRQ AI grader
+// pause. The grader pause shifts more demand onto Adi for explanations, so
+// the lower per-user ceiling keeps total spend bounded while still leaving
+// every user real daily capacity. Restore to 30 when the FRQ grader returns.
+export const ADI_DAILY_LIMIT = 10
 export const FRQ_DAILY_LIMIT = 3
 
 // Realistic per-call OpenAI cost in cents. These charge against the global

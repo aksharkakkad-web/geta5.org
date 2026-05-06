@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase-server'
 import type { FRQ, GradingStrictness } from '@/utils/frqSession'
+import { FRQ_AI_GRADING_ENABLED } from '@/utils/frqSession'
 import { runFRQGrading, isBlankResponse, buildBlankResult, isLowEffortResponse, buildLowEffortResult } from '@/utils/frqGrading'
 import { readFile } from 'fs/promises'
 import path from 'path'
@@ -42,6 +43,18 @@ async function loadStimulusImage(stimulusImagePath: string): Promise<Buffer | nu
 }
 
 export async function POST(req: Request) {
+  // Kill-switch — AI grading is paused. Client should already route to the
+  // self-grade view, but a manually crafted request must not slip through.
+  if (!FRQ_AI_GRADING_ENABLED) {
+    return Response.json(
+      {
+        status: 'paused',
+        message: 'AI grading is temporarily paused due to high demand. Save your response and grade externally with your own AI.',
+      },
+      { status: 503 },
+    )
+  }
+
   // 1. Auth check
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
