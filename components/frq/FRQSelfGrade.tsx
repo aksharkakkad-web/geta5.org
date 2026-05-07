@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import { Copy, Check, ExternalLink } from 'lucide-react'
 import type { FRQ } from '@/utils/frqSession'
-import { isMathSubject } from '@/utils/frqSession'
+import { isMathSubject, isEssayType } from '@/utils/frqSession'
 import InlineMath from '@/components/InlineMath'
 import FRQSourceLinks from './FRQSourceLinks'
 
@@ -18,6 +18,11 @@ interface FRQSelfGradeProps {
 /** Build a paste-ready prompt that a student can drop into Gemini, ChatGPT, Claude, etc. */
 function buildExternalAIPrompt(q: FRQ, responses: Record<string, string>): string {
   const lines: string[] = []
+  // Essay-style FRQs (DBQ, LEQ, essay, argument_essay) store one continuous
+  // response under the 'essay' key — the student writes a single essay that
+  // addresses every rubric criterion, not a separate answer per part.
+  const isEssayBlob = isEssayType(q.frq_type)
+  const essayResp = responses.essay?.trim() || ''
 
   lines.push('Please grade my AP exam free-response question (FRQ) like an AP reader would. For each part, tell me what I earned, what I missed, and how to improve. Use the rubric below — do not invent extra criteria.')
   lines.push('')
@@ -41,29 +46,55 @@ function buildExternalAIPrompt(q: FRQ, responses: Record<string, string>): strin
     })
   }
 
-  lines.push('PARTS, RUBRIC, AND MY RESPONSE:')
-  lines.push('')
-  q.parts.forEach((part) => {
-    lines.push(`Part (${part.letter}) — ${part.point_value} point${part.point_value === 1 ? '' : 's'}`)
-    lines.push(`Prompt: ${part.prompt}`)
-    if (part.rubric_criteria && part.rubric_criteria.length > 0) {
-      lines.push('Rubric criteria:')
-      part.rubric_criteria.forEach((c) => lines.push(`  - ${c}`))
-    }
-    if (part.scoring_points && part.scoring_points.length > 0) {
-      lines.push('Earnable points:')
-      part.scoring_points.forEach((sp) => {
-        lines.push(`  - [${sp.point_id}] ${sp.description}`)
-      })
-    }
-    if (part.scoring_notes) {
-      lines.push(`Notes: ${part.scoring_notes}`)
-    }
-    const myResp = responses[part.letter]?.trim() || '(no response written)'
-    lines.push('My response:')
-    lines.push(myResp)
+  if (isEssayBlob) {
+    lines.push('MY ESSAY (addresses every rubric criterion below):')
+    lines.push(essayResp || '(no response written)')
     lines.push('')
-  })
+    lines.push('PROMPT AND RUBRIC:')
+    lines.push('')
+    q.parts.forEach((part) => {
+      lines.push(`Part (${part.letter}) — ${part.point_value} point${part.point_value === 1 ? '' : 's'}`)
+      lines.push(`Prompt: ${part.prompt}`)
+      if (part.rubric_criteria && part.rubric_criteria.length > 0) {
+        lines.push('Rubric criteria:')
+        part.rubric_criteria.forEach((c) => lines.push(`  - ${c}`))
+      }
+      if (part.scoring_points && part.scoring_points.length > 0) {
+        lines.push('Earnable points:')
+        part.scoring_points.forEach((sp) => {
+          lines.push(`  - [${sp.point_id}] ${sp.description}`)
+        })
+      }
+      if (part.scoring_notes) {
+        lines.push(`Notes: ${part.scoring_notes}`)
+      }
+      lines.push('')
+    })
+  } else {
+    lines.push('PARTS, RUBRIC, AND MY RESPONSE:')
+    lines.push('')
+    q.parts.forEach((part) => {
+      lines.push(`Part (${part.letter}) — ${part.point_value} point${part.point_value === 1 ? '' : 's'}`)
+      lines.push(`Prompt: ${part.prompt}`)
+      if (part.rubric_criteria && part.rubric_criteria.length > 0) {
+        lines.push('Rubric criteria:')
+        part.rubric_criteria.forEach((c) => lines.push(`  - ${c}`))
+      }
+      if (part.scoring_points && part.scoring_points.length > 0) {
+        lines.push('Earnable points:')
+        part.scoring_points.forEach((sp) => {
+          lines.push(`  - [${sp.point_id}] ${sp.description}`)
+        })
+      }
+      if (part.scoring_notes) {
+        lines.push(`Notes: ${part.scoring_notes}`)
+      }
+      const myResp = responses[part.letter]?.trim() || '(no response written)'
+      lines.push('My response:')
+      lines.push(myResp)
+      lines.push('')
+    })
+  }
 
   lines.push('Please return: (1) score per part out of the maximum, (2) total score, (3) one specific improvement for each part I missed.')
 
@@ -79,6 +110,10 @@ export default function FRQSelfGrade({
 }: FRQSelfGradeProps) {
   const [copied, setCopied] = useState(false)
   const isMath = isMathSubject(subject)
+  // DBQ / LEQ / essay / argument_essay: one continuous essay response under
+  // the 'essay' key, NOT one response per part.
+  const isEssayBlob = isEssayType(question.frq_type)
+  const essayResponse = responses.essay?.trim() || ''
 
   async function handleCopy() {
     const text = buildExternalAIPrompt(question, responses)
@@ -166,6 +201,40 @@ export default function FRQSelfGrade({
           </div>
         )}
       </div>
+
+      {/* ── Single essay response (DBQ / LEQ / essay / argument essay) ────── */}
+      {isEssayBlob && (
+        <div>
+          <div
+            style={{
+              fontSize: '0.75rem',
+              fontWeight: 600,
+              color: 'var(--text-muted)',
+              textTransform: 'uppercase',
+              letterSpacing: '0.04em',
+              marginBottom: '6px',
+            }}
+          >
+            Your response
+          </div>
+          <div
+            style={{
+              fontSize: '0.875rem',
+              color: essayResponse ? 'var(--text-primary)' : 'var(--text-muted)',
+              fontStyle: essayResponse ? 'normal' : 'italic',
+              lineHeight: 1.7,
+              padding: '16px 18px',
+              borderRadius: 'var(--radius-lg)',
+              background: 'var(--bg-card)',
+              border: '1px solid var(--bg-border)',
+              whiteSpace: 'pre-wrap',
+              wordBreak: 'break-word',
+            }}
+          >
+            {essayResponse || 'No response written.'}
+          </div>
+        </div>
+      )}
 
       {/* ── Copy-for-external-AI button ───────────────────────────────────── */}
       <div
@@ -287,37 +356,39 @@ export default function FRQSelfGrade({
                 {isMath ? <InlineMath text={part.prompt} /> : part.prompt}
               </p>
 
-              {/* My response */}
-              <div>
-                <div
-                  style={{
-                    fontSize: '0.75rem',
-                    fontWeight: 600,
-                    color: 'var(--text-muted)',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.04em',
-                    marginBottom: '6px',
-                  }}
-                >
-                  Your response
+              {/* My response — skipped for essay-blob FRQs (shown once at the top) */}
+              {!isEssayBlob && (
+                <div>
+                  <div
+                    style={{
+                      fontSize: '0.75rem',
+                      fontWeight: 600,
+                      color: 'var(--text-muted)',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.04em',
+                      marginBottom: '6px',
+                    }}
+                  >
+                    Your response
+                  </div>
+                  <div
+                    style={{
+                      fontSize: '0.875rem',
+                      color: myResp ? 'var(--text-primary)' : 'var(--text-muted)',
+                      fontStyle: myResp ? 'normal' : 'italic',
+                      lineHeight: 1.6,
+                      padding: '12px 14px',
+                      borderRadius: 'var(--radius-md)',
+                      background: 'color-mix(in srgb, var(--bg-border) 30%, transparent)',
+                      border: '1px solid var(--bg-border)',
+                      whiteSpace: 'pre-wrap',
+                      wordBreak: 'break-word',
+                    }}
+                  >
+                    {myResp || 'No response written for this part.'}
+                  </div>
                 </div>
-                <div
-                  style={{
-                    fontSize: '0.875rem',
-                    color: myResp ? 'var(--text-primary)' : 'var(--text-muted)',
-                    fontStyle: myResp ? 'normal' : 'italic',
-                    lineHeight: 1.6,
-                    padding: '12px 14px',
-                    borderRadius: 'var(--radius-md)',
-                    background: 'color-mix(in srgb, var(--bg-border) 30%, transparent)',
-                    border: '1px solid var(--bg-border)',
-                    whiteSpace: 'pre-wrap',
-                    wordBreak: 'break-word',
-                  }}
-                >
-                  {myResp || 'No response written for this part.'}
-                </div>
-              </div>
+              )}
 
               {/* Rubric */}
               {(part.rubric_criteria?.length || part.scoring_points?.length) && (
