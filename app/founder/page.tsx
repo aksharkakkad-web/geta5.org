@@ -226,7 +226,7 @@ export default function FounderPage() {
           borderRadius: '100px',
         }}>
           <span style={{ fontSize: '0.7rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#a78bfa', fontWeight: 600 }}>
-            Founders &amp; Creators
+            Founder &amp; Creator
           </span>
         </div>
 
@@ -243,21 +243,6 @@ export default function FounderPage() {
             "I'm constantly working to make this better. If you have feedback, ideas, or just want to say hi, I'd love to hear from you.",
           ]}
           email="aksharkakkad@gmail.com"
-        />
-
-        {/* Rishit — Co-Founder */}
-        <FounderCard
-          photo="/rishit.png"
-          name="Rishit Sharma"
-          subtitle="Builder · Student · Developer"
-          heading="Hey, I'm Rishit."
-          accentLine="I co-founded geta5.app to make AP prep accessible to everyone."
-          paragraphs={[
-            "I'm a student who believes great education tools shouldn't come with a price tag. When Akshar and I started talking about AP prep, we both saw the same problem: students were either paying hundreds for premium resources or stuck with low-quality free alternatives. We knew we could do better.",
-            "As co-founder, I help build and improve geta5.app — from the platform architecture to the practice content. Every feature we ship is tested, refined, and designed to actually help you learn, not just look good on paper.",
-            "If you have ideas for how we can make geta5.app better, I'm all ears.",
-          ]}
-          email="rishit020@gmail.com"
         />
       </div>
     </div>
